@@ -2,12 +2,8 @@
 
 A C++ textbook based on [runestone interactive](http://runestoneinteractive.org/build/html/index.html).
 
-Does the world really need another programming textbook?
-
-Apparently, the answer to that question is yes.
-
 This project began with an effort to choose a suitable textbook specifically 
-for students learning their second semester of C++.
+for students in my CISC187 C++ course.
 The goals of this project are to produce a text book that:
 
 * Covers C++ programming at the _intermediate_ level - not too basic, but not too advanced.
@@ -26,13 +22,36 @@ flow of execution in order to gain a better understanding of how the program
 works.
 
 
-# Getting Started
+# Using this book
+If you simply want to check it out, read it or whatever,
+then you're done.
+You can see and read this book [online](https://daveparillo.github.io/cisc187-reader).
 
-We have tried to make it as easy as possible for you to build and use this book.  
+# Building this book from source
+We have tried to make it easy for you to build and use this book.  
+You can build it and host it yourself in just a few simple steps.
 
-1. You can see and read this book [online](https://daveparillo.github.io/intermediate-cpp).
+Use whichever of these methods works best for you.
 
-2.  You can build it and host it yourself in just a few simple steps:
+## Install Docker and use a docker container
+If you don't already have a python development environment setup,
+I personally think this is easiest.
+Plus I use docker for other things every day.
+
+1. Install [Docker](https://www.docker.com/)
+2. Get the Runestone docker image.
+
+   The [repo](https://github.com/DaveParillo/runestone-docker)
+   has instructions and everything you need to build the image,
+   or you can just pull the latest from docker hub:
+
+
+   ```
+   docker pull dparillo/runestone
+   ```
+
+For details running and using the container, refer to the
+[README](https://github.com/DaveParillo/runestone-docker/blob/master/README.md)
 
 ## Install and make a Python virtualenv
  
@@ -54,8 +73,8 @@ With the virtual environment installed and configured you can continue.
 ```
     $ pip install runestone
 
-    $ runestone build -- will build the html and put it in ``./build/intermediate-cpp``
-    $ runestone serve   -- will start a webserver and serve the pages locally from ``./build/intermediate-cpp``
+    $ runestone build -- will build the html and put it in ``./docs/``
+    $ runestone serve   -- will start a webserver and serve the pages locally from ``./docs/``
 
 ```
 
