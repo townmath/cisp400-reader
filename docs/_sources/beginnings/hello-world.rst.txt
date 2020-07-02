@@ -219,7 +219,7 @@ For example:
            std::cout << "The value is: " << value << ".\n";
          }
 
-         Fix this program so that the correct value is displayed.
+      Fix this program so that the correct value is displayed.
 
 
 You should know how to explicitly cast fundamental types from one
