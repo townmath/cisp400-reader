@@ -55,7 +55,7 @@ in regular code.  For example:
 - What postconditions are guaranteed to exist?  Is there a "minimum guarantee"?
 - For an algorithm, why was this or that method chosen?
 
-One notable exception to the 'keep comments to a minimum rule is
+One notable exception to the 'keep comments to a minimum' rule is
 if you are commenting a public :term:`API` for a library 
 and most reader will only see generated documentation and not the
 source code.
