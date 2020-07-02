@@ -365,13 +365,19 @@ two values can result in a value smaller than the sum of the two values.
 
 .. admonition:: Try This!
 
-   Copy the preceding program to your own development environment and 
-   change the types from ``int8_t`` to ``uint8_t``.
+   Change the types in the previous program from ``int8_t`` to ``uint8_t``.
+   With no other changes what do you expect the output to be?
 
-   Change the value of ``x`` to 256 and run the program.
+   Keeping the types as ``uint8_t``,
+   change the value of ``x`` to 256 and run the program again.
 
    What do you expect to see? What did you see?
 
+   If any of this was suprising, consider making more changes:
+
+   - Try other unsigned types, short, or char
+   - What happens if you assign ``-1`` to a variable of
+     unsigned type?
    
 Preventing overflow errors
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
