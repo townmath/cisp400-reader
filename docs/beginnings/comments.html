@@ -308,29 +308,58 @@
 This is partly a stylistic discussion, and some people have very strong feelings
 about the use of comments in software.
 These opinions range from “never use them, ever”, to enormous comment blocks
-at the top of every source file and before each function.</p>
-<p>The primary focus of this course is on <strong>clarity</strong>.
-The goal of any program in any language is to express ideas in code
-as <em>clearly as possible</em>.
-If you can do that without writing any comments, great.
-If you need to explain some piece of code, add a comment.
-Although, a better solution might be to rewrite the confusing code
+at the top of every source file and before each function.
+Others expect a line of code at the end of nearly every line of source.</p>
+<p>I am not any of these people.</p>
+<p>The primary focus of this course is on <strong>clarity</strong>.</p>
+<ul>
+<li><p>The goal of any program in any language is to express ideas in code
+as <em>clearly as possible</em>.</p></li>
+<li><p>If you can do that without writing any comments, great.</p></li>
+<li><p>If you need to explain some piece of code, add a comment.</p>
+<p>Although, a better solution is usually to rewrite the confusing code
 so that it doesn’t need clarification with a comment.</p>
+</li>
+</ul>
 <p>Comments should always and only state things that cannot be captured well
 in regular code.  For example:</p>
 <ul class="simple">
 <li><p>What are the boundary conditions or limitations of the code.</p></li>
 <li><p>What preconditions must exist before using the code?</p></li>
 <li><p>What postconditions are guaranteed to exist?  Is there a “minimum guarantee”?</p></li>
+<li><p>For an algorithm, why was this or that method chosen?</p></li>
 </ul>
+<p>One notable exception to the ‘keep comments to a minimum rule is
+if you are commenting a public <span class="xref std std-term">API</span> for a library
+and most reader will only see generated documentation and not the
+source code.</p>
+<p>In that case, you are generally adding comments to be read by a
+documentation parser/generator such as
+<a class="reference external" href="https://www.doxygen.nl/index.html">Doxygen</a>.
+For example:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * &lt;A short one line description&gt;</span>
+<span class="cm"> *</span>
+<span class="cm"> * &lt;Longer description&gt;</span>
+<span class="cm"> * &lt;May span multiple lines or paragraphs as needed&gt;</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param  Description of method&#39;s or function&#39;s input parameter</span>
+<span class="cm"> * @param  ...</span>
+<span class="cm"> * @return Description of the return value</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<div class="section" id="comments-in-assignments">
+<h2>1.2.1. Comments in assignments<a class="headerlink" href="#comments-in-assignments" title="Permalink to this headline">¶</a></h2>
 <p>In this course, I also need everyone to assert that their work is their own.
 For that reason, the top of every source file should contain your name and student ID:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// file.cpp</span>
 <span class="c1">// Dave Parillo, 123456789</span>
 </pre></div>
 </div>
+</div>
 <div class="section" id="commenting-anti-patterns">
-<h2>1.2.1. Commenting “anti-patterns”<a class="headerlink" href="#commenting-anti-patterns" title="Permalink to this headline">¶</a></h2>
+<h2>1.2.2. Commenting “anti-patterns”<a class="headerlink" href="#commenting-anti-patterns" title="Permalink to this headline">¶</a></h2>
 <p>An <a class="reference internal" href="../glossary.html#term-anti-pattern"><span class="xref std std-term">anti-pattern</span></a> is a common response to a recurring problem
 that is ineffective.
 Anti-patterns represent examples that you <strong>should not</strong> copy!
@@ -451,6 +480,16 @@ Don’t worry too much about that for now.
 Remember the focus is on <strong>clarity</strong>, not how many comments you write.
 Eventually some future employer will require you to (hopefully) adhere to
 some coding standard and you should follow that guidance when you encounter it.</p>
+<hr class="docutils" />
+<div class="admonition-more-to-explore admonition">
+<p class="admonition-title">More to Explore</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/comments">comments</a></p></li>
+<li><p>Jeff Atwood’s blog: <a class="reference external" href="https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why">Code tells you how, Comments tell you why</a></p></li>
+<li><p>Eric Lippert’s Blog: <a class="reference external" href="https://docs.microsoft.com/en-us/archive/blogs/ericlippert/aaargh-part-six-one-more-thing-about-comments">One more thing about comments</a></p></li>
+<li><p><a class="reference external" href="https://www.doxygen.nl/index.html">Doxygen</a></p></li>
+</ul>
+</div>
 </div>
 </div>
 

@@ -33,22 +33,53 @@ This is partly a stylistic discussion, and some people have very strong feelings
 about the use of comments in software.
 These opinions range from "never use them, ever", to enormous comment blocks
 at the top of every source file and before each function.
+Others expect a line of code at the end of nearly every line of source.
+
+I am not any of these people.
 
 The primary focus of this course is on **clarity**.
-The goal of any program in any language is to express ideas in code
-as *clearly as possible*.
-If you can do that without writing any comments, great.
-If you need to explain some piece of code, add a comment.
-Although, a better solution might be to rewrite the confusing code
-so that it doesn't need clarification with a comment.
+
+- The goal of any program in any language is to express ideas in code
+  as *clearly as possible*.
+- If you can do that without writing any comments, great.
+- If you need to explain some piece of code, add a comment.
+
+  Although, a better solution is usually to rewrite the confusing code
+  so that it doesn't need clarification with a comment.
 
 Comments should always and only state things that cannot be captured well
 in regular code.  For example:
 
-* What are the boundary conditions or limitations of the code.
-* What preconditions must exist before using the code?
-* What postconditions are guaranteed to exist?  Is there a "minimum guarantee"?
+- What are the boundary conditions or limitations of the code.
+- What preconditions must exist before using the code?
+- What postconditions are guaranteed to exist?  Is there a "minimum guarantee"?
+- For an algorithm, why was this or that method chosen?
 
+One notable exception to the 'keep comments to a minimum rule is
+if you are commenting a public :term:`API` for a library 
+and most reader will only see generated documentation and not the
+source code.
+
+In that case, you are generally adding comments to be read by a
+documentation parser/generator such as
+`Doxygen <https://www.doxygen.nl/index.html>`__.
+For example:
+
+.. code-block:: cpp
+
+   /**
+    * <A short one line description>
+    *
+    * <Longer description>
+    * <May span multiple lines or paragraphs as needed>
+    *
+    * @param  Description of method's or function's input parameter
+    * @param  ...
+    * @return Description of the return value
+    */
+
+Comments in assignments
+.......................
 
 In this course, I also need everyone to assert that their work is their own.
 For that reason, the top of every source file should contain your name and student ID:
@@ -201,4 +232,15 @@ Don't worry too much about that for now.
 Remember the focus is on **clarity**, not how many comments you write.
 Eventually some future employer will require you to (hopefully) adhere to 
 some coding standard and you should follow that guidance when you encounter it.
+
+-----
+
+.. admonition:: More to Explore
+
+   - :cpp:`comments`
+   - Jeff Atwood's blog: `Code tells you how, Comments tell you why <https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why>`_
+   - Eric Lippert's Blog: `One more thing about comments <https://docs.microsoft.com/en-us/archive/blogs/ericlippert/aaargh-part-six-one-more-thing-about-comments>`_
+
+   - `Doxygen <https://www.doxygen.nl/index.html>`__
+
 

@@ -73,6 +73,12 @@ Glossary
       As bad as they are, they can still be instructive.
       Compare to :term:`design pattern`.
 
+   api
+      An Application Programming Interface (API) is a set of functions, 
+      or classes used by a program.
+      Often an API provides a family of functions or classes that work
+      together to provide a complete set of capabilities.
+
    array-based list
       An implementation for the :term:`list` ADT that uses an array to
       store the list elements.
