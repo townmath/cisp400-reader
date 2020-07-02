@@ -161,7 +161,6 @@ but the old C functions are still there if you need them.
       .. activecode:: hello_world_ac
          :language: cpp
          :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
-         :stdin: world
 
          #include <iostream>
 
@@ -172,8 +171,6 @@ but the old C functions are still there if you need them.
            return argc;  // who receives this value?
          }
          
-
-
 Fundamental types and type conversions
 --------------------------------------
 You should already be familiar with declaring fundamental :cpp:`types`
