@@ -11,9 +11,10 @@ A simple test for a modern C++ compiler:
 
    // test C++11 features
    int main () {
-     int test[] = { 1, 2, 3, 5, 8 };  // can we use an initializer list?
-     for (auto i: test) {             // can we use a range-for loop?
-       std::cout << "i is " << i << '\n';
+     int data[] = { 1, 2, 3, 5, 8 };  // initializer list syntax
+     for (auto value: data)           // for each value in data
+     {
+       std::cout << "value is " << value << '\n';
      }
      return 0;
    }

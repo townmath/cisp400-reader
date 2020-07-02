@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>1.1. Hello, world! &#8212; CISC 187 Course Reader Overview</title>
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/presenter_mode.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
+    <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
+    <link rel="stylesheet" type="text/css" href="../_static/codemirror.css?v=1CE53237" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=808B982A" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabbedstuff.css?v=424F1CC9" />
+    <link rel="stylesheet" type="text/css" href="../_static/video.css?v=E5385B3B" />
+    <link rel="stylesheet" type="text/css" href="../_static/datafile.css?v=C184EB8A" />
+    <link rel="stylesheet" type="text/css" href="../_static/parsons.css?v=2F3E13EE" />
+    <link rel="stylesheet" type="text/css" href="../_static/js_lib/prettify.css?v=2A364B6B" />
+    <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/clickable.css?v=58C4E18A" />
+    <link rel="stylesheet" type="text/css" href="../_static/showEval.css?v=C6382F3" />
+    <link rel="stylesheet" type="text/css" href="../_static/activecode.css?v=F471F95B" />
+    <link rel="stylesheet" type="text/css" href="../_static/pytutor.css?v=239FC54E" />
+    <link rel="stylesheet" type="text/css" href="../_static/modal-basic.css?v=8A1A42E4" />
+    <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
+    <link rel="stylesheet" type="text/css" href="../_static/poll.css?v=E220AC33" />
+    <link rel="stylesheet" type="text/css" href="../_static/spreadsheet.css?v=B5F018A" />
+    <link rel="stylesheet" type="text/css" href="../_static/jexcel.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/japp.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/dragndrop.css?v=1FF7F927" />
+    <link rel="stylesheet" type="text/css" href="../_static/reveal.css?v=4A81D381" />
+    <link rel="stylesheet" type="text/css" href="../_static/fitb.css?v=3BA0E63E" />
+    <link rel="stylesheet" href="../_static/jquery-ui-1.10.3.custom.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/user-highlights.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/runestone-custom-sphinx-bootstrap.css?v=4.1.11" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/runestonebase.js?v=4.1.11"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js?v=94F552C9"></script>
+    <script type="text/javascript" src="../_static/xml.js?v=236EDFF7"></script>
+    <script type="text/javascript" src="../_static/css.js?v=623153CE"></script>
+    <script type="text/javascript" src="../_static/htmlmixed.js?v=33B91944"></script>
+    <script type="text/javascript" src="../_static/javascript.js?v=6F38CA04"></script>
+    <script type="text/javascript" src="../_static/webglinteractive.js?v=2B768384"></script>
+    <script type="text/javascript" src="../_static/FileSaver.min.js?v=8408C997"></script>
+    <script type="text/javascript" src="../_static/Blob.js?v=AEC2447"></script>
+    <script type="text/javascript" src="../_static/tabbedstuff.js?v=5BE6106"></script>
+    <script type="text/javascript" src="../_static/runestonevideo.js?v=53E888DE"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js?v=BDC8551F"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js?v=5731007D"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
+    <script type="text/javascript" src="../_static/datafile.js?v=3ED1A80C"></script>
+    <script type="text/javascript" src="../_static/js_lib/prettify.js?v=CA7E8928"></script>
+    <script type="text/javascript" src="../_static/js_lib/hammer.min.js?v=73056367"></script>
+    <script type="text/javascript" src="../_static/parsons.js?v=68B5F56"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js?v=2EEA9E5A"></script>
+    <script type="text/javascript" src="../_static/lp.js?v=F137FF7A"></script>
+    <script type="text/javascript" src="../_static/gas.js?v=F0D0F02E"></script>
+    <script type="text/javascript" src="../_static/clickable.js?v=DEB56CF8"></script>
+    <script type="text/javascript" src="../_static/timedclickable.js?v=93989C23"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js?v=D42E4CE3"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js?v=B3A117D7"></script>
+    <script type="text/javascript" src="../_static/showEval.js?v=5B2DD7A6"></script>
+    <script type="text/javascript" src="../_static/jquery.highlight.js?v=F1C496C8"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js?v=963AEB3A"></script>
+    <script type="text/javascript" src="../_static/python.js?v=14A28F1F"></script>
+    <script type="text/javascript" src="../_static/sql.js?v=1B4587EC"></script>
+    <script type="text/javascript" src="../_static/jquery_i18n/CLDRPluralRuleParser.js?v=599B42B0"></script>
+    <script type="text/javascript" src="../_static/jquery_i18n/jquery.i18n.js?v=88A1430F"></script>
+    <script type="text/javascript" src="../_static/jquery_i18n/jquery.i18n.messagestore.js?v=AE15A4A1"></script>
+    <script type="text/javascript" src="../_static/jquery_i18n/jquery.i18n.fallbacks.js?v=8ABDFE7F"></script>
+    <script type="text/javascript" src="../_static/jquery_i18n/jquery.i18n.language.js?v=747279FF"></script>
+    <script type="text/javascript" src="../_static/jquery_i18n/jquery.i18n.parser.js?v=7B020E13"></script>
+    <script type="text/javascript" src="../_static/jquery_i18n/jquery.i18n.emitter.js?v=660E85C3"></script>
+    <script type="text/javascript" src="../_static/jquery_i18n/jquery.i18n.emitter.bidi.js?v=54B21948"></script>
+    <script type="text/javascript" src="../_static/activecode-i18n.en.js?v=70E93DF2"></script>
+    <script type="text/javascript" src="../_static/activecode.js?v=FE13F48"></script>
+    <script type="text/javascript" src="../_static/clike.js?v=2DCE0756"></script>
+    <script type="text/javascript" src="../_static/timed_activecode.js?v=C6AD5C24"></script>
+    <script type="text/javascript" src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script type="text/javascript" src="../_static/d3.v2.min.js?v=836E01C"></script>
+    <script type="text/javascript" src="../_static/jquery.ba-bbq.min.js?v=B64CF0A8"></script>
+    <script type="text/javascript" src="../_static/jquery.jsPlumb-1.3.10-all-min.js?v=42F9EBEA"></script>
+    <script type="text/javascript" src="../_static/pytutor.js?v=82B022B9"></script>
+    <script type="text/javascript" src="../_static/codelens.js?v=CABECD49"></script>
+    <script type="text/javascript" src="../_static/matrixeq.js?v=D64CFA5A"></script>
+    <script type="text/javascript" src="../_static/poll.js?v=13CE919A"></script>
+    <script type="text/javascript" src="../_static/mchoice.js?v=7B442CDC"></script>
+    <script type="text/javascript" src="../_static/timedmc.js?v=B010A457"></script>
+    <script type="text/javascript" src="../_static/timed.js?v=CEC6219E"></script>
+    <script type="text/javascript" src="../_static/spreadsheet.js?v=9DA8BEAB"></script>
+    <script type="text/javascript" src="../_static/jexcel.js"></script>
+    <script type="text/javascript" src="../_static/japp.js"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js?v=644C2C6C"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js?v=378F237E"></script>
+    <script type="text/javascript" src="../_static/reveal.js?v=9C3AAF60"></script>
+    <script type="text/javascript" src="../_static/animationbase.js?v=A043C3A7"></script>
+    <script type="text/javascript" src="../_static/fitb.js?v=3FF7EFF0"></script>
+    <script type="text/javascript" src="../_static/timedfitb.js?v=2AA17071"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js?v=4.1.11"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="../_static/presenter_mode.js?v=4.1.11"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.2. Code comments" href="comments.html" />
+    <link rel="prev" title="1. Getting started" href="toctree.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+<script type="text/javascript">
+  eBookConfig = {};
+  
+    eBookConfig.useRunestoneServices = false;
+    eBookConfig.host = 'https://daveparillo.github.io/cisc187-reader/' || 'http://127.0.0.1:8000';
+    eBookConfig.app = eBookConfig.host+'/cisc187-reader';
+    eBookConfig.course = 'cisc187-reader';
+    eBookConfig.basecourse = 'cisc187-reader';
+    eBookConfig.isLoggedIn = false;
+  
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.logLevel = 0;
+  eBookConfig.loginRequired = false;
+  eBookConfig.build_info = "unknown";
+  eBookConfig.python3 = true;
+  eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
+  eBookConfig.runestone_version = '4.1.11';
+  eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
+  eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
+  eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
+  eBookConfig.enable_chatcodes = false ? false : false;
+
+
+</script>
+
+
+
+
+  </head><body>
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar" aria-label="navbar toggle" class="visuallyhidden">toggle navbar</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+        
+          <a class="brand-logo" style='background: transparent url("../_static/img/logo_small.png") no-repeat 0px 0px;'>&nbsp;<span aria-label="logo" class="visuallyhidden">Runestone Logo</span> </a>
+        
+        <a class="navbar-brand" href="../index.html" aria-label="index-page">
+          
+          cisc187-reader
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right" >
+
+        <li class="divider-vertical"></li>
+
+        <!-- social media dropdown -->
+        <!-- end social media dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'><span aria-label="Search" class="visuallyhidden">Search</span></i>
+          </a>
+          <ul class='dropdown-menu'>
+            
+                <li><a href='../index.html' aria-label="index-page">Table of Contents</a></li>
+            
+            <li><a href='../genindex.html'>Book Index</a></li>
+            <li class="divider"></li>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        
+        <li class="divider-vertical"></li>
+        <!-- <li id="scratch_ac_link"><a href="javascript:ACFactory.toggleScratchActivecode()">Scratch ActiveCode</a></li> -->
+
+        <!-- <li class="dropdown">             -->
+          <li id="scratch_ac_link" class="dropdown"><a href="javascript:ACFactory.toggleScratchActivecode()">
+              <i class="glyphicon glyphicon-pencil" style="opacity:0.9;"><span aria-label="Scratch Activecode" class="visuallyhidden">Scratch Activecode</span></i></a></li>
+        <!-- </li> -->
+
+        <li class="divider-vertical"></li>
+
+        
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <li class="divider-vertical"></li>
+        
+          
+          <li class="divider-vertical"></li>
+        
+        <!-- 
+          
+  <li id="relations-prev" title="Previous Chapter - 1. Getting started" data-toggle="tooltip">
+    <a href="toctree.html" >
+      <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  
+  <li id="relations-next" title='Next Chapter - 1.2. Code comments' data-toggle="tooltip" >              
+    <a href="comments.html" >
+        <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  <li class="divider-vertical"></li>
+
+<script type="text/javascript">
+  opts = {'placement':'bottom',
+          'selector': '',
+          'delay': { show: 100, hide: 50}
+         };
+
+  $('#relations-prev').tooltip(opts);
+  $('#relations-next').tooltip(opts);
+</script>
+        -->
+        
+          <li></li>
+        
+      </ul>
+
+      </div> <!-- navbar -->
+
+
+
+
+
+
+
+    </div> <!-- container -->
+  </div>
+</div>
+
+
+<div class="container" id="continue-reading"></div>
+
+<div class="container" id="main-content" role="main">
+  
+  <div class="section" id="hello-world">
+<h1>1.1. Hello, world!<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to CISC187 and welcome to this book.</p>
+<p>This book is intended for students taking CISC187 at SD Mesa.
+You should already have a solid understanding of the
+material presented in the vast majority of first semester C and C++ courses.</p>
+<p>This entire course focuses on writing code.
+Even this book provides opportunities for you to write,
+compile, and evaluate code on may pages.
+Often the interactive code is on a separate tab,
+for example:</p>
+<div id='hello_world' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Example" >
+<p>A C++ construct that may be new to you is the
+<a class="reference external" href="https://en.cppreference.com/w/cpp/language/range-for">range-based for</a> loop.
+When your goal is to iterate over all the elements
+in a container or array, a range-for loop
+is easier to write and understand.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">value</span><span class="p">:</span> <span class="n">data</span><span class="p">)</span>           <span class="c1">// for each value in data</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;value is &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Introduced in C++11, a range-for loop extracts values
+from containers one at a time and assigns them to a variable.</p>
+</div><div data-component="tab" data-tabname="Run It" >
+<p>A complete example program using the code explained
+on the <em>Example</em> tab.</p>
+
+<div data-childcomponent="hello_world_rangefor_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=hello_world_rangefor_ac data-lang="cpp" 
+      data-timelimit=25000    
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"      >
+// compiled with: -std=c++11
+
+#include <iostream>
+
+int main () {
+  int data[] = { 1, 2, 3, 5, 8 };
+  for (auto value: data)           // for each value in data
+  {
+    std::cout << "value is " << value << '\n';
+  }
+  return 0;
+}
+</textarea>
+</div>
+<p>Feel free to modify this code and re-run it to see what
+happens when you change it.</p>
+</div>
+    </div>
+
+<p>The remaining section on this page list some things I expect
+everyone to know on the first day of class.
+Review this material and if anything looks unfamiliar
+then read the linked content and ask questions.</p>
+<div class="section" id="source-files-and-header-files">
+<span id="index-0"></span><h2>1.1.1. Source files and header files<a class="headerlink" href="#source-files-and-header-files" title="Permalink to this headline">¶</a></h2>
+<p>One of the primary goals of this course is to begin creating programs more
+complex than those written previously.
+One of the core skills required when writing large programs is to split
+different parts of the program source into separate files.</p>
+<p>You may have only had to do this a few times previously,
+but you should know by now:</p>
+<ul>
+<li><p>What are the differences between source and header files?</p>
+<ul class="simple">
+<li><p>Why do they exist?</p></li>
+<li><p>What are <a class="reference internal" href="../glossary.html#term-header-guard"><span class="xref std std-term">header guards</span></a>?</p></li>
+<li><p>What is <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">once</span></code>?</p></li>
+</ul>
+<p>See <a class="reference external" href="https://en.cppreference.com/w/cpp/preprocessor/include">cppreference.com</a>
+for more information.</p>
+</li>
+<li><p>What happens during compilation?  Linking?</p></li>
+<li><p>How to use function <em>main()</em>, <em>argc</em>, and <em>argv</em></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/io/cout">cout</a> and the meaning of statements like:</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello C++!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+  <span class="n">puts</span><span class="p">(</span><span class="s">&quot;Hello C!&quot;</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello Alice!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello %s!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="s">&quot;Bob&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You may not have seen <a class="reference external" href="https://en.cppreference.com/w/cpp/io/c/fprintf">printf</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/io/c/puts">puts</a> before.
+They are output functions C++ inherits from C.
+Normally, in C++ we use stream I/O functions and classes,
+but the old C functions are still there if you need them.</p>
+<div id='command-line' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Command line" >
+<p>The function <cite>main</cite> gets special treatment in C++.
+Every executable program must contain <strong>exactly one</strong>
+function named <em>main</em>.
+Only two signatures are valid:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>and:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="p">[])</span>  <span class="c1">// char** is also allowed</span>
+</pre></div>
+</div>
+<p>The first form is preferred when main does not process arguments from the
+command line.</p>
+<p>The second form is required if the program <strong>does</strong> process command line
+arguments.
+The first parameter is a count of how many arguments are in the second parameter.
+The second parameter is an array of ‘C strings’.
+A ‘C string’ is a character array, so the second parameter is
+a two-dimensional array of characters.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The two parameters are commonly named <cite>argc</cite> (argument count) and
+<cite>argv</cite> (argument values).</p>
+<p>Another thing to notice is that <cite>main</cite> returns a value.
+Some example programs in this course omit the final return from main.
+Returning at least <cite>0</cite> from main is considered a best practice,
+however, if you don’t most compilers will add a zero return value
+for you automatically.</p>
+</div><div data-component="tab" data-tabname="Try It" >
+
+<div data-childcomponent="hello_world_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=hello_world_ac data-lang="cpp" 
+      data-timelimit=25000    
+    data-audio=''   data-stdin='world'   
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"      >
+#include <iostream>
+
+int main(int argc, char** argv) {
+  for (int i=0; i < argc; ++i) {
+    std::cout << "Hello " << argv[i] << "!\n";
+  }
+  return argc;  // who receives this value?
+}
+</textarea>
+</div>
+</div>
+    </div>
+
+</div>
+<div class="section" id="fundamental-types-and-type-conversions">
+<h2>1.1.2. Fundamental types and type conversions<a class="headerlink" href="#fundamental-types-and-type-conversions" title="Permalink to this headline">¶</a></h2>
+<p>You should already be familiar with declaring fundamental <a class="reference external" href="https://en.cppreference.com/w/cpp/types">types</a>
+(<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">uint16_t</span></code>, etc.).
+You should also be familiar with the basic operations and operators
+(<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, etc.).
+Including the shortcut operators (<code class="docutils literal notranslate"><span class="pre">++</span></code>, <code class="docutils literal notranslate"><span class="pre">+=</span></code>, etc)</p>
+<p>You should know the difference between <em>declaring</em>, <em>initializing</em>, and
+<em>assigning a value</em> to a variable.
+It is (sometimes) valid to assign variables of one type to those of a different
+type, for example, <cite>double x = 12;</cite> assigns the integer <cite>12</cite> to the <cite>double x</cite>.
+This is a <strong>widening conversion</strong> and is always safe.
+The opposite of a widening conversion is a <strong>narrowing conversion</strong>.
+A narrowing conversion frequently involves the loss of information.
+Most compilers will warn about narrowing conversions even in cases where
+they are allowed.</p>
+<p>Keep in mind that a common source of error in programs is unintentional
+narrowing conversions that occur during math operations.
+For example:</p>
+<div id='hello_world_narrowing' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Example" >
+<p>What is the output, given the following?</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div>
+</div>
+</div><div data-component="tab" data-tabname="Run It" >
+
+<div data-childcomponent="hello_world_narrowing_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=hello_world_narrowing_ac data-lang="cpp" 
+      data-timelimit=25000    
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"      >
+#include <iostream>
+
+int main() {
+  double value = 3 / 2;
+  std::cout << "The value is: " << value << ".\n";
+}
+
+Fix this program so that the correct value is displayed.
+</textarea>
+</div>
+</div>
+    </div>
+
+<p>You should know how to explicitly cast fundamental types from one
+type to another.
+Most people should be familiar with the <code class="docutils literal notranslate"><span class="pre">static_cast</span></code> form:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">almost_pi</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Some people may have also learned the C-style cast:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">almost_pi</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="mf">3.14159</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Know that these two forms are equivalent, but the first is preferred.
+We will be learning other ways to explicitly cast that are a bit more consistent
+with C++11’s more uniform initialization syntax.</p>
+<p>Finally, you should know the basic keywords of the language,
+at least those common to both C and C++, and legal identifier names
+for functions and variables.</p>
+</div>
+<div class="section" id="user-defined-types">
+<h2>1.1.3. User-defined types<a class="headerlink" href="#user-defined-types" title="Permalink to this headline">¶</a></h2>
+<p>Although you may not have done any object oriented programming yourself,
+you probably have used objects, even if you weren’t aware of it.
+The C++ standard provides many classes.
+Two of the oldest classes handle stream formatted input and output:
+<a class="reference external" href="https://en.cppreference.com/w/cpp/io/cin">cin</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/io/cout">cout</a>.</p>
+<p>You should have already encountered code like:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span>  <span class="n">name</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Enter your name: &quot;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cin</span>  <span class="o">&gt;&gt;</span> <span class="n">name</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello,&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Hopefully, you have been taught the basics of <a class="reference external" href="https://en.cppreference.com/w/cpp/string">string</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">vector</a>
+as it is hard to imagine doing much (non-embedded) C++ programming without ever using either.
+A bit like writing a paragraph in English without using the letter ‘e’.
+Try that sometime!</p>
+<p>We will be working with <code class="docutils literal notranslate"><span class="pre">std::string</span></code> and <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>
+often in this course, so if you haven’t used them yet,
+don’t worry - you will.</p>
+<div class="section" id="file-input-and-output">
+<h3>1.1.3.1. File input and output<a class="headerlink" href="#file-input-and-output" title="Permalink to this headline">¶</a></h3>
+<p>I expect you to know how to use some form of file input and output,
+whether it is the C-style <a class="reference external" href="https://en.cppreference.com/w/cpp/io/c/printf">printf</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/io/c/scanf">scanf</a>, or the
+C++-style input and output file streams: <a class="reference external" href="https://en.cppreference.com/w/cpp/io/ofstream">ofstream</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/io/basic_ifstream">ifstream</a>.
+Both are serviceable, have their own advantages and disadvantages.
+This course emphasizes <em>contemporary</em> C++ and encourages the use of
+C++ generally, but sometimes <code class="docutils literal notranslate"><span class="pre">printf</span></code> is a perfectly acceptable
+alternative to <code class="docutils literal notranslate"><span class="pre">cout</span></code>.</p>
+<p>Don’t panic.</p>
+<p>While file I/O is not a primary focus of this course, you will be expected to employ
+basic I/O in labs and projects.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">cin</span></code> to access user data:</p>
+
+<div data-childcomponent="hello_world_cin_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=hello_world_cin_ac data-lang="cpp" 
+      data-timelimit=25000    
+    data-audio=''   data-stdin='Alice'   
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"      >
+#include <iostream>
+#include <string>
+
+int main () {
+  std::string name;
+  std::cin >> name;
+  std::cout << "Hello, " << name << "!\n";
+}
+</textarea>
+</div>
+<p>Reading from a file to access external data:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// assuming the file &#39;poem.txt&#39; exists in the current directory</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">is</span><span class="p">(</span><span class="s">&quot;poem.txt&quot;</span><span class="p">);</span>
+  <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">is</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="p">{</span>  <span class="c1">// read the text file one byte (char) at a time</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">is</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="statements-and-branching">
+<h2>1.1.4. Statements and branching<a class="headerlink" href="#statements-and-branching" title="Permalink to this headline">¶</a></h2>
+<p>Writing basic statements and conditionally executing code,
+or executing blocks of code repeatedly, are fundamental skills
+common to all programming languages.</p>
+<p>Everyone should be <strong>extremely familiar</strong> with writing
+<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">switch</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, and <code class="docutils literal notranslate"><span class="pre">while</span></code> blocks.</p>
+<p>You should have used combinations of statements and branching
+to perform tasks perhaps as complex as:</p>
+<ul class="simple">
+<li><p>Computing an amortization table</p></li>
+<li><p>Computing population growth</p></li>
+<li><p>Parsing text</p></li>
+</ul>
+</div>
+<div class="section" id="fixing-errors-in-code">
+<h2>1.1.5. Fixing errors in code<a class="headerlink" href="#fixing-errors-in-code" title="Permalink to this headline">¶</a></h2>
+<p>You should know the difference between basic types of errors:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../glossary.html#term-compile-time-error"><span class="xref std std-term">Compile-time errors</span></a></p></li>
+<li><p>Link-time (linker) errors</p></li>
+<li><p><a class="reference internal" href="../glossary.html#term-0"><span class="xref std std-term">Runtime errors</span></a></p></li>
+<li><p><a class="reference internal" href="../glossary.html#term-semantic-error"><span class="xref std std-term">Semantic errors</span></a></p></li>
+</ul>
+<p>I expect some basic experience using a debugger in whatever
+programming environment you may have used previously.</p>
+<p>If not, refer to the section <a class="reference internal" href="../back-matter/app-a/debugging.html"><span class="doc">Debugging</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <strong>any</strong> of the material in the preceding sections sounds unfamiliar, then</p>
+<ul class="simple">
+<li><p>Consider working through the <a class="reference external" href="https://github.com/DaveParillo/cisc187/tree/master/examples/week01">week 1 example source code</a></p></li>
+<li><p>Review the material from your first semester text</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="admonition-more-to-explore admonition">
+<p class="admonition-title">More to Explore</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/range-for">range-based for</a> loop and <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=loops">loops</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/if">if</a></p></li>
+<li><p><a class="reference internal" href="../back-matter/app-a/debugging.html"><span class="doc">Debugging</span></a></p></li>
+<li><p>Jeff Atwood’s blog: <a class="reference external" href="https://blog.codinghorror.com/code-smells/">Code smells</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+  <div id=scprogresscontainer>
+    You have attempted <span id=scprogresstotal></span> of <span id=scprogressposs></span> activities on this page <div id="subchapterprogress"></div>
+  </div>
+  
+      
+<ul>
+  <li id="relations-prev" class="navLink" title='Previous Section - 1. Getting started' data-toggle="tooltip">
+    <a href="toctree.html" aria-label="1. Getting started">
+        <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
+            <i class='prevNav glyphicon glyphicon-chevron-left' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%;"></i>
+        </div>
+    </a>
+  </li>
+</ul>
+  <a class="navLinkBg" id="navLinkBgLeft"  href="toctree.html" aria-label="1. Getting started"></a>
+  
+<ul>
+  <li id="relations-next" class="navLink" title='Next Section - 1.2. Code comments' data-toggle="tooltip" >
+    <a href="comments.html" aria-label="1.2. Code comments">
+      <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
+          <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%;"></i>
+      </div>
+    </a>
+  </li>
+</ul>
+  <a class="navLinkBg navLink" id="navLinkBgRight" href="comments.html" aria-label="1.2. Code comments">Next Section - 1.2. Code comments</a>
+
+<script type="text/javascript">
+
+  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
+
+</script>
+  
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      
+      | <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017-2020 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 4.1.11.
+    </p>
+  </div>
+</footer>
+
+
+
+
+
+  </body>
+</html>

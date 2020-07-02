@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>1.5. What you don’t need to know (yet) &#8212; CISC 187 Course Reader Overview</title>
+    <title>1.2. Code comments &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
@@ -119,8 +119,8 @@
     <script type="text/javascript" src="../_static/presenter_mode.js?v=4.1.11"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.6. Skill Check" href="skill-check.html" />
-    <link rel="prev" title="1.4. Scope" href="scope.html" />
+    <link rel="next" title="1.3. Types" href="types.html" />
+    <link rel="prev" title="1.1. Hello, world!" href="hello-world.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -246,14 +246,14 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - 1.4. Scope" data-toggle="tooltip">
-    <a href="scope.html" >
+  <li id="relations-prev" title="Previous Chapter - 1.1. Hello, world!" data-toggle="tooltip">
+    <a href="hello-world.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - 1.6. Skill Check' data-toggle="tooltip" >              
-    <a href="skill-check.html" >
+  <li id="relations-next" title='Next Chapter - 1.3. Types' data-toggle="tooltip" >              
+    <a href="types.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -291,240 +291,166 @@
 
 <div class="container" id="main-content" role="main">
   
-  <div class="section" id="what-you-don-t-need-to-know-yet">
-<span id="index-0"></span><h1>1.5. What you don’t need to know (yet)<a class="headerlink" href="#what-you-don-t-need-to-know-yet" title="Permalink to this headline">¶</a></h1>
-<p>C++ is a large, relatively complex, language.
-Due to its size, there are many topics you may have
-not covered, covered incompletely, or covered incorrectly.
-Luckily for all of us,
-there is a relatively simple language buried inside C++.
-One of the goals of this text is to concentrate
-on the simpler parts while still solving more advanced
-problems than found in a typical introductory text.</p>
-<p>Pointers, for example.
-Pointers are tricky for some people to get used to.
-Very few languages outside of C and C++ give you
-direct access to pointers and so many ways to manipulate them.
-Depending on your point of view, you may consider this
-pure genius, or the most incredibly foolish design decision
-ever made by a programmer.</p>
-<p>Modern C++ adds a variety of tools that make working with pointers
-easier and safer.</p>
-<div class="section" id="c">
-<h2>1.5.1. C++<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h2>
-<p>This may sound odd, considering this is supposed to be a second semester course in C++.
-But as I said, C++ is a very large language.
-Most likely, you have learned mostly C (probably),
-with a very small amount of C++ thrown in:</p>
-<ul class="simple">
-<li><p>The classes <code class="docutils literal notranslate"><span class="pre">cin</span></code> and <code class="docutils literal notranslate"><span class="pre">cout</span></code></p></li>
-<li><p>A <code class="docutils literal notranslate"><span class="pre">class</span></code> with <em>setters</em> and <em>getters</em> - maybe even using <code class="docutils literal notranslate"><span class="pre">private</span></code> members</p></li>
-</ul>
-<p>The version of C++ most likely taught to most is C++98.
-Modern C++ doesn’t look much like the C++ that was written in the 80’s and 90’s.
-Primarily because programmers have learned a lot about how to write
-programs in C++ over the years, but also because the
-power of the <em>Standard Template Library</em> (STL).
-The STL was not developed until C++ had been used for more than 10 years.
-While it was incorporated into the first ISO version of the C++ standard (C++98),
-it took some time for many programmers to recognize the power and flexibility
-of <a class="reference internal" href="../glossary.html#term-generic-programming"><span class="xref std std-term">template programming</span></a>
-in addition to the  <a class="reference internal" href="../glossary.html#term-object-oriented-programming-paradigm"><span class="xref std std-term">object-oriented programming paradigm</span></a>
-C++ was originally designed to support.</p>
-<p id="index-1">If the language or compiler you learned does not conform to at least the
-C++98 version of the standard, then it’s not C++.</p>
-<p>To add to the confusion, C++ is actually a federation of several languages:</p>
-<div class="graphviz"><img src="../_images/graphviz-101cece4a79cdf477758c060f9223d6a7e4fe900.png" alt="digraph foo {
-  fontname = &quot;Bitstream Vera Sans&quot;
-  node [
-     fontname = &quot;Bitstream Vera Sans&quot;
-     fontsize = 11
-     style=filled
-     fillcolor=lightblue
-  ]
-
-  label=&quot;Evolution of C++, briefly&quot;;
-  labelloc=bottom;
-  rankdir=LR;
-  c [label=&quot;C\n(with classes)&quot;, shape=&quot;box&quot;];
-  modern [label=&quot;Modern\nC++&quot;];
-  c -&gt; &quot;C++98&quot; -&gt; &quot;C++03&quot; -&gt; modern;
-}" class="graphviz" /></div>
-<p>Where ‘Modern’ C++ is C++11 and later.
-More specifically, the <strong>current</strong> version of the standard.</p>
-<p>It is possible to write code in any of these languages
-compile it with a C++ compiler and call it a “C++ program”.
-This course emphasizes ‘modern’ C++.
-Although there is emphasis on newer language features,
-that does not mean that features released before 2011 should never be used.
-That would be impossible.</p>
-<p>Generally, C++ gives programmers many choices and it is true
-that some choices are preferred over others.
-We will try to make preferred design and programming choices clear.</p>
-
-    <div class="runestone" style="margin-left: auto; margin-right:auto">
-        <div id="AUT201AXeJg" class="align-left youtube-video" data-video-height="281" data-video-width="500" data-video-videoid="AUT201AXeJg" data-video-divid="AUT201AXeJg" data-video-start="0" data-video-end="-1" ></div>
-        <p class="runestone_caption"><span class="runestone_caption_text">Video: (AUT201AXeJg)</span> </p>
-    </div>
-    <p>You can test the level of support for the compiler you are using by
-attempting to compile these examples in your environment.</p>
-<div id='tab_beginning_compiler_test' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="C++11" >
-<p>A simple test for a modern C++ compiler:</p>
-
-<div data-childcomponent="ac_begin_compiler_test" class="runestone explainer ac_section alert alert-warning">
-
-<textarea data-component="activecode" id=ac_begin_compiler_test data-lang="cpp" 
-      data-timelimit=25000    
-    data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"      >
-// A simple test for C++11 compiler
-// compiled with: -Wall -Wextra -pedantic -std=c++11
-
-#include <iostream>
-
-// test C++11 features
-int main () {
-  int data[] = { 1, 2, 3, 5, 8 };  // initializer list syntax
-  for (auto value: data)           // for each value in data
-  {
-    std::cout << "value is " << value << '\n';
-  }
-  return 0;
-}
-</textarea>
-</div>
-</div><div data-component="tab" data-tabname="C++14" >
-<p>The current textbook compiler supports C++14, at least partly.</p>
-
-<div data-childcomponent="ac_begin_compiler_test_1y" class="runestone explainer ac_section alert alert-warning">
-
-<textarea data-component="activecode" id=ac_begin_compiler_test_1y data-lang="cpp" 
-      data-timelimit=25000    
-    data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++1y&#x27;]"      >
-// A simple test for C++14 support
-// compiled with: -Wall -Wextra -pedantic -std=c++1y
-
-#include <iostream>
-#include <memory>
-#include <string>
-#include <tuple>
-#include <functional>
-
-// this function returns multiple values
-auto func() {
-   int x = 5;
-   return std::make_tuple(x, 7);
-}
-
-int main() {
-   // function returning multiple values
-   int a, b;
-   std::tie(a, b) = func();
-
-   // make a unique pointer
-   std::unique_ptr<int> p1 = std::make_unique<int>(3);
-   std::cout << a << " " << b << " " << *p1 << '\n';
-
-   // quoted numeric literal
-   auto c = 299'792'458;
-
-   // std::string literal
-   using namespace std::literals;
-   auto units = "m/s"s;    // valid c++14
-
-   std::cout << "speed of light: " << c << " " << units << '\n';
-}
-</textarea>
-</div>
-</div><div data-component="tab" data-tabname="C++17" >
-
-<div data-childcomponent="ac_begin_compiler_test_1z" class="runestone explainer ac_section alert alert-warning">
-
-<textarea data-component="activecode" id=ac_begin_compiler_test_1z data-lang="cpp" 
-      data-timelimit=25000    
-    data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++1z&#x27;]"      >
-// A simple test for C++17 support
-// compiled with: -Wall -Wextra -pedantic -std=c++1z
-
-#include <any>
-#include <iostream>
-#include <type_traits>
-
-template <typename T>
-// auto return type deduction: C++14
-auto get_value(T value) {
-   // constexpr-if: C++17
-   // is_pointer type trait: C++11
-   if constexpr (std::is_pointer<T>::value) {
-       return *value;
-   } else {
-       return value;
-   }
-}
-
-int main() {
-  // container for any type:   C++17
-  auto a = std::make_any<int>(3);
-  std::cout << std::any_cast<int>(a) << '\n';
-  a = 3.14159;
-  std::cout << std::any_cast<double>(a) << '\n';
-  int i = 9;
-  int* p = &i;
-
-  std::cout << get_value(*p) << '\n';
-  std::cout << get_value(i) << '\n';
-  return i;
-}
-</textarea>
-</div>
-</div>
-    </div>
-
-<p>The textbook online compiler has complete support for C++11
-and has support for some aspects, but not all of C++14 and C++17.</p>
-</div>
-<div class="section" id="parsing-command-line-arguments">
-<h2>1.5.2. Parsing command line arguments<a class="headerlink" href="#parsing-command-line-arguments" title="Permalink to this headline">¶</a></h2>
-<p>Why command line programs?</p>
-<p>C++ is primarily used in <em>systems programming</em> and
-is a fundamental part of all <em>*nix</em> programs.
-<em>*nix</em> is short for <em>Unix</em> (and friends), <em>MacOS X</em>, and <em>GNU/Linux</em>.</p>
-<p>Parsing the command line is not complicated.
-It is a matter of iterating through a 2 dimensional array of <cite>char</cite>.</p>
-<p>Function <code class="docutils literal notranslate"><span class="pre">main()</span></code> traditionally takes two arguments that provide information
-about the command line.</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">argc</span></code>: the total number of arguments, strings separated by <em>white space</em> (space or tab characters)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*argv[]</span></code>: an array of these strings</p>
-<p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*argv[]</span></code> can also be specified as <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">**argv</span></code>,
-which is the same thing, if you remember pointers from your first semester.
-If not, we’ll cover it soon.</p>
-</li>
-</ul>
-<p>The important thing to remember is that <code class="docutils literal notranslate"><span class="pre">argc</span></code> and <code class="docutils literal notranslate"><span class="pre">argv</span></code> are
-passed automatically to main and are available for use.
-If you run a program named <code class="docutils literal notranslate"><span class="pre">foo</span></code> invoked as:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">dave</span><span class="o">/</span><span class="n">foo</span> <span class="o">-</span><span class="n">n</span> <span class="mi">10</span> <span class="n">www</span><span class="p">.</span><span class="n">sdmesa</span><span class="p">.</span><span class="n">edu</span>
+  <div class="section" id="code-comments">
+<span id="index-0"></span><h1>1.2. Code comments<a class="headerlink" href="#code-comments" title="Permalink to this headline">¶</a></h1>
+<p>You should have learned different formats for code <a class="reference external" href="https://en.cppreference.com/w/cpp/comments">comments</a></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// a one line comment</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello C++!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// this is a comment</span>
+<span class="n">puts</span><span class="p">(</span><span class="s">&quot;Hello C!&quot;</span><span class="p">);</span>
+<span class="cm">/*</span>
+<span class="cm">a block comment</span>
+<span class="cm">printf(&quot;Hello Alice!\n&quot;);</span>
+<span class="cm">printf(&quot;Hello %s!\n&quot;, &quot;Bob&quot;);</span>
+<span class="cm">*/</span>
 </pre></div>
 </div>
-<p>Then <code class="docutils literal notranslate"><span class="pre">argc</span></code> would be set = <code class="docutils literal notranslate"><span class="pre">4</span></code> and array <code class="docutils literal notranslate"><span class="pre">argv</span></code> would contain:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">:</span>  <span class="s">&quot;/home/dave/foo&quot;</span>
-<span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">:</span>  <span class="s">&quot;-n&quot;</span>
-<span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">:</span>  <span class="s">&quot;10&quot;</span>
-<span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">:</span>  <span class="s">&quot;www.sdmesa.edu&quot;</span>
+<p>What you may not have have learned is <strong>when</strong> to use comments.
+This is partly a stylistic discussion, and some people have very strong feelings
+about the use of comments in software.
+These opinions range from “never use them, ever”, to enormous comment blocks
+at the top of every source file and before each function.</p>
+<p>The primary focus of this course is on <strong>clarity</strong>.
+The goal of any program in any language is to express ideas in code
+as <em>clearly as possible</em>.
+If you can do that without writing any comments, great.
+If you need to explain some piece of code, add a comment.
+Although, a better solution might be to rewrite the confusing code
+so that it doesn’t need clarification with a comment.</p>
+<p>Comments should always and only state things that cannot be captured well
+in regular code.  For example:</p>
+<ul class="simple">
+<li><p>What are the boundary conditions or limitations of the code.</p></li>
+<li><p>What preconditions must exist before using the code?</p></li>
+<li><p>What postconditions are guaranteed to exist?  Is there a “minimum guarantee”?</p></li>
+</ul>
+<p>In this course, I also need everyone to assert that their work is their own.
+For that reason, the top of every source file should contain your name and student ID:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// file.cpp</span>
+<span class="c1">// Dave Parillo, 123456789</span>
 </pre></div>
 </div>
-<hr class="docutils" />
-<div class="admonition-more-to-explore admonition">
-<p class="admonition-title">More to Explore</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.gnu.org/software/libc/manual/html_node/Using-Getopt.html">Using the getopt function</a> - from gnu.org</p></li>
-<li><p>Textbook: <a class="reference internal" href="../pointers/pointers.html"><span class="doc">Pointers</span></a></p></li>
-<li><p>C++17: <a class="reference external" href="http://en.cppreference.com/w/cpp/language/if">constexpr if</a></p></li>
-</ul>
+<div class="section" id="commenting-anti-patterns">
+<h2>1.2.1. Commenting “anti-patterns”<a class="headerlink" href="#commenting-anti-patterns" title="Permalink to this headline">¶</a></h2>
+<p>An <a class="reference internal" href="../glossary.html#term-anti-pattern"><span class="xref std std-term">anti-pattern</span></a> is a common response to a recurring problem
+that is ineffective.
+Anti-patterns represent examples that you <strong>should not</strong> copy!
+As bad as they are, they can still be instructive.</p>
+
+    <div data-component="reveal" id="reveal-1"   data-showtitle="Show Comment Anti-Patterns" data-hidetitle="Hide Comment Anti-Patterns" >
+    <p>In case you are wondering,
+these anti-patterns are all actual code examples I have received in the past.</p>
+<p>One of my pet peeves is writing comments that say <strong>exactly</strong> what the code
+already says.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>   <span class="c1">//passing the 1st arg. to func. help.</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>       <span class="c1">// loop from 0 to 9</span>
+<span class="p">{</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;counter: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>  <span class="c1">// print counter</span>
+<span class="p">}</span>
+</pre></div>
 </div>
+<p>Perhaps this is not obvious, but what is wrong here:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">main</span><span class="p">(</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[]</span> <span class="p">)</span>  <span class="c1">//or alternately char**arg[]</span>
+</pre></div>
+</div>
+
+    <div data-component="reveal" id="reveal-1-1"   data-showtitle="What is Wrong?" data-hidetitle="Hide" >
+    <p>The comment is actually telling a lie: the alternative will not compile!</p>
+
+    </div>
+    <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// from a file named &quot;average.cpp&quot;</span>
+
+<span class="kt">int</span> <span class="n">number</span><span class="p">;</span>          <span class="c1">// number of values in the set</span>
+<span class="kt">double</span> <span class="n">value</span><span class="p">;</span>        <span class="c1">// value entered at keyboard</span>
+<span class="kt">double</span> <span class="n">average</span><span class="p">;</span>      <span class="c1">// average value</span>
+<span class="kt">double</span> <span class="n">total</span><span class="p">;</span>        <span class="c1">// sum of all values</span>
+<span class="kt">char</span> <span class="n">again</span> <span class="o">=</span> <span class="sc">&#39;y&#39;</span><span class="p">;</span>    <span class="c1">// repeat running the program</span>
+<span class="kt">char</span> <span class="n">validElement</span><span class="p">;</span>   <span class="c1">// consider sentinel value -1 is valid</span>
+
+<span class="c1">// what is wrong with this code block??</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">total</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="n">average</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="n">number</span><span class="p">;</span>  <span class="c1">// calculate the average value</span>
+
+<span class="n">fflush</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span> <span class="c1">// empty input buffer</span>
+<span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>     <span class="c1">// read in a character</span>
+</pre></div>
+</div>
+<p>The following series of code blocks are a combination of several commonly provided anti-patterns
+that have been combined into a single example.</p>
+<p>This first code block is composed of comments that add no value.
+There is only ‘noise’.
+Every comment merely says basically the same thing as the code, just not as well.</p>
+<p>Also, we know we are in trouble in this program as the variable names provide little
+hint about anything this program might actually do.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// The FooCalculator class calculates a Foo.</span>
+<span class="c1">// @author Dave Parillo</span>
+<span class="k">struct</span> <span class="n">FooCalculator</span> <span class="p">{</span>
+  <span class="c1">// The Integer maxFoo defines the maximum foo</span>
+  <span class="kt">int</span> <span class="n">maxFoo</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+  <span class="c1">// The Integer foo defines the current foo.</span>
+  <span class="kt">int</span> <span class="n">foo</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="c1">// The member thing is an array of strings.</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">thing</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="p">};</span>
+
+<span class="n">FooCalculator</span> <span class="n">f</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In this second block, which <code class="docutils literal notranslate"><span class="pre">isFooSmallEnough</span></code> appears to describe
+what this function is doing, the comments again, add nothing.</p>
+<p>The comments for <code class="docutils literal notranslate"><span class="pre">rammer</span></code> and <code class="docutils literal notranslate"><span class="pre">rammerstat</span></code> add no value and are actually misleading,
+since neither function appears to actually compute anything.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// The isFooSmallEnough method determines if the foo is small enough</span>
+<span class="c1">// @return boolean {@code true} if foo is smaller than max</span>
+<span class="c1">// @return boolean {@code false} if foo is larger than max</span>
+<span class="kt">bool</span> <span class="nf">isFooSmallEnough</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">f</span><span class="p">.</span><span class="n">foo</span> <span class="o">&lt;</span> <span class="n">f</span><span class="p">.</span><span class="n">maxFoo</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Compute a rammer</span>
+<span class="kt">void</span> <span class="nf">rammer</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">stat</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">isFooSmallEnough</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">f</span><span class="p">.</span><span class="n">thing</span><span class="p">[</span><span class="n">f</span><span class="p">.</span><span class="n">foo</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">stat</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">stat</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Calculate the ramerstat function.</span>
+<span class="c1">// @param rammer  A String that stores the rammer value</span>
+<span class="kt">void</span> <span class="nf">rammerstat</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">ram</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">stat</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">ram</span><span class="p">,</span><span class="n">stat</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n">rammer</span><span class="p">(</span><span class="n">stat</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">ram</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The only comment here tells us what we already know.
+It would be nice to know what is expected of <code class="docutils literal notranslate"><span class="pre">args</span></code> that are passed into our
+nasty little program, but perhaps the author thought that was obvious?</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Main is a global function.</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">rammerstat</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">puts</span> <span class="p">(</span><span class="s">&quot;Usage: foo-comments args&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>What <em>does</em> this program do if compiled and run?</p>
+
+    </div>
+    <p>The preceding advice may conflict with what you have been told in the past
+about commenting your code.
+Don’t worry too much about that for now.
+Remember the focus is on <strong>clarity</strong>, not how many comments you write.
+Eventually some future employer will require you to (hopefully) adhere to
+some coding standard and you should follow that guidance when you encounter it.</p>
 </div>
 </div>
 
@@ -535,26 +461,26 @@ If you run a program named <code class="docutils literal notranslate"><span clas
   
       
 <ul>
-  <li id="relations-prev" class="navLink" title='Previous Section - 1.4. Scope' data-toggle="tooltip">
-    <a href="scope.html" aria-label="1.4. Scope">
+  <li id="relations-prev" class="navLink" title='Previous Section - 1.1. Hello, world!' data-toggle="tooltip">
+    <a href="hello-world.html" aria-label="1.1. Hello, world!">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%;"></i>
         </div>
     </a>
   </li>
 </ul>
-  <a class="navLinkBg" id="navLinkBgLeft"  href="scope.html" aria-label="1.4. Scope"></a>
+  <a class="navLinkBg" id="navLinkBgLeft"  href="hello-world.html" aria-label="1.1. Hello, world!"></a>
   
 <ul>
-  <li id="relations-next" class="navLink" title='Next Section - 1.6. Skill Check' data-toggle="tooltip" >
-    <a href="skill-check.html" aria-label="1.6. Skill Check">
+  <li id="relations-next" class="navLink" title='Next Section - 1.3. Types' data-toggle="tooltip" >
+    <a href="types.html" aria-label="1.3. Types">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%;"></i>
       </div>
     </a>
   </li>
 </ul>
-  <a class="navLinkBg navLink" id="navLinkBgRight" href="skill-check.html" aria-label="1.6. Skill Check">Next Section - 1.6. Skill Check</a>
+  <a class="navLinkBg navLink" id="navLinkBgRight" href="types.html" aria-label="1.3. Types">Next Section - 1.3. Types</a>
 
 <script type="text/javascript">
 

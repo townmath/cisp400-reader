@@ -5,8 +5,10 @@ Getting started
    :caption: Getting started
    :maxdepth: 2
 
-   what-you-know-now.rst
+   hello-world.rst
+   comments.rst
    types.rst
    scope.rst
    what-you-dont.rst
+   skill-check.rst
 
