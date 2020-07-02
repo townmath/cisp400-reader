@@ -1,0 +1,10 @@
+172.17.0.1 - - [02/Jul/2020 15:50:00] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [02/Jul/2020 15:50:00] "GET /_static/basic.css HTTP/1.1" 200 -
+172.17.0.1 - - [02/Jul/2020 15:50:00] "GET /_static/pygments.css HTTP/1.1" 200 -
+172.17.0.1 - - [02/Jul/2020 15:50:00] "GET /_static/bootstrap-sphinx.css HTTP/1.1" 200 -
+172.17.0.1 - - [02/Jul/2020 15:50:00] "GET /_static/documentation_options.js HTTP/1.1" 200 -
+172.17.0.1 - - [02/Jul/2020 15:50:00] "GET /_static/language_data.js HTTP/1.1" 200 -
+172.17.0.1 - - [02/Jul/2020 15:50:00] code 404, message File not found
+172.17.0.1 - - [02/Jul/2020 15:50:00] "GET /_static/html4css1.css HTTP/1.1" 404 -
+
+Aborted!
