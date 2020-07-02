@@ -123,7 +123,7 @@ Once again, programmers are faced with the problem of abstraction.
 What is the 'best' way to represent a signed integer that is both efficient and unambiguous?
 
 As it turns out, there is no 'best' way.  
-In fact, are many ways to solve this problem.
+In fact, there are many ways to solve this problem.
 They all have their own trade-offs, but over time,
 three commonly used representations have been used:
 
@@ -253,8 +253,8 @@ complement representation.
 
    .. tab:: Example: bitset
 
-      A :cref:`std::bitset` is a simple way to see the individual
-      with a number.
+      A :cref:`std::bitset` is a simple way to see the sequence of
+      ones and zeros for an integral type.
 
       A ``bitset`` is a templated type that must be
       initialized with a size: ::
@@ -343,7 +343,7 @@ Overflow occurs when doing arithmetic operations.
 
       .. activecode:: ac_types_2
          :language: cpp
-         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-Wno-overflow' '-std=c++11']
 
          #include <iostream>
          #include <cstdint>

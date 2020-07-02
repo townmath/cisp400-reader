@@ -395,7 +395,7 @@ However, on a computer, there are only bit sequences.
 Once again, programmers are faced with the problem of abstraction.
 What is the ‘best’ way to represent a signed integer that is both efficient and unambiguous?</p>
 <p>As it turns out, there is no ‘best’ way.
-In fact, are many ways to solve this problem.
+In fact, there are many ways to solve this problem.
 They all have their own trade-offs, but over time,
 three commonly used representations have been used:</p>
 <ul class="simple">
@@ -641,8 +641,8 @@ two’s complement representation.
 The following program demonstrates the consistency of the two’s
 complement representation.</p>
 <div id='ones_complement' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Example: bitset" >
-<p>A <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::bitset">std::bitset</a> is a simple way to see the individual
-with a number.</p>
+<p>A <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::bitset">std::bitset</a> is a simple way to see the sequence of
+ones and zeros for an integral type.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">bitset</span></code> is a templated type that must be
 initialized with a size:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">bitset</span><span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">;</span>
@@ -745,7 +745,7 @@ then predict the output of the following program before you run it.</p>
 <textarea data-component="activecode" id=ac_types_2 data-lang="cpp" 
       data-timelimit=25000    
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"      >
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-Wno-overflow&#x27; &#x27;-std=c++11&#x27;]"      >
 #include <iostream>
 #include <cstdint>
 
@@ -986,7 +986,7 @@ your understanding of the concepts discussed so far.</p>
     
 <div class="runestone">
 <ul data-component="dragndrop" id="types_dnd_type1">
-    <span data-component="question">Q-1: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct</span>
+    <span data-component="question">sc-1-1: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct</span>
 	<span data-component=feedback>Review the summaries above.</span>
 
     <li data-component="draggable" id="types_dnd_type1_drag1">Specifying the type and name for a variable</li>
@@ -1003,7 +1003,7 @@ your understanding of the concepts discussed so far.</p>
 </ul></div>
             <div class="runestone alert alert-warning">
             <ul data-component="multiplechoice" data-multipleanswers="true"  id="types_mc1">
-            <p>Q-2: Which declarations are valid?</p>
+            <p>sc-1-2: Which declarations are valid?</p>
 
             <li data-component="answer"  id="types_mc1_opt_a">int 3;</li><li data-component="feedback">Declarations must always include a name</li>
             
@@ -1022,7 +1022,7 @@ As written, this is assignment, not declaration</li>
             
 <div class="runestone">
 <ul data-component="dragndrop" id="types_dnd_type2">
-    <span data-component="question">Q-3: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct.</span>
+    <span data-component="question">sc-1-3: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct.</span>
 	<span data-component=feedback>Review the summaries above.</span>
 
     <li data-component="draggable" id="types_dnd_type2_drag1">Setting the value of a variable the first time</li>
@@ -1039,7 +1039,7 @@ As written, this is assignment, not declaration</li>
 </ul></div>
         <div class="runestone">
         <div data-component="fillintheblank" id="types_fitb1">
-            <p>Q-4: Given the following:</p>
+            <p>sc-1-4: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="kt">int8_t</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -1058,7 +1058,7 @@ As written, this is assignment, not declaration</li>
             
         <div class="runestone">
         <div data-component="fillintheblank" id="types_fitb2">
-            <p>Q-5: Given the following:</p>
+            <p>sc-1-5: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">~-</span><span class="mi">1</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -1089,7 +1089,7 @@ int main() {
 
         <div class="runestone" style="max-width: none;">
         <pre data-component="parsons" id="types_par1"  data-adaptive="true"    data-noindent="true"  data-language="c" >
-        <span data-question>Q-6: </span>#include <iostream>
+        <span data-question>sc-1-6: </span>#include <iostream>
 ---
 void func() {
 ---
@@ -1105,7 +1105,7 @@ void func() {
     
         <div class="runestone">
         <div data-component="fillintheblank" id="types_fitb3">
-            <p>Q-7: Given the following:</p>
+            <p>sc-1-7: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
