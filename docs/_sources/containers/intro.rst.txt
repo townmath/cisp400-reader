@@ -71,7 +71,7 @@ All containers support the same basic operations:
 
 The container manages the storage space that is allocated for its elements and 
 provides member functions to access them,
-either directly or through :doc:`iterators <../iterators/toctree>`
+either directly or through :doc:`iterators <../iterators/index>`
 (objects with properties similar to pointers).
 
 Ordered and sorted containers

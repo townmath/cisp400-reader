@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>11.1. Standard Template Library Containers &#8212; CISC 187 Course Reader Overview</title>
+    <title>5. Pointers &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
@@ -119,8 +119,8 @@
     <script type="text/javascript" src="../_static/presenter_mode.js?v=4.1.11"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="11.2. Sequence Containers" href="sequence-containers.html" />
-    <link rel="prev" title="11. Containers" href="index.html" />
+    <link rel="next" title="5.1. Pointers" href="pointers.html" />
+    <link rel="prev" title="4.4. Trailing return types" href="../function-overloads/trailing-return.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -246,14 +246,14 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - 11. Containers" data-toggle="tooltip">
-    <a href="index.html" >
+  <li id="relations-prev" title="Previous Chapter - 4.4. Trailing return types" data-toggle="tooltip">
+    <a href="../function-overloads/trailing-return.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - 11.2. Sequence Containers' data-toggle="tooltip" >              
-    <a href="sequence-containers.html" >
+  <li id="relations-next" title='Next Chapter - 5.1. Pointers' data-toggle="tooltip" >              
+    <a href="pointers.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -291,99 +291,42 @@
 
 <div class="container" id="main-content" role="main">
   
-  <div class="section" id="standard-template-library-containers">
-<span id="index-0"></span><h1>11.1. Standard Template Library Containers<a class="headerlink" href="#standard-template-library-containers" title="Permalink to this headline">¶</a></h1>
-<p>If a program needs to manage a collection of closely related things,
-numbers, bank accounts, students, or even fruit,
-then the simplest approach is to put them in a container.
-You should already be familiar with raw arrays,
-which are part of the language
-and are not considered part of the STL.
-There are two broad categories of STL containers:
-<em>sequence containers</em> and <em>associative containers</em>.
-In an <a class="reference internal" href="../string+vector/vector.html"><span class="doc">earlier section</span></a>,
-we briefly introduced <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>.
-A vector is an example of a sequence container.</p>
-<p>A <a class="reference internal" href="../glossary.html#term-sequence-container"><span class="xref std std-term">sequence container</span></a> stores a sequence of elements of a given type.
-The sequence containers can be further divided into two ‘flavors’:</p>
-<dl class="simple">
-<dt>list-like sequences</dt><dd><p>Things stored in a sequence</p>
-</dd>
-<dt>stacks and queues</dt><dd><p>Things listed in order to be processed</p>
-</dd>
-</dl>
-<p>As you might imagine, <a class="reference internal" href="../glossary.html#term-associative-container"><span class="xref std std-term">associative containers</span></a>
-do not store elements in sequential order,
-but rather use a container
-element to determine where in the container data should be stored.
-The associative containers can also be further divided into two ‘flavors’:</p>
-<dl class="simple">
-<dt>sets</dt><dd><p>Unique things</p>
-</dd>
-<dt>maps</dt><dd><p>Things stored with a unique ID</p>
-</dd>
-</dl>
-<p>All the STL containers provide similar advantages over arrays:</p>
-<ul class="simple">
-<li><p>Add and remove data dynamically</p></li>
-<li><p>Bounds checking</p></li>
-<li><p>Work with data at a higher level of abstraction</p></li>
-<li><p>Manage subsets of data as a unit</p></li>
-</ul>
-<p>Although all of the containers in the STL
-share some core characteristics,
-the different containers have different designs,
-and have different trade-offs or costs.
-This allows them to excel in specific situations,
-where an ‘all-purpose’ container might fall short.</p>
-<p>All containers support the same basic operations:</p>
-<ul class="simple">
-<li><p>Add objects to the container</p>
+  <div class="section" id="pointers">
+<h1>5. Pointers<a class="headerlink" href="#pointers" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Pointers</span></p>
 <ul>
-<li><p>And remove objects from it</p></li>
+<li class="toctree-l1"><a class="reference internal" href="pointers.html">5.1. Pointers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pointers.html#declaring-pointers">5.1.1. Declaring pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pointers.html#using-pointers">5.1.2. Using pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pointers.html#comparison-with-references">5.1.3. Comparison with references</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pointers.html#pointers-and-arrays">5.1.4. Pointers and arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pointers.html#pointers-to-pointers">5.1.5. Pointers to pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pointers.html#parsing-the-command-line">5.1.6. Parsing the command line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pointers.html#constant-pointers">5.1.7. Constant pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pointers.html#the-nullptr-type">5.1.8. The <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pointers.html#void-pointers">5.1.9. <code class="docutils literal notranslate"><span class="pre">void</span></code> pointers</a></li>
 </ul>
 </li>
-<li><p>Find out if an object is in the container (or a group of objects)</p></li>
-<li><p>Retrieve an object without removing it</p></li>
-<li><p>Walk through the container, looking at each object in turn</p></li>
-</ul>
-<p>The container manages the storage space that is allocated for its elements and
-provides member functions to access them,
-either directly or through <a class="reference internal" href="../iterators/index.html"><span class="doc">iterators</span></a>
-(objects with properties similar to pointers).</p>
-<div class="section" id="ordered-and-sorted-containers">
-<h2>11.1.1. Ordered and sorted containers<a class="headerlink" href="#ordered-and-sorted-containers" title="Permalink to this headline">¶</a></h2>
-<p>STL containers may be ordered, unordered, sorted or unsorted.
-An <strong>ordered</strong> container simply means that
-you can iterate through the container in a specific order.</p>
-<p>We normally do not think of the sequence containers as having an order.
-For example, a vector may contain the values <code class="docutils literal notranslate"><span class="pre">{3,</span> <span class="pre">1,</span> <span class="pre">4,</span> <span class="pre">1,</span> <span class="pre">5,</span> <span class="pre">9}</span></code>,
-which clearly are not in the <a class="reference internal" href="../glossary.html#term-natural-order"><span class="xref std std-term">natural order</span></a> for integers.
-A <code class="docutils literal notranslate"><span class="pre">vector</span></code> <em>is</em> ordered, however: by its index position.
-As long as items are not added or removed from an ordered container,
-two iterations over the same container will visit the same
-elements in the same order.
-So in our previous example, the vector containing <code class="docutils literal notranslate"><span class="pre">{3,</span> <span class="pre">1,</span> <span class="pre">4,</span> <span class="pre">1,</span> <span class="pre">5,</span> <span class="pre">9}</span></code>
-is <em>ordered</em>, but <em>unsorted</em>.</p>
-<p>A <strong>sorted</strong> container stores elements using rules defined when the container is created:
-the sort order.
-All of the sorted containers define a default sort order,
-determined by the <code class="docutils literal notranslate"><span class="pre">operator&lt;</span></code> for the element type.</p>
-<p>Containers can <em>never</em> be both sorted and unordered,
-because sorting of any kind is by definition an ordering.</p>
-<hr class="docutils" />
-<div class="admonition-more-to-explore admonition">
-<p class="admonition-title">More to Explore</p>
-<ul class="simple">
-<li><p>C++ Concepts:</p>
-<ul>
-<li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/concept/Container">Containers</a></p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/concept/SequenceContainer">Sequence Containers</a></p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/concept/AssociativeContainer">Associative Containers</a></p></li>
+<li class="toctree-l1"><a class="reference internal" href="free-store.html">5.2. Free store pointers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="free-store.html#stl-memory-management">5.2.1. STL memory management</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="valgrind.html">5.3. Pointer debugging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="valgrind.html#valgrind">5.3.1. Valgrind</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="function-pointers.html">5.4. Pointers to functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function-pointers.html#example-caesar-ciphers">5.4.1. Example: Caesar ciphers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lambda.html">5.5. Lambda expressions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lambda.html#assigning-a-lambda-to-a-variable">5.5.1. Assigning a lambda to a variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lambda.html#trailing-return-types-in-lambda-expressions">5.5.2. Trailing return types in lambda expressions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="std_function.html">5.6. The std::function template</a></li>
+</ul>
 </div>
 </div>
 
@@ -394,26 +337,26 @@ because sorting of any kind is by definition an ordering.</p>
   
       
 <ul>
-  <li id="relations-prev" class="navLink" title='Previous Section - 11. Containers' data-toggle="tooltip">
-    <a href="index.html" aria-label="11. Containers">
+  <li id="relations-prev" class="navLink" title='Previous Section - 4.4. Trailing return types' data-toggle="tooltip">
+    <a href="../function-overloads/trailing-return.html" aria-label="4.4. Trailing return types">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%;"></i>
         </div>
     </a>
   </li>
 </ul>
-  <a class="navLinkBg" id="navLinkBgLeft"  href="index.html" aria-label="11. Containers"></a>
+  <a class="navLinkBg" id="navLinkBgLeft"  href="../function-overloads/trailing-return.html" aria-label="4.4. Trailing return types"></a>
   
 <ul>
-  <li id="relations-next" class="navLink" title='Next Section - 11.2. Sequence Containers' data-toggle="tooltip" >
-    <a href="sequence-containers.html" aria-label="11.2. Sequence Containers">
+  <li id="relations-next" class="navLink" title='Next Section - 5.1. Pointers' data-toggle="tooltip" >
+    <a href="pointers.html" aria-label="5.1. Pointers">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%;"></i>
       </div>
     </a>
   </li>
 </ul>
-  <a class="navLinkBg navLink" id="navLinkBgRight" href="sequence-containers.html" aria-label="11.2. Sequence Containers">Next Section - 11.2. Sequence Containers</a>
+  <a class="navLinkBg navLink" id="navLinkBgRight" href="pointers.html" aria-label="5.1. Pointers">Next Section - 5.1. Pointers</a>
 
 <script type="text/javascript">
 

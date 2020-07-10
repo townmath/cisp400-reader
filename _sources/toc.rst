@@ -16,21 +16,21 @@ Main Body
 
 .. toctree::
 
-   beginnings/toctree.rst
-   string+vector/toctree.rst
-   function-intro/toctree.rst
-   function-overloads/toctree.rst
-   pointers/toctree.rst
+   beginnings/index.rst
+   string+vector/index.rst
+   function-intro/index.rst
+   function-overloads/index.rst
+   pointers/index.rst
 
-   class-I-intro/toctree.rst
-   class-II-functions/toctree.rst
-   class-III-design/toctree.rst
-   class-IV-memory/toctree.rst
+   class-I-intro/index.rst
+   class-II-functions/index.rst
+   class-III-design/index.rst
+   class-IV-memory/index.rst
 
-   containers/toctree.rst
-   recursion/toctree.rst
-   iterators/toctree.rst
-   algorithms/toctree.rst
+   containers/index.rst
+   recursion/index.rst
+   iterators/index.rst
+   algorithms/index.rst
 
    glossary.rst
 
@@ -40,7 +40,7 @@ Back Matter
 .. toctree::
    :maxdepth: 1
 
-   back-matter/app-a/toctree.rst
+   back-matter/app-a/index.rst
    back-matter/faq.rst
 
 * :ref:`search`

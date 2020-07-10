@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>11.1. Standard Template Library Containers &#8212; CISC 187 Course Reader Overview</title>
+    <title>1. Getting started &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
@@ -119,8 +119,8 @@
     <script type="text/javascript" src="../_static/presenter_mode.js?v=4.1.11"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="11.2. Sequence Containers" href="sequence-containers.html" />
-    <link rel="prev" title="11. Containers" href="index.html" />
+    <link rel="next" title="1.1. Hello, world!" href="hello-world.html" />
+    <link rel="prev" title="Complete Table of Contents" href="../toc.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -246,14 +246,14 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - 11. Containers" data-toggle="tooltip">
-    <a href="index.html" >
+  <li id="relations-prev" title="Previous Chapter - Complete Table of Contents" data-toggle="tooltip">
+    <a href="../toc.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - 11.2. Sequence Containers' data-toggle="tooltip" >              
-    <a href="sequence-containers.html" >
+  <li id="relations-next" title='Next Chapter - 1.1. Hello, world!' data-toggle="tooltip" >              
+    <a href="hello-world.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -291,99 +291,43 @@
 
 <div class="container" id="main-content" role="main">
   
-  <div class="section" id="standard-template-library-containers">
-<span id="index-0"></span><h1>11.1. Standard Template Library Containers<a class="headerlink" href="#standard-template-library-containers" title="Permalink to this headline">¶</a></h1>
-<p>If a program needs to manage a collection of closely related things,
-numbers, bank accounts, students, or even fruit,
-then the simplest approach is to put them in a container.
-You should already be familiar with raw arrays,
-which are part of the language
-and are not considered part of the STL.
-There are two broad categories of STL containers:
-<em>sequence containers</em> and <em>associative containers</em>.
-In an <a class="reference internal" href="../string+vector/vector.html"><span class="doc">earlier section</span></a>,
-we briefly introduced <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>.
-A vector is an example of a sequence container.</p>
-<p>A <a class="reference internal" href="../glossary.html#term-sequence-container"><span class="xref std std-term">sequence container</span></a> stores a sequence of elements of a given type.
-The sequence containers can be further divided into two ‘flavors’:</p>
-<dl class="simple">
-<dt>list-like sequences</dt><dd><p>Things stored in a sequence</p>
-</dd>
-<dt>stacks and queues</dt><dd><p>Things listed in order to be processed</p>
-</dd>
-</dl>
-<p>As you might imagine, <a class="reference internal" href="../glossary.html#term-associative-container"><span class="xref std std-term">associative containers</span></a>
-do not store elements in sequential order,
-but rather use a container
-element to determine where in the container data should be stored.
-The associative containers can also be further divided into two ‘flavors’:</p>
-<dl class="simple">
-<dt>sets</dt><dd><p>Unique things</p>
-</dd>
-<dt>maps</dt><dd><p>Things stored with a unique ID</p>
-</dd>
-</dl>
-<p>All the STL containers provide similar advantages over arrays:</p>
-<ul class="simple">
-<li><p>Add and remove data dynamically</p></li>
-<li><p>Bounds checking</p></li>
-<li><p>Work with data at a higher level of abstraction</p></li>
-<li><p>Manage subsets of data as a unit</p></li>
-</ul>
-<p>Although all of the containers in the STL
-share some core characteristics,
-the different containers have different designs,
-and have different trade-offs or costs.
-This allows them to excel in specific situations,
-where an ‘all-purpose’ container might fall short.</p>
-<p>All containers support the same basic operations:</p>
-<ul class="simple">
-<li><p>Add objects to the container</p>
+  <div class="section" id="getting-started">
+<h1>1. Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Getting started</span></p>
 <ul>
-<li><p>And remove objects from it</p></li>
+<li class="toctree-l1"><a class="reference internal" href="hello-world.html">1.1. Hello, world!</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hello-world.html#source-files-and-header-files">1.1.1. Source files and header files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hello-world.html#fundamental-types-and-type-conversions">1.1.2. Fundamental types and type conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hello-world.html#user-defined-types">1.1.3. User-defined types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hello-world.html#statements-and-branching">1.1.4. Statements and branching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hello-world.html#fixing-errors-in-code">1.1.5. Fixing errors in code</a></li>
 </ul>
 </li>
-<li><p>Find out if an object is in the container (or a group of objects)</p></li>
-<li><p>Retrieve an object without removing it</p></li>
-<li><p>Walk through the container, looking at each object in turn</p></li>
-</ul>
-<p>The container manages the storage space that is allocated for its elements and
-provides member functions to access them,
-either directly or through <a class="reference internal" href="../iterators/index.html"><span class="doc">iterators</span></a>
-(objects with properties similar to pointers).</p>
-<div class="section" id="ordered-and-sorted-containers">
-<h2>11.1.1. Ordered and sorted containers<a class="headerlink" href="#ordered-and-sorted-containers" title="Permalink to this headline">¶</a></h2>
-<p>STL containers may be ordered, unordered, sorted or unsorted.
-An <strong>ordered</strong> container simply means that
-you can iterate through the container in a specific order.</p>
-<p>We normally do not think of the sequence containers as having an order.
-For example, a vector may contain the values <code class="docutils literal notranslate"><span class="pre">{3,</span> <span class="pre">1,</span> <span class="pre">4,</span> <span class="pre">1,</span> <span class="pre">5,</span> <span class="pre">9}</span></code>,
-which clearly are not in the <a class="reference internal" href="../glossary.html#term-natural-order"><span class="xref std std-term">natural order</span></a> for integers.
-A <code class="docutils literal notranslate"><span class="pre">vector</span></code> <em>is</em> ordered, however: by its index position.
-As long as items are not added or removed from an ordered container,
-two iterations over the same container will visit the same
-elements in the same order.
-So in our previous example, the vector containing <code class="docutils literal notranslate"><span class="pre">{3,</span> <span class="pre">1,</span> <span class="pre">4,</span> <span class="pre">1,</span> <span class="pre">5,</span> <span class="pre">9}</span></code>
-is <em>ordered</em>, but <em>unsorted</em>.</p>
-<p>A <strong>sorted</strong> container stores elements using rules defined when the container is created:
-the sort order.
-All of the sorted containers define a default sort order,
-determined by the <code class="docutils literal notranslate"><span class="pre">operator&lt;</span></code> for the element type.</p>
-<p>Containers can <em>never</em> be both sorted and unordered,
-because sorting of any kind is by definition an ordering.</p>
-<hr class="docutils" />
-<div class="admonition-more-to-explore admonition">
-<p class="admonition-title">More to Explore</p>
-<ul class="simple">
-<li><p>C++ Concepts:</p>
-<ul>
-<li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/concept/Container">Containers</a></p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/concept/SequenceContainer">Sequence Containers</a></p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/concept/AssociativeContainer">Associative Containers</a></p></li>
+<li class="toctree-l1"><a class="reference internal" href="comments.html">1.2. Code comments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="comments.html#comments-in-assignments">1.2.1. Comments in assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="comments.html#commenting-anti-patterns">1.2.2. Commenting “anti-patterns”</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">1.3. Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="types.html#fundamental-representations">1.3.1. Fundamental representations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#compound-types">1.3.2. Compound types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#the-type-std-size-t">1.3.3. The type <code class="docutils literal notranslate"><span class="pre">std::size_t</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#skill-check">1.3.4. Skill Check</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">1.4. Scope</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scope.html#local-variables">1.4.1. Local variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scope.html#keyword-namespace">1.4.2. Keyword: <code class="docutils literal notranslate"><span class="pre">namespace</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="what-you-dont.html">1.5. What you don’t need to know (yet)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="what-you-dont.html#c">1.5.1. C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-you-dont.html#parsing-command-line-arguments">1.5.2. Parsing command line arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="skill-check.html">1.6. Skill Check</a></li>
+</ul>
 </div>
 </div>
 
@@ -394,26 +338,26 @@ because sorting of any kind is by definition an ordering.</p>
   
       
 <ul>
-  <li id="relations-prev" class="navLink" title='Previous Section - 11. Containers' data-toggle="tooltip">
-    <a href="index.html" aria-label="11. Containers">
+  <li id="relations-prev" class="navLink" title='Previous Section - Complete Table of Contents' data-toggle="tooltip">
+    <a href="../toc.html" aria-label="Complete Table of Contents">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%;"></i>
         </div>
     </a>
   </li>
 </ul>
-  <a class="navLinkBg" id="navLinkBgLeft"  href="index.html" aria-label="11. Containers"></a>
+  <a class="navLinkBg" id="navLinkBgLeft"  href="../toc.html" aria-label="Complete Table of Contents"></a>
   
 <ul>
-  <li id="relations-next" class="navLink" title='Next Section - 11.2. Sequence Containers' data-toggle="tooltip" >
-    <a href="sequence-containers.html" aria-label="11.2. Sequence Containers">
+  <li id="relations-next" class="navLink" title='Next Section - 1.1. Hello, world!' data-toggle="tooltip" >
+    <a href="hello-world.html" aria-label="1.1. Hello, world!">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%;"></i>
       </div>
     </a>
   </li>
 </ul>
-  <a class="navLinkBg navLink" id="navLinkBgRight" href="sequence-containers.html" aria-label="11.2. Sequence Containers">Next Section - 11.2. Sequence Containers</a>
+  <a class="navLinkBg navLink" id="navLinkBgRight" href="hello-world.html" aria-label="1.1. Hello, world!">Next Section - 1.1. Hello, world!</a>
 
 <script type="text/javascript">
 
