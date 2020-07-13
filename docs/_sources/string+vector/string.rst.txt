@@ -168,7 +168,7 @@ that stores no character data.
 
       .. activecode:: string_simple_operator_ac1
          :language: cpp
-         :compileargs: ['-Wall', '-Wextra' '-std=c++11']
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
 
          #include <iostream>
          #include <string>
@@ -204,7 +204,7 @@ that stores no character data.
 
       .. activecode:: string_front_back_ac
          :language: cpp
-         :compileargs: ['-Wall', '-Wextra' '-std=c++11']
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
 
          #include <iostream>
          #include <string>
@@ -224,7 +224,7 @@ that stores no character data.
 
       .. activecode:: string_append_ac
          :language: cpp
-         :compileargs: ['-Wall', '-Wextra' '-std=c++11']
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
 
          #include <iostream>
          #include <string>
@@ -257,7 +257,7 @@ that stores no character data.
 
       .. activecode:: string_insert_ac
          :language: cpp
-         :compileargs: ['-Wall', '-Wextra' '-std=c++11']
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
 
          #include <iostream>
          #include <string>
@@ -371,7 +371,7 @@ to provide the features.  They are defined in header ``cctypes``.
 
       .. activecode:: string_toupper_ac
          :language: cpp
-         :compileargs: ['-Wall', '-Wextra' '-std=c++11']
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
 
          #include <cctype>
          #include <iostream>
@@ -400,7 +400,7 @@ to provide the features.  They are defined in header ``cctypes``.
 
       .. activecode:: string_toupper_locale_ac
          :language: cpp
-         :compileargs: ['-Wall', '-Wextra' '-std=c++11']
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
 
          #include <iostream>
          #include <locale>
@@ -464,7 +464,7 @@ within a string.
 
       .. literalinclude:: find-string.txt
          :language: cpp
-         :lines: 9
+         :lines: 11
          :dedent: 3
 
       defined using the C++14 string literal syntax,
@@ -481,7 +481,7 @@ within a string.
       
       .. literalinclude:: find-string.txt
          :language: cpp
-         :lines: 10-13
+         :lines: 12-15
          :dedent: 3
 
       The position returned by find is a zero-based index
@@ -510,7 +510,7 @@ within a string.
 
       .. literalinclude:: find-string.txt
          :language: cpp
-         :lines: 14, 20
+         :lines: 16, 22
          :dedent: 3
 
       The function returns the position of 'e' in 'Hello world',
@@ -630,7 +630,7 @@ your understanding of the concepts discussed so far.
 
    .. activecode:: string_sc_ac1
       :language: cpp
-      :compileargs: ['-Wall', '-Wextra' '-std=c++11']
+      :compileargs: ['-Wall', '-Wextra', '-std=c++11']
 
       Fix the errors in the ``printf`` line below:
 
