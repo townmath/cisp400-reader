@@ -407,9 +407,9 @@ int main() {
 <p>The <code class="docutils literal notranslate"><span class="pre">append</span></code> function allows you to append 1 character or
 an array of characters to the end of a string.</p>
 
-<div data-childcomponent="string_insert_ac" class="runestone explainer ac_section alert alert-warning">
+<div data-childcomponent="string_append_ac" class="runestone explainer ac_section alert alert-warning">
 
-<textarea data-component="activecode" id=string_insert_ac data-lang="cpp" 
+<textarea data-component="activecode" id=string_append_ac data-lang="cpp" 
       data-timelimit=25000  data-codelens="true"   
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27; &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
@@ -441,6 +441,32 @@ int main() {
 </div><div data-component="tab" data-tabname="insert()" >
 <p>The <code class="docutils literal notranslate"><span class="pre">insert</span></code> function allows you to insert 1 character or
 an array of characters at a position in a string.</p>
+
+<div data-childcomponent="string_insert_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=string_insert_ac data-lang="cpp" 
+      data-timelimit=25000  data-codelens="true"   
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27; &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <iostream>
+#include <string>
+
+int main() {
+  string value = "hello, world!";
+
+  std::cout << "original: " << value << '\n';
+
+  value.insert(0,3,'*');       // insert "***" at position 0
+  std::cout << value << '\n';
+
+  // insert a char array before the '!'
+  value.insert(value.size()-2," (this means you)");
+  std::cout << value << '\n';
+
+  return 0;
+}
+</textarea>
+</div>
 </div>
     </div>
 
@@ -594,7 +620,7 @@ within a string.</p>
 <div id='tab_find_string' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Example: find" >
 <p>The simplest example is the <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/find">find</a> function.</p>
 <p>Given any string object, for example, this string:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>  <span class="k">auto</span> <span class="n">us</span> <span class="o">=</span> <span class="s">&quot;team&quot;</span><span class="n">s</span><span class="p">;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 <p>defined using the C++14 string literal syntax,
@@ -607,10 +633,10 @@ find always returns a position:</p>
 which means the value was not found in the string.</p></li>
 </ul>
 <p>We can use this to check if we found what we were looking for:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>  <span class="kt">size_t</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">us</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="sc">&#39;i&#39;</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">auto</span> <span class="n">us</span> <span class="o">=</span> <span class="s">&quot;team&quot;</span><span class="n">s</span><span class="p">;</span>
+  <span class="kt">size_t</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">us</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="sc">&#39;i&#39;</span><span class="p">);</span>
   <span class="k">if</span><span class="p">(</span><span class="n">pos</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;There is no &#39;i&#39; in &#39;team&#39;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-  <span class="p">}</span>
 </pre></div>
 </div>
 <p>The position returned by find is a zero-based index
@@ -631,8 +657,8 @@ but unlike find where the entire sequence is used to find a match,
 on at a time, and returns the <em>minimum position</em> of <strong>any</strong>
 of the characters listed as function arguments in the string.
 For example:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>  <span class="k">auto</span> <span class="n">hi</span> <span class="o">=</span> <span class="s">&quot;Hello world&quot;</span><span class="n">s</span><span class="p">;</span>
-  <span class="n">pos</span> <span class="o">=</span> <span class="n">hi</span><span class="p">.</span><span class="n">find_first_of</span><span class="p">(</span><span class="s">&quot;aeiou&quot;</span><span class="p">);</span>      <span class="c1">// pos == 1  (e)</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;There is no &#39;i&#39; in &#39;team&#39;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;There must be exactly 1 &#39;o&#39; in this string</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>The function returns the position of ‘e’ in ‘Hello world’,
@@ -653,6 +679,8 @@ Don’t take my word for it, try it yourself.</p>
 #include <iostream>
 #include <string>
 
+using namespace std::literals;
+
 int main() {
   auto us = "team"s;
   size_t pos = us.find('i');
@@ -662,7 +690,7 @@ int main() {
   auto hi = "Hello world"s;
   pos = hi.find("wor");                 // pos == 6
 
-       if (hi.find('o') == hi.rfind('o') {
+       if (hi.find('o') == hi.rfind('o')) {
     std::cout << "There must be exactly 1 'o' in this string\n";
        }
   pos = hi.find_first_of("aeiou");      // pos == 1  (e)

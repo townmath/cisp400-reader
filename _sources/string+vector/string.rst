@@ -222,7 +222,7 @@ that stores no character data.
       The ``append`` function allows you to append 1 character or
       an array of characters to the end of a string.
 
-      .. activecode:: string_insert_ac
+      .. activecode:: string_append_ac
          :language: cpp
          :compileargs: ['-Wall', '-Wextra' '-std=c++11']
 
