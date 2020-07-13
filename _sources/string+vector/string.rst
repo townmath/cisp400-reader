@@ -6,6 +6,7 @@
     the license is included in the section entitled "GNU Free Documentation
     License".
 
+.. index:: std::string vs C strings
 
 The string class
 ================
@@ -137,7 +138,7 @@ Like a C string, a ``std::string`` is simply a sequence of characters:
 
    #include <string>        // access std::string functions
    
-   using std::string;       // just use 'string' for type std::string 
+   using std::string;       // alias type std::string to 'string'
 
    int main() {
      string x;                          // empty string
@@ -151,34 +152,130 @@ Like a C string, a ``std::string`` is simply a sequence of characters:
 Unlike a C string, a ``std::string`` is a full-fledged *object*.
 It knows it's own size, and comes with many convenience functions.
 
-.. code-block:: cpp
+Notice that unlike a built-in variable declaration such as ``int x;``,
+the declaratino ``string x`` is **not** incomplete.
+The variable ``x`` is a complete and valid ``string`` object
+that stores no character data.
 
-   #include <string>
-   #include <iostream>
-   #include <cstdio>
+.. index:: 
+   pair: string functions; operator[]
+   pair: string functions; operator+=
+   pair: string functions; operator==
 
-   using std::string;
+.. tabbed:: tab_string_simple
 
-   int main() {
-     string a = "hello";
-     a += ", world!";        // joining strings is pretty easy
+   .. tab:: Simple operations
 
-     // Copying or creating one string from another feels as natural
-     // as a fundamental type.
-     string b = a;
+      .. activecode:: string_simple_operator_ac1
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra' '-std=c++11']
 
-     if (a == b)             // Same goes for comparisons
-     {
-       b[0] = 'H';           // and a string feels like an 'array of char' 
-       b[7] = 'W';
-     }
+         #include <iostream>
+         #include <string>
 
-     std::cout << a << '\n'; // and has stream support
-     std::cout << b << '\n';
+         using std::string;
 
-     return 0;
-   }
+         int main() {
+           string a = "hello";
+           a += ", world!";        // joining strings is pretty easy
 
+           // Copying or creating one string from another feels as natural
+           // as a fundamental type.
+           string b = a;
+
+           if (a == b)             // Same goes for comparisons
+           {
+             // modify values
+             b[0] = 'H';           // and a string feels like an 'array of char' 
+             b[7] = 'W';
+           }
+
+           std::cout << a << '\n'; // and has stream support
+           std::cout << b << '\n';
+
+           return 0;
+         }
+
+
+   .. tab:: front() and back()
+
+      This tab shows alternate functions for accessing the first and last
+      characters in a string.
+
+      .. activecode:: string_front_back_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra' '-std=c++11']
+
+         #include <iostream>
+         #include <string>
+
+         int main() {
+           string value = "hello, world!";
+
+           std::cout << "first: " << value.front() << '\n';
+           std::cout << "last: " << value.back() << '\n';
+           return 0;
+         }
+
+   .. tab:: append()
+
+      The ``append`` function allows you to append 1 character or
+      an array of characters to the end of a string.
+
+      .. activecode:: string_insert_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra' '-std=c++11']
+
+         #include <iostream>
+         #include <string>
+
+         int main() {
+           string hi = "hello";
+           string howdy = hi;
+
+           std::cout << "original: " << hi   << '\n';
+
+           hi.append(',');
+           hi.append(' ');
+           hi.append("world!");
+           std::cout << hi << '\n';
+
+           std::cout << "original: " << howdy   << '\n';
+
+           // append returns a new string value, so
+           // calls to append can be chained together
+           howdy.append(',').append(' ').append("world!");
+           std::cout << howdy << '\n';
+
+           return 0;
+         }
+
+   .. tab:: insert()
+
+      The ``insert`` function allows you to insert 1 character or
+      an array of characters at a position in a string.
+
+      .. activecode:: string_insert_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra' '-std=c++11']
+
+         #include <iostream>
+         #include <string>
+
+         int main() {
+           string value = "hello, world!";
+
+           std::cout << "original: " << value << '\n';
+
+           value.insert(0,3,'*');       // insert "***" at position 0
+           std::cout << value << '\n';
+
+           // insert a char array before the '!'
+           value.insert(value.size()-2," (this means you)");
+           std::cout << value << '\n';
+
+           return 0;
+         }
 
 Using the :string:`operator[]<operator_at>` to access select characters in a string is,
 like an array,
@@ -238,6 +335,100 @@ works for C++ versions older than C++14.
    auto my_string = string("Howdy!");
 
    auto your_str  = string{"Howdy!"};  // C++11 initialization syntax
+
+.. index::
+   pair: toupper; locale
+
+Change a character to upper case
+................................
+Not every string modification is handled using string member functions.
+Sometimes, the standard library provides the facility we are looking for.
+One example is changing character case.
+Many languages provide utilities to change character case as part of the
+string class.
+
+Not C++.
+
+C++ uses the legacy :string:`null-terminated byte strings library </byte>` 
+to provide the features.  They are defined in header ``cctypes``.
+
+.. tabbed:: cctype_toupper
+
+   .. tab:: toupper()
+
+      The ``std::toupper`` function takes a single ``char``,
+      which is not modified, and returns an ``int``.
+      The return value can be used as the upper case
+      version of the input character.
+
+      This function uses the default **C** locale to replace the
+      lowercase letters ``abcdefghijklmnopqrstuvwxyz``
+      with respective uppercase letters 
+      ``ABCDEFGHIJKLMNOPQRSTUVWXYZ``.
+      Non-ASCII acharacters are not handled.
+
+      Recall that ``char`` implicitly convert to ``int``.
+
+      .. activecode:: string_toupper_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra' '-std=c++11']
+
+         #include <cctype>
+         #include <iostream>
+         #include <string>
+
+         int main() {
+           string value = "hello, world!";
+
+           char& first = value.front();
+           // failure to assign the return value of toupper
+           // to a variable is a common source of error.
+           first =  std::toupper(first);
+           std::cout << value << '\n';
+           return 0;
+         }
+
+      To handle non-ASCII or extended characters, the C++ version
+      of std::toupper is needed.
+      
+   .. tab:: std::locale()
+
+      The ``std::toupper`` function takes a single ``char``,
+      which can be **any** character type, 
+      is not modified, and returns a character of the same type
+      as the character type provided.
+
+      .. activecode:: string_toupper_locale_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra' '-std=c++11']
+
+         #include <iostream>
+         #include <locale>
+         #include <string>
+
+         int main() {
+           unsigned char c = '\xb8'; // the character ž in ISO-8859-15
+                                     // but ¸ (cedilla) in ISO-8859-1
+
+           std::cout << "in the default locale, toupper('0xb8') gives " << std::toupper(c, std::locale()) << '\n';
+           std::setlocale(LC_ALL, "en_US.iso88591");
+           std::cout << std::hex << std::showbase;
+           std::cout << "in iso8859-1, toupper('0xb8') gives " << std::toupper(c) << '\n';
+           std::setlocale(LC_ALL, "en_US.iso885915");
+           std::cout << "in iso8859-15, toupper('0xb8') gives " << std::toupper(c) << '\n';
+
+           return 0;
+         }
+
+
+
+
+.. index::
+   pair: string functions; empty
+   pair: string functions; find
+   pair: string functions; find_first_of
+   pair: string functions; rfind
+   pair: string functions; size
 
 
 Getting information out of a string
@@ -335,12 +526,18 @@ within a string.
 
       .. include:: find-string.txt
 
+.. index::
+   single: std::string::npos 
+
 The special value :string:`std::string::npos<npos>` is used both as an end of string indicator
 by functions that expect a string and
 as an indicator of *not found* by functions that return an index (like find).
 
 .. youtube:: nkKeA74p3RY
    :http: https
+
+.. index::
+   pair: string functions; c_str
 
 Converting a std::string to C string 
 ....................................

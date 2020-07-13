@@ -233,7 +233,7 @@
 <div class="container" id="main-content" role="main">
   
   <div class="section" id="the-string-class">
-<h1><span class="section-number">2.2. </span>The string class<a class="headerlink" href="#the-string-class" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">2.2. </span>The string class<a class="headerlink" href="#the-string-class" title="Permalink to this headline">¶</a></h1>
 <p>A short review of how string abstractions are handled in C,
 followed by a short <a class="reference external" href="https://en.cppreference.com/w/cpp/string">string</a> primer.</p>
 <div class="section" id="string-abstractions-in-c">
@@ -254,7 +254,7 @@ Given the C string:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="p">[]</span> <span class="n">howdy</span> <span class="o">=</span> <span class="s">&quot;hi there!&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p id="index-0">In memory, <code class="docutils literal notranslate"><span class="pre">howdy</span></code> is automatically transformed into:</p>
+<p id="index-1">In memory, <code class="docutils literal notranslate"><span class="pre">howdy</span></code> is automatically transformed into:</p>
 <div class="graphviz"><img src="../_images/graphviz-7d3770ab8f35d5348aba0fbbe544b0eb3b93dd25.png" alt="digraph char_array {
   fontname = &quot;Bitstream Vera Sans&quot;
   label=&quot;Character array in memory&quot;
@@ -286,7 +286,7 @@ Forgetting to account for null,
 or having a ‘off by one error’ is one of the most
 common mistakes when working with C strings.</p>
 </div>
-<p id="index-1">A C string may allocate more memory that the characters currently stored in it.
+<p id="index-2">A C string may allocate more memory that the characters currently stored in it.
 An array declaration like this:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">hi</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span><span class="p">;</span>
 </pre></div>
@@ -328,7 +328,7 @@ which is why the Standard Template Library (STL) contains the <a class="referenc
 <p>Like a C string, a <code class="docutils literal notranslate"><span class="pre">std::string</span></code> is simply a sequence of characters:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;        // access std::string functions</span><span class="cp"></span>
 
-<span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">;</span>       <span class="c1">// just use &#39;string&#39; for type std::string</span>
+<span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">;</span>       <span class="c1">// alias type std::string to &#39;string&#39;</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="n">string</span> <span class="n">x</span><span class="p">;</span>                          <span class="c1">// empty string</span>
@@ -342,33 +342,108 @@ which is why the Standard Template Library (STL) contains the <a class="referenc
 </div>
 <p>Unlike a C string, a <code class="docutils literal notranslate"><span class="pre">std::string</span></code> is a full-fledged <em>object</em>.
 It knows it’s own size, and comes with many convenience functions.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+<p>Notice that unlike a built-in variable declaration such as <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">x;</span></code>,
+the declaratino <code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">x</span></code> is <strong>not</strong> incomplete.
+The variable <code class="docutils literal notranslate"><span class="pre">x</span></code> is a complete and valid <code class="docutils literal notranslate"><span class="pre">string</span></code> object
+that stores no character data.</p>
+<div id='tab_string_simple' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Simple operations" >
 
-<span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">;</span>
+<div data-childcomponent="string_simple_operator_ac1" class="runestone explainer ac_section alert alert-warning">
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">string</span> <span class="n">a</span> <span class="o">=</span> <span class="s">&quot;hello&quot;</span><span class="p">;</span>
-  <span class="n">a</span> <span class="o">+=</span> <span class="s">&quot;, world!&quot;</span><span class="p">;</span>        <span class="c1">// joining strings is pretty easy</span>
+<textarea data-component="activecode" id=string_simple_operator_ac1 data-lang="cpp" 
+      data-timelimit=25000  data-codelens="true"   
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27; &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <iostream>
+#include <string>
 
-  <span class="c1">// Copying or creating one string from another feels as natural</span>
-  <span class="c1">// as a fundamental type.</span>
-  <span class="n">string</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+using std::string;
 
-  <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>             <span class="c1">// Same goes for comparisons</span>
-  <span class="p">{</span>
-    <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;H&#39;</span><span class="p">;</span>           <span class="c1">// and a string feels like an &#39;array of char&#39;</span>
-    <span class="n">b</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;W&#39;</span><span class="p">;</span>
-  <span class="p">}</span>
+int main() {
+  string a = "hello";
+  a += ", world!";        // joining strings is pretty easy
 
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// and has stream support</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+  // Copying or creating one string from another feels as natural
+  // as a fundamental type.
+  string b = a;
 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
+  if (a == b)             // Same goes for comparisons
+  {
+    // modify values
+    b[0] = 'H';           // and a string feels like an 'array of char'
+    b[7] = 'W';
+  }
+
+  std::cout << a << '\n'; // and has stream support
+  std::cout << b << '\n';
+
+  return 0;
+}
+</textarea>
 </div>
+</div><div data-component="tab" data-tabname="front() and back()" >
+<p>This tab shows alternate functions for accessing the first and last
+characters in a string.</p>
+
+<div data-childcomponent="string_front_back_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=string_front_back_ac data-lang="cpp" 
+      data-timelimit=25000  data-codelens="true"   
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27; &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <iostream>
+#include <string>
+
+int main() {
+  string value = "hello, world!";
+
+  std::cout << "first: " << value.front() << '\n';
+  std::cout << "last: " << value.back() << '\n';
+  return 0;
+}
+</textarea>
+</div>
+</div><div data-component="tab" data-tabname="append()" >
+<p>The <code class="docutils literal notranslate"><span class="pre">append</span></code> function allows you to append 1 character or
+an array of characters to the end of a string.</p>
+
+<div data-childcomponent="string_insert_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=string_insert_ac data-lang="cpp" 
+      data-timelimit=25000  data-codelens="true"   
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27; &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <iostream>
+#include <string>
+
+int main() {
+  string hi = "hello";
+  string howdy = hi;
+
+  std::cout << "original: " << hi   << '\n';
+
+  hi.append(',');
+  hi.append(' ');
+  hi.append("world!");
+  std::cout << hi << '\n';
+
+  std::cout << "original: " << howdy   << '\n';
+
+  // append returns a new string value, so
+  // calls to append can be chained together
+  howdy.append(',').append(' ').append("world!");
+  std::cout << howdy << '\n';
+
+  return 0;
+}
+</textarea>
+</div>
+</div><div data-component="tab" data-tabname="insert()" >
+<p>The <code class="docutils literal notranslate"><span class="pre">insert</span></code> function allows you to insert 1 character or
+an array of characters at a position in a string.</p>
+</div>
+    </div>
+
 <p>Using the <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/operator_at">operator[]</a> to access select characters in a string is,
 like an array,
 not range checked.
@@ -416,8 +491,89 @@ works for C++ versions older than C++14.</p>
 <span class="k">auto</span> <span class="n">your_str</span>  <span class="o">=</span> <span class="n">string</span><span class="p">{</span><span class="s">&quot;Howdy!&quot;</span><span class="p">};</span>  <span class="c1">// C++11 initialization syntax</span>
 </pre></div>
 </div>
+<div class="section" id="change-a-character-to-upper-case">
+<span id="index-4"></span><h3><span class="section-number">2.2.2.1. </span>Change a character to upper case<a class="headerlink" href="#change-a-character-to-upper-case" title="Permalink to this headline">¶</a></h3>
+<p>Not every string modification is handled using string member functions.
+Sometimes, the standard library provides the facility we are looking for.
+One example is changing character case.
+Many languages provide utilities to change character case as part of the
+string class.</p>
+<p>Not C++.</p>
+<p>C++ uses the legacy <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string//byte">null-terminated byte strings library</a>
+to provide the features.  They are defined in header <code class="docutils literal notranslate"><span class="pre">cctypes</span></code>.</p>
+<div id='cctype_toupper' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="toupper()" >
+<p>The <code class="docutils literal notranslate"><span class="pre">std::toupper</span></code> function takes a single <code class="docutils literal notranslate"><span class="pre">char</span></code>,
+which is not modified, and returns an <code class="docutils literal notranslate"><span class="pre">int</span></code>.
+The return value can be used as the upper case
+version of the input character.</p>
+<p>This function uses the default <strong>C</strong> locale to replace the
+lowercase letters <code class="docutils literal notranslate"><span class="pre">abcdefghijklmnopqrstuvwxyz</span></code>
+with respective uppercase letters
+<code class="docutils literal notranslate"><span class="pre">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></code>.
+Non-ASCII acharacters are not handled.</p>
+<p>Recall that <code class="docutils literal notranslate"><span class="pre">char</span></code> implicitly convert to <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+
+<div data-childcomponent="string_toupper_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=string_toupper_ac data-lang="cpp" 
+      data-timelimit=25000  data-codelens="true"   
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27; &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <cctype>
+#include <iostream>
+#include <string>
+
+int main() {
+  string value = "hello, world!";
+
+  char& first = value.front();
+  // failure to assign the return value of toupper
+  // to a variable is a common source of error.
+  first =  std::toupper(first);
+  std::cout << value << '\n';
+  return 0;
+}
+</textarea>
+</div>
+<p>To handle non-ASCII or extended characters, the C++ version
+of std::toupper is needed.</p>
+</div><div data-component="tab" data-tabname="std::locale()" >
+<p>The <code class="docutils literal notranslate"><span class="pre">std::toupper</span></code> function takes a single <code class="docutils literal notranslate"><span class="pre">char</span></code>,
+which can be <strong>any</strong> character type,
+is not modified, and returns a character of the same type
+as the character type provided.</p>
+
+<div data-childcomponent="string_toupper_locale_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=string_toupper_locale_ac data-lang="cpp" 
+      data-timelimit=25000  data-codelens="true"   
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27; &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <iostream>
+#include <locale>
+#include <string>
+
+int main() {
+  unsigned char c = '\xb8'; // the character ž in ISO-8859-15
+                            // but ¸ (cedilla) in ISO-8859-1
+
+  std::cout << "in the default locale, toupper('0xb8') gives " << std::toupper(c, std::locale()) << '\n';
+  std::setlocale(LC_ALL, "en_US.iso88591");
+  std::cout << std::hex << std::showbase;
+  std::cout << "in iso8859-1, toupper('0xb8') gives " << std::toupper(c) << '\n';
+  std::setlocale(LC_ALL, "en_US.iso885915");
+  std::cout << "in iso8859-15, toupper('0xb8') gives " << std::toupper(c) << '\n';
+
+  return 0;
+}
+</textarea>
+</div>
+</div>
+    </div>
+
+</div>
 <div class="section" id="getting-information-out-of-a-string">
-<h3><span class="section-number">2.2.2.1. </span>Getting information out of a string<a class="headerlink" href="#getting-information-out-of-a-string" title="Permalink to this headline">¶</a></h3>
+<span id="index-5"></span><h3><span class="section-number">2.2.2.2. </span>Getting information out of a string<a class="headerlink" href="#getting-information-out-of-a-string" title="Permalink to this headline">¶</a></h3>
 <p>A <code class="docutils literal notranslate"><span class="pre">string</span></code> knows its own size and can provide other useful information.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cassert&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
@@ -519,7 +675,7 @@ int main() {
 </div>
     </div>
 
-<p>The special value <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/npos">std::string::npos</a> is used both as an end of string indicator
+<p id="index-6">The special value <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/npos">std::string::npos</a> is used both as an end of string indicator
 by functions that expect a string and
 as an indicator of <em>not found</em> by functions that return an index (like find).</p>
 
@@ -529,7 +685,7 @@ as an indicator of <em>not found</em> by functions that return an index (like fi
     </div>
     </div>
 <div class="section" id="converting-a-std-string-to-c-string">
-<h3><span class="section-number">2.2.2.2. </span>Converting a std::string to C string<a class="headerlink" href="#converting-a-std-string-to-c-string" title="Permalink to this headline">¶</a></h3>
+<span id="index-7"></span><h3><span class="section-number">2.2.2.3. </span>Converting a std::string to C string<a class="headerlink" href="#converting-a-std-string-to-c-string" title="Permalink to this headline">¶</a></h3>
 <p>You cannot use <code class="docutils literal notranslate"><span class="pre">std::string</span></code> in a function
 that expects <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char*</span></code> - you must convert it
 to a null terminated character array.</p>
