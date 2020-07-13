@@ -5,6 +5,8 @@
    #include <iostream>
    #include <string>
 
+   using namespace std::literals;
+   
    int main() {
      auto us = "team"s;
      size_t pos = us.find('i');
@@ -14,7 +16,7 @@
      auto hi = "Hello world"s;
      pos = hi.find("wor");                 // pos == 6
 
-	  if (hi.find('o') == hi.rfind('o') {
+	  if (hi.find('o') == hi.rfind('o')) {
        std::cout << "There must be exactly 1 'o' in this string\n";
 	  }
      pos = hi.find_first_of("aeiou");      // pos == 1  (e)
