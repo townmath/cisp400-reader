@@ -26,7 +26,8 @@ For example, the Boolean type consists of the values ``true`` and
 The integers also form a type.
 An integer is a :term:`simple type`
 because its values contain no subparts.
-A bank account object will typically contain several pieces of
+In comparison, a bank account object is a :term:`compound type`.
+A bank account typically contains several pieces of
 information such as name, address, account number, and account
 balance.
 
@@ -541,11 +542,12 @@ The type ``std::size_t``
 ------------------------
 
 There exists an implementation defined ``typedef`` **std::size_t**.
-``std::size_t`` is the unsigned integer type resulting from the ``sizeof`` operator.
-``std::size_t`` represents the maximum number of bytes
+The type ``std::size_t`` represents the maximum number of bytes
 that can be stored for an object of any type (including array).
 
-This means that ``std::size_t`` is **guaranteed** to always be big enough to use safely
+In order to use :types:`size_t` you need include the header ``cstdlib``.
+
+This means that ``size_t`` is **guaranteed** to always be big enough to use safely
 as an index in any array.
 This doesn't mean you can't access an invalid element of an array,
 only that the index can be increased without worrying about the index
@@ -557,7 +559,7 @@ to worry about which of the predefined unsigned types is used to represent sizes
 Code that assumes ``sizeof`` yields an ``unsigned int`` is not as portable 
 as code that assumes it yields a ``size_t``.
 
-``std::size_t`` is commonly used for array indexing and loop counting. 
+``size_t`` is commonly used for array indexing and loop counting. 
 Programs that use other types, such as ``unsigned int``, 
 for array indexing may fail, for example, 
 on 64-bit systems when the index exceeds ``UINT_MAX`` or 

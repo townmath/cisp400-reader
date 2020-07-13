@@ -377,6 +377,10 @@ Glossary
       For example, some code in class 'A' has a reference to some
       other class 'B'.
 
+   compound type
+      A :term:`data type` built up from simpler parts.
+      Compare to :term:`simple type` and :term:`composite type`.
+
    constant running time
       The cost of a function whose running time is not related to its
       input size.
