@@ -74,6 +74,7 @@ Glossary
       Compare to :term:`design pattern`.
 
    api
+   API
       An Application Programming Interface (API) is a set of functions, 
       or classes used by a program.
       Often an API provides a family of functions or classes that work

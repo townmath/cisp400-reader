@@ -171,13 +171,18 @@ but the old C functions are still there if you need them.
            return argc;  // who receives this value?
          }
          
-Fundamental types and type conversions
---------------------------------------
+Built-in types and type conversions
+-----------------------------------
 You should already be familiar with declaring fundamental :cpp:`types`
-(``int``, ``char``, ``double``, ``uint16_t``, etc.).
-You should also be familiar with the basic operations and operators
+(``int``, ``char``, ``double``, ``unsigned``, etc.).
+You should also know that other :types:`fixed width integer types <integer>`
+exist (``int16_t``, ``uint64_t``, etc.) 
+even if you haven't used them very much.
+You should also be familiar with the basic math operations and operators
 (``+``, ``-``, ``=``, ``==``, etc.).
-Including the shortcut operators (``++``, ``+=``, etc)
+Including the shortcut operators (``++``, ``+=``, etc.).
+We will be expanding our knowledge of operators and operations
+extensively during this course.
 
 You should know the difference between *declaring*, *initializing*, and
 *assigning a value* to a variable.

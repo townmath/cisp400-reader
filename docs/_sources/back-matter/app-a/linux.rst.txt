@@ -35,40 +35,6 @@ used linux before.
 It is intended to give you enough of a jump start to demystify things somewhat
 and ease forward progress.
 
-.. index::
-   pair: git; ssh client
-
-Getting access
-..............
-
-All projects and some of the lab assignments are required to be handed in on the
-San Diego Mesa College server **buffy**.
-Access is only available using a *secure shell* client program (ssh).
-There are a few ways to access buffy using ``ssh``.
-If you have a MacOS X or Linux computer available already, then you already have ssh installed.
-If you have a Windows computer, 
-then my first recommendation is to install ``git``.
-Technically, ``git`` is a source code revision control program,
-but it also provides a minimal GNU/Linux environment 
-(not too surprising since the creator, Linus Torvalds, is also the creator of Linux).
-Git provides just about everything you need, except for a compiler.
-
-Another good choice for an SSH
-client if you run Microsoft Windows is PuTTY:
-
-.. code-block:: none
-
-   http://www.chiark.greenend.org.uk/~sgtatham/putty/
-
-In ``git`` you would type the following in the *GIT Bash* to connect to the buffy server:
-
-.. code-block:: none
-
-   host@user: ssh fireNN@209.129.16.61
-
-where *fireNN** is the user name assigned to you by the instructor.
-
-
 The command line
 ................
 

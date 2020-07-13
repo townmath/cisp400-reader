@@ -6,9 +6,9 @@ Getting started
    :maxdepth: 2
 
    hello-world.rst
-   comments.rst
+   compiling.rst
    types.rst
-   scope.rst
+   comments.rst
    what-you-dont.rst
    skill-check.rst
 

@@ -1,126 +1,63 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>1.3. Types &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/presenter_mode.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
+    <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
-    <link rel="stylesheet" type="text/css" href="../_static/codemirror.css?v=1CE53237" />
-    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=808B982A" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabbedstuff.css?v=424F1CC9" />
-    <link rel="stylesheet" type="text/css" href="../_static/video.css?v=E5385B3B" />
-    <link rel="stylesheet" type="text/css" href="../_static/datafile.css?v=C184EB8A" />
-    <link rel="stylesheet" type="text/css" href="../_static/parsons.css?v=2F3E13EE" />
-    <link rel="stylesheet" type="text/css" href="../_static/js_lib/prettify.css?v=2A364B6B" />
-    <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/clickable.css?v=58C4E18A" />
-    <link rel="stylesheet" type="text/css" href="../_static/showEval.css?v=C6382F3" />
-    <link rel="stylesheet" type="text/css" href="../_static/activecode.css?v=F471F95B" />
-    <link rel="stylesheet" type="text/css" href="../_static/pytutor.css?v=239FC54E" />
-    <link rel="stylesheet" type="text/css" href="../_static/modal-basic.css?v=8A1A42E4" />
-    <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
-    <link rel="stylesheet" type="text/css" href="../_static/poll.css?v=E220AC33" />
-    <link rel="stylesheet" type="text/css" href="../_static/spreadsheet.css?v=B5F018A" />
-    <link rel="stylesheet" type="text/css" href="../_static/jexcel.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/japp.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/dragndrop.css?v=1FF7F927" />
-    <link rel="stylesheet" type="text/css" href="../_static/reveal.css?v=4A81D381" />
-    <link rel="stylesheet" type="text/css" href="../_static/fitb.css?v=3BA0E63E" />
-    <link rel="stylesheet" href="../_static/jquery-ui-1.10.3.custom.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/user-highlights.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/runestone-custom-sphinx-bootstrap.css?v=4.1.11" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/runestonebase.js?v=4.1.11"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/codemirror.js?v=94F552C9"></script>
-    <script type="text/javascript" src="../_static/xml.js?v=236EDFF7"></script>
-    <script type="text/javascript" src="../_static/css.js?v=623153CE"></script>
-    <script type="text/javascript" src="../_static/htmlmixed.js?v=33B91944"></script>
-    <script type="text/javascript" src="../_static/javascript.js?v=6F38CA04"></script>
-    <script type="text/javascript" src="../_static/webglinteractive.js?v=2B768384"></script>
-    <script type="text/javascript" src="../_static/FileSaver.min.js?v=8408C997"></script>
-    <script type="text/javascript" src="../_static/Blob.js?v=AEC2447"></script>
-    <script type="text/javascript" src="../_static/tabbedstuff.js?v=5BE6106"></script>
-    <script type="text/javascript" src="../_static/runestonevideo.js?v=53E888DE"></script>
-    <script type="text/javascript" src="../_static/skulpt.min.js?v=BDC8551F"></script>
-    <script type="text/javascript" src="../_static/skulpt-stdlib.js?v=5731007D"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script type="text/javascript" src="../_static/datafile.js?v=3ED1A80C"></script>
-    <script type="text/javascript" src="../_static/js_lib/prettify.js?v=CA7E8928"></script>
-    <script type="text/javascript" src="../_static/js_lib/hammer.min.js?v=73056367"></script>
-    <script type="text/javascript" src="../_static/parsons.js?v=68B5F56"></script>
-    <script type="text/javascript" src="../_static/timedparsons.js?v=2EEA9E5A"></script>
-    <script type="text/javascript" src="../_static/lp.js?v=F137FF7A"></script>
-    <script type="text/javascript" src="../_static/gas.js?v=F0D0F02E"></script>
-    <script type="text/javascript" src="../_static/clickable.js?v=DEB56CF8"></script>
-    <script type="text/javascript" src="../_static/timedclickable.js?v=93989C23"></script>
-    <script type="text/javascript" src="../_static/shortanswer.js?v=D42E4CE3"></script>
-    <script type="text/javascript" src="../_static/timed_shortanswer.js?v=B3A117D7"></script>
-    <script type="text/javascript" src="../_static/showEval.js?v=5B2DD7A6"></script>
-    <script type="text/javascript" src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script type="text/javascript" src="../_static/bookfuncs.js?v=963AEB3A"></script>
-    <script type="text/javascript" src="../_static/python.js?v=14A28F1F"></script>
-    <script type="text/javascript" src="../_static/sql.js?v=1B4587EC"></script>
-    <script type="text/javascript" src="../_static/jquery_i18n/CLDRPluralRuleParser.js?v=599B42B0"></script>
-    <script type="text/javascript" src="../_static/jquery_i18n/jquery.i18n.js?v=88A1430F"></script>
-    <script type="text/javascript" src="../_static/jquery_i18n/jquery.i18n.messagestore.js?v=AE15A4A1"></script>
-    <script type="text/javascript" src="../_static/jquery_i18n/jquery.i18n.fallbacks.js?v=8ABDFE7F"></script>
-    <script type="text/javascript" src="../_static/jquery_i18n/jquery.i18n.language.js?v=747279FF"></script>
-    <script type="text/javascript" src="../_static/jquery_i18n/jquery.i18n.parser.js?v=7B020E13"></script>
-    <script type="text/javascript" src="../_static/jquery_i18n/jquery.i18n.emitter.js?v=660E85C3"></script>
-    <script type="text/javascript" src="../_static/jquery_i18n/jquery.i18n.emitter.bidi.js?v=54B21948"></script>
-    <script type="text/javascript" src="../_static/activecode-i18n.en.js?v=70E93DF2"></script>
-    <script type="text/javascript" src="../_static/activecode.js?v=FE13F48"></script>
-    <script type="text/javascript" src="../_static/clike.js?v=2DCE0756"></script>
-    <script type="text/javascript" src="../_static/timed_activecode.js?v=C6AD5C24"></script>
-    <script type="text/javascript" src="../_static/sql-wasm.js?v=44FE0709"></script>
-    <script type="text/javascript" src="../_static/d3.v2.min.js?v=836E01C"></script>
-    <script type="text/javascript" src="../_static/jquery.ba-bbq.min.js?v=B64CF0A8"></script>
-    <script type="text/javascript" src="../_static/jquery.jsPlumb-1.3.10-all-min.js?v=42F9EBEA"></script>
-    <script type="text/javascript" src="../_static/pytutor.js?v=82B022B9"></script>
-    <script type="text/javascript" src="../_static/codelens.js?v=CABECD49"></script>
-    <script type="text/javascript" src="../_static/matrixeq.js?v=D64CFA5A"></script>
-    <script type="text/javascript" src="../_static/poll.js?v=13CE919A"></script>
-    <script type="text/javascript" src="../_static/mchoice.js?v=7B442CDC"></script>
-    <script type="text/javascript" src="../_static/timedmc.js?v=B010A457"></script>
-    <script type="text/javascript" src="../_static/timed.js?v=CEC6219E"></script>
-    <script type="text/javascript" src="../_static/spreadsheet.js?v=9DA8BEAB"></script>
-    <script type="text/javascript" src="../_static/jexcel.js"></script>
-    <script type="text/javascript" src="../_static/japp.js"></script>
-    <script type="text/javascript" src="../_static/dragndrop.js?v=644C2C6C"></script>
-    <script type="text/javascript" src="../_static/timeddnd.js?v=378F237E"></script>
-    <script type="text/javascript" src="../_static/reveal.js?v=9C3AAF60"></script>
-    <script type="text/javascript" src="../_static/animationbase.js?v=A043C3A7"></script>
-    <script type="text/javascript" src="../_static/fitb.js?v=3FF7EFF0"></script>
-    <script type="text/javascript" src="../_static/timedfitb.js?v=2AA17071"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
-    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
-    <script type="text/javascript" src="../_static/user-highlights.js?v=4.1.11"></script>
-    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
-    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
-    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
-    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="../_static/presenter_mode.js?v=4.1.11"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
+    <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
+    <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
+    <script src="../_static/animationbase.js?v=A043C3A7"></script>
+    <script src="../_static/html4css1.css?v=4D8F3FB4"></script>
+    <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
+    <script src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
+    <script src="../_static/webglinteractive.js?v=2B768384"></script>
+    <script src="../_static/FileSaver.min.js?v=8408C997"></script>
+    <script src="../_static/Blob.js?v=AEC2447"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.bidi.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.fallbacks.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.messagestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.parser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.language.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
+    <script src="../_static/runestone.js?v=343ECCF5"></script>
+    <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
+    <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+    <script src="../_static/jquery-fix.js?v=1226591B"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
+    <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
+    <script src="../_static/theme.js?v=D899FB97"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.4. Scope" href="scope.html" />
-    <link rel="prev" title="1.2. Code comments" href="comments.html" />
+    <link rel="next" title="1.4. Code comments" href="comments.html" />
+    <link rel="prev" title="1.2. Building software" href="compiling.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -142,7 +79,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '4.1.11';
+  eBookConfig.runestone_version = '5.0.8';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -150,6 +87,9 @@
 
 
 </script>
+
+<!-- Ad Serving Headers Only serve ads to Anonymous Users -->
+
 
 
 
@@ -187,6 +127,7 @@
       <ul class="nav navbar-nav navbar-right" >
 
         <li class="divider-vertical"></li>
+
 
         <!-- social media dropdown -->
         <!-- end social media dropdown -->
@@ -246,14 +187,14 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - 1.2. Code comments" data-toggle="tooltip">
-    <a href="comments.html" >
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">1.2. </span>Building software" data-toggle="tooltip">
+    <a href="compiling.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - 1.4. Scope' data-toggle="tooltip" >              
-    <a href="scope.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">1.4. </span>Code comments' data-toggle="tooltip" >              
+    <a href="comments.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -292,7 +233,7 @@
 <div class="container" id="main-content" role="main">
   
   <div class="section" id="types">
-<span id="index-0"></span><h1>1.3. Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">1.3. </span>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h1>
 <p>In C++, objects, references, functions, and expressions all have a property called <em>type</em>,
 which both restricts the operations that are permitted for those entities
 and provides semantic meaning to the otherwise generic sequences of bits.</p>
@@ -343,7 +284,7 @@ balance.</p>
 </li>
 </ul>
 <div class="section" id="fundamental-representations">
-<h2>1.3.1. Fundamental representations<a class="headerlink" href="#fundamental-representations" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.3.1. </span>Fundamental representations<a class="headerlink" href="#fundamental-representations" title="Permalink to this headline">¶</a></h2>
 <p>Machines view stored data as sequences of bits that
 can be manipulated by specific instructions.
 These instructions include shifts, logical operations,
@@ -407,7 +348,7 @@ three commonly used representations have been used:</p>
 this was not always the case.
 In fact, during the 60’s and 70’s, debates raged about the best number format representations.</p>
 <div class="section" id="sign-and-magnitude">
-<h3>1.3.1.1. Sign and magnitude<a class="headerlink" href="#sign-and-magnitude" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.1.1. </span>Sign and magnitude<a class="headerlink" href="#sign-and-magnitude" title="Permalink to this headline">¶</a></h3>
 <p>Arguably the easiest to understand as the representation is very similar to how
 signed numbers are represented in mathematics.
 The number’s sign is stored in a <em>sign bit</em>:
@@ -447,9 +388,9 @@ exponent, and mantissa of a few small numbers.</p>
 <div data-childcomponent="ac_floats_2" class="runestone explainer ac_section alert alert-warning">
 
 <textarea data-component="activecode" id=ac_floats_2 data-lang="c" 
-      data-timelimit=25000    
+      data-timelimit=25000  data-codelens="true"   
     data-audio=''      
-          >
+           data-wasm=/_static>
 #include <stdio.h>
 #include <math.h>
 #include <values.h>
@@ -520,7 +461,7 @@ floating point representations and which do not.</p>
 </div>
 </div>
 <div class="section" id="one-s-complement">
-<h3>1.3.1.2. One’s complement<a class="headerlink" href="#one-s-complement" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.1.2. </span>One’s complement<a class="headerlink" href="#one-s-complement" title="Permalink to this headline">¶</a></h3>
 <p>Alternatively, a system known as ones’ complement can be used to represent negative numbers.
 The ones’ complement form of a negative binary number is the bitwise NOT applied to each bit in the number.
 That is, each negative number is the “complement” of its positive counterpart.</p>
@@ -571,7 +512,7 @@ two’s complement numbers.
 No modern computers store one’s complement signed integers.</p>
 </div>
 <div class="section" id="two-s-complement">
-<h3>1.3.1.3. Two’s complement<a class="headerlink" href="#two-s-complement" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.1.3. </span>Two’s complement<a class="headerlink" href="#two-s-complement" title="Permalink to this headline">¶</a></h3>
 <p>A variation of one’s complement that avoids the “two zeroes problem” is two’s complement.
 In two’s complement, negative numbers are represented by the bit pattern which is one
 greater (in an unsigned sense) than the one’s complement of the positive value.
@@ -660,9 +601,9 @@ A value can be provided when declared:</p>
 <div data-childcomponent="ac_one_comp_1" class="runestone explainer ac_section alert alert-warning">
 
 <textarea data-component="activecode" id=ac_one_comp_1 data-lang="cpp" 
-      data-timelimit=25000    
+      data-timelimit=25000  data-codelens="true"   
     data-audio=''      
-          >
+           data-wasm=/_static>
 #include <bitset>
 #include <iostream>
 using std::cout;
@@ -685,7 +626,7 @@ int main() {
 
 </div>
 <div class="section" id="overflow">
-<h3>1.3.1.4. Overflow<a class="headerlink" href="#overflow" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.1.4. </span>Overflow<a class="headerlink" href="#overflow" title="Permalink to this headline">¶</a></h3>
 <p>Why bother with all this obscure discussion about type representation now?
 Because it is very useful to know how numbers are actually stored when debugging your code.
 Sometimes a value cannot be represented in the limited number
@@ -743,9 +684,9 @@ then predict the output of the following program before you run it.</p>
 <div data-childcomponent="ac_types_2" class="runestone explainer ac_section alert alert-warning">
 
 <textarea data-component="activecode" id=ac_types_2 data-lang="cpp" 
-      data-timelimit=25000    
+      data-timelimit=25000  data-codelens="true"   
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-Wno-overflow&#x27;, &#x27;-std=c++11&#x27;]"      >
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-Wno-overflow&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
 #include <iostream>
 #include <cstdint>
 
@@ -781,7 +722,7 @@ unsigned type?</p></li>
 </ul>
 </div>
 <div class="section" id="preventing-overflow-errors">
-<h4>1.3.1.4.1. Preventing overflow errors<a class="headerlink" href="#preventing-overflow-errors" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">1.3.1.4.1. </span>Preventing overflow errors<a class="headerlink" href="#preventing-overflow-errors" title="Permalink to this headline">¶</a></h4>
 <p>The C and C++ compilers do not check math overflow for you.
 You can turn on compiler warnings that can inform you about
 possible overflow or type conversion problems.
@@ -823,7 +764,7 @@ could use the following checks:</p>
 </pre></div>
 </div>
 <div class="topic">
-<p class="topic-title first">Other operations</p>
+<p class="topic-title">Other operations</p>
 <p>We haven’t discussed overflow for subtraction and division.</p>
 <p>Do we have to worry about overflow for these two operations?</p>
 <p>Why or why not?</p>
@@ -832,11 +773,11 @@ could use the following checks:</p>
 </div>
 </div>
 <div class="section" id="compound-types">
-<h2>1.3.2. Compound types<a class="headerlink" href="#compound-types" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.3.2. </span>Compound types<a class="headerlink" href="#compound-types" title="Permalink to this headline">¶</a></h2>
 <p>Most of the compound types will be covered in greater detail later in this book.
 Those that aren’t covered later are discussed now.</p>
 <div class="section" id="array-types">
-<h3>1.3.2.1. Array types<a class="headerlink" href="#array-types" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.2.1. </span>Array types<a class="headerlink" href="#array-types" title="Permalink to this headline">¶</a></h3>
 <p>An <strong>array</strong> is a block of memory that holds one or more objects of a given type.
 Declare an array by giving the type of object the array holds followed by
 the array name and the size in square brackets:</p>
@@ -876,9 +817,9 @@ Consider the statement:</p>
 <div data-childcomponent="types_ac_3" class="runestone explainer ac_section alert alert-warning">
 
 <textarea data-component="activecode" id=types_ac_3 data-lang="cpp" 
-      data-timelimit=25000    
+      data-timelimit=25000  data-codelens="true"   
     data-audio=''      
-          >
+           data-wasm=/_static>
 #include <iostream>
 
 int main () {
@@ -894,7 +835,7 @@ int main () {
 
 </div>
 <div class="section" id="reference-types">
-<h3>1.3.2.2. Reference types<a class="headerlink" href="#reference-types" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.2.2. </span>Reference types<a class="headerlink" href="#reference-types" title="Permalink to this headline">¶</a></h3>
 <p>A <a class="reference internal" href="../glossary.html#term-reference"><span class="xref std std-term">reference</span></a> type
 declares a named variable as an alias to an <em>already-existing</em> object or function.</p>
 <p>References are a C++ addition - one of the few types not present in C.</p>
@@ -917,7 +858,7 @@ All of the references discussed until then will be <em>lvalue references</em>.</
 </div>
 </div>
 <div class="section" id="the-type-std-size-t">
-<h2>1.3.3. The type <code class="docutils literal notranslate"><span class="pre">std::size_t</span></code><a class="headerlink" href="#the-type-std-size-t" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.3.3. </span>The type <code class="docutils literal notranslate"><span class="pre">std::size_t</span></code><a class="headerlink" href="#the-type-std-size-t" title="Permalink to this headline">¶</a></h2>
 <p>There exists an implementation defined <code class="docutils literal notranslate"><span class="pre">typedef</span></code> <strong>std::size_t</strong>.
 <code class="docutils literal notranslate"><span class="pre">std::size_t</span></code> is the unsigned integer type resulting from the <code class="docutils literal notranslate"><span class="pre">sizeof</span></code> operator.
 <code class="docutils literal notranslate"><span class="pre">std::size_t</span></code> represents the maximum number of bytes
@@ -959,9 +900,9 @@ This makes absolute consistency in all situations impossible.</p>
 <div data-childcomponent="ac-size-type-1" class="runestone explainer ac_section alert alert-warning">
 
 <textarea data-component="activecode" id=ac-size-type-1 data-lang="cpp" 
-      data-timelimit=25000    
+      data-timelimit=25000  data-codelens="true"   
     data-audio=''      
-          >
+           data-wasm=/_static>
 #include <iostream>
 #include <string>
 
@@ -985,14 +926,14 @@ int main() {
 </div>
 </div>
 <div class="section" id="skill-check">
-<h2>1.3.4. Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.3.4. </span>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
 <p>The questions in this hidden section provide a chance to demonstrate
 your understanding of the concepts discussed so far.</p>
 
     <div data-component="reveal" id="reveal-skill-check-types"   data-showtitle="Show" data-hidetitle="Hide" >
     
 <div class="runestone">
-<ul data-component="dragndrop" id="types_dnd_type1">
+<ul data-component="dragndrop" id="types_dnd_type1" >
     <span data-component="question">sc-1-1: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct</span>
 	<span data-component=feedback>Review the summaries above.</span>
 
@@ -1009,7 +950,7 @@ your understanding of the concepts discussed so far.</p>
     <li data-component="dropzone" for="types_dnd_type1_drag4">bool</li>
 </ul></div>
             <div class="runestone alert alert-warning">
-            <ul data-component="multiplechoice" data-multipleanswers="true"  id="types_mc1">
+            <ul data-component="multiplechoice" data-multipleanswers="true"  id="types_mc1" >
             <p>sc-1-2: Which declarations are valid?</p>
 
             <li data-component="answer"  id="types_mc1_opt_a">int 3;</li><li data-component="feedback">Declarations must always include a name</li>
@@ -1028,7 +969,7 @@ As written, this is assignment, not declaration</li>
             </div>
             
 <div class="runestone">
-<ul data-component="dragndrop" id="types_dnd_type2">
+<ul data-component="dragndrop" id="types_dnd_type2" >
     <span data-component="question">sc-1-3: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct.</span>
 	<span data-component=feedback>Review the summaries above.</span>
 
@@ -1045,7 +986,7 @@ As written, this is assignment, not declaration</li>
     <li data-component="dropzone" for="types_dnd_type2_drag4">casting</li>
 </ul></div>
         <div class="runestone">
-        <div data-component="fillintheblank" id="types_fitb1">
+        <div data-component="fillintheblank" id="types_fitb1" >
             <p>sc-1-4: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -1064,7 +1005,7 @@ As written, this is assignment, not declaration</li>
         </div>
             
         <div class="runestone">
-        <div data-component="fillintheblank" id="types_fitb2">
+        <div data-component="fillintheblank" id="types_fitb2" >
             <p>sc-1-5: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">~-</span><span class="mi">1</span><span class="p">;</span>
 </pre></div>
@@ -1082,9 +1023,9 @@ As written, this is assignment, not declaration</li>
 <p>Fix all the errors in the code below:</p>
 
 <textarea data-component="activecode" id=types_ac1 data-lang="cpp" 
-      data-timelimit=25000    
+      data-timelimit=25000  data-codelens="true"   
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27; &#x27;-std=c++11&#x27;]"      >
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27; &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
 int main() {
   weight = 3
   distance = 8.5;
@@ -1095,7 +1036,7 @@ int main() {
 </div>
 
         <div class="runestone" style="max-width: none;">
-        <pre data-component="parsons" id="types_par1"  data-adaptive="true"    data-noindent="true"  data-language="c" >
+        <pre data-component="parsons" id="types_par1"  data-adaptive="true"    data-noindent="true"  data-language="c"  >
         <span data-question>sc-1-6: </span>#include <iostream>
 ---
 void func() {
@@ -1111,7 +1052,7 @@ void func() {
         </div>
     
         <div class="runestone">
-        <div data-component="fillintheblank" id="types_fitb3">
+        <div data-component="fillintheblank" id="types_fitb3" >
             <p>sc-1-7: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
@@ -1147,7 +1088,7 @@ variable length <a class="reference external" href="https://developers.google.co
 </ul>
 </div>
 <div class="topic">
-<p class="topic-title first">Footnotes</p>
+<p class="topic-title">Footnotes</p>
 <dl class="citation">
 <dt class="label" id="aspnes2014"><span class="brackets"><a class="fn-backref" href="#id1">Aspnes2014</a></span></dt>
 <dd><p>Adapted from <a class="reference external" href="http://www.cs.yale.edu/homes/aspnes/pinewiki/C(2f)FloatingPoint.html">The IEEE-754 floating-point standard (PineWiki)</a> and <a class="reference external" href="http://www.cs.yale.edu/homes/aspnes/classes/223/notes.pdf">Class 223 notes</a> page 101. Retrieved 2017-06-09.</p>
@@ -1164,32 +1105,48 @@ variable length <a class="reference external" href="https://developers.google.co
   
       
 <ul>
-  <li id="relations-prev" class="navLink" title='Previous Section - 1.2. Code comments' data-toggle="tooltip">
-    <a href="comments.html" aria-label="1.2. Code comments">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 1.2. Building software' data-toggle="tooltip">
+    <a href="compiling.html" aria-label="1.2. Building software">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
-            <i class='prevNav glyphicon glyphicon-chevron-left' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%;"></i>
+            <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
     </a>
   </li>
 </ul>
-  <a class="navLinkBg" id="navLinkBgLeft"  href="comments.html" aria-label="1.2. Code comments"></a>
+
   
 <ul>
-  <li id="relations-next" class="navLink" title='Next Section - 1.4. Scope' data-toggle="tooltip" >
-    <a href="scope.html" aria-label="1.4. Scope">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 1.4. Code comments' data-toggle="tooltip" >
+    <a href="comments.html" aria-label="1.4. Code comments">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
-          <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%;"></i>
+          <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
     </a>
   </li>
 </ul>
-  <a class="navLinkBg navLink" id="navLinkBgRight" href="scope.html" aria-label="1.4. Scope">Next Section - 1.4. Scope</a>
 
 <script type="text/javascript">
 
   $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
   $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
 
+</script>
+
+<script>
+	function mouseOverPrev() {
+		document.getElementById("relations-prev").style.opacity=1;
+	}
+
+	function mouseOutPrev() {
+		document.getElementById("relations-prev").style.opacity=0.4;
+	}
+	function mouseOverNext() {
+		document.getElementById("relations-next").style.opacity=1;
+	}
+
+	function mouseOutNext() {
+		document.getElementById("relations-next").style.opacity=0.4;
+	}
 </script>
   
 </div>
@@ -1202,13 +1159,15 @@ variable length <a class="reference external" href="https://developers.google.co
     </p>
     <p>
         &copy; Copyright 2017-2020 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 4.1.11.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.0.8.
     </p>
   </div>
 </footer>
 
 
 
+
+<script> getSwitch(); </script>
 
 
   </body>
