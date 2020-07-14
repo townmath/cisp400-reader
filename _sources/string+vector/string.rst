@@ -210,7 +210,7 @@ that stores no character data.
          #include <string>
 
          int main() {
-           string value = "hello, world!";
+           std::string value = "hello, world!";
 
            std::cout << "first: " << value.front() << '\n';
            std::cout << "last: " << value.back() << '\n';
@@ -230,22 +230,23 @@ that stores no character data.
          #include <string>
 
          int main() {
-           string hi = "hello";
-           string howdy = hi;
+          using std::cout;
+           std::string hi = "hello";
+           std::string howdy = hi;
 
-           std::cout << "original: " << hi   << '\n';
+           cout << "original: " << hi   << '\n';
 
            hi.append(',');
            hi.append(' ');
            hi.append("world!");
-           std::cout << hi << '\n';
+           cout << hi << '\n';
 
-           std::cout << "original: " << howdy   << '\n';
+           cout << "original: " << howdy   << '\n';
 
            // append returns a new string value, so
            // calls to append can be chained together
            howdy.append(',').append(' ').append("world!");
-           std::cout << howdy << '\n';
+           cout << howdy << '\n';
 
            return 0;
          }
@@ -263,7 +264,7 @@ that stores no character data.
          #include <string>
 
          int main() {
-           string value = "hello, world!";
+           std::string value = "hello, world!";
 
            std::cout << "original: " << value << '\n';
 
@@ -378,8 +379,7 @@ to provide the features.  They are defined in header ``cctypes``.
          #include <string>
 
          int main() {
-           string value = "hello, world!";
-
+           std::string value = "hello, world!";
            char& first = value.front();
            // failure to assign the return value of toupper
            // to a variable is a common source of error.
@@ -410,7 +410,6 @@ to provide the features.  They are defined in header ``cctypes``.
            unsigned char c = '\xb8'; // the character ž in ISO-8859-15
                                      // but ¸ (cedilla) in ISO-8859-1
 
-           std::cout << "in the default locale, toupper('0xb8') gives " << std::toupper(c, std::locale()) << '\n';
            std::setlocale(LC_ALL, "en_US.iso88591");
            std::cout << std::hex << std::showbase;
            std::cout << "in iso8859-1, toupper('0xb8') gives " << std::toupper(c) << '\n';
@@ -702,4 +701,7 @@ your understanding of the concepts discussed so far.
    - YoLinux `String class tutorial <http://www.yolinux.com/TUTORIALS/LinuxTutorialC++StringClass.html>`_
    - Bjarne Stroustrup's C++11 FAQ: `Raw String literals <http://www.stroustrup.com/C++11FAQ.html#raw-strings>`_
    - Mike Shahar post: `Exploring std::string <https://shaharmike.com/cpp/std-string/>`_
+   - Locales:
+     - `Thinking in C++: Locales <https://www.linuxtopia.org/online_books/programming_books/c++_practical_programming/c++_practical_programming_101.html>`__
+     - `Differences between the C Locale and the C++ Locales <https://stdcxx.apache.org/doc/stdlibug/24-3.html>`__
 
