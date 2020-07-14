@@ -138,7 +138,7 @@ Using ``make``, you can add directories to the include search path using ``-I``.
 
 .. seealso:: 
 
-   :doc:`../beginnings/scope`
+   :doc:`scope`
 
 
 .. index:: static functions
