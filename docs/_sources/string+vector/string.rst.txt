@@ -236,8 +236,8 @@ that stores no character data.
 
            cout << "original: " << hi   << '\n';
 
-           hi.append(',');
-           hi.append(' ');
+           hi.append(1, ',');   // append 1 comma
+           hi.append(1, ' ');   // append 1 space
            hi.append("world!");
            cout << hi << '\n';
 
@@ -245,7 +245,7 @@ that stores no character data.
 
            // append returns a new string value, so
            // calls to append can be chained together
-           howdy.append(',').append(' ').append("world!");
+           howdy.append(1, ',').append(1, ' ').append("world!");
            cout << howdy << '\n';
 
            return 0;
@@ -272,7 +272,7 @@ that stores no character data.
            std::cout << value << '\n';
 
            // insert a char array before the '!'
-           value.insert(value.size()-2," (this means you)");
+           value.insert(value.size()-1," (this means you)");
            std::cout << value << '\n';
 
            return 0;
@@ -702,6 +702,7 @@ your understanding of the concepts discussed so far.
    - Bjarne Stroustrup's C++11 FAQ: `Raw String literals <http://www.stroustrup.com/C++11FAQ.html#raw-strings>`_
    - Mike Shahar post: `Exploring std::string <https://shaharmike.com/cpp/std-string/>`_
    - Locales:
+
      - `Thinking in C++: Locales <https://www.linuxtopia.org/online_books/programming_books/c++_practical_programming/c++_practical_programming_101.html>`__
      - `Differences between the C Locale and the C++ Locales <https://stdcxx.apache.org/doc/stdlibug/24-3.html>`__
 

@@ -423,8 +423,8 @@ int main() {
 
   cout << "original: " << hi   << '\n';
 
-  hi.append(',');
-  hi.append(' ');
+  hi.append(1, ',');   // append 1 comma
+  hi.append(1, ' ');   // append 1 space
   hi.append("world!");
   cout << hi << '\n';
 
@@ -432,7 +432,7 @@ int main() {
 
   // append returns a new string value, so
   // calls to append can be chained together
-  howdy.append(',').append(' ').append("world!");
+  howdy.append(1, ',').append(1, ' ').append("world!");
   cout << howdy << '\n';
 
   return 0;
@@ -461,7 +461,7 @@ int main() {
   std::cout << value << '\n';
 
   // insert a char array before the '!'
-  value.insert(value.size()-2," (this means you)");
+  value.insert(value.size()-1," (this means you)");
   std::cout << value << '\n';
 
   return 0;
@@ -875,9 +875,12 @@ int main() {
 <li><p>YoLinux <a class="reference external" href="http://www.yolinux.com/TUTORIALS/LinuxTutorialC++StringClass.html">String class tutorial</a></p></li>
 <li><p>Bjarne Stroustrup’s C++11 FAQ: <a class="reference external" href="http://www.stroustrup.com/C++11FAQ.html#raw-strings">Raw String literals</a></p></li>
 <li><p>Mike Shahar post: <a class="reference external" href="https://shaharmike.com/cpp/std-string/">Exploring std::string</a></p></li>
-<li><p>Locales:
-- <a class="reference external" href="https://www.linuxtopia.org/online_books/programming_books/c++_practical_programming/c++_practical_programming_101.html">Thinking in C++: Locales</a>
-- <a class="reference external" href="https://stdcxx.apache.org/doc/stdlibug/24-3.html">Differences between the C Locale and the C++ Locales</a></p></li>
+<li><p>Locales:</p>
+<ul>
+<li><p><a class="reference external" href="https://www.linuxtopia.org/online_books/programming_books/c++_practical_programming/c++_practical_programming_101.html">Thinking in C++: Locales</a></p></li>
+<li><p><a class="reference external" href="https://stdcxx.apache.org/doc/stdlibug/24-3.html">Differences between the C Locale and the C++ Locales</a></p></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
