@@ -404,7 +404,7 @@ int main() {
 </textarea>
 </div>
 </div><div data-component="tab" data-tabname="append()" >
-<p>The <code class="docutils literal notranslate"><span class="pre">append</span></code> function allows you to append 1 character or
+<p>The <code class="docutils literal notranslate"><span class="pre">append</span></code> function allows you to append <em>N</em> copies of a character or
 an array of characters to the end of a string.</p>
 
 <div data-childcomponent="string_append_ac" class="runestone explainer ac_section alert alert-warning">
@@ -423,16 +423,15 @@ int main() {
 
   cout << "original: " << hi   << '\n';
 
-  hi.append(1, ',');   // append 1 comma
-  hi.append(1, ' ');   // append 1 space
-  hi.append("world!");
+  hi.append(5, 'o');   // append 5 o's
+  hi.append(", world!");
   cout << hi << '\n';
 
   cout << "original: " << howdy   << '\n';
 
   // append returns a new string value, so
   // calls to append can be chained together
-  howdy.append(1, ',').append(1, ' ').append("world!");
+  howdy.append(5, 'o').append(", world!");
   cout << howdy << '\n';
 
   return 0;

@@ -219,7 +219,7 @@ that stores no character data.
 
    .. tab:: append()
 
-      The ``append`` function allows you to append 1 character or
+      The ``append`` function allows you to append *N* copies of a character or
       an array of characters to the end of a string.
 
       .. activecode:: string_append_ac
@@ -236,16 +236,15 @@ that stores no character data.
 
            cout << "original: " << hi   << '\n';
 
-           hi.append(1, ',');   // append 1 comma
-           hi.append(1, ' ');   // append 1 space
-           hi.append("world!");
+           hi.append(5, 'o');   // append 5 o's
+           hi.append(", world!");
            cout << hi << '\n';
 
            cout << "original: " << howdy   << '\n';
 
            // append returns a new string value, so
            // calls to append can be chained together
-           howdy.append(1, ',').append(1, ' ').append("world!");
+           howdy.append(5, 'o').append(", world!");
            cout << howdy << '\n';
 
            return 0;
