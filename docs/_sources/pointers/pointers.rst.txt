@@ -496,6 +496,7 @@ From the standard:
 
    .. activecode:: ac-array-index-1
       :language: cpp
+      :nocodelens:
 
       #include <iostream>
       using std::cout;

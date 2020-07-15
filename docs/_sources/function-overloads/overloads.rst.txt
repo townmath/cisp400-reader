@@ -26,6 +26,7 @@ For example:
 
 .. activecode:: ac-overload-1
    :language: cpp
+   :nocodelens:
 
    #include <iostream>
    using std::cout;

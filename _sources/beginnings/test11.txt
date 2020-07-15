@@ -3,6 +3,7 @@ A simple test for a modern C++ compiler:
 .. activecode:: ac_begin_compiler_test
    :language: cpp
    :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+   :nocodelens:
 
    // A simple test for C++11 compiler
    // compiled with: -Wall -Wextra -pedantic -std=c++11

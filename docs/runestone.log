@@ -33,3 +33,33 @@ Aborted!
 172.17.0.1 - - [14/Jul/2020 22:18:54] "GET /runestone/proxy/pytutor_trace?code=%2F%2F%20A%20simple%20test%20for%20C%2B%2B11%20compiler%0A%2F%2F%20compiled%20with%3A%20-Wall%20-Wextra%20-pedantic%20-std%3Dc%2B%2B11%0A%0A%23include%20%3Ciostream%3E%0A%0A%2F%2F%20test%20C%2B%2B11%20features%0Aint%20main%20()%20%7B%0A%20%20int%20data%5B%5D%20%3D%20%7B%201%2C%202%2C%203%2C%205%2C%208%20%7D%3B%20%20%2F%2F%20initializer%20list%20syntax%0A%20%20for%20(auto%20value%3A%20data)%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20for%20each%20value%20in%20data%0A%20%20%7B%0A%20%20%20%20std%3A%3Acout%20%3C%3C%20%22value%20is%20%22%20%3C%3C%20value%20%3C%3C%20%27%5Cn%27%3B%0A%20%20%7D%0A%20%20return%200%3B%0A%7D%0A%0A&lang=cpp HTTP/1.1" 404 -
 
 Aborted!
+172.17.0.1 - - [15/Jul/2020 00:39:12] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:39:12] "GET /_static/pygments.css HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:39:12] "GET /_static/bootstrap-sphinx.css HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:39:12] "GET /_static/basic.css HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:39:12] "GET /_static/documentation_options.js HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:39:12] "GET /_static/language_data.js HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:39:19] "GET /algorithms/index.html HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:39:19] "GET /_images/index-1.png HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:39:22] "GET /algorithms/model.html HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:39:22] "GET /_images/graphviz-f08ee1f4b96727f1d523a8bcb76bd1f8285a4290.png HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:39:22] code 404, message File not found
+172.17.0.1 - - [15/Jul/2020 00:39:22] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+
+Aborted!
+172.17.0.1 - - [15/Jul/2020 00:41:24] "GET /algorithms/model.html HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:41:24] "GET /_static/basic.css HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:41:24] "GET /_static/pygments.css HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:41:24] "GET /_static/documentation_options.js HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:41:24] "GET /_static/bootstrap-sphinx.css HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:41:24] "GET /_static/language_data.js HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:42:04] "GET /algorithms/refactor.html HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:42:04] "GET /_static/pygments.css HTTP/1.1" 304 -
+172.17.0.1 - - [15/Jul/2020 00:42:04] "GET /_static/documentation_options.js HTTP/1.1" 304 -
+172.17.0.1 - - [15/Jul/2020 00:42:04] "GET /_static/basic.css HTTP/1.1" 304 -
+172.17.0.1 - - [15/Jul/2020 00:42:04] "GET /_static/bootstrap-sphinx.css HTTP/1.1" 304 -
+172.17.0.1 - - [15/Jul/2020 00:42:04] "GET /_static/language_data.js HTTP/1.1" 304 -
+172.17.0.1 - - [15/Jul/2020 00:42:04] code 404, message File not found
+172.17.0.1 - - [15/Jul/2020 00:42:04] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+
+Aborted!

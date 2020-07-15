@@ -1,6 +1,7 @@
 .. activecode:: ac-class-construct-ex3
    :language: cpp
    :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+   :nocodelens:
 
    #include <cstdio>
    #include <string>

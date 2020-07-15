@@ -309,6 +309,7 @@ B’s constructor is called before A’s constructor.
 .. activecode:: ac_mult_inherit_ex1
    :language: cpp
    :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+   :nocodelens:
 
    #include<iostream> 
    using std::cout; 
@@ -380,6 +381,7 @@ For example:
 .. activecode:: ac_mult_inherit_ex2
    :language: cpp
    :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+   :nocodelens:
 
    #include<iostream> 
    #include<string> 

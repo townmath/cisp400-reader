@@ -353,7 +353,7 @@ Position information is expressed using iterators.</p>
 <div data-childcomponent="ac_iterator_insert" class="runestone explainer ac_section alert alert-warning">
 
 <textarea data-component="activecode" id=ac_iterator_insert data-lang="cpp" 
-      data-timelimit=25000  data-codelens="true"   
+      data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
 #include <iostream>
@@ -408,7 +408,7 @@ int main () {
 </pre></div>
 </div>
 <p>or erase a range of adjacent elements:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="mi">5</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 <p>or erase other elements:</p>
@@ -419,7 +419,6 @@ int main () {
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
     <span class="o">++</span><span class="n">it</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">}</span>
 </pre></div>
 </div>
 <p>Things to note about the last erase example:</p>
@@ -437,7 +436,7 @@ in the container.</p>
 <div data-childcomponent="ac_iterator_erase" class="runestone explainer ac_section alert alert-warning">
 
 <textarea data-component="activecode" id=ac_iterator_erase data-lang="cpp" 
-      data-timelimit=25000  data-codelens="true"   
+      data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
 #include <vector>

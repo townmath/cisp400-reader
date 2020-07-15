@@ -1,6 +1,7 @@
 .. activecode:: ac-algorithm-std-find
    :language: cpp
    :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+   :nocodelens:
 
    #include <algorithm>
    #include <iostream>

@@ -27,6 +27,7 @@ These two overloads each add their parameters, only on different types:
 
 .. activecode:: ac-sum-without-templates
    :language: cpp
+   :nocodelens:
 
    #include <iostream>
 

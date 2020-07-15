@@ -167,6 +167,7 @@ insert
       .. activecode:: ac_iterator_insert
          :language: cpp
          :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+         :nocodelens:
 
          #include <iostream>
          #include <vector>

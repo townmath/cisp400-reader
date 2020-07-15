@@ -1,5 +1,6 @@
 .. activecode:: ac_one_comp_1
    :language: cpp
+   :nocodelens:
 
    #include <bitset>
    #include <iostream>

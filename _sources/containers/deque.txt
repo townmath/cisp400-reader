@@ -2,6 +2,7 @@
    :language: cpp
    :caption: Basic std::deque usage
    :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+   :nocodelens:
 
    #include <iostream>
    #include <deque>

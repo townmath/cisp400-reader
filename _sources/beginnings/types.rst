@@ -345,6 +345,7 @@ Overflow occurs when doing arithmetic operations.
       .. activecode:: ac_types_2
          :language: cpp
          :compileargs: ['-Wall', '-Wextra', '-pedantic', '-Wno-overflow', '-std=c++11']
+         :nocodelens:
 
          #include <iostream>
          #include <cstdint>
@@ -496,6 +497,7 @@ they cannot appear on the left hand side of an assignment operator
 
       .. activecode:: types_ac_3
          :language: cpp
+         :nocodelens:
 
          #include <iostream>
 
@@ -593,6 +595,7 @@ Later on, we will cover techniques that improve on iterating through data even m
 
    .. activecode:: ac-size-type-1
       :language: cpp
+      :nocodelens:
 
       #include <iostream>
       #include <string>
@@ -696,6 +699,7 @@ your understanding of the concepts discussed so far.
    .. activecode:: types_ac1
       :language: cpp
       :compileargs: ['-Wall', '-Wextra' '-std=c++11']
+      :nocodelens:
 
       Fix all the errors in the code below:
 

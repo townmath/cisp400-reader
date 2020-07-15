@@ -1,6 +1,7 @@
 .. activecode:: ac-algorithm-refactor-sum
    :language: cpp
    :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+   :nocodelens:
 
    #include <iostream>
    #include <list>

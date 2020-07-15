@@ -58,6 +58,7 @@ you should be able to answer these questions.
 .. activecode:: begin_ac1
    :language: cpp
    :compileargs: ['-Wall', '-std=c++11']
+   :nocodelens:
  
    Fix this program so that it compiles.
 
@@ -101,6 +102,7 @@ you should be able to answer these questions.
 .. activecode:: begin_ac2
    :language: cpp
    :compileargs: ['-Wall', '-std=c++11']
+   :nocodelens:
 
    Write a program that accumulates the sum of the 
    numbers 1 - 10 and prints the result.
@@ -156,6 +158,7 @@ you should be able to answer these questions.
    :language: cpp
    :compileargs: ['-Wall', '-std=c++11']
    :caption: Write a program that prints your name
+   :nocodelens:
 
    Write a program that stores your name in a local variable and then prints it.
 

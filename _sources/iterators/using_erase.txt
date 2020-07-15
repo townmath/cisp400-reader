@@ -1,6 +1,7 @@
 .. activecode:: ac_iterator_erase
    :language: cpp
    :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+   :nocodelens:
 
    #include <vector>
    #include <iostream>

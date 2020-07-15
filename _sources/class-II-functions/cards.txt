@@ -1,6 +1,7 @@
 .. activecode:: ac-class-enum-cards-ex1
    :language: cpp
    :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+   :nocodelens:
 
    #include <array>
    #include <iostream>

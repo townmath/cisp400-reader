@@ -801,7 +801,11 @@ the default container underlying <code class="docutils literal notranslate"><spa
 45
 46
 47
-48</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+48
+49
+50</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">:</span><span class="nl">nocodelens</span><span class="p">:</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;deque&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
@@ -856,7 +860,7 @@ the default container underlying <code class="docutils literal notranslate"><spa
 <div data-childcomponent="ac-container-deque-example" class="runestone explainer ac_section alert alert-warning">
 
 <textarea data-component="activecode" id=ac-container-deque-example data-lang="cpp" 
-      data-timelimit=25000  data-codelens="true"   
+      data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"     data-caption='Basic std::deque usage'  data-wasm=/_static>
 #include <iostream>
@@ -978,7 +982,7 @@ the string must be a palindrome.</p>
 <div data-childcomponent="ac-container-deque-palindrome" class="runestone explainer ac_section alert alert-warning">
 
 <textarea data-component="activecode" id=ac-container-deque-palindrome data-lang="cpp" 
-      data-timelimit=25000  data-codelens="true"   
+      data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"     data-caption='Palindrome checker using std::deque'  data-wasm=/_static>
 #include <iostream>
@@ -1022,19 +1026,23 @@ palindrome or not, it’s far from the simplest or most efficient
 solution tot he the problem.
 Simply checking the string characters directly is better:</p>
 <div id='is_palindrome' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Is Palindrome" >
-<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">:</span><span class="nl">nocodelens</span><span class="p">:</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
-<span class="kt">bool</span> <span class="nf">is_palindrome</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">bool</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
  <span class="k">return</span> <span class="n">equal</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> 
               <span class="n">value</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">value</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> 
               <span class="n">value</span><span class="p">.</span><span class="n">rbegin</span><span class="p">());</span>
@@ -1056,7 +1064,7 @@ step closer to the begining.</p>
 <div data-childcomponent="ac-container-equal-palindrome" class="runestone explainer ac_section alert alert-warning">
 
 <textarea data-component="activecode" id=ac-container-equal-palindrome data-lang="cpp" 
-      data-timelimit=25000  data-codelens="true"   
+      data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"     data-caption='Palindrome checker using std::equal'  data-wasm=/_static>
 #include <algorithm>

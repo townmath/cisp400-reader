@@ -287,6 +287,7 @@ Additionally, shadowing names in the standard namespace can lead to unexpected b
 
       .. activecode:: ac-namespace-1
          :language: cpp
+         :nocodelens:
 
          #include <iostream>
 

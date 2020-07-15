@@ -48,6 +48,7 @@ for example:
       .. activecode:: hello_world_rangefor_ac
          :language: cpp
          :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+         :nocodelens:
 
          // compiled with: -std=c++11
  

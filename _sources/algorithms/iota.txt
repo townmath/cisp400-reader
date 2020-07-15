@@ -1,6 +1,7 @@
 .. activecode:: ac-algorithm-iota
    :language: cpp
    :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+   :nocodelens:
 
    #include <iomanip>
    #include <iostream>

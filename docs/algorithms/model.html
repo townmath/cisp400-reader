@@ -264,7 +264,7 @@ of a specific type to our find function.</p>
 <div data-childcomponent="ac-algorithm-my-find" class="runestone explainer ac_section alert alert-warning">
 
 <textarea data-component="activecode" id=ac-algorithm-my-find data-lang="cpp" 
-      data-timelimit=25000  data-codelens="true"   
+      data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
 #include <algorithm>
@@ -316,7 +316,9 @@ a generic type and uses iterators.</p>
 <li><p>Make the value type generic</p></li>
 </ul>
 <div id='std_find' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Example" >
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// function to find &#39;x&#39; between first and last</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+
+<span class="c1">// function to find &#39;x&#39; between first and last</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIt</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
 <span class="c1">// requires: InputIt is Convertible to T when dereferenced</span>
 <span class="c1">//        &amp;&amp; InputIt is EqualityComparable</span>
@@ -326,7 +328,6 @@ a generic type and uses iterators.</p>
   <span class="k">for</span> <span class="p">(;</span> <span class="n">first</span> <span class="o">!=</span> <span class="n">last</span><span class="p">;</span> <span class="o">++</span><span class="n">first</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">first</span> <span class="o">==</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">first</span><span class="p">;</span>
-    <span class="p">}</span>
 </pre></div>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
@@ -336,7 +337,7 @@ a generic type and uses iterators.</p>
 <div data-childcomponent="ac-algorithm-std-find" class="runestone explainer ac_section alert alert-warning">
 
 <textarea data-component="activecode" id=ac-algorithm-std-find data-lang="cpp" 
-      data-timelimit=25000  data-codelens="true"   
+      data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
 #include <algorithm>

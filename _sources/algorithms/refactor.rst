@@ -95,7 +95,7 @@ We need several generic operations on **data**:
 
       .. literalinclude:: refactor.txt
          :language: cpp
-         :lines: 9-13
+         :lines: 10-14
          :dedent: 3
 
       The main loop checks whether we should continue
@@ -103,7 +103,7 @@ We need several generic operations on **data**:
 
       .. literalinclude:: refactor.txt
          :language: cpp
-         :lines: 14-17
+         :lines: 15-18
          :dedent: 5
 
    .. tab:: Run It
