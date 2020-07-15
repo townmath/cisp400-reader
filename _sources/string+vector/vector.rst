@@ -149,7 +149,6 @@ A container capable of storing 4 integers is created:
      edge [color=black];
      struct:f0:s -> values:f0;
      labels:f4 -> values:f3;
-     labels:f5 -> values:f5;
      {rank=same; struct,labels};
    }
 
@@ -375,7 +374,7 @@ or just *capacity*.
      ]
      node [shape=record, color=black, fontcolor=black, fillcolor=white, width=3.75, fixedsize=true];
      labels [label="<f0> | <f4> size | <f5> spare\ncapacity ", color=white];
-     values [label="<f0> v[0] = 1 | <f1> v[1] = 1 | <f2> v[2] = 1 | <f3> v[3] = 1 | | <f5> ", 
+     values [label="<f0> v[0]\n= 1 | <f1> v[1]\n= 1 | <f2> v[2]\n= 1 | <f3> v[3]\n= 1 |     | <f5>   ", 
              color=black, fillcolor=lightblue, style=filled];
      edge [color=black];
      struct:f0:s -> values:f0;
