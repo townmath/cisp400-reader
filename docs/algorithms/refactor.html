@@ -389,7 +389,7 @@ a call to a provided binary operator:</p>
 <p>This <em>could</em> be addition: <code class="docutils literal notranslate"><span class="pre">operator+</span></code>, but can now support
 any binary operation that the type <code class="docutils literal notranslate"><span class="pre">T</span></code> supports.</p>
 <p>A default operation can be provided with a supporting template
-that calls accumulate with <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::plus">std::plus</a>.</p>
+that calls accumulate with <a class="reference external" href="https://en.cppreference.com/w/cpp/utility/functional/plus">plus</a>.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">InputIt</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
 <span class="n">T</span> <span class="n">accumulate</span> <span class="p">(</span><span class="n">InputIt</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIt</span> <span class="n">last</span><span class="p">,</span> <span class="n">T</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="n">accumulate</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">plus</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">());</span>
@@ -455,10 +455,10 @@ The symbol <code class="docutils literal notranslate"><span class="pre">+</span>
 <p>The parameter passed through <code class="docutils literal notranslate"><span class="pre">BinaryOp</span> <span class="pre">op</span></code> <strong>must</strong> be a valid <a class="reference internal" href="../glossary.html#term-type"><span class="xref std std-term">type</span></a>.</p>
 <p>A function <em>can</em> take a pointer or a type as a parameter.
 Function objects passed as parameters must satisfy the requirements
-of <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::function">std::function</a>.
+of <a class="reference external" href="https://en.cppreference.com/w/cpp/utility/functional/function">function</a>.
 Lambda expressions, function objects, and functions pointers are all acceptable.
 The STL has a large collection of
-<cite>operator types that can be passed to functions &lt;https://en.cppreference.com/w/cpp/utility/functional&gt;</cite>.</p>
+<a class="reference external" href="https://en.cppreference.com/w/cpp/utility/functional">operator types that can be passed to functions</a>.</p>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>

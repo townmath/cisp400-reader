@@ -249,9 +249,10 @@ the abstract idea of a string is implemented with an array of characters.</p>
 <span class="kt">char</span><span class="o">*</span> <span class="n">c</span> <span class="o">=</span> <span class="s">&quot;hello&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Arrays of <code class="docutils literal notranslate"><span class="pre">char</span></code> that are null terminated are commonly called <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=C strings">C strings</a>.
+<p>Arrays of <code class="docutils literal notranslate"><span class="pre">char</span></code> that are null terminated are commonly called
+<a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/c_str">C strings</a>.
 Given the C string:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="p">[]</span> <span class="n">howdy</span> <span class="o">=</span> <span class="s">&quot;hi there!&quot;</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">howdy</span> <span class="o">=</span> <span class="s">&quot;hi there!&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p id="index-1">In memory, <code class="docutils literal notranslate"><span class="pre">howdy</span></code> is automatically transformed into:</p>
@@ -286,7 +287,7 @@ Forgetting to account for null,
 or having a ‘off by one error’ is one of the most
 common mistakes when working with C strings.</p>
 </div>
-<p id="index-2">A C string may allocate more memory that the characters currently stored in it.
+<p id="index-2">A character array may allocate more memory that the characters currently stored in it.
 An array declaration like this:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">hi</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span><span class="p">;</span>
 </pre></div>
@@ -310,14 +311,6 @@ An array declaration like this:</p>
 }" class="graphviz" /></div>
 <p>The array elements after the null are unused, but could be.
 So, an array of size 10 has space for 4 more characters, 9 total.</p>
-<p>A key limitation of C strings is that because they are arrays,
-you must declare in advance how many characters the string will hold.
-The compiler will always statically determine the size,
-even if an explicit size is not provided.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="p">[]</span> <span class="n">hi</span>     <span class="o">=</span> <span class="s">&quot;Hello&quot;</span><span class="p">;</span>  <span class="c1">// size 6</span>
-<span class="kt">char</span>   <span class="n">hi</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span><span class="p">;</span>  <span class="c1">// size 10</span>
-</pre></div>
-</div>
 <p>C strings have an advantage of being extremely lightweight and simple.
 Their main disadvantage is that they are too simple for many applications.
 Their simplicity makes them a pain to work with,
@@ -479,7 +472,7 @@ You can use the function <a class="reference external" href="https://en.cpprefer
 The <code class="docutils literal notranslate"><span class="pre">at</span></code> function is range checked.
 While there is a cost associated with this check,
 if the index provided is out of range,
-then an <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::out_of_range">std::out_of_range</a> exception is thrown,
+then an <a class="reference external" href="https://en.cppreference.com/w/cpp/error/out_of_range">std::out_of_range exception</a> is thrown,
 which must be caught,
 otherwise the program will terminate.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
