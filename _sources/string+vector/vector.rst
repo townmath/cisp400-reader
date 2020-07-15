@@ -35,39 +35,83 @@ Some downsides to arrays are that they:
 
 The ``vector`` class solves these problems for us and a few others besides.
 Declaring a ``vector`` is quite similar to the ``string`` declarations
-from the previous section, with one minor addition:
+from the previous section.
+In order to access the STL vector capabilities,
+use ``#include <vector>``.
 
-.. code-block:: cpp
+.. tabbed:: tab_vector_declare
 
-   #include <string>        // access std::string functions
-   #include <vector>        // access std::vector functions
-   
-   using std::vector;       // just use 'vector' for type std::vector 
+   .. tab:: Declare
 
-   int main() {
-     vector<int> x;                          // empty vector of int
+      To properly declare a vector,
+      the *type* of data stored in the vector
+      must be declared as a type parameter.
 
-     vector<std::string> two_exes (2, "x");  // "x", "x"
+      The ``<int>`` and ``<std::string>`` represent the *template parameters*
+      passed to the ``vector``.
+      It is these template parameters that allow the vector class to serve
+      as a container for (almost) any type.
+      There are some limits we will cover later,
+      but for now, know that any normal type you already have learned about
+      can be stored in a vector.
 
-     vector<int> pi_digits = {3,1,4,1,5,9};  // C++11 
-     return 0;
-   }
+      .. code-block:: cpp
 
-When a ``vector`` is created, you must declare what type
-of data the vector can store.
-The ``<int>`` and ``<std::string>`` represent the *template parameters*
-passed to the ``vector``.
-It is these template parameters that allow the vector class to serve
-as a container for (almost) any type.
-There are some limits we will cover later,
-but for now, know that any normal type you already have learned about
-can be stored in a vector.
+         // an empty vector of int
+         vector<int> x;
 
-Unlike a fundamental type, the declaration ``vector<int> x;`` does **not** create 
-an uninitialized variable.
-It creates a fully formed vector with no elements stored in it yet.
-This is perfectly OK and normal.
+         // initialize and store: "x", "x"
+         vector<std::string> dos_equis (2, "x");
 
+         // C++11 initialization list syntax
+         vector<int> pi_digits = {3,1,4,1,5,9};
+
+      Unlike a fundamental type,
+      the declaration ``vector<int> x;`` does **not** create 
+      an uninitialized variable.
+      It creates a fully formed vector with no elements stored in it yet.
+      This is perfectly OK and normal.
+
+
+      However, a common error is to forget to include the template parameter:
+
+      .. code-block:: cpp
+
+         vector x;        // compile error
+
+   .. tab:: Run It
+
+      .. activecode:: vector_declare_simple_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
+         :nocodelens:
+
+         #include <iostream>
+         #include <string>
+         #include <vector>
+         
+         using std::vector;       // alias type std::vector
+
+         int main() {
+           vector<int> x;                          // empty vector of int
+
+           for (const auto& value: x)
+           {
+             std::cout << value << ',';
+           }
+           std::cout << '\n';
+
+           vector<std::string> dos_equis (2, "x");  // "x", "x"
+
+           vector<int> pi_digits = {3,1,4,1,5,9};  // C++11 
+           for (const auto& value: pi_digits)
+           {
+             std::cout << value << ',';
+           }
+           std::cout << '\n';
+
+           return 0;
+         }
 
 .. index:: 
    pair: graph; vector
@@ -77,6 +121,8 @@ Given a vector declared as:
 .. code-block:: cpp
 
    std::vector<int> v(4);
+
+A container capable of storing 4 integers is created:
 
 .. graphviz:: 
 
@@ -96,12 +142,10 @@ Given a vector declared as:
      struct [
         label = "{4 | <f0> }";
      ]
-
      node [shape=record, color=black, fontcolor=black, fillcolor=white, width=3.75, fixedsize=true];
-     labels [label="<f0> | <f4> size | <f5> spare\ncapacity ", color=white];
-     values [label="<f0> v[0] | <f1> v[1] | <f2> v[2] | <f3> v[3] | | <f5> ", 
+     labels [label="<f0> | <f4> size", color=white];
+     values [label="<f0> v[0] | <f1> v[1] | <f2> v[2] | <f3> v[3]", 
              color=black, fillcolor=lightblue, style=filled];
-
      edge [color=black];
      struct:f0:s -> values:f0;
      labels:f4 -> values:f3;
@@ -117,34 +161,82 @@ Explicitly initialize with a default value, if that is what you want:
 
    std::vector<int> v(4, -1);
 
+
+.. index:: 
+   pair: vector functions; operator=
+   pair: vector functions; operator[]
+   pair: vector functions; at
+   pair: vector functions; operator+=
+   pair: vector functions; operator==
+
 A vector comes with a rich assortment of convenience functions.
-Like an array, the :cref:`vector::operator[]` can be used to access elements
+Like an array, the :vector:`operator[] <operator_at>` can be used to access elements
 without bounds checking.
-Like a string, the :cref:`vector::at()` function provides bounds checking
-and will throw an exception if an out of bounds index is used on the ``vector``.
+Like a string, the :vector:`at <operator_at>` function provides bounds checking
+and will throw a :error:`std::out_of_range exception <out_of_range>` if an out of bounds index is used on the ``vector``.
 
-.. code-block:: cpp
+.. tabbed:: tab_vector_simple_ops
 
-   #include <vector>
-   #include <iostream>
-     
-   int main() {
-     std::vector<int> numbers {2, 4, 6, 8};
-     
-     std::cout << "Size: " << numbers.size() << '\n';
-     std::cout << "Second element: " << numbers[1] << '\n';
-     
-     numbers.at(0) = 5;
-     numbers.at(4) = numbers[3] + 2;  // out of range error. 
-                                      // index 4 is out of bounds
-     
-     std::cout << "All numbers:";
-     for (auto i : numbers) {
-       std::cout << ' ' << i;
-     }
-     std::cout << '\n';
-     return 0;
-   }
+   .. tab:: Access operations
+
+      Like arrays, indexes are zero-based.
+
+      .. code-block:: cpp
+
+         // read vector elements
+         std::cout << "First element: " << numbers[0];
+         std::cout << "First element: " << numbers.at(0);
+
+         // write vector elements
+         numbers[0] = 5;
+         numbers.at(0) = 5;
+
+      A common source of error occurs when printing
+      a vector.
+      A vector feels like a built-in type and
+      this seems like it should work:
+
+      .. code-block:: cpp
+
+         // compile error
+         std::cout << "all numbers: " << numbers;
+
+      The vector type does not 'know' how to send it's
+      values to an output stream by default.
+
+      .. admonition:: Something to consider
+
+         Why do you think this feature is not built into
+         the standard library?
+
+
+   .. tab:: Run It
+
+      .. activecode:: vector_access_operator_ac1
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
+         :nocodelens:
+
+
+         #include <iostream>
+         #include <vector>
+           
+         int main() {
+           std::vector<int> numbers {2, 4, 6, 8};
+           std::cout << "Size: " << numbers.size() << '\n';
+           std::cout << "Second element: " << numbers[1] << '\n';
+           
+           numbers.at(0) = 5;
+           numbers.at(4) = numbers[3] + 2;  // out of range error. 
+                                            // index 4 is out of bounds
+
+           std::cout << "All numbers:";
+           for (const auto& num : numbers) {
+             std::cout << ' ' << num;
+           }
+           std::cout << '\n';
+           return 0;
+         }
 
 .. admonition:: Something to consider
 
@@ -154,40 +246,66 @@ and will throw an exception if an out of bounds index is used on the ``vector``.
    Why did the developers of the STL decide it was important to include both?
 
 Comparisons between vectors are also automatically handled by the class.
-In the case of a vector, :cref:`vector::operator==`, 
-or equality comparison between two vectors ``a`` and ``b``,
+In the case of a vector, 
+:vector:`operator== <operator_cmp>`,
+or an equality comparison between two vectors ``a`` and ``b``,
 means the two vectors are equal if ``a.size() == b.size()``
 and each element in ``a`` compares equal with each element in ``b``
 in the same position in the vector.
 
-.. code-block:: cpp
+.. activecode:: string_operator_equal_assign_ac
+   :language: cpp
+   :compileargs: ['-Wall', '-Wextra', '-std=c++11']
+   :nocodelens:
+
 
    #include <vector>
    #include <iostream>
      
    int main() {
      std::vector<int> x {2, 4, 6, 8};
-     std::vector<int> y {2, 6, 4, 8};
+     std::vector<int> y;
      
      if (x == y) {
        std::cout << "x and y are equal\n";
      } else {
-       std::cout << "x and y are equal\n";
+       std::cout << "x and y differ\n";
      }
+
+     y = x;          // copy all data from x into y
+     if (x == y) {
+       std::cout << "x and y are equal\n";
+     } else {
+       std::cout << "x and y differ\n";
+     }
+
      return 0;
    }
 
 
 .. admonition:: Try This!
 
-   Create two int arrays containing ``{2, 4, 6, 8}`` and check them for equality.
+   Create two vectors of strings containing 
+   the same values and check them for equality.
+
+   .. activecode:: string_operator_equal_assign_ac
+      :language: cpp
+      :compileargs: ['-Wall', '-Wextra', 'pedantic', '-std=c++11']
+      :nocodelens:
+
+      #include <iostream>
+
+      int main() {
+      }
+
 
 
 Adding data to a vector
 -----------------------
-How do we solve the :cref:`std::out_of_range` exception from a few examples ago?
+How do we solve the :error:`out_of_range` exception from a few examples ago?
 How do we dynamically add data to a ``vector``?
-A simple way is to use the :cref:`vector::push_back()` function.
+
+A simple way is to use the :vector:`push_back` function.
 
 .. code-block:: cpp
 
@@ -205,7 +323,7 @@ A simple way is to use the :cref:`vector::push_back()` function.
                              //  - removes the end element from the vector
 
      std::cout << "All letters:";
-     for (auto c : letters) {
+     for (const auto& c : letters) {
        std::cout << ' ' << c;
      }
      std::cout << '\n';
@@ -213,6 +331,61 @@ A simple way is to use the :cref:`vector::push_back()` function.
      return 0;
    }
 
+.. index:: 
+   pair: vector functions; capacity
+
+A vector exposes an interface that 'feels like' an array,
+but the underlying storage grows to accomodate new data
+as required.
+With an array, you either have to allocate as much memory
+as you *might* need in the worst case,
+even if only a small fraction is used most of the time
+or you allocate 'just enough' and when more memory
+is required, copy all the data into a new array.
+A vector does do this also, but the implementation is
+hidden and you don't have to worry about it.
+
+Something to be aware of - 
+when ``pop_back`` is called,
+no actual storage is deleted.
+The memory is still available in the vector
+and available for reassignment with ``pop_back``.
+
+This extra memory after the current size is referred to
+as the *total capacity* of the vector,
+or just *capacity*.
+
+.. graphviz:: 
+
+   digraph {
+   node [
+        fontname = "Courier"
+        fontsize = 14
+        shape = "record"
+        style=filled
+        fillcolor=lightblue
+     ]
+     names [ 
+        color = white;
+        fillcolor=white;
+        label = "{size: | <f0> data: }";
+     ]
+     struct [
+        label = "{4 | <f0> }";
+     ]
+     node [shape=record, color=black, fontcolor=black, fillcolor=white, width=3.75, fixedsize=true];
+     labels [label="<f0> | <f4> size | <f5> spare\ncapacity ", color=white];
+     values [label="<f0> v[0] = 1 | <f1> v[1] = 1 | <f2> v[2] = 1 | <f3> v[3] = 1 | | <f5> ", 
+             color=black, fillcolor=lightblue, style=filled];
+     edge [color=black];
+     struct:f0:s -> values:f0;
+     labels:f4 -> values:f3;
+     labels:f5 -> values:f5;
+     {rank=same; struct,labels};
+   }
+
+Managing the storage capacity in addition to the 
+vector data is one of the things that make vectors efficient.
 
 -----
 
