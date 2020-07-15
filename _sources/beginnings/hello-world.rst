@@ -162,6 +162,7 @@ but the old C functions are still there if you need them.
       .. activecode:: hello_world_ac
          :language: cpp
          :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+         :nocodelens:
 
          #include <iostream>
 
@@ -214,6 +215,7 @@ For example:
       .. activecode:: hello_world_narrowing_ac
          :language: cpp
          :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+         :nocodelens:
 
          #include <iostream>
 
@@ -297,6 +299,7 @@ Using ``cin`` to access user data:
 .. activecode:: hello_world_cin_ac
    :language: cpp
    :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+   :nocodelens:
    :stdin: Alice
 
    #include <iostream>

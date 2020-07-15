@@ -63,3 +63,17 @@ Aborted!
 172.17.0.1 - - [15/Jul/2020 00:42:04] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
 
 Aborted!
+172.17.0.1 - - [15/Jul/2020 00:44:00] "GET /algorithms/refactor.html HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:44:00] "GET /_static/pygments.css HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:44:00] "GET /_static/basic.css HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:44:00] "GET /_static/documentation_options.js HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:44:00] "GET /_static/language_data.js HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:44:00] "GET /_static/bootstrap-sphinx.css HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:44:34] "GET /index.html HTTP/1.1" 200 -
+172.17.0.1 - - [15/Jul/2020 00:44:34] "GET /_static/basic.css HTTP/1.1" 304 -
+172.17.0.1 - - [15/Jul/2020 00:44:34] "GET /_static/pygments.css HTTP/1.1" 304 -
+172.17.0.1 - - [15/Jul/2020 00:44:34] "GET /_static/documentation_options.js HTTP/1.1" 304 -
+172.17.0.1 - - [15/Jul/2020 00:44:34] "GET /_static/language_data.js HTTP/1.1" 304 -
+172.17.0.1 - - [15/Jul/2020 00:44:34] "GET /_static/bootstrap-sphinx.css HTTP/1.1" 304 -
+
+Aborted!
