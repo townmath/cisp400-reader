@@ -151,7 +151,7 @@ to pass in a function pointer (or equivalent).
       any binary operation that the type ``T`` supports.
 
       A default operation can be provided with a supporting template
-      that calls accumulate with :cref:`std::plus`.
+      that calls accumulate with :functional:`plus`.
 
       .. literalinclude:: accumulate.txt
          :language: cpp
@@ -175,11 +175,10 @@ The parameter passed through ``BinaryOp op`` **must** be a valid :term:`type`.
 
 A function *can* take a pointer or a type as a parameter.
 Function objects passed as parameters must satisfy the requirements 
-of :cref:`std::function`.
+of :functional:`function`.
 Lambda expressions, function objects, and functions pointers are all acceptable.
 The STL has a large collection of 
-`operator types that can be passed to functions <https://en.cppreference.com/w/cpp/utility/functional>`.
-
+:utility:`operator types that can be passed to functions <functional>`.
 
 
 -----

@@ -17,12 +17,12 @@ functions for user defined types.
 **Case 1**
 
 Operator overloads are *required* for some containers in the STL.
-Notably :cref:`std::set`,
+Notably :container:`set`,
 which requires any type used in a set overloads ``operator<``,
 or the operator defined for the set if a custom comparison
 function is defined.
-Similarly, :cref:`std::map` requires ``operator<``
-and :cref:`std::unordered_map` requires both that and ``operator==``.
+Similarly, :container:`map` requires ``operator<``
+and :container:`unordered_map` requires both that and ``operator==``.
 
 Classes that do not overload these comparison operators
 can't be used in these containers.
@@ -214,7 +214,8 @@ they inherit from C,
 have become more prevalent as formatted stream operators in C++.
 
 The overloads of ``operator >>`` and ``operator <<`` that take a 
-:cref:`std::istream` & or :cref:`std::ostream` & as the left hand argument
+:io:`std::istream <basic_istream>` reference or 
+:io:`std::ostream <basic_ostream>` reference as the left hand argument
 are known as insertion and extraction operators. 
 
 Since these operators change their left argument (they alter the stream), 
@@ -283,9 +284,10 @@ Function call operator
 When a user-defined class overloads the function call operator, 
 ``operator()``, it becomes a FunctionObject type.
 A function object is a class that can be called as if it was a function.
-Many standard algorithms, from :cref:`std::sort`` to :cref:`std::accumulate`
+Many standard algorithms, from :algorithm:`sort`` to :algorithm:`accumulate`
 accept objects of such types to customize behavior. 
-Prior to C++11 with :cref:`std::function` and lambda expressions,
+Prior to the C++11 additions of
+:functional:`function` and lambda expressions,
 function objects were an important way to pass functions to algorithms.
 
 There are no particularly notable canonical forms of ``operator()``,
@@ -315,7 +317,7 @@ subject to the other rules of function overloading.
 Relational operators
 --------------------
 Standard algorithms such as std::sort and containers such as 
-:cref:`std::set` expect ``operator <`` to be defined, by default, 
+:container:`set` expect ``operator <`` to be defined, by default, 
 for the user-provided types, and expect it to implement strict 
 :cref:`std::weak_ordering`.
 Strict weak ordering defines members of a set as *comparable* to each other.
@@ -337,7 +339,7 @@ The general signature for these non-member functions is:
 
 
 An idiomatic way to implement strict weak ordering for a structure is to use 
-lexicographical comparison provided by :cref:`std::tie`:
+lexicographical comparison provided by :utility:`std::tie <tuple/tie>`:
 
 .. code-block:: cpp
 

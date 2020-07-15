@@ -254,7 +254,7 @@ complement representation.
 
    .. tab:: Example: bitset
 
-      A :cref:`std::bitset` is a simple way to see the sequence of
+      A :utility:`bitset` is a simple way to see the sequence of
       ones and zeros for an integral type.
 
       A ``bitset`` is a templated type that must be

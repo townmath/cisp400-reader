@@ -78,7 +78,7 @@ Class, abstract data type, and user-defined type are all synonyms for the same t
 
 Don't let the new terms scare you.
 You have been working with classes since chapter 2.
-The types :cref:`std::string`, and all the sequential and associative containers,
+The types :cpp:`string`, and all the sequential and associative containers,
 are classes.
 When designed correctly,
 a class can be manipulated with the same operations as the built-in types.
