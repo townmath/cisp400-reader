@@ -44,14 +44,17 @@ extlinks = {
         'header': ('https://en.cppreference.com/w/cpp/header/%s', ''),
         'algorithm': ('https://en.cppreference.com/w/cpp/algorithm/%s', ''),
         'container': ('https://en.cppreference.com/w/cpp/container/%s', ''),
+        'error': ('https://en.cppreference.com/w/cpp/error/%s', ''),
         'functional': ('https://en.cppreference.com/w/cpp/utility/functional/%s', ''),
         'io': ('https://en.cppreference.com/w/cpp/io/%s', ''),
         'iterator': ('https://en.cppreference.com/w/cpp/iterator/%s', ''),
+        'keyword': ('https://en.cppreference.com/w/cpp/keyword/%s', ''),
         'lang': ('https://en.cppreference.com/w/cpp/language/%s', ''),
         'cmath': ('https://en.cppreference.com/w/cpp/numeric/math/%s', ''),
         'numeric': ('https://en.cppreference.com/w/cpp/numeric/%s', ''),
         'string': ('https://en.cppreference.com/w/cpp/string/basic_string/%s', ''),
         'utility': ('https://en.cppreference.com/w/cpp/utility/%s', ''),
+        'vector': ('https://en.cppreference.com/w/cpp/container/vector/%s', ''),
         'types': ('https://en.cppreference.com/w/cpp/types/%s', ''),
         'issue': ('https://github.com/sphinx-doc/sphinx/issues/%s', 'issue ')
         }

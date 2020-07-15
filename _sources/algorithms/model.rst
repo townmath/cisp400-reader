@@ -117,7 +117,7 @@ How do we refactor our find function to satisfy our goals?
 
 
       And we can prove to ourselves that we get the same results as
-      :cref:`std::find`.
+      :algorithm:`find`.
 
       .. include:: find.txt
 
@@ -131,7 +131,7 @@ How do we refactor our find function to satisfy our goals?
 
    Does this program still compile?  Explain.
 
-   Rewrite the previous example to use :cref:`std::find`.
+   Rewrite the previous example to use :algorithm:`find`.
 
 
 -----

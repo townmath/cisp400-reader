@@ -7,6 +7,8 @@
     License".
 
 .. index:: std::string vs C strings
+   single: string
+   single: string abstractions
 
 The string class
 ================
@@ -30,12 +32,13 @@ the abstract idea of a string is implemented with an array of characters.
    // a quoted literal is just a special case of a char array
    char* c = "hello";
 
-Arrays of ``char`` that are null terminated are commonly called :cref:`C strings`.
+Arrays of ``char`` that are null terminated are commonly called 
+:string:`C strings <c_str>`.
 Given the C string:
 
 .. code-block:: c
 
-   char[] howdy = "hi there!";
+   const char* howdy = "hi there!";
 
    
 .. index:: 
@@ -80,9 +83,10 @@ and is used to indicate the end of the string.
 
     
 .. index:: 
+   pair: array; character
    pair: graph; c-string
 
-A C string may allocate more memory that the characters currently stored in it.
+A character array may allocate more memory that the characters currently stored in it.
 An array declaration like this:
 
 .. code-block:: c
@@ -112,17 +116,6 @@ results in an in-memory representation like this:
 
 The array elements after the null are unused, but could be.
 So, an array of size 10 has space for 4 more characters, 9 total.
-
-A key limitation of C strings is that because they are arrays,
-you must declare in advance how many characters the string will hold.
-The compiler will always statically determine the size, 
-even if an explicit size is not provided.
-
-.. code-block:: c
-
-   char[] hi     = "Hello";  // size 6
-   char   hi[10] = "Hello";  // size 10
-
 
 C strings have an advantage of being extremely lightweight and simple.
 Their main disadvantage is that they are too simple for many applications.
@@ -290,7 +283,7 @@ You can use the function :string:`at` anywhere ``operator[]`` is allowed.
 The ``at`` function is range checked.
 While there is a cost associated with this check, 
 if the index provided is out of range, 
-then an :cref:`std::out_of_range` exception is thrown,
+then an :error:`std::out_of_range exception <out_of_range>` is thrown,
 which must be caught,
 otherwise the program will terminate.
 
