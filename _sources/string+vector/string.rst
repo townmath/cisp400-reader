@@ -468,7 +468,7 @@ within a string.
 
       .. literalinclude:: find-string.txt
          :language: cpp
-         :lines: 11
+         :lines: 12
          :dedent: 3
 
       defined using the C++14 string literal syntax,
@@ -485,7 +485,7 @@ within a string.
       
       .. literalinclude:: find-string.txt
          :language: cpp
-         :lines: 12-15
+         :lines: 13-16
          :dedent: 3
 
       The position returned by find is a zero-based index
@@ -514,7 +514,7 @@ within a string.
 
       .. literalinclude:: find-string.txt
          :language: cpp
-         :lines: 16, 22
+         :lines: 17, 23
          :dedent: 3
 
       The function returns the position of 'e' in 'Hello world',
