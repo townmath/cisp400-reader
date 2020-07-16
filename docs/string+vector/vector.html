@@ -331,7 +331,7 @@ int main() {
 </pre></div>
 </div>
 <p>A container capable of storing 4 integers is created:</p>
-<div class="graphviz"><img src="../_images/graphviz-50c06386defe9520292bde3c1029efc17d16900e.png" alt="digraph {
+<div class="graphviz"><img src="../_images/graphviz-a50959cf47e344cdfad801f22e33d4ad31ff0973.png" alt="digraph {
 node [
      fontname = &quot;Courier&quot;
      fontsize = 14
@@ -354,7 +354,6 @@ node [
   edge [color=black];
   struct:f0:s -&gt; values:f0;
   labels:f4 -&gt; values:f3;
-  labels:f5 -&gt; values:f5;
   {rank=same; struct,labels};
 }" class="graphviz" /></div>
 <p>Although the <code class="docutils literal notranslate"><span class="pre">vector</span></code> object is initialized, its contents are not.
@@ -440,9 +439,9 @@ means the two vectors are equal if <code class="docutils literal notranslate"><s
 and each element in <code class="docutils literal notranslate"><span class="pre">a</span></code> compares equal with each element in <code class="docutils literal notranslate"><span class="pre">b</span></code>
 in the same position in the vector.</p>
 
-<div data-childcomponent="string_operator_equal_assign_ac" class="runestone explainer ac_section alert alert-warning">
+<div data-childcomponent="vector_operator_equal_assign_ac" class="runestone explainer ac_section alert alert-warning">
 
-<textarea data-component="activecode" id=string_operator_equal_assign_ac data-lang="cpp" 
+<textarea data-component="activecode" id=vector_operator_equal_assign_ac data-lang="cpp" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
@@ -474,6 +473,19 @@ int main() {
 <p class="admonition-title">Try This!</p>
 <p>Create two vectors of strings containing
 the same values and check them for equality.</p>
+
+<div data-childcomponent="vector_operation_string_compare_try_this_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=vector_operation_string_compare_try_this_ac data-lang="cpp" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <iostream>
+
+int main() {
+}
+</textarea>
+</div>
 </div>
 <div class="section" id="adding-data-to-a-vector">
 <h2><span class="section-number">2.3.1. </span>Adding data to a vector<a class="headerlink" href="#adding-data-to-a-vector" title="Permalink to this headline">¶</a></h2>
@@ -521,7 +533,7 @@ and available for reassignment with <code class="docutils literal notranslate"><
 <p>This extra memory after the current size is referred to
 as the <em>total capacity</em> of the vector,
 or just <em>capacity</em>.</p>
-<div class="graphviz"><img src="../_images/graphviz-fa399ce196dd333223f15c5487173bfb9e15ed8f.png" alt="digraph {
+<div class="graphviz"><img src="../_images/graphviz-685fe3c98a50d12f1327cf8fa8457d52c2fd4063.png" alt="digraph {
 node [
      fontname = &quot;Courier&quot;
      fontsize = 14
@@ -539,7 +551,7 @@ node [
   ]
   node [shape=record, color=black, fontcolor=black, fillcolor=white, width=3.75, fixedsize=true];
   labels [label=&quot;&lt;f0&gt; | &lt;f4&gt; size | &lt;f5&gt; spare\ncapacity &quot;, color=white];
-  values [label=&quot;&lt;f0&gt; v[0] = 1 | &lt;f1&gt; v[1] = 1 | &lt;f2&gt; v[2] = 1 | &lt;f3&gt; v[3] = 1 | | &lt;f5&gt; &quot;,
+  values [label=&quot;&lt;f0&gt; v[0]\n= 1 | &lt;f1&gt; v[1]\n= 1 | &lt;f2&gt; v[2]\n= 1 | &lt;f3&gt; v[3]\n= 1 |     | &lt;f5&gt;   &quot;,
           color=black, fillcolor=lightblue, style=filled];
   edge [color=black];
   struct:f0:s -&gt; values:f0;
