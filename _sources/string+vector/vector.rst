@@ -252,7 +252,7 @@ means the two vectors are equal if ``a.size() == b.size()``
 and each element in ``a`` compares equal with each element in ``b``
 in the same position in the vector.
 
-.. activecode:: string_operator_equal_assign_ac
+.. activecode:: vector_operator_equal_assign_ac
    :language: cpp
    :compileargs: ['-Wall', '-Wextra', '-std=c++11']
    :nocodelens:
@@ -287,7 +287,7 @@ in the same position in the vector.
    Create two vectors of strings containing 
    the same values and check them for equality.
 
-   .. activecode:: string_operator_equal_assign_ac
+   .. activecode:: vector_operation_string_compare_try_this_ac
       :language: cpp
       :compileargs: ['-Wall', '-Wextra', 'pedantic', '-std=c++11']
       :nocodelens:
