@@ -253,6 +253,26 @@
 <li class="toctree-l1"><a class="reference internal" href="copy.html">13.4. std::copy and Iterator Adapters</a></li>
 </ul>
 </div>
+
+<div data-childcomponent="sql_demo" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=sql_demo data-lang="sql" 
+      data-timelimit=25000     
+    data-audio=''      
+           data-wasm=/_static>
+select current_date;
+create table map(a_key varchar(32) primary key, value);
+</textarea>
+</div>
+
+<div id="sheet_demo" data-component="spreadsheet" class="runestone"  data-mindimensions=[10,5]  >
+    <div id="sheet_demo_sheet"></div>
+
+    <script>
+        sheet_demo_data = [['fruit', 'cost', 'quantity', 'price'], ['apple', 2.99, 12, '=PRODUCT(B2,C2)'], ['', ''], ['', ''], ['roman', 'value'], ['LIV', '=ARABIC(A6)']];
+        sheet_demo_asserts = "";
+    </script>
+</div>
 <p>a plot</p>
 <p>(<a class="reference external" href="../../_sources/algorithms/index-1.py">Source code</a>, <a class="reference external" href="../../_sources/algorithms/index-1.png">png</a>, <a class="reference external" href="../../_sources/algorithms/index-1.hires.png">hires.png</a>, <a class="reference external" href="../../_sources/algorithms/index-1.pdf">pdf</a>)</p>
 <div class="figure align-default">

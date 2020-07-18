@@ -6,7 +6,8 @@
     the license is included in the section entitled "GNU Free Documentation
     License".
 
-.. index:: std::string vs C strings
+.. index:: std::string vs byte strings
+   pair: byte string; C string
    single: string
    single: string abstractions
 
@@ -33,8 +34,9 @@ the abstract idea of a string is implemented with an array of characters.
    char* c = "hello";
 
 Arrays of ``char`` that are null terminated are commonly called 
+:string:`byte strings </byte>` or
 :string:`C strings <c_str>`.
-Given the C string:
+Given the byte string:
 
 .. code-block:: c
 
@@ -72,7 +74,25 @@ In memory, ``howdy`` is automatically transformed into:
 
 The last character in the array, ``'\0'`` is the *null character*,
 and is used to indicate the end of the string.
+The null character is a  ``char`` equal to 0.
 
+.. activecode:: byte_string_null_ac
+   :language: cpp
+   :compileargs: ['-Wall', '-Wextra', '-std=c++1z']
+   :nocodelens:
+
+   #include <iostream>
+
+   int main () {
+      if (const char null1 = '\0', null2 = 0;             // C++17
+          null1 == null2) {
+           std::cout << "these values are the same\n";
+       } else {
+           std::cout << "not the same\n";
+       }
+   }
+
+      
 .. note::
 
     Care must be taken to ensure that the array is large enough to hold 
@@ -84,7 +104,7 @@ and is used to indicate the end of the string.
     
 .. index:: 
    pair: array; character
-   pair: graph; c-string
+   pair: graph; byte string
 
 A character array may allocate more memory that the characters currently stored in it.
 An array declaration like this:
@@ -146,7 +166,7 @@ Unlike a C string, a ``std::string`` is a full-fledged *object*.
 It knows it's own size, and comes with many convenience functions.
 
 Notice that unlike a built-in variable declaration such as ``int x;``,
-the declaratino ``string x`` is **not** incomplete.
+the declaration ``string x`` is **not** incomplete.
 The variable ``x`` is a complete and valid ``string`` object
 that stores no character data.
 
@@ -296,7 +316,10 @@ otherwise the program will terminate.
    }
 
 
-Remember that a ``std::string`` is **not** a C string.
+Remember that a ``std::string`` is **not** a byte string.
+``std::string`` is a class.
+A decision was made long ago that in order to remain more compatible with
+C, double quited strings should evaluate to byte strings.
 Declarations like this are a common source of confusion for new programmers:
 
 .. code-block:: cpp
@@ -317,21 +340,58 @@ you actually want.
 There are several simple ways to use auto *and* get the type
 deduced to be a ``std::string``.
 
-In C++14, you can simply append a ``s`` to the end of the string literal.
-This identifies the literal as type std::string.
+.. tabbed:: string_auto_deduction
 
-.. code-block:: cpp
+   .. tab:: Example
 
-   auto my_string = "Howdy!"s;    // preferred
+      In C++14, you can simply append an ``s`` to the end of the string literal.
+      This identifies the literal as type std::string.
 
-Alternatively, you can call the string constructor explicitly, which
-works for C++ versions older than C++14.
+      .. code-block:: cpp
 
-.. code-block:: cpp
+         auto my_string = "Howdy!"s;    // preferred
 
-   auto my_string = string("Howdy!");
+      Alternatively, you can call the string constructor explicitly, which
+      works for C++ versions older than C++14.
 
-   auto your_str  = string{"Howdy!"};  // C++11 initialization syntax
+      .. code-block:: cpp
+
+         auto my_string = string("Howdy!");
+
+         auto your_str  = string{"Howdy!"};  // C++11 initialization syntax
+
+   .. tab:: Run It
+
+      .. activecode:: string_auto_deduction_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-std=c++1z']
+         :nocodelens:
+
+         #include <string>
+         #include <iostream>
+         #include <iomanip>  // std::quoted
+          
+         int main()
+         {
+             using namespace std::string_literals;
+             using std::string;
+          
+             auto my_string = "Howdy!"s; 
+             auto howdy2 = string("Howdy!");
+             auto your_str  = string{"Howdy!"};  // C++11 initialization syntax
+             
+             string s1 = "abc\0\0def";
+             string s2 = "abc\0\0def"s;
+             
+             std::cout << "s1: " << s1.size() << ' ' << std::quoted(s1) << '\n';
+             std::cout << "s2: " << s2.size() << ' ' << std::quoted(s2) << '\n';
+         }
+
+      .. note::
+
+         Look carefully at the size values printed for ``s1`` and ``s2``.
+
+         Are those sizes expected? Why or why not?
 
 .. index::
    pair: toupper; locale
@@ -347,7 +407,7 @@ string class.
 Not C++.
 
 C++ uses the legacy :string:`null-terminated byte strings library </byte>` 
-to provide the features.  They are defined in header ``cctypes``.
+to provide these features.  They are defined in header ``cctypes``.
 
 .. tabbed:: cctype_toupper
 
@@ -548,10 +608,10 @@ to a null terminated character array.
    auto my_name = "Alice"s;
 
 
-  printf ("Hello again, %s\n", my_name);       // compile error!
+   printf ("Hello again, %s\n", my_name);       // compile error!
 
-  // the c_str() function converts a string into a c string
-  printf ("Hello again, %s\n", my_name.c_str());
+   // the c_str() function converts a string into a c string
+   printf ("Hello again, %s\n", my_name.c_str());
 
 
 Final words

@@ -250,8 +250,9 @@ the abstract idea of a string is implemented with an array of characters.</p>
 </pre></div>
 </div>
 <p>Arrays of <code class="docutils literal notranslate"><span class="pre">char</span></code> that are null terminated are commonly called
+<a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string//byte">byte strings</a> or
 <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/c_str">C strings</a>.
-Given the C string:</p>
+Given the byte string:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">howdy</span> <span class="o">=</span> <span class="s">&quot;hi there!&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -278,7 +279,27 @@ Given the C string:</p>
 
 }" class="graphviz" /></div>
 <p>The last character in the array, <code class="docutils literal notranslate"><span class="pre">'\0'</span></code> is the <em>null character</em>,
-and is used to indicate the end of the string.</p>
+and is used to indicate the end of the string.
+The null character is a  <code class="docutils literal notranslate"><span class="pre">char</span></code> equal to 0.</p>
+
+<div data-childcomponent="byte_string_null_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=byte_string_null_ac data-lang="cpp" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++1z&#x27;]"       data-wasm=/_static>
+#include <iostream>
+
+int main () {
+   if (const char null1 = '\0', null2 = 0;             // C++17
+       null1 == null2) {
+        std::cout << "these values are the same\n";
+    } else {
+        std::cout << "not the same\n";
+    }
+}
+</textarea>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Care must be taken to ensure that the array is large enough to hold
@@ -336,7 +357,7 @@ which is why the Standard Template Library (STL) contains the <a class="referenc
 <p>Unlike a C string, a <code class="docutils literal notranslate"><span class="pre">std::string</span></code> is a full-fledged <em>object</em>.
 It knows it’s own size, and comes with many convenience functions.</p>
 <p>Notice that unlike a built-in variable declaration such as <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">x;</span></code>,
-the declaratino <code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">x</span></code> is <strong>not</strong> incomplete.
+the declaration <code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">x</span></code> is <strong>not</strong> incomplete.
 The variable <code class="docutils literal notranslate"><span class="pre">x</span></code> is a complete and valid <code class="docutils literal notranslate"><span class="pre">string</span></code> object
 that stores no character data.</p>
 <div id='tab_string_simple' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Simple operations" >
@@ -482,7 +503,10 @@ otherwise the program will terminate.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Remember that a <code class="docutils literal notranslate"><span class="pre">std::string</span></code> is <strong>not</strong> a C string.
+<p>Remember that a <code class="docutils literal notranslate"><span class="pre">std::string</span></code> is <strong>not</strong> a byte string.
+<code class="docutils literal notranslate"><span class="pre">std::string</span></code> is a class.
+A decision was made long ago that in order to remain more compatible with
+C, double quited strings should evaluate to byte strings.
 Declarations like this are a common source of confusion for new programmers:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">my_string</span> <span class="o">=</span> <span class="s">&quot;Howdy!&quot;</span><span class="p">;</span>
 </pre></div>
@@ -498,7 +522,8 @@ Declarations like this are a common source of confusion for new programmers:</p>
 you actually want.
 There are several simple ways to use auto <em>and</em> get the type
 deduced to be a <code class="docutils literal notranslate"><span class="pre">std::string</span></code>.</p>
-<p>In C++14, you can simply append a <code class="docutils literal notranslate"><span class="pre">s</span></code> to the end of the string literal.
+<div id='string_auto_deduction' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Example" >
+<p>In C++14, you can simply append an <code class="docutils literal notranslate"><span class="pre">s</span></code> to the end of the string literal.
 This identifies the literal as type std::string.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">my_string</span> <span class="o">=</span> <span class="s">&quot;Howdy!&quot;</span><span class="n">s</span><span class="p">;</span>    <span class="c1">// preferred</span>
 </pre></div>
@@ -510,6 +535,43 @@ works for C++ versions older than C++14.</p>
 <span class="k">auto</span> <span class="n">your_str</span>  <span class="o">=</span> <span class="n">string</span><span class="p">{</span><span class="s">&quot;Howdy!&quot;</span><span class="p">};</span>  <span class="c1">// C++11 initialization syntax</span>
 </pre></div>
 </div>
+</div><div data-component="tab" data-tabname="Run It" >
+
+<div data-childcomponent="string_auto_deduction_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=string_auto_deduction_ac data-lang="cpp" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++1z&#x27;]"       data-wasm=/_static>
+#include <string>
+#include <iostream>
+#include <iomanip>  // std::quoted
+
+int main()
+{
+    using namespace std::string_literals;
+    using std::string;
+
+    auto my_string = "Howdy!"s;
+    auto howdy2 = string("Howdy!");
+    auto your_str  = string{"Howdy!"};  // C++11 initialization syntax
+
+    string s1 = "abc\0\0def";
+    string s2 = "abc\0\0def"s;
+
+    std::cout << "s1: " << s1.size() << ' ' << std::quoted(s1) << '\n';
+    std::cout << "s2: " << s2.size() << ' ' << std::quoted(s2) << '\n';
+}
+</textarea>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Look carefully at the size values printed for <code class="docutils literal notranslate"><span class="pre">s1</span></code> and <code class="docutils literal notranslate"><span class="pre">s2</span></code>.</p>
+<p>Are those sizes expected? Why or why not?</p>
+</div>
+</div>
+    </div>
+
 <div class="section" id="change-a-character-to-upper-case">
 <span id="index-4"></span><h3><span class="section-number">2.2.2.1. </span>Change a character to upper case<a class="headerlink" href="#change-a-character-to-upper-case" title="Permalink to this headline">¶</a></h3>
 <p>Not every string modification is handled using string member functions.
@@ -519,7 +581,7 @@ Many languages provide utilities to change character case as part of the
 string class.</p>
 <p>Not C++.</p>
 <p>C++ uses the legacy <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string//byte">null-terminated byte strings library</a>
-to provide the features.  They are defined in header <code class="docutils literal notranslate"><span class="pre">cctypes</span></code>.</p>
+to provide these features.  They are defined in header <code class="docutils literal notranslate"><span class="pre">cctypes</span></code>.</p>
 <div id='cctype_toupper' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="toupper()" >
 <p>The <code class="docutils literal notranslate"><span class="pre">std::toupper</span></code> function takes a single <code class="docutils literal notranslate"><span class="pre">char</span></code>,
 which is not modified, and returns an <code class="docutils literal notranslate"><span class="pre">int</span></code>.
@@ -708,7 +770,7 @@ as an indicator of <em>not found</em> by functions that return an index (like fi
 <p>You cannot use <code class="docutils literal notranslate"><span class="pre">std::string</span></code> in a function
 that expects <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char*</span></code> - you must convert it
 to a null terminated character array.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span> <span class="k">auto</span> <span class="n">my_name</span> <span class="o">=</span> <span class="s">&quot;Alice&quot;</span><span class="n">s</span><span class="p">;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">my_name</span> <span class="o">=</span> <span class="s">&quot;Alice&quot;</span><span class="n">s</span><span class="p">;</span>
 
 
 <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;Hello again, %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">my_name</span><span class="p">);</span>       <span class="c1">// compile error!</span>
