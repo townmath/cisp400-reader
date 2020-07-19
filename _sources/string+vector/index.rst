@@ -6,6 +6,7 @@ String and Vector
    :maxdepth: 2
 
    intro.rst
+   byte_string.rst
    string.rst
    vector.rst
 

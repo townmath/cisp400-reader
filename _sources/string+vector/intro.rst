@@ -7,7 +7,8 @@
     License".
 
 .. index::
-   pair: containers; string and vector
+   pair: containers; string
+   pair: containers; vector
 
 Using string and vector
 =======================

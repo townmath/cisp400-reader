@@ -13,139 +13,7 @@
 
 The string class
 ================
-
-A short review of how string abstractions are handled in C,
-followed by a short :cpp:`string` primer.
-
-String abstractions in C
-------------------------
-
-In the C language, 
-the abstract idea of a string is implemented with an array of characters.
-
-.. code-block:: c
-
-   // the char array must be null terminated
-   char a[] = {'h', 'e', 'l', 'l', 'o', '\0'};  // null == '\0'
-
-   char b[] = {'h', 'e', 'l', 'l', 'o', 0};     // null == 0 also
-
-   // a quoted literal is just a special case of a char array
-   char* c = "hello";
-
-Arrays of ``char`` that are null terminated are commonly called 
-:string:`byte strings </byte>` or
-:string:`C strings <c_str>`.
-Given the byte string:
-
-.. code-block:: c
-
-   const char* howdy = "hi there!";
-
-   
-.. index:: 
-   pair: graph; char array
-
-In memory, ``howdy`` is automatically transformed into:
-
-.. graphviz::
-
-   digraph char_array {
-     fontname = "Bitstream Vera Sans"
-     label="Character array in memory"
-     node [
-        fontname = "Courier"
-        fontsize = 14
-        shape = "record"
-        style=filled
-        fillcolor=lightblue
-     ]
-     arr [
-        label = "{'h'|'i'|' '|'t'|'h'|'e'|'r'|'e'|'!'|'\\0'}";
-     ]
-     idx [ 
-        color = white;
-        fillcolor=white;
-        label = "{howdy[0]|howdy[1]|howdy[2]|howdy[3]|howdy[4]|howdy[5]|howdy[6]|howdy[7]|howdy[8]|howdy[9]}";
-     ]
-
-
-   }
-
-The last character in the array, ``'\0'`` is the *null character*,
-and is used to indicate the end of the string.
-The null character is a  ``char`` equal to 0.
-
-.. activecode:: byte_string_null_ac
-   :language: cpp
-   :compileargs: ['-Wall', '-Wextra', '-std=c++1z']
-   :nocodelens:
-
-   #include <iostream>
-
-   int main () {
-      if (const char null1 = '\0', null2 = 0;             // C++17
-          null1 == null2) {
-           std::cout << "these values are the same\n";
-       } else {
-           std::cout << "not the same\n";
-       }
-   }
-
-      
-.. note::
-
-    Care must be taken to ensure that the array is large enough to hold 
-    all of the characters AND the null terminator.
-    Forgetting to account for null, 
-    or having a 'off by one error' is one of the most 
-    common mistakes when working with C strings.
-
-    
-.. index:: 
-   pair: array; character
-   pair: graph; byte string
-
-A character array may allocate more memory that the characters currently stored in it.
-An array declaration like this:
-
-.. code-block:: c
-
-   char hi[10] = "Hello";
-
-results in an in-memory representation like this:
-
-.. graphviz::
-
-   digraph c {
-     rankdir=LR
-     fontname = "Bitstream Vera Sans"
-     label="Character array with reserve memory"
-     node [
-        fontname = "Courier"
-        fontsize = 14
-        shape = "record"
-        style=filled
-        fillcolor=lightblue
-     ]
-     arr [
-        label = "{H|e|l|l|o|\\0| | | | }"
-     ]
-
-   }
-
-The array elements after the null are unused, but could be.
-So, an array of size 10 has space for 4 more characters, 9 total.
-
-C strings have an advantage of being extremely lightweight and simple.
-Their main disadvantage is that they are too simple for many applications.
-Their simplicity makes them a pain to work with,
-which is why the Standard Template Library (STL) contains the :cpp:`string` class.
-
-A string class primer
----------------------
-
-Like a C string, a ``std::string`` is simply a sequence of characters:
+Like a byte string, a ``std::string`` is storage for a character sequence:
 
 .. code-block:: cpp
 
@@ -162,13 +30,13 @@ Like a C string, a ``std::string`` is simply a sequence of characters:
      return 0;
    }
 
-Unlike a C string, a ``std::string`` is a full-fledged *object*.
+What is different is that a ``std::string`` is a full-fledged *object*.
 It knows it's own size, and comes with many convenience functions.
 
 Notice that unlike a built-in variable declaration such as ``int x;``,
 the declaration ``string x`` is **not** incomplete.
 The variable ``x`` is a complete and valid ``string`` object
-that stores no character data.
+that stores no characters.
 
 .. index:: 
    pair: string functions; operator[]
@@ -394,93 +262,6 @@ deduced to be a ``std::string``.
          Are those sizes expected? Why or why not?
 
 .. index::
-   pair: toupper; locale
-
-Change a character to upper case
-................................
-Not every string modification is handled using string member functions.
-Sometimes, the standard library provides the facility we are looking for.
-One example is changing character case.
-Many languages provide utilities to change character case as part of the
-string class.
-
-Not C++.
-
-C++ uses the legacy :string:`null-terminated byte strings library </byte>` 
-to provide these features.  They are defined in header ``cctypes``.
-
-.. tabbed:: cctype_toupper
-
-   .. tab:: toupper()
-
-      The ``std::toupper`` function takes a single ``char``,
-      which is not modified, and returns an ``int``.
-      The return value can be used as the upper case
-      version of the input character.
-
-      This function uses the default **C** locale to replace the
-      lowercase letters ``abcdefghijklmnopqrstuvwxyz``
-      with respective uppercase letters 
-      ``ABCDEFGHIJKLMNOPQRSTUVWXYZ``.
-      Non-ASCII acharacters are not handled.
-
-      Recall that ``char`` implicitly convert to ``int``.
-
-      .. activecode:: string_toupper_ac
-         :language: cpp
-         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
-         :nocodelens:
-
-         #include <cctype>
-         #include <iostream>
-         #include <string>
-
-         int main() {
-           std::string value = "hello, world!";
-           char& first = value.front();
-           // failure to assign the return value of toupper
-           // to a variable is a common source of error.
-           first =  std::toupper(first);
-           std::cout << value << '\n';
-           return 0;
-         }
-
-      To handle non-ASCII or extended characters, the C++ version
-      of std::toupper is needed.
-      
-   .. tab:: std::locale()
-
-      The ``std::toupper`` function takes a single ``char``,
-      which can be **any** character type, 
-      is not modified, and returns a character of the same type
-      as the character type provided.
-
-      .. activecode:: string_toupper_locale_ac
-         :language: cpp
-         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
-         :nocodelens:
-
-         #include <iostream>
-         #include <locale>
-         #include <string>
-
-         int main() {
-           unsigned char c = '\xb8'; // the character ž in ISO-8859-15
-                                     // but ¸ (cedilla) in ISO-8859-1
-
-           std::setlocale(LC_ALL, "en_US.iso88591");
-           std::cout << std::hex << std::showbase;
-           std::cout << "in iso8859-1, toupper('0xb8') gives " << std::toupper(c) << '\n';
-           std::setlocale(LC_ALL, "en_US.iso885915");
-           std::cout << "in iso8859-15, toupper('0xb8') gives " << std::toupper(c) << '\n';
-
-           return 0;
-         }
-
-
-
-
-.. index::
    pair: string functions; empty
    pair: string functions; find
    pair: string functions; find_first_of
@@ -489,7 +270,7 @@ to provide these features.  They are defined in header ``cctypes``.
 
 
 Getting information out of a string
-...................................
+-----------------------------------
 
 A ``string`` knows its own size and can provide other useful information.
 
@@ -596,8 +377,8 @@ as an indicator of *not found* by functions that return an index (like find).
 .. index::
    pair: string functions; c_str
 
-Converting a std::string to C string 
-....................................
+Converting a std::string to a C string 
+--------------------------------------
 
 You cannot use ``std::string`` in a function 
 that expects ``const char*`` - you must convert it
@@ -613,13 +394,6 @@ to a null terminated character array.
    // the c_str() function converts a string into a c string
    printf ("Hello again, %s\n", my_name.c_str());
 
-
-Final words
------------
-This was a very brief introduction and barely captures what std::string
-is capable of.
-Check out the documentation at cppreference.com to get a feel for the functions
-and capabilities available.
 
 Skill Check
 -----------
@@ -668,62 +442,6 @@ your understanding of the concepts discussed so far.
       =====
       }
 
-   .. fillintheblank:: string_fitb2
-
-      Given the following:
-
-      .. code-block:: c
-
-         char text[32];
-         strcpy(text, "hello");
-         int len = strlen(text);
-
-      What is the value of ``len``?
-
-      - :5: Correct.
-        :6: String length does not include the null character.
-        :4: Sizes are not indexes.
-        :x: Try again.
-
-   .. activecode:: string_sc_ac1
-      :language: cpp
-      :compileargs: ['-Wall', '-Wextra', '-std=c++11']
-      :nocodelens:
-
-      Fix the errors in the ``printf`` line below:
-
-      ~~~~
-      #include <cstdio>
-      #include <string>
-
-      int main() {
-        std::string yazoo = "ritish alternative band";
-        char c = 'B';
-          
-        printf ("%c%s\n",c, yazoo);
-      }
-
-   .. fillintheblank:: string_fitb3
-
-      Which ``#include`` is required to use functions such as
-      ``std::atoi`` and ``std::atof``?
-
-      - :cstdlib: Correct.
-        :cstring: These are C library functions
-        :string: These are C library functions
-        :x: Try again.
-
-
-   .. fillintheblank:: string_fitb4
-
-      Which ``#include`` is required to use functions such as
-      ``std::stoi`` and ``std::stol``?
-
-      - :string: Correct.
-        :cstring: These are not C functions
-        :cstdlib: These are string functions added in C++11
-        :x: Try again.
-
    .. fillintheblank:: string_fitb5
 
       Given the following:
@@ -760,8 +478,4 @@ your understanding of the concepts discussed so far.
    - YoLinux `String class tutorial <http://www.yolinux.com/TUTORIALS/LinuxTutorialC++StringClass.html>`_
    - Bjarne Stroustrup's C++11 FAQ: `Raw String literals <http://www.stroustrup.com/C++11FAQ.html#raw-strings>`_
    - Mike Shahar post: `Exploring std::string <https://shaharmike.com/cpp/std-string/>`_
-   - Locales:
-
-     - `Thinking in C++: Locales <https://www.linuxtopia.org/online_books/programming_books/c++_practical_programming/c++_practical_programming_101.html>`__
-     - `Differences between the C Locale and the C++ Locales <https://stdcxx.apache.org/doc/stdlibug/24-3.html>`__
 
