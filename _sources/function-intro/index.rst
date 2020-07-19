@@ -10,3 +10,4 @@ Introduction to functions
    constants.rst
    auto.rst
    error-handling.rst
+   guidelines.rst
