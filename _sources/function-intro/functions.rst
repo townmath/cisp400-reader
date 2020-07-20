@@ -265,37 +265,16 @@ Any information stored in local variables is lost.
 
 .. admonition:: Try This!
 
-   Read the code below and predict what the output should be.
-   Then step though
-   `the example code here <http://pythontutor.com/cpp.html#code=%23include%20%3Ciostream%3E%0A%0A//%20forward%20function%20declarations%0Avoid%20dig%28%29%3B%0Avoid%20deeper%28%29%3B%0A%0Aint%20main%28%29%20%7B%0A%20%20std%3A%3Acout%20%3C%3C%20%22Programs%20always%20start%20in%20function%20main.%5Cn%22%3B%0A%0A%20%20dig%28%29%3B%0A%0A%20%20std%3A%3Acout%20%3C%3C%20%22Returned%20to%20main.%5Cnexiting.%22%3B%0A%20%20return%200%3B%0A%7D%0A%0Avoid%20dig%28%29%20%7B%0A%20%20std%3A%3Acout%20%3C%3C%20%22Digging...%5Cn%22%3B%0A%20%20deeper%28%29%3B%0A%20%20std%3A%3Acout%20%3C%3C%20%22Still%20digging...%5Cn%22%3B%0A%7D%0A%0Avoid%20deeper%28%29%20%7B%0A%20%20std%3A%3Acout%20%3C%3C%20%22now%20even%20deeper....%5Cn%22%3B%0A%7D%0A&curInstr=6&mode=display&origin=opt-frontend.js&py=cpp&rawInputLstJSON=%5B%5D>`_
-   to see the call stack in action.
+   Read the code below and predict what the output should be **before** stepping through it.
 
-   Did your expectations match what actually happened?
+   .. codelens:: functions_dig_deeper_cl
+      :language: cpp
 
-   .. code-block:: cpp
+      #include <iostream>
 
-      // call-stack.h
-
-      // it's a better idea to physically separate 
-      // definitions and declarations
-
-      #ifndef CALL_STACK_H
-      #define CALL_STACK_H
-
-      // declare the interface here
+      // forward function declarations
       void dig();
       void deeper();
-
-      #endif
-
-
-   .. code-block:: cpp
-
-      // implement the call-stack functions 
-      // declared in call-stack.h
-
-      #include "call-stack.h"
-      #include <iostream>
 
       int main() {
         std::cout << "Programs always start in function main.\n";
@@ -315,6 +294,8 @@ Any information stored in local variables is lost.
       void deeper() {
         std::cout << "now even deeper....\n";
       }
+
+
 
 -----
 
