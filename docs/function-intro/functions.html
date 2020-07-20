@@ -56,7 +56,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.2. Scope" href="scope.html" />
+    <link rel="next" title="3.2. Passing parameters" href="parameter-passing.html" />
     <link rel="prev" title="3. Introduction to functions" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -193,8 +193,8 @@
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">3.2. </span>Scope' data-toggle="tooltip" >              
-    <a href="scope.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">3.2. </span>Passing parameters' data-toggle="tooltip" >              
+    <a href="parameter-passing.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -255,8 +255,9 @@ specifying a return type <code class="docutils literal notranslate"><span class=
 <p>The part outside the braces is called the <strong>function declaration</strong>.
 The braces and their contents is called the <strong>function body</strong>.
 Once defined, a function may be called and
-the task it defines can be executed as often as needed.
-Some simple, specific examples:</p>
+the task it defines can be executed as often as needed.</p>
+<div id='function_simple_intro' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Example" >
+<p>Some simple, specific examples:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">area</span> <span class="p">(</span><span class="kt">int</span> <span class="n">height</span><span class="p">,</span> <span class="kt">int</span> <span class="n">width</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="n">height</span><span class="o">*</span><span class="n">width</span><span class="p">;</span>
 <span class="p">}</span>
@@ -266,6 +267,56 @@ Some simple, specific examples:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+</div><div data-component="tab" data-tabname="Run It" >
+
+<div data-childcomponent="functions_simple_intro_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=functions_simple_intro_ac data-lang="cpp" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <iostream>
+
+int area (int height, int width) {
+  return height*width;
+}
+
+void say_hello() {
+  std::cout << "hello";
+}
+
+int main () {
+  say_hello();
+  std::cout << "area = " << area(4,3) << '\n';
+  return 0;
+}
+</textarea>
+</div>
+</div><div data-component="tab" data-tabname="Code Lens" >
+
+<div class="runestone" style="max-width: none;">
+    <div class="alert alert-warning cd_section">
+        <div class="pytutorVisualizer" id="functions_simple_intro_cl"
+           data-params='{"embeddedMode": true, "lang": "cpp", "jumpToEnd": false}'>
+        </div>
+        <p class="runestone_caption"><span class="runestone_caption_text">CodeLens: Simple functions (functions_simple_intro_cl)</span> </p>
+    </div>
+
+<script type="text/javascript">
+var functions_simple_intro_cl_vis;
+
+if (allTraceData === undefined) {
+   var allTraceData = {};
+}
+
+allTraceData["functions_simple_intro_cl"] = {"code": "#include <iostream>\n\nint area (int height, int width) {\n  return height*width;\n}\n\nvoid say_hello() {\n  std::cout << \"hello\";\n}\n\nint main () {\n  say_hello();\n  std::cout << \"area = \" << area(4,3) << '\\n';\n  return 0;\n}", "trace": [{"event": "step_line", "func_name": "main", "globals": {}, "heap": {}, "line": 11, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 11, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}], "stdout": ""}, {"event": "step_line", "func_name": "main", "globals": {}, "heap": {}, "line": 12, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 12, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}], "stdout": ""}, {"event": "call", "func_name": "say_hello()", "globals": {}, "heap": {}, "line": 8, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": false, "is_parent": false, "is_zombie": false, "line": 12, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}, {"encoded_locals": {}, "frame_id": "0xFFF000BC0", "func_name": "say_hello()", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 8, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "say_hello()_0xFFF000BC0"}], "stdout": ""}, {"event": "return", "func_name": "say_hello()", "globals": {}, "heap": {}, "line": 9, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": false, "is_parent": false, "is_zombie": false, "line": 12, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}, {"encoded_locals": {}, "frame_id": "0xFFF000BC0", "func_name": "say_hello()", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 9, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "say_hello()_0xFFF000BC0"}], "stdout": "hello"}, {"event": "step_line", "func_name": "main", "globals": {}, "heap": {}, "line": 13, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 13, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}], "stdout": "hello"}, {"event": "call", "func_name": "area(int, int)", "globals": {}, "heap": {}, "line": 3, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": false, "is_parent": false, "is_zombie": false, "line": 13, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}, {"encoded_locals": {"height": ["C_DATA", "0xFFF000BBC", "int", "<UNINITIALIZED>"], "width": ["C_DATA", "0xFFF000BB8", "int", "<UNINITIALIZED>"]}, "frame_id": "0xFFF000BC0", "func_name": "area(int, int)", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 3, "ordered_varnames": ["height", "width"], "parent_frame_id_list": [], "unique_hash": "area(int, int)_0xFFF000BC0"}], "stdout": "hello"}, {"event": "step_line", "func_name": "area(int, int)", "globals": {}, "heap": {}, "line": 4, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": false, "is_parent": false, "is_zombie": false, "line": 13, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}, {"encoded_locals": {"height": ["C_DATA", "0xFFF000BBC", "int", 4], "width": ["C_DATA", "0xFFF000BB8", "int", 3]}, "frame_id": "0xFFF000BC0", "func_name": "area(int, int)", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 4, "ordered_varnames": ["height", "width"], "parent_frame_id_list": [], "unique_hash": "area(int, int)_0xFFF000BC0"}], "stdout": "hello"}, {"event": "return", "func_name": "area(int, int)", "globals": {}, "heap": {}, "line": 5, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": false, "is_parent": false, "is_zombie": false, "line": 13, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}, {"encoded_locals": {"height": ["C_DATA", "0xFFF000BBC", "int", 4], "width": ["C_DATA", "0xFFF000BB8", "int", 3]}, "frame_id": "0xFFF000BC0", "func_name": "area(int, int)", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 5, "ordered_varnames": ["height", "width"], "parent_frame_id_list": [], "unique_hash": "area(int, int)_0xFFF000BC0"}], "stdout": "hello"}, {"event": "step_line", "func_name": "main", "globals": {}, "heap": {}, "line": 14, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 14, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}], "stdout": "helloarea = 12\n"}, {"event": "step_line", "func_name": "main", "globals": {}, "heap": {}, "line": 15, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 14, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}], "stdout": "helloarea = 12\n"}, {"event": "return", "func_name": "main", "globals": {}, "heap": {}, "line": 15, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 15, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}], "stdout": "helloarea = 12\n"}]}
+
+;
+</script>
+</div>
+</div>
+    </div>
+
 <div class="section" id="function-declarations-and-compilation-units">
 <h2><span class="section-number">3.1.1. </span>Function declarations and compilation units<a class="headerlink" href="#function-declarations-and-compilation-units" title="Permalink to this headline">¶</a></h2>
 <p>By default, functions have global <a class="reference internal" href="../glossary.html#term-scope"><span class="xref std std-term">scope</span></a>:
@@ -348,171 +399,9 @@ Using <code class="docutils literal notranslate"><span class="pre">make</span></
 <p><a class="reference internal" href="scope.html"><span class="doc">Scope</span></a></p>
 </div>
 </div>
-<div class="section" id="static-functions-and-variables">
-<span id="index-2"></span><h2><span class="section-number">3.1.2. </span>Static functions and variables<a class="headerlink" href="#static-functions-and-variables" title="Permalink to this headline">¶</a></h2>
-<p>By default, all functions are global;
-they can be used in any file of your program whether or not a declaration appears in a header file.
-To limit access to the
-current file, declare a function or variable <code class="docutils literal notranslate"><span class="pre">static</span></code>, like this:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// assume all these definitions are in a single file &quot;foo.cpp&quot;</span>
-
-<span class="c1">// static variable used by non-static functions</span>
-<span class="k">static</span> <span class="kt">bool</span> <span class="n">verbose</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-
-<span class="kt">bool</span> <span class="nf">is_verbose</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">verbose</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// vprint could reside in another file</span>
-<span class="kt">void</span> <span class="nf">vprint</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">message</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">is_verbose</span><span class="p">())</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">message</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-<span class="c1">// this function only works if it is the same file</span>
-<span class="c1">// as the one where verbose is defined</span>
-<span class="kt">void</span> <span class="nf">verbose_print</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">message</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">verbose</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">message</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// local static function can only be called in this compilation unit</span>
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">helloHelper</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">puts</span><span class="p">(</span><span class="s">&quot;hi!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="c1">// anyone can call `hello`</span>
-<span class="kt">void</span> <span class="nf">hello</span><span class="p">(</span><span class="kt">int</span> <span class="n">repetitions</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">repetitions</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">helloHelper</span><span class="p">();</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Similar to file static functions and variables,
-the keyword <code class="docutils literal notranslate"><span class="pre">static</span></code> can also be used inside functions.
-Static variables are initialized only the first time the function is called,
-for example:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span> <span class="nf">counter</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">static</span> <span class="kt">size_t</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">return</span> <span class="o">++</span><span class="n">count</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>The first time <code class="docutils literal notranslate"><span class="pre">counter</span></code> is called,
-the variable <code class="docutils literal notranslate"><span class="pre">count</span></code> is initialized to zero.
-Each call thereafter, <code class="docutils literal notranslate"><span class="pre">count</span></code> is increased by 1 and the new value is returned.</p>
-<p>Another appropriate use of static variable in functions:
-when defining a constant that should only be initialized once.
-For example, our earlier <code class="docutils literal notranslate"><span class="pre">too_small</span></code> function, could be:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;area.h&quot;</span><span class="cp"></span>
-
-<span class="kt">bool</span> <span class="nf">too_small</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">min_size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-  <span class="k">return</span> <span class="n">area</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">min_size</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="when-to-write-a-function">
-<h2><span class="section-number">3.1.3. </span>When to write a function<a class="headerlink" href="#when-to-write-a-function" title="Permalink to this headline">¶</a></h2>
-<p>As with any kind of abstraction, there are two goals to making a function:</p>
-<ul>
-<li><p><strong>Encapsulation</strong>:
-If you have some task to carry out that is simple to describe from the outside,
-but messy to understand from the inside,
-then wrapping it in a function lets the caller carry out this task without having to know the details.</p>
-<p>This is also useful if you want to change the implementation later.</p>
-</li>
-<li><p><strong>Code re-use</strong>:
-If you find yourself writing the same lines of code in several places
-(or worse, are tempted to copy a block of code to several places),
-you should probably put this code in a function
-(or perhaps more than one function,
-if there is no succinct way to describe what this block of code is doing).</p></li>
-</ul>
-<p>Both of these goals may be trumped by the goal of making your code <strong>clear</strong>.
-If you can’t describe what a function is doing in a single, simple sentence,
-this is a sign that maybe you need to restructure your code.
-Having a function that does more than one thing (or does different things depending on its arguments)
-is likely to lead to confusion.</p>
-<p>So, for example, this is not a good function definition:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// This code is an anti-pattern.</span>
-<span class="c1">// It&#39;s an example of how NOT to write a function.</span>
-
-<span class="cm">/**</span>
-<span class="cm"> * If getMax is true, return maximum of x and y,</span>
-<span class="cm"> * else return minimum.</span>
-<span class="cm"> */</span>
-<span class="kt">int</span> <span class="nf">computeMinOrMax</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">getMax</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">getMax</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">getMax</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-       <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>This function is clearly trying to do two things and not doing either one very well.
-Two functions would be far simpler:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// return the maximum of x and y</span>
-<span class="c1">// if x == y, return y</span>
-<span class="kt">int</span> <span class="nf">maximum</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span> <span class="o">?</span> <span class="nl">y</span> <span class="p">:</span> <span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// return the minimum of x and y</span>
-<span class="c1">// if x == y, return y</span>
-<span class="kt">int</span> <span class="nf">minimum</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">)</span> <span class="o">?</span> <span class="nl">y</span> <span class="p">:</span> <span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">computeMinOrMax</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">getMax</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">getMax</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="n">maximum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">minimum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="c1">// or more compactly:</span>
-<span class="kt">int</span> <span class="nf">computeMinOrMax</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">getMax</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">getMax</span> <span class="o">?</span> <span class="n">maximum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">:</span> <span class="n">minimum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Is this <em>slightly</em> more typing? Yes.
-At the end of the day, you will be far happier testing and debugging the three simpler functions
-than the first version.
-Your future co-workers will thank you.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Also be aware the STL provides functions
-<a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/min">std::min</a> and
-<a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/max">std::max</a>,
-which eliminate the need for our <code class="docutils literal notranslate"><span class="pre">minimum</span></code> and <code class="docutils literal notranslate"><span class="pre">maximum</span></code> entirely
-and have the advantage of working on any <a class="reference internal" href="../glossary.html#term-comparable"><span class="xref std std-term">comparable</span></a> type.</p>
-<p>This would transform the previous example to:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">computeMinOrMax</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">getMax</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n">getMax</span> <span class="o">?</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="section" id="the-call-stack">
-<span id="index-3"></span><h2><span class="section-number">3.1.4. </span>The call stack<a class="headerlink" href="#the-call-stack" title="Permalink to this headline">¶</a></h2>
-<p id="index-4">Functions are routinely called from many places
+<span id="index-2"></span><h2><span class="section-number">3.1.2. </span>The call stack<a class="headerlink" href="#the-call-stack" title="Permalink to this headline">¶</a></h2>
+<p>Functions are routinely called from many places
 and more than one function can be ‘active’ at any one time.
 The CPU needs a mechanism to keep track of every function call,
 all function parameters, and local variables,
@@ -574,23 +463,6 @@ except for the return value.
 Any arguments passed to a function are passed as copies by default,
 so changing the values of the function arguments inside the function has no effect on the caller.
 Any information stored in local variables is lost.</p>
-<p>Under very rare circumstances,
-it may be useful to have a variable local to a function that persists from one function call to the next.
-You can do so by declaring the variable static.
-For example, here is a function that counts how many times it has been called:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// return the number of times the function has been called</span>
-<span class="kt">int</span> <span class="nf">counter</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">static</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">return</span> <span class="o">++</span><span class="n">count</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Static local variables are stored in the same memory space as global variables.
-But they are only visible inside the function that declares them.
-This makes them slightly less troublesome than global variables;
-there is no fear that some unrelated code elsewhere will quietly change their value.
-Static variables are rarely used in practice, however,
-because they do not work well in multi-threaded applications.</p>
 <div class="admonition-try-this admonition">
 <p class="admonition-title">Try This!</p>
 <p>Read the code below and predict what the output should be.
@@ -640,234 +512,7 @@ to see the call stack in action.</p>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="passing-parameters">
-<span id="index-5"></span><h2><span class="section-number">3.1.5. </span>Passing parameters<a class="headerlink" href="#passing-parameters" title="Permalink to this headline">¶</a></h2>
-<p>In C and C++, parameter passing defaults to <strong>pass by value</strong>.
-Unless you specify otherwise,
-function parameters are initialized with <em>copies</em> of the actual arguments,
-and function callers get back a <em>copy</em> of the value returned by the function.
-Pass by value is the simplest way to get data into and out of functions.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-
-<span class="c1">// Declare a function that takes a parameter.</span>
-<span class="kt">void</span> <span class="nf">printFavorite</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">);</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-<span class="kt">int</span> <span class="n">favorite</span> <span class="o">=</span> <span class="mi">72</span><span class="p">;</span>
-  <span class="n">printFavorite</span><span class="p">(</span><span class="n">favorite</span><span class="p">);</span> <span class="c1">// Call the function.</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// define the function</span>
-<span class="kt">void</span> <span class="nf">printFavorite</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;my favorite number is &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>You can also step through <a class="reference external" href="http://pythontutor.com/cpp.html#code=%23include%20%3Ciostream%3E%0A%0A//%20Declare%20a%20function%20that%20takes%20a%20parameter.%0Avoid%20printFavorite%28int%20x%29%3B%0A%0Aint%20main%28%29%20%7B%0A%20%20int%20favorite%20%3D%2072%3B%0A%20%20printFavorite%28favorite%29%3B%20//%20Call%20the%20function.%0A%20%20return%200%3B%0A%7D%0A%0A//%20define%20the%20function%0Avoid%20printFavorite%28int%20x%29%20%7B%0A%20%20std%3A%3Acout%20%3C%3C%20%22my%20favorite%20number%20is%20%22%20%3C%3C%20x%20%3C%3C%20'%5Cn'%3B%0A%7D%0A&amp;curInstr=0&amp;mode=display&amp;origin=opt-frontend.js&amp;py=cpp&amp;rawInputLstJSON=%5B%5D">example 2.1.5-1 here</a>.</p>
-<p>The important point is that two copies of my favorite number are stored.
-The one declared in main, <code class="docutils literal notranslate"><span class="pre">favorite</span></code>, and
-the one declared in printFavorite, <code class="docutils literal notranslate"><span class="pre">x</span></code>.
-The parameter <code class="docutils literal notranslate"><span class="pre">x</span></code> is initialized using the value of <code class="docutils literal notranslate"><span class="pre">favorite</span></code> in main.</p>
-<p>More than one parameter can be passed.
-For example, a function to add two numbers:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-
-<span class="c1">// This function takes two parameters.</span>
-<span class="kt">int</span> <span class="nf">addNumbers</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">);</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">addNumbers</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">addNumbers</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">){</span>
-  <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
-  <span class="k">return</span> <span class="n">answer</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Step through <a class="reference external" href="http://pythontutor.com/cpp.html#code=%23include%20%3Ciostream%3E%0A%0A//%20This%20function%20takes%20two%20parameters.%0Aint%20addNumbers%28int%20x,%20int%20y%29%3B%0A%0Aint%20main%28%29%20%7B%0A%20%20int%20a%20%3D%2013%3B%0A%20%20int%20b%20%3D%2021%3B%0A%20%20int%20sum%20%3D%20addNumbers%28a,%20b%29%3B%0A%20%20std%3A%3Acout%20%3C%3C%20sum%20%3C%3C%20'%5Cn'%3B%0A%20%20return%200%3B%0A%7D%0A%0Aint%20addNumbers%28int%20x,%20int%20y%29%7B%0A%20%20int%20answer%20%3D%20x%20%2B%20y%3B%0A%20%20return%20answer%3B%0A%7D%0A&amp;curInstr=0&amp;mode=display&amp;origin=opt-frontend.js&amp;py=cpp&amp;rawInputLstJSON=%5B%5D">example 2.1.5-2</a>
-and see how the copies of both local variables and return values are managed on the stack.</p>
-<p id="index-6">For large / complex data types, however, pass by value becomes expensive even in small programs.
-An alternative to pass by value, is called <strong>pass by reference</strong>.
-Rather than passing a <em>copy</em> of the object,
-instead only the <em>address</em> of the object (the object reference),
-is passed instead.
-We use the <em>address of operator</em> <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> to declare that only the address of the
-variable is passed, rather than a copy.
-The primary advantage is that since all addresses are the same size,
-the cost of passing is the same,
-regardless of how large the object is.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-
-<span class="cm">/**</span>
-<span class="cm"> * A copy of x is passed to this function.</span>
-<span class="cm"> * Changes to x are not reflected in the caller.</span>
-<span class="cm"> */</span>
-<span class="kt">void</span> <span class="nf">by_value</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;in by_val the address of x is   &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="cm">/**</span>
-<span class="cm"> * A reference to x is passed to this function.</span>
-<span class="cm"> * Changes to x are not reflected in the caller.</span>
-<span class="cm"> */</span>
-<span class="kt">void</span> <span class="nf">by_reference</span> <span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;in by_ref the address of x is   &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
-  <span class="k">auto</span> <span class="n">beta</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
-
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;in main the address of alpha is &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">alpha</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;in main the address of beta is  &quot;</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">beta</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-
-  <span class="n">by_value</span><span class="p">(</span><span class="n">alpha</span><span class="p">);</span>
-  <span class="n">by_reference</span><span class="p">(</span><span class="n">beta</span><span class="p">);</span>
-
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;alpha is now &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">alpha</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;beta is now &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">beta</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Step through <a class="reference external" href="http://pythontutor.com/cpp.html#code=%23include%20%3Ciostream%3E%0A%0A/**%0A%20*%20A%20copy%20of%20x%20is%20passed%20to%20this%20function.%0A%20*%20Changes%20to%20x%20are%20not%20reflected%20in%20the%20caller.%0A%20*/%0Avoid%20by_value%28int%20x%29%20%7B%0A%20%20std%3A%3Acout%20%3C%3C%20%22in%20by_val%20the%20address%20of%20x%20is%20%20%20%22%20%3C%3C%20%26x%20%3C%3C%20'%5Cn'%3B%0A%20%20x%20%3D%2099%3B%0A%7D%0A%0A/**%0A%20*%20A%20reference%20to%20x%20is%20passed%20to%20this%20function.%0A%20*%20Changes%20to%20x%20are%20not%20reflected%20in%20the%20caller.%0A%20*/%0Avoid%20by_reference%20%28int%26%20x%29%20%7B%0A%20%20std%3A%3Acout%20%3C%3C%20%22in%20by_ref%20the%20address%20of%20x%20is%20%20%20%22%20%3C%3C%20%26x%20%3C%3C%20'%5Cn'%3B%0A%20%20x%20%3D%20-1%3B%0A%7D%0A%0Aint%20main%20%28%29%20%7B%0A%20%20auto%20alpha%20%3D%2011%3B%0A%20%20auto%20beta%20%3D%2011%3B%0A%0A%20%20std%3A%3Acout%20%3C%3C%20%22in%20main%20the%20address%20of%20alpha%20is%20%22%20%3C%3C%20%26alpha%20%3C%3C%20'%5Cn'%3B%0A%20%20std%3A%3Acout%20%3C%3C%20%22in%20main%20the%20address%20of%20beta%20is%20%20%22%20%3C%3C%20%26beta%20%3C%3C%20'%5Cn'%3B%0A%0A%20%20by_value%28alpha%29%3B%0A%20%20by_reference%28beta%29%3B%0A%0A%20%20std%3A%3Acout%20%3C%3C%20%22alpha%20is%20now%20%22%20%3C%3C%20alpha%20%3C%3C%20'%5Cn'%3B%0A%20%20std%3A%3Acout%20%3C%3C%20%22beta%20is%20now%20%22%20%3C%3C%20beta%20%3C%3C%20'%5Cn'%3B%0A%20%20return%200%3B%0A%7D%0A&amp;curInstr=0&amp;mode=display&amp;origin=opt-frontend.js&amp;py=cpp&amp;rawInputLstJSON=%5B%5D">example 2.1.5-3</a>.</p>
-
-    <div data-component="reveal" id="reveal-skill-check-functions"   data-showtitle="Show Skill Check" data-hidetitle="Hide Skill Check" >
-    <p>Given the following program:</p>
-<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">change_and_add</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-  <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-  <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">change_and_add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">c</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</td></tr></table></div>
-
-        <div class="runestone">
-        <div data-component="fillintheblank" id="fib_param_1" >
-            <p>Q-1: What is the output from this program?</p>
-<input type="text">
-        <script type="application/json">
-            [[{"number": [428, 428], "feedback": "<p>Correct.</p>\n"}, {"number": [123, 123], "feedback": "<p>The variable a is modified in this program.</p>\n"}, {"number": [437, 437], "feedback": "<p>The variable b is never modified in this program.</p>\n"}, {"number": [427, 427], "feedback": "<p>Variable a is modified &lt;em&gt;twice&lt;/em&gt; before the addition is performed.</p>\n"}, {"regex": "^\\s*.*\\s*$", "regexFlags": "", "feedback": "<p>What is passed to the function change_and_add? What changes? What doesn\u2019t?</p>\n"}]]
-        </script>
-
-        </div>
-        </div>
-            
-    </div>
-    </div>
-<div class="section" id="general-function-writing-guidelines">
-<span id="index-7"></span><h2><span class="section-number">3.1.6. </span>General function writing guidelines<a class="headerlink" href="#general-function-writing-guidelines" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic">
-<li><p>Write for clarity and correctness <strong>first</strong></p></li>
-<li><p>Avoid <em>premature optimization</em></p></li>
-<li><p>Avoid <em>premature “pessimization”</em>
-That is, prefer faster when <strong>equally</strong> clear</p></li>
-<li><p>Minimize side-effects</p>
-<p>A function that modifies its parameters is said to have <em>side-effects</em>.
-Programs with too many side-effects are hard to predict and debug.</p>
-<p>Returning to our call-stack example.
-What if the function signatures were changed to accept a pass-by-reference parameter?</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
-
-<span class="kt">void</span> <span class="nf">dig</span><span class="p">(</span><span class="kt">double</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>
-<span class="kt">void</span> <span class="nf">deeper</span><span class="p">(</span><span class="kt">double</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>Given that the names of these functions provide no insight to their purpose,
-there is no way to know without inspecting the source if
-the variable x is modified when passed to these functions.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;call-stack.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;in main.</span><span class="se">\n</span><span class="s">pi = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">pi</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-  <span class="n">dig</span><span class="p">(</span><span class="n">pi</span><span class="p">);</span>
-
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Returned to main.</span><span class="se">\n</span><span class="s">pi = &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">pi</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">dig</span><span class="p">(</span><span class="kt">double</span><span class="o">&amp;</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Digging...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-  <span class="n">val</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="n">deeper</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Done digging...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">deeper</span><span class="p">(</span><span class="kt">double</span><span class="o">&amp;</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">val</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;now even deeper....</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>This is one of the reasons why some programmers <strong>only</strong> use pass-by-reference
-when the parameter is <code class="docutils literal notranslate"><span class="pre">const</span></code>.
-Some programmers prefer passing pointers over non-<code class="docutils literal notranslate"><span class="pre">const</span></code> parameters.
-This requires the caller to explicitly pass in an address and
-clearly states that the function may modify the parameter.</p>
-</li>
-<li><p>Keep functions short</p>
-<ul>
-<li><p>A function should do <em>one</em> thing well</p>
-<p>If you see a function doing more than one thing
-consider breaking it up into multiple functions</p>
-</li>
-<li><p>Is this (slightly) more work?</p>
-<p>In the short run, perhaps.</p>
-<p>In the long run, your total time spent
-debugging, testing, maintaining, and modifying
-will be far, far less than if you packed everything into one monster function</p>
-</li>
-<li><p>Note that <a class="reference internal" href="../glossary.html#term-unit-test"><span class="xref std std-term">unit testing</span></a> is practically impossible
-once functions reach a certain size.</p></li>
-</ul>
-</li>
-<li><p>Strive to write a function <em>once</em> and never modify it again.</p></li>
-<li><p>Check function parameters for validity.
-Unless you <em>completely</em> trust the caller (and their caller…)</p>
-<ul class="simple">
-<li><p>It should be obvious: do not trust <code class="docutils literal notranslate"><span class="pre">argv[]</span></code></p></li>
-</ul>
-</li>
-</ol>
-
-    <div class="runestone" style="margin-left: auto; margin-right:auto">
-        <div id="9mWWNYRHAIQ" data-component="youtube" class="align-left youtube-video" data-video-height="281" data-video-width="500" data-video-videoid="9mWWNYRHAIQ" data-video-divid="9mWWNYRHAIQ" data-video-start="0" data-video-end="-1" ></div>
-        <p class="runestone_caption"><span class="runestone_caption_text">Video: (9mWWNYRHAIQ)</span> </p>
-    </div>
-    <hr class="docutils" />
+<hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
@@ -875,13 +520,7 @@ Unless you <em>completely</em> trust the caller (and their caller…)</p>
 from Buckys C++ Programming Tutorials.</p></li>
 <li><p>From: cppreference.com:
 <a class="reference external" href="http://en.cppreference.com/w/cpp/language/function">function declarations</a>.</p></li>
-<li><p><a class="reference external" href="https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-functions">C++ Core Guidelines for functions</a>
-from GitHub</p></li>
 <li><p>cppplusplus.com tutorial on <a class="reference external" href="http://www.cplusplus.com/doc/tutorial/functions/">functions</a></p></li>
-<li><p>A very brief description of
-“<a class="reference external" href="http://refactoring.com/catalog/extractMethod.html">extract method</a>” from Martin Fowler’s Refactoring site.</p></li>
-<li><p><a class="reference external" href="http://c2.com/cgi/wiki?ExtractMethod">ExtractMethod</a> discussion from the
-<a class="reference external" href="http://c2.com/cgi/wiki?PortlandPatternRepository">PortlandPatternRepository</a> - the very first wiki</p></li>
 </ul>
 </div>
 </div>
@@ -905,8 +544,8 @@ from GitHub</p></li>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.2. Scope' data-toggle="tooltip" >
-    <a href="scope.html" aria-label="3.2. Scope">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.2. Passing parameters' data-toggle="tooltip" >
+    <a href="parameter-passing.html" aria-label="3.2. Passing parameters">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

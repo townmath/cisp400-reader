@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>3.4. General function writing guidelines &#8212; CISC 187 Course Reader Overview</title>
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
+    <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
+    <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
+    <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
+    <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
+    <script src="../_static/animationbase.js?v=A043C3A7"></script>
+    <script src="../_static/html4css1.css?v=4D8F3FB4"></script>
+    <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
+    <script src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
+    <script src="../_static/webglinteractive.js?v=2B768384"></script>
+    <script src="../_static/FileSaver.min.js?v=8408C997"></script>
+    <script src="../_static/Blob.js?v=AEC2447"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.bidi.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.fallbacks.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.messagestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.parser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.language.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
+    <script src="../_static/runestone.js?v=343ECCF5"></script>
+    <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
+    <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+    <script src="../_static/jquery-fix.js?v=1226591B"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
+    <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
+    <script src="../_static/theme.js?v=D899FB97"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.5. Keyword: const" href="constants.html" />
+    <link rel="prev" title="3.3. Scope" href="scope.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+<script type="text/javascript">
+  eBookConfig = {};
+  
+    eBookConfig.useRunestoneServices = false;
+    eBookConfig.host = 'https://daveparillo.github.io/cisc187-reader/' || 'http://127.0.0.1:8000';
+    eBookConfig.app = eBookConfig.host+'/cisc187-reader';
+    eBookConfig.course = 'cisc187-reader';
+    eBookConfig.basecourse = 'cisc187-reader';
+    eBookConfig.isLoggedIn = false;
+  
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.logLevel = 0;
+  eBookConfig.loginRequired = false;
+  eBookConfig.build_info = "unknown";
+  eBookConfig.python3 = true;
+  eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
+  eBookConfig.runestone_version = '5.0.8';
+  eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
+  eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
+  eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
+  eBookConfig.enable_chatcodes = false ? false : false;
+
+
+</script>
+
+<!-- Ad Serving Headers Only serve ads to Anonymous Users -->
+
+
+
+
+
+  </head><body>
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar" aria-label="navbar toggle" class="visuallyhidden">toggle navbar</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+        
+          <a class="brand-logo" style='background: transparent url("../_static/img/logo_small.png") no-repeat 0px 0px;'>&nbsp;<span aria-label="logo" class="visuallyhidden">Runestone Logo</span> </a>
+        
+        <a class="navbar-brand" href="../index.html" aria-label="index-page">
+          
+          cisc187-reader
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right" >
+
+        <li class="divider-vertical"></li>
+
+
+        <!-- social media dropdown -->
+        <!-- end social media dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'><span aria-label="Search" class="visuallyhidden">Search</span></i>
+          </a>
+          <ul class='dropdown-menu'>
+            
+                <li><a href='../index.html' aria-label="index-page">Table of Contents</a></li>
+            
+            <li><a href='../genindex.html'>Book Index</a></li>
+            <li class="divider"></li>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        
+        <li class="divider-vertical"></li>
+        <!-- <li id="scratch_ac_link"><a href="javascript:ACFactory.toggleScratchActivecode()">Scratch ActiveCode</a></li> -->
+
+        <!-- <li class="dropdown">             -->
+          <li id="scratch_ac_link" class="dropdown"><a href="javascript:ACFactory.toggleScratchActivecode()">
+              <i class="glyphicon glyphicon-pencil" style="opacity:0.9;"><span aria-label="Scratch Activecode" class="visuallyhidden">Scratch Activecode</span></i></a></li>
+        <!-- </li> -->
+
+        <li class="divider-vertical"></li>
+
+        
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <li class="divider-vertical"></li>
+        
+          
+          <li class="divider-vertical"></li>
+        
+        <!-- 
+          
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">3.3. </span>Scope" data-toggle="tooltip">
+    <a href="scope.html" >
+      <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  
+  <li id="relations-next" title='Next Chapter - <span class="section-number">3.5. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">const</span></code>' data-toggle="tooltip" >              
+    <a href="constants.html" >
+        <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  <li class="divider-vertical"></li>
+
+<script type="text/javascript">
+  opts = {'placement':'bottom',
+          'selector': '',
+          'delay': { show: 100, hide: 50}
+         };
+
+  $('#relations-prev').tooltip(opts);
+  $('#relations-next').tooltip(opts);
+</script>
+        -->
+        
+          <li></li>
+        
+      </ul>
+
+      </div> <!-- navbar -->
+
+
+
+
+
+
+
+    </div> <!-- container -->
+  </div>
+</div>
+
+
+<div class="container" id="continue-reading"></div>
+
+<div class="container" id="main-content" role="main">
+  
+  <div class="section" id="general-function-writing-guidelines">
+<span id="index-0"></span><h1><span class="section-number">3.4. </span>General function writing guidelines<a class="headerlink" href="#general-function-writing-guidelines" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p>Write for clarity and correctness <strong>first</strong></p></li>
+<li><p>Avoid <em>premature optimization</em></p></li>
+<li><p>Avoid <em>premature “pessimization”</em>
+That is, prefer faster when <strong>equally</strong> clear</p></li>
+<li><p>Minimize side-effects</p>
+<p>A function that modifies its parameters is said to have <em>side-effects</em>.
+Programs with too many side-effects are hard to predict and debug.</p>
+<p>Returning to our call-stack example.
+What if the function signatures were changed to accept a pass-by-reference parameter?</p>
+<div id='side_effects' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Side effects" >
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">dig</span><span class="p">(</span><span class="kt">double</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">deeper</span><span class="p">(</span><span class="kt">double</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Given that the names of these functions provide no insight to their purpose,
+there is no way to know without inspecting the source if
+the variable x is modified when passed to these functions.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">dig</span><span class="p">(</span><span class="kt">double</span><span class="o">&amp;</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Digging...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+  <span class="n">val</span> <span class="o">/=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="n">deeper</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Done digging...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Unless it’s obvious from the name of the function,
+side effects are almost always unexpected.</p>
+</div><div data-component="tab" data-tabname="Run It" >
+
+<div data-childcomponent="functions_guidelines_side_effects_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=functions_guidelines_side_effects_ac data-lang="cpp" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <iostream>
+
+void dig(double& val);
+void deeper(double& val);
+
+int main() {
+  double pi = 3.14159;
+  std::cout << "in main.\npi = " << pi << '\n';
+  dig(pi);
+
+  std::cout << "Returned to main.\npi = " << pi << '\n';
+  return 0;
+}
+
+void dig(double& val) {
+  std::cout << "Digging...\n";
+  val = val * 2;
+  deeper(val);
+  std::cout << "Done digging...\n";
+}
+
+void deeper(double& val) {
+  val -= 1;
+  std::cout << "now even deeper....\n";
+}
+</textarea>
+</div>
+</div>
+    </div>
+
+<p>This is one of the reasons why some programmers <strong>only</strong> use pass-by-reference
+when the parameter is <code class="docutils literal notranslate"><span class="pre">const</span></code>.
+Some programmers prefer passing pointers over non-<code class="docutils literal notranslate"><span class="pre">const</span></code> parameters.
+This requires the caller to explicitly pass in an address and
+clearly states that the function may modify the parameter.</p>
+</li>
+<li><p>Keep functions short</p>
+<ul>
+<li><p>A function should do <em>one</em> thing well</p>
+<p>If you see a function doing more than one thing
+consider breaking it up into multiple functions</p>
+</li>
+<li><p>Is this (slightly) more work?</p>
+<p>In the short run, perhaps.</p>
+<p>In the long run, your total time spent
+debugging, testing, maintaining, and modifying
+will be far, far less than if you packed everything into one monster function</p>
+</li>
+<li><p>Note that <a class="reference internal" href="../glossary.html#term-unit-test"><span class="xref std std-term">unit testing</span></a> is practically impossible
+once functions reach a certain size.</p></li>
+</ul>
+</li>
+<li><p>Strive to write a function <em>once</em> and never modify it again.</p></li>
+<li><p>Check function parameters for validity.
+Unless you <em>completely</em> trust the caller (and their caller…)</p>
+<ul class="simple">
+<li><p>It should be obvious: do not trust <code class="docutils literal notranslate"><span class="pre">argv[]</span></code></p></li>
+</ul>
+</li>
+</ol>
+
+    <div class="runestone" style="margin-left: auto; margin-right:auto">
+        <div id="9mWWNYRHAIQ" data-component="youtube" class="align-left youtube-video" data-video-height="281" data-video-width="500" data-video-videoid="9mWWNYRHAIQ" data-video-divid="9mWWNYRHAIQ" data-video-start="0" data-video-end="-1" ></div>
+        <p class="runestone_caption"><span class="runestone_caption_text">Video: (9mWWNYRHAIQ)</span> </p>
+    </div>
+    <div class="section" id="when-to-write-a-function">
+<h2><span class="section-number">3.4.1. </span>When to write a function<a class="headerlink" href="#when-to-write-a-function" title="Permalink to this headline">¶</a></h2>
+<p>As with any kind of abstraction, there are two goals to making a function:</p>
+<ul>
+<li><p><strong>Encapsulation</strong>:
+If you have some task to carry out that is simple to describe from the outside,
+but messy to understand from the inside,
+then wrapping it in a function lets the caller carry out this task without having to know the details.</p>
+<p>This is also useful if you want to change the implementation later.</p>
+</li>
+<li><p><strong>Code re-use</strong>:
+If you find yourself writing the same lines of code in several places
+(or worse, are tempted to copy a block of code to several places),
+you should probably put this code in a function
+(or perhaps more than one function,
+if there is no succinct way to describe what this block of code is doing).</p></li>
+</ul>
+<p>Both of these goals may be trumped by the goal of making your code <strong>clear</strong>.
+If you can’t describe what a function is doing in a single, simple sentence,
+this is a sign that maybe you need to restructure your code.
+Having a function that does more than one thing (or does different things depending on its arguments)
+is likely to lead to confusion.</p>
+<p>So, for example, this is not a good function definition:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// This code is an anti-pattern.</span>
+<span class="c1">// It&#39;s an example of how NOT to write a function.</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * If getMax is true, return maximum of x and y,</span>
+<span class="cm"> * else return minimum.</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">computeMinOrMax</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">getMax</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">getMax</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">getMax</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+       <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This function is clearly trying to do two things and not doing either one very well.
+Two functions would be far simpler:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// return the maximum of x and y</span>
+<span class="c1">// if x == y, return y</span>
+<span class="kt">int</span> <span class="nf">maximum</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span> <span class="o">?</span> <span class="nl">y</span> <span class="p">:</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// return the minimum of x and y</span>
+<span class="c1">// if x == y, return y</span>
+<span class="kt">int</span> <span class="nf">minimum</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">)</span> <span class="o">?</span> <span class="nl">y</span> <span class="p">:</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">computeMinOrMax</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">getMax</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">getMax</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">maximum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">minimum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// or more compactly:</span>
+<span class="kt">int</span> <span class="nf">computeMinOrMax</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">getMax</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">getMax</span> <span class="o">?</span> <span class="n">maximum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">:</span> <span class="n">minimum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Is this <em>slightly</em> more typing? Yes.
+At the end of the day, you will be far happier testing and debugging the three simpler functions
+than the first version.
+Your future co-workers will thank you.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Also be aware the STL provides functions
+<a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/min">std::min</a> and
+<a class="reference external" href="http://en.cppreference.com/w/cpp/algorithm/max">std::max</a>,
+which eliminate the need for our <code class="docutils literal notranslate"><span class="pre">minimum</span></code> and <code class="docutils literal notranslate"><span class="pre">maximum</span></code> entirely
+and have the advantage of working on any <a class="reference internal" href="../glossary.html#term-comparable"><span class="xref std std-term">comparable</span></a> type.</p>
+<p>This would transform the previous example to:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">computeMinOrMax</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">getMax</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">getMax</span> <span class="o">?</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition-more-to-explore admonition">
+<p class="admonition-title">More to Explore</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-functions">C++ Core Guidelines for functions</a>
+from GitHub</p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/links/libs#Testing">Unit testing library list</a></p></li>
+<li><p>A very brief description of
+“<a class="reference external" href="http://refactoring.com/catalog/extractMethod.html">extract method</a>” from Martin Fowler’s Refactoring site.</p></li>
+<li><p><a class="reference external" href="http://c2.com/cgi/wiki?ExtractMethod">ExtractMethod</a> discussion from the
+<a class="reference external" href="http://c2.com/cgi/wiki?PortlandPatternRepository">PortlandPatternRepository</a> - the very first wiki</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+  <div id=scprogresscontainer>
+    You have attempted <span id=scprogresstotal></span> of <span id=scprogressposs></span> activities on this page <div id="subchapterprogress"></div>
+  </div>
+  
+      
+<ul>
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 3.3. Scope' data-toggle="tooltip">
+    <a href="scope.html" aria-label="3.3. Scope">
+        <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
+            <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
+        </div>
+    </a>
+  </li>
+</ul>
+
+  
+<ul>
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.5. Keyword:  const ' data-toggle="tooltip" >
+    <a href="constants.html" aria-label="3.5. Keyword:  const ">
+      <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
+          <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
+      </div>
+    </a>
+  </li>
+</ul>
+
+<script type="text/javascript">
+
+  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
+
+</script>
+
+<script>
+	function mouseOverPrev() {
+		document.getElementById("relations-prev").style.opacity=1;
+	}
+
+	function mouseOutPrev() {
+		document.getElementById("relations-prev").style.opacity=0.4;
+	}
+	function mouseOverNext() {
+		document.getElementById("relations-next").style.opacity=1;
+	}
+
+	function mouseOutNext() {
+		document.getElementById("relations-next").style.opacity=0.4;
+	}
+</script>
+  
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      
+      | <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017-2020 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.0.8.
+    </p>
+  </div>
+</footer>
+
+
+
+
+<script> getSwitch(); </script>
+
+
+  </body>
+</html>

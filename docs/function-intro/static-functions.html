@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>3. Introduction to functions &#8212; CISC 187 Course Reader Overview</title>
+    <title>3.8. Static functions and variables &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -56,8 +56,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.1. Introduction to functions" href="functions.html" />
-    <link rel="prev" title="2.5. The vector class" href="../string+vector/vector.html" />
+    <link rel="next" title="4. Function overloads and templates" href="../function-overloads/index.html" />
+    <link rel="prev" title="3.7. Error handling" href="error-handling.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -187,14 +187,14 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">2.5. </span>The vector class" data-toggle="tooltip">
-    <a href="../string+vector/vector.html" >
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">3.7. </span>Error handling" data-toggle="tooltip">
+    <a href="error-handling.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">3.1. </span>Introduction to functions' data-toggle="tooltip" >              
-    <a href="functions.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">4. </span>Function overloads and templates' data-toggle="tooltip" >              
+    <a href="../function-overloads/index.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -232,39 +232,99 @@
 
 <div class="container" id="main-content" role="main">
   
-  <div class="section" id="introduction-to-functions">
-<h1><span class="section-number">3. </span>Introduction to functions<a class="headerlink" href="#introduction-to-functions" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Introduction to functions</span></p>
+  <div class="section" id="static-functions-and-variables">
+<span id="index-0"></span><h1><span class="section-number">3.8. </span>Static functions and variables<a class="headerlink" href="#static-functions-and-variables" title="Permalink to this headline">¶</a></h1>
+<p>By default, all functions are global;
+they can be used in any file of your program whether or not a declaration appears in a header file.
+To limit access to the
+current file, declare a function or variable <code class="docutils literal notranslate"><span class="pre">static</span></code>, like this:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// assume all these definitions are in a single file &quot;foo.cpp&quot;</span>
+
+<span class="c1">// static variable used by non-static functions</span>
+<span class="k">static</span> <span class="kt">bool</span> <span class="n">verbose</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+
+<span class="kt">bool</span> <span class="nf">is_verbose</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">verbose</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// vprint could reside in another file</span>
+<span class="kt">void</span> <span class="nf">vprint</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">is_verbose</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">message</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// this function only works if it is the same file</span>
+<span class="c1">// as the one where verbose is defined</span>
+<span class="kt">void</span> <span class="nf">verbose_print</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">verbose</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">message</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// local static function can only be called in this compilation unit</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">helloHelper</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">puts</span><span class="p">(</span><span class="s">&quot;hi!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// anyone can call `hello`</span>
+<span class="kt">void</span> <span class="nf">hello</span><span class="p">(</span><span class="kt">int</span> <span class="n">repetitions</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">repetitions</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">helloHelper</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Similar to file static functions and variables,
+the keyword <code class="docutils literal notranslate"><span class="pre">static</span></code> can also be used inside functions.
+Static variables are initialized only the first time the function is called,
+for example:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span> <span class="nf">counter</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">static</span> <span class="kt">size_t</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">return</span> <span class="o">++</span><span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The first time <code class="docutils literal notranslate"><span class="pre">counter</span></code> is called,
+the variable <code class="docutils literal notranslate"><span class="pre">count</span></code> is initialized to zero.
+Each call thereafter, <code class="docutils literal notranslate"><span class="pre">count</span></code> is increased by 1 and the new value is returned.</p>
+<p>Another appropriate use of static variable in functions:
+when defining a constant that should only be initialized once.
+For example, our earlier <code class="docutils literal notranslate"><span class="pre">too_small</span></code> function, could be:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;area.h&quot;</span><span class="cp"></span>
+
+<span class="kt">bool</span> <span class="nf">too_small</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">min_size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">area</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">min_size</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Under very rare circumstances,
+it may be useful to have a variable local to a function that persists from one function call to the next.
+You can do so by declaring the variable static.
+For example, here is a function that counts how many times it has been called:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// return the number of times the function has been called</span>
+<span class="kt">int</span> <span class="nf">counter</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">static</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">return</span> <span class="o">++</span><span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Static local variables are stored in the same memory space as global variables.
+But they are only visible inside the function that declares them.
+This makes them slightly less troublesome than global variables;
+there is no fear that some unrelated code elsewhere will quietly change their value.
+Static variables are rarely used in practice, however,
+because they do not work well in multi-threaded applications.</p>
+<hr class="docutils" />
+<div class="admonition-more-to-explore admonition">
+<p class="admonition-title">More to Explore</p>
+<ul class="simple">
+<li><p>From: cppreference.com:</p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">3.1. Introduction to functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="functions.html#function-declarations-and-compilation-units">3.1.1. Function declarations and compilation units</a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions.html#the-call-stack">3.1.2. The call stack</a></li>
+<li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/language/function">function declarations</a>.</p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/storage_duration#Static_local_variables">Static local variables</a>.</p></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="parameter-passing.html">3.2. Passing parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scope.html">3.3. Scope</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="scope.html#local-variables">3.3.1. Local variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scope.html#keyword-namespace">3.3.2. Keyword: <code class="docutils literal notranslate"><span class="pre">namespace</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="guidelines.html">3.4. General function writing guidelines</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guidelines.html#when-to-write-a-function">3.4.1. When to write a function</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="constants.html">3.5. Keyword: <code class="docutils literal notranslate"><span class="pre">const</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="constants.html#prefer-const-to-define">3.5.1. Prefer <code class="docutils literal notranslate"><span class="pre">const</span></code> to <code class="docutils literal notranslate"><span class="pre">#define</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="constants.html#keyword-constexpr">3.5.2. Keyword: <code class="docutils literal notranslate"><span class="pre">constexpr</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="constants.html#guidelines-for-now">3.5.3. Guidelines for now</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="auto.html">3.6. Keyword: <code class="docutils literal notranslate"><span class="pre">auto</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="error-handling.html">3.7. Error handling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="error-handling.html#returning-values">3.7.1. Returning values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="error-handling.html#exceptions">3.7.2. Exceptions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="static-functions.html">3.8. Static functions and variables</a></li>
 </ul>
 </div>
 </div>
@@ -276,8 +336,8 @@
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 2.5. The vector class' data-toggle="tooltip">
-    <a href="../string+vector/vector.html" aria-label="2.5. The vector class">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 3.7. Error handling' data-toggle="tooltip">
+    <a href="error-handling.html" aria-label="3.7. Error handling">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -287,8 +347,8 @@
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.1. Introduction to functions' data-toggle="tooltip" >
-    <a href="functions.html" aria-label="3.1. Introduction to functions">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 4. Function overloads and templates' data-toggle="tooltip" >
+    <a href="../function-overloads/index.html" aria-label="4. Function overloads and templates">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

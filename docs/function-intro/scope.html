@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>3.2. Scope &#8212; CISC 187 Course Reader Overview</title>
+    <title>3.3. Scope &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -56,8 +56,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.3. Keyword: const" href="constants.html" />
-    <link rel="prev" title="3.1. Introduction to functions" href="functions.html" />
+    <link rel="next" title="3.4. General function writing guidelines" href="guidelines.html" />
+    <link rel="prev" title="3.2. Passing parameters" href="parameter-passing.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -187,14 +187,14 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">3.1. </span>Introduction to functions" data-toggle="tooltip">
-    <a href="functions.html" >
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">3.2. </span>Passing parameters" data-toggle="tooltip">
+    <a href="parameter-passing.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">3.3. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">const</span></code>' data-toggle="tooltip" >              
-    <a href="constants.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">3.4. </span>General function writing guidelines' data-toggle="tooltip" >              
+    <a href="guidelines.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -233,7 +233,7 @@
 <div class="container" id="main-content" role="main">
   
   <div class="section" id="scope">
-<span id="index-0"></span><h1><span class="section-number">3.2. </span>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">3.3. </span>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h1>
 <p>Each name that appears in a C++ program is only valid in some <em>possibly discontiguous</em>
 portion of the source code called its <a class="reference internal" href="../glossary.html#term-scope"><span class="xref std std-term">scope</span></a>.</p>
 <p>Within a scope,
@@ -321,7 +321,7 @@ Don’t make any other changes.</p>
 <p>Why is this better than the unmodified program?</p>
 </div>
 <div class="section" id="local-variables">
-<span id="index-1"></span><h2><span class="section-number">3.2.1. </span>Local variables<a class="headerlink" href="#local-variables" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">3.3.1. </span>Local variables<a class="headerlink" href="#local-variables" title="Permalink to this headline">¶</a></h2>
 <p>You may read somewhere that global variables are evil, harmful, or whatever.
 There are no <em>harmful</em> language features.</p>
 <p>There <em>are</em> some language features that can get you into trouble if you have not
@@ -374,7 +374,7 @@ is accessed in its uninitialized state only occasionally,
 the result can be bugs that are difficult to identify and fix.</p>
 </div>
 <div class="section" id="keyword-namespace">
-<span id="index-2"></span><h2><span class="section-number">3.2.2. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">namespace</span></code><a class="headerlink" href="#keyword-namespace" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">3.3.2. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">namespace</span></code><a class="headerlink" href="#keyword-namespace" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">namespace</span></code> is simply a named block that defines a scope.
 Namespaces provide a method for preventing name conflicts in large projects.</p>
 <p>Symbols declared inside a namespace block are placed in a named scope that prevents them from being mistaken for identically-named symbols in other scopes.</p>
@@ -430,7 +430,7 @@ If a local variable has the same name as a namespace variable,
 the namespace variable is hidden.
 It is an error to have a namespace variable with the same name as a global variable.</p>
 <div class="section" id="using-namespaces">
-<span id="index-3"></span><h3><span class="section-number">3.2.2.1. </span>Using namespaces<a class="headerlink" href="#using-namespaces" title="Permalink to this headline">¶</a></h3>
+<span id="index-3"></span><h3><span class="section-number">3.3.2.1. </span>Using namespaces<a class="headerlink" href="#using-namespaces" title="Permalink to this headline">¶</a></h3>
 <p>What’s wrong with <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">std;</span></code>?</p>
 <p>Nothing, technically.
 It was a simplification in your first semester classes.
@@ -571,8 +571,8 @@ Rather, they are what make namespaces usable.</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 3.1. Introduction to functions' data-toggle="tooltip">
-    <a href="functions.html" aria-label="3.1. Introduction to functions">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 3.2. Passing parameters' data-toggle="tooltip">
+    <a href="parameter-passing.html" aria-label="3.2. Passing parameters">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -582,8 +582,8 @@ Rather, they are what make namespaces usable.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.3. Keyword:  const ' data-toggle="tooltip" >
-    <a href="constants.html" aria-label="3.3. Keyword:  const ">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.4. General function writing guidelines' data-toggle="tooltip" >
+    <a href="guidelines.html" aria-label="3.4. General function writing guidelines">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

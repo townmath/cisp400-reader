@@ -322,22 +322,23 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="string+vector/index.html">2. String and Vector</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="string+vector/intro.html">2.1. Using string and vector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="string+vector/byte_string.html">2.2. String abstractions in C</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="string+vector/byte_string.html#change-a-character-to-upper-case">2.2.1. Change a character to upper case</a></li>
-<li class="toctree-l3"><a class="reference internal" href="string+vector/byte_string.html#skill-check">2.2.2. Skill Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string+vector/byte_string.html">2.2. String abstractions in C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string+vector/byte_string.html#working-with-c-strings">2.3. Working with C strings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="string+vector/byte_string.html#change-character-case">2.3.1. Change character case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="string+vector/byte_string.html#convert-a-byte-string-to-a-number">2.3.2. Convert a byte string to a number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="string+vector/byte_string.html#copying-and-comparing-c-strings">2.3.3. Copying and comparing C strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="string+vector/byte_string.html#skill-check">2.3.4. Skill Check</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="string+vector/string.html">2.3. The string class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="string+vector/string.html#getting-information-out-of-a-string">2.3.1. Getting information out of a string</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="string+vector/string.html#converting-a-std-string-to-a-c-string">2.3.1.1. Converting a std::string to a C string</a></li>
-<li class="toctree-l4"><a class="reference internal" href="string+vector/string.html#final-words">2.3.1.2. Final words</a></li>
-<li class="toctree-l4"><a class="reference internal" href="string+vector/string.html#skill-check">2.3.1.3. Skill Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string+vector/string.html">2.4. The string class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="string+vector/string.html#getting-information-out-of-a-string">2.4.1. Getting information out of a string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="string+vector/string.html#converting-a-std-string-to-a-c-string">2.4.2. Converting a std::string to a C string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="string+vector/string.html#skill-check">2.4.3. Skill Check</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="string+vector/vector.html">2.4. The vector class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="string+vector/vector.html#adding-data-to-a-vector">2.4.1. Adding data to a vector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string+vector/vector.html">2.5. The vector class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="string+vector/vector.html#adding-data-to-a-vector">2.5.1. Adding data to a vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="string+vector/vector.html#vector-capacity">2.5.2. Vector capacity</a></li>
 </ul>
 </li>
 </ul>
@@ -345,41 +346,43 @@
 <li class="toctree-l1"><a class="reference internal" href="function-intro/index.html">3. Introduction to functions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="function-intro/functions.html">3.1. Introduction to functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="function-intro/functions.html#function-declarations-and-compilation-units">3.1.1. Function declarations and compilation units</a></li>
-<li class="toctree-l3"><a class="reference internal" href="function-intro/functions.html#static-functions-and-variables">3.1.2. Static functions and variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="function-intro/functions.html#when-to-write-a-function">3.1.3. When to write a function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="function-intro/functions.html#the-call-stack">3.1.4. The call stack</a></li>
-<li class="toctree-l3"><a class="reference internal" href="function-intro/functions.html#passing-parameters">3.1.5. Passing parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="function-intro/functions.html#general-function-writing-guidelines">3.1.6. General function writing guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function-intro/functions.html#the-call-stack">3.1.2. The call stack</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="function-intro/scope.html">3.2. Scope</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="function-intro/scope.html#local-variables">3.2.1. Local variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="function-intro/scope.html#keyword-namespace">3.2.2. Keyword: <code class="docutils literal notranslate"><span class="pre">namespace</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="function-intro/scope.html#using-namespaces">3.2.2.1. Using namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function-intro/parameter-passing.html">3.2. Passing parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function-intro/scope.html">3.3. Scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function-intro/scope.html#local-variables">3.3.1. Local variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function-intro/scope.html#keyword-namespace">3.3.2. Keyword: <code class="docutils literal notranslate"><span class="pre">namespace</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="function-intro/scope.html#using-namespaces">3.3.2.1. Using namespaces</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="function-intro/constants.html">3.3. Keyword: <code class="docutils literal notranslate"><span class="pre">const</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="function-intro/constants.html#prefer-const-to-define">3.3.1. Prefer <code class="docutils literal notranslate"><span class="pre">const</span></code> to <code class="docutils literal notranslate"><span class="pre">#define</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="function-intro/constants.html#function-like-macros-using-define">3.3.1.1. Function-like macros using <code class="docutils literal notranslate"><span class="pre">#define</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="function-intro/guidelines.html">3.4. General function writing guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function-intro/guidelines.html#when-to-write-a-function">3.4.1. When to write a function</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="function-intro/constants.html#keyword-constexpr">3.3.2. Keyword: <code class="docutils literal notranslate"><span class="pre">constexpr</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="function-intro/constants.html#guidelines-for-now">3.3.3. Guidelines for now</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function-intro/constants.html">3.5. Keyword: <code class="docutils literal notranslate"><span class="pre">const</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function-intro/constants.html#prefer-const-to-define">3.5.1. Prefer <code class="docutils literal notranslate"><span class="pre">const</span></code> to <code class="docutils literal notranslate"><span class="pre">#define</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="function-intro/constants.html#function-like-macros-using-define">3.5.1.1. Function-like macros using <code class="docutils literal notranslate"><span class="pre">#define</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="function-intro/auto.html">3.4. Keyword: <code class="docutils literal notranslate"><span class="pre">auto</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="function-intro/error-handling.html">3.5. Error handling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="function-intro/error-handling.html#returning-values">3.5.1. Returning values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="function-intro/error-handling.html#exceptions">3.5.2. Exceptions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="function-intro/error-handling.html#standard-exceptions">3.5.2.1. Standard exceptions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function-intro/error-handling.html#using-exceptions">3.5.2.2. Using exceptions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function-intro/error-handling.html#exceptions-and-i-o-streams">3.5.2.3. Exceptions and I/O streams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function-intro/constants.html#keyword-constexpr">3.5.2. Keyword: <code class="docutils literal notranslate"><span class="pre">constexpr</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="function-intro/constants.html#guidelines-for-now">3.5.3. Guidelines for now</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="function-intro/auto.html">3.6. Keyword: <code class="docutils literal notranslate"><span class="pre">auto</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="function-intro/error-handling.html">3.7. Error handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function-intro/error-handling.html#returning-values">3.7.1. Returning values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function-intro/error-handling.html#exceptions">3.7.2. Exceptions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="function-intro/error-handling.html#standard-exceptions">3.7.2.1. Standard exceptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function-intro/error-handling.html#using-exceptions">3.7.2.2. Using exceptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function-intro/error-handling.html#exceptions-and-i-o-streams">3.7.2.3. Exceptions and I/O streams</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="function-intro/static-functions.html">3.8. Static functions and variables</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="function-overloads/index.html">4. Function overloads and templates</a><ul>

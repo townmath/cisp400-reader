@@ -367,7 +367,7 @@ Like an array, the <a class="reference external" href="https://en.cppreference.c
 without bounds checking.
 Like a string, the <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/operator_at">at</a> function provides bounds checking
 and will throw a <a class="reference external" href="https://en.cppreference.com/w/cpp/error/out_of_range">std::out_of_range exception</a> if an out of bounds index is used on the <code class="docutils literal notranslate"><span class="pre">vector</span></code>.</p>
-<div id='tab_vector_simple_ops' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Access operations" >
+<div id='tab_vector_simple_access' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Access operations" >
 <p>Like arrays, indexes are zero-based.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// read vector elements</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;First element: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
@@ -438,6 +438,19 @@ or an equality comparison between two vectors <code class="docutils literal notr
 means the two vectors are equal if <code class="docutils literal notranslate"><span class="pre">a.size()</span> <span class="pre">==</span> <span class="pre">b.size()</span></code>
 and each element in <code class="docutils literal notranslate"><span class="pre">a</span></code> compares equal with each element in <code class="docutils literal notranslate"><span class="pre">b</span></code>
 in the same position in the vector.</p>
+<div id='tab_vector_compare_and_assign' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Compare operations" >
+<p>Vectors support the same syntax as the built in types.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// declare 2 vectors, one empty and one not</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">y</span><span class="p">;</span>
+
+<span class="kt">bool</span> <span class="n">test</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">);</span>   <span class="c1">// test is false</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+</pre></div>
+</div>
+</div><div data-component="tab" data-tabname="Run It" >
 
 <div data-childcomponent="vector_operator_equal_assign_ac" class="runestone explainer ac_section alert alert-warning">
 
@@ -469,6 +482,9 @@ int main() {
 }
 </textarea>
 </div>
+</div>
+    </div>
+
 <div class="admonition-try-this admonition">
 <p class="admonition-title">Try This!</p>
 <p>Create two vectors of strings containing
@@ -492,30 +508,112 @@ int main() {
 <p>How do we solve the <a class="reference external" href="https://en.cppreference.com/w/cpp/error/out_of_range">out_of_range</a> exception from a few examples ago?
 How do we dynamically add data to a <code class="docutils literal notranslate"><span class="pre">vector</span></code>?</p>
 <p>A simple way is to use the <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/push_back">push_back</a> function.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">letters</span> <span class="p">{</span><span class="sc">&#39;a&#39;</span><span class="p">,</span> <span class="sc">&#39;b&#39;</span><span class="p">,</span> <span class="sc">&#39;c&#39;</span><span class="p">};</span>
-
-  <span class="n">letters</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="sc">&#39;z&#39;</span><span class="p">;</span>
-  <span class="n">letters</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="sc">&#39;d&#39;</span><span class="p">);</span>  <span class="c1">// add &#39;d&#39; to the end of the vector</span>
-  <span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="sc">&#39;e&#39;</span><span class="p">;</span>
-  <span class="n">letters</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">ch</span><span class="p">);</span>  <span class="c1">// add &#39;e&#39; to the end</span>
-  <span class="n">letters</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>     <span class="c1">// pop_back is the opposite:</span>
-                          <span class="c1">//  - removes the end element from the vector</span>
-
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;All letters:&quot;</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">letters</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-  <span class="n">letters</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>         <span class="c1">// clear all contents from vector</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<p>Given an vector of 3 int’s:</p>
+<div class="graphviz"><img src="../_images/graphviz-5ae001792310ce7263216a644535e678f8185c12.png" alt="digraph {
+node [
+     fontname = &quot;Courier&quot;
+     fontsize = 14
+     shape = &quot;record&quot;
+     style=filled
+     fillcolor=lightblue
+  ]
+  names [
+     color = white;
+     fillcolor=white;
+     label = &quot;{size: | &lt;f0&gt; data: }&quot;;
+  ]
+  struct [
+     label = &quot;{3 | &lt;f0&gt; }&quot;;
+  ]
+  node [shape=record, color=black, fontcolor=black, fillcolor=white, width=3.75, fixedsize=true];
+  labels [label=&quot;&lt;f0&gt; | &lt;f2&gt; size&quot;, color=white];
+  values [label=&quot;&lt;f0&gt; v[0]\n= 10 | &lt;f1&gt; v[1]\n= 20 | &lt;f2&gt; v[2]\n= 30&quot;,
+          color=black, fillcolor=lightblue, style=filled];
+  edge [color=black];
+  struct:f0:s -&gt; values:f0;
+  labels:f2 -&gt; values:f2;
+  {rank=same; struct,labels};
+}" class="graphviz" /></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">values</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
 </pre></div>
 </div>
-<p id="index-3">A vector exposes an interface that ‘feels like’ an array,
+<p>Appends the value 40 to the end of the vector.</p>
+<div class="graphviz"><img src="../_images/graphviz-fe31a38fb78333be438a8e9467679202a7556df9.png" alt="digraph {
+node [
+     fontname = &quot;Courier&quot;
+     fontsize = 14
+     shape = &quot;record&quot;
+     style=filled
+     fillcolor=lightblue
+  ]
+  names [
+     color = white;
+     fillcolor=white;
+     label = &quot;{size: | &lt;f0&gt; data: }&quot;;
+  ]
+  struct [
+     label = &quot;{4 | &lt;f0&gt; }&quot;;
+  ]
+  node [shape=record, color=black, fontcolor=black, fillcolor=white, width=3.75, fixedsize=true];
+  labels [label=&quot;&lt;f0&gt; | &lt;f4&gt; size&quot;, color=white];
+  values [label=&quot;&lt;f0&gt; v[0]\n= 10 | &lt;f1&gt; v[1]\n= 20 | &lt;f2&gt; v[2]\n= 30 | &lt;f3&gt; v[3]\n= 40&quot;,
+          color=black, fillcolor=lightblue, style=filled];
+  edge [color=black];
+  struct:f0:s -&gt; values:f0;
+  labels:f4 -&gt; values:f3;
+  {rank=same; struct,labels};
+}" class="graphviz" /></div>
+<div id='tab_vector_push_back' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="push_back and pop_back" >
+<p><a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/push_back">push_back</a> appends an element to the end
+and increases the capacity of the vector, if needed.</p>
+<p><a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/pop_back">pop_back</a> reduces the size of the vector by one.
+The last element is no longer available.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">pop_back</span></code> does not return a value.</p>
+<p>If you need that last element, remember to save it first.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">letters</span> <span class="p">{</span><span class="sc">&#39;a&#39;</span><span class="p">,</span> <span class="sc">&#39;b&#39;</span><span class="p">,</span> <span class="sc">&#39;c&#39;</span><span class="p">};</span>
+
+<span class="n">letters</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="sc">&#39;d&#39;</span><span class="p">);</span>  <span class="c1">// add &#39;d&#39; to the end of the vector</span>
+<span class="n">letters</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>      <span class="c1">// pop_back is the opposite:</span>
+</pre></div>
+</div>
+</div><div data-component="tab" data-tabname="Run It" >
+
+<div data-childcomponent="vector_push_back_example_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=vector_push_back_example_ac data-lang="cpp" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <vector>
+#include <iostream>
+
+int main() {
+  std::vector<char> letters {'a', 'b', 'c'};
+
+  letters.at(0) = 'z';
+  letters.push_back('d');  // add 'd' to the end of the vector
+  char ch = 'e';
+  letters.push_back(ch);  // add 'e' to the end
+  letters.pop_back();     // pop_back is the opposite:
+                          //  - removes the end element from the vector
+
+  std::cout << "All letters:";
+  for (const auto& c : letters) {
+    std::cout << ' ' << c;
+  }
+  std::cout << '\n';
+  letters.clear();         // clear all contents from vector
+  return 0;
+}
+</textarea>
+</div>
+</div>
+    </div>
+
+</div>
+<div class="section" id="vector-capacity">
+<span id="index-3"></span><h2><span class="section-number">2.5.2. </span>Vector capacity<a class="headerlink" href="#vector-capacity" title="Permalink to this headline">¶</a></h2>
+<p>A vector exposes an interface that ‘feels like’ an array,
 but the underlying storage grows to accomodate new data
 as required.
 With an array, you either have to allocate as much memory

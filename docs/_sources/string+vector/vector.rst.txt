@@ -174,7 +174,7 @@ without bounds checking.
 Like a string, the :vector:`at <operator_at>` function provides bounds checking
 and will throw a :error:`std::out_of_range exception <out_of_range>` if an out of bounds index is used on the ``vector``.
 
-.. tabbed:: tab_vector_simple_ops
+.. tabbed:: tab_vector_simple_access
 
    .. tab:: Access operations
 
@@ -252,34 +252,54 @@ means the two vectors are equal if ``a.size() == b.size()``
 and each element in ``a`` compares equal with each element in ``b``
 in the same position in the vector.
 
-.. activecode:: vector_operator_equal_assign_ac
-   :language: cpp
-   :compileargs: ['-Wall', '-Wextra', '-std=c++11']
-   :nocodelens:
+.. tabbed:: tab_vector_compare_and_assign
+
+   .. tab:: Compare operations
+
+      Vectors support the same syntax as the built in types.
+
+      .. code-block:: cpp
+
+         // declare 2 vectors, one empty and one not
+
+         std::vector<int> x {2, 4, 6, 8};
+         std::vector<int> y;
+
+         bool test = (x == y);   // test is false
+
+         y = x;
 
 
-   #include <vector>
-   #include <iostream>
-     
-   int main() {
-     std::vector<int> x {2, 4, 6, 8};
-     std::vector<int> y;
-     
-     if (x == y) {
-       std::cout << "x and y are equal\n";
-     } else {
-       std::cout << "x and y differ\n";
-     }
+   .. tab:: Run It
 
-     y = x;          // copy all data from x into y
-     if (x == y) {
-       std::cout << "x and y are equal\n";
-     } else {
-       std::cout << "x and y differ\n";
-     }
+      .. activecode:: vector_operator_equal_assign_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
+         :nocodelens:
 
-     return 0;
-   }
+
+         #include <vector>
+         #include <iostream>
+           
+         int main() {
+           std::vector<int> x {2, 4, 6, 8};
+           std::vector<int> y;
+           
+           if (x == y) {
+             std::cout << "x and y are equal\n";
+           } else {
+             std::cout << "x and y differ\n";
+           }
+
+           y = x;          // copy all data from x into y
+           if (x == y) {
+             std::cout << "x and y are equal\n";
+           } else {
+             std::cout << "x and y differ\n";
+           }
+
+           return 0;
+         }
 
 
 .. admonition:: Try This!
@@ -306,33 +326,126 @@ How do we dynamically add data to a ``vector``?
 
 A simple way is to use the :vector:`push_back` function.
 
+Given an vector of 3 int's:
+
+.. graphviz:: 
+
+   digraph {
+   node [
+        fontname = "Courier"
+        fontsize = 14
+        shape = "record"
+        style=filled
+        fillcolor=lightblue
+     ]
+     names [ 
+        color = white;
+        fillcolor=white;
+        label = "{size: | <f0> data: }";
+     ]
+     struct [
+        label = "{3 | <f0> }";
+     ]
+     node [shape=record, color=black, fontcolor=black, fillcolor=white, width=3.75, fixedsize=true];
+     labels [label="<f0> | <f2> size", color=white];
+     values [label="<f0> v[0]\n= 10 | <f1> v[1]\n= 20 | <f2> v[2]\n= 30", 
+             color=black, fillcolor=lightblue, style=filled];
+     edge [color=black];
+     struct:f0:s -> values:f0;
+     labels:f2 -> values:f2;
+     {rank=same; struct,labels};
+   }
+
 .. code-block:: cpp
 
-   #include <vector>
-   #include <iostream>
-     
-   int main() {
-     std::vector<char> letters {'a', 'b', 'c'};
-     
-     letters.at(0) = 'z';
-     letters.push_back('d');  // add 'd' to the end of the vector
-     char ch = 'e';
-     letters.push_back(ch);  // add 'e' to the end
-     letters.pop_back();     // pop_back is the opposite:
-                             //  - removes the end element from the vector
+   values.push_back(40);
 
-     std::cout << "All letters:";
-     for (const auto& c : letters) {
-       std::cout << ' ' << c;
-     }
-     std::cout << '\n';
-     letters.clear();         // clear all contents from vector
-     return 0;
+Appends the value 40 to the end of the vector.
+
+.. graphviz:: 
+
+   digraph {
+   node [
+        fontname = "Courier"
+        fontsize = 14
+        shape = "record"
+        style=filled
+        fillcolor=lightblue
+     ]
+     names [ 
+        color = white;
+        fillcolor=white;
+        label = "{size: | <f0> data: }";
+     ]
+     struct [
+        label = "{4 | <f0> }";
+     ]
+     node [shape=record, color=black, fontcolor=black, fillcolor=white, width=3.75, fixedsize=true];
+     labels [label="<f0> | <f4> size", color=white];
+     values [label="<f0> v[0]\n= 10 | <f1> v[1]\n= 20 | <f2> v[2]\n= 30 | <f3> v[3]\n= 40", 
+             color=black, fillcolor=lightblue, style=filled];
+     edge [color=black];
+     struct:f0:s -> values:f0;
+     labels:f4 -> values:f3;
+     {rank=same; struct,labels};
    }
+
+
+.. tabbed:: tab_vector_push_back
+
+   .. tab:: push_back and pop_back
+
+      :vector:`push_back` appends an element to the end
+      and increases the capacity of the vector, if needed.
+
+      :vector:`pop_back` reduces the size of the vector by one.
+      The last element is no longer available.
+
+      Note that ``pop_back`` does not return a value.
+
+      If you need that last element, remember to save it first.
+
+      .. code-block:: cpp
+
+         std::vector<char> letters {'a', 'b', 'c'};
+
+         letters.push_back('d');  // add 'd' to the end of the vector
+         letters.pop_back();      // pop_back is the opposite:
+
+   .. tab:: Run It
+
+      .. activecode:: vector_push_back_example_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
+         :nocodelens:
+
+         #include <vector>
+         #include <iostream>
+           
+         int main() {
+           std::vector<char> letters {'a', 'b', 'c'};
+           
+           letters.at(0) = 'z';
+           letters.push_back('d');  // add 'd' to the end of the vector
+           char ch = 'e';
+           letters.push_back(ch);  // add 'e' to the end
+           letters.pop_back();     // pop_back is the opposite:
+                                   //  - removes the end element from the vector
+
+           std::cout << "All letters:";
+           for (const auto& c : letters) {
+             std::cout << ' ' << c;
+           }
+           std::cout << '\n';
+           letters.clear();         // clear all contents from vector
+           return 0;
+         }
 
 .. index:: 
    pair: vector functions; capacity
 
+Vector capacity
+---------------
 A vector exposes an interface that 'feels like' an array,
 but the underlying storage grows to accomodate new data
 as required.
