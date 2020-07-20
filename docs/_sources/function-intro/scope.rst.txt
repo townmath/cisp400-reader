@@ -12,13 +12,11 @@
 
 Scope
 =====
-
 Each name that appears in a C++ program is only valid in some *possibly discontiguous*
 portion of the source code called its :term:`scope`.
 
 Within a scope, 
 unqualified name lookup can be used to associate the name with its declaration.
-
 
 .. code-block:: cpp
 
@@ -183,6 +181,11 @@ the result can be bugs that are difficult to identify and fix.
 
 Keyword: ``namespace``
 ----------------------
+When we introduced functions, we noted that all functions are *by default* global.
+Another way of saying this is that they are by default in the *global namespace*.
+The ``namespace`` keyword provides a mechanism
+to avoid polluting the global namespace with too many names.
+
 
 A ``namespace`` is simply a named block that defines a scope.
 Namespaces provide a method for preventing name conflicts in large projects.

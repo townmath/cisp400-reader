@@ -70,31 +70,29 @@ the task it defines can be executed as often as needed.
 
          int main () {
            say_hello();
-           std::cout << "area = " << area(4,3) << '\n';
+           std::cout << "\narea = " << area(4,3) << '\n';
            return 0;
          }
 
-   .. tab:: Code Lens
+.. codelens:: functions_simple_intro_cl
+   :caption: Simple functions
+   :language: cpp
 
-      .. codelens:: functions_simple_intro_cl
-         :caption: Simple functions
-         :language: cpp
+   #include <iostream>
 
-         #include <iostream>
+   int area (int height, int width) {
+     return height*width;
+   }
 
-         int area (int height, int width) {
-           return height*width;
-         }
+   void say_hello() {
+     std::cout << "hello";
+   }
 
-         void say_hello() {
-           std::cout << "hello";
-         }
-
-         int main () {
-           say_hello();
-           std::cout << "area = " << area(4,3) << '\n';
-           return 0;
-         }
+   int main () {
+     say_hello();
+     std::cout << "\narea = " << area(4,3) << '\n';
+     return 0;
+   }
 
 
 

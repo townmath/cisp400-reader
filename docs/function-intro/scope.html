@@ -375,6 +375,10 @@ the result can be bugs that are difficult to identify and fix.</p>
 </div>
 <div class="section" id="keyword-namespace">
 <span id="index-2"></span><h2><span class="section-number">3.3.2. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">namespace</span></code><a class="headerlink" href="#keyword-namespace" title="Permalink to this headline">¶</a></h2>
+<p>When we introduced functions, we noted that all functions are <em>by default</em> global.
+Another way of saying this is that they are by default in the <em>global namespace</em>.
+The <code class="docutils literal notranslate"><span class="pre">namespace</span></code> keyword provides a mechanism
+to avoid polluting the global namespace with too many names.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">namespace</span></code> is simply a named block that defines a scope.
 Namespaces provide a method for preventing name conflicts in large projects.</p>
 <p>Symbols declared inside a namespace block are placed in a named scope that prevents them from being mistaken for identically-named symbols in other scopes.</p>
