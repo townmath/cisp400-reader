@@ -7,7 +7,9 @@ Introduction to functions
 
    functions.rst
    scope.rst
+   guidelines.rst
    constants.rst
    auto.rst
    error-handling.rst
-   guidelines.rst
+   static-functions.rst
+

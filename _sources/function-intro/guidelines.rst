@@ -118,6 +118,114 @@ General function writing guidelines
 .. youtube:: 9mWWNYRHAIQ
    :http: https
 
+When to write a function
+------------------------
+
+As with any kind of abstraction, there are two goals to making a function:
+
+- **Encapsulation**: 
+  If you have some task to carry out that is simple to describe from the outside, 
+  but messy to understand from the inside, 
+  then wrapping it in a function lets the caller carry out this task without having to know the details. 
+
+  This is also useful if you want to change the implementation later.
+- **Code re-use**: 
+  If you find yourself writing the same lines of code in several places 
+  (or worse, are tempted to copy a block of code to several places), 
+  you should probably put this code in a function 
+  (or perhaps more than one function, 
+  if there is no succinct way to describe what this block of code is doing).
+
+Both of these goals may be trumped by the goal of making your code **clear**. 
+If you can’t describe what a function is doing in a single, simple sentence, 
+this is a sign that maybe you need to restructure your code. 
+Having a function that does more than one thing (or does different things depending on its arguments) 
+is likely to lead to confusion.
+
+So, for example, this is not a good function definition:
+
+.. code-block:: cpp
+
+   // This code is an anti-pattern.
+   // It's an example of how NOT to write a function.
+
+   /** 
+    * If getMax is true, return maximum of x and y,
+    * else return minimum.
+    */
+   int computeMinOrMax(int x, int y, bool getMax) {
+     if(x > y) {
+       if(getMax) { 
+         return x;
+       } else {
+         return y; 
+       }
+     } else { 
+       if(getMax) { 
+         return y;
+       } else {
+          return x; 
+       }
+     } 
+   }
+
+This function is clearly trying to do two things and not doing either one very well.
+Two functions would be far simpler:
+
+.. code-block:: cpp
+
+   // return the maximum of x and y
+   // if x == y, return y
+   int maximum (int x, int y) {
+     return (x < y) ? y : x;
+   }
+
+   // return the minimum of x and y
+   // if x == y, return y
+   int minimum (int x, int y) {
+     return (y < x) ? y : x;
+   }
+
+   int computeMinOrMax(int x, int y, bool getMax) {
+       if(getMax) {
+         return maximum(x, y);
+       }
+       return minimum(x, y);
+   }
+
+   // or more compactly:
+   int computeMinOrMax(int x, int y, bool getMax) {
+     return getMax ? maximum(x,y) : minimum(x,y);
+   }
+
+   
+Is this *slightly* more typing? Yes.
+At the end of the day, you will be far happier testing and debugging the three simpler functions
+than the first version.
+Your future co-workers will thank you.
+
+.. note::
+
+   Also be aware the STL provides functions
+   `std::min <http://en.cppreference.com/w/cpp/algorithm/min>`_ and
+   `std::max <http://en.cppreference.com/w/cpp/algorithm/max>`_,
+   which eliminate the need for our ``minimum`` and ``maximum`` entirely
+   and have the advantage of working on any :term:`comparable` type.
+
+   This would transform the previous example to:
+
+   .. code-block:: cpp
+
+      #include <algorithm>
+
+      int computeMinOrMax(int x, int y, bool getMax) {
+        return getMax ? std::max(x,y) : std::min(x,y);
+      }
+
+
+
+
+
 
 -----
 
@@ -126,7 +234,11 @@ General function writing guidelines
    - `C++ Core Guidelines for functions 
       <https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-functions>`_
       from GitHub
-
    - `Unit testing library list <https://en.cppreference.com/w/cpp/links/libs#Testing>`__
+   - A very brief description of 
+    "`extract method <http://refactoring.com/catalog/extractMethod.html>`_" from Martin Fowler's Refactoring site.
+   - `ExtractMethod <http://c2.com/cgi/wiki?ExtractMethod>`_ discussion from the 
+     `PortlandPatternRepository <http://c2.com/cgi/wiki?PortlandPatternRepository>`_ - the very first wiki
+
 
 
