@@ -464,51 +464,27 @@ so changing the values of the function arguments inside the function has no effe
 Any information stored in local variables is lost.</p>
 <div class="admonition-try-this admonition">
 <p class="admonition-title">Try This!</p>
-<p>Read the code below and predict what the output should be.
-Then step though
-<a class="reference external" href="http://pythontutor.com/cpp.html#code=%23include%20%3Ciostream%3E%0A%0A//%20forward%20function%20declarations%0Avoid%20dig%28%29%3B%0Avoid%20deeper%28%29%3B%0A%0Aint%20main%28%29%20%7B%0A%20%20std%3A%3Acout%20%3C%3C%20%22Programs%20always%20start%20in%20function%20main.%5Cn%22%3B%0A%0A%20%20dig%28%29%3B%0A%0A%20%20std%3A%3Acout%20%3C%3C%20%22Returned%20to%20main.%5Cnexiting.%22%3B%0A%20%20return%200%3B%0A%7D%0A%0Avoid%20dig%28%29%20%7B%0A%20%20std%3A%3Acout%20%3C%3C%20%22Digging...%5Cn%22%3B%0A%20%20deeper%28%29%3B%0A%20%20std%3A%3Acout%20%3C%3C%20%22Still%20digging...%5Cn%22%3B%0A%7D%0A%0Avoid%20deeper%28%29%20%7B%0A%20%20std%3A%3Acout%20%3C%3C%20%22now%20even%20deeper....%5Cn%22%3B%0A%7D%0A&amp;curInstr=6&amp;mode=display&amp;origin=opt-frontend.js&amp;py=cpp&amp;rawInputLstJSON=%5B%5D">the example code here</a>
-to see the call stack in action.</p>
-<p>Did your expectations match what actually happened?</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// call-stack.h</span>
+<p>Read the code below and predict what the output should be <strong>before</strong> stepping through it.</p>
 
-<span class="c1">// it&#39;s a better idea to physically separate</span>
-<span class="c1">// definitions and declarations</span>
+<div class="runestone" style="max-width: none;">
+    <div class="alert alert-warning cd_section">
+        <div class="pytutorVisualizer" id="functions_dig_deeper_cl"
+           data-params='{"embeddedMode": true, "lang": "cpp", "jumpToEnd": false}'>
+        </div>
+        <p class="runestone_caption"><span class="runestone_caption_text">CodeLens:  (functions_dig_deeper_cl)</span> </p>
+    </div>
 
-<span class="cp">#ifndef CALL_STACK_H</span>
-<span class="cp">#define CALL_STACK_H</span>
+<script type="text/javascript">
+var functions_dig_deeper_cl_vis;
 
-<span class="c1">// declare the interface here</span>
-<span class="kt">void</span> <span class="nf">dig</span><span class="p">();</span>
-<span class="kt">void</span> <span class="nf">deeper</span><span class="p">();</span>
+if (allTraceData === undefined) {
+   var allTraceData = {};
+}
 
-<span class="cp">#endif</span>
-</pre></div>
-</div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// implement the call-stack functions</span>
-<span class="c1">// declared in call-stack.h</span>
+allTraceData["functions_dig_deeper_cl"] = {"code": "#include <iostream>\n\n// forward function declarations\nvoid dig();\nvoid deeper();\n\nint main() {\n  std::cout << \"Programs always start in function main.\\n\";\n\n  dig();\n\n  std::cout << \"Returned to main.\\nexiting.\";\n  return 0;\n}\n\nvoid dig() {\n  std::cout << \"Digging...\\n\";\n  deeper();\n  std::cout << \"Still digging...\\n\";\n}\n\nvoid deeper() {\n  std::cout << \"now even deeper....\\n\";\n}", "trace": [{"event": "step_line", "func_name": "main", "globals": {}, "heap": {}, "line": 8, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 7, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}], "stdout": ""}, {"event": "step_line", "func_name": "main", "globals": {}, "heap": {}, "line": 10, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 10, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}], "stdout": "Programs always start in function main.\n"}, {"event": "call", "func_name": "dig()", "globals": {}, "heap": {}, "line": 17, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": false, "is_parent": false, "is_zombie": false, "line": 10, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}, {"encoded_locals": {}, "frame_id": "0xFFF000BD0", "func_name": "dig()", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 17, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "dig()_0xFFF000BD0"}], "stdout": "Programs always start in function main.\n"}, {"event": "step_line", "func_name": "dig()", "globals": {}, "heap": {}, "line": 18, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": false, "is_parent": false, "is_zombie": false, "line": 10, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}, {"encoded_locals": {}, "frame_id": "0xFFF000BD0", "func_name": "dig()", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 18, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "dig()_0xFFF000BD0"}], "stdout": "Programs always start in function main.\nDigging...\n"}, {"event": "call", "func_name": "deeper()", "globals": {}, "heap": {}, "line": 23, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": false, "is_parent": false, "is_zombie": false, "line": 10, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}, {"encoded_locals": {}, "frame_id": "0xFFF000BD0", "func_name": "dig()", "is_highlighted": false, "is_parent": false, "is_zombie": false, "line": 18, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "dig()_0xFFF000BD0"}, {"encoded_locals": {}, "frame_id": "0xFFF000BC0", "func_name": "deeper()", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 23, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "deeper()_0xFFF000BC0"}], "stdout": "Programs always start in function main.\nDigging...\n"}, {"event": "return", "func_name": "deeper()", "globals": {}, "heap": {}, "line": 24, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": false, "is_parent": false, "is_zombie": false, "line": 10, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}, {"encoded_locals": {}, "frame_id": "0xFFF000BD0", "func_name": "dig()", "is_highlighted": false, "is_parent": false, "is_zombie": false, "line": 18, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "dig()_0xFFF000BD0"}, {"encoded_locals": {}, "frame_id": "0xFFF000BC0", "func_name": "deeper()", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 24, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "deeper()_0xFFF000BC0"}], "stdout": "Programs always start in function main.\nDigging...\nnow even deeper....\n"}, {"event": "step_line", "func_name": "dig()", "globals": {}, "heap": {}, "line": 19, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": false, "is_parent": false, "is_zombie": false, "line": 10, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}, {"encoded_locals": {}, "frame_id": "0xFFF000BD0", "func_name": "dig()", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 19, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "dig()_0xFFF000BD0"}], "stdout": "Programs always start in function main.\nDigging...\nnow even deeper....\n"}, {"event": "return", "func_name": "dig()", "globals": {}, "heap": {}, "line": 20, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": false, "is_parent": false, "is_zombie": false, "line": 10, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}, {"encoded_locals": {}, "frame_id": "0xFFF000BD0", "func_name": "dig()", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 20, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "dig()_0xFFF000BD0"}], "stdout": "Programs always start in function main.\nDigging...\nnow even deeper....\nStill digging...\n"}, {"event": "step_line", "func_name": "main", "globals": {}, "heap": {}, "line": 12, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 12, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}], "stdout": "Programs always start in function main.\nDigging...\nnow even deeper....\nStill digging...\n"}, {"event": "step_line", "func_name": "main", "globals": {}, "heap": {}, "line": 13, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 13, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}], "stdout": "Programs always start in function main.\nDigging...\nnow even deeper....\nStill digging...\nReturned to main.\nexiting."}, {"event": "return", "func_name": "main", "globals": {}, "heap": {}, "line": 14, "ordered_globals": [], "stack_to_render": [{"encoded_locals": {}, "frame_id": "0xFFF000BE0", "func_name": "main", "is_highlighted": true, "is_parent": false, "is_zombie": false, "line": 14, "ordered_varnames": [], "parent_frame_id_list": [], "unique_hash": "main_0xFFF000BE0"}], "stdout": "Programs always start in function main.\nDigging...\nnow even deeper....\nStill digging...\nReturned to main.\nexiting."}]}
 
-<span class="cp">#include</span> <span class="cpf">&quot;call-stack.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Programs always start in function main.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-
-  <span class="n">dig</span><span class="p">();</span>
-
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Returned to main.</span><span class="se">\n</span><span class="s">exiting.&quot;</span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">dig</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Digging...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-  <span class="n">deeper</span><span class="p">();</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Still digging...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">deeper</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;now even deeper....</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
+;
+</script>
 </div>
 </div>
 <hr class="docutils" />

@@ -23,55 +23,90 @@ Pass by value is the simplest way to get data into and out of functions.
 
 .. code-block:: cpp
 
-   #include <iostream>
-
-   // Declare a function that takes a parameter.
-   void printFavorite(int x);
-
-   int main() {
-   int favorite = 72;
-     printFavorite(favorite); // Call the function.
-     return 0;
-   }
-
-   // define the function
    void printFavorite(int x) {
+     // 'x' is a copy of 'favorite'
      std::cout << "my favorite number is " << x << '\n';
    }
 
-You can also step through `example 2.1.5-1 here <http://pythontutor.com/cpp.html#code=%23include%20%3Ciostream%3E%0A%0A//%20Declare%20a%20function%20that%20takes%20a%20parameter.%0Avoid%20printFavorite%28int%20x%29%3B%0A%0Aint%20main%28%29%20%7B%0A%20%20int%20favorite%20%3D%2072%3B%0A%20%20printFavorite%28favorite%29%3B%20//%20Call%20the%20function.%0A%20%20return%200%3B%0A%7D%0A%0A//%20define%20the%20function%0Avoid%20printFavorite%28int%20x%29%20%7B%0A%20%20std%3A%3Acout%20%3C%3C%20%22my%20favorite%20number%20is%20%22%20%3C%3C%20x%20%3C%3C%20'%5Cn'%3B%0A%7D%0A&curInstr=0&mode=display&origin=opt-frontend.js&py=cpp&rawInputLstJSON=%5B%5D>`_.  
+   int main() {
+     int favorite = 72;
+     printFavorite(favorite);
+   }
+
 
 The important point is that two copies of my favorite number are stored.
 The one declared in main, ``favorite``, and
 the one declared in printFavorite, ``x``.
 The parameter ``x`` is initialized using the value of ``favorite`` in main.
 
+.. codelens:: function_parameter_pass_cl1
+   :language: cpp
+
+   #include <iostream>
+
+   // define the function
+   void printFavorite(int x) {
+     std::cout << "my favorite number is " << x << '\n';
+   }
+
+   int main() {
+     int favorite = 72;
+     printFavorite(favorite);
+     return 0;
+   }
+
 
 More than one parameter can be passed.
-For example, a function to add two numbers:
+For example, 
+a function to add two numbers makes copies of both parameters
+adds them together and returns a result, which is also copied.
 
-.. code-block:: cpp
+Step through this example and see how the copies of both local variables and
+return values are managed on the stack.
+
+.. codelens:: function_parameter_pass_cl2
+   :language: cpp
 
    #include <iostream>
 
    // This function takes two parameters.
-   int addNumbers(int x, int y);
-
-   int main() {
-     int a = 13;
-     int b = 21;
-     int sum = addNumbers(a, b);
-     std::cout << sum << '\n';
-     return 0;
-   }
-
-   int addNumbers(int x, int y){
+   int add_numbers(int x, int y){
      int answer = x + y;
      return answer;
    }
 
-Step through `example 2.1.5-2 <http://pythontutor.com/cpp.html#code=%23include%20%3Ciostream%3E%0A%0A//%20This%20function%20takes%20two%20parameters.%0Aint%20addNumbers%28int%20x,%20int%20y%29%3B%0A%0Aint%20main%28%29%20%7B%0A%20%20int%20a%20%3D%2013%3B%0A%20%20int%20b%20%3D%2021%3B%0A%20%20int%20sum%20%3D%20addNumbers%28a,%20b%29%3B%0A%20%20std%3A%3Acout%20%3C%3C%20sum%20%3C%3C%20'%5Cn'%3B%0A%20%20return%200%3B%0A%7D%0A%0Aint%20addNumbers%28int%20x,%20int%20y%29%7B%0A%20%20int%20answer%20%3D%20x%20%2B%20y%3B%0A%20%20return%20answer%3B%0A%7D%0A&curInstr=0&mode=display&origin=opt-frontend.js&py=cpp&rawInputLstJSON=%5B%5D>`_
-and see how the copies of both local variables and return values are managed on the stack.
+   int main() {
+     int a = 13;
+     int b = 21;
+     int sum = add_numbers(a, b);
+     std::cout << sum << '\n';
+     return 0;
+   }
+
+One benefit of pass by value is that local changes to parameters
+do not impact the caller.
+That is, the caller can trust their data has not been modified.
+
+.. activecode:: function_pass_by_value_ac
+   :language: cpp
+   :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+   :nocodelens:
+
+   #include <iostream>
+   #include <string>
+
+   void print_n (const std::string message, int repeat) {
+     while (repeat > 0) {
+       std::cout << message << '\n';
+       --repeat;
+     }
+   }
+
+   int main() {
+     int n = 3;
+     print_n ("hello, world", n);
+     std::cout << "n = " << n;
+   }
 
 .. index:: 
    single: pass by reference
@@ -79,54 +114,212 @@ and see how the copies of both local variables and return values are managed on 
 
 For large / complex data types, however, pass by value becomes expensive even in small programs.
 An alternative to pass by value, is called **pass by reference**.
-Rather than passing a *copy* of the object, 
-instead only the *address* of the object (the object reference),
-is passed instead.
+The function parameter passed into the function is still a new variable.
+That does not change.
+However, rather than passing a *copy* of the entire object, 
+instead we *bind the address* of the original object to a new variable.
+Only the object reference is passed to the function.
+
+.. tabbed:: pointer_vs_ref_tabbed
+
+   .. tab:: Pointers and References
+
+      In this respect, a reference behaves much like a ``const pointer``.
+
+      - Both require an initial value in order to compile
+      - Neither can refer to (or point to) a different object
+
+      .. code-block:: cpp
+
+         int  n = 3;          // typical int declaration
+         int  m = 5;
+
+         int& a = n;          // a refers to n
+         int* p = &n;         // p points to n, 
+                              // but could point to something else
+
+         int* const p2 = &m;  // p2 point to m and can only point there
+
+
+      The following are compile errors:
+
+      .. code-block:: cpp
+
+         int& b;              // a reference that doesn't refer to anything
+         p2 = &n;             // attempt to change what a const pointer points to
+
+      If the pointer comparison is confusing, do not worry.
+      We will delve more deeply into pointers soon,
+      this is just for comparison for those people who have an introduction
+      into pointers.
+
+
+   .. tab:: Run It
+
+
+      .. activecode:: function_intro_reference_vs_pointer_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+         :nocodelens:
+
+         #include <iostream>
+
+         int main() {
+           int  n = 3;          // typical int declaration
+           int  m = 5;
+
+           int& a = n;          // a refers to n
+           int& b = m;          // b refers to m
+             
+           int* p = &n;         // p points to n, 
+                                // but could point to something else
+             
+           int* const p2 = &m;  // p2 points to m and can only point there
+
+
+           // any use of a is equivalent to thing the variable
+           // that a refers to
+           a = b;
+           std::cout << "n = " << n << '\n';
+             
+           a = 0;
+             
+           p = &m;       // OK
+           //p2 = &n;   // compile error
+
+           std::cout << "n = " << n << '\n'
+                     << "m = " << m << '\n'
+                     << "a = " << a << '\n'
+                     << "b = " << b << '\n'
+                     << "p = " << * p << '\n'
+                     << "p2 = " << * p2 << '\n';
+         }
+
+               
+
+
 We use the *address of operator* ``&`` to declare that only the address of the 
 variable is passed, rather than a copy.
 The primary advantage is that since all addresses are the same size,
 the cost of passing is the same, 
 regardless of how large the object is.
 
+Understanding references is critical to understanding how C++11 and
+later version of the language function.
+References are a major new language feature and we will be using them
+often from now on.
+
+.. admonition:: Try This!
+
+   Modify the ``print_n`` function signature so that 
+   the variable ``repeat`` is a **reference** istead of a copy.
+
+   .. activecode:: function_pass_by_ref_ac
+      :language: cpp
+      :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+      :nocodelens:
+
+
+      #include <cassert>
+      #include <iostream>
+      #include <string>
+
+      void print_n (const std::string message, int repeat) {
+        while (repeat > 0) {
+          std::cout << message << '\n';
+          --repeat;
+        }
+      }
+
+
+      int main() {
+        int n = 3;
+        print_n ("hello, world", n);
+        std::cout << "n = " << n;
+
+        assert ( n == 0 );        // program terminates if false
+      }
+
+A common source of confusion when starting out with references is
+keeping the ``operator&`` straight.
+
+The meaning of this operator depends on how it is used.
+
+On the left-hand side of an assignment,
+or in function parameters, ``&`` **always** defines a 
+reference to a type:
 
 .. code-block:: cpp
 
-   #include <iostream>
+   int& a = 3;
+   const int& cr(a);     // cr refers to a, 
+                         // but we can't change the value of a using cr
 
-   /**
-    * A copy of x is passed to this function.
-    * Changes to x are not reflected in the caller.
-    */
-   void by_value(int x) {
-     std::cout << "in by_val the address of x is   " << &x << '\n';
-     x = 99;
-   }
+   void show_usage (std::string& message);
 
-   /**
-    * A reference to x is passed to this function.
-    * Changes to x are not reflected in the caller.
-    */
-   void by_reference (int& x) {
-     std::cout << "in by_ref the address of x is   " << &x << '\n';
-     x = -1;
-   }
+   const double& pi = 3.1415926;
 
-   int main () {
-     auto alpha = 11;
-     auto beta = 11;
+On the right-hand side of an assignment,
+``&`` **almost always** means address of a variable.
+The only exception is when casting to a reference type:
 
-     std::cout << "in main the address of alpha is " << &alpha << '\n';
-     std::cout << "in main the address of beta is  " << &beta << '\n';
+.. code-block:: cpp
 
-     by_value(alpha);
-     by_reference(beta);
+   int n = 3;
+   int* p = &n;      // p points to the address of the variable n
 
-     std::cout << "alpha is now " << alpha << '\n';
-     std::cout << "beta is now " << beta << '\n';
-     return 0;
-   }
+   const int& cr(a);     // const reference
 
-Step through `example 2.1.5-3 <http://pythontutor.com/cpp.html#code=%23include%20%3Ciostream%3E%0A%0A/**%0A%20*%20A%20copy%20of%20x%20is%20passed%20to%20this%20function.%0A%20*%20Changes%20to%20x%20are%20not%20reflected%20in%20the%20caller.%0A%20*/%0Avoid%20by_value%28int%20x%29%20%7B%0A%20%20std%3A%3Acout%20%3C%3C%20%22in%20by_val%20the%20address%20of%20x%20is%20%20%20%22%20%3C%3C%20%26x%20%3C%3C%20'%5Cn'%3B%0A%20%20x%20%3D%2099%3B%0A%7D%0A%0A/**%0A%20*%20A%20reference%20to%20x%20is%20passed%20to%20this%20function.%0A%20*%20Changes%20to%20x%20are%20not%20reflected%20in%20the%20caller.%0A%20*/%0Avoid%20by_reference%20%28int%26%20x%29%20%7B%0A%20%20std%3A%3Acout%20%3C%3C%20%22in%20by_ref%20the%20address%20of%20x%20is%20%20%20%22%20%3C%3C%20%26x%20%3C%3C%20'%5Cn'%3B%0A%20%20x%20%3D%20-1%3B%0A%7D%0A%0Aint%20main%20%28%29%20%7B%0A%20%20auto%20alpha%20%3D%2011%3B%0A%20%20auto%20beta%20%3D%2011%3B%0A%0A%20%20std%3A%3Acout%20%3C%3C%20%22in%20main%20the%20address%20of%20alpha%20is%20%22%20%3C%3C%20%26alpha%20%3C%3C%20'%5Cn'%3B%0A%20%20std%3A%3Acout%20%3C%3C%20%22in%20main%20the%20address%20of%20beta%20is%20%20%22%20%3C%3C%20%26beta%20%3C%3C%20'%5Cn'%3B%0A%0A%20%20by_value%28alpha%29%3B%0A%20%20by_reference%28beta%29%3B%0A%0A%20%20std%3A%3Acout%20%3C%3C%20%22alpha%20is%20now%20%22%20%3C%3C%20alpha%20%3C%3C%20'%5Cn'%3B%0A%20%20std%3A%3Acout%20%3C%3C%20%22beta%20is%20now%20%22%20%3C%3C%20beta%20%3C%3C%20'%5Cn'%3B%0A%20%20return%200%3B%0A%7D%0A&curInstr=0&mode=display&origin=opt-frontend.js&py=cpp&rawInputLstJSON=%5B%5D>`_.
+   // cast away the 'const' part of cr
+   int& r2 = const_cast<int&>(cr);
+
+
+In the last code block, notice that both ``cr`` and ``r2`` refer to ``a``,
+however, ``r2`` can change the value of ``a`` because we cast away the ``const``
+modifier that was part of ``cr``.
+
+Although the language allows casting away ``const`` like this,
+you should use this feature very sparingly.
+
+
+There is a lot going on in the following program.
+You should step through this code and make sure you
+understand what is happening to the variables in ``main``
+and the functions called from ``main``.
+
+   .. codelens:: function_parameter_pass_by_ref_cl
+      :language: cpp
+
+      #include <iostream>
+      
+      // A copy of x is passed to this function.
+      // Changes to x are not reflected in the caller.
+      void by_value(int x) {
+        std::cout << "in by_val the address of x is   " << &x << '\n';
+        x = 99;
+      }
+
+      // A reference to x is passed to this function.
+      // Changes to x are not reflected in the caller.
+      void by_reference (int& x) {
+        std::cout << "in by_ref the address of x is   " << &x << '\n';
+        x = -1;
+      }
+
+      int main () {
+        auto alpha = 11;
+        auto beta = 11;
+
+        std::cout << "in main the address of alpha is " << &alpha << '\n';
+        std::cout << "in main the address of beta is  " << &beta << '\n';
+
+        by_value(alpha);
+        by_reference(beta);
+
+        std::cout << "alpha is now " << alpha << '\n';
+        std::cout << "beta is now " << beta << '\n';
+        return 0;
+      }
 
 .. reveal:: reveal-skill-check-functions
    :showtitle: Show Skill Check
@@ -168,5 +361,7 @@ Step through `example 2.1.5-3 <http://pythontutor.com/cpp.html#code=%23include%2
 
 .. admonition:: More to Explore
 
-  - TBD
+  - :lang:`Reference initialization <reference_initialization>`
+  - :lang:`const_cast conversion <const_cast>`
+  - :lang:`Value categories <value_category>`
 
