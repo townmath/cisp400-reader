@@ -8,6 +8,7 @@ Introduction to functions
    functions.rst
    parameter-passing.rst
    scope.rst
+   namespace.rst
    guidelines.rst
    constants.rst
    auto.rst
