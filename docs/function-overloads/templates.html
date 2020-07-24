@@ -241,6 +241,14 @@ but merely on different types?</p>
 <p>Function overloads allow us to write functions with the same names and different
 parameter lists, but each function still requires its own function body,
 even if it’s only to call another function.</p>
+<div id='overload_sum_functions' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Example" >
+<p>These two overloads each add their parameters, only on different types:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span>    <span class="nf">sum</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="nf">sum</span> <span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">);</span>
+</pre></div>
+</div>
+</div><div data-component="tab" data-tabname="Run It" >
 <p>These two overloads each add their parameters, only on different types:</p>
 
 <div data-childcomponent="ac-sum-without-templates" class="runestone explainer ac_section alert alert-warning">
@@ -248,7 +256,7 @@ even if it’s only to call another function.</p>
 <textarea data-component="activecode" id=ac-sum-without-templates data-lang="cpp" 
       data-timelimit=25000     
     data-audio=''      
-           data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
 #include <iostream>
 
 int sum (int a, int b) {
@@ -265,6 +273,9 @@ int main () {
 }
 </textarea>
 </div>
+</div>
+    </div>
+
 <p>C++ provides a way to write a single piece of code
 that can stand in for an entire <em>class of functions</em> that all
 do exactly the same thing.</p>
@@ -277,13 +288,38 @@ For example:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">template</span><span class="o">-</span><span class="n">parameters</span><span class="o">&gt;</span> <span class="n">function</span><span class="o">-</span><span class="n">declaration</span>
 </pre></div>
 </div>
-<p>Using templates, our previous sum functions collapse down to</p>
+<div id='sum_function_template_tabbed' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Example" >
+<p>Using templates, our previous sum functions collapse down to:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
 <span class="n">T</span> <span class="n">sum</span> <span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+</div><div data-component="tab" data-tabname="Run It" >
+
+<div data-childcomponent="ac-sum-with-templates" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=ac-sum-with-templates data-lang="cpp" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <iostream>
+
+template <class T>
+T sum (T a, T b) {
+  return a+b;
+}
+
+int main () {
+  std::cout << sum<int> (10,20) << '\n';
+  std::cout << sum<double> (1.0,1.5) << '\n';
+}
+</textarea>
+</div>
+</div>
+    </div>
+
 <p>When identifying template parameter types,
 it is common to see either <code class="docutils literal notranslate"><span class="pre">typename</span></code> or <code class="docutils literal notranslate"><span class="pre">class</span></code>.
 As we will see later, a <code class="docutils literal notranslate"><span class="pre">class</span></code> defines a type,
@@ -308,52 +344,6 @@ not very different from a non-templated function.</p>
 <p>Or let the compiler deduce the type:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>A slightly more complex example uses a template to prompt
-for input of any type.
-The type must support <code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">&gt;&gt;</span></code>.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;sstream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
-
-<span class="k">namespace</span> <span class="n">mesa</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-    <span class="n">T</span> <span class="n">get</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">prompt</span> <span class="o">=</span> <span class="s">&quot;Enter a single value: &quot;</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">prompt</span><span class="p">;</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">line</span><span class="p">;</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
-
-        <span class="c1">// If we can&#39;t stream into our type T</span>
-        <span class="c1">// then the input was not valid for that type.</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">istringstream</span> <span class="n">buf</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
-        <span class="n">T</span> <span class="n">result</span><span class="p">;</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">buf</span> <span class="o">&gt;&gt;</span> <span class="n">result</span><span class="p">)</span> <span class="p">{</span>
-          <span class="c1">// check for any extra input and reject input if found</span>
-          <span class="kt">char</span> <span class="n">junk</span><span class="p">;</span>
-          <span class="k">if</span><span class="p">(</span><span class="n">buf</span> <span class="o">&gt;&gt;</span> <span class="n">junk</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Unexpected character.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-          <span class="p">}</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-          <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Not a valid input.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">a</span> <span class="o">=</span> <span class="n">mesa</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
-  <span class="k">auto</span> <span class="n">b</span> <span class="o">=</span> <span class="n">mesa</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Enter an integer: &quot;</span><span class="p">);</span>
-  <span class="k">auto</span> <span class="n">c</span> <span class="o">=</span> <span class="n">mesa</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Enter a float: &quot;</span><span class="p">);</span>
-
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Values: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span>
-                          <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, &quot;</span>
-                          <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
 </pre></div>
 </div>
 <p>Given a template of a single generic type,
@@ -387,10 +377,14 @@ take care when mixing types when two or more parameters are involved:</p>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>The warning for <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">&lt;int&gt;</span></code> is because we have explicitly
-declared the function to take type <code class="docutils literal notranslate"><span class="pre">int</span></code>, but the second argument is a double.
-The warning tells us that the copy of <code class="docutils literal notranslate"><span class="pre">1.5</span></code> passed to sum will be truncated to <code class="docutils literal notranslate"><span class="pre">1</span></code>,
-a narrowing conversion.</p>
+<p>The call to <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">&lt;double&gt;</span></code> implicitly converts the <code class="docutils literal notranslate"><span class="pre">int</span></code>
+to <code class="docutils literal notranslate"><span class="pre">double</span></code> without warning.</p>
+<p>The warning for <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">&lt;int&gt;</span></code> happens because we have explicitly
+declared the function to take type <code class="docutils literal notranslate"><span class="pre">int</span></code>,
+but the second argument is a double.
+The warning says that the copy of <code class="docutils literal notranslate"><span class="pre">1.5</span></code> passed to sum
+will be truncated to <code class="docutils literal notranslate"><span class="pre">1</span></code>,
+which is a narrowing conversion.</p>
 <p>The error is due to the compiler not be able to find a function overload
 that meets the calling requirements.
 Even though sum is a template,
@@ -458,32 +452,57 @@ just like any other local variable or function parameter.</p>
 <p>Non-generic template parameters may be specified as
 <code class="docutils literal notranslate"><span class="pre">const</span></code> if the function
 body will not modify them.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-
-<span class="c1">// it is possible to forward declare a template</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="n">T</span> <span class="n">multiply</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">val</span><span class="p">);</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">multiply</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">multiply</span><span class="o">&lt;</span><span class="kt">long</span><span class="p">,</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// note the definition includes ALL of the declaration</span>
-<span class="c1">// including the template information</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="kt">int</span> <span class="n">N</span><span class="o">&gt;</span>
+<div id='non_type_parameter_tabbed' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Example" >
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="kt">int</span> <span class="n">N</span><span class="o">&gt;</span>
 <span class="n">T</span> <span class="n">multiply</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="n">val</span> <span class="o">*</span> <span class="n">N</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>This is exactly what the <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::array">std::array</a> class template does.
+<p>The <code class="docutils literal notranslate"><span class="pre">multiply</span></code> template <strong>must</strong> be called using
+template parameters</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">double</span> <span class="n">two_pi</span> <span class="o">=</span> <span class="n">multiply</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">);</span>
+</pre></div>
+</div>
+</div><div data-component="tab" data-tabname="Run It" >
+
+<div data-childcomponent="ac-non_type_parameter_template" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=ac-non_type_parameter_template data-lang="cpp" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <iostream>
+
+// it is possible to forward declare a template
+template <class T, const int N>
+T multiply (const T& val);
+
+int main() {
+  std::cout << multiply<double,2>(3.14159) << '\n';
+  std::cout << multiply<long,3>(10) << '\n';
+}
+
+// note the definition includes ALL of the declaration
+// including the template information
+template <class T, int N>
+T multiply (const T& val) {
+  return val * N;
+}
+</textarea>
+</div>
+</div>
+    </div>
+
+<p>This is exactly what the <a class="reference external" href="https://en.cppreference.com/w/cpp/container/array">std::array</a> class template does.
 As a wrapper around a raw array,
 when this container is used, the size of the array
 is a required template parameter:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="mi">4</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Templates that include non-generic template parameters can’t use auto type deduction.
 For example, <code class="docutils literal notranslate"><span class="pre">std::array</span></code> needs both the type and the array size.
 Our <code class="docutils literal notranslate"><span class="pre">multiply</span></code> example needs both the type and the operand <code class="docutils literal notranslate"><span class="pre">N</span></code>.
@@ -499,11 +518,18 @@ there is no way for the compiler to ‘deduce’ the second operand <code class=
 <span class="p">}</span>
 </pre></div>
 </div>
+</div>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/language/template_parameters">Template parameters</a> from cppreference.</p></li>
+<li><p>From cppreference.com:</p>
+<ul>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/template_parameters">Template parameters</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/implicit_conversion">Implicit type conversion</a> and
+<a class="reference external" href="https://en.cppreference.com/w/cpp/language/operator_arithmetic#Conversions">arithmetic conversions</a></p></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>

@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>3.5. Keyword: const &#8212; CISC 187 Course Reader Overview</title>
+    <title>3.6. Keyword: const &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -56,8 +56,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.6. Keyword: auto" href="auto.html" />
-    <link rel="prev" title="3.4. General function writing guidelines" href="guidelines.html" />
+    <link rel="next" title="3.7. Keyword: auto" href="auto.html" />
+    <link rel="prev" title="3.5. General function writing guidelines" href="guidelines.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -187,13 +187,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">3.4. </span>General function writing guidelines" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">3.5. </span>General function writing guidelines" data-toggle="tooltip">
     <a href="guidelines.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">3.6. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">auto</span></code>' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">3.7. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">auto</span></code>' data-toggle="tooltip" >              
     <a href="auto.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -233,7 +233,7 @@
 <div class="container" id="main-content" role="main">
   
   <div class="section" id="keyword-const">
-<span id="index-0"></span><h1><span class="section-number">3.5. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">const</span></code><a class="headerlink" href="#keyword-const" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">3.6. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">const</span></code><a class="headerlink" href="#keyword-const" title="Permalink to this headline">¶</a></h1>
 <p>Use <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=const">const</a> to instruct the compiler to hold something constant.
 The <code class="docutils literal notranslate"><span class="pre">const</span></code> keyword can modify the behavior of anything, depending on where it is used:</p>
 <ul class="simple">
@@ -293,7 +293,7 @@ the more you will appreciate how powerful that guarantee is.</p>
 but you don’t see it nearly as often in C.
 Many programmers use <code class="docutils literal notranslate"><span class="pre">#define</span></code> instead.</p>
 <div class="section" id="prefer-const-to-define">
-<span id="index-2"></span><h2><span class="section-number">3.5.1. </span>Prefer <code class="docutils literal notranslate"><span class="pre">const</span></code> to <code class="docutils literal notranslate"><span class="pre">#define</span></code><a class="headerlink" href="#prefer-const-to-define" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">3.6.1. </span>Prefer <code class="docutils literal notranslate"><span class="pre">const</span></code> to <code class="docutils literal notranslate"><span class="pre">#define</span></code><a class="headerlink" href="#prefer-const-to-define" title="Permalink to this headline">¶</a></h2>
 <p>We also prefer <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=inline specifier">inline specifier</a> and <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=enum declaration">enum declaration</a> over
 <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=define">define</a>.</p>
 <p>There are good reasons to avoid <code class="docutils literal notranslate"><span class="pre">#define</span></code> where alternatives exist.</p>
@@ -318,7 +318,7 @@ Then the program is compiled.</p>
 It is possible to also preserve macro names using
 certain debugging compiler switches, such as <code class="docutils literal notranslate"><span class="pre">-g3</span></code>.</p>
 <div class="section" id="function-like-macros-using-define">
-<span id="index-3"></span><h3><span class="section-number">3.5.1.1. </span>Function-like macros using <code class="docutils literal notranslate"><span class="pre">#define</span></code><a class="headerlink" href="#function-like-macros-using-define" title="Permalink to this headline">¶</a></h3>
+<span id="index-3"></span><h3><span class="section-number">3.6.1.1. </span>Function-like macros using <code class="docutils literal notranslate"><span class="pre">#define</span></code><a class="headerlink" href="#function-like-macros-using-define" title="Permalink to this headline">¶</a></h3>
 <p>If you use <code class="docutils literal notranslate"><span class="pre">#define</span></code> to create a function-like macro, then unexpected behaviors are possible.
 For example,
 a macro to call some function <code class="docutils literal notranslate"><span class="pre">f()</span></code> with the larger of either <code class="docutils literal notranslate"><span class="pre">a</span></code> or <code class="docutils literal notranslate"><span class="pre">b</span></code>:</p>
@@ -357,7 +357,7 @@ It’s not.</p>
 </div>
 </div>
 <div class="section" id="keyword-constexpr">
-<span id="index-4"></span><h2><span class="section-number">3.5.2. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">constexpr</span></code><a class="headerlink" href="#keyword-constexpr" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2><span class="section-number">3.6.2. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">constexpr</span></code><a class="headerlink" href="#keyword-constexpr" title="Permalink to this headline">¶</a></h2>
 <p>The keyword <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=constexpr">constexpr</a> was added in C++11.</p>
 <p>The fundamental difference between <code class="docutils literal notranslate"><span class="pre">const</span></code> and <code class="docutils literal notranslate"><span class="pre">constexpr</span></code> is that
 <code class="docutils literal notranslate"><span class="pre">constexpr</span></code> must be able to be determined at compile time.
@@ -405,7 +405,7 @@ and be aware of what is and is not a valid constant expression
 for whatever environment you are working in.</p>
 </div>
 <div class="section" id="guidelines-for-now">
-<span id="index-5"></span><h2><span class="section-number">3.5.3. </span>Guidelines for now<a class="headerlink" href="#guidelines-for-now" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2><span class="section-number">3.6.3. </span>Guidelines for now<a class="headerlink" href="#guidelines-for-now" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>When creating local variables</p>
 <ul>
@@ -465,8 +465,8 @@ from GitHub</p></li>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 3.4. General function writing guidelines' data-toggle="tooltip">
-    <a href="guidelines.html" aria-label="3.4. General function writing guidelines">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 3.5. General function writing guidelines' data-toggle="tooltip">
+    <a href="guidelines.html" aria-label="3.5. General function writing guidelines">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -476,8 +476,8 @@ from GitHub</p></li>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.6. Keyword:  auto ' data-toggle="tooltip" >
-    <a href="auto.html" aria-label="3.6. Keyword:  auto ">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.7. Keyword:  auto ' data-toggle="tooltip" >
+    <a href="auto.html" aria-label="3.7. Keyword:  auto ">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

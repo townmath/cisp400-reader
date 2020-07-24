@@ -56,7 +56,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.4. General function writing guidelines" href="guidelines.html" />
+    <link rel="next" title="3.4. Namespaces" href="namespace.html" />
     <link rel="prev" title="3.2. Passing parameters" href="parameter-passing.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -193,8 +193,8 @@
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">3.4. </span>General function writing guidelines' data-toggle="tooltip" >              
-    <a href="guidelines.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">3.4. </span>Namespaces' data-toggle="tooltip" >              
+    <a href="namespace.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -266,24 +266,36 @@ parameters or any other important checks.</p>
 </div>
 <p>In the following example,
 all of the assertions about <code class="docutils literal notranslate"><span class="pre">n</span></code> are <code class="docutils literal notranslate"><span class="pre">true</span></code>:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cassert&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<div data-childcomponent="function_scope_ac" class="runestone explainer ac_section alert alert-warning">
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
-  <span class="n">assert</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">42</span><span class="p">);</span>
+<textarea data-component="activecode" id=function_scope_ac data-lang="cpp" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <cassert>
 
-  <span class="c1">// a new block scope can be created anywhere</span>
-  <span class="p">{</span>
-    <span class="kt">double</span> <span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.14159</span><span class="p">;</span>
-    <span class="n">assert</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="o">-</span><span class="mf">3.1415</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">);</span>
+int n = 3;
 
-  <span class="p">}</span> <span class="c1">// double n is no longer in scope</span>
+int main() {
+  int n = 42;
+  assert (n == 42);
 
-  <span class="n">assert</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">42</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
+  // a new block scope can be created anywhere
+  {
+    double n = -3.14159;
+    assert (n - -3.1415 < 0.01);
+
+  } // double n is no longer in scope
+
+  assert (n == 42);
+}
+</textarea>
+</div>
+<div class="admonition-try-this admonition">
+<p class="admonition-title">Try This!</p>
+<p>Remove the braces that form the block scope around <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">n</span></code>.</p>
+<p>What do you expect to happen?</p>
 </div>
 <p>Errors related to scope are common,
 especially for beginning programmers who tend to rely more on
@@ -296,11 +308,11 @@ For example, what is the output of the following?</p>
   <span class="k">for</span> <span class="p">(</span><span class="n">i1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i1</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i1</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i1</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span><span class="p">;</span>
   <span class="p">}</span>
+ <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
   <span class="kt">int</span> <span class="n">i2</span><span class="p">;</span>
   <span class="k">for</span> <span class="p">(</span><span class="n">i2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i1</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i2</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i2</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span><span class="p">;</span>
   <span class="p">}</span>
-
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -310,35 +322,56 @@ For example, what is the output of the following?</p>
 <p>Can you explain <em>why</em>?</p>
 <p>Hint:  What is the value of <code class="docutils literal notranslate"><span class="pre">i2</span></code> when the end of main is reached?</p>
 <p>What should be done to fix this program?</p>
-
-    </div>
-    <div class="admonition-try-this admonition">
+<div class="admonition-try-this admonition">
 <p class="admonition-title">Try This!</p>
 <p>Change the preceeding program and put the declarations for
 <code class="docutils literal notranslate"><span class="pre">i1</span></code> and <code class="docutils literal notranslate"><span class="pre">i2</span></code> in their respective <code class="docutils literal notranslate"><span class="pre">for</span></code> loops.
 Don’t make any other changes.</p>
 <p>What happens?</p>
 <p>Why is this better than the unmodified program?</p>
+
+<div data-childcomponent="function_scope_try_this_ac" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=function_scope_try_this_ac data-lang="cpp" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <iostream>
+
+int main() {
+  int i1;
+  for (i1 = 0; i1 < 10; i1++) {
+    std::cout << i1 << ' ';
+  }
+  std::cout << '\n';
+  int i2;
+  for (i2 = 0; i1 < 10; i2++) {
+    std::cout << i2 << ' ';
+  }
+}
+</textarea>
 </div>
-<div class="section" id="local-variables">
+</div>
+
+    </div>
+    <div class="section" id="local-variables">
 <span id="index-1"></span><h2><span class="section-number">3.3.1. </span>Local variables<a class="headerlink" href="#local-variables" title="Permalink to this headline">¶</a></h2>
 <p>You may read somewhere that global variables are evil, harmful, or whatever.
 There are no <em>harmful</em> language features.</p>
 <p>There <em>are</em> some language features that can get you into trouble if you have not
 carefully weighed the pros and cons of their use.
-That is why in this book, we generally like to avoid absolutes and to use instead <em>prefer</em>.</p>
+That is why in this book,
+we generally like to avoid absolutes and to use <em>prefer</em>.</p>
 <p>We <em>prefer</em> keeping scope to the absolute minimum to get something done.
 Because we prefer keeping scope to a minimum, we <em>prefer</em>:</p>
-<ul class="simple">
+<ul>
 <li><p>Local variables over global variables.</p></li>
 <li><p>Declaring variables in the block where they are used.</p>
-<ul>
-<li><p>Even a local variable can have too much scope, as in the preceding example.</p></li>
-</ul>
+<p>Even a local variable can have too much scope, as in the preceding example.</p>
 </li>
 </ul>
 <p>There is no reason in modern languages to declare all your variables at the start of a function.
-This is actually a requirement of alder languages like FORTRAN and old C.
+This is actually a requirement of alder languages like FORTRAN and the original K&amp;R dialect of C.
 In modern languages, it’s an old habit some people have carried forward for no good reason.</p>
 <p>One of the simplest things you can do as a programmer to improve the clarity and
 maintainability of your code and reduce errors is to minimize the scope of local variables.
@@ -358,8 +391,8 @@ poor design choices.</p>
 <p>Declaring a variable too early creates the problems described earlier,
 but also creates the problem of causing the scope to extend later than needed.
 When a variable is declared before the block in which it is used,
-it also exists after the block scope ends.
-This is the fundamental problem with our two <code class="docutils literal notranslate"><span class="pre">for</span></code> loops in the previous example.</p>
+it also exists after the block scope ends.</p>
+<p>This is the problem with our two <code class="docutils literal notranslate"><span class="pre">for</span></code> loops in the previous example.</p>
 <p>This is a classic <a class="reference internal" href="../glossary.html#term-semantic-error"><span class="xref std std-term">semantic error</span></a>.
 The code compiles and runs,
 but does not produce the expected result.</p>
@@ -372,198 +405,23 @@ Uninitialized variables are a common source of error.
 If you code contains conditional logic or loops and the variable
 is accessed in its uninitialized state only occasionally,
 the result can be bugs that are difficult to identify and fix.</p>
-</div>
-<div class="section" id="keyword-namespace">
-<span id="index-2"></span><h2><span class="section-number">3.3.2. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">namespace</span></code><a class="headerlink" href="#keyword-namespace" title="Permalink to this headline">¶</a></h2>
-<p>When we introduced functions, we noted that all functions are <em>by default</em> global.
-Another way of saying this is that they are by default in the <em>global namespace</em>.
-The <code class="docutils literal notranslate"><span class="pre">namespace</span></code> keyword provides a mechanism
-to avoid polluting the global namespace with too many names.</p>
-<p>A <code class="docutils literal notranslate"><span class="pre">namespace</span></code> is simply a named block that defines a scope.
-Namespaces provide a method for preventing name conflicts in large projects.</p>
-<p>Symbols declared inside a namespace block are placed in a named scope that prevents them from being mistaken for identically-named symbols in other scopes.</p>
-<p>Multiple namespace blocks with the same name are allowed.
-All declarations within those blocks are declared in the named scope.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// declare some things in the mesa namespace</span>
-<span class="k">namespace</span> <span class="n">mesa</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.1416</span><span class="p">;</span>
-  <span class="kt">void</span> <span class="nf">details</span> <span class="p">(</span><span class="kt">char</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="n">mesa</span><span class="o">::</span><span class="n">details</span> <span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// define the function declared earlier</span>
-  <span class="c1">// do something</span>
-<span class="p">}</span>
-
-<span class="c1">//void mesa::oops () {       // error: oops not yet declared in mesa namespace</span>
-<span class="c1">//}</span>
-
-<span class="k">namespace</span> <span class="n">mesa</span> <span class="p">{</span>  <span class="c1">// a separate mesa namespace block</span>
-  <span class="kt">void</span> <span class="n">oops</span> <span class="p">();</span>
-  <span class="k">namespace</span> <span class="n">cisc</span> <span class="p">{</span>
-    <span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159265358979</span><span class="p">;</span>  <span class="c1">// not the same variable as mesa::pi</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="n">main</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">mesa</span><span class="o">::</span><span class="n">cisc</span><span class="o">::</span><span class="n">pi</span><span class="p">;</span>
-  <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.f</span><span class="p">;</span>
-  <span class="n">mesa</span><span class="o">::</span><span class="n">details</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>The larger your project, the more important it is to partition the global namespace.
-By default, all symbols are declared in the <em>global namespace</em> (<code class="docutils literal notranslate"><span class="pre">::</span></code>).</p>
-<p>What is the problem with the global namespace?</p>
-<ul class="simple">
-<li><p>There is only 1 of them</p></li>
-<li><p>Name conflicts can be common on large projects</p></li>
-<li><p>Complicates mixing third party libraries</p></li>
-</ul>
-<p>Well-behaved third party libraries will not put much (if anything) in the global namespace.</p>
-<p>You can put anything in a namespace, except <code class="docutils literal notranslate"><span class="pre">main</span></code>.
-The function main has a few special rules and one is that it must be in the global namespace.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">using</span></code> directive allows all the names in a namespace to be used
-without the namespace-name as an explicit qualifier.
-Use a using directive in an implementation file (i.e. <code class="docutils literal notranslate"><span class="pre">*.cpp</span></code>)
-if you are using several different identifiers in a namespace;
-if you are just using one or two identifiers,
-then consider a using declaration to only bring those identifiers into scope
-and not all the identifiers in the namespace.
-If a local variable has the same name as a namespace variable,
-the namespace variable is hidden.
-It is an error to have a namespace variable with the same name as a global variable.</p>
-<div class="section" id="using-namespaces">
-<span id="index-3"></span><h3><span class="section-number">3.3.2.1. </span>Using namespaces<a class="headerlink" href="#using-namespaces" title="Permalink to this headline">¶</a></h3>
-<p>What’s wrong with <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">std;</span></code>?</p>
-<p>Nothing, technically.
-It was a simplification in your first semester classes.
-The intent was to avoid ‘burdening’ you with having to care about this technical detail.</p>
-<p><strong>BUT</strong></p>
-<p>The using-directive <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">std;</span></code> at any namespace scope introduces
-<em>every</em> name from the namespace std into the global namespace
-(since the global namespace is the nearest namespace that contains both std and any user-declared namespace),
-which may lead to undesirable name collisions.
-This, and other using directives are generally considered bad practice at file scope of a header file.
-Additionally, shadowing names in the standard namespace can lead to unexpected behaviors.</p>
-<div id='namespace' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Example: namespace std" >
-<p>It can be hard to remember every name that might be
-imported when <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">std;</span></code>.
-Even when only 1 header is included.</p>
-<p>The following example seems innocent enough,
-until you learn that <a class="reference external" href="https://en.cppreference.com/w/cpp/io/manip/showpoint">showpoint</a> is a name
-in <code class="docutils literal notranslate"><span class="pre">std::ios</span></code></p>
-<p>Run the following example twice,
-first as is, then remove the line <code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">showpoint</span> <span class="pre">=</span> <span class="pre">true;</span></code>:</p>
-
-<div data-childcomponent="ac-namespace-1" class="runestone explainer ac_section alert alert-warning">
-
-<textarea data-component="activecode" id=ac-namespace-1 data-lang="cpp" 
-      data-timelimit=25000     
-    data-audio=''      
-           data-wasm=/_static>
-#include <iostream>
-
-using namespace std;
-
-int main () {
-  bool showpoint = true;
-
-  cout << "1.0 with showpoint: " << showpoint << 1.0 << '\n'
-       << "1.0 with noshowpoint: " << noshowpoint << 1.0 << '\n';
-
-}
-</textarea>
-</div>
-</div>
-    </div>
-
-<p>Errors using namespace directives are seldom this obviously wrong.</p>
-<div id='so_question' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Stack Overflow" >
-<p>Here is a simplification of a
-<a class="reference external" href="https://stackoverflow.com/questions/2712076/how-to-use-an-iterator">real question</a>
-asked on stack overflow:</p>
-
-<div data-childcomponent="ac-namespace-2" class="runestone explainer ac_section alert alert-warning">
-
-<textarea data-component="activecode" id=ac-namespace-2 data-lang="cpp" 
-      data-timelimit=25000  data-codelens="true"   
-    data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
-#include <iostream>
-#include <vector>
-#include <cmath>
-using namespace std;
-
-struct point {
-  float x;
-  float y;
-};
-
-// calculate the distance between two points
-float distance(const point& p1, const point& p2) {
-  return sqrt((p1.x - p2.x)*(p1.x - p2.x) +
-              (p1.y - p2.y)*(p1.y - p2.y));
-}
-
-int main() {
-  vector <point> po;
-  point p1; p1.x = 0; p1.y = 0;
-  point p2; p2.x = 100; p2.y = 100;
-  po.push_back(p1);
-  po.push_back(p2);
-
-  for (auto ii = po.begin(); ii != po.end(); ii++) {
-    for (auto jj = po.begin(); jj != po.end(); jj++) {
-      cout << distance(ii,jj) << " ";
-    }
-  }
-  return 0;
-}
-</textarea>
-</div>
-<p>This code compiles and runs and says the answer is: <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">1</span> <span class="pre">-1</span> <span class="pre">0</span></code>.
-I think we can all agree that is not the correct answer for two points <code class="docutils literal notranslate"><span class="pre">(0,0)</span></code> and <code class="docutils literal notranslate"><span class="pre">(100,100)</span></code>.</p>
-</div>
-    </div>
-
-<div class="admonition-try-this admonition">
-<p class="admonition-title">Try This!</p>
-<p>What is wrong with the program?</p>
-<p>Can you fix it?</p>
-</div>
-<p>The problem with each of the preceding programs was that the
-author did not realize the potential pitfalls with <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namspace</span> <span class="pre">std;</span></code>.</p>
-<p id="index-4">One final word from two experts:</p>
-<blockquote>
-<div><p><strong>Summary</strong></p>
-<p>Namespace usings are for your convenience, not for you to inflict on others:
-Never write a <code class="docutils literal notranslate"><span class="pre">using</span></code> declaration or a <code class="docutils literal notranslate"><span class="pre">using</span></code> directive before an <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive.</p>
-<p>Corollary: In header files,
-don’t write namespace-level using directives or using declarations;
-instead, explicitly namespace-qualify all names.
-(The second rule follows from the first,
-because headers can never know what other header <code class="docutils literal notranslate"><span class="pre">#include</span></code> might appear after them.)</p>
-<p><strong>Discussion</strong></p>
-<p>In short:
-You can and should use namespace using declarations and directives liberally
-in your implementation files after <code class="docutils literal notranslate"><span class="pre">#include</span></code> directives and feel good about it.
-Despite repeated assertions to the contrary,
-namespace <code class="docutils literal notranslate"><span class="pre">using</span></code> declarations and directives are not evil and they do not defeat the purpose of namespaces.
-Rather, they are what make namespaces usable.</p>
-<p class="attribution">—Herb Sutter and Andrei Alexandrescu, C++ Coding Standards</p>
-</div></blockquote>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
 <li><p>From: cppreference.com:
-<a class="reference external" href="http://en.cppreference.com/w/cpp/language/scope">scope</a>
-<a class="reference external" href="http://en.cppreference.com/w/cpp/language/namespace">namespace declarations</a> and
-<a class="reference external" href="http://en.cppreference.com/w/cpp/language/namespace_alias">namespace alias</a></p></li>
-<li><p>From stack overflow: <a class="reference external" href="https://stackoverflow.com/questions/1452721/why-is-using-namespace-std-considered-bad-practice">Why is using namespace std considered bad practice?</a></p></li>
+<a class="reference external" href="https://en.cppreference.com/w/cpp/language/scope">scope</a> and
+<a class="reference external" href="https://en.cppreference.com/w/cpp/language/initialization">initialization</a></p></li>
+<li><p>CPP Core guidelines:</p>
+<ul>
+<li><p><a class="reference external" href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Res-scope">keep scopes small</a></p></li>
+<li><p><a class="reference external" href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Res-introduce">Don’t introduce a variable (or constant) before you need to use it</a></p></li>
+<li><p><a class="reference external" href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#i2-avoid-non-const-global-variables">avoid non-const global variables</a></p></li>
+<li><p><a class="reference external" href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#f3-keep-functions-short-and-simple">keep functions short and simple</a></p></li>
+<li><p><a class="reference external" href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#p3-express-intent">express intent</a></p></li>
 </ul>
-</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -586,8 +444,8 @@ Rather, they are what make namespaces usable.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.4. General function writing guidelines' data-toggle="tooltip" >
-    <a href="guidelines.html" aria-label="3.4. General function writing guidelines">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.4. Namespaces' data-toggle="tooltip" >
+    <a href="namespace.html" aria-label="3.4. Namespaces">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
