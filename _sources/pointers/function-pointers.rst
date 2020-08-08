@@ -73,30 +73,61 @@ pointing to a function that returns a ``double`` and takes two parameters:
    double (*func)(int x, int y);
 
 
-Once you have a valid definition, 
-you can assign functions to it:
+.. tabbed:: tabbed_fp1
 
-.. code-block:: cpp
+   .. tab:: Example
 
-   double add     (int x, int y) { return x+y;}
-   double multiply(int x, int y) { return x*y;}
-   double pi      ()             { return 3.14159265;}
+      Once you have a valid function pointer definition, 
+      you can assign functions to it.
 
-   int main () {
-     // declare func and assign add to it
-     double (*func)(int, int) = add;
+      Given the following functions:
 
-     cout << (*func)(2,3); // prints 4
+      .. code-block:: cpp
 
-     func = multiply;
-     cout << (*func)(2,3); // prints 6
+         double add     (int x, int y) { return x+y;}
+         double multiply(int x, int y) { return x*y;}
+         double pi      ()             { return 3.14159265;}
 
-     func = pi;            // error: pointer to function with
-                           // wrong number of arguments
+      We can define a pointer to our functions
 
-     func = add();         // error: can't assign
-                           // function return value to function pointer
-   }
+      This is legal, but not preferred, since our pointer is undefined.
+      
+      .. code-block:: cpp
+
+         double (*func)(int, int);
+
+      When you can, initialize variables with a value.
+
+      .. code-block:: cpp
+
+         double (*func)(int, int) = add;
+
+   .. Tab:: Run It
+
+      .. activecode:: ac_fp_intro1
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+         :nocodelens:
+
+         double add     (int x, int y) { return x+y;}
+         double multiply(int x, int y) { return x*y;}
+         double pi      ()             { return 3.14159265;}
+
+         int main () {
+           // declare func and assign add to it
+           double (*func)(int, int) = add;
+
+           cout << (*func)(2,3); // prints 4
+
+           func = multiply;
+           cout << (*func)(2,3); // prints 6
+
+           func = pi;            // error: pointer to function with
+                                 // wrong number of arguments
+
+           func = add();         // error: can't assign
+                                 // function return value to function pointer
+         }
 
 A downside to traditional function pointer initialization is 
 that this doesn't look like the initialization syntax we are used to.
@@ -109,6 +140,12 @@ The C++11 :lang:`type alias` allows defining a name that refers to a previously 
    double (*func)(int, int);          // old syntax
 
    using func = double(*)(int, int);  // since C++11
+
+
+.. admonition:: Try This!
+
+   Refactor the previous example to replace the traditional C syntax
+   with the C++11 ``using`` type alias.
 
 .. index::
    pair: video; function pointers
@@ -149,54 +186,70 @@ Suppose we want a simple command line program that takes
 standard input
    This is where the program will get the text to work on.
 
-Once we have decided on this as our basic framework, 
-we can create a file like ``help.h``:
+.. tabbed:: tabbed_fp_ceasar_example
 
-.. literalinclude:: caesar/help.h
-   :language: cpp
-   
+   .. tab:: help.h
 
-The 'fundamental unit' of any text input is a ``char``,
-so it makes sense to write our transforming functions to work with a single
-character at a time.
+      Once we have decided on this as our basic framework, 
+      we can create a file like ``help.h``:
 
-We will write three functions for this program, one for ROT13 and one for ROT47.
-The third function takes a ``std::string``  and a function pointer as input,
-and transforms the string using the provided function,
-one character at a time.
+      .. literalinclude:: caesar/help.h
+         :language: cpp
+         
 
-First we declare our interfaces:
+   .. tab:: ceasar.h
 
-.. literalinclude:: caesar/caesar.h
-   :language: cpp
+      The 'fundamental unit' of any text input is a ``char``,
+      so it makes sense to write our transforming functions to work with a single
+      character at a time.
 
-The `using declaration <http://en.cppreference.com/w/cpp/language/type_alias>`_
-exists only to simplify our use of our function pointer.
-Any place you see the word ``transform``,
-you can literally replace it with 
-``char (*)(const unsigned char c)``
-and not change how the program behaves.
+      We will write three functions for this program, one for ROT13 and one for ROT47.
+      The third function takes a ``std::string``  and a function pointer as input,
+      and transforms the string using the provided function,
+      one character at a time.
 
-We implemented our functions to take type ``unsigned char`` because
-they depend on the library functions ``std::isdigit`` and ``std::isalpha``.
-These function have undefined behavior if the character provided
-is not an ``unsigned char``.
-   
-With these definitions in place, we can implement them:
+      First we declare our interfaces:
 
-.. literalinclude:: caesar/caesar.cpp
-   :language: cpp
-   
+      .. literalinclude:: caesar/caesar.h
+         :language: cpp
 
-And now we have a decent set of functions we can call from a small main program:
+      The `using declaration <http://en.cppreference.com/w/cpp/language/type_alias>`_
+      exists only to simplify our use of our function pointer.
+      Any place you see the word ``transform``,
+      you can literally replace it with 
+      ``char (*)(const unsigned char c)``
+      and not change how the program behaves.
 
-.. literalinclude:: caesar/main.cpp
-   :language: cpp
-   
-Note, we did not use the function call operator, ``operator()`` when 
-assigning values to ``handler``.  
-The name ``rot13`` points to the address where the function ``rot13`` 
-is stored.
+   .. tab:: ceasar.cpp
+
+      We implemented our functions to take type ``unsigned char`` because
+      they depend on the library functions ``std::isdigit`` and ``std::isalpha``.
+      These function have undefined behavior if the character provided
+      is not an ``unsigned char``.
+         
+      With these definitions in place, we can implement them:
+
+      .. literalinclude:: caesar/caesar.cpp
+         :language: cpp
+         
+
+   .. tab:: main.cpp
+
+      And now we can put it all together from a small main program.
+
+      One thing to note in this main is that it uses **both**
+      :c:`standard input <io/std_streams>` and 
+      :c:`command-line arguments <language/main_function>`.
+
+      The difference is a common source of confusion.
+
+      .. literalinclude:: caesar/main.cpp
+         :language: cpp
+         
+      Note, we did not use the function call operator, ``operator()`` when 
+      assigning values to ``handler``.  
+      The name ``rot13`` points to the address where the function ``rot13`` 
+      is stored.
 
 .. toctree:: 
    :hidden:
@@ -206,6 +259,16 @@ is stored.
    caesar/caesar.h
    caesar/caesar.cpp
    caesar/Makefile
+
+.. admonition:: Try This!
+
+   Consider compiling these files in your own environment and experimenting
+   with variations.
+
+   Why are *13* and *47* common rotations?
+
+   Try to think of other rotations and implement them as additional program options.
+
 
 -----
 

@@ -3,7 +3,7 @@
 //
 // Function to perform simple character rotations through an alphabet.
 // 
-// Be warned that these functions should NOT be used to encrypt sensitive data!!
+// !! DO NOT use to encrypt sensitive data!!
 // These functions are easily decrypted, even using pencil and paper.
 //
 // See: https://en.wikipedia.org/wiki/Caesar_cipher

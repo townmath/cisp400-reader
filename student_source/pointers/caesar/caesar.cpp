@@ -8,7 +8,7 @@
 
 char rot13(const unsigned char c) {
     if (!std::isalpha(c)) return c;   // if not a Latin letter, 
-                                      // then do nothing & return the current char
+                                      // then return the current char
 
     // in order to rotate upper or lower case
     // need to know where the alphabet 'starts'
