@@ -38,8 +38,9 @@ extensions = ['sphinx.ext.mathjax',
 # extlinks dict
 #            role       url                                              prefix
 extlinks = {
+        'c': ('https://en.cppreference.com/w/c/%s', ''),
         'cpp': ('https://en.cppreference.com/w/cpp/%s', ''),
-        'core': ('https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines', ''),
+        'core': ('https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines%s', ''),
         'cstdio': ('https://en.cppreference.com/w/cpp/io/c/%s', ''),
         'header': ('https://en.cppreference.com/w/cpp/header/%s', ''),
         'algorithm': ('https://en.cppreference.com/w/cpp/algorithm/%s', ''),
