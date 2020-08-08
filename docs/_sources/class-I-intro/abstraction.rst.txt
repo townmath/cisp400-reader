@@ -40,22 +40,24 @@ without having to worry much about how they are actually represented in hardware
 Abstraction is all about hiding implementation details.
 
 Consider a car as an example of abstraction in design.
-Starting a car in 1915 [#f1]_ :
+Here's an outline for starting a Model-T in 1915 [#f1]_ :
 
-#. On front of car, pull chock near right fender and engage crank lever under radiator.
+#. On front of car, 
+   pull chock near right fender and engage crank lever under radiator.
 
    - Turn slowly to prime carburetor.
 
 #. Get into car, insert key in ignition.
 
-   - Turn start setting to either magneto or battery
-   - Adjust timing stalk and throttle stalk
-   - Pull back on handbrake to place car in neutral
+   - Turn start setting to either magneto or battery.
+   - Adjust timing stalk and throttle stalk.
+   - Pull back on handbrake to place car in neutral.
 
 #. Return to front of car.
 
-   - Use left hand to crank lever
-   - If the engine back-fires, using left hand results in fewer broken arms
+   - Use left hand to crank lever.
+     (If the engine back-fires, 
+     using your left hand results in fewer broken arms)
 
 #. If car starts, jump in!
 
@@ -66,7 +68,7 @@ You had to understand how it was *made* even to get it started.
 This is not true with most cars today.
 Compare the previous steps with starting a car today:
 
-#. Push button
+#. Step on brake pedal and push button.
 
 Over the last 100 years
 manufacturers have hidden most implementation details
@@ -85,7 +87,7 @@ Keep in mind that every class defines a new *type*.
 In general we want to create classes that are easy to use
 and easy to modify.
 
-A poorly abstracted car class:
+Let's examine a poorly abstracted car class:
 
 .. code-block:: cpp
 
@@ -108,14 +110,15 @@ A poorly abstracted car class:
 
 What is wrong with this design?
 
-We have created a class and dutifully made all of the class variables private.
-We then (also dutifully) created functions to set and get each of the class member variables.
+- We have created a class and dutifully made all of the class variables private.
+- We then (also dutifully) created functions to set and get each of the class member variables.
+
 Isn't this is what object-oriented programming is all about?
 
 No, it is not.
 
 What is wrong with this design?
-This list is long, but here are the major problems:
+This list is long, but here are some of the major problems:
 
 #. By default, no class members are initialized. 
    A default constructed car is invalid.
@@ -124,7 +127,7 @@ This list is long, but here are the major problems:
    - The x and y values can be modified independently of speed and heading.
    - The speed could be set :math:`< 0`.
    - The heading could be anything. It's not even clear what values are valid 
-     (:math:`0 - 360`?  :math:`0 - \pi`?)
+     (:math:`0 - 360`?  :math:`0 - 2\pi`?)
 
 #. The car position is maintained in two separate ``int`` members, not a location object. 
 #. If users try to use this ``Car``, 
@@ -312,7 +315,9 @@ change it later once we realize it did not control any of its invariants.
 
 .. admonition:: More to Explore
 
-   - TBD
+   - :lang:`C++ enumerations <enum>`
+   - :lang:`Default constructors <default_constructor>`
+   - `Abstraction in OOP <https://en.wikipedia.org/wiki/Abstraction_(computer_science)#Abstraction_in_object_oriented_programming>`__
 
 .. topic:: Footnotes
 

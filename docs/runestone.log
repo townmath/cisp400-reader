@@ -995,3 +995,45 @@ Aborted!
 172.17.0.1 - - [08/Aug/2020 16:56:51] "GET /back-matter/app-a/linux.html HTTP/1.1" 200 -
 
 Aborted!
+172.17.0.1 - - [08/Aug/2020 17:07:16] "GET /index.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 17:07:18] "GET /index.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 17:07:24] "GET /function-intro/index.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 17:07:24] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 17:07:24] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 17:07:27] "GET /function-intro/scope.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 17:07:27] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 17:07:27] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 17:07:47] "GET /index.html HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 17:07:59] "GET /pointers/function-pointers.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 17:07:59] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 17:07:59] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 17:13:45] "GET /index.html HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 17:13:50] "GET /class-I-intro/intro.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 17:13:50] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 17:13:50] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 17:13:58] "GET /class-I-intro/constructors.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 17:13:59] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 17:13:59] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 17:14:06] "GET /class-I-intro/pointers.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 17:14:06] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 17:14:06] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 17:14:10] "GET /class-I-intro/interfaces.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 17:14:11] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 17:14:11] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 17:15:02] "GET /class-I-intro/const.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 17:15:02] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 17:15:02] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 17:15:14] "GET /class-I-intro/abstraction.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 17:15:14] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 17:15:14] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+
+Aborted!
+172.17.0.1 - - [08/Aug/2020 17:17:37] "GET /class-I-intro/abstraction.html HTTP/1.1" 200 -
+
+Aborted!
+172.17.0.1 - - [08/Aug/2020 17:28:40] "GET /class-I-intro/abstraction.html HTTP/1.1" 200 -
+
+Aborted!
+172.17.0.1 - - [08/Aug/2020 17:33:48] "GET /class-I-intro/abstraction.html HTTP/1.1" 200 -
+
+Aborted!

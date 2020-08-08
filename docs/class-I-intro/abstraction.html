@@ -258,24 +258,26 @@ They achieve the goal of allowing programmers to work with numbers easily
 without having to worry much about how they are actually represented in hardware.</p>
 <p>Abstraction is all about hiding implementation details.</p>
 <p>Consider a car as an example of abstraction in design.
-Starting a car in 1915 <a class="footnote-reference brackets" href="#f1" id="id1">1</a> :</p>
+Here’s an outline for starting a Model-T in 1915 <a class="footnote-reference brackets" href="#f1" id="id1">1</a> :</p>
 <ol class="arabic simple">
-<li><p>On front of car, pull chock near right fender and engage crank lever under radiator.</p>
+<li><p>On front of car,
+pull chock near right fender and engage crank lever under radiator.</p>
 <ul class="simple">
 <li><p>Turn slowly to prime carburetor.</p></li>
 </ul>
 </li>
 <li><p>Get into car, insert key in ignition.</p>
 <ul class="simple">
-<li><p>Turn start setting to either magneto or battery</p></li>
-<li><p>Adjust timing stalk and throttle stalk</p></li>
-<li><p>Pull back on handbrake to place car in neutral</p></li>
+<li><p>Turn start setting to either magneto or battery.</p></li>
+<li><p>Adjust timing stalk and throttle stalk.</p></li>
+<li><p>Pull back on handbrake to place car in neutral.</p></li>
 </ul>
 </li>
 <li><p>Return to front of car.</p>
 <ul class="simple">
-<li><p>Use left hand to crank lever</p></li>
-<li><p>If the engine back-fires, using left hand results in fewer broken arms</p></li>
+<li><p>Use left hand to crank lever.
+(If the engine back-fires,
+using your left hand results in fewer broken arms)</p></li>
 </ul>
 </li>
 <li><p>If car starts, jump in!</p></li>
@@ -286,7 +288,7 @@ You had to understand how it was <em>made</em> even to get it started.</p>
 <p>This is not true with most cars today.
 Compare the previous steps with starting a car today:</p>
 <ol class="arabic simple">
-<li><p>Push button</p></li>
+<li><p>Step on brake pedal and push button.</p></li>
 </ol>
 <p>Over the last 100 years
 manufacturers have hidden most implementation details
@@ -303,7 +305,7 @@ correct in the classes you design.
 Keep in mind that every class defines a new <em>type</em>.
 In general we want to create classes that are easy to use
 and easy to modify.</p>
-<p>A poorly abstracted car class:</p>
+<p>Let’s examine a poorly abstracted car class:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Car</span> <span class="p">{</span>
   <span class="k">private</span><span class="o">:</span>
     <span class="kt">double</span> <span class="n">speed_</span><span class="p">;</span>
@@ -323,12 +325,14 @@ and easy to modify.</p>
 </pre></div>
 </div>
 <p>What is wrong with this design?</p>
-<p>We have created a class and dutifully made all of the class variables private.
-We then (also dutifully) created functions to set and get each of the class member variables.
-Isn’t this is what object-oriented programming is all about?</p>
+<ul class="simple">
+<li><p>We have created a class and dutifully made all of the class variables private.</p></li>
+<li><p>We then (also dutifully) created functions to set and get each of the class member variables.</p></li>
+</ul>
+<p>Isn’t this is what object-oriented programming is all about?</p>
 <p>No, it is not.</p>
 <p>What is wrong with this design?
-This list is long, but here are the major problems:</p>
+This list is long, but here are some of the major problems:</p>
 <ol class="arabic simple">
 <li><p>By default, no class members are initialized.
 A default constructed car is invalid.</p></li>
@@ -337,7 +341,7 @@ A default constructed car is invalid.</p></li>
 <li><p>The x and y values can be modified independently of speed and heading.</p></li>
 <li><p>The speed could be set <span class="math notranslate nohighlight">\(&lt; 0\)</span>.</p></li>
 <li><p>The heading could be anything. It’s not even clear what values are valid
-(<span class="math notranslate nohighlight">\(0 - 360\)</span>?  <span class="math notranslate nohighlight">\(0 - \pi\)</span>?)</p></li>
+(<span class="math notranslate nohighlight">\(0 - 360\)</span>?  <span class="math notranslate nohighlight">\(0 - 2\pi\)</span>?)</p></li>
 </ul>
 </li>
 <li><p>The car position is maintained in two separate <code class="docutils literal notranslate"><span class="pre">int</span></code> members, not a location object.</p></li>
@@ -500,7 +504,9 @@ change it later once we realize it did not control any of its invariants.</p>
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
-<li><p>TBD</p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/enum">C++ enumerations</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/default_constructor">Default constructors</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Abstraction_(computer_science)#Abstraction_in_object_oriented_programming">Abstraction in OOP</a></p></li>
 </ul>
 </div>
 <div class="topic">
