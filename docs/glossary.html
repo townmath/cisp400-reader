@@ -479,10 +479,10 @@ as the number of elements increases.</p>
 low-level language all at once, in preparation for later execution.</p>
 </dd>
 <dt id="term-compile-time-error">compile-time error</dt><dd><p>Errors detected by the compiler.
-Compare to <a class="reference internal" href="#term-0"><span class="xref std std-term">runtime error</span></a>, <a class="reference internal" href="#term-link-error"><span class="xref std std-term">link error</span></a>,
+Compare to <a class="reference internal" href="#term-runtime-error"><span class="xref std std-term">runtime error</span></a>, <a class="reference internal" href="#term-link-error"><span class="xref std std-term">link error</span></a>,
 and <a class="reference internal" href="#term-semantic-error"><span class="xref std std-term">semantic error</span></a>.</p>
 </dd>
-<dt id="term-compile-time-polymorphism">compile-time polymorphism</dt><dd><p>A form of <a class="reference internal" href="#term-polymorphism"><span class="xref std std-term">polymorphism</span></a> known as Overloading.
+<dt id="term-compile-time-polymorphism">compile-time polymorphism</dt><dt id="term-Compile-time-polymorphism">Compile-time polymorphism</dt><dd><p>A form of <a class="reference internal" href="#term-polymorphism"><span class="xref std std-term">polymorphism</span></a> known as Overloading.
 Overloaded methods have the same names, but different signatures
 as a method available elsewhere in the class.
 Compare to <a class="reference internal" href="#term-runtime-polymorphism"><span class="xref std std-term">runtime polymorphism</span></a>.</p>
@@ -949,7 +949,7 @@ of another collision resolution method called
 <dt id="term-link-error">link error</dt><dd><p>After compiling, a link error occurs when each compilation unit compiles correctly,
 but in the next stage, the linker is unable to combine all
 the object code into a single valid executable file.
-Compare to <a class="reference internal" href="#term-compile-time-error"><span class="xref std std-term">compile-time error</span></a>, <a class="reference internal" href="#term-0"><span class="xref std std-term">runtime error</span></a>,
+Compare to <a class="reference internal" href="#term-compile-time-error"><span class="xref std std-term">compile-time error</span></a>, <a class="reference internal" href="#term-runtime-error"><span class="xref std std-term">runtime error</span></a>,
 and <a class="reference internal" href="#term-semantic-error"><span class="xref std std-term">semantic error</span></a>.</p>
 </dd>
 <dt id="term-linked-list">linked list</dt><dd><p>An implementation for the list ADT that uses
@@ -1108,7 +1108,7 @@ and pointers to the left and right children.
 If either or both of the children does not exist, then a null
 pointer is stored.</p>
 </dd>
-<dt id="term-polymorphism">polymorphism</dt><dd><p>An <a class="reference internal" href="#term-object-oriented-programming-paradigm"><span class="xref std std-term">object-oriented programming</span></a>
+<dt id="term-polymorphism">polymorphism</dt><dt id="term-Polymorphism">Polymorphism</dt><dd><p>An <a class="reference internal" href="#term-object-oriented-programming-paradigm"><span class="xref std std-term">object-oriented programming</span></a>
 term meaning <em>one name, many forms</em>.
 It describes the ability of software to change its behavior
 dynamically.  Two basic forms exist:
@@ -1327,14 +1327,12 @@ The runtime environment handles such activities as managing the
 <a class="reference internal" href="#term-garbage-collection"><span class="xref std std-term">garbage collector</span></a>,
 and it conducts the execution of the program.</p>
 </dd>
-<dt id="term-runtime-error">runtime error</dt><dd><p>Errors encountered during program execution.
+<dt id="term-runtime-error">runtime error</dt><dd><p>An error that does not occur until the program has started to execute
+but that prevents the program from continuing.
 Compare to <a class="reference internal" href="#term-compile-time-error"><span class="xref std std-term">compile-time error</span></a>, <a class="reference internal" href="#term-link-error"><span class="xref std std-term">link error</span></a>,
 and <a class="reference internal" href="#term-semantic-error"><span class="xref std std-term">semantic error</span></a>.</p>
 </dd>
-<dt id="term-0">runtime error</dt><dd><p>An error that does not occur until the program has started to execute
-but that prevents the program from continuing.</p>
-</dd>
-<dt id="term-runtime-polymorphism">runtime polymorphism</dt><dd><p>A form of <a class="reference internal" href="#term-polymorphism"><span class="xref std std-term">polymorphism</span></a> known as Overriding.
+<dt id="term-runtime-polymorphism">runtime polymorphism</dt><dt id="term-Runtime-polymorphism">Runtime polymorphism</dt><dd><p>A form of <a class="reference internal" href="#term-polymorphism"><span class="xref std std-term">polymorphism</span></a> known as Overriding.
 Overridden methods are those which implement a new method
 with the same signature as a method inherited from its
 base class.
@@ -1363,7 +1361,7 @@ probe sequence is determined in part by a second hash function.</p>
 <dt id="term-semantic-error">semantic error</dt><dd><p>An error in a program that makes it do something other than what the
 programmer intended.
 Compare to <a class="reference internal" href="#term-compile-time-error"><span class="xref std std-term">compile-time error</span></a>, <a class="reference internal" href="#term-link-error"><span class="xref std std-term">link error</span></a>,
-and <a class="reference internal" href="#term-0"><span class="xref std std-term">runtime error</span></a>.</p>
+and <a class="reference internal" href="#term-runtime-error"><span class="xref std std-term">runtime error</span></a>.</p>
 </dd>
 <dt id="term-semantics">semantics</dt><dd><p>The meaning of a program.</p>
 </dd>

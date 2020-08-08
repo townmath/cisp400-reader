@@ -21,6 +21,7 @@ Main Body
    function-intro/index.rst
    function-overloads/index.rst
    pointers/index.rst
+   recursion/index.rst
 
    class-I-intro/index.rst
    class-II-functions/index.rst
@@ -28,7 +29,6 @@ Main Body
    class-IV-memory/index.rst
 
    containers/index.rst
-   recursion/index.rst
    iterators/index.rst
    algorithms/index.rst
 
@@ -38,7 +38,6 @@ Main Body
 Back Matter
 -----------
 .. toctree::
-   :maxdepth: 1
 
    back-matter/app-a/index.rst
    back-matter/faq.rst

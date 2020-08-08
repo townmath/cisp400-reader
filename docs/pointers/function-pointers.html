@@ -282,29 +282,56 @@ pointing to a function that returns a <code class="docutils literal notranslate"
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Once you have a valid definition,
-you can assign functions to it:</p>
+<div id='tabbed_fp1' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Example" >
+<p>Once you have a valid function pointer definition,
+you can assign functions to it.</p>
+<p>Given the following functions:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="nf">add</span>     <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">;}</span>
 <span class="kt">double</span> <span class="nf">multiply</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">;}</span>
 <span class="kt">double</span> <span class="nf">pi</span>      <span class="p">()</span>             <span class="p">{</span> <span class="k">return</span> <span class="mf">3.14159265</span><span class="p">;}</span>
-
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// declare func and assign add to it</span>
-  <span class="kt">double</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="o">=</span> <span class="n">add</span><span class="p">;</span>
-
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// prints 4</span>
-
-  <span class="n">func</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">;</span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// prints 6</span>
-
-  <span class="n">func</span> <span class="o">=</span> <span class="n">pi</span><span class="p">;</span>            <span class="c1">// error: pointer to function with</span>
-                        <span class="c1">// wrong number of arguments</span>
-
-  <span class="n">func</span> <span class="o">=</span> <span class="n">add</span><span class="p">();</span>         <span class="c1">// error: can&#39;t assign</span>
-                        <span class="c1">// function return value to function pointer</span>
-<span class="p">}</span>
 </pre></div>
 </div>
+<p>We can define a pointer to our functions</p>
+<p>This is legal, but not preferred, since our pointer is undefined.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>When you can, initialize variables with a value.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="o">=</span> <span class="n">add</span><span class="p">;</span>
+</pre></div>
+</div>
+</div><div data-component="tab" data-tabname="Run It" >
+
+<div data-childcomponent="ac_fp_intro1" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=ac_fp_intro1 data-lang="cpp" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+double add     (int x, int y) { return x+y;}
+double multiply(int x, int y) { return x*y;}
+double pi      ()             { return 3.14159265;}
+
+int main () {
+  // declare func and assign add to it
+  double (*func)(int, int) = add;
+
+  cout << (*func)(2,3); // prints 4
+
+  func = multiply;
+  cout << (*func)(2,3); // prints 6
+
+  func = pi;            // error: pointer to function with
+                        // wrong number of arguments
+
+  func = add();         // error: can't assign
+                        // function return value to function pointer
+}
+</textarea>
+</div>
+</div>
+    </div>
+
 <p>A downside to traditional function pointer initialization is
 that this doesn’t look like the initialization syntax we are used to.
 This is a legacy of the C language C++ was originally based on.</p>
@@ -313,6 +340,11 @@ This is a legacy of the C language C++ was originally based on.</p>
 
 <span class="k">using</span> <span class="n">func</span> <span class="o">=</span> <span class="kt">double</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>  <span class="c1">// since C++11</span>
 </pre></div>
+</div>
+<div class="admonition-try-this admonition">
+<p class="admonition-title">Try This!</p>
+<p>Refactor the previous example to replace the traditional C syntax
+with the C++11 <code class="docutils literal notranslate"><span class="pre">using</span></code> type alias.</p>
 </div>
 
     <div class="runestone" style="margin-left: auto; margin-right:auto">
@@ -345,6 +377,7 @@ This switch will enable the ROT47 function.</p>
 <dt>standard input</dt><dd><p>This is where the program will get the text to work on.</p>
 </dd>
 </dl>
+<div id='tabbed_fp_ceasar_example' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="help.h" >
 <p>Once we have decided on this as our basic framework,
 we can create a file like <code class="docutils literal notranslate"><span class="pre">help.h</span></code>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
@@ -377,6 +410,7 @@ we can create a file like <code class="docutils literal notranslate"><span class
 <span class="p">}</span>
 </pre></div>
 </div>
+</div><div data-component="tab" data-tabname="ceasar.h" >
 <p>The ‘fundamental unit’ of any text input is a <code class="docutils literal notranslate"><span class="pre">char</span></code>,
 so it makes sense to write our transforming functions to work with a single
 character at a time.</p>
@@ -390,7 +424,7 @@ one character at a time.</p>
 <span class="c1">//</span>
 <span class="c1">// Function to perform simple character rotations through an alphabet.</span>
 <span class="c1">// </span>
-<span class="c1">// Be warned that these functions should NOT be used to encrypt sensitive data!!</span>
+<span class="c1">// !! DO NOT use to encrypt sensitive data!!</span>
 <span class="c1">// These functions are easily decrypted, even using pencil and paper.</span>
 <span class="c1">//</span>
 <span class="c1">// See: https://en.wikipedia.org/wiki/Caesar_cipher</span>
@@ -426,6 +460,7 @@ Any place you see the word <code class="docutils literal notranslate"><span clas
 you can literally replace it with
 <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">(*)(const</span> <span class="pre">unsigned</span> <span class="pre">char</span> <span class="pre">c)</span></code>
 and not change how the program behaves.</p>
+</div><div data-component="tab" data-tabname="ceasar.cpp" >
 <p>We implemented our functions to take type <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code> because
 they depend on the library functions <code class="docutils literal notranslate"><span class="pre">std::isdigit</span></code> and <code class="docutils literal notranslate"><span class="pre">std::isalpha</span></code>.
 These function have undefined behavior if the character provided
@@ -441,7 +476,7 @@ is not an <code class="docutils literal notranslate"><span class="pre">unsigned<
 
 <span class="kt">char</span> <span class="nf">rot13</span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">isalpha</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="k">return</span> <span class="n">c</span><span class="p">;</span>   <span class="c1">// if not a Latin letter, </span>
-                                      <span class="c1">// then do nothing &amp; return the current char</span>
+                                      <span class="c1">// then return the current char</span>
 
     <span class="c1">// in order to rotate upper or lower case</span>
     <span class="c1">// need to know where the alphabet &#39;starts&#39;</span>
@@ -464,7 +499,12 @@ is not an <code class="docutils literal notranslate"><span class="pre">unsigned<
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>And now we have a decent set of functions we can call from a small main program:</p>
+</div><div data-component="tab" data-tabname="main.cpp" >
+<p>And now we can put it all together from a small main program.</p>
+<p>One thing to note in this main is that it uses <strong>both</strong>
+<a class="reference external" href="https://en.cppreference.com/w/c/io/std_streams">standard input</a> and
+<a class="reference external" href="https://en.cppreference.com/w/c/language/main_function">command-line arguments</a>.</p>
+<p>The difference is a common source of confusion.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;caesar.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;help.h&quot;</span><span class="cp"></span>
 
@@ -478,12 +518,16 @@ is not an <code class="docutils literal notranslate"><span class="pre">unsigned<
     <span class="c1">// change the encryption function at runtime</span>
     <span class="n">transform</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">rot13</span><span class="p">;</span>
 
+    <span class="c1">// loop on command line argumenats</span>
+    <span class="c1">// call help and exit or</span>
+    <span class="c1">// use of the 2 transforms</span>
+    <span class="c1">// or reject the input and exit</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;-h&quot;</span><span class="p">))</span> <span class="p">{</span>            <span class="c1">// call help and exit</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;-h&quot;</span><span class="p">))</span> <span class="p">{</span>
             <span class="n">help</span><span class="p">(</span><span class="o">*</span><span class="n">argv</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;-l&quot;</span><span class="p">))</span> <span class="p">{</span>     <span class="c1">// use rot13 transform</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;-l&quot;</span><span class="p">))</span> <span class="p">{</span>
             <span class="n">handler</span> <span class="o">=</span> <span class="n">rot13</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;-f&quot;</span><span class="p">))</span> <span class="p">{</span>     <span class="c1">// use rot47 transform</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;-f&quot;</span><span class="p">))</span> <span class="p">{</span>
             <span class="n">handler</span> <span class="o">=</span> <span class="n">rot47</span><span class="p">;</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="n">usage</span><span class="p">(</span><span class="o">*</span><span class="n">argv</span><span class="p">);</span>
@@ -495,6 +539,7 @@ is not an <code class="docutils literal notranslate"><span class="pre">unsigned<
     <span class="k">while</span> <span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">,</span> <span class="n">message</span><span class="p">))</span> <span class="p">{</span>
         <span class="n">render_text</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">handler</span><span class="p">);</span>
     <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -502,7 +547,17 @@ is not an <code class="docutils literal notranslate"><span class="pre">unsigned<
 assigning values to <code class="docutils literal notranslate"><span class="pre">handler</span></code>.
 The name <code class="docutils literal notranslate"><span class="pre">rot13</span></code> points to the address where the function <code class="docutils literal notranslate"><span class="pre">rot13</span></code>
 is stored.</p>
+</div>
+    </div>
+
 <div class="toctree-wrapper compound">
+</div>
+<div class="admonition-try-this admonition">
+<p class="admonition-title">Try This!</p>
+<p>Consider compiling these files in your own environment and experimenting
+with variations.</p>
+<p>Why are <em>13</em> and <em>47</em> common rotations?</p>
+<p>Try to think of other rotations and implement them as additional program options.</p>
 </div>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">

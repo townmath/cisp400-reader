@@ -23,12 +23,16 @@
     <span class="c1">// change the encryption function at runtime</span>
     <span class="n">transform</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">rot13</span><span class="p">;</span>
 
+    <span class="c1">// loop on command line argumenats</span>
+    <span class="c1">// call help and exit or</span>
+    <span class="c1">// use of the 2 transforms</span>
+    <span class="c1">// or reject the input and exit</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;-h&quot;</span><span class="p">))</span> <span class="p">{</span>            <span class="c1">// call help and exit</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;-h&quot;</span><span class="p">))</span> <span class="p">{</span>
             <span class="n">help</span><span class="p">(</span><span class="o">*</span><span class="n">argv</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;-l&quot;</span><span class="p">))</span> <span class="p">{</span>     <span class="c1">// use rot13 transform</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;-l&quot;</span><span class="p">))</span> <span class="p">{</span>
             <span class="n">handler</span> <span class="o">=</span> <span class="n">rot13</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;-f&quot;</span><span class="p">))</span> <span class="p">{</span>     <span class="c1">// use rot47 transform</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;-f&quot;</span><span class="p">))</span> <span class="p">{</span>
             <span class="n">handler</span> <span class="o">=</span> <span class="n">rot47</span><span class="p">;</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="n">usage</span><span class="p">(</span><span class="o">*</span><span class="n">argv</span><span class="p">);</span>
@@ -40,6 +44,7 @@
     <span class="k">while</span> <span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">,</span> <span class="n">message</span><span class="p">))</span> <span class="p">{</span>
         <span class="n">render_text</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">handler</span><span class="p">);</span>
     <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </body>

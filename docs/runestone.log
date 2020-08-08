@@ -854,3 +854,144 @@ Aborted!
 172.17.0.1 - - [24/Jul/2020 23:12:05] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
 
 Aborted!
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/basic.css HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/pygments.css HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/CodeChat.css HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/webgldemo.css?v=B36B48D HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/graphviz.css HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/matrixeq.css?v=58BC228F HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/accessibility.css?v=DB047029 HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/presenter_mode.css?v=9FF1320F HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/bootstrap-sphinx.css HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/user-highlights.css?v=A2326E52 HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/theme-overrides.css?v=2DAFE138 HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/documentation_options.js HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/matrixeq.js?v=D64CFA5A HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/animationbase.js?v=A043C3A7 HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/runestone.js?v=343ECCF5 HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/jquery.idle-timer.js?v=E942DAF1 HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/webglinteractive.css?v=910DF1E1 HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8 HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/bootstrap-3.4.1/css/bootstrap.min.css HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/underscore.js HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/jquery.js HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/doctools.js HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/html4css1.css?v=4D8F3FB4 HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/sql-wasm.js?v=44FE0709 HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/jquery.highlight.js?v=F1C496C8 HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/language_data.js HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:04] "GET /_static/pytutor-embed.bundle.js?v=268B5C04 HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:05] "GET /_static/Blob.js?v=AEC2447 HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:05] "GET /_static/FileSaver.min.js?v=8408C997 HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:05] "GET /_static/webglinteractive.js?v=2B768384 HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:05] "GET /_static/presenter_mode.js?v=2DF16FB4 HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:05] "GET /_static/bootstrap-3.4.1/js/bootstrap.min.js HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:05] "GET /_static/jquery-fix.js?v=1226591B HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:05] "GET /_static/bootstrap-sphinx.js HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:05] "GET /_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:05] "GET /_static/theme.js?v=D899FB97 HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:05] "GET /_static/html4css1.css HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:05] "GET /_static/img/logo_small.png HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:05] "GET /_static/bootstrap-3.4.1/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:05] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:00:05] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:00:05] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:00:05] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:00:05] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:00:05] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:00:12] "GET /pointers/index.html HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:12] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:00:12] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:00:24] "GET /pointers/pointers.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:24] "GET /_images/graphviz-1f76f55a145dc069093e2a185c3a6d8b26a69bbc.png HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:00:24] "GET /_images/graphviz-e91c5255abe5762b6ca7177cc0411caa38f790d7.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:00:24] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:00:24] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:02:15] "GET /index.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:02:15] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:02:15] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:02:24] "GET /recursion/index.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:02:24] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:02:24] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:02:27] "GET /recursion/intro.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:02:27] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:02:27] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:02:37] "GET /recursion/properties.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:02:38] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:02:38] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:02:44] "GET /recursion/to_string.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:02:44] "GET /_images/graphviz-b2438e3aa481fa46868d50225908adb68a18ec6f.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:02:44] "GET /_images/graphviz-c1ccbc7b5bc64c62332823aded48dd9ff70cf11b.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:02:44] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:02:44] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:02:54] "GET /recursion/trees.html HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:02:54] "GET /_images/graphviz-b36d3b3a0f6d094dfed37f491e33b448a8ccfc81.png HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:02:55] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:02:55] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:03:04] "GET /iterators/index.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:03:04] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:03:04] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:03:13] "GET /class-I-intro/index.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:03:13] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:03:13] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+
+Aborted!
+172.17.0.1 - - [08/Aug/2020 16:14:36] "GET /index.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:15:04] "GET /pointers/valgrind.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:15:04] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:15:04] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:15:08] "GET /pointers/function-pointers.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:15:09] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:15:09] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:15:13] "GET /pointers/caesar/main.cpp.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:15:13] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:15:13] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:15:24] "GET /pointers/caesar/help.h.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:15:25] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:15:25] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:15:26] "GET /pointers/caesar/caesar.h.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:15:26] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:15:26] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:15:33] "GET /pointers/caesar/caesar.cpp.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:15:33] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:15:33] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:16:59] "GET /index.html HTTP/1.1" 304 -
+
+Aborted!
+172.17.0.1 - - [08/Aug/2020 16:45:27] "GET /pointers/function-pointers.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /search.html?q=standard+input&check_keywords=yes&area=default HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /_static/searchtools.js HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /searchindex.js HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /beginnings/hello-world.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] code 404, message File not found
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /cisc187-reader/static/favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /_static/file.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /beginnings/comments.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /containers/sequence-containers.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /_images/graphviz-ded433212d3ec72259ce7933f7304a2faf7eb2ae.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /_images/graphviz-bb8683f52c6981b957c65bcc93418da840b2b13a.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /_images/graphviz-fc76803fe0e16007b0325dc079a40bf6cb4f4400.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /_images/graphviz-1ab14f2a20ac3404e603556810b49a97c543a078.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /_images/graphviz-550f7a58fbc42d829f3519ed4d1405a20576c05d.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /_images/graphviz-f5d9725ddb17480ec39af1cae42182e73f03491a.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /_images/graphviz-c66303b3f7f17cda7addc717287c22b1352dd0e9.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /_images/graphviz-6ceee6dc69dd09a4c56f8e0de1f6329ea0006225.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /_images/graphviz-58a17821ab3f0ceadf4451e7cd0ecf372586bdff.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /_images/graphviz-85f0f50b00b3a4691d278891513684df0f65a07a.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /string+vector/byte_string.html HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /_images/graphviz-a581f820a5ed92540bd32f2d0b4ab0f282b3519e.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /_images/graphviz-90e73ce0e1bac8f33b2d2445535488e74a9b685b.png HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /function-overloads/concepts.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /pointers/function-pointers.html HTTP/1.1" 304 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /class-II-functions/overloads.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /back-matter/app-a/make.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /_images/graphviz-add04ac8acec72923cadd1d349e2559a36a2251d.png HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:50] "GET /toc.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:51] "GET /back-matter/app-a/debugging.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:51] "GET /glossary.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:51] "GET /front-matter/fdl-1.3.html HTTP/1.1" 200 -
+172.17.0.1 - - [08/Aug/2020 16:56:51] "GET /back-matter/app-a/linux.html HTTP/1.1" 200 -
+
+Aborted!

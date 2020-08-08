@@ -20,7 +20,7 @@
 
 <span class="kt">char</span> <span class="nf">rot13</span><span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">isalpha</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="k">return</span> <span class="n">c</span><span class="p">;</span>   <span class="c1">// if not a Latin letter, </span>
-                                      <span class="c1">// then do nothing &amp; return the current char</span>
+                                      <span class="c1">// then return the current char</span>
 
     <span class="c1">// in order to rotate upper or lower case</span>
     <span class="c1">// need to know where the alphabet &#39;starts&#39;</span>

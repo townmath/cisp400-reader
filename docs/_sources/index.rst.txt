@@ -40,13 +40,13 @@ Chapters
    function-intro/index.rst
    function-overloads/index.rst
    pointers/index.rst
+   recursion/index.rst
 
    class-I-intro/index.rst
    class-II-functions/index.rst
    class-III-design/index.rst
    class-IV-memory/index.rst
 
-   recursion/index.rst
    containers/index.rst
    iterators/index.rst
    algorithms/index.rst
