@@ -328,6 +328,7 @@ Glossary
       and :term:`semantic error`.
 
    compile-time polymorphism
+   Compile-time polymorphism
       A form of :term:`polymorphism` known as Overloading.
       Overloaded methods have the same names, but different signatures
       as a method available elsewhere in the class.
@@ -1085,6 +1086,7 @@ Glossary
       pointer is stored.
 
    polymorphism
+   Polymorphism
       An :term:`object-oriented programming <object-oriented programming paradigm>`
       term meaning *one name, many forms*.
       It describes the ability of software to change its behavior
@@ -1317,20 +1319,18 @@ Glossary
       and it conducts the execution of the program.
 
    runtime error
-      Errors encountered during program execution.
+      An error that does not occur until the program has started to execute
+      but that prevents the program from continuing.
       Compare to :term:`compile-time error`, :term:`link error`, 
       and :term:`semantic error`.
 
    runtime polymorphism
+   Runtime polymorphism
       A form of :term:`polymorphism` known as Overriding.
       Overridden methods are those which implement a new method
       with the same signature as a method inherited from its
       base class.
       Compare to :term:`compile-time polymorphism`.
-
-   runtime error
-      An error that does not occur until the program has started to execute
-      but that prevents the program from continuing.
 
    runtime stack
       The place where an :term:`activation record` is stored when a
