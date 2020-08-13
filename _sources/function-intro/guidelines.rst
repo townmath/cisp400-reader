@@ -223,8 +223,206 @@ Your future co-workers will thank you.
       }
 
 
+Example: number guessing
+------------------------
+A more realistic example might help.
+While randomly surfing the internet, 
+
+.. tabbed:: function_guidelines_guessing_example_tab
+
+   .. tab:: Original
+
+     .. raw:: html
+
+        <iframe height="400px" width="100%" 
+          src="https://repl.it/@DaveParillo/NumberGuessingFunctionRefactorOriginal?lite=true" 
+          scrolling="no" 
+          frameborder="no" 
+          allowtransparency="true" 
+          allowfullscreen="true" 
+          sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 
+   .. tab:: Bugs
+
+      This program has a few bugs.
+
+      Code like:
+
+      .. code-block:
+
+         if(tries >= 20)
+
+      seems to imply you have 20 tries.
+      The program actually give you 21.
+      Off-by-one errors like this are common.
+
+
+      This code looks ok, but isn't.
+
+      .. code-block:: cpp
+
+         std::cout << "Enter a number between 1 and 100 (" << 20 - tries << " tries left): ";
+         std::cin >> guess;
+         std::cin.ignore();
+
+      There is no error checking on guess before it is used.
+      Non-integer input causes the program to enter an infinite loop.
+
+      Related to this, there is this code:
+
+      .. code-block:: cpp
+
+         int guess; 
+
+         // try to get guess
+
+         if(guess > number)
+
+      Since guess is uniniitalized, if ``cin`` fails to fill ``guess``,
+      then ``guess`` will not have any value when the if statement is evaluated,
+      which is uindefined bahavior.
+
+
+   .. tab:: Issues
+
+      This is fundamentally a C program on a C++ forum.
+
+      Yes, it uses ``cin`` and ``cout``.
+
+      That doesn't make it a C++ program.
+
+      A dead giveaway it was copied from C:
+
+      .. code-block:: cpp
+
+         int main (void) . . .
+
+      Explicitly using ``void`` to declare a function take no parameters
+      is a best practice in C.
+      Otherwise the compiler assumes the function can take **any number**
+      of parameters.
+ 
+      In C++, ``main()`` or any other function that takes no parameters
+      is implicitly void.
+
+
+      Next problem is the way the random numbers are created:
+
+      .. code-block:: cpp
+
+         int number = rand() % 99 + 2;
+
+      Quick!
+
+      Can we be **certain** that this correctly creates a number from
+      1 to 100, inclusive?
+
+      The code is just not that easy to reason about.
+
+      - We have to know how rand works
+      - We have to remember what modulus does.
+
+      Yes, not bit hurdles, but this is where bugs hide.
+
+      The standard library has a superior alternative to ``rand``:
+
+      .. activecode:: function_random_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+         :nocodelens: 
+
+         #include <iostream>
+         #include <random>
+
+         int main() {
+           std::cout << "Random numbers: \n";
+           // Seed with a real random value, if available
+           std::random_device r;
+           std::default_random_engine eng(r());  // make a random number generator
+
+           for (int i = 0; i < 10; ++i) {
+             // generate the next uniformly distributed integer between 0 and 999
+             // using the random default engine
+             std::cout << std::uniform_int_distribution<int> {0, 999} (eng) << '\n';
+           }
+         }
+        
+
+      Because there are no functions, it is necessary to repeat block of code like this:
+
+      .. code-block:: cpp
+
+         std::cout << "Enter a number between 1 and 100 (" << 20 - tries << " tries left): ";
+         std::cin >> guess;
+         std::cin.ignore();
+
+
+      In general, the pattern
+
+      - Prompt
+      - Assign
+      - Validate
+      - Repeat (if needed) or exit
+
+      Is common.
+      Because it's tedious to copy over and over,
+      this program omits the error handling and the repeat.
+
+      A function is the obvious choice here.
+
+      .. admonition:: Try This!
+
+         Run the program on the original tab, but enter a letter or
+         other nonsense input instead of a number.
+
+         How would you fix this?  Try it!
+         
+
+      More repetition.
+      How many times is the number ``20`` used in this program?
+
+      If you wanted to change the max number of guesses to 10,
+      how many places do you need to remember?
+      And this is just one file.
+      These kinds of duplications can become insiduous as prgrams grow.
+      They can quickly get out of control.
+
+      Finally, this is just a pet peeve of mine:
+
+      .. code-block:: cpp
+
+         // Safely exit.
+         std::cout << "\n\nEnter anything to exit. . . ";
+         std::cin.ignore();
+
+      Please don't ask me to enter an additional confirmation to exit,
+      when I **just** said 'No' to the previous question.
+
+      There is no need to do this.
+      Just exit your program.
+
+   .. tab:: Final
+
+     .. raw:: html
+
+        <iframe height="400px" width="100%" 
+          src="https://repl.it/@DaveParillo/NumberGuessingFunctionRefactor?lite=true" 
+          scrolling="no" 
+          frameborder="no" 
+          allowtransparency="true" 
+          allowfullscreen="true" 
+          sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+       
+
+This is **NOT** the only way to improve the original program.
+It's merely one way.
+
+Notice the finished program isn't shorter than the original.
+That was not our goal.
+It rarely is.
+We made the program *clearer* and easier to reason about.
+While we were at it, we fixed some bugs and made it a bit more reusable and maintainable.
 
 
 -----
