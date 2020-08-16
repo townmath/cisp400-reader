@@ -7,8 +7,7 @@ Class constructors and overloads
 
    constructors.rst
    static.rst
-   enum.rst
    this.rst
    overloads.rst
-   templates.rst
+   friend.rst
 

@@ -57,7 +57,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="8.1. Constructors" href="constructors.html" />
-    <link rel="prev" title="7.6. Abstraction" href="../class-I-intro/abstraction.html" />
+    <link rel="prev" title="7.7. Enumerated types" href="../class-I-intro/enum.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -187,8 +187,8 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">7.6. </span>Abstraction" data-toggle="tooltip">
-    <a href="../class-I-intro/abstraction.html" >
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">7.7. </span>Enumerated types" data-toggle="tooltip">
+    <a href="../class-I-intro/enum.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -244,28 +244,19 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="static.html">8.2. Static members</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enum.html">8.3. Enumerated types</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="enum.html#unscoped-enumerations">8.3.1. Unscoped enumerations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="enum.html#scoped-enumerations">8.3.2. Scoped enumerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="this.html">8.3. ‘this’ pointer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overloads.html">8.4. Operator overloads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overloads.html#basic-overloading-guidelines">8.4.1. Basic overloading guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overloads.html#assignment-operator">8.4.2. Assignment operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overloads.html#insertion-and-extraction-operators">8.4.3. Insertion and extraction operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overloads.html#function-call-operator">8.4.4. Function call operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overloads.html#relational-operators">8.4.5. Relational operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overloads.html#binary-arithmetic-operators">8.4.6. Binary arithmetic operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overloads.html#increment-and-decrement-operators">8.4.7. Increment and decrement operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overloads.html#conversion-operators">8.4.8. Conversion operators</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="this.html">8.4. ‘this’ pointer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="overloads.html">8.5. Operator overloads</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overloads.html#basic-overloading-guidelines">8.5.1. Basic overloading guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overloads.html#assignment-operator">8.5.2. Assignment operator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overloads.html#insertion-and-extraction-operators">8.5.3. Insertion and extraction operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overloads.html#function-call-operator">8.5.4. Function call operator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overloads.html#relational-operators">8.5.5. Relational operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overloads.html#binary-arithmetic-operators">8.5.6. Binary arithmetic operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overloads.html#increment-and-decrement-operators">8.5.7. Increment and decrement operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overloads.html#conversion-operators">8.5.8. Conversion operators</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="templates.html">8.6. Class templates</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#value-class-templates">8.6.1. Value class templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#friend-or-non-friend">8.6.2. Friend or non-friend?</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="friend.html">8.5. Friend vs non-friend functions</a></li>
 </ul>
 </div>
 </div>
@@ -277,8 +268,8 @@
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 7.6. Abstraction' data-toggle="tooltip">
-    <a href="../class-I-intro/abstraction.html" aria-label="7.6. Abstraction">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 7.7. Enumerated types' data-toggle="tooltip">
+    <a href="../class-I-intro/enum.html" aria-label="7.7. Enumerated types">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>

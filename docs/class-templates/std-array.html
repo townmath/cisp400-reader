@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>8.3. ‘this’ pointer &#8212; CISC 187 Course Reader Overview</title>
+    <title>10.4. The std::array Container &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -56,8 +56,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8.4. Operator overloads" href="overloads.html" />
-    <link rel="prev" title="8.2. Static members" href="static.html" />
+    <link rel="next" title="11. Memory Management" href="../class-IV-memory/index.html" />
+    <link rel="prev" title="10.2. Overloading operator[]" href="overloads.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -187,14 +187,14 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">8.2. </span>Static members" data-toggle="tooltip">
-    <a href="static.html" >
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">10.2. </span>Overloading <code class="docutils literal notranslate"><span class="pre">operator[]</span></code>" data-toggle="tooltip">
+    <a href="overloads.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">8.4. </span>Operator overloads' data-toggle="tooltip" >              
-    <a href="overloads.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">11. </span>Memory Management' data-toggle="tooltip" >              
+    <a href="../class-IV-memory/index.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -232,63 +232,56 @@
 
 <div class="container" id="main-content" role="main">
   
-  <div class="section" id="this-pointer">
-<span id="index-0"></span><h1><span class="section-number">8.3. </span>‘this’ pointer<a class="headerlink" href="#this-pointer" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=this pointer">this pointer</a> is a value that stores the address of the current object.
-Every non-static class member function is passed the <code class="docutils literal notranslate"><span class="pre">this</span></code> pointer.
-Whenever a member function or variable is used in a function,
-<code class="docutils literal notranslate"><span class="pre">this-&gt;</span></code> is automatically added before the name,
-resulting in a member access expression.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">example</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
-
-    <span class="k">public</span><span class="o">:</span>
-
-       <span class="kt">void</span> <span class="n">foo</span><span class="p">()</span>
-       <span class="p">{</span>
-           <span class="n">x</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>       <span class="c1">// same as this-&gt;x = 6;</span>
-           <span class="k">this</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// explicit use of this-&gt;</span>
-       <span class="p">}</span>
-
-       <span class="kt">void</span> <span class="n">foo</span><span class="p">()</span> <span class="k">const</span>
-       <span class="p">{</span>
-         <span class="c1">// x = 7; // Error: *this is constant</span>
-       <span class="p">}</span>
-
-       <span class="kt">void</span> <span class="n">foo</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="c1">// parameter x shadows the member with the same name</span>
-       <span class="p">{</span>
-           <span class="c1">// x = x;       makes no sense in this function</span>
-           <span class="k">this</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// unqualified x refers to the parameter</span>
-                        <span class="c1">// &#39;this-&gt;&#39; required for disambiguation</span>
-       <span class="p">}</span>
-
-       <span class="c1">// No ambiguity in C++11 initializer syntax</span>
-       <span class="n">example</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
-         <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>      <span class="c1">// use parameter x to initialize member x</span>
-           <span class="n">y</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">)</span> <span class="c1">// use member x to initialize member y</span>
-       <span class="p">{}</span>
-
-<span class="p">};</span>
+  <div class="section" id="the-std-array-container">
+<span id="index-0"></span><h1><span class="section-number">10.4. </span>The <code class="docutils literal notranslate"><span class="pre">std::array</span></code> Container<a class="headerlink" href="#the-std-array-container" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference external" href="https://en.cppreference.com/w/cpp/container/array">std::array</a> is a container that encapsulates fixed size arrays.
+Since it is literally a wrapper around a raw array,
+the size of a <code class="docutils literal notranslate"><span class="pre">std::array</span></code> must be defined when declared.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">array</span> <span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">12</span><span class="o">&gt;</span> <span class="n">days_per_month</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>The this pointer can only be used in a member function.
-It is a compile error to use <code class="docutils literal notranslate"><span class="pre">this</span></code> outside of a member function.</p>
-<p>Although <code class="docutils literal notranslate"><span class="pre">this</span></code> is a pointer,
-it is <em>immutable</em>.
-You can’t change it and have it point to some other object.
-It <em>always</em> points to the current object.</p>
-<p>That is why the this pointer can’t be used in a static member function.
-Static members are members of the <strong>class</strong>.
-There is only a single copy that all objects of a class share.
-A static member has no way to determine which object instance
-the this pointer refers to.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">std::array</span></code> class is very lightweight and has very little
+costs over a raw array.
+Additionally, <code class="docutils literal notranslate"><span class="pre">std::array</span></code> provides convenience functions such as:</p>
+<dl class="simple">
+<dt><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=array::at()">array::at()</a></dt><dd><p>range checked access</p>
+</dd>
+<dt><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=array::front()">array::front()</a> and <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=array::back()">array::back()</a></dt><dd><p>access to the first and last elements</p>
+</dd>
+<dt><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=array::size()">array::size()</a></dt><dd><p>return the number of elements</p>
+</dd>
+<dt><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=array::empty()">array::empty()</a></dt><dd><p>check if the container is empty</p>
+</dd>
+</dl>
+<p>Unlike a raw array, <code class="docutils literal notranslate"><span class="pre">std::array</span></code> cannot infer its size if
+declared with an initializer list:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// compile error: array template parameter missing:</span>
+  <span class="c1">//std::array&lt;char&gt; letters = {{&#39;h&#39;, &#39;o&#39;, &#39;w&#39;, &#39;d&#39;, &#39;y&#39;, &#39;!&#39;}};</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="mi">6</span><span class="o">&gt;</span> <span class="n">letters</span> <span class="o">=</span> <span class="p">{{</span><span class="sc">&#39;h&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;w&#39;</span><span class="p">,</span> <span class="sc">&#39;d&#39;</span><span class="p">,</span> <span class="sc">&#39;y&#39;</span><span class="p">,</span> <span class="sc">&#39;!&#39;</span><span class="p">}};</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">letters</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;The first character is: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">letters</span><span class="p">.</span><span class="n">front</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;The last character is: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">letters</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">c</span><span class="p">:</span> <span class="n">letters</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=this pointer">this pointer</a></p></li>
+<li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/container">STL containers library</a></p></li>
 </ul>
 </div>
 </div>
@@ -300,8 +293,8 @@ the this pointer refers to.</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 8.2. Static members' data-toggle="tooltip">
-    <a href="static.html" aria-label="8.2. Static members">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 10.2. Overloading  operator[] ' data-toggle="tooltip">
+    <a href="overloads.html" aria-label="10.2. Overloading  operator[] ">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -311,8 +304,8 @@ the this pointer refers to.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 8.4. Operator overloads' data-toggle="tooltip" >
-    <a href="overloads.html" aria-label="8.4. Operator overloads">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 11. Memory Management' data-toggle="tooltip" >
+    <a href="../class-IV-memory/index.html" aria-label="11. Memory Management">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

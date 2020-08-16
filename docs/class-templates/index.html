@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>8.3. ‘this’ pointer &#8212; CISC 187 Course Reader Overview</title>
+    <title>10. Class templates &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -56,8 +56,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8.4. Operator overloads" href="overloads.html" />
-    <link rel="prev" title="8.2. Static members" href="static.html" />
+    <link rel="next" title="10.1. Class templates" href="templates.html" />
+    <link rel="prev" title="9.6. Design patterns" href="../class-III-design/patterns.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -187,14 +187,14 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">8.2. </span>Static members" data-toggle="tooltip">
-    <a href="static.html" >
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">9.6. </span>Design patterns" data-toggle="tooltip">
+    <a href="../class-III-design/patterns.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">8.4. </span>Operator overloads' data-toggle="tooltip" >              
-    <a href="overloads.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">10.1. </span>Class templates' data-toggle="tooltip" >              
+    <a href="templates.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -232,63 +232,22 @@
 
 <div class="container" id="main-content" role="main">
   
-  <div class="section" id="this-pointer">
-<span id="index-0"></span><h1><span class="section-number">8.3. </span>‘this’ pointer<a class="headerlink" href="#this-pointer" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=this pointer">this pointer</a> is a value that stores the address of the current object.
-Every non-static class member function is passed the <code class="docutils literal notranslate"><span class="pre">this</span></code> pointer.
-Whenever a member function or variable is used in a function,
-<code class="docutils literal notranslate"><span class="pre">this-&gt;</span></code> is automatically added before the name,
-resulting in a member access expression.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">example</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
-
-    <span class="k">public</span><span class="o">:</span>
-
-       <span class="kt">void</span> <span class="n">foo</span><span class="p">()</span>
-       <span class="p">{</span>
-           <span class="n">x</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>       <span class="c1">// same as this-&gt;x = 6;</span>
-           <span class="k">this</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// explicit use of this-&gt;</span>
-       <span class="p">}</span>
-
-       <span class="kt">void</span> <span class="n">foo</span><span class="p">()</span> <span class="k">const</span>
-       <span class="p">{</span>
-         <span class="c1">// x = 7; // Error: *this is constant</span>
-       <span class="p">}</span>
-
-       <span class="kt">void</span> <span class="n">foo</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="c1">// parameter x shadows the member with the same name</span>
-       <span class="p">{</span>
-           <span class="c1">// x = x;       makes no sense in this function</span>
-           <span class="k">this</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// unqualified x refers to the parameter</span>
-                        <span class="c1">// &#39;this-&gt;&#39; required for disambiguation</span>
-       <span class="p">}</span>
-
-       <span class="c1">// No ambiguity in C++11 initializer syntax</span>
-       <span class="n">example</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
-         <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>      <span class="c1">// use parameter x to initialize member x</span>
-           <span class="n">y</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">)</span> <span class="c1">// use member x to initialize member y</span>
-       <span class="p">{}</span>
-
-<span class="p">};</span>
-</pre></div>
-</div>
-<p>The this pointer can only be used in a member function.
-It is a compile error to use <code class="docutils literal notranslate"><span class="pre">this</span></code> outside of a member function.</p>
-<p>Although <code class="docutils literal notranslate"><span class="pre">this</span></code> is a pointer,
-it is <em>immutable</em>.
-You can’t change it and have it point to some other object.
-It <em>always</em> points to the current object.</p>
-<p>That is why the this pointer can’t be used in a static member function.
-Static members are members of the <strong>class</strong>.
-There is only a single copy that all objects of a class share.
-A static member has no way to determine which object instance
-the this pointer refers to.</p>
-<hr class="docutils" />
-<div class="admonition-more-to-explore admonition">
-<p class="admonition-title">More to Explore</p>
-<ul class="simple">
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=this pointer">this pointer</a></p></li>
+  <div class="section" id="class-templates">
+<h1><span class="section-number">10. </span>Class templates<a class="headerlink" href="#class-templates" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">10.1. Class templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#value-class-templates">10.1.1. Value class templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates.html#friend-or-non-friend">10.1.2. Friend or non-friend?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="overloads.html">10.2. Overloading <code class="docutils literal notranslate"><span class="pre">operator[]</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="overloads.html#container-classes">10.3. Container classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overloads.html#initializer-list-constructors">10.3.1. Initializer list constructors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overloads.html#pointers-to-container-data">10.3.2. Pointers to container data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="std-array.html">10.4. The <code class="docutils literal notranslate"><span class="pre">std::array</span></code> Container</a></li>
 </ul>
 </div>
 </div>
@@ -300,8 +259,8 @@ the this pointer refers to.</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 8.2. Static members' data-toggle="tooltip">
-    <a href="static.html" aria-label="8.2. Static members">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 9.6. Design patterns' data-toggle="tooltip">
+    <a href="../class-III-design/patterns.html" aria-label="9.6. Design patterns">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -311,8 +270,8 @@ the this pointer refers to.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 8.4. Operator overloads' data-toggle="tooltip" >
-    <a href="overloads.html" aria-label="8.4. Operator overloads">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 10.1. Class templates' data-toggle="tooltip" >
+    <a href="templates.html" aria-label="10.1. Class templates">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
