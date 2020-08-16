@@ -209,13 +209,10 @@ Another example uses the same techniques to build a deck of cards.
   
 
 
-
-
-
-
 -----
 
 .. admonition:: More to Explore
 
-   TBD
+   - :lang:`Enumeration declaration <enum>`
+   - `Enumberation (MIcrosoft) <https://docs.microsoft.com/en-us/cpp/cpp/enumerations-cpp?view=vs-2019>`__
 
