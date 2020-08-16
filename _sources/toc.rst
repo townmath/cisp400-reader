@@ -27,7 +27,8 @@ Main Body
    class-II-functions/index.rst
    class-III-design/index.rst
    class-templates/index.rst
-   class-IV-memory/index.rst
+   class-IV-copy/index.rst
+   allocators/index.rst
 
    containers/index.rst
    iterators/index.rst
