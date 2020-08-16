@@ -11,4 +11,5 @@ Introduction to classes
    interfaces.rst
    const.rst
    abstraction.rst
+   enum.rst
 
