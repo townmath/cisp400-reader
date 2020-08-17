@@ -12,17 +12,17 @@
 Background
 ==========
 
-Recall from :doc:`../containers/intro` that a container
+Recall from :doc:`../class-IV-copy/containers` that a container
 is a generic collection.
 Containers allow us to store data using *well-known* data structures.
 The STL containers provide the patterns we can use to make
 custom containers, if needed.
 
-Recall from :doc:`../iterators/background` that an iterator
+Recall from :doc:`../list/iterators` that an iterator
 is a :term:`type` that performs operations that *feel* like a pointer.
 Although an iterator allows syntax very similar to a pointer,
 it is not a pointer.
-Each container 'owns' it's iterators.
+Each container is responsible for its own iterators.
 When a container is created, it has the ability to create an iterator
 that knows how to visit elements of the type stored in the container.
 

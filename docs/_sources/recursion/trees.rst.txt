@@ -15,7 +15,7 @@ a :term:`tree` is a *hierarchical* abstract data type.
 Conceptually, it can be thought of as a collection of
 *nodes* defined by parent-child relationships.
 
-Refer to :doc:`../containers/trees` to review the basic vocabulary and structure of binary trees.
+Refer to :doc:`../trees/trees` to review the basic vocabulary and structure of binary trees.
 
 So far, we have discussed trees only at a conceptual level.
 In this section we will program one.

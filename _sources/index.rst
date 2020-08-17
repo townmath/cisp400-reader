@@ -48,8 +48,10 @@ Chapters
    class-templates/index.rst
    class-IV-copy/index.rst
 
-   containers/index.rst
-   iterators/index.rst
+   allocators/index.rst
+   stack/index.rst
+   list/index.rst
+   trees/index.rst
    algorithms/index.rst
 
 Back Matter

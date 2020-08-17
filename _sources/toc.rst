@@ -28,10 +28,11 @@ Main Body
    class-III-design/index.rst
    class-templates/index.rst
    class-IV-copy/index.rst
-   allocators/index.rst
 
-   containers/index.rst
-   iterators/index.rst
+   allocators/index.rst
+   stack/index.rst
+   list/index.rst
+   trees/index.rst
    algorithms/index.rst
 
    glossary.rst
