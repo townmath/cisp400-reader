@@ -146,8 +146,8 @@ The following example uses some common conventions for user defined types:
 Friend or non-friend?
 ---------------------
 Some operators must be implemented as member functions,
-``operator=``, ``operator[]``, and member access - 
-both ``operator.`` and ``operator->>``,
+``operator=``, ``operator[]``, and member access: 
+both ``operator.`` and ``operator->``,
 because the language requires it.
 We have choices where we define the others.
 
@@ -228,4 +228,5 @@ for ``operator==``:
 
    - :cref:`friend specifier`
    - Item 44 from `C++ Coding Standards, Sutter and Alexandrescu, 2004. <https://www.google.com/search?client=safari&rls=en&q=isbn+978-0321113580>`__
+   - C++ Core guidelines for :core:`overloads <#SS-overload>`
 

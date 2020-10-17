@@ -117,6 +117,7 @@ Glossary
       a synonym for :term:`data member`.
 
    backing storage
+   backing store
       The underlying storage for an :term:`ADT`.
 
    bag

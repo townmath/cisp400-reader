@@ -362,8 +362,8 @@ the default implementation for the marked special member function.</p>
 <div class="section" id="friend-or-non-friend">
 <h2><span class="section-number">10.1.2. </span>Friend or non-friend?<a class="headerlink" href="#friend-or-non-friend" title="Permalink to this headline">¶</a></h2>
 <p>Some operators must be implemented as member functions,
-<code class="docutils literal notranslate"><span class="pre">operator=</span></code>, <code class="docutils literal notranslate"><span class="pre">operator[]</span></code>, and member access -
-both <code class="docutils literal notranslate"><span class="pre">operator.</span></code> and <code class="docutils literal notranslate"><span class="pre">operator-&gt;&gt;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">operator=</span></code>, <code class="docutils literal notranslate"><span class="pre">operator[]</span></code>, and member access:
+both <code class="docutils literal notranslate"><span class="pre">operator.</span></code> and <code class="docutils literal notranslate"><span class="pre">operator-&gt;</span></code>,
 because the language requires it.
 We have choices where we define the others.</p>
 <p>Some are commonly implemented as non-member functions,
@@ -431,6 +431,7 @@ body.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=friend specifier">friend specifier</a></p></li>
 <li><p>Item 44 from <a class="reference external" href="https://www.google.com/search?client=safari&amp;rls=en&amp;q=isbn+978-0321113580">C++ Coding Standards, Sutter and Alexandrescu, 2004.</a></p></li>
+<li><p>C++ Core guidelines for <a class="reference external" href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#SS-overload">overloads</a></p></li>
 </ul>
 </div>
 </div>

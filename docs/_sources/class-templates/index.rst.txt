@@ -6,5 +6,6 @@ Class templates
 
    templates.rst
    overloads.rst
+   containers.rst
    std-array.rst
 

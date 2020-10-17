@@ -598,6 +598,7 @@ or an explicit constructor call:
 
    - `Operator overloading in C++ <https://stackoverflow.com/questions/4421706/what-are-the-basic-rules-and-idioms-for-operator-overloading>`__ from stackoverflow.  
      Much of the content in this section was taken from there.
+   - C++ Core Guidelines for :core:`overloading <#SS-overload>`
    - `Comparison operators <https://en.cppreference.com/w/cpp/language/operator_comparison>`__
      from cppreference.com.
    - `Named requirements: Compare <https://en.cppreference.com/w/cpp/named_req/Compare>`__.
