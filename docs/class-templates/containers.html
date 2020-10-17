@@ -255,9 +255,28 @@ List initialization provides 2 key benefits:</p>
 <li><p>Ability to initialize a container using a list syntax</p></li>
 </ol>
 <p>Consider the following examples.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">pi</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>      <span class="c1">// compiles, but probably a bug</span>
+
+<span class="kt">int</span>  <span class="n">i</span>  <span class="p">{</span><span class="n">d</span><span class="p">};</span>     <span class="c1">// compile error</span>
+<span class="kt">char</span> <span class="n">c1</span> <span class="p">{</span><span class="n">i</span><span class="p">};</span>     <span class="c1">// compile error</span>
+<span class="kt">char</span> <span class="n">c2</span> <span class="p">{</span><span class="mi">128</span><span class="p">};</span>   <span class="c1">// ok - 128 fits in type char</span>
+<span class="kt">int</span>  <span class="n">x</span>  <span class="p">{</span><span class="n">c2</span><span class="p">};</span>    <span class="c1">// ok - widening conversion</span>
+
+<span class="kt">double</span> <span class="n">z</span> <span class="p">{</span><span class="n">x</span><span class="p">};</span>    <span class="c1">// compile error</span>
+                 <span class="c1">// yes, a widening conversion, but</span>
+                 <span class="c1">// no floating point to int conversions allowed</span>
+                 <span class="c1">// in either direction</span>
+</pre></div>
+</div>
 <p>What about ‘initializer list’ syntax?</p>
 <p>An initializer list is a type constructed when using list initialization
 <strong>followed by an assignment operator</strong>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>       <span class="c1">// a is an int</span>
+<span class="k">auto</span> <span class="n">b</span> <span class="p">{</span><span class="mi">2</span><span class="p">};</span>       <span class="c1">// b is an int</span>
+<span class="k">auto</span> <span class="n">c</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">};</span>     <span class="c1">// c is an initializer_list&lt;int&gt;</span>
+</pre></div>
+</div>
 <p>The type of <code class="docutils literal notranslate"><span class="pre">c</span></code> can be unexpected when the type is
 not a container type.
 It is important to note the initializer_list constructor
@@ -378,7 +397,7 @@ If you want to match to <code class="docutils literal notranslate"><span class="
 you’ll need to use copy initialization or direct initialization.
 The rule applies to <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> and other standard library container classes
 that define both a list constructor and another one argument conversion constructor.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Calls std::vector::vector(std::vector::size_type)</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Calls std::vector::vector(std::size_type)</span>
 <span class="c1">// creates 3 value-initialized elements: 0 0 0</span>
 <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">data</span><span class="p">(</span> <span class="mi">3</span> <span class="p">);</span>
 

@@ -35,7 +35,7 @@ List initialization provides 2 key benefits:
 
 Consider the following examples.
 
-.. code-block::cpp
+.. code-block:: cpp
 
    double d = 3.14;
    int pi = d;      // compiles, but probably a bug
@@ -55,7 +55,7 @@ What about 'initializer list' syntax?
 An initializer list is a type constructed when using list initialization
 **followed by an assignment operator**.
 
-.. code-block::cpp
+.. code-block:: cpp
 
    auto a = 1;       // a is an int
    auto b {2};       // b is an int
@@ -205,7 +205,7 @@ that define both a list constructor and another one argument conversion construc
 
 .. code-block:: cpp
 
-   // Calls std::vector::vector(std::vector::size_type)
+   // Calls std::vector::vector(std::size_type)
    // creates 3 value-initialized elements: 0 0 0
    std::vector<int> data( 3 );
 
