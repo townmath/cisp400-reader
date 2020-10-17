@@ -215,11 +215,6 @@ that define both a list constructor and another one argument conversion construc
 
 
 
-Pointers to container data
---------------------------
-
-TBD
-
 -----
 
 .. admonition:: More to Explore
