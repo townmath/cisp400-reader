@@ -151,7 +151,6 @@ Consider the following:
 
 .. code-block:: cpp
 
-   #include <cctype>
    #include <cstddef>
    #include <cstring>
    #include <iostream>
@@ -219,7 +218,6 @@ This class encapsulates an array of characters, providing 4 functions:
          :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
          :nocodelens:
 
-         #include <cctype>
          #include <cstddef>
          #include <cstring>
          #include <iostream>
@@ -280,7 +278,6 @@ This class encapsulates an array of characters, providing 4 functions:
       .. codelens:: codelens_shallow_copy_string_class
          :language: cpp
 
-         #include <cctype>
          #include <cstddef>
          #include <cstring>
          #include <iostream>

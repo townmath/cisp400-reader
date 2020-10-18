@@ -920,6 +920,13 @@ Glossary
       A programming language that is designed to be easy for a computer to
       execute; also called machine language or assembly language.
 
+   lvalue
+      An expression that identifies a non-temporary object.
+
+   lvalue reference
+      An alias or synonymn for an existing object.
+      Often just referred to as a reference.
+
    map
       A :term:`data structure` that relates a :term:`key` to a
       :term:`record`.
@@ -1336,6 +1343,15 @@ Glossary
    runtime stack
       The place where an :term:`activation record` is stored when a
       subroutine is called during a program's runtime.
+
+   rvalue
+      An expression that identifies a temporary object or
+      a value not associated with any object, such as a literal.
+
+   rvalue reference
+      Sometimes called a forwarding reference.
+      A reference that is allowed to refer to an rvalue.
+      That is, a temporary object or an rvalue not associated with any object.
 
    scope
       A region of the program where a defined variable, definition, or function exists. 

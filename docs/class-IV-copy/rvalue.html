@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>11. Copying and moving memory &#8212; CISC 187 Course Reader Overview</title>
+    <title>11.2. Lvalues, rvalues, and references &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -56,8 +56,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="11.1. Copying objects" href="copy.html" />
-    <link rel="prev" title="10.4. The std::array Container" href="../class-templates/std-array.html" />
+    <link rel="next" title="11.3. Moving memory" href="move.html" />
+    <link rel="prev" title="11.1. Copying objects" href="copy.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -187,14 +187,14 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">10.4. </span>The <code class="docutils literal notranslate"><span class="pre">std::array</span></code> Container" data-toggle="tooltip">
-    <a href="../class-templates/std-array.html" >
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">11.1. </span>Copying objects" data-toggle="tooltip">
+    <a href="copy.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">11.1. </span>Copying objects' data-toggle="tooltip" >              
-    <a href="copy.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">11.3. </span>Moving memory' data-toggle="tooltip" >              
+    <a href="move.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -232,21 +232,98 @@
 
 <div class="container" id="main-content" role="main">
   
-  <div class="section" id="copying-and-moving-memory">
-<h1><span class="section-number">11. </span>Copying and moving memory<a class="headerlink" href="#copying-and-moving-memory" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+  <div class="section" id="lvalues-rvalues-and-references">
+<span id="index-0"></span><h1><span class="section-number">11.2. </span>Lvalues, rvalues, and references<a class="headerlink" href="#lvalues-rvalues-and-references" title="Permalink to this headline">¶</a></h1>
+<p>In addition to the builtin types and pointers,
+C++ adds a new type - the reference type.
+A major addition to C++11 is the addition of the
+<em>rvalue reference</em>.
+It is easier to understand rvalue references if we discuss
+lthe others first.</p>
+<p>The original definition of lvalues and rvalues from C is as follows:</p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="copy.html">11.1. Copying objects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rvalue.html">11.2. Lvalues, rvalues, and references</a></li>
-<li class="toctree-l1"><a class="reference internal" href="move.html">11.3. Moving memory</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="move.html#move-constructors-and-move-assignment">11.3.1. Move constructors and move assignment</a></li>
-</ul>
+<li><p>An <strong>lvalue</strong> is an expression that may appear on the left or
+on the right side of an assignment</p></li>
+<li><p>An <strong>rvalue</strong> is an expression that can only appear on the
+right hand side of an assignment. For example,</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">43</span><span class="p">;</span>
+
+<span class="c1">// a and b are both l-values:</span>
+<span class="c1">// these are all OK</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+
+<span class="c1">// a * b is an rvalue:</span>
+<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// ok, rvalue on right hand side of assignment</span>
+<span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>    <span class="c1">// error, rvalue on left hand side of assignment</span>
+</pre></div>
+</div>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="containers.html">11.4. Standard Template Library Containers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="containers.html#ordered-and-sorted-containers">11.4.1. Ordered and sorted containers</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="vector.html">11.5. The vector class</a></li>
+<p>In C++, this is still useful as an intuitive view to lvalues and rvalues.
+However, C++ with its user-defined types introduces some subtleties
+regarding modifiability and assignability that cause this definition to be incorrect.</p>
+<p>An <strong>lvalue</strong> is an expression that identifies a non-temporary object.
+For example:</p>
+<blockquote>
+<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// These are all valid assignments</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">43</span><span class="p">;</span>              <span class="c1">// i is an lvalue</span>
+<span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>         <span class="c1">// i is an lvalue</span>
+<span class="kt">int</span><span class="o">&amp;</span> <span class="n">foo</span><span class="p">();</span>
+<span class="n">foo</span><span class="p">()</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>          <span class="c1">// foo() is an lvalue</span>
+<span class="kt">int</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">foo</span><span class="p">();</span>    <span class="c1">// foo() is an lvalue</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>An <strong>rvalue</strong> is an expression that identifies a temporary object
+or a literal not assigned a memory address.
+For example:</p>
+<blockquote>
+<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// valid assignments</span>
+<span class="kt">int</span> <span class="nf">bar</span><span class="p">();</span>
+<span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">bar</span><span class="p">();</span>     <span class="c1">// bar() is an rvalue</span>
+<span class="n">j</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>        <span class="c1">// ok, 42 is an rvalue</span>
+
+<span class="c1">// invalid</span>
+<span class="kt">int</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">bar</span><span class="p">();</span> <span class="c1">// cannot take the address of an rvalue</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>An <strong>rvalue reference</strong> is a reference to an <em>rvalue</em>.
+That is, a reference to a <em>temporary object</em> or
+a reference to a literal not assigned a memory address.
+As we will see in the next section,
+rvalue references are a key component of move operations and
+forwarding data to another location without copying it.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">X</span></code> is any type, then <code class="docutils literal notranslate"><span class="pre">X&amp;&amp;</span></code> is called an <em>rvalue reference to X</em>.
+To distinguish from ordinary references,
+the reference <code class="docutils literal notranslate"><span class="pre">X&amp;</span></code> is now also called an <em>lvalue reference</em>.
+An rvalue reference is a type that behaves like the ordinary reference <code class="docutils literal notranslate"><span class="pre">X&amp;</span></code>,
+but there are several thing to look out for.
+During function overload resolution,
+lvalues will prefer function signatures containing lvalue references,
+and rvalues prefer the new rvalue references:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>  <span class="c1">// lvalue reference overload</span>
+<span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// rvalue reference overload</span>
+
+<span class="n">X</span> <span class="n">x</span><span class="p">;</span>
+<span class="n">X</span> <span class="nf">foobar</span><span class="p">();</span>
+
+<span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="c1">// argument is lvalue: calls foo(X&amp;)</span>
+<span class="n">foo</span><span class="p">(</span><span class="n">foobar</span><span class="p">());</span> <span class="c1">// argument is rvalue: calls foo(X&amp;&amp;)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="admonition-more-to-explore admonition">
+<p class="admonition-title">More to Explore</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/reference">Reference declarations</a></p></li>
+<li><p><a class="reference external" href="http://thbecker.net/articles/rvalue_references/section_01.html">C++ Rvalue references explained</a>
+The content in this section was adapted from <em>Rvalue References Explained</em>, by Thomas Becker.</p></li>
 </ul>
 </div>
 </div>
@@ -258,8 +335,8 @@
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 10.4. The  std::array  Container' data-toggle="tooltip">
-    <a href="../class-templates/std-array.html" aria-label="10.4. The  std::array  Container">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 11.1. Copying objects' data-toggle="tooltip">
+    <a href="copy.html" aria-label="11.1. Copying objects">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -269,8 +346,8 @@
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 11.1. Copying objects' data-toggle="tooltip" >
-    <a href="copy.html" aria-label="11.1. Copying objects">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 11.3. Moving memory' data-toggle="tooltip" >
+    <a href="move.html" aria-label="11.3. Moving memory">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
