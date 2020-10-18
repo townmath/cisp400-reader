@@ -545,6 +545,52 @@ copies all of the data pointed to by the source pointer to the destination.</p>
 <p>Take the copy constructor provided and implement in the previous
 <code class="docutils literal notranslate"><span class="pre">mesa::string</span></code> examples in this section.</p>
 </div>
+<div class="section" id="copy-assignment">
+<h2><span class="section-number">11.1.1. </span>Copy assignment<a class="headerlink" href="#copy-assignment" title="Permalink to this headline">¶</a></h2>
+<p>The copy assignment operator is similar to the copy constructor.
+The key difference to remember is that a copy <strong>constructor</strong>
+is only called when the left hand side object does not yet exist:
+it is in the process of being constructed.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">&amp;</span> <span class="n">X</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">X</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// copy other content into this</span>
+  <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div id='copy_assign_tab' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Copy constructor" >
+<p>Copy <strong>assignment</strong> is called when both <em>already exist</em> and
+you want to copy the right hand side object into the left hand side object.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">A</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+
+  <span class="c1">// user defined default constructor</span>
+  <span class="n">A</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">n</span><span class="p">{</span><span class="n">n</span><span class="p">}</span>
+    <span class="p">,</span> <span class="n">d</span><span class="p">{</span><span class="n">d</span><span class="p">}</span>
+  <span class="p">{</span> <span class="p">}</span>
+
+  <span class="c1">// user defined copy constructor</span>
+  <span class="n">A</span><span class="p">(</span><span class="k">const</span> <span class="n">A</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">n</span><span class="p">{</span><span class="n">other</span><span class="p">.</span><span class="n">n</span><span class="p">}</span>
+    <span class="p">,</span> <span class="n">d</span><span class="p">{</span><span class="n">other</span><span class="p">.</span><span class="n">d</span><span class="p">}</span>
+  <span class="p">{</span> <span class="p">}</span>
+
+  <span class="n">A</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">A</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">n</span><span class="p">;</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">d</span><span class="p">;</span>
+    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+    </div>
+
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
@@ -555,6 +601,7 @@ copies all of the data pointed to by the source pointer to the destination.</p>
 </ul>
 </li>
 </ul>
+</div>
 </div>
 </div>
 

@@ -378,6 +378,105 @@ copies all of the data pointed to by the source pointer to the destination.
    Take the copy constructor provided and implement in the previous 
    ``mesa::string`` examples in this section.
 
+Copy assignment
+---------------
+The copy assignment operator is similar to the copy constructor.
+The key difference to remember is that a copy **constructor**
+is only called when the left hand side object does not yet exist:
+it is in the process of being constructed.
+
+.. code-block:: cpp
+
+   X& X::operator=(const X& other)
+   {
+     // copy other content into this
+     return *this;
+   }
+
+
+.. tabbed:: copy_assign_tab
+
+   .. tab:: Copy constructor
+
+      Copy **assignment** is called when both *already exist* and
+      you want to copy the right hand side object into the left hand side object.
+
+      .. code-block:: cpp
+
+         struct A
+         {
+           int n;
+           double d;
+
+           // user defined default constructor
+           A(int n = 0, double d = 1) 
+             : n{n}
+             , d{d}
+           { }
+
+           // user defined copy constructor
+           A(const A& other) 
+             : n{other.n}
+             , d{other.d} 
+           { }
+
+           A& operator=(const A& other)
+           {
+             n = other.n;
+             d = other.d;
+             return *this;
+           }
+
+         };
+
+.. format comment*
+
+   .. tab:: Run It
+
+      .. activecode:: ac_class_copy_and_copy_assignment
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+         :nocodelens:
+
+         #include <iostream>
+
+         struct A
+         {
+           int n;
+           double d;
+
+           // user defined default constructor
+           A(int n = 0, double d = 1) 
+             : n{n}
+             , d{d}
+           { 
+             std::cout << "default A\n";
+           }
+
+           // user defined copy constructor
+           A(const A& other) 
+             : n{other.n}
+             , d{other.d} 
+           { 
+             std::cout << "copy into A\n";
+           }
+           A& operator=(const A& other)
+           {
+             std::cout << "copy assign A\n";
+             n = other.n;
+             d = other.d;
+             return * this;
+           }
+
+         };
+
+         int main() {
+           A a;
+           A b = a;
+           a = b;
+           return b.n;
+         }
+
 -----
 
 .. admonition:: More to Explore
