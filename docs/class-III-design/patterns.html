@@ -472,6 +472,9 @@ in the chain of responsibility must implement.</p>
 
 <span class="k">enum</span> <span class="k">class</span> <span class="nc">Answer</span> <span class="p">{</span> <span class="n">NO</span><span class="p">,</span> <span class="n">YES</span> <span class="p">};</span>
 
+<span class="c1">// This is our abstract handler</span>
+<span class="c1">// Every class that inherits from this</span>
+<span class="c1">// must implement the canIHave function</span>
 <span class="k">struct</span> <span class="n">GimmeStrategy</span> <span class="p">{</span>
   <span class="k">virtual</span> <span class="n">Answer</span> <span class="n">canIHave</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="k">virtual</span> <span class="o">~</span><span class="n">GimmeStrategy</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
@@ -546,9 +549,7 @@ used.</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-</div>
-    </div>
-
+</div><div data-component="tab" data-tabname="Run It" >
 <p>Once the abstract and implementing classes have been defined,
 then calling the chain is easy:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -557,6 +558,83 @@ then calling the chain is easy:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+
+<div data-childcomponent="ac_class_design_pattern_chain_of_responsibility" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=ac_class_design_pattern_chain_of_responsibility data-lang="cpp" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <iostream>
+#include <memory>
+#include <vector>
+
+enum class Answer { NO, YES };
+
+struct GimmeStrategy {
+  virtual Answer canIHave() = 0;
+  virtual ~GimmeStrategy() = default;
+};
+
+struct AskMom : public GimmeStrategy {
+  Answer canIHave() {
+    std::cout << "Mommy? Can I have this?\n";
+    return Answer::NO;
+  }
+};
+
+struct AskDad : public GimmeStrategy {
+  Answer canIHave() {
+    std::cout << "Dad, I really need this!\n";
+    return Answer::NO;
+  }
+};
+
+struct AskGrandpa : public GimmeStrategy {
+  Answer canIHave() {
+    std::cout << "Grandpa, is it my birthday yet?\n";
+    return Answer::NO;
+  }
+};
+
+struct AskGrandma : public GimmeStrategy {
+  Answer canIHave() {
+    std::cout << "Grandma, I really love you!\n";
+    return Answer::YES;
+  }
+};
+
+class Gimme : public GimmeStrategy {
+   private:
+      std::vector<std::unique_ptr<GimmeStrategy>> chain;
+   public:
+     Gimme() {
+       chain.push_back(std::unique_ptr<GimmeStrategy>(new AskMom));
+       chain.push_back(std::unique_ptr<GimmeStrategy>(new AskDad));
+       chain.push_back(std::unique_ptr<GimmeStrategy>(new AskGrandpa));
+       chain.push_back(std::unique_ptr<GimmeStrategy>(new AskGrandma));
+     }
+     Answer canIHave() {
+       for (const auto& it: chain) {
+         if (it->canIHave() == Answer::YES) {
+            return Answer::YES;
+         }
+       }
+       // Reached end without success...
+       std::cout << "Waaaaaahh!!\n";
+       return Answer::NO;
+     }
+};
+
+int main() {
+  Gimme chain;
+  chain.canIHave();
+}
+</textarea>
+</div>
+</div>
+    </div>
+
 <p>If you research the Chain of Responsibility in the GoF Patterns book
 or on the web, you’ll find that the structure differs significantly from
 the one above because most people focus on creating their own linked list.

@@ -386,6 +386,9 @@ This fun example is adapted from Thinking in C++, Vol 2.
 
          enum class Answer { NO, YES };
           
+         // This is our abstract handler
+         // Every class that inherits from this
+         // must implement the canIHave function
          struct GimmeStrategy {
            virtual Answer canIHave() = 0;
            virtual ~GimmeStrategy() = default;
@@ -469,15 +472,89 @@ This fun example is adapted from Thinking in C++, Vol 2.
               }
          };
 
-Once the abstract and implementing classes have been defined,
-then calling the chain is easy:
+   .. tab:: Run It
 
-.. code-block:: cpp
+      Once the abstract and implementing classes have been defined,
+      then calling the chain is easy:
 
-   int main() {
-     Gimme chain;
-     chain.canIHave();
-   }
+      .. code-block:: cpp
+
+         int main() {
+           Gimme chain;
+           chain.canIHave();
+         }
+
+      .. activecode:: ac_class_design_pattern_chain_of_responsibility
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+         :nocodelens:
+
+         #include <iostream>
+         #include <memory>
+         #include <vector>
+
+         enum class Answer { NO, YES };
+          
+         struct GimmeStrategy {
+           virtual Answer canIHave() = 0;
+           virtual ~GimmeStrategy() = default;
+         };
+          
+         struct AskMom : public GimmeStrategy {
+           Answer canIHave() {
+             std::cout << "Mommy? Can I have this?\n";
+             return Answer::NO;
+           }
+         };
+          
+         struct AskDad : public GimmeStrategy {
+           Answer canIHave() {
+             std::cout << "Dad, I really need this!\n";
+             return Answer::NO;
+           }
+         };
+          
+         struct AskGrandpa : public GimmeStrategy {
+           Answer canIHave() {
+             std::cout << "Grandpa, is it my birthday yet?\n";
+             return Answer::NO;
+           }
+         };
+          
+         struct AskGrandma : public GimmeStrategy {
+           Answer canIHave() {
+             std::cout << "Grandma, I really love you!\n";
+             return Answer::YES;
+           }
+         };
+
+         class Gimme : public GimmeStrategy {
+            private:
+               std::vector<std::unique_ptr<GimmeStrategy>> chain;
+            public:
+              Gimme() {
+                chain.push_back(std::unique_ptr<GimmeStrategy>(new AskMom));
+                chain.push_back(std::unique_ptr<GimmeStrategy>(new AskDad));
+                chain.push_back(std::unique_ptr<GimmeStrategy>(new AskGrandpa));
+                chain.push_back(std::unique_ptr<GimmeStrategy>(new AskGrandma));
+              }
+              Answer canIHave() {
+                for (const auto& it: chain) {
+                  if (it->canIHave() == Answer::YES) {
+                     return Answer::YES;
+                  }
+                }
+                // Reached end without success...
+                std::cout << "Waaaaaahh!!\n";
+                return Answer::NO;
+              }
+         };
+
+         int main() {
+           Gimme chain;
+           chain.canIHave();
+         }
+
 
 If you research the Chain of Responsibility in the GoF Patterns book
 or on the web, you'll find that the structure differs significantly from 
