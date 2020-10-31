@@ -250,14 +250,115 @@ Vectors usually occupy more space than static arrays,
 because more memory is allocated to handle future growth.
 This way a vector does not need to reallocate each time an element is inserted,
 but only when the additional memory is exhausted.
-The total amount of allocated memory can be queried using <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=vector::capacity()">vector::capacity()</a> function.
-Starting in C++11, extra memory can be returned to the system via a call to <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=vector::shrink_to_fit()">vector::shrink_to_fit()</a>.</p>
-<p id="index-1">Given a vector declared as:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
+The total amount of allocated memory can be queried using the <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/capacity">vector::capacity</a> function.
+Starting in C++11, extra memory can be returned to the system with a call to
+<a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/shrink_to_fit">vector::shrink_to_fit</a>.</p>
+<div id='tab_vector_sz_cap' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Size vs Capacity" >
+<p>A vector declared as:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>This creates a vector of type <code class="docutils literal notranslate"><span class="pre">int</span></code>, with size 6 and the first 4 values initialized:</p>
-<div class="graphviz"><img src="../_images/graphviz-8a150196d24abd108935226026ebccd3dc19ab6d.png" alt="A vector of type int" class="graphviz" /></div>
+<p>Creates a vector of type <code class="docutils literal notranslate"><span class="pre">int</span></code>,
+with size 6 and all values initialized to 0.
+At this point, the size and capacity of the vector are the same.</p>
+<p>If we assign new values to the vector:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>The new values replace the old.
+Although the <strong>size</strong> of the vector lowers from 6 to 4,
+the <strong>capacity</strong> of the vector is not changed.</p>
+<div class="graphviz"><img src="../_images/graphviz-8cfd01c820fcc72a5c43353241c388b16ea0e57d.png" alt="A vector of type int" class="graphviz" /></div>
+<p>The data at <code class="docutils literal notranslate"><span class="pre">v[4]</span></code> and <code class="docutils literal notranslate"><span class="pre">v[5]</span></code> were originally default constructed
+and accessible when the vector was initially created with the explicit
+size = <code class="docutils literal notranslate"><span class="pre">6</span></code>.
+Once the new data is assigned and the size of the vector is reduced,
+the <code class="docutils literal notranslate"><span class="pre">end()</span></code> also shrinks.
+A loop over the elements in the vector will not include
+the data at <code class="docutils literal notranslate"><span class="pre">v[4]</span></code> and <code class="docutils literal notranslate"><span class="pre">v[5]</span></code>.</p>
+</div><div data-component="tab" data-tabname="Run It" >
+
+<div data-childcomponent="ac_copy_vectot_sz_capacity" class="runestone explainer ac_section alert alert-warning">
+
+<textarea data-component="activecode" id=ac_copy_vectot_sz_capacity data-lang="cpp" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <iostream>
+#include <vector>
+
+using std::cout;
+
+void print(const auto& container)
+{
+  cout << "size: " << container.size()
+       << ", capacity: " << container.capacity()
+       << ", values: ";
+  for (const auto& v: container) {
+      cout << v << ' ';
+  }
+  cout << '\n';
+}
+
+
+int main()
+{
+  std::vector<int> v(6);
+  print (v);
+  v = {2, 7, 1, 8};
+  print (v);
+  v.pop_back();
+  print (v);
+  v.clear();
+  print (v);
+  v = {5,13};
+  v.shrink_to_fit();
+  print(v);
+}
+</textarea>
+</div>
+</div>
+    </div>
+
+<div class="admonition-try-this admonition">
+<p class="admonition-title">Try This!</p>
+<p>Change the previous example using different ways of initializing and
+maodifying the vector.
+Try to predict the <code class="docutils literal notranslate"><span class="pre">print</span></code> output <em>before</em> running the program.</p>
+<p>Some things to try:</p>
+<ul class="simple">
+<li><p>Default constructed vector</p></li>
+<li><p>Push back 1 value onto an empty vector.</p></li>
+<li><p>Write a loop to push back 10 values onto a vector 1 at a time.</p></li>
+<li><p>Replace clear with empty</p></li>
+<li><p>Calling <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/reserve">vector::reserve</a> with
+values larger and smaller than the current capacity.</p></li>
+</ul>
+</div>
+<p>This is a new and important distinction.</p>
+<dl class="simple">
+<dt>size</dt><dd><p>Refers to the number of elements in the container.</p>
+</dd>
+<dt>capacity</dt><dd><p>Refers to the total size of the underlying storage.</p>
+</dd>
+</dl>
+<p>The vector ADT makes the distinction primarily for performance reasons.
+The backing store of a vector is an array and an array cannot be resized.
+Adding even one element to a completely full array involves several steps:</p>
+<ul class="simple">
+<li><p>making a new array with a larger capacity</p></li>
+<li><p>copying the old array into the new array</p></li>
+<li><p>destroying the old array storage</p></li>
+</ul>
+<p>That is a lot of work and a potentially expensive operation.
+For this reason, vectors normally never reduce the capacity of
+and array unless explicitly instructed to do so.</p>
+<p>It also explains why tools like <code class="docutils literal notranslate"><span class="pre">clang-tidy</span></code> will
+<a class="reference external" href="https://clang.llvm.org/extra/clang-tidy/checks/performance-inefficient-vector-operation.html">complain</a>
+if it finds calls to <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/push_back">vector::push_back</a>
+in a loop after a default constructed vector is declared.</p>
+<div class="section" id="passing-vectors-to-c-functions">
+<span id="index-2"></span><h2><span class="section-number">11.5.1. </span>Passing vectors to C functions<a class="headerlink" href="#passing-vectors-to-c-functions" title="Permalink to this headline">¶</a></h2>
 <p>The data layout of a vector makes it easy to pass a vector to a legacy C
 function that expects a raw array.
 This is something that comes up more often than you might expect.
@@ -311,6 +412,7 @@ passing string and vector objects to legacy C functions<a class="footnote-refere
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/container">STL containers library</a></p></li>
+<li><p><a class="reference external" href="https://clang.llvm.org/extra/clang-tidy/checks/performance-inefficient-vector-operation.html">Clang-tidy vector performance checks</a></p></li>
 </ul>
 </div>
 <div class="topic">
@@ -320,6 +422,7 @@ passing string and vector objects to legacy C functions<a class="footnote-refere
 <dd><p>Effective STL (Item #16) by Scott Meyers (Addison-Wesley Professional).  Copyright 2001 Scott Meyers, 978-0-201-74962-5.</p>
 </dd>
 </dl>
+</div>
 </div>
 </div>
 
