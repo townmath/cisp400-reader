@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>12.1. Background &#8212; CISC 187 Course Reader Overview</title>
+    <title>12.1. Allocators &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -232,9 +232,198 @@
 
 <div class="container" id="main-content" role="main">
   
-  <div class="section" id="background">
-<span id="index-0"></span><h1><span class="section-number">12.1. </span>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h1>
-<p>TBD</p>
+  <div class="section" id="allocators">
+<span id="index-0"></span><h1><span class="section-number">12.1. </span>Allocators<a class="headerlink" href="#allocators" title="Permalink to this headline">¶</a></h1>
+<p>Those of you who have been paying attention may have noticed most
+containers in the standard library have declarations like:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span> <span class="k">class</span> <span class="nc">T</span><span class="p">,</span>
+          <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+<span class="k">class</span> <span class="nc">vector</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>What is the second template type parameter for?</p>
+<p>An <a class="reference external" href="https://en.cppreference.com/w/cpp/memory/allocator">allocator</a> manages the memory of each element stored in
+the container. The job of an allocator is similar to what the operators
+<a class="reference external" href="https://en.cppreference.com/w/cpp/memory/new">new</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/memory/new">delete</a> do, but in a more generic an extensible way.
+An allocator can allocate and deallocate memory for its elements and
+initialize and destroy element memory.
+And it can perform each of these actions as separate steps.</p>
+<p>Why bother?</p>
+<p>Allocators were originally conceived during the initial development of
+the standard library when library developers realized that some classes
+that took a template parameter of type <code class="docutils literal notranslate"><span class="pre">T</span></code> could break if <code class="docutils literal notranslate"><span class="pre">T</span></code> did
+not have a default constructor.
+An allocator can create default values for types that don’t have their own
+default values.
+Similarly, an allocator can ensure memory is destroyed when we are
+finished with it.
+In short, the original <code class="docutils literal notranslate"><span class="pre">new</span></code> and <code class="docutils literal notranslate"><span class="pre">delete</span></code> operators did not handle
+all the cases required for advanced memory management.</p>
+<ul>
+<li><p>Designers realized the container should be independent of the underlying memory model.
+For example, the  Intel Memory Model on x86 architectures use six different variants:</p>
+<p>tiny, small, medium, compact, large, and huge.</p>
+<p>Allocators allow container users to define exactly the memory allocation scheme
+appropriate for their runtime environment.</p>
+</li>
+<li><p>Containers separate the memory allocation and deallocation from the
+initialization and destruction of their elements.</p>
+<p>A call to <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/reserve">vector::reserve(n)</a>
+allocates memory for at least n elements.
+The constructor for each element will <strong>not</strong> be called.</p>
+</li>
+</ul>
+<p>We can handle types without a default value by giving users the option
+to specify the value to be used when we need a default:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">resize</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">new_capacity</span><span class="p">,</span> <span class="n">T</span> <span class="n">default_value</span> <span class="o">=</span> <span class="n">T</span><span class="p">())</span>
+<span class="p">{</span>
+  <span class="n">reserve</span><span class="p">(</span><span class="n">new_capacity</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">fill</span><span class="p">(</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="n">size_</span><span class="p">,</span> <span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="n">capacity_</span><span class="p">,</span> <span class="n">default_value</span><span class="p">);</span>
+  <span class="n">size_</span> <span class="o">=</span> <span class="n">new_capacity</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This form of resize() will use <code class="docutils literal notranslate"><span class="pre">T()</span></code>, unless the user provides an alternative.
+For example:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">bag</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">stuff</span><span class="p">;</span>
+<span class="n">stuff</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>        <span class="c1">// add 100 doubles all == 0.0</span>
+<span class="n">stuff</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">);</span>  <span class="c1">// add 200 copies of 3.14</span>
+<span class="n">stuff</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>   <span class="c1">// add 200 copies of 0.0 (redundant)</span>
+</pre></div>
+</div>
+<p>The destructor problem is harder to address.
+We need to deal with a data structure that may contain a mix of some
+initialized data and some uninitialized data.
+Typically, we are very careful to avoid uninitialized data and
+the associated programming errors.
+Now as the developers of generic containers we have to handle this problem
+so that users of these containers don’t have to.</p>
+<p>First we need a way to get an manipulate uninitialized storage.
+<strong>This</strong> is where <a class="reference external" href="https://en.cppreference.com/w/cpp/memory/allocator">allocator</a> comes in.
+A simplified allocator looks like this:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">allocator</span> <span class="p">{</span>
+
+    <span class="k">using</span> <span class="n">value_type</span>    <span class="o">=</span> <span class="n">T</span><span class="p">;</span>
+    <span class="c1">// other types and constructors omitted</span>
+
+    <span class="n">T</span><span class="o">*</span>   <span class="nf">allocate</span>  <span class="p">(</span><span class="kt">size_t</span> <span class="n">n</span><span class="p">);</span>        <span class="c1">// allocate space to n objects of T</span>
+    <span class="kt">void</span> <span class="nf">deallocate</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">);</span>  <span class="c1">// deallocate n objects of T</span>
+                                           <span class="c1">// starting at location p</span>
+
+    <span class="kt">void</span> <span class="nf">construct</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>  <span class="c1">// construct a value of T in p</span>
+    <span class="kt">void</span> <span class="nf">destroy</span>  <span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">p</span><span class="p">);</span>                  <span class="c1">// destroy the T in p</span>
+
+  <span class="p">};</span>
+</pre></div>
+</div>
+<p>These 4 functions provide the core capabilities of an allocator:</p>
+<ul class="simple">
+<li><p>Allocate memory of a size suitable to hold an object of type <code class="docutils literal notranslate"><span class="pre">T</span></code>
+<em>without initializing it</em>.</p></li>
+<li><p>Construct an object of type <code class="docutils literal notranslate"><span class="pre">T</span></code> in uninitialized space.</p></li>
+<li><p>Destroy an object of type <code class="docutils literal notranslate"><span class="pre">T</span></code> - returning the memory space
+to the uninitialized state.</p></li>
+<li><p>Deallocate uninitialized memory of size suitable for an object of type <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p></li>
+</ul>
+<div class="section" id="using-std-allocator-traits">
+<span id="index-1"></span><h2><span class="section-number">12.1.1. </span>Using std::allocator_traits<a class="headerlink" href="#using-std-allocator-traits" title="Permalink to this headline">¶</a></h2>
+<p>An allocator is exactly what a container to separate
+memory allocation from object construction and
+memory deallocation from object destruction.</p>
+<p>How does a container use an allocator?
+First, as in the standard library, we need a allocator type parameter
+and a local variable to store an instance of the allocator.
+Although you can use an allocator directly,
+the allocator interfaces are deprecated, and we are going to use
+the <a class="reference external" href="https://en.cppreference.com/w/cpp/memory/allocator_traits">allocator_traits</a> interface.
+The allocator_traits class template provides the standardized way
+to access various properties of Allocators.
+The standard containers and other standard library components access
+allocators through this template, which makes it possible to use any
+class type as an allocator.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+ <span class="k">class</span> <span class="nc">bag</span> <span class="p">{</span>
+
+   <span class="n">Allocator</span> <span class="n">allocator_</span><span class="p">;</span>
+
+   <span class="c1">// . . .</span>
+ <span class="p">};</span>
+</pre></div>
+</div>
+<p>The <a class="reference external" href="https://en.cppreference.com/w/cpp/memory/allocator_traits">allocator_traits</a> interface consists entirely of static
+members - no object instance exists and it is completely stateless,
+however the syntax is a bit verbose, which is why I frequently alias it
+in a class:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+ <span class="k">class</span> <span class="nc">bag</span> <span class="p">{</span>
+
+   <span class="n">Allocator</span> <span class="n">allocator_</span><span class="p">;</span>
+   <span class="k">using</span> <span class="n">memory</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">allocator_traits</span><span class="o">&lt;</span><span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span>
+
+   <span class="c1">// . . .</span>
+ <span class="p">};</span>
+</pre></div>
+</div>
+<p>Now except for using our allocator object, the class is unchanged.
+Container users can ignore the allocator unless they need a <code class="docutils literal notranslate"><span class="pre">bag</span></code>
+that manages memory for its elements in some unusual way.</p>
+<p>The only class functions that require modification are those that deal
+directly with memory:</p>
+<ul class="simple">
+<li><p>object construction and destruction</p></li>
+<li><p>memory allocation and deallocation</p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">reserve</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">new_capacity</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// never decrease allocation</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">new_capacity</span> <span class="o">&lt;=</span> <span class="n">capacity_</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// allocate new space</span>
+  <span class="n">T</span><span class="o">*</span> <span class="n">new_data</span> <span class="o">=</span> <span class="k">new</span> <span class="n">T</span><span class="p">[</span><span class="n">new_capacity</span><span class="p">];</span>
+
+  <span class="c1">// copy into new space</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span><span class="n">begin</span><span class="p">(),</span> <span class="n">end</span><span class="p">(),</span> <span class="n">new_data</span><span class="p">);</span>
+
+  <span class="c1">// delete old memory</span>
+  <span class="k">delete</span><span class="p">[]</span> <span class="n">data_</span><span class="p">;</span>
+
+  <span class="c1">// point to the new data</span>
+  <span class="n">data_</span> <span class="o">=</span> <span class="n">new_data</span><span class="p">;</span>
+  <span class="n">capacity_</span> <span class="o">=</span> <span class="n">new_capacity</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Refactoring the original version of <code class="docutils literal notranslate"><span class="pre">reserve</span></code> to use an allocator
+involves several steps.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">reserve</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">new_capacity</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// never decrease allocation</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">new_capacity</span> <span class="o">&lt;=</span> <span class="n">capacity_</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// allocate new space</span>
+  <span class="n">T</span><span class="o">*</span> <span class="n">new_data</span> <span class="o">=</span> <span class="n">memory</span><span class="o">::</span><span class="n">allocate</span><span class="p">(</span><span class="n">allocator_</span><span class="p">,</span> <span class="n">new_capacity</span><span class="p">);</span>
+
+  <span class="c1">// copy into new space</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">new_capacity</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">memory</span><span class="o">::</span><span class="n">construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">new_data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">data_</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// delete old memory</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">capacity_</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">memory</span><span class="o">::</span><span class="n">destroy</span><span class="p">(</span><span class="n">allocator_</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data_</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// deallocate old space</span>
+  <span class="n">memory</span><span class="o">::</span><span class="n">deallocate</span><span class="p">(</span><span class="n">allocator_</span><span class="p">,</span> <span class="n">data_</span><span class="p">,</span> <span class="n">capacity_</span><span class="p">);</span>
+  <span class="n">data_</span> <span class="o">=</span> <span class="n">new_data</span><span class="p">;</span>
+  <span class="n">capacity_</span> <span class="o">=</span> <span class="n">new_capacity</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
@@ -243,9 +432,17 @@
 <ul>
 <li><p>Named requirement <a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/Allocator">Allocator</a></p></li>
 <li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/memory/allocator_traits">allocator_traits</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/memory/new">new</a></p></li>
+</ul>
+</li>
+<li><p>Writing allocators</p>
+<ul>
+<li><p><a class="reference external" href="https://www.modernescpp.com/index.php/memory-management-with-std-allocator">Memory Management with std::allocator</a></p></li>
+<li><p><a class="reference external" href="https://howardhinnant.github.io/allocator_boilerplate.html">Allocator Boilerplate</a></p></li>
 </ul>
 </li>
 </ul>
+</div>
 </div>
 </div>
 
