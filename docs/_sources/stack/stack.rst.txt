@@ -161,7 +161,7 @@ can be adapted by a stack.
 
          #include <iostream>
          #include <stack>
-         #include <string>
+         #include <list>
 
          using std::cout;
          using std::stack;
