@@ -240,108 +240,143 @@ functionality of a stack - specifically, a Last-In-First-Out (LIFO) data structu
 a specific set of functions is provided.
 The stack pushes and pops the element from the back of the underlying container,
 known as the top of the stack.</p>
-<p>The defining operations of a <a class="reference external" href="https://en.cppreference.com/w/cpp/container/stack">stack</a> are:</p>
+<p>Given a <code class="docutils literal notranslate"><span class="pre">std::stack&lt;T&gt;</span></code>, the defining operations of a <a class="reference external" href="https://en.cppreference.com/w/cpp/container/stack">stack</a> are:</p>
 <dl class="simple">
-<dt>push</dt><dd><p>Add a new element to the top of the stack.</p>
+<dt>void push (T value)</dt><dd><p>Add a new element to the top of the stack.</p>
 </dd>
-<dt>pop</dt><dd><p>Remove an element from the top of the stack.</p>
+<dt>void pop()</dt><dd><p>Remove an element from the top of the stack.</p>
 </dd>
-<dt>top</dt><dd><p>Get the value of the element at the top of the stack.</p>
+<dt>T top()</dt><dd><p>Get the value of the element at the top of the stack.</p>
 </dd>
 </dl>
 <div class="graphviz"><img src="../_images/graphviz-a98d9d29e1f6347a16464fba8a7d64257afdbfd6.png" alt="std::stack elements" class="graphviz" /></div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stack&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
-<span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
-<span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">stack</span><span class="p">;</span>
+<div id='tab_stack_ex_1' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Using std::stack" >
+<p>Before running the following example, predict the output,
+then check yourself.</p>
 
-<span class="cp">#define StackContainer typename</span>
+<div data-childcomponent="stack_using_stack_simple_ac1" class="runestone explainer ac_section alert alert-warning">
 
-<span class="c1">// remove all elements from a stack and print them out</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">StackContainer</span> <span class="n">C</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">pop_all</span><span class="p">(</span><span class="n">C</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span><span class="p">;</span>
-    <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-  <span class="p">}</span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">popped all from stack</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="p">}</span>
+<textarea data-component="activecode" id=stack_using_stack_simple_ac1 data-lang="cpp" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <iostream>
+#include <stack>
+#include <string>
 
-<span class="kt">int</span> <span class="n">main</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="n">stack</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">strings</span><span class="p">;</span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;push strings onto stack...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-  <span class="n">strings</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;one&quot;</span><span class="p">);</span>
-  <span class="n">strings</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;two&quot;</span><span class="p">);</span>
-  <span class="n">strings</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;three&quot;</span><span class="p">);</span>
-  <span class="n">strings</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;four&quot;</span><span class="p">);</span>
-  <span class="n">strings</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s">&quot;five&quot;</span><span class="p">);</span>
+using std::cout;
+using std::stack;
 
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;size of stack before: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">strings</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-  <span class="n">pop_all</span> <span class="p">(</span><span class="n">strings</span><span class="p">);</span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;size of stack after: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">strings</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">strings</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;stack is empty.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-  <span class="p">}</span>
+// remove all elements from a stack and print them out
+template <class Container>
+void pop_all(Container& s) {
+  while(!s.empty()) {
+    cout << s.top() << " ";
+    s.pop();
+  }
+  cout << "\npopped all from stack\n";
+}
+
+int main () {
+  stack<std::string> strings;
+  cout << "push strings onto stack...\n";
+  strings.push("one");
+  strings.push("two");
+  strings.push("three");
+  strings.push("four");
+  strings.push("five");
+
+  cout << "size of stack before: " << strings.size() << '\n';
+  pop_all (strings);
+  cout << "size of stack after: " << strings.size() << '\n';
+  if (strings.empty()) {
+    cout << "stack is empty.\n";
+  }
 
 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+  return 0;
+}
+</textarea>
+</div>
+</div>
+    </div>
+
+<p>It is also possible to initialize a stack from another container.
+The initializing container must match the container adapted for the
+stack instance.
+By default, <a class="reference external" href="https://en.cppreference.com/w/cpp/container/deque">deque</a> is used,
+but any container that provides</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">back()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">push_back()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pop_back()</span></code></p></li>
+</ul>
+<p>can be used as a stack adapter.
+In the STL, besides deque, <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">vector</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/container/list">list</a> also
+can be adapted by a stack.</p>
+<div id='tab_stack_initializers_1' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Initializers" >
+<p>Because the default backing store for a stack is a deque,
+a container adapter does not need to be specified.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// initialize stack from deque</span>
+<span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">};</span>
+<span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">numbers</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>which returns:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>push strings onto stack...
-size of stack before: 5
-five four three two one
-popped all from stack
-size of stack after: 0
-stack is empty.
+<p>To copy a list into a stack will only work if the
+stack instance uses a list as its backing store.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// initialize stack from list</span>
+<span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">};</span>
+<span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">numbers</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>It is also possible to initialize a stack from a vector, list or array:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stack&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;list&gt;</span><span class="cp"></span>
-<span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
-<span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">stack</span><span class="p">;</span>
+</div><div data-component="tab" data-tabname="Run It" >
+<p>Before running the following example, predict the output,
+then check yourself.</p>
 
-<span class="cp">#define StackContainer typename</span>
+<div data-childcomponent="stack_list_initializer_ac" class="runestone explainer ac_section alert alert-warning">
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="n">StackContainer</span> <span class="n">C</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">pop_all</span><span class="p">(</span><span class="n">C</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span><span class="p">;</span>
-    <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-  <span class="p">}</span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">popped all from stack</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="p">}</span>
+<textarea data-component="activecode" id=stack_list_initializer_ac data-lang="cpp" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+#include <iostream>
+#include <stack>
+#include <string>
 
-<span class="kt">int</span> <span class="n">main</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;initialize stack from list:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">tmp</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">};</span>
-  <span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">numbers</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+using std::cout;
+using std::stack;
 
-  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;list has &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">tmp</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; entries</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-  <span class="n">pop_all</span> <span class="p">(</span><span class="n">numbers</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;stack is empty.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-  <span class="p">}</span>
+// remove all elements from a stack and print them out
+template <class Container>
+void pop_all(Container& s) {
+  while(!s.empty()) {
+    cout << s.top() << " ";
+    s.pop();
+  }
+  cout << "\npopped all from stack\n";
+}
 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
+int main () {
+  cout << "initialize stack from list:\n";
+  std::list<int> tmp = { 1, 2, 3, 4, 5 };
+  stack<int, std::list<int>> numbers(tmp);
+
+  cout << "list has " << tmp.size() << " entries\n";
+  pop_all (numbers);
+  if (numbers.empty()) {
+    cout << "stack is empty.\n";
+  }
+
+  return 0;
+}
+</textarea>
 </div>
-<p>which returns:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>initialize stack from list:
-list has 5 entries
-5 4 3 2 1
-popped all from stack
-stack is empty.
-</pre></div>
 </div>
+    </div>
+
 <p>Notice the elements from the list are pushed onto the stack in the order
 they are retrieved from the list.
-The number <code class="docutils literal notranslate"><span class="pre">1</span></code> is pushed first, so when iniitialization is complete,
+The number <code class="docutils literal notranslate"><span class="pre">1</span></code> is pushed first, so when initialization is complete,
 it is on the bottom of the stack.</p>
 <p>Stack elements <strong>cannot</strong> be accessed directly in the way
 you are used to with other sequential containers like
@@ -349,8 +384,6 @@ arrays, vectors, and lists.
 To ‘visit’ each element in a <code class="docutils literal notranslate"><span class="pre">stack</span></code>, the items need to be popped off.</p>
 <p>If you think you need to visit all the elements in a <code class="docutils literal notranslate"><span class="pre">stack</span></code>,
 then you probably should not be using a <code class="docutils literal notranslate"><span class="pre">stack</span></code>.</p>
-<p>The STL containers <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>, <code class="docutils literal notranslate"><span class="pre">std::list</span></code>,
-and <code class="docutils literal notranslate"><span class="pre">std::deque</span></code> can be adapted to create a <code class="docutils literal notranslate"><span class="pre">stack</span></code>.</p>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>

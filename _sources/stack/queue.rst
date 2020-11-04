@@ -54,9 +54,9 @@ and pops them from the front.
 .. index:: 
    pair: graph; queue operations
 
-The defining operations of a :cref:`std::queue` are:
+The defining operations of a :container:`queue` are:
 
-push
+push 
    Add a new element to the back (end) of the queue.
 
 pop

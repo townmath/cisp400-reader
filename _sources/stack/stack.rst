@@ -15,20 +15,21 @@ The stack class
 The :container:`std::stack <stack>` is a container adapter that gives the programmer the 
 functionality of a stack - specifically, a Last-In-First-Out (LIFO) data structure.
 
+
 The class template acts as a wrapper to the underlying container - only 
 a specific set of functions is provided. 
 The stack pushes and pops the element from the back of the underlying container, 
 known as the top of the stack.
 
-The defining operations of a :container:`stack` are:
+Given a ``std::stack<T>``, the defining operations of a :container:`stack` are:
 
-push
+void push (T value)
    Add a new element to the top of the stack.
 
-pop
+void pop()
    Remove an element from the top of the stack.
 
-top
+T top()
    Get the value of the element at the top of the stack.
    
 .. graphviz::
@@ -62,105 +63,136 @@ top
        top -> a [style=dotted, dir=back, constraint=false];
    }
 
-.. code-block:: cpp
 
-   #include <iostream>
-   #include <stack>
-   #include <string>
-   using std::cout;
-   using std::stack;
+.. tabbed:: tab_stack_ex_1
 
-   #define StackContainer typename
+   .. tab:: Using std::stack
 
-   // remove all elements from a stack and print them out
-   template <StackContainer C>
-   void pop_all(C& s) {
-     while(!s.empty()) {
-       cout << s.top() << " ";
-       s.pop();
-     }
-     cout << "\npopped all from stack\n";
-   }
+      Before running the following example, predict the output,
+      then check yourself.
 
-   int main () {
-     stack<std::string> strings;
-     cout << "push strings onto stack...\n";
-     strings.push("one");
-     strings.push("two");
-     strings.push("three");
-     strings.push("four");
-     strings.push("five");
+      .. activecode:: stack_using_stack_simple_ac1
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
+         :nocodelens:
 
-     cout << "size of stack before: " << strings.size() << '\n';
-     pop_all (strings);
-     cout << "size of stack after: " << strings.size() << '\n';
-     if (strings.empty()) {
-       cout << "stack is empty.\n";
-     }
+         #include <iostream>
+         #include <stack>
+         #include <string>
+
+         using std::cout;
+         using std::stack;
+
+         // remove all elements from a stack and print them out
+         template <class Container>
+         void pop_all(Container& s) {
+           while(!s.empty()) {
+             cout << s.top() << " ";
+             s.pop();
+           }
+           cout << "\npopped all from stack\n";
+         }
+
+         int main () {
+           stack<std::string> strings;
+           cout << "push strings onto stack...\n";
+           strings.push("one");
+           strings.push("two");
+           strings.push("three");
+           strings.push("four");
+           strings.push("five");
+
+           cout << "size of stack before: " << strings.size() << '\n';
+           pop_all (strings);
+           cout << "size of stack after: " << strings.size() << '\n';
+           if (strings.empty()) {
+             cout << "stack is empty.\n";
+           }
 
 
-     return 0;
-   }
+           return 0;
+         }
 
-which returns:
+It is also possible to initialize a stack from another container.
+The initializing container must match the container adapted for the
+stack instance.
+By default, :container:`deque` is used,
+but any container that provides
 
-.. code-block:: none
+- ``back()``
+- ``push_back()``
+- ``pop_back()``
 
-   push strings onto stack...
-   size of stack before: 5
-   five four three two one
-   popped all from stack
-   size of stack after: 0
-   stack is empty.
-       
-It is also possible to initialize a stack from a vector, list or array:
+can be used as a stack adapter.
+In the STL, besides deque, :container:`vector` and :container:`list` also
+can be adapted by a stack.
 
-.. code-block:: cpp
+.. tabbed:: tab_stack_initializers_1
 
-   #include <iostream>
-   #include <stack>
-   #include <list>
-   using std::cout;
-   using std::stack;
+   .. tab:: Initializers
 
-   #define StackContainer typename
+      Because the default backing store for a stack is a deque,
+      a container adapter does not need to be specified.
 
-   template <StackContainer C>
-   void pop_all(C& s) {
-     while(!s.empty()) {
-       cout << s.top() << " ";
-       s.pop();
-     }
-     cout << "\npopped all from stack\n";
-   }
+      .. code-block:: cpp
 
-   int main () {
-     cout << "initialize stack from list:\n";
-     std::list<int> tmp = { 1, 2, 3, 4, 5 };
-     stack<int, std::list<int>> numbers(tmp);
+         // initialize stack from deque
+         std::deque<int> x = { 1, 2, 3, 4, 5 };
+         stack<int>> numbers(x);
 
-     cout << "list has " << tmp.size() << " entries\n";
-     pop_all (numbers);
-     if (numbers.empty()) {
-       cout << "stack is empty.\n";
-     }
+      To copy a list into a stack will only work if the
+      stack instance uses a list as its backing store.
 
-     return 0;
-   }
+      .. code-block:: cpp
 
-which returns:
+         // initialize stack from list
+         std::list<int> y = { 1, 2, 3, 4, 5 };
+         stack<int, std::list<int>> numbers(y);
 
-.. code-block:: none
+   .. tab:: Run It
 
-   initialize stack from list:
-   list has 5 entries
-   5 4 3 2 1
-   popped all from stack
-   stack is empty.
+      Before running the following example, predict the output,
+      then check yourself.
+
+      .. activecode:: stack_list_initializer_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
+         :nocodelens:
+
+         #include <iostream>
+         #include <stack>
+         #include <string>
+
+         using std::cout;
+         using std::stack;
+
+         // remove all elements from a stack and print them out
+         template <class Container>
+         void pop_all(Container& s) {
+           while(!s.empty()) {
+             cout << s.top() << " ";
+             s.pop();
+           }
+           cout << "\npopped all from stack\n";
+         }
+
+         int main () {
+           cout << "initialize stack from list:\n";
+           std::list<int> tmp = { 1, 2, 3, 4, 5 };
+           stack<int, std::list<int>> numbers(tmp);
+
+           cout << "list has " << tmp.size() << " entries\n";
+           pop_all (numbers);
+           if (numbers.empty()) {
+             cout << "stack is empty.\n";
+           }
+
+           return 0;
+         }
 
 Notice the elements from the list are pushed onto the stack in the order
 they are retrieved from the list.
-The number ``1`` is pushed first, so when iniitialization is complete,
+The number ``1`` is pushed first, so when initialization is complete,
 it is on the bottom of the stack.
    
 Stack elements **cannot** be accessed directly in the way
@@ -170,10 +202,6 @@ To 'visit' each element in a ``stack``, the items need to be popped off.
 
 If you think you need to visit all the elements in a ``stack``, 
 then you probably should not be using a ``stack``.
-
-The STL containers ``std::vector``, ``std::list``, 
-and ``std::deque`` can be adapted to create a ``stack``.
-
 
 -----
 

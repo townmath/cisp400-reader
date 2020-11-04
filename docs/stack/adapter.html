@@ -234,12 +234,62 @@
   
   <div class="section" id="the-adapter-pattern">
 <span id="index-0"></span><h1><span class="section-number">13.1. </span>The Adapter pattern<a class="headerlink" href="#the-adapter-pattern" title="Permalink to this headline">¶</a></h1>
-<p>TBD</p>
+<p>Design patterns provide a reliable and easy way to follow proven design
+principles and to write well-structured and maintainable code.
+One of the popular and often used patterns in object-oriented
+software development is the adapter pattern.
+It follows Robert C. Martin’s
+<a class="reference external" href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency Inversion Principle</a>
+and enables you to reuse an existing class even so it doesn’t implement an
+expected interface.</p>
+<p>If you do some research on the adapter pattern, you will find two different versions of it:</p>
+<ol class="arabic simple">
+<li><p>The <strong>class</strong> adapter pattern that implements the adapter using
+<a class="reference internal" href="../glossary.html#term-inherit"><span class="xref std std-term">inheritance</span></a>.</p></li>
+<li><p>The <strong>object</strong> adapter pattern that uses <a class="reference internal" href="../glossary.html#term-composition"><span class="xref std std-term">composition</span></a>
+to reference an instance of the wrapped class within the adapter.</p></li>
+</ol>
+<p>The object adapter pattern is generally more popular and the one
+used within the STL to implement
+<a class="reference external" href="https://en.cppreference.com/w/cpp/container/stack">stack</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/container/queue">queue</a>.</p>
+<p>The general idea of an adapter in software development is identical to the one
+in the physical world.
+If you have travelled to foreign countries,
+you probably noticed that electrical outlet vary from country to country.
+Outlet shapes vary such that the plug of your electrical device doesn’t fit.
+How do you connect the charger of your mobile phone or laptop to these
+power outlets?</p>
+<p>The answer is simple.
+You get an adapter which you can put into the power outlet and
+then you put your plug into the other end of the adapter.
+The adapter changes the form of your plug so that you can use it with
+the power outlet.
+In that example and in most other situations,
+the adapter doesn’t provide any additional features.
+It just enables you to connect your plug to a different outlet.</p>
+<p>Often when programming you have a class that does <em>almost</em> what
+you need it to,
+or it contains a lot of capability you would like to reuse,
+but the class interface is not a good fit.
+A class adapter is a simple design pattern that helps solve
+problems like this.
+We can use an adapter when we want to
+convert the interface of a class into another interface clients expect.
+An adapter lets classes work together that couldn’t otherwise
+because of incompatible interfaces.
+An adapter also allows us to
+wrap an existing class with a new interface
+without making any changes to the original class - the class being adapted.</p>
+<p>The data structures in this chapter <a class="reference external" href="https://en.cppreference.com/w/cpp/container/stack">stack</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/container/queue">queue</a>
+both use the adapter patter to achieve their design goals.</p>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
-<li><p>TBD</p></li>
+<li><p><a class="reference external" href="https://sourcemaking.com/design_patterns/adapter">Sourcemaking - Adapter Design Pattern</a></p></li>
+<li><p><a class="reference external" href="https://martinfowler.com/articles/dipInTheWild.html">DIP in the Wild</a>
+(The Dependency Inversion Principle)</p></li>
+<li><p><a class="reference external" href="https://stackify.com/design-patterns-explained-adapter-pattern-with-code-examples/">Design Patterns Explained - Adapter Pattern with Code Examples</a></p></li>
 </ul>
 </div>
 </div>
