@@ -96,7 +96,7 @@ Starting in C++11, extra memory can be returned to the system with a call to
    .. tab:: Run It
 
       .. activecode:: ac_copy_vectot_sz_capacity
-         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++1y']
+         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
          :nocodelens:
          :language: cpp
 
@@ -104,8 +104,9 @@ Starting in C++11, extra memory can be returned to the system with a call to
          #include <vector>
 
          using std::cout;
+         using std::vector;
 
-         void print(const auto& container)
+         void print(const vector<int>& container)
          {
            cout << "size: " << container.size()
                 << ", capacity: " << container.capacity() 
@@ -119,7 +120,7 @@ Starting in C++11, extra memory can be returned to the system with a call to
 
          int main()
          {
-           std::vector<int> v(6);
+           vector<int> v(6);
            print (v);
            v = {2, 7, 1, 8};
            print (v);
