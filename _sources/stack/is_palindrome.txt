@@ -1,8 +1,8 @@
 .. activecode:: ac-container-equal-palindrome
    :language: cpp
    :caption: Palindrome checker using std::equal
-   :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
    :nocodelens:
+   :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
 
    #include <algorithm>
    #include <iostream>
