@@ -267,6 +267,7 @@ the power outlet.
 In that example and in most other situations,
 the adapter doesn’t provide any additional features.
 It just enables you to connect your plug to a different outlet.</p>
+<div class="graphviz"><img src="../_images/graphviz-0482039a39358f735190c73a9e3b56a726486542.png" alt="The adapter pattern UML diagram" class="graphviz" /></div>
 <p>Often when programming you have a class that does <em>almost</em> what
 you need it to,
 or it contains a lot of capability you would like to reuse,
@@ -280,6 +281,16 @@ because of incompatible interfaces.
 An adapter also allows us to
 wrap an existing class with a new interface
 without making any changes to the original class - the class being adapted.</p>
+<p>Socket wrenches provide an example of the Adapter.
+A socket attaches to a ratchet,
+provided that the size of the drive is the same.
+Typical drive sizes in the United States are 1/2” and 1/4”.
+Obviously, a 1/2” drive ratchet will not fit into a 1/4” drive socket
+unless an adapter is used.
+A 1/2” to 1/4” adapter has a 1/2” female connection
+to fit on the 1/2” drive ratchet,
+and a 1/4” male connection to fit in the 1/4” drive socket.</p>
+<div class="graphviz"><img src="../_images/graphviz-fa4cbe87e761e7f8aa3370c33e7b706bff552e7d.png" alt="A tool anology for the adapter pattern" class="graphviz" /></div>
 <p>The data structures in this chapter <a class="reference external" href="https://en.cppreference.com/w/cpp/container/stack">stack</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/container/queue">queue</a>
 both use the adapter patter to achieve their design goals.</p>
 <hr class="docutils" />

@@ -49,6 +49,40 @@ In that example and in most other situations,
 the adapter doesn't provide any additional features.
 It just enables you to connect your plug to a different outlet.
 
+.. digraph:: adapter_pattern
+   :alt: The adapter pattern UML diagram
+
+   graph [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 14
+      labelloc = b
+      label = "The adapter pattern UML diagram"
+   ];
+
+   node [
+      fontname = "Bitstream Vera Sans",
+      style=filled, fillcolor=lightblue,
+      fontsize = 14
+      shape = "record"
+   ];
+
+    Client [
+      label = "{Client| | }"
+    ]
+
+    Adapter [
+      label = "{Adapter| | + do_this() : void }"
+    ]
+
+    Adaptee [
+      label = "{Legacy Component| | + do_that() : void }"
+    ]
+
+    Client -> Adapter  [arrowhead = open, constraint=false, label="uses"]
+    Adaptee -> Adapter [arrowhead=diamond]
+    
+
+
 Often when programming you have a class that does *almost* what
 you need it to, 
 or it contains a lot of capability you would like to reuse,
@@ -62,6 +96,49 @@ because of incompatible interfaces.
 An adapter also allows us to 
 wrap an existing class with a new interface
 without making any changes to the original class - the class being adapted.
+
+Socket wrenches provide an example of the Adapter.
+A socket attaches to a ratchet,
+provided that the size of the drive is the same.
+Typical drive sizes in the United States are 1/2" and 1/4".
+Obviously, a 1/2" drive ratchet will not fit into a 1/4" drive socket
+unless an adapter is used.
+A 1/2" to 1/4" adapter has a 1/2" female connection 
+to fit on the 1/2" drive ratchet, 
+and a 1/4" male connection to fit in the 1/4" drive socket.
+
+
+.. digraph:: adapter_pattern
+   :alt: A tool anology for the adapter pattern
+
+   graph [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 14
+      labelloc = b
+      label = "A tool analogy for the adapter pattern"
+   ];
+
+   node [
+      fontname = "Bitstream Vera Sans",
+      style=filled, fillcolor=lightblue,
+      fontsize = 14
+      shape = "record"
+   ];
+
+    Client [
+      label = "{Ratchet| | 6mm drive (male) }"
+    ]
+
+    Adapter [
+      label = "{Adapter| | 6mm drive (female)\l3mm drive (male)\l }"
+    ]
+
+    Adaptee [
+      label = "{Socket| | 3mm drive (female) }"
+    ]
+
+    Client -> Adapter  [arrowhead = open, constraint=false, label="uses"]
+    Adaptee -> Adapter [arrowhead=diamond]
 
 The data structures in this chapter :container:`stack` and :container:`queue`
 both use the adapter patter to achieve their design goals.

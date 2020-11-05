@@ -127,6 +127,38 @@ can be used as a stack adapter.
 In the STL, besides deque, :container:`vector` and :container:`list` also
 can be adapted by a stack.
 
+.. digraph:: stack_adapter
+   :alt: The stack adapter
+
+   graph [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 14
+      labelloc = b
+      label = "The stack adapter"
+   ];
+
+   node [
+      fontname = "Bitstream Vera Sans",
+      style=filled, fillcolor=lightblue,
+      fontsize = 14
+      shape = "record"
+   ];
+
+    Client [
+      label = "{Client| | }"
+    ]
+
+    Adapter [
+      label = "{Stack&lt;T&gt;| | + top() : T\l+ push(T) : void\l+ pop() : void\l}"
+    ]
+
+    Adaptee [
+      label = "{Adapted Container&lt;T&gt;| | + back() : T\l+ push_back(T) : void\l+ pop_back() : void\l}"
+    ]
+
+    Client:s -> Adapter  [arrowhead = open, constraint=false, label="uses"]
+    Adaptee -> Adapter [arrowhead=diamond]
+
 .. tabbed:: tab_stack_initializers_1
 
    .. tab:: Initializers
