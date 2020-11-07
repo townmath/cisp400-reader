@@ -1,5 +1,5 @@
-The Adapter pattern
-===================
+Stacks and Queues
+=================
 
 .. toctree::
    :maxdepth: 2
