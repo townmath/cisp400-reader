@@ -61,6 +61,7 @@ Back Matter
 
    back-matter/app-a/index.rst
    back-matter/faq.rst
+   back-matter/ascii.rst
 
 * :ref:`search`
 * :ref:`glossary`
