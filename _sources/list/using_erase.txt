@@ -20,7 +20,6 @@
      nums.erase(nums.begin());
      print(nums);
    
-   
      nums.erase(nums.begin()+2, nums.begin()+5);
      print(nums);
 

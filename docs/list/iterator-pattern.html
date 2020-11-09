@@ -247,12 +247,25 @@ basic facts about the range of elements in the sequence:</p>
 </ul>
 <p>Most OO languages solve this problem using a form of the
 iterator design pattern.</p>
-<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-82ff9f953bff2283c6429c494280f3b01d0e9154.png" alt="The iterator pattern UML diagram" class="graphviz" /></div>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-0654a6f118025fffeac975ad99c148aaf20e41b7.png" alt="An example iterator pattern UML diagram" class="graphviz" /></div>
 </div>
 <p>Because design patterns represent general ideas about solving
 classes of problems, they are language independent.
 In the case of <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterators</span></a>,
-the idea has solutions in most modern languages, including C++.</p>
+the idea has solutions in most modern languages, including C++.
+Each language generally provides iterators using a design
+appropriate for the language.
+C++ is no different.</p>
+<p>C++ implements iterators using pointer semantics and an
+<em>Iterator</em> base class is generally avoided in C++ iterators.
+Since classes can overload all of the pointer operations,
+an iterator can be implemented that exposes a pointer interface.</p>
+<p>The key advantage to this solution is that functions can be
+written more generically.
+Functions interact with a simple, consistent and well-known
+interface that works both for user defined types,
+built-in pointer types, and arrays.
+However, this solution does require an “end” iterator to test for equality.</p>
 <p>Each STL container class provides an <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a> class
 that clients can use to retrieve the correct
 <a class="reference internal" href="../glossary.html#term-element"><span class="xref std std-term">element</span></a> from the <a class="reference internal" href="../glossary.html#term-container"><span class="xref std std-term">container</span></a>.</p>

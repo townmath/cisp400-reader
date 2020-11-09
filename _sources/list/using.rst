@@ -97,7 +97,7 @@ The range for declaration
 
 Limits of Range-based for loops
 -------------------------------
-The :cref:`Range-for loop`, while convenient, has limitations.
+The :lang:`range-for` loop, while convenient, has limitations.
 
 Any situation in which you do not need or want to visit every element
 requires a traditional loop:
@@ -243,7 +243,7 @@ erase
       - If an element is erased, the current iterator is *invalidated*.
         Any further use would be an error in a ``vector``.
 
-        The :cref:`vector::erase` function returns the iterator to the next element
+        The :container:`vector::erase <vector/erase>` function returns the iterator to the next element
         in the container.
       - If an element is **not** erased, *then* increment the iterator.
 
@@ -257,5 +257,10 @@ erase
 
 .. admonition:: More to Explore
 
-   - `Iterator Library <http://en.cppreference.com/w/cpp/iterator>`_ at cppreference.com
-   - C++ Concepts: `Iterator <http://en.cppreference.com/w/cpp/concept/Iterator>`_
+   - From cppreference.com
+
+     - :cpp:`Iterator Library <iterator>`
+     - :cpp:`C++ Iterator Named Requirement <named_req/Iterator>`
+     - :container:`std::vector::erase <vector/erase>`
+     - :container:`std::vector::insert <vector/insert>`
+

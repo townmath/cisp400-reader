@@ -31,13 +31,13 @@ iterator design pattern.
 
 .. digraph:: iterator_pattern
    :align: center
-   :alt: The iterator pattern UML diagram
+   :alt: An example iterator pattern UML diagram
 
    graph [
       fontname = "Bitstream Vera Sans"
       fontsize = 14
       labelloc = b
-      label = "The iterator pattern UML diagram"
+      label = "An example iterator pattern UML diagram"
    ];
 
    node [
@@ -87,6 +87,21 @@ Because design patterns represent general ideas about solving
 classes of problems, they are language independent.
 In the case of :term:`iterators <iterator>`,
 the idea has solutions in most modern languages, including C++.
+Each language generally provides iterators using a design
+appropriate for the language. 
+C++ is no different.
+
+C++ implements iterators using pointer semantics and an
+*Iterator* base class is generally avoided in C++ iterators.
+Since classes can overload all of the pointer operations,
+an iterator can be implemented that exposes a pointer interface.
+
+The key advantage to this solution is that functions can be
+written more generically.
+Functions interact with a simple, consistent and well-known
+interface that works both for user defined types,
+built-in pointer types, and arrays.
+However, this solution does require an "end" iterator to test for equality.
 
 Each STL container class provides an :term:`iterator` class
 that clients can use to retrieve the correct 
