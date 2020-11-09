@@ -234,13 +234,21 @@
   
   <div class="section" id="iterator-pattern">
 <span id="index-0"></span><h1><span class="section-number">14.4. </span>Iterator pattern<a class="headerlink" href="#iterator-pattern" title="Permalink to this headline">¶</a></h1>
-<p>A <a class="reference internal" href="../glossary.html#term-design-pattern"><span class="xref std std-term">design pattern</span></a> is a general repeatable solution
-to a commonly occurring problem in software design.
-A primary goal of design patterns is to quickly transfer the knowledge
-gained by expert designers to newer programmers.
-Another goal is to allow for efficient communication between
-programmers.
-Design patterns contribute to a shared vocabulary between programmers.</p>
+<p>The <a class="reference external" href="https://en.cppreference.com/w/cpp/language/range-for">range-for</a> loop works because the function
+expects a standard interface the loop can use to establish
+basic facts about the range of elements in the sequence:</p>
+<ul>
+<li><p>Where does the sequence start?</p></li>
+<li><p>Where is the next element?</p></li>
+<li><p>When does the sequence end?</p>
+<p>This last question can alternatively be asked as
+<em>“Is there a next element?”</em></p>
+</li>
+</ul>
+<p>Most OO languages solve this problem using a form of the
+iterator design pattern.</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-82ff9f953bff2283c6429c494280f3b01d0e9154.png" alt="The iterator pattern UML diagram" class="graphviz" /></div>
+</div>
 <p>Because design patterns represent general ideas about solving
 classes of problems, they are language independent.
 In the case of <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterators</span></a>,
@@ -248,7 +256,8 @@ the idea has solutions in most modern languages, including C++.</p>
 <p>Each STL container class provides an <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a> class
 that clients can use to retrieve the correct
 <a class="reference internal" href="../glossary.html#term-element"><span class="xref std std-term">element</span></a> from the <a class="reference internal" href="../glossary.html#term-container"><span class="xref std std-term">container</span></a>.</p>
-<div class="graphviz"><img src="../_images/graphviz-14c5b6b75b432093967294f723ffa4282deca25c.png" alt="Container iterators" class="graphviz" /></div>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-14c5b6b75b432093967294f723ffa4282deca25c.png" alt="Container iterators" class="graphviz" /></div>
+</div>
 <p>The element defined by <code class="docutils literal notranslate"><span class="pre">begin()</span></code> is part of the sequence.</p>
 <p>The element defined by <code class="docutils literal notranslate"><span class="pre">end()</span></code> is <strong>not part</strong> of the sequence.
 In C++, the <code class="docutils literal notranslate"><span class="pre">end</span></code> iterator is always one past the end of the sequence.

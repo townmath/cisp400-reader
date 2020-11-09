@@ -234,13 +234,28 @@
   
   <div class="section" id="the-queue-class">
 <span id="index-0"></span><h1><span class="section-number">13.3. </span>The queue class<a class="headerlink" href="#the-queue-class" title="Permalink to this headline">¶</a></h1>
+<p>A <a class="reference external" href="https://en.cppreference.com/w/cpp/container/queue">queue</a> is another special purpose container adapter
+that limits random element access to all parts of the storage.
+A <em>queue</em> is just another word for a line.
+Like a stack, a queue restricts element access to the ends.
+<em>Unlike</em> a stack, a queue allows access to both ends:</p>
+<ul class="simple">
+<li><p>New elements can only be added to the “back” of the line</p></li>
+<li><p>Elements can only be retrieved from the “front” of the line.</p></li>
+</ul>
+<p>Imagine a line at the bank or a store.
+An orderly queue means that the people who get in line first
+are the first customers called.
+This is the guarantee <a class="reference external" href="https://en.cppreference.com/w/cpp/container/queue">queue</a> enforces.
+A queue is a FIFO (first-in, first-out) data structure.</p>
 <p>The <a class="reference external" href="https://en.cppreference.com/w/cpp/container/queue">std::queue</a> is a container adapter that gives the programmer the
-functionality of a queue - specifically, a FIFO (first-in, first-out) data structure.</p>
+functionality of a queue.</p>
 <p>The class template acts as a wrapper to the underlying container - only
 a specific set of functions is provided.
 The queue pushes elements on the back of the underlying container,
 and pops them from the front.</p>
-<div class="graphviz"><img src="../_images/graphviz-25a2eb1c3fa5471ccd948060946b85ad163b71a8.png" alt="std::queue elements" class="graphviz" /></div>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-25a2eb1c3fa5471ccd948060946b85ad163b71a8.png" alt="std::queue elements" class="graphviz" /></div>
+</div>
 <p id="index-1">The defining operations of a <a class="reference external" href="https://en.cppreference.com/w/cpp/container/queue">queue</a> are:</p>
 <dl class="simple">
 <dt>push</dt><dd><p>Add a new element to the back (end) of the queue.</p>
@@ -252,7 +267,8 @@ and pops them from the front.</p>
 <dt>back</dt><dd><p>Get the value of the element at the end of the queue.</p>
 </dd>
 </dl>
-<div class="graphviz"><img src="../_images/graphviz-b2dd8a8b97a1c48ded2fb1af50ea8f8dc9bcdcc2.png" alt="std::queue operations" class="graphviz" /></div>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-b2dd8a8b97a1c48ded2fb1af50ea8f8dc9bcdcc2.png" alt="std::queue operations" class="graphviz" /></div>
+</div>
 <p>Minor modifications change <code class="docutils literal notranslate"><span class="pre">pop_all()</span></code> from a function
 performing <code class="docutils literal notranslate"><span class="pre">stack</span></code> operations into one
 performing <code class="docutils literal notranslate"><span class="pre">queue</span></code> operations:</p>

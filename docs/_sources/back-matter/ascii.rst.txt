@@ -18,7 +18,7 @@ The following table contains the 128 ASCII characters.
 C program '\X' escapes are noted.
 
 ===   ===   ===   ===== =====================  ===   ===   ===   ====
-Oct   Dec   Hex   Char      Description        Oct   Dec   Hex   Char
+Oct   Dec   Hex   Char  Description            Oct   Dec   Hex   Char
 ===   ===   ===   ===== =====================  ===   ===   ===   ====
 000   0     00    NUL   '\0' (null character)  100   64    40    @
 001   1     01    SOH   (start of heading)     101   65    41    A

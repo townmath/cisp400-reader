@@ -50,6 +50,7 @@ the adapter doesn't provide any additional features.
 It just enables you to connect your plug to a different outlet.
 
 .. digraph:: adapter_pattern
+   :align: center
    :alt: The adapter pattern UML diagram
 
    graph [
@@ -109,6 +110,7 @@ and a 1/4" male connection to fit in the 1/4" drive socket.
 
 
 .. digraph:: adapter_pattern
+   :align: center
    :alt: A tool anology for the adapter pattern
 
    graph [

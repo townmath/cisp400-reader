@@ -12,9 +12,34 @@
 
 The stack class
 ===============
-The :container:`std::stack <stack>` is a container adapter that gives the programmer the 
-functionality of a stack - specifically, a Last-In-First-Out (LIFO) data structure.
+Sometimes we want to limit access to all parts of a sequential
+data structure.
+In other words, we want to store as much data as we want to,
+but we want to restrict the ability to access any element at random.
+One way to limit access to only one end of a container is to use
+a :container:`stack`.
 
+Imagine creating a pile by adding items one at a time on top of each other:
+
+- plates
+- pancakes
+- sheets of paper
+- stones
+
+Any of these visual analogies you prefer will work.
+Each of them is a *stack*.
+In each case, adding items to the top of the stack
+makes other items deeper in the stack inaccessible.
+The only way to observe or remove an item from the stack
+is to remove all of the items above it first.
+
+Because the first item added to a stack is also the item
+farthest from the top of the stack,
+we refer to a stack as a 
+Last-In-First-Out (LIFO) data structure.
+
+The :container:`std::stack <stack>` is a container adapter that gives the programmer the 
+functionality of a stack.
 
 The class template acts as a wrapper to the underlying container - only 
 a specific set of functions is provided. 
@@ -33,6 +58,7 @@ T top()
    Get the value of the element at the top of the stack.
    
 .. graphviz::
+   :align: center
    :alt: std::stack elements
 
    // shows push and pop
@@ -128,6 +154,7 @@ In the STL, besides deque, :container:`vector` and :container:`list` also
 can be adapted by a stack.
 
 .. digraph:: stack_adapter
+   :align: center
    :alt: The stack adapter
 
    graph [
@@ -234,6 +261,72 @@ To 'visit' each element in a ``stack``, the items need to be popped off.
 
 If you think you need to visit all the elements in a ``stack``, 
 then you probably should not be using a ``stack``.
+
+Postfix Notation
+----------------
+A compiler generates machine instructions required to carry out the statements
+of a source program written in a high-level language. 
+One part of this task is to generate instructions for 
+evaluating arithmetic expressions such as
+
+.. code-block:: cpp
+
+   value = a * (b + c);
+
+In most programming languages,
+arithmetic expressions are written using **infix notation** 
+as in the above example.
+The symbol for each binary operation is placed between the operands.
+Many compilers first transform infix expressions into **postfix notation**,
+and then generates machine instructions to evaluate these postfix expressions.
+This two-step process is used because
+transformations from infix to postfix is straightforward,
+and postfix expressions are generally easier to evaluate than infix expressions.
+
+In postfix notation the operator follows the operands and parentheses 
+are not needed.
+In the earlier example, the infix expression:
+
+.. code-block:: cpp
+
+   2 * (3 + 5);
+
+can be re-written as a postfix expression:
+
+.. code-block:: cpp
+
+   2 3 5 + *
+
+Evaluation this expression proceeds left to right:
+
+
+.. code-block:: cpp
+
+   // Scan numbers until the first operator is encountered
+   // operate on the operands immediately to the left
+   // of the operator
+   2 3 5 + *
+
+   // becomes
+   2 8 *
+
+   // which becomes
+   16
+
+This method of evaluating a postfix expression requires that the operands be
+stored until an operator is encountered in the left-to-right scan.
+Once an operator is found,
+the last two operands must be retrieved and combined using
+the operation encountered.
+This suggests that a stack should be used to store the operands. 
+
+Each time an operand is encountered,
+it is pushed onto the stack. 
+Then, when an operator is encountered, 
+the top two values are popped from the stack; 
+the operation is applied to them, 
+and the result is pushed back onto the stack.
+
 
 -----
 

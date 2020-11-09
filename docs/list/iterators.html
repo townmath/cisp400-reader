@@ -237,27 +237,41 @@
 <p>How can we visit each <a class="reference internal" href="../glossary.html#term-element"><span class="xref std std-term">element</span></a> in a <a class="reference internal" href="../glossary.html#term-container"><span class="xref std std-term">container</span></a>
 and remain ignorant of the underlying container implementation details?
 For example, given:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="p">{{</span><span class="s">&quot;Alice&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s">&quot;Bob&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s">&quot;Clara&quot;</span><span class="p">}};</span>
-<span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span>
-                 <span class="n">ages</span>  <span class="o">=</span> <span class="p">{{</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">27</span><span class="p">},</span> <span class="p">{</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="s">&quot;Clara&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">}};</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span> <span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="s">&quot;Clara&quot;</span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>   <span class="n">ages</span>  <span class="o">=</span> <span class="p">{</span><span class="mi">27</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
 </pre></div>
 </div>
 <p>What options do we have for operating on each <a class="reference internal" href="../glossary.html#term-element"><span class="xref std std-term">element</span></a> in <code class="docutils literal notranslate"><span class="pre">names</span></code> and <code class="docutils literal notranslate"><span class="pre">ages</span></code>?
-A traditional <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=for loop">for loop</a> or <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=while loop">while loop</a> works for <code class="docutils literal notranslate"><span class="pre">names</span></code>:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">names</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+A traditional <a class="reference external" href="https://en.cppreference.com/w/cpp/language/for">for</a> or <a class="reference external" href="https://en.cppreference.com/w/cpp/language/while">while</a> loop works for <code class="docutils literal notranslate"><span class="pre">names</span></code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">names</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">names</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>However, this code does not compile:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ages</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ages</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">unsigned</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">ages</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ages</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>Traditional loops using an <code class="docutils literal notranslate"><span class="pre">int</span></code> index do not work with containers
 that do not overload <code class="docutils literal notranslate"><span class="pre">operator[]</span></code>.
-We solve this problem by avoiding explicit indexing altogether.
-The <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=range for loop">range for loop</a>
+Containers in this category include
+<a class="reference external" href="https://en.cppreference.com/w/cpp/container/list">list</a>,
+<a class="reference external" href="https://en.cppreference.com/w/cpp/container/set">set</a>, and
+<a class="reference external" href="https://en.cppreference.com/w/cpp/container/map">map</a>.</p>
+<p>We solve this problem by avoiding explicit indexing altogether.
+The <a class="reference external" href="https://en.cppreference.com/w/cpp/language/range-for">range-based for loop</a>
 provides a more readable equivalent to the traditional for loop:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">string</span> <span class="nl">s</span><span class="p">:</span> <span class="n">names</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
@@ -270,8 +284,7 @@ provides a more readable equivalent to the traditional for loop:</p>
 </pre></div>
 </div>
 <p>The same syntax can be used for any STL container:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span>
-<span class="n">ages</span>  <span class="o">=</span> <span class="p">{{</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">27</span><span class="p">},</span> <span class="p">{</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="s">&quot;Clara&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">}};</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>  <span class="n">ages</span>  <span class="o">=</span> <span class="p">{</span><span class="mi">27</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
 
 <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">a</span><span class="p">:</span> <span class="n">ages</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
@@ -279,7 +292,7 @@ provides a more readable equivalent to the traditional for loop:</p>
 </pre></div>
 </div>
 <p>When you need to loop over each element in a collection,
-the <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=range for loop">range for loop</a> has completely
+the <a class="reference external" href="https://en.cppreference.com/w/cpp/language/range-for">range-for</a> loop has completely
 abstracted away the idea of moving from one element to the next.</p>
 <p>We say these containers are <a class="reference internal" href="../glossary.html#term-iterable"><span class="xref std std-term">iterable</span></a>.</p>
 <hr class="docutils" />

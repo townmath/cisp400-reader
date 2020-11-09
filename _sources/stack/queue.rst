@@ -7,13 +7,28 @@
     License".
 
 .. index:: 
-   pair: sequence containers; stack
-   pair: graph; std::stack
+   pair: sequence containers; queue
+   pair: graph; std::queue
 
 The queue class
 ===============
+A :container:`queue` is another special purpose container adapter
+that limits random element access to all parts of the storage.
+A *queue* is just another word for a line.
+Like a stack, a queue restricts element access to the ends.
+*Unlike* a stack, a queue allows access to both ends:
+
+- New elements can only be added to the "back" of the line
+- Elements can only be retrieved from the "front" of the line.
+
+Imagine a line at the bank or a store.
+An orderly queue means that the people who get in line first
+are the first customers called.
+This is the guarantee :container:`queue` enforces.
+A queue is a FIFO (first-in, first-out) data structure.
+
 The :container:`std::queue <queue>` is a container adapter that gives the programmer the 
-functionality of a queue - specifically, a FIFO (first-in, first-out) data structure.
+functionality of a queue.
 
 The class template acts as a wrapper to the underlying container - only 
 a specific set of functions is provided. 
@@ -21,6 +36,7 @@ The queue pushes elements on the back of the underlying container,
 and pops them from the front.
 
 .. graphviz::
+   :align: center
    :alt: std::queue elements
 
    digraph g {
@@ -69,6 +85,7 @@ back
    Get the value of the element at the end of the queue.
 
 .. graphviz::
+   :align: center
    :alt: std::queue operations
 
    // shows push and pop, enqueue / dequeue

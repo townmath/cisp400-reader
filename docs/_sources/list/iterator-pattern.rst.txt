@@ -13,13 +13,75 @@
 
 Iterator pattern
 ================
-A :term:`design pattern` is a general repeatable solution
-to a commonly occurring problem in software design.
-A primary goal of design patterns is to quickly transfer the knowledge
-gained by expert designers to newer programmers.
-Another goal is to allow for efficient communication between
-programmers.
-Design patterns contribute to a shared vocabulary between programmers.
+The :lang:`range-for` loop works because the function
+expects a standard interface the loop can use to establish
+basic facts about the range of elements in the sequence:
+
+- Where does the sequence start?
+- Where is the next element?
+- When does the sequence end?
+
+  This last question can alternatively be asked as
+  *"Is there a next element?"*
+
+ 
+Most OO languages solve this problem using a form of the
+iterator design pattern.
+
+
+.. digraph:: iterator_pattern
+   :align: center
+   :alt: The iterator pattern UML diagram
+
+   graph [
+      fontname = "Bitstream Vera Sans"
+      fontsize = 14
+      labelloc = b
+      label = "The iterator pattern UML diagram"
+   ];
+
+   node [
+      fontname = "Bitstream Vera Sans",
+      style=filled, fillcolor=lightblue,
+      fontsize = 14
+      shape = "record"
+   ];
+
+    client [
+      label = "Client"
+      shape = "box"
+    ]
+
+    map [
+      label = "Map"
+      shape = "box"
+    ]
+
+    it [
+      label = "{&lt;&lt;Interface&gt;&gt;\nIterator| | + first()\l+ has_next()\l+ next()\l }"
+    ]
+
+    list [
+      label = "List"
+      shape = "box"
+    ]
+
+    li [
+      label = "{List\nIterator| | + first()\l+ has_next()\l+ next()\l }"
+    ]
+
+    mi [
+      label = "{Map\nIterator| | + first()\l+ has_next()\l+ next()\l }"
+    ]
+
+    client -> map  [arrowhead = open, label="uses"]
+    client -> list  [arrowhead = open, label="uses"]
+    client -> it  [style = invis]
+    list -> li  [arrowhead = open]
+    map -> mi  [arrowhead = open]
+    li -> it [arrowhead=onormal, constraint=false]
+    mi -> it [arrowhead=onormal, constraint=false]
+    
 
 Because design patterns represent general ideas about solving
 classes of problems, they are language independent.
@@ -31,6 +93,7 @@ that clients can use to retrieve the correct
 :term:`element` from the :term:`container`.
 
 .. digraph:: iterator
+   :align: center
    :alt: Container iterators
 
    graph [

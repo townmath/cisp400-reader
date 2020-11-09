@@ -19,29 +19,45 @@ For example, given:
 
 .. code-block:: cpp
 
-
-   array<string, 3> names = {{"Alice"}, {"Bob"}, {"Clara"}};
-   std::map<std::string, int> 
-                    ages  = {{"Alice", 27}, {"Bob", 3}, {"Clara", 1}};
+   array<string, 3> names = {"Alice", "Bob", "Clara"};
+   std::list<int>   ages  = {27, 3, 1};
 
 What options do we have for operating on each :term:`element` in ``names`` and ``ages``?
-A traditional :cref:`for loop` or :cref:`while loop` works for ``names``:
+A traditional :lang:`for` or :lang:`while` loop works for ``names``:
 
 .. code-block:: cpp
 
-   for (int i=0; i < names.size(); ++i) {
+   for (unsigned i=0; i < names.size(); ++i) {
      cout << names[i] << '\n';
    }
 
-   int i = 0;
+   unsigned i = 0;
    while(i < names.size()) {
      cout << names[i++] << '\n';
    }
 
+However, this code does not compile:
+
+.. code-block:: cpp
+
+   for (unsigned i=0; i < ages.size(); ++i) {
+     cout << ages[i] << '\n';
+   }
+
+   unsigned i = 0;
+   while(i < ages.size()) {
+     cout << ages[i++] << '\n';
+   }
+
 Traditional loops using an ``int`` index do not work with containers
 that do not overload ``operator[]``.
+Containers in this category include 
+:container:`list`,
+:container:`set`, and
+:container:`map`.
+
 We solve this problem by avoiding explicit indexing altogether.
-The :cref:`range for loop` 
+The :lang:`range-based for loop <range-for>` 
 provides a more readable equivalent to the traditional for loop:
 
 .. code-block:: cpp
@@ -59,15 +75,14 @@ The same syntax can be used for any STL container:
    
 .. code-block:: cpp
 
-   std::map<std::string, int> 
-   ages  = {{"Alice", 27}, {"Bob", 3}, {"Clara", 1}};
+   std::list<int>  ages  = {27, 3, 1};
 
    for (const auto& a: ages) {
      cout << a.first << ' ' << a.second << '\n';
    }
 
 When you need to loop over each element in a collection,
-the :cref:`range for loop` has completely
+the :lang:`range-for` loop has completely
 abstracted away the idea of moving from one element to the next.
 
 We say these containers are :term:`iterable`.
