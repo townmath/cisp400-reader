@@ -56,7 +56,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15.2. The set class" href="set.html" />
+    <link rel="next" title="15.2. Binary Search Trees" href="bst.html" />
     <link rel="prev" title="15. Trees" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -193,8 +193,8 @@
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">15.2. </span>The set class' data-toggle="tooltip" >              
-    <a href="set.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">15.2. </span>Binary Search Trees' data-toggle="tooltip" >              
+    <a href="bst.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -234,7 +234,7 @@
   
   <div class="section" id="tree-adt-concepts">
 <span id="index-0"></span><h1><span class="section-number">15.1. </span>Tree ADT concepts<a class="headerlink" href="#tree-adt-concepts" title="Permalink to this headline">¶</a></h1>
-<p>If sequence containers like <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=vector">vector</a> are so great,
+<p>If sequence containers like <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">vector</a> are so great,
 then why would we need anything else?</p>
 <p>In a word: search.</p>
 <p>When we have millions a elements in a data structure and need to find
@@ -242,7 +242,7 @@ just one element, or a specific range or elements,
 we <em>could</em> use a <code class="docutils literal notranslate"><span class="pre">vector</span></code>.</p>
 <p>Inserts are fast.
 No matter how many elements are already in a <code class="docutils literal notranslate"><span class="pre">vector</span></code>
-adding one more using <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=vector::push_back">vector::push_back</a> takes
+adding one more using <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/push_back">push_back</a> takes
 the same amount of time.
 That is, the time cost of <code class="docutils literal notranslate"><span class="pre">push_back</span></code> is <em>constant</em> for a <code class="docutils literal notranslate"><span class="pre">vector</span></code>.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">vector</span></code> is default ordered only by its index position,
@@ -294,8 +294,9 @@ For a large <code class="docutils literal notranslate"><span class="pre">vector<
 <p>This technique requires that we keep the vector sorted.
 If elements are added or removed frequently,
 then adding data to our vector, which used to be fast, is now slow.
-We can either use <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=vector::push_back">vector::push_back</a> followed by <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=vector::sort">vector::sort</a>,
-or use <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=vector::insert">vector::insert</a>.
+We can either use <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/push_back">push_back</a>
+followed by <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/sort">sort</a>,
+or use <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/insert">insert</a>.
 <em>Every</em> addition becomes a search and we are back to the original problem.
 On average, it will take <span class="math notranslate nohighlight">\(N \over 2\)</span> comparisons to add new data.</p>
 <p>How can we solve this problem?</p>
@@ -352,6 +353,7 @@ that support both sets and maps.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/container">STL containers library</a></p></li>
 <li><p><a class="reference external" href="https://visualgo.net/en/heap?slide=1">Visualgo: binary heap</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Binary_search_algorithm">Wikipedia: binary search algorithm</a></p></li>
 </ul>
 </div>
 </div>
@@ -375,8 +377,8 @@ that support both sets and maps.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 15.2. The set class' data-toggle="tooltip" >
-    <a href="set.html" aria-label="15.2. The set class">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 15.2. Binary Search Trees' data-toggle="tooltip" >
+    <a href="bst.html" aria-label="15.2. Binary Search Trees">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

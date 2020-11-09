@@ -11,7 +11,7 @@
 
 Tree ADT concepts
 =================
-If sequence containers like :cref:`vector` are so great,
+If sequence containers like :container:`vector` are so great,
 then why would we need anything else?
 
 In a word: search.
@@ -22,7 +22,7 @@ we *could* use a ``vector``.
 
 Inserts are fast. 
 No matter how many elements are already in a ``vector``
-adding one more using :cref:`vector::push_back` takes
+adding one more using :container:`push_back <vector/push_back>` takes
 the same amount of time.
 That is, the time cost of ``push_back`` is *constant* for a ``vector``.
 
@@ -93,8 +93,9 @@ For a large ``vector``, this saves a lot of time.
 This technique requires that we keep the vector sorted.
 If elements are added or removed frequently,
 then adding data to our vector, which used to be fast, is now slow.
-We can either use :cref:`vector::push_back` followed by :cref:`vector::sort`,
-or use :cref:`vector::insert`.
+We can either use :container:`push_back <vector/push_back>` 
+followed by :container:`sort <vector/sort>`,
+or use :container:`insert <vector/insert>`.
 *Every* addition becomes a search and we are back to the original problem.
 On average, it will take :math:`N \over 2` comparisons to add new data.
 
@@ -291,4 +292,5 @@ that support both sets and maps.
 
    - `STL containers library <http://en.cppreference.com/w/cpp/container>`_
    - `Visualgo: binary heap <https://visualgo.net/en/heap?slide=1>`_
+   - `Wikipedia: binary search algorithm <https://en.wikipedia.org/wiki/Binary_search_algorithm>`__
 
