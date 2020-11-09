@@ -51,7 +51,7 @@ Perhaps a short story would help make the point more clearly:
 
    He did not intend to write a humor book, but that was the result.
 
-   Some of the his classic translations from the section *Idiotisms and Proverbs*:
+   Some of his classic translations from the section *Idiotisms and Proverbs*:
 
    It want to beat the iron during it is hot.
       *Strike while the iron is hot*
@@ -87,6 +87,10 @@ the first few of which are:
 The goal of this book is to describe the current version of the language
 in a clear, concise style, supplemented by meaningful activities
 where appropriate.
+This book is expressly written for students in my course.
+Others may also find it useful.
+Users of this book are expected to be 'beginning-intermediate' programmers.
+You already have a semester of C or C++ completed and want to learn more.
 
 The goal of this book is **not** to describe every language feature in C++.
 Why?
@@ -116,6 +120,121 @@ An important goal is to  provide multiple options for covering the material in e
 Hopefully, you will find
 your understanding is enhanced because you are able to experience
 content in more than just one way.
+
+Overview
+--------
+Conceptually, the book is separated into 5 modules:
+
+- Introductory topics and review
+- Functions
+- Classes
+- Containers
+- Iterators and Trees
+
+The first 2 chapters cover the introductory topics:
+
+Chapter 1
+   A review of basic topics from first semester C++.
+
+Chapter 2
+   An introduction to ``string`` and ``vector``.
+   Although vector gets more attention later in the book,
+   these 2 types are the workhorses of a great deal of real-world
+   C++ code and it's important that you understand how to use them
+   as early as possible.
+
+The next 4 chapter explore functional programming in C++.
+While some simple structs are used,
+they are limited to basic POD's that would generally be compatible with C.
+
+Chapter 3
+   An introduction to functions, 
+   including function parameters, namespaces, and scopes.
+   The keyword ``const`` is introduced and will be revisited over several
+   chapters.
+
+Chapter 4
+   An introduction to function overloads and function templates.
+
+Chapter 5
+   Introduces pointers in general, the semantics for passing
+   pointers as parameters to functions and the relationship between
+   pointers and arrays.
+   Modern C++ alternatives to raw pointers, sunch as ``unique_ptr``
+   are discussed.
+
+Chapter 6
+   Introduces recursion, properties of recursive data structures,
+   and introduces the Binary Tree ADT as a recursive data structure.
+
+The next 3 chapters introduce the foundations of classes in C++.
+There is more to explore, but other topics related to classes
+are explored in the context of linear and associative data structures
+in the later chapters.
+
+Chapter 7
+   Introduces classes, starting with how a C++ differs from a *POD*,
+   or *Plain Old Data* in C,
+   continuing with constructors, the importance of class interfaces
+   and their implementation, using ``const`` in classes,
+   and class enumerations.
+
+Chapter 8
+   Expands on the material introduced in Ch 7, discussing more
+   constructor overloads and operator overloads in classes.
+
+Chapter 9
+   Focuses on class design concepts: composition and inheritance,
+   multiple inheritance, 
+   the Unified Modeling Language (UML), and
+   abstract base classes and interface classes.
+
+The next 4 chapters explore more C++ class concepts using
+container classes as a springboard.
+
+Chapter 10
+   Introduces class templates and begins introducing concepts 
+   the rest of the book builds on as it begins to explore
+   the containers in the standard library and uses them as an
+   opportunity to explore more advanced programming topics
+   in general.
+   Introduces container initialization lists and
+   overloading the array index operator.
+
+Chapter 11
+   Introduces copy and move semantics in C++.
+   This chapter described copy constructors, then explores
+   lvalues, rvalues, and rvalue references as a way to help
+   explain move constructors and move assignment in C++.
+
+Chapter 12
+   A brief introduction to using allocators, what they are for,
+   and how to add them to a container.
+
+Chapter 13
+   Introduces the Stack and Queue ADT's and explains how they are 
+   implemented in C++ by adapting other containers.
+   The Adapter design pattern is introduced.
+
+The next few chapters explore linked data structures,
+both linear linked lists as well as linked tree data structures.
+They also describe their relation to algorithms.
+Both data structures **and** algorithms are needed to make useful programs.
+
+Chapter 14
+   An exploration of linked lists.
+   The primary motivation for discussing lists at this point is to
+   use a list implementation as a reason for needing a class
+   to have a supporting iterator class.
+   The Iterator design pattern is introduced.
+
+Chapter 15
+   Introduction to Trees, Binary Search Trees, sets and maps,
+   and their application to searching and sorting.
+
+Chapter 16
+   The STL algorithms, the basic model in the standard library
+   connecting containers, iterators, and algorithms.
 
 How to Contribute
 -----------------
