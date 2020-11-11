@@ -136,6 +136,8 @@ While the :term:`two's complement` representation is now nearly universal,
 this was not always the case.
 In fact, during the 60's and 70's, debates raged about the best number format representations.
 
+.. index:: floating point representations
+
 Sign and magnitude
 ..................
 
@@ -225,6 +227,8 @@ One's complement is important both historically, and because it is used to gener
 two's complement numbers.
 No modern computers store one's complement signed integers.
 
+.. index:: bitset; std::bitset
+
 Two's complement
 ................
 
@@ -272,6 +276,8 @@ complement representation.
    .. tab:: Run It
 
       .. include:: ones_complement.txt
+
+.. index:: integer overflow
 
 Overflow
 ........
