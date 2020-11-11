@@ -249,7 +249,7 @@ information such as name, address, account number, and account
 balance.</p>
 <p>The C++ type system consists of the following types:</p>
 <ul class="simple">
-<li><p>Fundamental types</p>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/types">Fundamental types</a></p>
 <ul>
 <li><p>The type <code class="docutils literal notranslate"><span class="pre">void</span></code></p></li>
 <li><p>The type <code class="docutils literal notranslate"><span class="pre">nullptr_t</span></code></p></li>
@@ -275,12 +275,12 @@ balance.</p>
 </li>
 <li><p>Compound types</p>
 <ul>
-<li><p>Array types</p></li>
-<li><p>Pointer types</p></li>
-<li><p>Reference types</p></li>
-<li><p>Function types</p></li>
-<li><p>Class types</p></li>
-<li><p>Enumeration types</p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/array">Array types</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/pointer">Pointer types</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/reference_initialization">Reference types</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/function">Function types</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/class">Class types</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/enum">Enumeration types</a></p></li>
 </ul>
 </li>
 </ul>
@@ -935,7 +935,7 @@ your understanding of the concepts discussed so far.</p>
     
 <div class="runestone">
 <ul data-component="dragndrop" id="types_dnd_type1" >
-    <span data-component="question">Q-1: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct</span>
+    <span data-component="question">sc-1-1: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct</span>
 	<span data-component=feedback>Review the summaries above.</span>
 
     <li data-component="draggable" id="types_dnd_type1_drag1">Specifying the type and name for a variable</li>
@@ -952,7 +952,7 @@ your understanding of the concepts discussed so far.</p>
 </ul></div>
             <div class="runestone alert alert-warning">
             <ul data-component="multiplechoice" data-multipleanswers="true"  id="types_mc1" >
-            <p>Q-2: Which declarations are valid?</p>
+            <p>sc-1-2: Which declarations are valid?</p>
 
             <li data-component="answer"  id="types_mc1_opt_a">int 3;</li><li data-component="feedback">Declarations must always include a name</li>
             
@@ -971,7 +971,7 @@ As written, this is assignment, not declaration</li>
             
 <div class="runestone">
 <ul data-component="dragndrop" id="types_dnd_type2" >
-    <span data-component="question">Q-3: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct.</span>
+    <span data-component="question">sc-1-3: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct.</span>
 	<span data-component=feedback>Review the summaries above.</span>
 
     <li data-component="draggable" id="types_dnd_type2_drag1">Setting the value of a variable the first time</li>
@@ -988,7 +988,7 @@ As written, this is assignment, not declaration</li>
 </ul></div>
         <div class="runestone">
         <div data-component="fillintheblank" id="types_fitb1" >
-            <p>Q-4: Given the following:</p>
+            <p>sc-1-4: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="kt">int8_t</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -1007,7 +1007,7 @@ As written, this is assignment, not declaration</li>
             
         <div class="runestone">
         <div data-component="fillintheblank" id="types_fitb2" >
-            <p>Q-5: Given the following:</p>
+            <p>sc-1-5: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">~-</span><span class="mi">1</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -1038,7 +1038,7 @@ int main() {
 
         <div class="runestone" style="max-width: none;">
         <pre data-component="parsons" id="types_par1"  data-adaptive="true"    data-noindent="true"  data-language="c"  >
-        <span data-question>Q-6: </span>#include <iostream>
+        <span data-question>sc-1-6: </span>#include <iostream>
 ---
 void func() {
 ---
@@ -1054,7 +1054,7 @@ void func() {
     
         <div class="runestone">
         <div data-component="fillintheblank" id="types_fitb3" >
-            <p>Q-7: Given the following:</p>
+            <p>sc-1-7: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
@@ -1078,8 +1078,12 @@ void func() {
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/language/types">cppreference.com types</a> and
-<a class="reference external" href="http://en.cppreference.com/w/cpp/types/size_t">std::size_t</a></p></li>
+<li><p>From cppreference.com</p>
+<ul>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/types">types</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/types/size_t">std::size_t</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/typedef">typedef</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/language/type_alias">type aliases</a></p></li>
+</ul>
+</li>
 <li><p>ISO CPP Super FAQ: <a class="reference external" href="https://isocpp.org/wiki/faq/newbie#floating-pt-errs">Floating point questions</a></p></li>
 <li><p><a class="reference external" href="http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html">What every computer scientist should know about floating-point arithmetic</a></p></li>
 <li><p><a class="reference external" href="https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#arithmetic">CPP Core Guidelines: Arithmetic</a></p></li>

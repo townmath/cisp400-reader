@@ -33,7 +33,7 @@ balance.
 
 The C++ type system consists of the following types:
 
-- Fundamental types
+- :lang:`Fundamental types <types>`
 
   - The type ``void``
   - The type ``nullptr_t``
@@ -53,12 +53,12 @@ The C++ type system consists of the following types:
 
 - Compound types
 
-  - Array types
-  - Pointer types
-  - Reference types
-  - Function types
-  - Class types
-  - Enumeration types
+  - :lang:`Array types <array>`
+  - :lang:`Pointer types <pointer>`
+  - :lang:`Reference types <reference_initialization>`
+  - :lang:`Function types <function>`
+  - :lang:`Class types <class>`
+  - :lang:`Enumeration types <enum>`
 
 Fundamental representations
 ---------------------------
@@ -753,8 +753,11 @@ your understanding of the concepts discussed so far.
 
 .. admonition:: More to Explore
 
-   - `cppreference.com types <http://en.cppreference.com/w/cpp/language/types>`_ and
-     `std::size_t <http://en.cppreference.com/w/cpp/types/size_t>`_
+   - From cppreference.com
+
+     - :lang:`types` and :cpp:`std::size_t <types/size_t>`
+     - :lang:`typedef` and :lang:`type aliases <type_alias>`
+
    - ISO CPP Super FAQ: `Floating point questions <https://isocpp.org/wiki/faq/newbie#floating-pt-errs>`_
    - `What every computer scientist should know about floating-point arithmetic 
      <http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>`_
