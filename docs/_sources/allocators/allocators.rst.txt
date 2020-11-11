@@ -223,7 +223,7 @@ involves several steps.
 
      // copy into new space
      for (size_t i = 0; i < new_capacity; ++i) {
-       memory::construct(&new_data[i], &data_[i]);
+       memory::construct(allocator_, &new_data[i], data_[i]);
      }
 
      // delete old memory
