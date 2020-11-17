@@ -369,11 +369,17 @@ The basic skeleton of the class should look familiar:</p>
 <p>Our primary focus for the rest of this section is on the functions
 that define the key operations associated with a BST:</p>
 <ul class="simple">
-<li><p>contains</p></li>
-<li><p>insert</p></li>
-<li><p>erase</p></li>
+<li><p>contains and find</p></li>
+<li><p>insert and erase</p></li>
 </ul>
-<p>We always search a binary search tree by comparing the value we’re
+</div>
+<div class="section" id="searching-binary-trees">
+<h2><span class="section-number">15.2.2. </span>Searching binary trees<a class="headerlink" href="#searching-binary-trees" title="Permalink to this headline">¶</a></h2>
+<p>Efficient search of a binary tree uses the same algorithm
+you would use when playing the ‘number guessing’ game.
+If asked to guess a random number between <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">100</span></code> in the
+fewest possible tries, few people would start at <code class="docutils literal notranslate"><span class="pre">1</span></code>
+We always search a binary search tree by comparing the value we’re
 searching for to the ‘current’ node value.
 If the target value is smaller,
 then we search the left subtree.

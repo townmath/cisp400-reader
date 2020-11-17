@@ -197,11 +197,15 @@ The basic skeleton of the class should look familiar:
 Our primary focus for the rest of this section is on the functions
 that define the key operations associated with a BST:
 
-- contains
-- insert
-- erase
+- contains and find
+- insert and erase
 
-
+Searching binary trees
+----------------------
+Efficient search of a binary tree uses the same algorithm
+you would use when playing the 'number guessing' game.
+If asked to guess a random number between ``1`` and ``100`` in the
+fewest possible tries, few people would start at ``1``
 We always search a binary search tree by comparing the value we’re
 searching for to the 'current' node value. 
 If the target value is smaller,

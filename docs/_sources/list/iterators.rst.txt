@@ -78,7 +78,7 @@ The same syntax can be used for any STL container:
    std::list<int>  ages  = {27, 3, 1};
 
    for (const auto& a: ages) {
-     cout << a.first << ' ' << a.second << '\n';
+     cout << a << '\n';
    }
 
 When you need to loop over each element in a collection,
