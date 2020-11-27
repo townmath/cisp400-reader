@@ -56,7 +56,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15.3. The set class" href="set.html" />
+    <link rel="next" title="15.3. Binary Search Tree iterators" href="bst-iterator.html" />
     <link rel="prev" title="15.1. Tree ADT concepts" href="trees.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -193,8 +193,8 @@
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">15.3. </span>The set class' data-toggle="tooltip" >              
-    <a href="set.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">15.3. </span>Binary Search Tree iterators' data-toggle="tooltip" >              
+    <a href="bst-iterator.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -242,7 +242,8 @@ with sub-trees <code class="docutils literal notranslate"><span class="pre">left
 <li><p>Both <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code> are binary search trees.</p></li>
 </ul>
 <p>These assertions define the <strong>binary tree property</strong>.</p>
-<div class="graphviz"><img src="../_images/graphviz-974254fab3909bd74161e2a6c2fd579fee35c2c7.png" alt="Is this a binary search tree" class="graphviz" /></div>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-43a8b9558b3b234c87044fe1045c0b161ea623c9.png" alt="a binary search tree" class="graphviz" /></div>
+</div>
 
     <div data-component="reveal" id="reveal-bst-1"   data-showtitle="Is this a BST?" data-hidetitle="Hide" >
     <p>Yes.</p>
@@ -378,16 +379,315 @@ that define the key operations associated with a BST:</p>
 <p>Efficient search of a binary tree uses the same algorithm
 you would use when playing the ‘number guessing’ game.
 If asked to guess a random number between <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">100</span></code> in the
-fewest possible tries, few people would start at <code class="docutils literal notranslate"><span class="pre">1</span></code>
-We always search a binary search tree by comparing the value we’re
+fewest possible tries, with a hint <code class="docutils literal notranslate"><span class="pre">higher</span></code> or <code class="docutils literal notranslate"><span class="pre">lower</span></code>
+after each attempt, few people would start at <code class="docutils literal notranslate"><span class="pre">1</span></code>,
+then guess <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span></code>, and so on until they guessed correctly.
+Most people would start with <code class="docutils literal notranslate"><span class="pre">50</span></code> and continue to split the
+remaining unknown partition in half until they found the correct number.</p>
+<p>The strategy most people apply to this problem intuitively is known
+as the <a class="reference internal" href="../glossary.html#term-binary-search"><span class="xref std std-term">binary search</span></a> algorithm.
+This algorithm is easily applied to binary search trees.</p>
+<div id='contains_tab' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="contains" >
+<p>We always search a binary search tree by comparing the value we’re
 searching for to the ‘current’ node value.
 If the target value is smaller,
 then we search the left subtree.
 If the target value is larger, then we search the right subtree.</p>
+<p>If it is neither of these things, then we found the value.</p>
+<p>This function is implemented as a <code class="docutils literal notranslate"><span class="pre">mesa::tree</span></code> free function.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="n">contains</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">query_value</span><span class="p">,</span> <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">node</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">query_value</span> <span class="o">&lt;</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">contains</span><span class="p">(</span><span class="n">query_value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">query_value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">contains</span><span class="p">(</span><span class="n">query_value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+    </div>
+
+</div>
+<div class="section" id="inserting-into-binary-trees">
+<h2><span class="section-number">15.2.3. </span>Inserting into binary trees<a class="headerlink" href="#inserting-into-binary-trees" title="Permalink to this headline">¶</a></h2>
+<p>Inserting into a binary tree means adding a new node in the tree
+such that the binary tree property remains intact.</p>
+<div id='insert_tab' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="insert" >
+<p>The insert process begins with a search for a place to insert a new value.
+But how do we find the place at which to insert that new node?
+Ask “where would we go if we were searching for this data in the tree?”
+This process is identical to the search used for the contains function.</p>
+<p>This function is implemented as a <code class="docutils literal notranslate"><span class="pre">bstree</span></code> member function.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span>
+ <span class="n">insert</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span> <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*&amp;</span> <span class="n">node</span><span class="p">,</span> <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">parent</span><span class="p">)</span>
+ <span class="p">{</span>
+   <span class="c1">// add a new leaf</span>
+   <span class="k">if</span><span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="n">parent</span><span class="p">);</span>
+     <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
+   <span class="p">}</span>
+   <span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">node</span><span class="p">);</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">node</span><span class="p">);</span>
+   <span class="p">}</span>
+   <span class="c1">// else the value already exists in the tree</span>
+   <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+   <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>There are a few important things to notice about this function.</p>
+<p>The insert function receives the current node pointer as
+a reference to a pointer,
+It can change the value of the pointer provided.
+It does this specifically when our traversal brings us to a null pointer.
+A <a class="reference internal" href="../glossary.html#term-leaf-node"><span class="xref std std-term">leaf node</span></a> is place where we can insert a new
+tree node while still adhering to the binary search tree property.</p>
+<p>The last argument is a pointer to the parent node of the current node.
+We or any recursive call made, the parent node is the current node.</p>
+<p>Overwriting an existing value is a design choice.
+We could have chosen to do nothing and simply return the node.</p>
+</div>
+    </div>
+
+<div class="admonition-try-this admonition">
+<p class="admonition-title">Try This!</p>
+<p>Walk through this algorithm yourself with different sets of values.</p>
+<p>Experiment with inserting nodes into binary search trees.
+Take particular note of what happens if you insert data in
+ascending or descending order, as opposed to inserting unordered data.</p>
+</div>
+</div>
+<div class="section" id="erasing-binary-tree-nodes">
+<h2><span class="section-number">15.2.4. </span>Erasing binary tree nodes<a class="headerlink" href="#erasing-binary-tree-nodes" title="Permalink to this headline">¶</a></h2>
+<p>The erase process also begins with a search for the place to erase.
+This process is identical to the search used for contains and insert.</p>
+<p>The tricky part of removing a value from a binary search tree
+is what to do when we actually find the value we want to delete.
+We can’t just delete the tree node.
+Consider the following tree.</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-43a8b9558b3b234c87044fe1045c0b161ea623c9.png" alt="a binary search tree" class="graphviz" /></div>
+</div>
+<p>If we remove values <code class="docutils literal notranslate"><span class="pre">10</span></code>, <code class="docutils literal notranslate"><span class="pre">40</span></code>, or <code class="docutils literal notranslate"><span class="pre">60</span></code>
+by simply deleting the tree node, that might work.
+However, deleting any other node would break the links between tree nodes.</p>
+<p>We have 3 cases to consider:</p>
+<ul class="simple">
+<li><p>Removing a leaf</p></li>
+<li><p>Removing a node that has only one child</p>
+<ul>
+<li><p>only a left child</p></li>
+<li><p>only a right child</p></li>
+</ul>
+</li>
+<li><p>Removing a node that has two children</p></li>
+</ul>
+<div class="section" id="removing-a-leaf-node">
+<h3><span class="section-number">15.2.4.1. </span>Removing a leaf node<a class="headerlink" href="#removing-a-leaf-node" title="Permalink to this headline">¶</a></h3>
+<p>It’s easy to see that we can always remove any leaf in a
+binary search tree without affecting anything else.
+That is, if we remove any leaf from a binary search tree,
+we still have a valid binary search tree.
+There is nothing else to do.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">node</span></code> points to a leaf that contains the data we want to remove
+we replace the address in <code class="docutils literal notranslate"><span class="pre">node</span></code> by <code class="docutils literal notranslate"><span class="pre">node-&gt;right</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">node</span></code> is pointing to a leaf, then <code class="docutils literal notranslate"><span class="pre">node-&gt;right</span></code> is null
+and we write a nullptr into the parent node,
+replacing whichever of its two children pointers was used to get to <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
+<p>In other words, leaf nodes are replaced with the null pointer.</p>
+</div>
+<div class="section" id="removing-a-non-leaf-node-with-a-null-child">
+<h3><span class="section-number">15.2.4.2. </span>Removing a non-leaf node with a null child<a class="headerlink" href="#removing-a-non-leaf-node-with-a-null-child" title="Permalink to this headline">¶</a></h3>
+<p>Removing nodes from the interior of the tree is a bit more work
+as we need to maintain links between nodes.</p>
+<p>Given the same tree we have been working with so far:</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-43a8b9558b3b234c87044fe1045c0b161ea623c9.png" alt="a binary search tree" class="graphviz" /></div>
+</div>
+<p><strong>Question</strong>
+Suppose we wanted to remove the <code class="docutils literal notranslate"><span class="pre">20</span></code> or the <code class="docutils literal notranslate"><span class="pre">70</span></code> from this tree.
+What would we have to do so that the
+remaining nodes would still be a valid BST?</p>
+
+    <div data-component="reveal" id="reveal-bst-2"   data-showtitle="Show" data-hidetitle="Hide" >
+    <p>There is one pointer to the node being deleted,
+and one pointer from that node to its only child.</p>
+<p>So this is actually a bit like deleting a node from
+the middle of a linked list.</p>
+<p>All we need to do is to update the pointer from the
+parent <code class="docutils literal notranslate"><span class="pre">30</span></code> node.
+That pointer should point to the child of the node we are going to remove.</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-3add7b7ca9b37a48df5cc97ffeaf46d0439d9360.png" alt="a binary search tree" class="graphviz" /></div>
+</div>
+
+    </div>
+    <p>Verify that if we remove either <code class="docutils literal notranslate"><span class="pre">20</span></code> or <code class="docutils literal notranslate"><span class="pre">70</span></code>,
+the resulting tree is still a valid binary search tree.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="graphviz"><img src="../_images/graphviz-c4640aac37e5e28e9cac60c38413899ee8accb50.png" alt="a binary search tree with 20 removed" class="graphviz" /></div>
+</td>
+<td><div class="graphviz"><img src="../_images/graphviz-042a3baf0670d25a3bf0ca98332d6e36731cda1f.png" alt="a binary search tree" class="graphviz" /></div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The code we used to remove a leaf also works when there is only one child.</p>
+<p>If we reach this code, we know there is at most
+one non-null child.
+In the previous case of a leaf node,
+both children are null,
+but the same code works for one child also.</p>
+<p>If the left child is not null,
+then reassign the left child to the current node,
+otherwise assign the right child.</p>
+</div>
+<div class="section" id="removing-a-non-leaf-node-with-a-two-children">
+<h3><span class="section-number">15.2.4.3. </span>Removing a non-leaf node with a two children<a class="headerlink" href="#removing-a-non-leaf-node-with-a-two-children" title="Permalink to this headline">¶</a></h3>
+<p>Suppose we wanted to remove the <code class="docutils literal notranslate"><span class="pre">50</span></code> or the <code class="docutils literal notranslate"><span class="pre">30</span></code> from this tree.
+What must we do so that the remaining nodes would still be a valid BST?</p>
+<p>This is a hard case.
+If we remove either the <code class="docutils literal notranslate"><span class="pre">50</span></code> or <code class="docutils literal notranslate"><span class="pre">30</span></code> nodes,
+then we break the tree into pieces,
+with no obvious place to put the now-detached subtrees.</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-43a8b9558b3b234c87044fe1045c0b161ea623c9.png" alt="a binary search tree" class="graphviz" /></div>
+</div>
+<p>There is an efficient solution to this problem.
+Instead of deleting the node when we find it,
+is there some other data value that we could put into that node that would
+preserve the BST property?</p>
+<p>There are, in fact,
+two values that we could safely put in there:</p>
+<ul class="simple">
+<li><p>the smallest value from the right subtree</p></li>
+<li><p>the largest value from the left subtree</p></li>
+</ul>
+<p>We can find the <strong>largest</strong> value on the <strong>left</strong> by</p>
+<ul class="simple">
+<li><p>taking one step to the left</p></li>
+<li><p>then running as far down to the right as we can go</p></li>
+</ul>
+<p>We can find the <strong>smallest</strong> value on the <strong>right</strong> by</p>
+<ul class="simple">
+<li><p>taking one step to the right</p></li>
+<li><p>then running as far down to the left as we can go</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 49%" />
+<col style="width: 51%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-6305a0cbaf4dede2170accd89eeb6810eb43e722.png" alt="a binary search tree" class="graphviz" /></div>
+</div>
+</td>
+<td><div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-57eadd55260723e4c7ea4ca8d52ea7088bef678b.png" alt="a binary search tree" class="graphviz" /></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>At this point, we haven’t deleted or created any nodes.
+We simply copy a value from one node to another.
+Now we have two nodes in our tree with the same value,
+either <code class="docutils literal notranslate"><span class="pre">20</span></code> or <code class="docutils literal notranslate"><span class="pre">40</span></code>,
+depending on which approach we used.</p>
+<p>We still need to delete the smallest right node
+or the largest left node.
+What makes this last step simple is that it falls under our
+previous case: it is by definition either a leaf,
+or has at most one child.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 49%" />
+<col style="width: 51%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="graphviz"><img src="../_images/graphviz-afe0f84d9823a9e677a55046fcc57af2cb71e9bd.png" alt="a binary search tree" class="graphviz" /></div>
+</td>
+<td><div class="graphviz"><img src="../_images/graphviz-34523ecdb997ed9d6f0e79db5271270a9c97a368.png" alt="a binary search tree" class="graphviz" /></div>
+</td>
+</tr>
+</tbody>
+</table>
+<div id='erase_tab' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="erase" >
+<p>Putting it all together.</p>
+<p>This function is implemented as a <code class="docutils literal notranslate"><span class="pre">mesa::tree</span></code> free function.</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="kt">void</span> <span class="n">erase</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span> <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*&amp;</span> <span class="n">node</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="k">nullptr</span> <span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+
+<span class="hll">    <span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">      <span class="k">return</span> <span class="n">erase</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">      <span class="k">return</span> <span class="n">erase</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">!=</span> <span class="k">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">!=</span> <span class="k">nullptr</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// two children</span>
+      <span class="c1">// replace node with smallest value from right subtree</span>
+      <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="n">min_element</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nf">erase</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// remove a leaf node or node w/ 1 subtree</span>
+      <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">trash</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+      <span class="n">node</span> <span class="o">=</span> <span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">!=</span> <span class="k">nullptr</span> <span class="p">)</span> <span class="o">?</span> <span class="n">node</span><span class="o">-&gt;</span><span class="nl">left</span> <span class="p">:</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+      <span class="k">delete</span> <span class="n">trash</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Lines 6-9 handle the search we discussed initially.
+Here we recursive search for our target value to remove.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> block handles the case with 2 children.
+We find the smallest node in the right subtree
+and assign it’s value to the current node.
+Then we erase this value from the right subtree
+of the current node.</p>
+<p>The final <code class="docutils literal notranslate"><span class="pre">else</span></code> block handles the leaf and the one child cases.
+This is the only case where a node is actually removed from the tree.
+This block will also untilately get called when the
+case handling two child nodes needs to delete the
+smallest value from the right subtree.</p>
+</div>
+    </div>
+
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
+<li><p>The content on this page was adapted from
+<a class="reference external" href="https://www.cs.odu.edu/~zeil/cs361/f16/Public/bst/index.html">Binary Search Trees</a>,
+by Steven J. Zeil for his data structures course CS361.</p></li>
 <li><p>Wikipedia</p>
 <ul>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Binary_search_tree">binary search tree</a></p></li>
@@ -395,6 +695,7 @@ If the target value is larger, then we search the right subtree.</p>
 </li>
 <li><p><a class="reference external" href="http://btv.melezinek.cz">Binary tree visualizer</a></p></li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -417,8 +718,8 @@ If the target value is larger, then we search the right subtree.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 15.3. The set class' data-toggle="tooltip" >
-    <a href="set.html" aria-label="15.3. The set class">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 15.3. Binary Search Tree iterators' data-toggle="tooltip" >
+    <a href="bst-iterator.html" aria-label="15.3. Binary Search Tree iterators">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

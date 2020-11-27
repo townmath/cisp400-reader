@@ -6,6 +6,7 @@ Trees
 
    trees.rst
    bst.rst
+   bst-iterator.rst
    set.rst
    map.rst
    unordered_map.rst
