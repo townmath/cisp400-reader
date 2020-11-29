@@ -56,7 +56,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15.6. The set class" href="set.html" />
+    <link rel="next" title="15.5. The set class" href="set.html" />
     <link rel="prev" title="15.2. Binary Search Trees" href="bst.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -193,7 +193,7 @@
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">15.6. </span>The set class' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">15.5. </span>The set class' data-toggle="tooltip" >              
     <a href="set.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -246,6 +246,8 @@ for linear structures.</p>
 and linked lists, a single pointer can implement an iterator.</p>
 <p>Given the current position, it is easy to move forward to the next element.</p>
 <p>For anything but a singly-linked list, we can also easily move backwards.</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-baed3b231c062b74484fc6c00c01f2ef358038eb.png" alt="a binary search tree" class="graphviz" /></div>
+</div>
 <p>But look at this binary search tree,
 and suppose that you were implementing tree iterators as a single pointer.
 Let’s see if we can “think” our way through the process of traversing this tree
@@ -259,37 +261,366 @@ For a BST, in-order traversal means that we will visit the data in ascending ord
 We might suspect that a pointer to a tree node will be part of
 that data structure, because that worked with iterators over linked lists.</p>
 <div class="section" id="bst-iterator-begin-and-end">
-<h2><span class="section-number">15.3.1. </span>BST iterator <code class="docutils literal notranslate"><span class="pre">begin()</span></code> and <code class="docutils literal notranslate"><span class="pre">end()</span></code><a class="headerlink" href="#bst-iterator-begin-and-end" title="Permalink to this headline">¶</a></h2>
-<p>TBD</p>
-</div>
+<span id="index-1"></span><h2><span class="section-number">15.3.1. </span>BST iterator <code class="docutils literal notranslate"><span class="pre">begin()</span></code> and <code class="docutils literal notranslate"><span class="pre">end()</span></code><a class="headerlink" href="#bst-iterator-begin-and-end" title="Permalink to this headline">¶</a></h2>
+<p>As in any data structure, <code class="docutils literal notranslate"><span class="pre">begin</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> refer to the
+first element in the data structure and one past the last element.
+In the last section, we said that
+a BST is sorted when a level order traversal is used.</p>
+<p>So what algorithm should we use to find the beginning?</p>
+
+    <div data-component="reveal" id="reveal_bst_it_1"   data-showtitle="Show" data-hidetitle="Hide" >
+    <p>Start from the root and working our way down,
+always taking left children, until we come to a node with no left child.</p>
+<p>The left-most child of a BST is always the minimum element.</p>
+
+    </div>
+    <p>So what algorithm should we use to find the end?</p>
+
+    <div data-component="reveal" id="reveal_bst_it_2"   data-showtitle="Show" data-hidetitle="Hide" >
+    <p>Just return the <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>.</p>
+<p>It’s tempting to guess that you could do much the same as for <code class="docutils literal notranslate"><span class="pre">begin()</span></code>,
+this time seeking out the right-most node.
+But that would leave you pointing to the <strong>last</strong> node in the tree,
+and <code class="docutils literal notranslate"><span class="pre">end()</span></code>, must always refer to the position after the last element
+in the container.</p>
+
+    </div>
+    </div>
 <div class="section" id="bst-iterator-operator">
-<h2><span class="section-number">15.3.2. </span>BST iterator <code class="docutils literal notranslate"><span class="pre">operator++()</span></code><a class="headerlink" href="#bst-iterator-operator" title="Permalink to this headline">¶</a></h2>
-<p>TBD</p>
+<span id="index-2"></span><h2><span class="section-number">15.3.2. </span>BST iterator <code class="docutils literal notranslate"><span class="pre">operator++()</span></code><a class="headerlink" href="#bst-iterator-operator" title="Permalink to this headline">¶</a></h2>
+<p>A quick review of the definition of iterators and the iterator design pattern.
+We have a few facts to deal with:</p>
+<ul class="simple">
+<li><p>A tree is a <em>hierarchical</em> data structure</p></li>
+<li><p>An <em>iterator</em> allows users to visit each element in a container
+<em>sequentially</em> - with no awareness of the underlying structure.</p></li>
+<li><p>In C++, iterators are implemented using pointer semantics.
+The function <code class="docutils literal notranslate"><span class="pre">operator++()</span></code> is used to move to the next element.</p></li>
+</ul>
+<p>Given our familiar tree:</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-44fce24e4ddb85c3083de867c17ed382b6f6581f.png" alt="a binary search tree" class="graphviz" /></div>
 </div>
+<p>If we are iterating through our tree and are currently at the node
+with value <code class="docutils literal notranslate"><span class="pre">40</span></code>, then how do we get to the next node?</p>
+
+    <div data-component="reveal" id="reveal_bst_it_3"   data-showtitle="Show" data-hidetitle="Hide" >
+    <p>Well, we know that we should wind up at <code class="docutils literal notranslate"><span class="pre">50</span></code>.
+But how can we get there?</p>
+<p>We can’t, not with just a pointer to the node and
+all the nodes pointing only to their children.</p>
+<p>The only place you can go within this tree is down,
+and there is no “down” from our current position.</p>
+
+    </div>
+    <p>In a binary tree, to get to the next node,
+we need to know not only where we are,
+but also how we got here.</p>
+<p>One way is to do that is to implement the iterator as a
+stack of pointers containing the path to the current node.
+The stack would be used to simulate the activation stack during
+a recursive traversal.</p>
+<p>But this solution is clumsy and inefficient.
+Iterators tend to get assigned (copied) a lot,
+and we’d really like that to be a constant time - an O(1) operation.
+Having to copy an entire stack of pointers just isn’t very attractive.</p>
 <div class="section" id="bst-iterator-using-parent-pointers">
-<h2><span class="section-number">15.3.3. </span>BST iterator using parent pointers<a class="headerlink" href="#bst-iterator-using-parent-pointers" title="Permalink to this headline">¶</a></h2>
-<p>TBD</p>
+<h3><span class="section-number">15.3.2.1. </span>BST iterator using parent pointers<a class="headerlink" href="#bst-iterator-using-parent-pointers" title="Permalink to this headline">¶</a></h3>
+<p>We can make the task of creating tree iterators much easier if we
+redesign the tree nodes to add pointers from each node to its parent.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// a binary tree node</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">tree_node</span> <span class="p">{</span>
+    <span class="n">T</span> <span class="n">value</span><span class="p">;</span>
+    <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">left</span><span class="p">;</span>
+    <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">right</span><span class="p">;</span>
+    <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">parent</span><span class="p">;</span> <span class="c1">// link to parent simplifies iterators</span>
+    <span class="n">tree_node</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span> <span class="o">=</span> <span class="n">T</span><span class="p">{},</span>
+        <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">left</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">,</span>
+        <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">right</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">,</span>
+        <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">parent</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">)</span>
+      <span class="o">:</span> <span class="n">value</span><span class="p">{</span><span class="n">value</span><span class="p">}</span>
+    <span class="p">,</span> <span class="n">left</span><span class="p">{</span><span class="n">left</span><span class="p">}</span>
+    <span class="p">,</span> <span class="n">right</span><span class="p">{</span><span class="n">right</span><span class="p">}</span>
+    <span class="p">,</span> <span class="n">parent</span><span class="p">{</span><span class="n">parent</span><span class="p">}</span>
+    <span class="p">{</span> <span class="p">}</span>
+  <span class="p">};</span>
+</pre></div>
+</div>
+<p>These nodes are then used to implement a tree class, which, as usual,
+keeps track of the root of our tree in a data member.</p>
+<p>The outline for a tree iterator is similar to what we have covered before:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">tree_iterator</span> <span class="p">{</span>
+    <span class="k">typedef</span> <span class="n">T</span> <span class="n">value_type</span><span class="p">;</span>
+    <span class="k">typedef</span> <span class="n">T</span><span class="o">*</span> <span class="n">pointer</span><span class="p">;</span>
+    <span class="k">typedef</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">reference</span><span class="p">;</span>
+    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="kt">ptrdiff_t</span> <span class="n">difference_type</span><span class="p">;</span>
+    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">bidirectional_iterator_tag</span> <span class="n">iterator_category</span><span class="p">;</span>
+
+    <span class="k">const</span> <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">node</span><span class="p">;</span>
+    <span class="n">tree_iterator</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+    <span class="n">tree_iterator</span><span class="p">(</span><span class="k">const</span> <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">n</span><span class="p">);</span>
+
+    <span class="k">constexpr</span>
+       <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">*</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>
+    <span class="n">tree_iterator</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">++</span><span class="p">();</span>
+    <span class="n">tree_iterator</span> <span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+    <span class="n">tree_iterator</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">--</span><span class="p">();</span>
+    <span class="n">tree_iterator</span> <span class="k">operator</span><span class="o">--</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+ <span class="p">};</span>
+</pre></div>
+</div>
+<p>There is a subtlety when using our tree iterator in a BST.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+ <span class="k">class</span> <span class="nc">bstree</span> <span class="p">{</span>
+   <span class="k">public</span><span class="o">:</span>
+     <span class="k">typedef</span> <span class="n">T</span> <span class="n">value_type</span><span class="p">;</span>
+<span class="hll">     <span class="k">typedef</span> <span class="k">const</span> <span class="n">tree_iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">const_iterator</span><span class="p">;</span>
+</span><span class="hll">     <span class="k">typedef</span> <span class="n">const_iterator</span> <span class="n">iterator</span><span class="p">;</span>
+</span>     <span class="k">typedef</span> <span class="n">const_iterator</span> <span class="n">reverse_iterator</span><span class="p">;</span>
+     <span class="k">typedef</span> <span class="n">const_iterator</span> <span class="n">const_reverse_iterator</span><span class="p">;</span>
+
+     <span class="c1">// remainder omitted . . .</span>
+ <span class="p">};</span>
+</pre></div>
+</div>
+<p>Note the type of all the iterators is <code class="docutils literal notranslate"><span class="pre">const</span></code>.
+We only want <code class="docutils literal notranslate"><span class="pre">const</span></code> behavior for this ADT.
+If we provided a “true” non-const iterator,
+it would allow reassigning data in the tree:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">bstree</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">myTree</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+<span class="o">*</span><span class="n">it</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>which would very likely break the internal ordering of data,
+violating the binary search tree property,
+and making it useless for any future searches.
+A <code class="docutils literal notranslate"><span class="pre">const</span></code> iterator allows us to look at data in the container,
+but not change that data.</p>
 </div>
 </div>
 <div class="section" id="implementing-bst-iterators">
-<h1><span class="section-number">15.4. </span>Implementing BST iterators<a class="headerlink" href="#implementing-bst-iterators" title="Permalink to this headline">¶</a></h1>
-<p>TBD</p>
-<div class="section" id="implementing-begin-and-end">
-<h2><span class="section-number">15.4.1. </span>Implementing <code class="docutils literal notranslate"><span class="pre">begin()</span></code> and <code class="docutils literal notranslate"><span class="pre">end()</span></code><a class="headerlink" href="#implementing-begin-and-end" title="Permalink to this headline">¶</a></h2>
-<p>TBD</p>
+<h2><span class="section-number">15.3.3. </span>Implementing BST iterators<a class="headerlink" href="#implementing-bst-iterators" title="Permalink to this headline">¶</a></h2>
+<p>As discussed earlier, <code class="docutils literal notranslate"><span class="pre">begin()</span></code> is implemented by finding
+the minimum element in the tree.</p>
+<p>A free function that works with the <code class="docutils literal notranslate"><span class="pre">tree_node</span></code> struct is enough:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">min_element</span><span class="p">(</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">root</span> <span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="k">nullptr</span> <span class="o">||</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">min_element</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">bstree::begin()</span></code> can use this function directly:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">constexpr</span>
+  <span class="n">const_iterator</span> <span class="nf">begin</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">const_iterator</span><span class="p">(</span><span class="n">min_element</span><span class="p">(</span><span class="n">root</span><span class="p">));</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>And <code class="docutils literal notranslate"><span class="pre">end()</span></code> uses the null pointer.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">constexpr</span>
+  <span class="n">const_iterator</span> <span class="nf">end</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">const_iterator</span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span>
+  <span class="p">}</span>
+</pre></div>
 </div>
 <div class="section" id="implementing-operator">
-<h2><span class="section-number">15.4.2. </span>Implementing <code class="docutils literal notranslate"><span class="pre">operator++()</span></code><a class="headerlink" href="#implementing-operator" title="Permalink to this headline">¶</a></h2>
-<p>TBD</p>
+<h3><span class="section-number">15.3.3.1. </span>Implementing <code class="docutils literal notranslate"><span class="pre">operator++()</span></code><a class="headerlink" href="#implementing-operator" title="Permalink to this headline">¶</a></h3>
+<p>Before implementing <code class="docutils literal notranslate"><span class="pre">operator++</span></code>, let’s think about what is should do.
+Given the following tree:</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-898f97d016a97320c87e9d076ff7d9f8aa5520d4.png" alt="a binary tree of letters" class="graphviz" /></div>
 </div>
-<div class="section" id="id1">
-<h2><span class="section-number">15.4.3. </span>BST iterator using parent pointers<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>TBD</p>
+<p>(Not a binary search tree, just a tree).</p>
+<p><strong>Question:</strong>
+Suppose that we are currently at node E.
+What is the in-order successor of E?
+That is, the node that comes next during an in-order traversal of E?</p>
+
+    <div data-component="reveal" id="reveal_bst_it_4"   data-showtitle="Show" data-hidetitle="Hide" >
+    <p>G is the in-order successor of E.</p>
+<p>If you answered F, remember that in an in-order traversal,
+we visit a node only after visiting all of its left descendents
+and before visiting any of its right descendents.
+Since we’re at E, we must have already visited F.</p>
+
+    </div>
+    <p>That example suggests that a node’s in-order successor tends to be among
+its right descendants.</p>
+<p>If our previous premise is correct, then what is the in-order successor to A?</p>
+
+    <div data-component="reveal" id="reveal_bst_it_5"   data-showtitle="Show" data-hidetitle="Hide" >
+    <p>F is the in-order successor of A.</p>
+<p>If we are at A during an in-order traversal,
+then we have already visited all of A’s left descendents.
+So the answer has to be C or one of its descendents.
+It’s tempting to pick C because it’s only one step away from A.</p>
+<p>But, remember, during an in-order traversal,
+we visit a node only after visiting all of its left descendents and
+before visiting any of its right descendents.</p>
+<p>We have not yet visited C’s left descendants.
+So have to run down from C to the left as far as we can go.</p>
+
+    </div>
+    <p>This suggests that, if a node has any right descendants, we should:</p>
+<ul class="simple">
+<li><p>Take a step down to the right, then</p></li>
+<li><p>Run as far down to the left as we can.</p></li>
+</ul>
+<p>You can see how this would take us from A to F.
+The same approach would take us from E to G as well.
+So both of our prior examples are satisfied.</p>
+<p>But that “step to the right, then run left” procedure raises a new question.
+What happens if we are at a node with no right descendants?</p>
+<p><strong>Question:</strong>
+Suppose that we are currently at node C. What is the in-order successor of C?</p>
+
+    <div data-component="reveal" id="reveal_bst_it_6"   data-showtitle="Show" data-hidetitle="Hide" >
+    <p>C does not <em>have</em> an in-order successor.
+C is actually the final node in an in-order traversal.
+After C is only <code class="docutils literal notranslate"><span class="pre">end()</span></code>.</p>
+
+    </div>
+    <p>While node C is an interesting special case,
+it doesn’t make clear what should happen in the more general case
+where we have no right child.</p>
+<p><strong>Question:</strong> What is the in-order successor of F?</p>
+
+    <div data-component="reveal" id="reveal_bst_it_7"   data-showtitle="Show" data-hidetitle="Hide" >
+    <p>E is the in-order successor of F.</p>
+<p>So, when we have no right child, we may need to move back up in the tree.</p>
+
+    </div>
+    <p><strong>Question:</strong> What is the in-order successor of G?</p>
+
+    <div data-component="reveal" id="reveal_bst_it_8"   data-showtitle="Show" data-hidetitle="Hide" >
+    <p>C is the in-order successor of G.</p>
+
+    </div>
+    <p>Why did we move up two steps in the tree this time,
+when from F we only moved up one step?
+The answer lies in whether we moved back up over a left-child edge or a right-child edge.</p>
+<p>If we move up over a right-child edge,
+we’re returning to a node that has already had all of its descendants,
+left and right, visited.
+So we must have already visited this node as well,
+otherwise we would never have made it into its right descendants.</p>
+<p>If we move up over a left-child edge,
+then we’re returning to a node that has already had all of its
+left descendants visited but none of its right descendants.
+That’s the definition of when we want to visit a node during an
+in-order traversal, so it’s time to visit this node.</p>
+<p>So, if a node has no right child,
+we move up in the tree (following the parent pointers)
+until we move back over a left edge.
+Then we stop.</p>
+<p>When applying this procedure to C,
+we move up to A (right edge),
+then try to move up again to A’s parent.
+But since A is the tree root,
+it’s parent pointer will be null,
+which is our signal that C has no in-order successor.</p>
+<p>To summarize:</p>
+<ul class="simple">
+<li><p>If the current node has a non-null right child,</p>
+<ul>
+<li><p>Take a step down to the right</p></li>
+<li><p>Then run down to the left as far as possible</p></li>
+</ul>
+</li>
+<li><p>If the current node has a null right child,</p>
+<ul>
+<li><p>Move up the tree until we have moved over a left child link</p></li>
+</ul>
+</li>
+</ul>
+<div id='bst_it_operator' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="operator++" >
+<p>Putting it all together.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">tree_iterator</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">++</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">*</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+     <span class="c1">// find the smallest node on the right subtree</span>
+     <span class="n">node</span> <span class="o">=</span> <span class="n">mesa</span><span class="o">::</span><span class="n">tree</span><span class="o">::</span><span class="n">min_element</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+     <span class="c1">// finished with right subtree and there is no right</span>
+     <span class="c1">// search up for first parent with a non-null right child</span>
+     <span class="c1">// or nullptr,</span>
+     <span class="k">auto</span> <span class="n">parent</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">parent</span><span class="p">;</span>
+     <span class="k">while</span> <span class="p">(</span><span class="n">parent</span> <span class="o">!=</span> <span class="k">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">node</span> <span class="o">==</span> <span class="n">parent</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">node</span> <span class="o">=</span> <span class="n">parent</span><span class="p">;</span>
+       <span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span><span class="o">-&gt;</span><span class="n">parent</span><span class="p">;</span>
+     <span class="p">}</span>
+     <span class="n">node</span> <span class="o">=</span> <span class="n">parent</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="o">*</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="bst-threads">
-<h1><span class="section-number">15.5. </span>BST Threads<a class="headerlink" href="#bst-threads" title="Permalink to this headline">¶</a></h1>
-<p>TBD</p>
+    </div>
+
+</div>
+</div>
+</div>
+<div class="section" id="using-parent-pointers">
+<h1><span class="section-number">15.4. </span>Using parent pointers<a class="headerlink" href="#using-parent-pointers" title="Permalink to this headline">¶</a></h1>
+<p>Using parent pointers does incur additional overhead.
+We must store an additional pointer with every tree node.
+It also means the functions used to manage the tree need to change.</p>
+<p>Originally, inserting a node looked like this:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span>
+ <span class="n">insert</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
+         <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*&amp;</span> <span class="n">node</span><span class="p">)</span>
+ <span class="p">{</span>
+   <span class="c1">// add a new leaf</span>
+   <span class="k">if</span><span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">);</span>
+     <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
+   <span class="p">}</span>
+   <span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+   <span class="p">}</span>
+   <span class="c1">// else the value already exists in the tree</span>
+   <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+   <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>But now when inserting a new node, we also need to maintain
+correct parent relationships.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span>
+  <span class="n">insert</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
+          <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*&amp;</span> <span class="n">node</span><span class="p">,</span>
+          <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">parent</span><span class="p">)</span>
+<span class="hll">  <span class="p">{</span>
+</span>    <span class="c1">// add a new leaf</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="n">parent</span><span class="p">);</span>
+<span class="hll">      <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
+</span>    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">node</span><span class="p">);</span>
+<span class="hll">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+</span>      <span class="k">return</span> <span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">node</span><span class="p">);</span>
+<span class="hll">    <span class="p">}</span>
+</span>    <span class="c1">// else the value already exists in the tree</span>
+    <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>When we make a new node, we need to pass the parent into
+the <code class="docutils literal notranslate"><span class="pre">tree_node</span></code> constructor.
+Even though it won’t have children initially, it will have a parent.</p>
+<p>When we make our recursive calls, the parent node passed in
+is the current node.</p>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
@@ -297,6 +628,7 @@ that data structure, because that worked with iterators over linked lists.</p>
 <li><p>The content on this page was adapted from
 <a class="reference external" href="https://www.cs.odu.edu/~zeil/cs361/f16/Public/treetraversal/index.html">Binary Search Trees</a>,
 by Steven J. Zeil for his data structures course CS361.</p></li>
+<li><p><a class="reference external" href="http://btv.melezinek.cz">Binary tree visualizer</a></p></li>
 </ul>
 </div>
 </div>
@@ -319,8 +651,8 @@ by Steven J. Zeil for his data structures course CS361.</p></li>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 15.6. The set class' data-toggle="tooltip" >
-    <a href="set.html" aria-label="15.6. The set class">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 15.5. The set class' data-toggle="tooltip" >
+    <a href="set.html" aria-label="15.5. The set class">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

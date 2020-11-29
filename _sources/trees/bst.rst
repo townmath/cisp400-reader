@@ -53,13 +53,6 @@ common to all binary trees:
 - A variable to store the node value
 - Pointers to the left and right child nodes,
   which might themselves be sub-trees.
-- We are adding an additional pointer to the parent node.
-
-  Every tree node except for the root contains exactly 1 parent node.
-
-  A parent pointer makes tree iterating more flexible as we
-  will see later.
-
 
 .. code-block:: cpp
 
@@ -72,15 +65,12 @@ common to all binary trees:
           T value;
           tree_node<T>* left;
           tree_node<T>* right;
-          tree_node<T>* parent; // link to parent simplifies iterators
           tree_node(const T& value = T{}, 
               tree_node<T>* left = nullptr,
-              tree_node<T>* right = nullptr,
-              tree_node<T>* parent = nullptr)
+              tree_node<T>* right = nullptr)
             : value{value}
           , left{left}
           , right{right}
-          , parent{parent}
           { }
         };
      } // end namespace tree
@@ -229,17 +219,17 @@ such that the binary tree property remains intact.
       .. code-block:: cpp
 
          tree::tree_node<T>* 
-          insert (const T& value, tree::tree_node<T>*& node, tree::tree_node<T>* parent)
+          insert (const T& value, tree::tree_node<T>*& node)
           {
             // add a new leaf
             if(node == nullptr) {
-              node = new tree::tree_node<T>(value, nullptr, nullptr, parent);
+              node = new tree::tree_node<T>(value, nullptr, nullptr);
               return node;
             }
             if(value < node->value) {
-              return insert(value, node->left, node);
+              return insert(value, node->left);
             } else if(node->value < value) {
-              return insert(value, node->right, node);
+              return insert(value, node->right);
             }
             // else the value already exists in the tree
             node->value = value;
@@ -254,9 +244,6 @@ such that the binary tree property remains intact.
       It does this specifically when our traversal brings us to a null pointer.
       A :term:`leaf node` is place where we can insert a new
       tree node while still adhering to the binary search tree property.
-
-      The last argument is a pointer to the parent node of the current node.
-      We or any recursive call made, the parent node is the current node.
 
       Overwriting an existing value is a design choice.
       We could have chosen to do nothing and simply return the node.
@@ -517,7 +504,6 @@ or has at most one child.
       This block will also untilately get called when the
       case handling two child nodes needs to delete the 
       smallest value from the right subtree.
-
 
 -----
 

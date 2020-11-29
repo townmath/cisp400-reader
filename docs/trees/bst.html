@@ -268,15 +268,10 @@ it makes sense in this case to define it as a completely separate
 struct with no invariants.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">tree_node</span></code> encapsulates the general characteristics
 common to all binary trees:</p>
-<ul>
+<ul class="simple">
 <li><p>A variable to store the node value</p></li>
 <li><p>Pointers to the left and right child nodes,
 which might themselves be sub-trees.</p></li>
-<li><p>We are adding an additional pointer to the parent node.</p>
-<p>Every tree node except for the root contains exactly 1 parent node.</p>
-<p>A parent pointer makes tree iterating more flexible as we
-will see later.</p>
-</li>
 </ul>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">mesa</span> <span class="p">{</span>
   <span class="k">namespace</span> <span class="n">tree</span> <span class="p">{</span>
@@ -287,15 +282,12 @@ will see later.</p>
        <span class="n">T</span> <span class="n">value</span><span class="p">;</span>
        <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">left</span><span class="p">;</span>
        <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">right</span><span class="p">;</span>
-       <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">parent</span><span class="p">;</span> <span class="c1">// link to parent simplifies iterators</span>
        <span class="n">tree_node</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span> <span class="o">=</span> <span class="n">T</span><span class="p">{},</span>
            <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">left</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">,</span>
-           <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">right</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">,</span>
-           <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">parent</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">)</span>
+           <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">right</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">)</span>
          <span class="o">:</span> <span class="n">value</span><span class="p">{</span><span class="n">value</span><span class="p">}</span>
        <span class="p">,</span> <span class="n">left</span><span class="p">{</span><span class="n">left</span><span class="p">}</span>
        <span class="p">,</span> <span class="n">right</span><span class="p">{</span><span class="n">right</span><span class="p">}</span>
-       <span class="p">,</span> <span class="n">parent</span><span class="p">{</span><span class="n">parent</span><span class="p">}</span>
        <span class="p">{</span> <span class="p">}</span>
      <span class="p">};</span>
   <span class="p">}</span> <span class="c1">// end namespace tree</span>
@@ -423,17 +415,17 @@ Ask “where would we go if we were searching for this data in the tree?”
 This process is identical to the search used for the contains function.</p>
 <p>This function is implemented as a <code class="docutils literal notranslate"><span class="pre">bstree</span></code> member function.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span>
- <span class="n">insert</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span> <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*&amp;</span> <span class="n">node</span><span class="p">,</span> <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">parent</span><span class="p">)</span>
+ <span class="n">insert</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span> <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*&amp;</span> <span class="n">node</span><span class="p">)</span>
  <span class="p">{</span>
    <span class="c1">// add a new leaf</span>
    <span class="k">if</span><span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
-     <span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="n">parent</span><span class="p">);</span>
+     <span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">);</span>
      <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
    <span class="p">}</span>
    <span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">)</span> <span class="p">{</span>
-     <span class="k">return</span> <span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">node</span><span class="p">);</span>
+     <span class="k">return</span> <span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
-     <span class="k">return</span> <span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">node</span><span class="p">);</span>
+     <span class="k">return</span> <span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
    <span class="p">}</span>
    <span class="c1">// else the value already exists in the tree</span>
    <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
@@ -448,8 +440,6 @@ It can change the value of the pointer provided.
 It does this specifically when our traversal brings us to a null pointer.
 A <a class="reference internal" href="../glossary.html#term-leaf-node"><span class="xref std std-term">leaf node</span></a> is place where we can insert a new
 tree node while still adhering to the binary search tree property.</p>
-<p>The last argument is a pointer to the parent node of the current node.
-We or any recursive call made, the parent node is the current node.</p>
 <p>Overwriting an existing value is a design choice.
 We could have chosen to do nothing and simply return the node.</p>
 </div>
