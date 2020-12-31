@@ -3,22 +3,23 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>3.5. General function writing guidelines &#8212; CISC 187 Course Reader Overview</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.5. General function writing guidelines &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
     <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
-    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
     <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
     <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -28,9 +29,9 @@
     <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
-    <script src="../_static/html4css1.css?v=4D8F3FB4"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
     <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
@@ -45,7 +46,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script src="../_static/runestone.js?v=343ECCF5"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
     <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
     <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
     <script src="../_static/jquery-fix.js?v=1226591B"></script>
@@ -53,11 +54,11 @@
     <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
     <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
     <script src="../_static/theme.js?v=D899FB97"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.6. Keyword: const" href="constants.html" />
-    <link rel="prev" title="3.4. Namespaces" href="namespace.html" />
+    <link rel="next" title="5.6. Keyword: const" href="constants.html" />
+    <link rel="prev" title="5.4. Namespaces" href="namespace.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -79,7 +80,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '5.0.8';
+  eBookConfig.runestone_version = '5.5.5';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -187,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">3.4. </span>Namespaces" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">5.4. </span>Namespaces" data-toggle="tooltip">
     <a href="namespace.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">3.6. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">const</span></code>' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">5.6. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">const</span></code>' data-toggle="tooltip" >              
     <a href="constants.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -231,9 +232,12 @@
 <div class="container" id="continue-reading"></div>
 
 <div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
   
   <div class="section" id="general-function-writing-guidelines">
-<span id="index-0"></span><h1><span class="section-number">3.5. </span>General function writing guidelines<a class="headerlink" href="#general-function-writing-guidelines" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">5.5. </span>General function writing guidelines<a class="headerlink" href="#general-function-writing-guidelines" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic">
 <li><p>Write for clarity and correctness <strong>first</strong></p></li>
 <li><p>Avoid <em>premature optimization</em></p></li>
@@ -264,12 +268,16 @@ the variable x is modified when passed to these functions.</p>
 side effects are almost always unexpected.</p>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div data-childcomponent="functions_guidelines_side_effects_ac" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=functions_guidelines_side_effects_ac >
+<div id=functions_guidelines_side_effects_ac_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=functions_guidelines_side_effects_ac data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="functions_guidelines_side_effects_ac_editor" data-question_label="5.5.1" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 
 void dig(double& val);
@@ -296,6 +304,7 @@ void deeper(double& val) {
   std::cout << "now even deeper....\n";
 }
 </textarea>
+</div>
 </div>
 </div>
     </div>
@@ -332,11 +341,14 @@ Unless you <em>completely</em> trust the caller (and their caller…)</p>
 </ol>
 
     <div class="runestone" style="margin-left: auto; margin-right:auto">
-        <div id="9mWWNYRHAIQ" data-component="youtube" class="align-left youtube-video" data-video-height="281" data-video-width="500" data-video-videoid="9mWWNYRHAIQ" data-video-divid="9mWWNYRHAIQ" data-video-start="0" data-video-end="-1" ></div>
-        <p class="runestone_caption"><span class="runestone_caption_text">Video: (9mWWNYRHAIQ)</span> </p>
+        <div id="9mWWNYRHAIQ" data-component="youtube" class="align-left youtube-video"
+            data-video-height="281" data-question_label="5.5.2"
+            data-video-width="500" data-video-videoid="9mWWNYRHAIQ"
+            data-video-divid="9mWWNYRHAIQ" data-video-start="0"
+            data-video-end="-1" ></div>
     </div>
     <div class="section" id="when-to-write-a-function">
-<h2><span class="section-number">3.5.1. </span>When to write a function<a class="headerlink" href="#when-to-write-a-function" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5.1. </span>When to write a function<a class="headerlink" href="#when-to-write-a-function" title="Permalink to this headline">¶</a></h2>
 <p>As with any kind of abstraction, there are two goals to making a function:</p>
 <ul>
 <li><p><strong>Encapsulation</strong>:
@@ -431,7 +443,7 @@ and have the advantage of working on any <a class="reference internal" href="../
 </div>
 </div>
 <div class="section" id="example-number-guessing">
-<h2><span class="section-number">3.5.2. </span>Example: number guessing<a class="headerlink" href="#example-number-guessing" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5.2. </span>Example: number guessing<a class="headerlink" href="#example-number-guessing" title="Permalink to this headline">¶</a></h2>
 <p>A more realistic example might help.
 While randomly surfing the internet,</p>
 <div id='function_guidelines_guessing_example_tab' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Original" >
@@ -495,12 +507,16 @@ is implicitly void.</p>
 <p>Yes, not bit hurdles, but this is where bugs hide.</p>
 <p>The standard library has a superior alternative to <code class="docutils literal notranslate"><span class="pre">rand</span></code>:</p>
 
-<div data-childcomponent="function_random_ac" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=function_random_ac >
+<div id=function_random_ac_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=function_random_ac data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="function_random_ac_editor" data-question_label="5.5.2.1" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 #include <random>
 
@@ -517,6 +533,7 @@ int main() {
   }
 }
 </textarea>
+</div>
 </div>
 <p>Because there are no functions, it is necessary to repeat block of code like this:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Enter a number between 1 and 100 (&quot;</span> <span class="o">&lt;&lt;</span> <span class="mi">20</span> <span class="o">-</span> <span class="n">tries</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; tries left): &quot;</span><span class="p">;</span>
@@ -598,8 +615,8 @@ from GitHub</p></li>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 3.4. Namespaces' data-toggle="tooltip">
-    <a href="namespace.html" aria-label="3.4. Namespaces">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 5.4. Namespaces' data-toggle="tooltip">
+    <a href="namespace.html" aria-label="5.4. Namespaces">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -609,8 +626,8 @@ from GitHub</p></li>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.6. Keyword:  const ' data-toggle="tooltip" >
-    <a href="constants.html" aria-label="3.6. Keyword:  const ">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 5.6. Keyword:  const ' data-toggle="tooltip" >
+    <a href="constants.html" aria-label="5.6. Keyword:  const ">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
@@ -652,7 +669,7 @@ from GitHub</p></li>
     </p>
     <p>
         &copy; Copyright 2017-2020 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.0.8.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
     </p>
   </div>
 </footer>

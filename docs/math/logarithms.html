@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.3. Logarithms &#8212; CISC 187 Course Reader Overview</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
+    <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
+    <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
+    <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
+    <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
+    <script src="../_static/animationbase.js?v=A043C3A7"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
+    <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
+    <script src="../_static/webglinteractive.js?v=2B768384"></script>
+    <script src="../_static/FileSaver.min.js?v=8408C997"></script>
+    <script src="../_static/Blob.js?v=AEC2447"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.bidi.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.fallbacks.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.messagestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.parser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.language.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
+    <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
+    <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+    <script src="../_static/jquery-fix.js?v=1226591B"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
+    <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
+    <script src="../_static/theme.js?v=D899FB97"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.4. Summations" href="summations.html" />
+    <link rel="prev" title="2.2. Selected functions" href="functions.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+<script type="text/javascript">
+  eBookConfig = {};
+  
+    eBookConfig.useRunestoneServices = false;
+    eBookConfig.host = 'https://daveparillo.github.io/cisc187-reader/' || 'http://127.0.0.1:8000';
+    eBookConfig.app = eBookConfig.host+'/cisc187-reader';
+    eBookConfig.course = 'cisc187-reader';
+    eBookConfig.basecourse = 'cisc187-reader';
+    eBookConfig.isLoggedIn = false;
+  
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.logLevel = 0;
+  eBookConfig.loginRequired = false;
+  eBookConfig.build_info = "unknown";
+  eBookConfig.python3 = true;
+  eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
+  eBookConfig.runestone_version = '5.5.5';
+  eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
+  eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
+  eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
+  eBookConfig.enable_chatcodes = false ? false : false;
+
+
+</script>
+
+<!-- Ad Serving Headers Only serve ads to Anonymous Users -->
+
+
+
+
+
+  </head><body>
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar" aria-label="navbar toggle" class="visuallyhidden">toggle navbar</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+        
+          <a class="brand-logo" style='background: transparent url("../_static/img/logo_small.png") no-repeat 0px 0px;'>&nbsp;<span aria-label="logo" class="visuallyhidden">Runestone Logo</span> </a>
+        
+        <a class="navbar-brand" href="../index.html" aria-label="index-page">
+          
+          cisc187-reader
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right" >
+
+        <li class="divider-vertical"></li>
+
+
+        <!-- social media dropdown -->
+        <!-- end social media dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'><span aria-label="Search" class="visuallyhidden">Search</span></i>
+          </a>
+          <ul class='dropdown-menu'>
+            
+                <li><a href='../index.html' aria-label="index-page">Table of Contents</a></li>
+            
+            <li><a href='../genindex.html'>Book Index</a></li>
+            <li class="divider"></li>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        
+        <li class="divider-vertical"></li>
+        <!-- <li id="scratch_ac_link"><a href="javascript:ACFactory.toggleScratchActivecode()">Scratch ActiveCode</a></li> -->
+
+        <!-- <li class="dropdown">             -->
+          <li id="scratch_ac_link" class="dropdown"><a href="javascript:ACFactory.toggleScratchActivecode()">
+              <i class="glyphicon glyphicon-pencil" style="opacity:0.9;"><span aria-label="Scratch Activecode" class="visuallyhidden">Scratch Activecode</span></i></a></li>
+        <!-- </li> -->
+
+        <li class="divider-vertical"></li>
+
+        
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <li class="divider-vertical"></li>
+        
+          
+          <li class="divider-vertical"></li>
+        
+        <!-- 
+          
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">2.2. </span>Selected functions" data-toggle="tooltip">
+    <a href="functions.html" >
+      <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  
+  <li id="relations-next" title='Next Chapter - <span class="section-number">2.4. </span>Summations' data-toggle="tooltip" >              
+    <a href="summations.html" >
+        <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  <li class="divider-vertical"></li>
+
+<script type="text/javascript">
+  opts = {'placement':'bottom',
+          'selector': '',
+          'delay': { show: 100, hide: 50}
+         };
+
+  $('#relations-prev').tooltip(opts);
+  $('#relations-next').tooltip(opts);
+</script>
+        -->
+        
+          <li></li>
+        
+      </ul>
+
+      </div> <!-- navbar -->
+
+
+
+
+
+
+
+    </div> <!-- container -->
+  </div>
+</div>
+
+
+<div class="container" id="continue-reading"></div>
+
+<div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
+  
+  <div class="section" id="logarithms">
+<span id="index-0"></span><h1><span class="section-number">2.3. </span>Logarithms<a class="headerlink" href="#logarithms" title="Permalink to this headline">¶</a></h1>
+<p>The logarithm of base <span class="math notranslate nohighlight">\(b\)</span> for value <span class="math notranslate nohighlight">\(y\)</span> is the
+power to which <span class="math notranslate nohighlight">\(b\)</span> is raised to get <span class="math notranslate nohighlight">\(y\)</span>.
+Normally, this is written as <span class="math notranslate nohighlight">\(\log_b y = x\)</span>.
+Thus, if <span class="math notranslate nohighlight">\(\log_b y = x\)</span> then <span class="math notranslate nohighlight">\(b^x = y\)</span>,
+and <span class="math notranslate nohighlight">\(b^{log_b y} = y\)</span>.</p>
+<p>Logarithms are used frequently by programmers.
+Here are two typical uses.</p>
+<div class="topic">
+<p class="topic-title">Example</p>
+<p>Many programs require an encoding for a collection of objects.
+What is the minimum number of bits needed to represent <span class="math notranslate nohighlight">\(n\)</span>
+distinct code values?
+The answer is <span class="math notranslate nohighlight">\(\lceil \log_2 n \rceil\)</span> bits.
+For example, if you have 1000 codes to store, you will require at
+least <span class="math notranslate nohighlight">\(\lceil \log_2 1000 \rceil = 10\)</span> bits to have 1000
+different codes (10 bits provide 1024 distinct code values).</p>
+</div>
+<div class="topic">
+<p class="topic-title">Example</p>
+<p>Consider the binary search
+algorithm for finding a given value within an array sorted by value
+from lowest to highest.
+Binary search first looks at the middle element
+and determines if the value being searched for is in the upper half
+or the lower half of the array.
+The algorithm then continues splitting the appropriate
+subarray in half until the desired value is found.
+How many times can an array of size (n) be split in half until
+only one element remains in the final subarray?
+The answer is <span class="math notranslate nohighlight">\(\lceil \log_2 n \rceil\)</span> times.</p>
+</div>
+<p>In this course, nearly all logarithms used have a base of two.
+This is because data structures and algorithms most often divide
+things in half, or store codes with binary bits.
+Whenever you see the notation <span class="math notranslate nohighlight">\(\log n\)</span> in this text,
+either <span class="math notranslate nohighlight">\(\log_2 n\)</span> is meant or else the term is being used
+asymptotically and so the actual base does not matter.
+For logarithms using any base other than two, we will show the base
+explicitly.</p>
+<p>Logarithms have the following properties, for any positive values of
+<span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(n\)</span>, and <span class="math notranslate nohighlight">\(r\)</span>, and any positive integers
+<span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\log (nm) = \log n + \log m\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\log (n/m) = \log n - \log m\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\log (n^r) = r \log n\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\log_a n = \log_b n / \log_b a\)</span>.</p></li>
+</ol>
+<p>The first two properties state that the logarithm
+of two numbers multiplied (or divided) can be found by adding
+(or subtracting) the logarithms of the two numbers. <a class="footnote-reference brackets" href="#id2" id="id1">1</a>
+Property (3) is simply an extension of property (1).
+Property (4) tells us that, for variable <span class="math notranslate nohighlight">\(n\)</span> and any two integer
+constants <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(\log_a n\)</span> and
+<span class="math notranslate nohighlight">\(\log_b n\)</span> differ by the constant factor <span class="math notranslate nohighlight">\(\log_b a\)</span>,
+regardless of the value of <span class="math notranslate nohighlight">\(n\)</span>.
+Most runtime analyses we use are of a type that ignores
+constant factors in costs.
+Property (4) says that such analyses need not be concerned with the
+base of the logarithm, because this can change the total cost only by
+a constant factor.</p>
+<p>A useful identity to know is:</p>
+<div class="math notranslate nohighlight">
+\[2^{\log n} = n\]</div>
+<p>To give some intuition for why this is true:
+What does it mean to take the log (base 2) of <span class="math notranslate nohighlight">\(n\)</span>?
+If <span class="math notranslate nohighlight">\(\log_2 n = x\)</span>, then <span class="math notranslate nohighlight">\(x\)</span> is the power to which you need
+to raise 2 to get back to <span class="math notranslate nohighlight">\(n\)</span>.
+So of course, <span class="math notranslate nohighlight">\(2^{\log n} = n\)</span> when the base of the log is 2.</p>
+<p>When discussing logarithms, exponents often lead to confusion.
+Property (3) tells us that <span class="math notranslate nohighlight">\(\log n^2 = 2 \log n\)</span>.
+How do we indicate the square of the logarithm (as opposed to the
+logarithm of <span class="math notranslate nohighlight">\(n^2\)</span>)?
+This could be written as <span class="math notranslate nohighlight">\((\log n)^2\)</span>, but it is traditional to
+use <span class="math notranslate nohighlight">\(\log^2 n\)</span>.
+On the other hand, we might want to take the logarithm of the
+logarithm of <span class="math notranslate nohighlight">\(n\)</span>.
+This is written <span class="math notranslate nohighlight">\(\log \log n\)</span>.</p>
+<p>A special notation is used in the rare case when we need to know how
+many times we must take the log of a number before we reach a
+value <span class="math notranslate nohighlight">\(\leq 1\)</span>.
+This quantity is written <span class="math notranslate nohighlight">\(\log^* n\)</span>.
+For example, <span class="math notranslate nohighlight">\(\log^* 1024 = 4\)</span> because
+<span class="math notranslate nohighlight">\(\log 1024 = 10\)</span>, <span class="math notranslate nohighlight">\(\log 10 \approx 3.33\)</span>,
+<span class="math notranslate nohighlight">\(\log 3.33 \approx 1.74\)</span>,
+and <span class="math notranslate nohighlight">\(\log 1.74 &lt; 1\)</span>, which is a total of 4 log operations.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>These properties are the idea behind the slide rule.
+Adding two numbers can be viewed as joining two lengths
+together and measuring their combined length.
+Multiplication is not so easily done.
+However, if the numbers are first converted to the lengths of
+their logarithms, then those lengths can be added and the
+inverse logarithm of the resulting length gives the answer for
+the multiplication (this is simply logarithm property (1)).
+A slide rule measures the length of the logarithm for the
+numbers, lets you slide bars representing these lengths to add
+up the total length, and finally converts this total length to
+the correct numeric answer by taking the inverse of the
+logarithm for the result.</p>
+</dd>
+</dl>
+<p>Here is some practice with manipulating logarithms.</p>
+</div>
+
+
+  <div id=scprogresscontainer>
+    You have attempted <span id=scprogresstotal></span> of <span id=scprogressposs></span> activities on this page <div id="subchapterprogress"></div>
+  </div>
+  
+      
+<ul>
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 2.2. Selected functions' data-toggle="tooltip">
+    <a href="functions.html" aria-label="2.2. Selected functions">
+        <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
+            <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
+        </div>
+    </a>
+  </li>
+</ul>
+
+  
+<ul>
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 2.4. Summations' data-toggle="tooltip" >
+    <a href="summations.html" aria-label="2.4. Summations">
+      <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
+          <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
+      </div>
+    </a>
+  </li>
+</ul>
+
+<script type="text/javascript">
+
+  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
+
+</script>
+
+<script>
+	function mouseOverPrev() {
+		document.getElementById("relations-prev").style.opacity=1;
+	}
+
+	function mouseOutPrev() {
+		document.getElementById("relations-prev").style.opacity=0.4;
+	}
+	function mouseOverNext() {
+		document.getElementById("relations-next").style.opacity=1;
+	}
+
+	function mouseOutNext() {
+		document.getElementById("relations-next").style.opacity=0.4;
+	}
+</script>
+  
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      
+      | <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017-2020 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
+    </p>
+  </div>
+</footer>
+
+
+
+
+<script> getSwitch(); </script>
+
+
+  </body>
+</html>

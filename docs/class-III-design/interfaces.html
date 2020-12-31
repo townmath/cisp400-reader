@@ -3,22 +3,23 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>9.5. Abstract base classes &#8212; CISC 187 Course Reader Overview</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11.5. Abstract base classes &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
     <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
-    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
     <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
     <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -28,9 +29,9 @@
     <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
-    <script src="../_static/html4css1.css?v=4D8F3FB4"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
     <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
@@ -45,7 +46,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script src="../_static/runestone.js?v=343ECCF5"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
     <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
     <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
     <script src="../_static/jquery-fix.js?v=1226591B"></script>
@@ -53,11 +54,11 @@
     <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
     <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
     <script src="../_static/theme.js?v=D899FB97"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="9.6. Design patterns" href="patterns.html" />
-    <link rel="prev" title="9.4. Inheritance" href="inheritance.html" />
+    <link rel="next" title="11.6. Design patterns" href="patterns.html" />
+    <link rel="prev" title="11.4. Inheritance" href="inheritance.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -79,7 +80,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '5.0.8';
+  eBookConfig.runestone_version = '5.5.5';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -187,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">9.4. </span>Inheritance" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">11.4. </span>Inheritance" data-toggle="tooltip">
     <a href="inheritance.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">9.6. </span>Design patterns' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">11.6. </span>Design patterns' data-toggle="tooltip" >              
     <a href="patterns.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -231,9 +232,12 @@
 <div class="container" id="continue-reading"></div>
 
 <div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
   
   <div class="section" id="abstract-base-classes">
-<span id="index-0"></span><h1><span class="section-number">9.5. </span>Abstract base classes<a class="headerlink" href="#abstract-base-classes" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">11.5. </span>Abstract base classes<a class="headerlink" href="#abstract-base-classes" title="Permalink to this headline">¶</a></h1>
 <p>Often the functions declared in a base class cannot be defined
 in the base class, but instead can only be implemented in the derived
 classes.
@@ -256,9 +260,9 @@ one unimplemented function:</p>
     <span class="k">virtual</span> <span class="o">~</span><span class="n">shape</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
     <span class="kt">void</span>   <span class="nf">color</span> <span class="p">(</span><span class="n">Color</span> <span class="n">new_color</span><span class="p">)</span> <span class="p">{</span> <span class="n">color_</span> <span class="o">=</span> <span class="n">new_color</span><span class="p">;</span> <span class="p">}</span>
     <span class="n">Color</span>  <span class="nf">color</span> <span class="p">()</span>  <span class="k">const</span>         <span class="p">{</span> <span class="k">return</span> <span class="n">color_</span><span class="p">;</span> <span class="p">}</span>
-    <span class="k">virtual</span> <span class="kt">void</span>   <span class="nf">move</span><span class="p">();</span>      <span class="c1">// implemented in shape.cpp</span>
-    <span class="k">virtual</span> <span class="kt">void</span>   <span class="nf">draw</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">virtual</span> <span class="kt">void</span>   <span class="nf">erase</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">void</span>   <span class="n">move</span><span class="p">();</span>      <span class="c1">// implemented in shape.cpp</span>
+    <span class="k">virtual</span> <span class="kt">void</span>   <span class="n">draw</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">void</span>   <span class="n">erase</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 </div>
@@ -305,21 +309,21 @@ but can itself remain abstract.
 A non-abstract derived class can make itself abstract
 by declaring a new pure virtual function,
 or by declaring an existing virtual function as pure virtual.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Base</span> <span class="p">{</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Base</span> <span class="p">{</span>
     <span class="k">virtual</span> <span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// pure virtual</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="nl">X</span> <span class="p">:</span> <span class="n">Base</span> <span class="p">{</span>
-    <span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="k">override</span> <span class="p">{}</span> <span class="c1">// non-pure virtual</span>
+<span class="k">struct</span> <span class="nc">X</span> <span class="o">:</span> <span class="n">Base</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="k">override</span> <span class="p">{}</span> <span class="c1">// non-pure virtual</span>
     <span class="k">virtual</span> <span class="kt">void</span> <span class="n">g</span><span class="p">();</span>     <span class="c1">// non-pure virtual</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="nl">Y</span> <span class="p">:</span> <span class="n">X</span> <span class="p">{</span>
-    <span class="kt">void</span> <span class="n">g</span><span class="p">()</span> <span class="k">override</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// pure virtual overrider</span>
+<span class="k">struct</span> <span class="nc">Y</span> <span class="o">:</span> <span class="n">X</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="nf">g</span><span class="p">()</span> <span class="k">override</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// pure virtual overrider</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="nl">Z</span> <span class="p">:</span> <span class="n">Y</span> <span class="p">{</span>
-    <span class="kt">void</span> <span class="n">g</span><span class="p">()</span> <span class="k">override</span> <span class="p">{};</span> <span class="c1">// non-pure virtual</span>
+<span class="k">struct</span> <span class="nc">Z</span> <span class="o">:</span> <span class="n">Y</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="nf">g</span><span class="p">()</span> <span class="k">override</span> <span class="p">{};</span> <span class="c1">// non-pure virtual</span>
 <span class="p">};</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
@@ -335,7 +339,7 @@ or by declaring an existing virtual function as pure virtual.</p>
 </pre></div>
 </div>
 <div class="section" id="interfaces">
-<h2><span class="section-number">9.5.1. </span>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.5.1. </span>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h2>
 <p>When an abstract base class declares no member variables and
 declares <strong>only</strong> pure virtual functions,
 then the class is referred to as an <em>interface</em>.
@@ -347,9 +351,9 @@ to behave like an interface:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">shape</span> <span class="p">{</span>
   <span class="k">public</span><span class="o">:</span>
     <span class="k">virtual</span> <span class="o">~</span><span class="n">shape</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-    <span class="k">virtual</span> <span class="kt">void</span>   <span class="nf">move</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">// implemented in shape.cpp</span>
-    <span class="k">virtual</span> <span class="kt">void</span>   <span class="nf">draw</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">virtual</span> <span class="kt">void</span>   <span class="nf">erase</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">void</span>   <span class="n">move</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">// implemented in shape.cpp</span>
+    <span class="k">virtual</span> <span class="kt">void</span>   <span class="n">draw</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">void</span>   <span class="n">erase</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 </div>
@@ -382,7 +386,7 @@ derived classes to provide implementations for one or more steps:</p>
    <span class="k">private</span><span class="o">:</span>
      <span class="c1">// ALL implementation steps are private</span>
      <span class="k">virtual</span> <span class="kt">void</span> <span class="n">brew</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-     <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">add_extras</span><span class="p">();</span>
+     <span class="k">virtual</span> <span class="kt">void</span> <span class="n">add_extras</span><span class="p">();</span>
 
      <span class="c1">// non-virtual mandatory parts of the recipe</span>
      <span class="kt">void</span> <span class="nf">heat</span><span class="p">();</span>
@@ -428,7 +432,7 @@ when the base class was originally written.</p>
      <span class="o">~</span><span class="n">coffee</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
    <span class="k">private</span><span class="o">:</span>
      <span class="k">virtual</span> <span class="kt">void</span> <span class="n">brew</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-     <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">add_extras</span><span class="p">();</span>
+     <span class="k">virtual</span> <span class="kt">void</span> <span class="n">add_extras</span><span class="p">();</span>
 <span class="p">};</span>
 
 <span class="kt">void</span> <span class="n">coffee</span><span class="o">::</span><span class="n">brew</span><span class="p">()</span>
@@ -445,7 +449,7 @@ when the base class was originally written.</p>
      <span class="o">~</span><span class="n">tea</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
    <span class="k">private</span><span class="o">:</span>
      <span class="k">virtual</span> <span class="kt">void</span> <span class="n">brew</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-     <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">add_extras</span><span class="p">();</span>
+     <span class="k">virtual</span> <span class="kt">void</span> <span class="n">add_extras</span><span class="p">();</span>
 <span class="p">};</span>
 
 <span class="kt">void</span> <span class="n">tea</span><span class="o">::</span><span class="n">brew</span><span class="p">()</span>
@@ -470,7 +474,7 @@ when the base class was originally written.</p>
 </div>
 </div>
 <div class="section" id="the-final-specifier">
-<h2><span class="section-number">9.5.2. </span>The final specifier<a class="headerlink" href="#the-final-specifier" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.5.2. </span>The final specifier<a class="headerlink" href="#the-final-specifier" title="Permalink to this headline">¶</a></h2>
 <p>Added in C++11,
 this keyword specifies that a virtual function cannot be overridden
 in a derived class or that a class cannot be inherited from.</p>
@@ -478,23 +482,23 @@ in a derived class or that a class cannot be inherited from.</p>
 <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=final">final</a> ensures that the function is virtual and specifies
 that it may not be overridden by derived classes.
 Attempting to override a final function is a compile error.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Base</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Base</span>
 <span class="p">{</span>
     <span class="k">virtual</span> <span class="kt">void</span> <span class="n">foo</span><span class="p">();</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="nl">A</span> <span class="p">:</span> <span class="n">Base</span>
+<span class="k">struct</span> <span class="nc">A</span> <span class="o">:</span> <span class="n">Base</span>
 <span class="p">{</span>
-    <span class="kt">void</span> <span class="n">foo</span><span class="p">()</span> <span class="k">final</span><span class="p">;</span> <span class="c1">// A::foo is overridden and it is the final override</span>
+    <span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span> <span class="k">final</span><span class="p">;</span> <span class="c1">// A::foo is overridden and it is the final override</span>
     <span class="kt">void</span> <span class="nf">bar</span><span class="p">()</span> <span class="k">final</span><span class="p">;</span> <span class="c1">// Error: non-virtual function cannot be overridden or be final</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">B</span> <span class="k">final</span> <span class="o">:</span> <span class="n">A</span> <span class="c1">// struct B is final</span>
+<span class="k">struct</span> <span class="nc">B</span> <span class="k">final</span> <span class="o">:</span> <span class="n">A</span> <span class="c1">// struct B is final</span>
 <span class="p">{</span>
-    <span class="kt">void</span> <span class="n">foo</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span> <span class="c1">// Error: foo cannot be overridden as it&#39;s final in A</span>
+    <span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span> <span class="c1">// Error: foo cannot be overridden as it&#39;s final in A</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="nl">C</span> <span class="p">:</span> <span class="n">B</span> <span class="c1">// Error: B is final</span>
+<span class="k">struct</span> <span class="nc">C</span> <span class="o">:</span> <span class="n">B</span> <span class="c1">// Error: B is final</span>
 <span class="p">{</span>
 <span class="p">};</span>
 </pre></div>
@@ -520,8 +524,8 @@ Attempting to override a final function is a compile error.</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 9.4. Inheritance' data-toggle="tooltip">
-    <a href="inheritance.html" aria-label="9.4. Inheritance">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 11.4. Inheritance' data-toggle="tooltip">
+    <a href="inheritance.html" aria-label="11.4. Inheritance">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -531,8 +535,8 @@ Attempting to override a final function is a compile error.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 9.6. Design patterns' data-toggle="tooltip" >
-    <a href="patterns.html" aria-label="9.6. Design patterns">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 11.6. Design patterns' data-toggle="tooltip" >
+    <a href="patterns.html" aria-label="11.6. Design patterns">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
@@ -574,7 +578,7 @@ Attempting to override a final function is a compile error.</p>
     </p>
     <p>
         &copy; Copyright 2017-2020 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.0.8.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
     </p>
   </div>
 </footer>

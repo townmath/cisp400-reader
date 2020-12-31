@@ -3,22 +3,23 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>15. Trees &#8212; CISC 187 Course Reader Overview</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17. Trees &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
     <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
-    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
     <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
     <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -28,9 +29,9 @@
     <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
-    <script src="../_static/html4css1.css?v=4D8F3FB4"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
     <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
@@ -45,7 +46,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script src="../_static/runestone.js?v=343ECCF5"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
     <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
     <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
     <script src="../_static/jquery-fix.js?v=1226591B"></script>
@@ -53,11 +54,11 @@
     <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
     <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
     <script src="../_static/theme.js?v=D899FB97"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15.1. Tree ADT concepts" href="trees.html" />
-    <link rel="prev" title="14.6. Using iterators" href="../list/using.html" />
+    <link rel="next" title="17.1. Tree ADT concepts" href="trees.html" />
+    <link rel="prev" title="16.6. Using iterators" href="../list/using.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -79,7 +80,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '5.0.8';
+  eBookConfig.runestone_version = '5.5.5';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -187,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">14.6. </span>Using iterators" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">16.6. </span>Using iterators" data-toggle="tooltip">
     <a href="../list/using.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">15.1. </span>Tree ADT concepts' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">17.1. </span>Tree ADT concepts' data-toggle="tooltip" >              
     <a href="trees.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -231,40 +232,43 @@
 <div class="container" id="continue-reading"></div>
 
 <div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
   
   <div class="section" id="trees">
-<h1><span class="section-number">15. </span>Trees<a class="headerlink" href="#trees" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">17. </span>Trees<a class="headerlink" href="#trees" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="trees.html">15.1. Tree ADT concepts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="trees.html#the-tree-adt">15.1.1. The tree ADT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trees.html">17.1. Tree ADT concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trees.html#the-tree-adt">17.1.1. The tree ADT</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="bst.html">15.2. Binary Search Trees</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bst.html#the-binary-search-tree-adt">15.2.1. The Binary Search Tree ADT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bst.html#searching-binary-trees">15.2.2. Searching binary trees</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bst.html#inserting-into-binary-trees">15.2.3. Inserting into binary trees</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bst.html#erasing-binary-tree-nodes">15.2.4. Erasing binary tree nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bst.html">17.2. Binary Search Trees</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bst.html#the-binary-search-tree-adt">17.2.1. The Binary Search Tree ADT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bst.html#searching-binary-trees">17.2.2. Searching binary trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bst.html#inserting-into-binary-trees">17.2.3. Inserting into binary trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bst.html#erasing-binary-tree-nodes">17.2.4. Erasing binary tree nodes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="bst-iterator.html">15.3. Binary Search Tree iterators</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bst-iterator.html#bst-iterator-begin-and-end">15.3.1. BST iterator <code class="docutils literal notranslate"><span class="pre">begin()</span></code> and <code class="docutils literal notranslate"><span class="pre">end()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="bst-iterator.html#bst-iterator-operator">15.3.2. BST iterator <code class="docutils literal notranslate"><span class="pre">operator++()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="bst-iterator.html#implementing-bst-iterators">15.3.3. Implementing BST iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bst-iterator.html">17.3. Binary Search Tree iterators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bst-iterator.html#bst-iterator-begin-and-end">17.3.1. BST iterator <code class="docutils literal notranslate"><span class="pre">begin()</span></code> and <code class="docutils literal notranslate"><span class="pre">end()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="bst-iterator.html#bst-iterator-operator">17.3.2. BST iterator <code class="docutils literal notranslate"><span class="pre">operator++()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="bst-iterator.html#implementing-bst-iterators">17.3.3. Implementing BST iterators</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="bst-iterator.html#using-parent-pointers">15.4. Using parent pointers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="set.html">15.5. The set class</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="set.html#variations-on-std-set">15.5.1. Variations on std::set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bst-iterator.html#using-parent-pointers">17.4. Using parent pointers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="set.html">17.5. The set class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="set.html#variations-on-std-set">17.5.1. Variations on std::set</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="map.html">15.6. The map class</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="map.html#selected-map-functions">15.6.1. Selected map functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="map.html#map-structure">15.6.2. Map structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="map.html#variations-on-std-map">15.6.3. Variations on std::map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map.html">17.6. The map class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="map.html#selected-map-functions">17.6.1. Selected map functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map.html#map-structure">17.6.2. Map structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map.html#variations-on-std-map">17.6.3. Variations on std::map</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="unordered_map.html">15.7. Hashing concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unordered_map.html">17.7. Hashing concepts</a></li>
 </ul>
 </div>
 </div>
@@ -276,8 +280,8 @@
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 14.6. Using iterators' data-toggle="tooltip">
-    <a href="../list/using.html" aria-label="14.6. Using iterators">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 16.6. Using iterators' data-toggle="tooltip">
+    <a href="../list/using.html" aria-label="16.6. Using iterators">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -287,8 +291,8 @@
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 15.1. Tree ADT concepts' data-toggle="tooltip" >
-    <a href="trees.html" aria-label="15.1. Tree ADT concepts">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 17.1. Tree ADT concepts' data-toggle="tooltip" >
+    <a href="trees.html" aria-label="17.1. Tree ADT concepts">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
@@ -330,7 +334,7 @@
     </p>
     <p>
         &copy; Copyright 2017-2020 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.0.8.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
     </p>
   </div>
 </footer>

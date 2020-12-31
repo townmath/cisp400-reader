@@ -512,6 +512,8 @@ or has at most one child.
    - The content on this page was adapted from
      `Binary Search Trees <https://www.cs.odu.edu/~zeil/cs361/f16/Public/bst/index.html>`__,
      by Steven J. Zeil for his data structures course CS361.
+   - `MyCodeSchool <http://www.mycodeschool.com>`__ video: 
+     `Data structures: binary search trees <https://www.youtube.com/watch?v=pYT9F8_LFTM&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&index=27>`__ 
    - Wikipedia
 
      - `binary search tree <https://en.wikipedia.org/wiki/Binary_search_tree>`__

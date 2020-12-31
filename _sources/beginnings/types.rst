@@ -305,6 +305,9 @@ Overflow occurs when doing arithmetic operations.
       ?  (9)     it would require 4 bits (1001) to represent
                  the value 9 in unsigned rep.
 
+.. index::
+   pair: video; int data type
+   pair: video; overflow
 
 .. tabbed:: overflow
 
@@ -362,6 +365,18 @@ Overflow occurs when doing arithmetic operations.
 
            std::cout << "x + y = " << (x + y) << '\n';
          }
+
+   .. tab:: Video
+
+      This video the representation of int on most computers.
+
+      - How data is stored in computer's memory.
+      - Size and range of int
+      - Signed and unsigned int
+      - How negative numbers are stored in binary.
+
+      .. youtube:: zxb8DvLUqcM
+         :http: https
 
 Overflow involving signed integral types overflows into the most significant bit,
 effectively changing the sign, as in the preceding example.
@@ -764,6 +779,8 @@ your understanding of the concepts discussed so far.
      - :lang:`types` and :cpp:`std::size_t <types/size_t>`
      - :lang:`typedef` and :lang:`type aliases <type_alias>`
 
+   - `MyCodeSchool <http://www.mycodeschool.com>`__ video: `Data types, constants, and variables <https://www.youtube.com/watch?v=OSyjOvFbAGI&list=PL2_aWCzGMAwLSqGsERZGXGkA5AfMhcknE&index=6>`__ 
+   - `Two's complement <http://www.cs.cornell.edu/~tomf/notes/cps104/twoscomp.html>`__
    - ISO CPP Super FAQ: `Floating point questions <https://isocpp.org/wiki/faq/newbie#floating-pt-errs>`_
    - `What every computer scientist should know about floating-point arithmetic 
      <http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>`_

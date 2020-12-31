@@ -3,22 +3,23 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1.6. Skill Check &#8212; CISC 187 Course Reader Overview</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
     <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
-    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
     <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
     <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -28,9 +29,9 @@
     <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
-    <script src="../_static/html4css1.css?v=4D8F3FB4"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
     <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
@@ -45,7 +46,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script src="../_static/runestone.js?v=343ECCF5"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
     <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
     <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
     <script src="../_static/jquery-fix.js?v=1226591B"></script>
@@ -53,10 +54,10 @@
     <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
     <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
     <script src="../_static/theme.js?v=D899FB97"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. String and Vector" href="../string+vector/index.html" />
+    <link rel="next" title="2. Mathematical Background" href="../math/index.html" />
     <link rel="prev" title="1.5. What you don’t need to know (yet)" href="what-you-dont.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -79,7 +80,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '5.0.8';
+  eBookConfig.runestone_version = '5.5.5';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -193,8 +194,8 @@
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">2. </span>String and Vector' data-toggle="tooltip" >              
-    <a href="../string+vector/index.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">2. </span>Mathematical Background' data-toggle="tooltip" >              
+    <a href="../math/index.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -231,6 +232,9 @@
 <div class="container" id="continue-reading"></div>
 
 <div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
   
   <div class="section" id="skill-check">
 <h1><span class="section-number">1.6. </span>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h1>
@@ -240,7 +244,7 @@ your understanding of the concepts discussed so far.</p>
 you should be able to answer these questions.</p>
 
         <div class="runestone">
-        <div data-component="fillintheblank" id="begin_fitb1" >
+        <div data-component="fillintheblank" data-question_label="1.6.1" id="begin_fitb1"  style="visibility: hidden;">
             <p>Q-1: Given the following plain english statements:</p>
 <ul class="simple">
 <li><p>Create a variable x with value 8</p></li>
@@ -258,8 +262,8 @@ then what value is <code class="docutils literal notranslate"><span class="pre">
         </div>
             
         <div class="runestone" style="max-width: none;">
-        <pre data-component="parsons" id="begin_parson1"  data-adaptive="true"    data-noindent="true"  data-language="c"  >
-        <span data-question>Q-2: Place these statements in their proper order
+        <pre data-component="parsons" data-question_label="1.6.2" id="begin_parson1"  data-adaptive="true"    data-noindent="true"  data-language="c"   style="visibility: hidden;">
+        <span data-question>Q-2 Place these statements in their proper order
 so that the program prompts for input, computes the area,
 and displays the results.</span>double h = 0;
 double w = 0;
@@ -278,13 +282,17 @@ std::cout << area << '\n';
         </pre>
         </div>
     
-<div data-childcomponent="begin_ac1" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=begin_ac1 >
+<div id=begin_ac1_question class="ac_question col-md-12">
 <p>Fix this program so that it compiles.</p>
 
-<textarea data-component="activecode" id=begin_ac1 data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="begin_ac1_editor" data-question_label="1.6.3" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 int main() {
   21 = value;
   double value;
@@ -293,10 +301,11 @@ int main() {
 }
 </textarea>
 </div>
+</div>
 
         <div class="runestone">
-        <div data-component="fillintheblank" id="begin_fitb2" >
-            <p>Q-3: Given the following program:</p>
+        <div data-component="fillintheblank" data-question_label="1.6.4" id="begin_fitb2"  style="visibility: hidden;">
+            <p>Q-4: Given the following program:</p>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -333,23 +342,28 @@ int main() {
         </div>
         </div>
             
-<div data-childcomponent="begin_ac2" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=begin_ac2 >
+<div id=begin_ac2_question class="ac_question col-md-12">
 <p>Write a program that accumulates the sum of the
 numbers 1 - 10 and prints the result.</p>
 
-<textarea data-component="activecode" id=begin_ac2 data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="begin_ac2_editor" data-question_label="1.6.5" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 int main() {
 
 }
 </textarea>
 </div>
+</div>
 
         <div class="runestone" style="max-width: none;">
-        <pre data-component="parsons" id="begin_parson2"  data-adaptive="true"     data-language="c"  >
-        <span data-question>Q-4: When assembled in its proper order, the following program segment
+        <pre data-component="parsons" data-question_label="1.6.6" id="begin_parson2"  data-adaptive="true"     data-language="c"   style="visibility: hidden;">
+        <span data-question>Q-6 When assembled in its proper order, the following program segment
 prints 'Odd numbers:' followed by all the odd numbers from 1 - 100, one per line.</span>int main () {
 ---
   std::cout << "Odd numbers:\n";
@@ -370,8 +384,8 @@ prints 'Odd numbers:' followed by all the odd numbers from 1 - 100, one per line
         </div>
     
             <div class="runestone alert alert-warning">
-            <ul data-component="multiplechoice" data-multipleanswers="true"  id="begin_mc_initializing_1" >
-            <p>Q-5: Which of the following statements represent <strong>assignment to</strong> a variable?  Check all that apply.</p>
+            <ul data-component="multiplechoice" data-question_label="1.6.7" data-multipleanswers="true"  id="begin_mc_initializing_1"  style="visibility: hidden;">
+            <p>Q-7: Which of the following statements represent <strong>assignment to</strong> a variable?  Check all that apply.</p>
 
             <li data-component="answer"  id="begin_mc_initializing_1_opt_a">int a;</li><li data-component="feedback">This is a declaration</li>
             
@@ -387,13 +401,17 @@ prints 'Odd numbers:' followed by all the odd numbers from 1 - 100, one per line
             </ul>
             </div>
             
-<div data-childcomponent="begin_type_check" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=begin_type_check >
+<div id=begin_type_check_question class="ac_question col-md-12">
 <p>Write a program that stores your name in a local variable and then prints it.</p>
 
-<textarea data-component="activecode" id=begin_type_check data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="begin_type_check_editor" data-question_label="1.6.8" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-std=c++11&#x27;]"     data-caption='Write a program that prints your name'  data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-std=c++11&#x27;]"     data-caption='Write a program that prints your name'  data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 
 int main() {
@@ -401,10 +419,11 @@ int main() {
 }
 </textarea>
 </div>
+</div>
 
             <div class="runestone alert alert-warning">
-            <ul data-component="multiplechoice" data-multipleanswers="true"  id="begin_mc_initializing_2" >
-            <p>Q-6: Which of the following are legal variable names? Check all that apply.</p>
+            <ul data-component="multiplechoice" data-question_label="1.6.9" data-multipleanswers="true"  id="begin_mc_initializing_2"  style="visibility: hidden;">
+            <p>Q-9: Which of the following are legal variable names? Check all that apply.</p>
 
             <li data-component="answer" data-correct id="begin_mc_initializing_2_opt_a">int inner_product_of_a_and_b;</li><li data-component="feedback">A ridiculously long, but valid name.</li>
             
@@ -421,8 +440,8 @@ int main() {
             </div>
             
             <div class="runestone alert alert-warning">
-            <ul data-component="multiplechoice" data-multipleanswers="false"  id="mc_shorcut_op_1" >
-            <p>Q-7: What are the values of x, y, and z after the following code executes?</p>
+            <ul data-component="multiplechoice" data-question_label="1.6.10" data-multipleanswers="false"  id="mc_shorcut_op_1"  style="visibility: hidden;">
+            <p>Q-10: What are the values of x, y, and z after the following code executes?</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
@@ -447,8 +466,8 @@ int main() {
             </div>
             
             <div class="runestone alert alert-warning">
-            <ul data-component="multiplechoice" data-multipleanswers="false"  id="begin_mc_mod_1" >
-            <p>Q-8: What is the result of 158 % 10?</p>
+            <ul data-component="multiplechoice" data-question_label="1.6.11" data-multipleanswers="false"  id="begin_mc_mod_1"  style="visibility: hidden;">
+            <p>Q-11: What is the result of 158 % 10?</p>
 
             <li data-component="answer"  id="begin_mc_mod_1_opt_a">15</li><li data-component="feedback">This would be the result of 158 divided by 10.  Modulus gives you the remainder.</li>
             
@@ -461,8 +480,8 @@ int main() {
             </div>
             
             <div class="runestone alert alert-warning">
-            <ul data-component="multiplechoice" data-multipleanswers="false"  id="begin_mc_mod_2" >
-            <p>Q-9: What is the result of 3 % 8?</p>
+            <ul data-component="multiplechoice" data-question_label="1.6.12" data-multipleanswers="false"  id="begin_mc_mod_2"  style="visibility: hidden;">
+            <p>Q-12: What is the result of 3 % 8?</p>
 
             <li data-component="answer" data-correct id="begin_mc_mod_2_opt_a">3</li><li data-component="feedback">8 goes into 3 no times so the remainder is 3.  The remainder of a smaller number divided by a larger number is always the smaller number!</li>
             
@@ -475,8 +494,8 @@ int main() {
             </div>
             
             <div class="runestone alert alert-warning">
-            <ul data-component="multiplechoice" data-multipleanswers="false"  id="begin_mc_op_2" >
-            <p>Q-10: What are the values of x, y, and z after the following code executes?</p>
+            <ul data-component="multiplechoice" data-question_label="1.6.13" data-multipleanswers="false"  id="begin_mc_op_2"  style="visibility: hidden;">
+            <p>Q-13: What are the values of x, y, and z after the following code executes?</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
@@ -501,8 +520,8 @@ int main() {
             </div>
             
         <div class="runestone">
-        <div data-component="fillintheblank" id="begin_fitb3" >
-            <p>Q-11: Given the following statement:</p>
+        <div data-component="fillintheblank" data-question_label="1.6.14" id="begin_fitb3"  style="visibility: hidden;">
+            <p>Q-14: Given the following statement:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">^</span><span class="mi">3</span>
 </pre></div>
 </div>
@@ -534,8 +553,8 @@ int main() {
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 2. String and Vector' data-toggle="tooltip" >
-    <a href="../string+vector/index.html" aria-label="2. String and Vector">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 2. Mathematical Background' data-toggle="tooltip" >
+    <a href="../math/index.html" aria-label="2. Mathematical Background">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
@@ -577,7 +596,7 @@ int main() {
     </p>
     <p>
         &copy; Copyright 2017-2020 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.0.8.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
     </p>
   </div>
 </footer>

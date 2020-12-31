@@ -290,6 +290,8 @@ that support both sets and maps.
 
 .. admonition:: More to Explore
 
+   - `MyCodeSchool <http://www.mycodeschool.com>`__ video: 
+     `Data structures: introduction to trees <https://www.youtube.com/watch?v=qH6yxkw0u78&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&index=25>`__ 
    - `STL containers library <http://en.cppreference.com/w/cpp/container>`_
    - `Visualgo: binary heap <https://visualgo.net/en/heap?slide=1>`_
    - `Wikipedia: binary search algorithm <https://en.wikipedia.org/wiki/Binary_search_algorithm>`__

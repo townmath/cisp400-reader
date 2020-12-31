@@ -274,6 +274,8 @@ standard input
 
 .. admonition:: More to Explore
 
+   - `MyCodeSchool <http://www.mycodeschool.com>`__ video: 
+     `Pointers in C/C++: function pointers <https://www.youtube.com/watch?v=ynYtgGUNelE&list=PL2_aWCzGMAwLZp6LMUKI3cc7pgGsasm2_&index=15>`__ 
    - `Caesar cipher <https://en.wikipedia.org/wiki/Caesar_cipher>`_ from Wikipedia.
    - From: cppreference.com: 
 

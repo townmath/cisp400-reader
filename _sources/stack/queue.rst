@@ -144,5 +144,7 @@ The STL containers ``std::list`` and ``std::deque`` can be adapted to create a q
 
    - `STL containers library <http://en.cppreference.com/w/cpp/container>`_
    - STL :container:`queue` class
+   - `MyCodeSchool <http://www.mycodeschool.com>`__ video: 
+     `Data structures: introduction to queue <https://www.youtube.com/watch?v=XuCbpw6Bj1U&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&index=22>`__ 
 
 

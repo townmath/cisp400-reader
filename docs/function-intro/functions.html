@@ -3,22 +3,23 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>3.1. Introduction to functions &#8212; CISC 187 Course Reader Overview</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.1. Introduction to functions &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
     <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
-    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
     <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
     <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -28,9 +29,9 @@
     <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
-    <script src="../_static/html4css1.css?v=4D8F3FB4"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
     <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
@@ -45,7 +46,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script src="../_static/runestone.js?v=343ECCF5"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
     <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
     <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
     <script src="../_static/jquery-fix.js?v=1226591B"></script>
@@ -53,11 +54,11 @@
     <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
     <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
     <script src="../_static/theme.js?v=D899FB97"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.2. Passing parameters" href="parameter-passing.html" />
-    <link rel="prev" title="3. Introduction to functions" href="index.html" />
+    <link rel="next" title="5.2. Passing parameters" href="parameter-passing.html" />
+    <link rel="prev" title="5. Introduction to functions" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -79,7 +80,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '5.0.8';
+  eBookConfig.runestone_version = '5.5.5';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -187,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">3. </span>Introduction to functions" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">5. </span>Introduction to functions" data-toggle="tooltip">
     <a href="index.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">3.2. </span>Passing parameters' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">5.2. </span>Passing parameters' data-toggle="tooltip" >              
     <a href="parameter-passing.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -231,9 +232,12 @@
 <div class="container" id="continue-reading"></div>
 
 <div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
   
   <div class="section" id="introduction-to-functions">
-<span id="index-0"></span><h1><span class="section-number">3.1. </span>Introduction to functions<a class="headerlink" href="#introduction-to-functions" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">5.1. </span>Introduction to functions<a class="headerlink" href="#introduction-to-functions" title="Permalink to this headline">¶</a></h1>
 <p>A <em>function</em> is a group of statements that work together to perform a task.
 A function is composed of:</p>
 <ul class="simple">
@@ -269,12 +273,16 @@ the task it defines can be executed as often as needed.</p>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div data-childcomponent="functions_simple_intro_ac" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=functions_simple_intro_ac >
+<div id=functions_simple_intro_ac_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=functions_simple_intro_ac data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="functions_simple_intro_ac_editor" data-question_label="5.1.1" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 
 int area (int height, int width) {
@@ -293,15 +301,16 @@ int main () {
 </textarea>
 </div>
 </div>
+</div>
     </div>
 
 
 <div class="runestone" style="max-width: none;">
-    <div class="alert alert-warning cd_section">
+    <div class="alert alert-warning cd_section" data-question_label="5.1.2">
         <div class="pytutorVisualizer" id="functions_simple_intro_cl"
            data-params='{"embeddedMode": true, "lang": "cpp", "jumpToEnd": false}'>
         </div>
-        <p class="runestone_caption"><span class="runestone_caption_text">CodeLens: Simple functions (functions_simple_intro_cl)</span> </p>
+        <p class="runestone_caption"><span class="runestone_caption_text">Activity: CodeLens Simple functions (functions_simple_intro_cl)</span> </p>
     </div>
 
 <script type="text/javascript">
@@ -317,7 +326,7 @@ allTraceData["functions_simple_intro_cl"] = {"code": "#include <iostream>\n\nint
 </script>
 </div>
 <div class="section" id="function-declarations-and-compilation-units">
-<h2><span class="section-number">3.1.1. </span>Function declarations and compilation units<a class="headerlink" href="#function-declarations-and-compilation-units" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1.1. </span>Function declarations and compilation units<a class="headerlink" href="#function-declarations-and-compilation-units" title="Permalink to this headline">¶</a></h2>
 <p>By default, functions have global <a class="reference internal" href="../glossary.html#term-scope"><span class="xref std std-term">scope</span></a>:
 they can be used anywhere in your program, even in other files.
 If a file doesn’t contain a <a class="reference internal" href="../glossary.html#term-declaration"><span class="xref std std-term">declaration</span></a> for a function  before it is used,
@@ -399,7 +408,7 @@ Using <code class="docutils literal notranslate"><span class="pre">make</span></
 </div>
 </div>
 <div class="section" id="the-call-stack">
-<span id="index-2"></span><h2><span class="section-number">3.1.2. </span>The call stack<a class="headerlink" href="#the-call-stack" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">5.1.2. </span>The call stack<a class="headerlink" href="#the-call-stack" title="Permalink to this headline">¶</a></h2>
 <p>Functions are routinely called from many places
 and more than one function can be ‘active’ at any one time.
 The CPU needs a mechanism to keep track of every function call,
@@ -467,11 +476,11 @@ Any information stored in local variables is lost.</p>
 <p>Read the code below and predict what the output should be <strong>before</strong> stepping through it.</p>
 
 <div class="runestone" style="max-width: none;">
-    <div class="alert alert-warning cd_section">
+    <div class="alert alert-warning cd_section" data-question_label="5.1.2.1">
         <div class="pytutorVisualizer" id="functions_dig_deeper_cl"
            data-params='{"embeddedMode": true, "lang": "cpp", "jumpToEnd": false}'>
         </div>
-        <p class="runestone_caption"><span class="runestone_caption_text">CodeLens:  (functions_dig_deeper_cl)</span> </p>
+        <p class="runestone_caption"><span class="runestone_caption_text">Activity: CodeLens 5.1.2.1 (functions_dig_deeper_cl)</span> </p>
     </div>
 
 <script type="text/javascript">
@@ -508,8 +517,8 @@ from Buckys C++ Programming Tutorials.</p></li>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 3. Introduction to functions' data-toggle="tooltip">
-    <a href="index.html" aria-label="3. Introduction to functions">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 5. Introduction to functions' data-toggle="tooltip">
+    <a href="index.html" aria-label="5. Introduction to functions">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -519,8 +528,8 @@ from Buckys C++ Programming Tutorials.</p></li>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.2. Passing parameters' data-toggle="tooltip" >
-    <a href="parameter-passing.html" aria-label="3.2. Passing parameters">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 5.2. Passing parameters' data-toggle="tooltip" >
+    <a href="parameter-passing.html" aria-label="5.2. Passing parameters">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
@@ -562,7 +571,7 @@ from Buckys C++ Programming Tutorials.</p></li>
     </p>
     <p>
         &copy; Copyright 2017-2020 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.0.8.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
     </p>
   </div>
 </footer>

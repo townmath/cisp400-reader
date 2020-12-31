@@ -3,22 +3,23 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>2.4. The string class &#8212; CISC 187 Course Reader Overview</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.4. The string class &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
     <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
-    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
     <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
     <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -28,9 +29,9 @@
     <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
-    <script src="../_static/html4css1.css?v=4D8F3FB4"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
     <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
@@ -45,7 +46,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script src="../_static/runestone.js?v=343ECCF5"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
     <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
     <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
     <script src="../_static/jquery-fix.js?v=1226591B"></script>
@@ -53,11 +54,11 @@
     <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
     <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
     <script src="../_static/theme.js?v=D899FB97"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.5. The vector class" href="vector.html" />
-    <link rel="prev" title="2.2. String abstractions in C" href="byte_string.html" />
+    <link rel="next" title="4.5. The vector class" href="vector.html" />
+    <link rel="prev" title="4.2. String abstractions in C" href="byte_string.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -79,7 +80,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '5.0.8';
+  eBookConfig.runestone_version = '5.5.5';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -187,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">2.2. </span>String abstractions in C" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">4.2. </span>String abstractions in C" data-toggle="tooltip">
     <a href="byte_string.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">2.5. </span>The vector class' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">4.5. </span>The vector class' data-toggle="tooltip" >              
     <a href="vector.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -231,11 +232,14 @@
 <div class="container" id="continue-reading"></div>
 
 <div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
   
   <div class="section" id="the-string-class">
-<span id="index-0"></span><h1><span class="section-number">2.4. </span>The string class<a class="headerlink" href="#the-string-class" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">4.4. </span>The string class<a class="headerlink" href="#the-string-class" title="Permalink to this headline">¶</a></h1>
 <p>Like a byte string, a <code class="docutils literal notranslate"><span class="pre">std::string</span></code> is storage for a character sequence:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;        // access std::string functions</span><span class="cp"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="c1">        // access std::string functions</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">;</span>       <span class="c1">// alias type std::string to &#39;string&#39;</span>
 
@@ -257,12 +261,16 @@ The variable <code class="docutils literal notranslate"><span class="pre">x</spa
 that stores no characters.</p>
 <div id='tab_string_simple' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Simple operations" >
 
-<div data-childcomponent="string_simple_operator_ac1" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=string_simple_operator_ac1 >
+<div id=string_simple_operator_ac1_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=string_simple_operator_ac1 data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="string_simple_operator_ac1_editor" data-question_label="4.4.1" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 #include <string>
 
@@ -290,16 +298,21 @@ int main() {
 }
 </textarea>
 </div>
+</div>
 </div><div data-component="tab" data-tabname="front() and back()" >
 <p>This tab shows alternate functions for accessing the first and last
 characters in a string.</p>
 
-<div data-childcomponent="string_front_back_ac" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=string_front_back_ac >
+<div id=string_front_back_ac_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=string_front_back_ac data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="string_front_back_ac_editor" data-question_label="4.4.2" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 #include <string>
 
@@ -312,16 +325,21 @@ int main() {
 }
 </textarea>
 </div>
+</div>
 </div><div data-component="tab" data-tabname="append()" >
 <p>The <code class="docutils literal notranslate"><span class="pre">append</span></code> function allows you to append <em>N</em> copies of a character or
 an array of characters to the end of a string.</p>
 
-<div data-childcomponent="string_append_ac" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=string_append_ac >
+<div id=string_append_ac_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=string_append_ac data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="string_append_ac_editor" data-question_label="4.4.3" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 #include <string>
 
@@ -347,16 +365,21 @@ int main() {
 }
 </textarea>
 </div>
+</div>
 </div><div data-component="tab" data-tabname="insert()" >
 <p>The <code class="docutils literal notranslate"><span class="pre">insert</span></code> function allows you to insert 1 character or
 an array of characters at a position in a string.</p>
 
-<div data-childcomponent="string_insert_ac" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=string_insert_ac >
+<div id=string_insert_ac_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=string_insert_ac data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="string_insert_ac_editor" data-question_label="4.4.4" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 #include <string>
 
@@ -377,6 +400,7 @@ int main() {
 </textarea>
 </div>
 </div>
+</div>
     </div>
 
 <p>Using the <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/operator_at">operator[]</a> to access select characters in a string is,
@@ -394,7 +418,7 @@ otherwise the program will terminate.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">b</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="o">=</span> <span class="sc">&#39;H&#39;</span><span class="p">;</span>   <span class="c1">// might be OK</span>
-  <span class="n">b</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="sc">&#39;W&#39;</span><span class="p">;</span>   <span class="c1">// never OK.  throws exception</span>
+  <span class="n">b</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">-1</span><span class="p">)</span> <span class="o">=</span> <span class="sc">&#39;W&#39;</span><span class="p">;</span>   <span class="c1">// never OK.  throws exception</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -408,7 +432,7 @@ Declarations like this are a common source of confusion for new programmers:</p>
 </div>
 <p>What type is <code class="docutils literal notranslate"><span class="pre">my_string</span></code>?</p>
 
-    <div data-component="reveal" id="reveal_my_string"   data-showtitle="Show" data-hidetitle="Hide" >
+    <div data-component="reveal" id="reveal_my_string"   data-showtitle="Show" data-hidetitle="Hide"  style="visibility: hidden;">
     <p><code class="docutils literal notranslate"><span class="pre">my_string</span></code> is <strong>not</strong> a std::string.</p>
 <p>The default type for characters enclosed in double quotes is <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char*</span></code>.</p>
 
@@ -432,12 +456,16 @@ works for C++ versions older than C++14.</p>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div data-childcomponent="string_auto_deduction_ac" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=string_auto_deduction_ac >
+<div id=string_auto_deduction_ac_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=string_auto_deduction_ac data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="string_auto_deduction_ac_editor" data-question_label="4.4.5" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++1z&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++1z&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <string>
 #include <iostream>
 #include <iomanip>  // std::quoted
@@ -459,6 +487,7 @@ int main()
 }
 </textarea>
 </div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Look carefully at the size values printed for <code class="docutils literal notranslate"><span class="pre">s1</span></code> and <code class="docutils literal notranslate"><span class="pre">s2</span></code>.</p>
@@ -468,7 +497,7 @@ int main()
     </div>
 
 <div class="section" id="getting-information-out-of-a-string">
-<span id="index-2"></span><h2><span class="section-number">2.4.1. </span>Getting information out of a string<a class="headerlink" href="#getting-information-out-of-a-string" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">4.4.1. </span>Getting information out of a string<a class="headerlink" href="#getting-information-out-of-a-string" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">string</span></code> knows its own size and can provide other useful information.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cassert&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
@@ -539,12 +568,16 @@ The results would be exactly the same if the arguments were
 Don’t take my word for it, try it yourself.</p>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div data-childcomponent="ac-string-std-find" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=ac-string-std-find >
+<div id=ac-string-std-find_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=ac-string-std-find data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="ac-string-std-find_editor" data-question_label="4.4.1.1" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++1y&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++1y&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 #include <string>
 
@@ -570,6 +603,7 @@ int main() {
 </textarea>
 </div>
 </div>
+</div>
     </div>
 
 <p id="index-3">The special value <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/npos">std::string::npos</a> is used both as an end of string indicator
@@ -577,12 +611,15 @@ by functions that expect a string and
 as an indicator of <em>not found</em> by functions that return an index (like find).</p>
 
     <div class="runestone" style="margin-left: auto; margin-right:auto">
-        <div id="nkKeA74p3RY" data-component="youtube" class="align-left youtube-video" data-video-height="281" data-video-width="500" data-video-videoid="nkKeA74p3RY" data-video-divid="nkKeA74p3RY" data-video-start="0" data-video-end="-1" ></div>
-        <p class="runestone_caption"><span class="runestone_caption_text">Video: (nkKeA74p3RY)</span> </p>
+        <div id="nkKeA74p3RY" data-component="youtube" class="align-left youtube-video"
+            data-video-height="281" data-question_label="4.4.1.2"
+            data-video-width="500" data-video-videoid="nkKeA74p3RY"
+            data-video-divid="nkKeA74p3RY" data-video-start="0"
+            data-video-end="-1" ></div>
     </div>
     </div>
 <div class="section" id="converting-a-std-string-to-a-c-string">
-<span id="index-4"></span><h2><span class="section-number">2.4.2. </span>Converting a std::string to a C string<a class="headerlink" href="#converting-a-std-string-to-a-c-string" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2><span class="section-number">4.4.2. </span>Converting a std::string to a C string<a class="headerlink" href="#converting-a-std-string-to-a-c-string" title="Permalink to this headline">¶</a></h2>
 <p>You cannot use <code class="docutils literal notranslate"><span class="pre">std::string</span></code> in a function
 that expects <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char*</span></code> - you must convert it
 to a null terminated character array.</p>
@@ -597,15 +634,15 @@ to a null terminated character array.</p>
 </div>
 </div>
 <div class="section" id="skill-check">
-<h2><span class="section-number">2.4.3. </span>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4.3. </span>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
 <p>The questions in this hidden section provide a chance to demonstrate
 your understanding of the concepts discussed so far.</p>
 
-    <div data-component="reveal" id="reveal-skill-check-string"   data-showtitle="Show" data-hidetitle="Hide" >
+    <div data-component="reveal" id="reveal-skill-check-string"   data-showtitle="Show" data-hidetitle="Hide"  style="visibility: hidden;">
     
         <div class="runestone">
-        <div data-component="fillintheblank" id="string_fitb1" >
-            <p>sc-1-1: Given the following:</p>
+        <div data-component="fillintheblank" data-question_label="4.4.3.1" id="string_fitb1"  style="visibility: hidden;">
+            <p>sc-1-8: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;The rain in Spain. . . &quot;</span><span class="p">;</span>
 <span class="kt">size_t</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;in&quot;</span><span class="p">);</span>
 </pre></div>
@@ -620,8 +657,8 @@ your understanding of the concepts discussed so far.</p>
         </div>
             
         <div class="runestone" style="max-width: none;">
-        <pre data-component="parsons" id="string_pp1"  data-adaptive="true"    data-noindent="true"  data-language="c"  >
-        <span data-question>sc-1-2: </span>int main() {
+        <pre data-component="parsons" data-question_label="4.4.3.2" id="string_pp1"  data-adaptive="true"    data-noindent="true"  data-language="c"   style="visibility: hidden;">
+        <span data-question>sc-1-9 </span>int main() {
 ---
   std::string  us = "Team USA";
 ---
@@ -643,8 +680,8 @@ your understanding of the concepts discussed so far.</p>
         </div>
     
         <div class="runestone">
-        <div data-component="fillintheblank" id="string_fitb5" >
-            <p>sc-1-3: Given the following:</p>
+        <div data-component="fillintheblank" data-question_label="4.4.3.3" id="string_fitb5"  style="visibility: hidden;">
+            <p>sc-1-10: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span> <span class="p">(){</span>
@@ -689,8 +726,8 @@ your understanding of the concepts discussed so far.</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 2.2. String abstractions in C' data-toggle="tooltip">
-    <a href="byte_string.html" aria-label="2.2. String abstractions in C">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 4.2. String abstractions in C' data-toggle="tooltip">
+    <a href="byte_string.html" aria-label="4.2. String abstractions in C">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -700,8 +737,8 @@ your understanding of the concepts discussed so far.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 2.5. The vector class' data-toggle="tooltip" >
-    <a href="vector.html" aria-label="2.5. The vector class">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 4.5. The vector class' data-toggle="tooltip" >
+    <a href="vector.html" aria-label="4.5. The vector class">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
@@ -743,7 +780,7 @@ your understanding of the concepts discussed so far.</p>
     </p>
     <p>
         &copy; Copyright 2017-2020 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.0.8.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
     </p>
   </div>
 </footer>

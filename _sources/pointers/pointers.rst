@@ -1064,7 +1064,10 @@ to another pointer type that has a size:
 
 .. admonition:: More to Explore
 
+   - `MyCodeSchool <http://www.mycodeschool.com>`__ video: 
+     `Pointers in C/C++ playlist <https://www.youtube.com/playlist?list=PL2_aWCzGMAwLZp6LMUKI3cc7pgGsasm2_>`__ 
    - Array declarations in `C <http://en.cppreference.com/w/c/language/array>`_ and `C++ <http://en.cppreference.com/w/cpp/language/array>`_
    - From the ISO C++ FAQ: `Does "Const Fred* p" mean that *p can't change? <https://isocpp.org/wiki/faq/const-correctness#ptr-to-const-aliasing>`_
    - Effective Modern C++ by Scott Meyers `Item 8: Prefer nullptr to 0 and NULL <https://www.google.com/search?q=isbn+0636920033707>`_
+
 

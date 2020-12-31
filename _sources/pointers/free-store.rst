@@ -244,6 +244,8 @@ or transfer ownership to a different ``unique_ptr``.
 
 .. admonition:: More to Explore
 
+   - `MyCodeSchool <http://www.mycodeschool.com>`__ video: 
+     `Pointers and dynamic memory: stack vs heap <https://www.youtube.com/watch?v=_8-ht2AKyH4&list=PL2_aWCzGMAwLZp6LMUKI3cc7pgGsasm2_&index=12>`__ 
    - `Free-store managment FAQ <https://isocpp.org/wiki/faq/freestore-mgmt>`_
    - From: cppreference.com: 
 

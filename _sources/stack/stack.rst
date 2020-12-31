@@ -334,4 +334,6 @@ and the result is pushed back onto the stack.
 
    - `STL containers library <http://en.cppreference.com/w/cpp/container>`_
    - STL :container:`stack` class
+   - `MyCodeSchool <http://www.mycodeschool.com>`__ video: 
+     `Data structures: introduction to stack <https://www.youtube.com/watch?v=F1F2imiOJfk&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&index=14>`__ 
 

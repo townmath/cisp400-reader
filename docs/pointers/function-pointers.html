@@ -3,22 +3,23 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>5.4. Pointers to functions &#8212; CISC 187 Course Reader Overview</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7.4. Pointers to functions &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
     <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
-    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
     <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
     <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -28,9 +29,9 @@
     <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
-    <script src="../_static/html4css1.css?v=4D8F3FB4"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
     <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
@@ -45,7 +46,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script src="../_static/runestone.js?v=343ECCF5"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
     <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
     <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
     <script src="../_static/jquery-fix.js?v=1226591B"></script>
@@ -53,11 +54,11 @@
     <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
     <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
     <script src="../_static/theme.js?v=D899FB97"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="&lt;no title&gt;" href="caesar/main.cpp.html" />
-    <link rel="prev" title="5.3. Pointer debugging" href="valgrind.html" />
+    <link rel="prev" title="7.3. Pointer debugging" href="valgrind.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -79,7 +80,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '5.0.8';
+  eBookConfig.runestone_version = '5.5.5';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -187,7 +188,7 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">5.3. </span>Pointer debugging" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">7.3. </span>Pointer debugging" data-toggle="tooltip">
     <a href="valgrind.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
@@ -231,9 +232,12 @@
 <div class="container" id="continue-reading"></div>
 
 <div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
   
   <div class="section" id="pointers-to-functions">
-<span id="index-0"></span><h1><span class="section-number">5.4. </span>Pointers to functions<a class="headerlink" href="#pointers-to-functions" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">7.4. </span>Pointers to functions<a class="headerlink" href="#pointers-to-functions" title="Permalink to this headline">¶</a></h1>
 <p>In C++ you can point to anything with an address:</p>
 <ul class="simple">
 <li><p>Global variables</p></li>
@@ -256,7 +260,7 @@ This means every function has an address.</p>
 <p>What does this program print?</p>
 <p>Hint: It doesn’t call the function foo</p>
 
-    <div data-component="reveal" id="reveal-fp1"   data-showtitle="Show" data-hidetitle="Hide" >
+    <div data-component="reveal" id="reveal-fp1"   data-showtitle="Show" data-hidetitle="Hide"  style="visibility: hidden;">
     <p>It prints the <em>address</em> of the function named <code class="docutils literal notranslate"><span class="pre">foo</span></code></p>
 
     </div>
@@ -302,12 +306,16 @@ you can assign functions to it.</p>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div data-childcomponent="ac_fp_intro1" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=ac_fp_intro1 >
+<div id=ac_fp_intro1_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=ac_fp_intro1 data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="ac_fp_intro1_editor" data-question_label="7.4.1" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 double add     (int x, int y) { return x+y;}
 double multiply(int x, int y) { return x*y;}
 double pi      ()             { return 3.14159265;}
@@ -330,6 +338,7 @@ int main () {
 </textarea>
 </div>
 </div>
+</div>
     </div>
 
 <p>A downside to traditional function pointer initialization is
@@ -348,11 +357,14 @@ with the C++11 <code class="docutils literal notranslate"><span class="pre">usin
 </div>
 
     <div class="runestone" style="margin-left: auto; margin-right:auto">
-        <div id="p4sDgQ-jao4" data-component="youtube" class="align-left youtube-video" data-video-height="281" data-video-width="500" data-video-videoid="p4sDgQ-jao4" data-video-divid="p4sDgQ-jao4" data-video-start="0" data-video-end="-1" ></div>
-        <p class="runestone_caption"><span class="runestone_caption_text">Video: (p4sDgQ-jao4)</span> </p>
+        <div id="p4sDgQ-jao4" data-component="youtube" class="align-left youtube-video"
+            data-video-height="281" data-question_label="7.4.2"
+            data-video-width="500" data-video-videoid="p4sDgQ-jao4"
+            data-video-divid="p4sDgQ-jao4" data-video-start="0"
+            data-video-end="-1" ></div>
     </div>
     <div class="section" id="example-caesar-ciphers">
-<h2><span class="section-number">5.4.1. </span>Example: Caesar ciphers<a class="headerlink" href="#example-caesar-ciphers" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.4.1. </span>Example: Caesar ciphers<a class="headerlink" href="#example-caesar-ciphers" title="Permalink to this headline">¶</a></h2>
 <p>A simple substitution cipher, called <a class="reference external" href="https://en.wikipedia.org/wiki/ROT13">ROT13</a>, short for ‘rotate 13 places’
 can be used to obfuscate text by replacing each letter with the letter 13 letters after it in the alphabet.
 It is a special case of the <a class="reference external" href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar cipher</a>,
@@ -384,12 +396,12 @@ we can create a file like <code class="docutils literal notranslate"><span class
 
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">usage</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="n">usage</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Encrypt or decrypt text read from standard input</span><span class="se">\n</span><span class="s">&quot;</span>
         <span class="o">&lt;&lt;</span> <span class="s">&quot;Usage: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; [-h|l|f]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">help</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="n">help</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">usage</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Options:</span><span class="se">\n</span><span class="s">&quot;</span>
         <span class="o">&lt;&lt;</span> <span class="s">&quot;  -h   Show this text and exit.</span><span class="se">\n</span><span class="s">&quot;</span>
@@ -469,7 +481,7 @@ is not an <code class="docutils literal notranslate"><span class="pre">unsigned<
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;caesar.h&quot;</span><span class="cp"></span>
 
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;cctype&gt;      // isalpha, islower</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cctype&gt;</span><span class="c1">      // isalpha, islower</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
 <span class="c1">// TODO: add locale and extend non english alphabets</span>
@@ -508,7 +520,7 @@ is not an <code class="docutils literal notranslate"><span class="pre">unsigned<
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;caesar.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;help.h&quot;</span><span class="cp"></span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;    // strcmp</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="c1">    // strcmp</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
@@ -531,7 +543,7 @@ is not an <code class="docutils literal notranslate"><span class="pre">unsigned<
             <span class="n">handler</span> <span class="o">=</span> <span class="n">rot47</span><span class="p">;</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="n">usage</span><span class="p">(</span><span class="o">*</span><span class="n">argv</span><span class="p">);</span>
-            <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+            <span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 
@@ -563,6 +575,8 @@ with variations.</p>
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
+<li><p><a class="reference external" href="http://www.mycodeschool.com">MyCodeSchool</a> video:
+<a class="reference external" href="https://www.youtube.com/watch?v=ynYtgGUNelE&amp;list=PL2_aWCzGMAwLZp6LMUKI3cc7pgGsasm2_&amp;index=15">Pointers in C/C++: function pointers</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar cipher</a> from Wikipedia.</p></li>
 <li><p>From: cppreference.com:</p>
 <ul>
@@ -585,8 +599,8 @@ with variations.</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 5.3. Pointer debugging' data-toggle="tooltip">
-    <a href="valgrind.html" aria-label="5.3. Pointer debugging">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 7.3. Pointer debugging' data-toggle="tooltip">
+    <a href="valgrind.html" aria-label="7.3. Pointer debugging">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -639,7 +653,7 @@ with variations.</p>
     </p>
     <p>
         &copy; Copyright 2017-2020 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.0.8.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
     </p>
   </div>
 </footer>

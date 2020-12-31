@@ -3,22 +3,23 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>4.2. Function templates &#8212; CISC 187 Course Reader Overview</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.2. Function templates &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
     <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
-    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
     <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
     <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -28,9 +29,9 @@
     <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
-    <script src="../_static/html4css1.css?v=4D8F3FB4"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
     <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
@@ -45,7 +46,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script src="../_static/runestone.js?v=343ECCF5"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
     <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
     <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
     <script src="../_static/jquery-fix.js?v=1226591B"></script>
@@ -53,11 +54,11 @@
     <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
     <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
     <script src="../_static/theme.js?v=D899FB97"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.3. Concepts overview" href="concepts.html" />
-    <link rel="prev" title="4.1. Function overloads" href="overloads.html" />
+    <link rel="next" title="6.3. Concepts overview" href="concepts.html" />
+    <link rel="prev" title="6.1. Function overloads" href="overloads.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -79,7 +80,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '5.0.8';
+  eBookConfig.runestone_version = '5.5.5';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -187,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">4.1. </span>Function overloads" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">6.1. </span>Function overloads" data-toggle="tooltip">
     <a href="overloads.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">4.3. </span>Concepts overview' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">6.3. </span>Concepts overview' data-toggle="tooltip" >              
     <a href="concepts.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -231,9 +232,12 @@
 <div class="container" id="continue-reading"></div>
 
 <div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
   
   <div class="section" id="function-templates">
-<span id="index-0"></span><h1><span class="section-number">4.2. </span>Function templates<a class="headerlink" href="#function-templates" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">6.2. </span>Function templates<a class="headerlink" href="#function-templates" title="Permalink to this headline">¶</a></h1>
 <p>Function overloads allow programmers to reuse function names.
 Functions with the same name may or may not accomplish the same task.</p>
 <p>What if our functions actually are intended to do exactly the same thing,
@@ -251,12 +255,16 @@ even if it’s only to call another function.</p>
 </div><div data-component="tab" data-tabname="Run It" >
 <p>These two overloads each add their parameters, only on different types:</p>
 
-<div data-childcomponent="ac-sum-without-templates" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=ac-sum-without-templates >
+<div id=ac-sum-without-templates_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=ac-sum-without-templates data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="ac-sum-without-templates_editor" data-question_label="6.2.1" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 
 int sum (int a, int b) {
@@ -272,6 +280,7 @@ int main () {
   std::cout << sum (1.0,1.5) << '\n';
 }
 </textarea>
+</div>
 </div>
 </div>
     </div>
@@ -298,12 +307,16 @@ For example:</p>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div data-childcomponent="ac-sum-with-templates" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=ac-sum-with-templates >
+<div id=ac-sum-with-templates_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=ac-sum-with-templates data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="ac-sum-with-templates_editor" data-question_label="6.2.2" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 
 template <class T>
@@ -316,6 +329,7 @@ int main () {
   std::cout << sum<double> (1.0,1.5) << '\n';
 }
 </textarea>
+</div>
 </div>
 </div>
     </div>
@@ -333,7 +347,7 @@ Because templates are neither declarations, nor definitions,
 it is an error to write a template in a cpp source file and then
 try to use it in another source file.</p>
 <div class="section" id="using-templated-functions">
-<h2><span class="section-number">4.2.1. </span>Using templated functions<a class="headerlink" href="#using-templated-functions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2.1. </span>Using templated functions<a class="headerlink" href="#using-templated-functions" title="Permalink to this headline">¶</a></h2>
 <p>In short, using functions generated by templates is
 not very different from a non-templated function.</p>
 <p>You can explicitly provide the type:</p>
@@ -404,13 +418,13 @@ Both <code class="docutils literal notranslate"><span class="pre">int</span></co
 need to deduce the type, it was explicitly told the type of the function to generate.</p>
 </div>
 <div class="section" id="multiple-template-parameters">
-<h2><span class="section-number">4.2.2. </span>Multiple template parameters<a class="headerlink" href="#multiple-template-parameters" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2.2. </span>Multiple template parameters<a class="headerlink" href="#multiple-template-parameters" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">sum</span></code> function that only adds numbers of the same type is not particularly useful.
 Templates also allow defining multiple types to be used in a template
 with each parameter potentially having a different type.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T2</span><span class="o">&gt;</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">T2</span><span class="o">&gt;</span>
 <span class="kt">bool</span> <span class="n">are_equal</span> <span class="p">(</span><span class="k">const</span> <span class="n">T1</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">T2</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="n">b</span><span class="p">);</span>
 <span class="p">}</span>
@@ -426,7 +440,7 @@ with each parameter potentially having a different type.</p>
 </div>
 <p>There is no ‘rule’ that says each template parameter can be used only once
 in the function declaration.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T2</span><span class="o">&gt;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">T2</span><span class="o">&gt;</span>
   <span class="n">T2</span> <span class="n">foo</span> <span class="p">(</span><span class="k">const</span> <span class="n">T1</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="n">T2</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">T1</span> <span class="n">tmp_x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
     <span class="n">T2</span> <span class="n">tmp_y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="o">?</span> <span class="mi">1</span><span class="o">:</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
@@ -441,7 +455,7 @@ in the function declaration.</p>
 </div>
 </div>
 <div class="section" id="non-generic-template-parameters">
-<h2><span class="section-number">4.2.3. </span>Non-generic template parameters<a class="headerlink" href="#non-generic-template-parameters" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2.3. </span>Non-generic template parameters<a class="headerlink" href="#non-generic-template-parameters" title="Permalink to this headline">¶</a></h2>
 <p>Not every template parameter has to be a class or a typename.
 Any specific type is a valid template parameter.</p>
 <p>The following example defines a template
@@ -466,12 +480,16 @@ template parameters</p>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div data-childcomponent="ac-non_type_parameter_template" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=ac-non_type_parameter_template >
+<div id=ac-non_type_parameter_template_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=ac-non_type_parameter_template data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="ac-non_type_parameter_template_editor" data-question_label="6.2.3.1" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 
 // it is possible to forward declare a template
@@ -490,6 +508,7 @@ T multiply (const T& val) {
   return val * N;
 }
 </textarea>
+</div>
 </div>
 </div>
     </div>
@@ -542,8 +561,8 @@ there is no way for the compiler to ‘deduce’ the second operand <code class=
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 4.1. Function overloads' data-toggle="tooltip">
-    <a href="overloads.html" aria-label="4.1. Function overloads">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 6.1. Function overloads' data-toggle="tooltip">
+    <a href="overloads.html" aria-label="6.1. Function overloads">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -553,8 +572,8 @@ there is no way for the compiler to ‘deduce’ the second operand <code class=
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 4.3. Concepts overview' data-toggle="tooltip" >
-    <a href="concepts.html" aria-label="4.3. Concepts overview">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 6.3. Concepts overview' data-toggle="tooltip" >
+    <a href="concepts.html" aria-label="6.3. Concepts overview">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
@@ -596,7 +615,7 @@ there is no way for the compiler to ‘deduce’ the second operand <code class=
     </p>
     <p>
         &copy; Copyright 2017-2020 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.0.8.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
     </p>
   </div>
 </footer>

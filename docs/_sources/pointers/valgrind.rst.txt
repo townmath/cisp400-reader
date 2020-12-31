@@ -179,6 +179,8 @@ And that is exactly where the error lies.
   - `Valgrind tutorial <http://pages.cs.wisc.edu/~bart/537/valgrind.html>`_ - from Barton P. Miller
   - `Valgrind video tutorial <https://www.youtube.com/watch?v=bb1bTJtgXrI>`_
   - `Valgrind is not a leak checker blogpost <http://maintainablecode.logdown.com/posts/245425-valgrind-is-not-a-leak-checker>`_
+  - `MyCodeSchool <http://www.mycodeschool.com>`__ video: 
+     `Memory leak in C++ <https://www.youtube.com/watch?v=F2nrej6Kjww&list=PL2_aWCzGMAwLZp6LMUKI3cc7pgGsasm2_&index=17>`__ 
 
 
 

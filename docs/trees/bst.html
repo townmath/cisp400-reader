@@ -3,22 +3,23 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>15.2. Binary Search Trees &#8212; CISC 187 Course Reader Overview</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17.2. Binary Search Trees &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
     <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
-    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
     <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
     <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -28,9 +29,9 @@
     <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
-    <script src="../_static/html4css1.css?v=4D8F3FB4"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
     <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
@@ -45,7 +46,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script src="../_static/runestone.js?v=343ECCF5"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
     <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
     <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
     <script src="../_static/jquery-fix.js?v=1226591B"></script>
@@ -53,11 +54,11 @@
     <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
     <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
     <script src="../_static/theme.js?v=D899FB97"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15.3. Binary Search Tree iterators" href="bst-iterator.html" />
-    <link rel="prev" title="15.1. Tree ADT concepts" href="trees.html" />
+    <link rel="next" title="17.3. Binary Search Tree iterators" href="bst-iterator.html" />
+    <link rel="prev" title="17.1. Tree ADT concepts" href="trees.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -79,7 +80,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '5.0.8';
+  eBookConfig.runestone_version = '5.5.5';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -187,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">15.1. </span>Tree ADT concepts" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">17.1. </span>Tree ADT concepts" data-toggle="tooltip">
     <a href="trees.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">15.3. </span>Binary Search Tree iterators' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">17.3. </span>Binary Search Tree iterators' data-toggle="tooltip" >              
     <a href="bst-iterator.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -231,9 +232,12 @@
 <div class="container" id="continue-reading"></div>
 
 <div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
   
   <div class="section" id="binary-search-trees">
-<span id="index-0"></span><h1><span class="section-number">15.2. </span>Binary Search Trees<a class="headerlink" href="#binary-search-trees" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">17.2. </span>Binary Search Trees<a class="headerlink" href="#binary-search-trees" title="Permalink to this headline">¶</a></h1>
 <p>A binary tree T is a binary search tree if, for each node <code class="docutils literal notranslate"><span class="pre">n</span></code>
 with sub-trees <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code>,</p>
 <ul class="simple">
@@ -245,14 +249,14 @@ with sub-trees <code class="docutils literal notranslate"><span class="pre">left
 <div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-43a8b9558b3b234c87044fe1045c0b161ea623c9.png" alt="a binary search tree" class="graphviz" /></div>
 </div>
 
-    <div data-component="reveal" id="reveal-bst-1"   data-showtitle="Is this a BST?" data-hidetitle="Hide" >
+    <div data-component="reveal" id="reveal-bst-1"   data-showtitle="Is this a BST?" data-hidetitle="Hide"  style="visibility: hidden;">
     <p>Yes.</p>
 <p>Each node is greater than or equal to all of its left descendants,
 and is less than or equal than all of its right descendants.</p>
 
     </div>
     <div class="section" id="the-binary-search-tree-adt">
-<h2><span class="section-number">15.2.1. </span>The Binary Search Tree ADT<a class="headerlink" href="#the-binary-search-tree-adt" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.2.1. </span>The Binary Search Tree ADT<a class="headerlink" href="#the-binary-search-tree-adt" title="Permalink to this headline">¶</a></h2>
 <p>Structurally, a BST contains pointers to it’s left and right children.
 As discussed in <a class="reference internal" href="../recursion/index.html"><span class="doc">Recursion</span></a>,
 a binary tree can be implemented simply as a recursive data structure.
@@ -278,7 +282,7 @@ which might themselves be sub-trees.</p></li>
 
    <span class="c1">// a binary tree node</span>
    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-     <span class="k">struct</span> <span class="n">tree_node</span> <span class="p">{</span>
+     <span class="k">struct</span> <span class="nc">tree_node</span> <span class="p">{</span>
        <span class="n">T</span> <span class="n">value</span><span class="p">;</span>
        <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">left</span><span class="p">;</span>
        <span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">right</span><span class="p">;</span>
@@ -349,7 +353,7 @@ The basic skeleton of the class should look familiar:</p>
         <span class="n">bstree</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">bstree</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">);</span>
 
         <span class="k">constexpr</span>
-          <span class="kt">bool</span> <span class="nf">empty</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="n">root</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">;</span> <span class="p">}</span>
+          <span class="kt">bool</span> <span class="n">empty</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="n">root</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">;</span> <span class="p">}</span>
 
       <span class="k">private</span><span class="o">:</span>
         <span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">root</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
@@ -367,7 +371,7 @@ that define the key operations associated with a BST:</p>
 </ul>
 </div>
 <div class="section" id="searching-binary-trees">
-<h2><span class="section-number">15.2.2. </span>Searching binary trees<a class="headerlink" href="#searching-binary-trees" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.2.2. </span>Searching binary trees<a class="headerlink" href="#searching-binary-trees" title="Permalink to this headline">¶</a></h2>
 <p>Efficient search of a binary tree uses the same algorithm
 you would use when playing the ‘number guessing’ game.
 If asked to guess a random number between <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">100</span></code> in the
@@ -392,9 +396,9 @@ If the target value is larger, then we search the right subtree.</p>
 <span class="p">{</span>
   <span class="k">if</span><span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
   <span class="k">if</span><span class="p">(</span><span class="n">query_value</span> <span class="o">&lt;</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">contains</span><span class="p">(</span><span class="n">query_value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nf">contains</span><span class="p">(</span><span class="n">query_value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
   <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">query_value</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">contains</span><span class="p">(</span><span class="n">query_value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nf">contains</span><span class="p">(</span><span class="n">query_value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
   <span class="p">}</span>
   <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
@@ -405,7 +409,7 @@ If the target value is larger, then we search the right subtree.</p>
 
 </div>
 <div class="section" id="inserting-into-binary-trees">
-<h2><span class="section-number">15.2.3. </span>Inserting into binary trees<a class="headerlink" href="#inserting-into-binary-trees" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.2.3. </span>Inserting into binary trees<a class="headerlink" href="#inserting-into-binary-trees" title="Permalink to this headline">¶</a></h2>
 <p>Inserting into a binary tree means adding a new node in the tree
 such that the binary tree property remains intact.</p>
 <div id='insert_tab' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="insert" >
@@ -423,9 +427,9 @@ This process is identical to the search used for the contains function.</p>
      <span class="k">return</span> <span class="n">node</span><span class="p">;</span>
    <span class="p">}</span>
    <span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">)</span> <span class="p">{</span>
-     <span class="k">return</span> <span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+     <span class="k">return</span> <span class="nf">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
-     <span class="k">return</span> <span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+     <span class="k">return</span> <span class="nf">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
    <span class="p">}</span>
    <span class="c1">// else the value already exists in the tree</span>
    <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
@@ -454,7 +458,7 @@ ascending or descending order, as opposed to inserting unordered data.</p>
 </div>
 </div>
 <div class="section" id="erasing-binary-tree-nodes">
-<h2><span class="section-number">15.2.4. </span>Erasing binary tree nodes<a class="headerlink" href="#erasing-binary-tree-nodes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">17.2.4. </span>Erasing binary tree nodes<a class="headerlink" href="#erasing-binary-tree-nodes" title="Permalink to this headline">¶</a></h2>
 <p>The erase process also begins with a search for the place to erase.
 This process is identical to the search used for contains and insert.</p>
 <p>The tricky part of removing a value from a binary search tree
@@ -478,7 +482,7 @@ However, deleting any other node would break the links between tree nodes.</p>
 <li><p>Removing a node that has two children</p></li>
 </ul>
 <div class="section" id="removing-a-leaf-node">
-<h3><span class="section-number">15.2.4.1. </span>Removing a leaf node<a class="headerlink" href="#removing-a-leaf-node" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">17.2.4.1. </span>Removing a leaf node<a class="headerlink" href="#removing-a-leaf-node" title="Permalink to this headline">¶</a></h3>
 <p>It’s easy to see that we can always remove any leaf in a
 binary search tree without affecting anything else.
 That is, if we remove any leaf from a binary search tree,
@@ -492,7 +496,7 @@ replacing whichever of its two children pointers was used to get to <code class=
 <p>In other words, leaf nodes are replaced with the null pointer.</p>
 </div>
 <div class="section" id="removing-a-non-leaf-node-with-a-null-child">
-<h3><span class="section-number">15.2.4.2. </span>Removing a non-leaf node with a null child<a class="headerlink" href="#removing-a-non-leaf-node-with-a-null-child" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">17.2.4.2. </span>Removing a non-leaf node with a null child<a class="headerlink" href="#removing-a-non-leaf-node-with-a-null-child" title="Permalink to this headline">¶</a></h3>
 <p>Removing nodes from the interior of the tree is a bit more work
 as we need to maintain links between nodes.</p>
 <p>Given the same tree we have been working with so far:</p>
@@ -503,7 +507,7 @@ Suppose we wanted to remove the <code class="docutils literal notranslate"><span
 What would we have to do so that the
 remaining nodes would still be a valid BST?</p>
 
-    <div data-component="reveal" id="reveal-bst-2"   data-showtitle="Show" data-hidetitle="Hide" >
+    <div data-component="reveal" id="reveal-bst-2"   data-showtitle="Show" data-hidetitle="Hide"  style="visibility: hidden;">
     <p>There is one pointer to the node being deleted,
 and one pointer from that node to its only child.</p>
 <p>So this is actually a bit like deleting a node from
@@ -541,7 +545,7 @@ then reassign the left child to the current node,
 otherwise assign the right child.</p>
 </div>
 <div class="section" id="removing-a-non-leaf-node-with-a-two-children">
-<h3><span class="section-number">15.2.4.3. </span>Removing a non-leaf node with a two children<a class="headerlink" href="#removing-a-non-leaf-node-with-a-two-children" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">17.2.4.3. </span>Removing a non-leaf node with a two children<a class="headerlink" href="#removing-a-non-leaf-node-with-a-two-children" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we wanted to remove the <code class="docutils literal notranslate"><span class="pre">50</span></code> or the <code class="docutils literal notranslate"><span class="pre">30</span></code> from this tree.
 What must we do so that the remaining nodes would still be a valid BST?</p>
 <p>This is a hard case.
@@ -638,9 +642,9 @@ or has at most one child.</p>
     <span class="k">if</span><span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="k">nullptr</span> <span class="p">)</span> <span class="k">return</span><span class="p">;</span>
 
 <span class="hll">    <span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">)</span> <span class="p">{</span>
-</span><span class="hll">      <span class="k">return</span> <span class="n">erase</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span><span class="hll">      <span class="k">return</span> <span class="nf">erase</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
 </span><span class="hll">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
-</span><span class="hll">      <span class="k">return</span> <span class="n">erase</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span><span class="hll">      <span class="k">return</span> <span class="nf">erase</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
 </span>
     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">!=</span> <span class="k">nullptr</span> <span class="o">&amp;&amp;</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">!=</span> <span class="k">nullptr</span> <span class="p">)</span> <span class="p">{</span>
       <span class="c1">// two children</span>
@@ -678,6 +682,8 @@ smallest value from the right subtree.</p>
 <li><p>The content on this page was adapted from
 <a class="reference external" href="https://www.cs.odu.edu/~zeil/cs361/f16/Public/bst/index.html">Binary Search Trees</a>,
 by Steven J. Zeil for his data structures course CS361.</p></li>
+<li><p><a class="reference external" href="http://www.mycodeschool.com">MyCodeSchool</a> video:
+<a class="reference external" href="https://www.youtube.com/watch?v=pYT9F8_LFTM&amp;list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&amp;index=27">Data structures: binary search trees</a></p></li>
 <li><p>Wikipedia</p>
 <ul>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Binary_search_tree">binary search tree</a></p></li>
@@ -697,8 +703,8 @@ by Steven J. Zeil for his data structures course CS361.</p></li>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 15.1. Tree ADT concepts' data-toggle="tooltip">
-    <a href="trees.html" aria-label="15.1. Tree ADT concepts">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 17.1. Tree ADT concepts' data-toggle="tooltip">
+    <a href="trees.html" aria-label="17.1. Tree ADT concepts">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -708,8 +714,8 @@ by Steven J. Zeil for his data structures course CS361.</p></li>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 15.3. Binary Search Tree iterators' data-toggle="tooltip" >
-    <a href="bst-iterator.html" aria-label="15.3. Binary Search Tree iterators">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 17.3. Binary Search Tree iterators' data-toggle="tooltip" >
+    <a href="bst-iterator.html" aria-label="17.3. Binary Search Tree iterators">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
@@ -751,7 +757,7 @@ by Steven J. Zeil for his data structures course CS361.</p></li>
     </p>
     <p>
         &copy; Copyright 2017-2020 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.0.8.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
     </p>
   </div>
 </footer>

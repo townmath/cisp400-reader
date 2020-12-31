@@ -3,22 +3,23 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>6.4. The Binary Tree ADT &#8212; CISC 187 Course Reader Overview</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.4. The Binary Tree ADT &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
     <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
-    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
     <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
     <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -28,9 +29,9 @@
     <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
-    <script src="../_static/html4css1.css?v=4D8F3FB4"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
     <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
@@ -45,7 +46,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script src="../_static/runestone.js?v=343ECCF5"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
     <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
     <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
     <script src="../_static/jquery-fix.js?v=1226591B"></script>
@@ -53,11 +54,11 @@
     <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
     <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
     <script src="../_static/theme.js?v=D899FB97"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Introduction to classes" href="../class-I-intro/index.html" />
-    <link rel="prev" title="6.3. Example: Converting an Integer to a String" href="to_string.html" />
+    <link rel="next" title="9. Introduction to classes" href="../class-I-intro/index.html" />
+    <link rel="prev" title="8.3. Example: Converting an Integer to a String" href="to_string.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -79,7 +80,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '5.0.8';
+  eBookConfig.runestone_version = '5.5.5';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -187,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">6.3. </span>Example: Converting an Integer to a String" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">8.3. </span>Example: Converting an Integer to a String" data-toggle="tooltip">
     <a href="to_string.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">7. </span>Introduction to classes' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">9. </span>Introduction to classes' data-toggle="tooltip" >              
     <a href="../class-I-intro/index.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -231,9 +232,12 @@
 <div class="container" id="continue-reading"></div>
 
 <div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
   
   <div class="section" id="the-binary-tree-adt">
-<span id="index-0"></span><h1><span class="section-number">6.4. </span>The Binary Tree ADT<a class="headerlink" href="#the-binary-tree-adt" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">8.4. </span>The Binary Tree ADT<a class="headerlink" href="#the-binary-tree-adt" title="Permalink to this headline">¶</a></h1>
 <p>Unlike the linear sequences covered so far,
 a <a class="reference internal" href="../glossary.html#term-tree"><span class="xref std std-term">tree</span></a> is a <em>hierarchical</em> abstract data type.
 Conceptually, it can be thought of as a collection of
@@ -250,7 +254,7 @@ In a <a class="reference internal" href="../glossary.html#term-binary-tree"><spa
 the children are commonly referred to as the <strong>left</strong> and <strong>right</strong> children.</p>
 <p>A simple binary tree can be implemented as a recursive data structure:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
- <span class="k">struct</span> <span class="n">tree</span> <span class="p">{</span>
+ <span class="k">struct</span> <span class="nc">tree</span> <span class="p">{</span>
     <span class="n">T</span> <span class="n">value</span><span class="p">;</span>
     <span class="n">tree</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">left</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
     <span class="n">tree</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">right</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
@@ -262,7 +266,7 @@ and has two pointers to potential children.
 It is important to remember when working with a recursive tree such as this
 that a child might be a <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>.</p>
 <div class="section" id="binary-tree-traversal">
-<span id="index-1"></span><h2><span class="section-number">6.4.1. </span>Binary tree traversal<a class="headerlink" href="#binary-tree-traversal" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">8.4.1. </span>Binary tree traversal<a class="headerlink" href="#binary-tree-traversal" title="Permalink to this headline">¶</a></h2>
 <p>Traversal of a data structure means visit elements of the structure.
 It might mean visiting a subset, but can also involve visiting each element
 from the first to last.</p>
@@ -283,7 +287,7 @@ The most common tree traversals are:</p>
 let’s implement functions that traverse the tree using each of the four methods.</p>
 <div class="graphviz"><img src="../_images/graphviz-b36d3b3a0f6d094dfed37f491e33b448a8ccfc81.png" alt="Subject of the next 4 traversals" class="graphviz" /></div>
 <div class="section" id="preorder-traversal">
-<h3><span class="section-number">6.4.1.1. </span>Preorder traversal<a class="headerlink" href="#preorder-traversal" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.4.1.1. </span>Preorder traversal<a class="headerlink" href="#preorder-traversal" title="Permalink to this headline">¶</a></h3>
 <p>A depth first traversal.</p>
 <p>Visit all nodes <strong>before</strong> visiting children:</p>
 <div id='preorder' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Preorder" >
@@ -302,12 +306,16 @@ node.</p>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div data-childcomponent="ac-trees-preorder" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=ac-trees-preorder >
+<div id=ac-trees-preorder_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=ac-trees-preorder data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="ac-trees-preorder_editor" data-question_label="8.4.1.1.1" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 
 template <class T>
@@ -365,11 +373,12 @@ int main() {
 </textarea>
 </div>
 </div>
+</div>
     </div>
 
 </div>
 <div class="section" id="postorder-traversal">
-<h3><span class="section-number">6.4.1.2. </span>Postorder traversal<a class="headerlink" href="#postorder-traversal" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.4.1.2. </span>Postorder traversal<a class="headerlink" href="#postorder-traversal" title="Permalink to this headline">¶</a></h3>
 <p>A depth first traversal.</p>
 <p>Visit all nodes <strong>after</strong> visiting children:</p>
 <div id='postorder' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Postorder" >
@@ -387,12 +396,16 @@ int main() {
 <p>The only difference between the preorder example and this
 is the order of the function calls in the <code class="docutils literal notranslate"><span class="pre">print</span></code> function.</p>
 
-<div data-childcomponent="ac-trees-postorder" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=ac-trees-postorder >
+<div id=ac-trees-postorder_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=ac-trees-postorder data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="ac-trees-postorder_editor" data-question_label="8.4.1.2.1" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 
 template <class T>
@@ -450,11 +463,12 @@ int main() {
 </textarea>
 </div>
 </div>
+</div>
     </div>
 
 </div>
 <div class="section" id="inorder-traversal">
-<h3><span class="section-number">6.4.1.3. </span>Inorder traversal<a class="headerlink" href="#inorder-traversal" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.4.1.3. </span>Inorder traversal<a class="headerlink" href="#inorder-traversal" title="Permalink to this headline">¶</a></h3>
 <p>A depth first traversal.</p>
 <p>Visit the left child (and the left child subtree),
 then visit the current node,
@@ -473,12 +487,16 @@ visit the right child (and the right child subtree),</p>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div data-childcomponent="ac-trees-inorder" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=ac-trees-inorder >
+<div id=ac-trees-inorder_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=ac-trees-inorder data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="ac-trees-inorder_editor" data-question_label="8.4.1.3.1" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 
 template <class T>
@@ -536,11 +554,12 @@ int main() {
 </textarea>
 </div>
 </div>
+</div>
     </div>
 
 </div>
 <div class="section" id="level-order-traversal">
-<h3><span class="section-number">6.4.1.4. </span>Level order traversal<a class="headerlink" href="#level-order-traversal" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.4.1.4. </span>Level order traversal<a class="headerlink" href="#level-order-traversal" title="Permalink to this headline">¶</a></h3>
 <p>Differs from the previous traversals: it is a ‘breadth first’ traversal.
 Also, this algorithm is easier to implement iteratively than recursively.</p>
 <p>Visit each node on each level of the tree
@@ -565,12 +584,16 @@ then visit the children one level deeper.</p>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div data-childcomponent="ac-trees-levelorder" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=ac-trees-levelorder >
+<div id=ac-trees-levelorder_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=ac-trees-levelorder data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="ac-trees-levelorder_editor" data-question_label="8.4.1.4.1" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 #include <queue>
 
@@ -634,6 +657,7 @@ int main() {
 </textarea>
 </div>
 </div>
+</div>
     </div>
 
 <hr class="docutils" />
@@ -655,8 +679,8 @@ int main() {
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 6.3. Example: Converting an Integer to a String' data-toggle="tooltip">
-    <a href="to_string.html" aria-label="6.3. Example: Converting an Integer to a String">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 8.3. Example: Converting an Integer to a String' data-toggle="tooltip">
+    <a href="to_string.html" aria-label="8.3. Example: Converting an Integer to a String">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -666,8 +690,8 @@ int main() {
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 7. Introduction to classes' data-toggle="tooltip" >
-    <a href="../class-I-intro/index.html" aria-label="7. Introduction to classes">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 9. Introduction to classes' data-toggle="tooltip" >
+    <a href="../class-I-intro/index.html" aria-label="9. Introduction to classes">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
@@ -709,7 +733,7 @@ int main() {
     </p>
     <p>
         &copy; Copyright 2017-2020 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.0.8.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
     </p>
   </div>
 </footer>

@@ -17,6 +17,8 @@ Main Body
 .. toctree::
 
    beginnings/index.rst
+   math/index.rst
+   analysis/index.rst
    string+vector/index.rst
    function-intro/index.rst
    function-overloads/index.rst

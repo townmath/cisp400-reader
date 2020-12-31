@@ -34,6 +34,14 @@ extensions = ['sphinx.ext.mathjax',
               'matplotlib.sphinxext.plot_directive',
               'cppreference'] + runestone_extensions()
 
+# math_number_all = True
+# mathjax_options = {
+# }
+plot_include_source = False
+plot_html_show_source_link = False
+plot_html_show_formats = False
+
+
 # graphviz_dot='/usr/bin/dot'
 # extlinks dict
 #            role       url                                              prefix

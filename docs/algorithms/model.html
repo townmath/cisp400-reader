@@ -3,22 +3,23 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>16.2. Basic Model &#8212; CISC 187 Course Reader Overview</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>18.2. Basic Model &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
     <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
-    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
     <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
     <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -28,9 +29,9 @@
     <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
-    <script src="../_static/html4css1.css?v=4D8F3FB4"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
     <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
@@ -45,7 +46,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script src="../_static/runestone.js?v=343ECCF5"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
     <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
     <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
     <script src="../_static/jquery-fix.js?v=1226591B"></script>
@@ -53,11 +54,11 @@
     <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
     <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
     <script src="../_static/theme.js?v=D899FB97"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="16.3. Refactoring to Algorithms" href="refactor.html" />
-    <link rel="prev" title="16.1. Background" href="intro.html" />
+    <link rel="next" title="18.3. Refactoring to Algorithms" href="refactor.html" />
+    <link rel="prev" title="18.1. Background" href="intro.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -79,7 +80,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '5.0.8';
+  eBookConfig.runestone_version = '5.5.5';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -187,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">16.1. </span>Background" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">18.1. </span>Background" data-toggle="tooltip">
     <a href="intro.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">16.3. </span>Refactoring to Algorithms' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">18.3. </span>Refactoring to Algorithms' data-toggle="tooltip" >              
     <a href="refactor.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -231,16 +232,19 @@
 <div class="container" id="continue-reading"></div>
 
 <div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
   
   <div class="section" id="basic-model">
-<span id="index-0"></span><h1><span class="section-number">16.2. </span>Basic Model<a class="headerlink" href="#basic-model" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">18.2. </span>Basic Model<a class="headerlink" href="#basic-model" title="Permalink to this headline">¶</a></h1>
 <p>One of the primary goals of the STL is
 avoiding repetition &amp; using regular, compact syntax.
 The STL achieves these goals using <em>separation of concerns</em>.</p>
 <div class="graphviz"><img src="../_images/graphviz-f08ee1f4b96727f1d523a8bcb76bd1f8285a4290.png" alt="STL basic model" class="graphviz" /></div>
 <p>Algorithms and containers interact through <strong>iterators</strong>.</p>
 <div class="section" id="basic-model-in-action-find">
-<span id="index-1"></span><h2><span class="section-number">16.2.1. </span>Basic Model in Action: find()<a class="headerlink" href="#basic-model-in-action-find" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">18.2.1. </span>Basic Model in Action: find()<a class="headerlink" href="#basic-model-in-action-find" title="Permalink to this headline">¶</a></h2>
 <p>Let’s suppose we need to
 find the first element in a container that equals a value.
 Specifically, we want to find a specific int in a vector.</p>
@@ -261,12 +265,16 @@ of a specific type to our find function.</p>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div data-childcomponent="ac-algorithm-my-find" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=ac-algorithm-my-find >
+<div id=ac-algorithm-my-find_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=ac-algorithm-my-find data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="ac-algorithm-my-find_editor" data-question_label="18.2.1.1" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -296,6 +304,7 @@ int main () {
   return 0;
 }
 </textarea>
+</div>
 </div>
 <p>See this example running <a class="reference external" href="http://www.pythontutor.com/cpp.html#code=%23include%20%3Calgorithm%3E%0A%23include%20%3Ciostream%3E%0A%23include%20%3Cvector%3E%0A%0A//%20function%20to%20find%20'x'%20in%20v%0Astd%3A%3Avector%3Cint%3E%3A%3Aiterator%20%0Afind%28std%3A%3Avector%3Cint%3E%26%20v,%20int%20x%29%20%7B%0A%20%20for%28auto%20p%20%3D%20v.begin%28%29%3B%20p%20!%3D%20v.end%28%29%3B%20%2B%2Bp%29%20%7B%0A%20%20%20%20if%20%28x%20%3D%3D%20*p%29%20return%20p%3B%0A%20%20%7D%0A%20%20//%20did%20not%20find%20x%0A%20%20return%20v.end%28%29%3B%0A%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%0Aint%20main%20%28%29%20%7B%0A%20%20int%20value%20%3D%2031%3B%0A%20%20std%3A%3Avector%3Cint%3E%20nums%2899%29%3B%0A%20%20std%3A%3Aiota%28nums.begin%28%29,%20nums.end%28%29,%20-17%29%3B%0A%20%20auto%20it%20%3D%20find%28nums,%20value%29%3B%0A%20%20%20%20%20%0A%20%20if%20%28it%20%3D%3D%20nums.end%28%29%29%20%7B%0A%20%20%20%20std%3A%3Acout%20%3C%3C%20%22Did%20not%20find%20%22%20%3C%3C%20value%20%3C%3C%20%20'%5Cn'%3B%0A%20%20%7D%20else%20%7B%0A%20%20%20%20std%3A%3Acout%20%3C%3C%20%22Found%20%22%20%3C%3C%20value%20%3C%3C%20%22%20at%20position%20%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%3C%20%28std%3A%3Adistance%28nums.begin%28%29,%20it%29%29%20%3C%3C%20'%5Cn'%3B%0A%20%20%7D%0A%20%20return%200%3B%0A%7D%0A&amp;curInstr=4&amp;mode=display&amp;origin=opt-frontend.js&amp;py=cpp&amp;rawInputLstJSON=%5B%5D">step-by-step</a></p>
 </div>
@@ -334,12 +343,16 @@ a generic type and uses iterators.</p>
 <p>And we can prove to ourselves that we get the same results as
 <a class="reference external" href="https://en.cppreference.com/w/cpp/algorithm/find">find</a>.</p>
 
-<div data-childcomponent="ac-algorithm-std-find" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=ac-algorithm-std-find >
+<div id=ac-algorithm-std-find_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=ac-algorithm-std-find data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="ac-algorithm-std-find_editor" data-question_label="18.2.1.2" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <algorithm>
 #include <iostream>
 #include <numeric>
@@ -375,6 +388,7 @@ int main () {
 }
 </textarea>
 </div>
+</div>
 <p>And since it is arguably the same function as <code class="docutils literal notranslate"><span class="pre">std::find</span></code>,
 we now know we no longer need it.</p>
 </div>
@@ -409,8 +423,8 @@ the matching name on line 24.</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 16.1. Background' data-toggle="tooltip">
-    <a href="intro.html" aria-label="16.1. Background">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 18.1. Background' data-toggle="tooltip">
+    <a href="intro.html" aria-label="18.1. Background">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -420,8 +434,8 @@ the matching name on line 24.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 16.3. Refactoring to Algorithms' data-toggle="tooltip" >
-    <a href="refactor.html" aria-label="16.3. Refactoring to Algorithms">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 18.3. Refactoring to Algorithms' data-toggle="tooltip" >
+    <a href="refactor.html" aria-label="18.3. Refactoring to Algorithms">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
@@ -463,7 +477,7 @@ the matching name on line 24.</p>
     </p>
     <p>
         &copy; Copyright 2017-2020 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.0.8.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
     </p>
   </div>
 </footer>

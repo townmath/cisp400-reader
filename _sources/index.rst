@@ -6,7 +6,7 @@ CISC 187 Course Reader
 
 .. meta::
    :description: An interactive texbook for CISC 187 at San Diego Mesa College
-   :keywords: c++, cpp, programming
+   :keywords: c++, programming, analysis, data structures
 
 .. toc_version: 1
 
@@ -36,6 +36,8 @@ Chapters
    :maxdepth: 1
 
    beginnings/index.rst
+   math/index.rst
+   analysis/index.rst
    string+vector/index.rst
    function-intro/index.rst
    function-overloads/index.rst

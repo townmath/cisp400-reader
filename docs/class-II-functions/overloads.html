@@ -3,22 +3,23 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>8.4. Operator overloads &#8212; CISC 187 Course Reader Overview</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10.4. Operator overloads &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
     <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
-    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
     <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
     <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -28,9 +29,9 @@
     <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
-    <script src="../_static/html4css1.css?v=4D8F3FB4"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
     <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
@@ -45,7 +46,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script src="../_static/runestone.js?v=343ECCF5"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
     <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
     <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
     <script src="../_static/jquery-fix.js?v=1226591B"></script>
@@ -53,11 +54,11 @@
     <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
     <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
     <script src="../_static/theme.js?v=D899FB97"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8.5. Friend vs non-friend functions" href="friend.html" />
-    <link rel="prev" title="8.3. ‘this’ pointer" href="this.html" />
+    <link rel="next" title="10.5. Friend vs non-friend functions" href="friend.html" />
+    <link rel="prev" title="10.3. ‘this’ pointer" href="this.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -79,7 +80,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '5.0.8';
+  eBookConfig.runestone_version = '5.5.5';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -187,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">8.3. </span>‘this’ pointer" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">10.3. </span>‘this’ pointer" data-toggle="tooltip">
     <a href="this.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">8.5. </span>Friend vs non-friend functions' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">10.5. </span>Friend vs non-friend functions' data-toggle="tooltip" >              
     <a href="friend.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -231,9 +232,12 @@
 <div class="container" id="continue-reading"></div>
 
 <div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
   
   <div class="section" id="operator-overloads">
-<span id="index-0"></span><h1><span class="section-number">8.4. </span>Operator overloads<a class="headerlink" href="#operator-overloads" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">10.4. </span>Operator overloads<a class="headerlink" href="#operator-overloads" title="Permalink to this headline">¶</a></h1>
 <p>There are many reasons to want to overload the builtin operator
 functions for user defined types.</p>
 <p><strong>Case 1</strong></p>
@@ -293,7 +297,7 @@ since most operators defer their actual work to plain functions.
 The programming community has already thought long and hard on
 techniques to make overloads efficient and easy to maintain.</p>
 <div class="section" id="basic-overloading-guidelines">
-<span id="index-1"></span><h2><span class="section-number">8.4.1. </span>Basic overloading guidelines<a class="headerlink" href="#basic-overloading-guidelines" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">10.4.1. </span>Basic overloading guidelines<a class="headerlink" href="#basic-overloading-guidelines" title="Permalink to this headline">¶</a></h2>
 <p>Most C++ operators can be overloaded.
 You cannot change the meaning of operators for built-in types in C++.
 Operators can only be overloaded when at least 1 operand is a user-defined type.
@@ -345,7 +349,7 @@ then most users expect to also to be able to check <code class="docutils literal
 function signatures for some of the most common operator overloads.</p>
 </div>
 <div class="section" id="assignment-operator">
-<h2><span class="section-number">8.4.2. </span>Assignment operator<a class="headerlink" href="#assignment-operator" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.4.2. </span>Assignment operator<a class="headerlink" href="#assignment-operator" title="Permalink to this headline">¶</a></h2>
 <p>The copy assignment operator is called when an object appears
 on the left side of an assignment expression.</p>
 <p>The canonical copy-assignment operator is expected to perform
@@ -379,7 +383,7 @@ the destructor of <code class="docutils literal notranslate"><span class="pre">o
 formerly held by <code class="docutils literal notranslate"><span class="pre">*this</span></code>.
 A custom swap function for the user defined type <code class="docutils literal notranslate"><span class="pre">T</span></code>
 is required for this technique to work:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">friend</span> <span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">first</span><span class="p">,</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">second</span><span class="p">)</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">friend</span> <span class="kt">void</span> <span class="n">swap</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">first</span><span class="p">,</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">second</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">;</span>
 
@@ -393,7 +397,7 @@ is required for this technique to work:</p>
 </div>
 </div>
 <div class="section" id="insertion-and-extraction-operators">
-<h2><span class="section-number">8.4.3. </span>Insertion and extraction operators<a class="headerlink" href="#insertion-and-extraction-operators" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.4.3. </span>Insertion and extraction operators<a class="headerlink" href="#insertion-and-extraction-operators" title="Permalink to this headline">¶</a></h2>
 <p>The bitshift operators <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>,
 although still used in hardware interfacing for the bit-manipulation functions
 they inherit from C,
@@ -458,7 +462,7 @@ non-member non-friend functions. The canonical forms are:</p>
 </div>
 </div>
 <div class="section" id="function-call-operator">
-<h2><span class="section-number">8.4.4. </span>Function call operator<a class="headerlink" href="#function-call-operator" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.4.4. </span>Function call operator<a class="headerlink" href="#function-call-operator" title="Permalink to this headline">¶</a></h2>
 <p>When a user-defined class overloads the function call operator,
 <code class="docutils literal notranslate"><span class="pre">operator()</span></code>, it becomes a FunctionObject type.
 A function object is a class that can be called as if it was a function.
@@ -469,7 +473,7 @@ Prior to the C++11 additions of
 function objects were an important way to pass functions to algorithms.</p>
 <p>There are no particularly notable canonical forms of <code class="docutils literal notranslate"><span class="pre">operator()</span></code>,
 but to illustrate the usage:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Sum</span> <span class="p">{</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Sum</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">sum</span><span class="p">;</span>
     <span class="n">Sum</span><span class="p">()</span> <span class="o">:</span> <span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
     <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="n">sum</span> <span class="o">+=</span> <span class="n">n</span><span class="p">;</span> <span class="p">}</span>
@@ -489,7 +493,7 @@ A single class can contain more than 1 function call operator overload,
 subject to the other rules of function overloading.</p>
 </div>
 <div class="section" id="relational-operators">
-<h2><span class="section-number">8.4.5. </span>Relational operators<a class="headerlink" href="#relational-operators" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.4.5. </span>Relational operators<a class="headerlink" href="#relational-operators" title="Permalink to this headline">¶</a></h2>
 <p>Standard algorithms such as std::sort and containers such as
 <a class="reference external" href="https://en.cppreference.com/w/cpp/container/set">set</a> expect <code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">&lt;</span></code> to be defined, by default,
 for the user-provided types, and expect it to implement strict
@@ -511,7 +515,7 @@ The general signature for these non-member functions is:</p>
 </div>
 <p>An idiomatic way to implement strict weak ordering for a structure is to use
 lexicographical comparison provided by <a class="reference external" href="https://en.cppreference.com/w/cpp/utility/tuple/tie">std::tie</a>:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Record</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Record</span>
 <span class="p">{</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">;</span>
     <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">floor</span><span class="p">;</span>
@@ -560,7 +564,7 @@ in terms of <code class="docutils literal notranslate"><span class="pre">&lt;</s
 three-way comparison operator <code class="docutils literal notranslate"><span class="pre">operator&lt;=&gt;</span></code> is defined,
 and <em>that</em> operator, in turn, is generated by the compiler if it is
 defined as defaulted:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Record</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Record</span>
 <span class="p">{</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">;</span>
     <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">floor</span><span class="p">;</span>
@@ -573,7 +577,7 @@ defined as defaulted:</p>
 </div>
 </div>
 <div class="section" id="binary-arithmetic-operators">
-<h2><span class="section-number">8.4.6. </span>Binary arithmetic operators<a class="headerlink" href="#binary-arithmetic-operators" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.4.6. </span>Binary arithmetic operators<a class="headerlink" href="#binary-arithmetic-operators" title="Permalink to this headline">¶</a></h2>
 <p>Binary operators are typically implemented as non-members to maintain symmetry.
 For example, when adding a complex number and an integer,
 if <code class="docutils literal notranslate"><span class="pre">operator+</span></code> is a member function of the complex type,
@@ -612,7 +616,7 @@ compound assignments:</p>
 <p>The remaining binary arithmetic operators are implemented using the same pattern.</p>
 </div>
 <div class="section" id="increment-and-decrement-operators">
-<h2><span class="section-number">8.4.7. </span>Increment and decrement operators<a class="headerlink" href="#increment-and-decrement-operators" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.4.7. </span>Increment and decrement operators<a class="headerlink" href="#increment-and-decrement-operators" title="Permalink to this headline">¶</a></h2>
 <p>When the postfix increment and decrement appear in an expression,
 the corresponding user-defined function (<code class="docutils literal notranslate"><span class="pre">operator++</span></code> or <code class="docutils literal notranslate"><span class="pre">operator--</span></code>)
 is called with an integer argument 0.
@@ -620,7 +624,7 @@ Typically, it is implemented as <code class="docutils literal notranslate"><span
 where the argument is ignored.
 The postfix increment and decrement operator is usually implemented
 in terms of the prefix version:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">T</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">T</span>
 <span class="p">{</span>
     <span class="c1">// prefix increment</span>
     <span class="n">T</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">++</span><span class="p">()</span>
@@ -632,7 +636,7 @@ in terms of the prefix version:</p>
     <span class="c1">// postfix increment</span>
     <span class="n">T</span> <span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="n">T</span> <span class="n">tmp</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span> <span class="c1">// copy</span>
+        <span class="n">T</span> <span class="nf">tmp</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span> <span class="c1">// copy</span>
         <span class="k">operator</span><span class="o">++</span><span class="p">();</span> <span class="c1">// pre-increment</span>
         <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>   <span class="c1">// return old value</span>
     <span class="p">}</span>
@@ -641,7 +645,7 @@ in terms of the prefix version:</p>
 </div>
 </div>
 <div class="section" id="conversion-operators">
-<h2><span class="section-number">8.4.8. </span>Conversion operators<a class="headerlink" href="#conversion-operators" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.4.8. </span>Conversion operators<a class="headerlink" href="#conversion-operators" title="Permalink to this headline">¶</a></h2>
 <p>C++ allows you to create operators to convert between your type and other ADT’s.
 A conversion function is declared like a non-static member function or
 member function template with</p>
@@ -653,7 +657,7 @@ member function template with</p>
 <span class="k">operator</span> <span class="nf">int</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="cm">/* return int version of type */</span> <span class="p">}</span>
 
 <span class="c1">// explicit conversion</span>
-<span class="k">explicit</span> <span class="k">operator</span> <span class="nf">int</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="cm">/* return int version of type */</span> <span class="p">}</span>
+<span class="k">explicit</span> <span class="k">operator</span> <span class="kt">int</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="cm">/* return int version of type */</span> <span class="p">}</span>
 </pre></div>
 </div>
 </li>
@@ -754,8 +758,8 @@ third edition and section 10 of the second.</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 8.3. ‘this’ pointer' data-toggle="tooltip">
-    <a href="this.html" aria-label="8.3. ‘this’ pointer">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 10.3. ‘this’ pointer' data-toggle="tooltip">
+    <a href="this.html" aria-label="10.3. ‘this’ pointer">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -765,8 +769,8 @@ third edition and section 10 of the second.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 8.5. Friend vs non-friend functions' data-toggle="tooltip" >
-    <a href="friend.html" aria-label="8.5. Friend vs non-friend functions">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 10.5. Friend vs non-friend functions' data-toggle="tooltip" >
+    <a href="friend.html" aria-label="10.5. Friend vs non-friend functions">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
@@ -808,7 +812,7 @@ third edition and section 10 of the second.</p>
     </p>
     <p>
         &copy; Copyright 2017-2020 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.0.8.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
     </p>
   </div>
 </footer>

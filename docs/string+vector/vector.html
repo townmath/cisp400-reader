@@ -3,22 +3,23 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>2.5. The vector class &#8212; CISC 187 Course Reader Overview</title>
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.5. The vector class &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
     <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
-    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
     <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.0.8" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
     <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -28,9 +29,9 @@
     <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
-    <script src="../_static/html4css1.css?v=4D8F3FB4"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script src="../_static/sql-wasm.js?v=44FE0709"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
     <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
@@ -45,7 +46,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script src="../_static/runestone.js?v=343ECCF5"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
     <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
     <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
     <script src="../_static/jquery-fix.js?v=1226591B"></script>
@@ -53,11 +54,11 @@
     <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
     <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
     <script src="../_static/theme.js?v=D899FB97"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Introduction to functions" href="../function-intro/index.html" />
-    <link rel="prev" title="2.4. The string class" href="string.html" />
+    <link rel="next" title="5. Introduction to functions" href="../function-intro/index.html" />
+    <link rel="prev" title="4.4. The string class" href="string.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -79,7 +80,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '5.0.8';
+  eBookConfig.runestone_version = '5.5.5';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -187,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">2.4. </span>The string class" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">4.4. </span>The string class" data-toggle="tooltip">
     <a href="string.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">3. </span>Introduction to functions' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">5. </span>Introduction to functions' data-toggle="tooltip" >              
     <a href="../function-intro/index.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -231,9 +232,12 @@
 <div class="container" id="continue-reading"></div>
 
 <div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
   
   <div class="section" id="the-vector-class">
-<span id="index-0"></span><h1><span class="section-number">2.5. </span>The vector class<a class="headerlink" href="#the-vector-class" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">4.5. </span>The vector class<a class="headerlink" href="#the-vector-class" title="Permalink to this headline">¶</a></h1>
 <p>A <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">vector</a> is intended to behave like a dynamically sized array.
 It is a <a class="reference internal" href="../glossary.html#term-template"><span class="xref std std-term">template</span></a>, so unlike a string,
 which is a container for characters only,
@@ -289,12 +293,16 @@ This is perfectly OK and normal.</p>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div data-childcomponent="vector_declare_simple_ac" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=vector_declare_simple_ac >
+<div id=vector_declare_simple_ac_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=vector_declare_simple_ac data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="vector_declare_simple_ac_editor" data-question_label="4.5.1" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 #include <string>
 #include <vector>
@@ -322,6 +330,7 @@ int main() {
   return 0;
 }
 </textarea>
+</div>
 </div>
 </div>
     </div>
@@ -359,7 +368,7 @@ node [
 <p>Although the <code class="docutils literal notranslate"><span class="pre">vector</span></code> object is initialized, its contents are not.
 Many compilers will initialize the contents to zero, but don’t rely on this behavior.
 Explicitly initialize with a default value, if that is what you want:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">-1</span><span class="p">);</span>
 </pre></div>
 </div>
 <p id="index-2">A vector comes with a rich assortment of convenience functions.
@@ -395,12 +404,16 @@ the standard library?</p>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div data-childcomponent="vector_access_operator_ac1" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=vector_access_operator_ac1 >
+<div id=vector_access_operator_ac1_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=vector_access_operator_ac1 data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="vector_access_operator_ac1_editor" data-question_label="4.5.2" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 #include <vector>
 
@@ -421,6 +434,7 @@ int main() {
   return 0;
 }
 </textarea>
+</div>
 </div>
 </div>
     </div>
@@ -452,12 +466,16 @@ in the same position in the vector.</p>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div data-childcomponent="vector_operator_equal_assign_ac" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=vector_operator_equal_assign_ac >
+<div id=vector_operator_equal_assign_ac_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=vector_operator_equal_assign_ac data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="vector_operator_equal_assign_ac_editor" data-question_label="4.5.3" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <vector>
 #include <iostream>
 
@@ -483,6 +501,7 @@ int main() {
 </textarea>
 </div>
 </div>
+</div>
     </div>
 
 <div class="admonition-try-this admonition">
@@ -490,12 +509,16 @@ int main() {
 <p>Create two vectors of strings containing
 the same values and check them for equality.</p>
 
-<div data-childcomponent="vector_operation_string_compare_try_this_ac" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=vector_operation_string_compare_try_this_ac >
+<div id=vector_operation_string_compare_try_this_ac_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=vector_operation_string_compare_try_this_ac data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="vector_operation_string_compare_try_this_ac_editor" data-question_label="4.5.4" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <iostream>
 
 int main() {
@@ -503,8 +526,9 @@ int main() {
 </textarea>
 </div>
 </div>
+</div>
 <div class="section" id="adding-data-to-a-vector">
-<h2><span class="section-number">2.5.1. </span>Adding data to a vector<a class="headerlink" href="#adding-data-to-a-vector" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.5.1. </span>Adding data to a vector<a class="headerlink" href="#adding-data-to-a-vector" title="Permalink to this headline">¶</a></h2>
 <p>How do we solve the <a class="reference external" href="https://en.cppreference.com/w/cpp/error/out_of_range">out_of_range</a> exception from a few examples ago?
 How do we dynamically add data to a <code class="docutils literal notranslate"><span class="pre">vector</span></code>?</p>
 <p>A simple way is to use the <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/push_back">push_back</a> function.</p>
@@ -578,12 +602,16 @@ The last element is no longer available.</p>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div data-childcomponent="vector_push_back_example_ac" class="runestone explainer ac_section alert alert-warning">
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=vector_push_back_example_ac >
+<div id=vector_push_back_example_ac_question class="ac_question col-md-12">
 
-<textarea data-component="activecode" id=vector_push_back_example_ac data-lang="cpp" 
+</div>
+<textarea data-lang="cpp" id="vector_push_back_example_ac_editor" data-question_label="4.5.1.1" 
       data-timelimit=25000     
     data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static>
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
 #include <vector>
 #include <iostream>
 
@@ -608,11 +636,12 @@ int main() {
 </textarea>
 </div>
 </div>
+</div>
     </div>
 
 </div>
 <div class="section" id="vector-capacity">
-<span id="index-3"></span><h2><span class="section-number">2.5.2. </span>Vector capacity<a class="headerlink" href="#vector-capacity" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2><span class="section-number">4.5.2. </span>Vector capacity<a class="headerlink" href="#vector-capacity" title="Permalink to this headline">¶</a></h2>
 <p>A vector exposes an interface that ‘feels like’ an array,
 but the underlying storage grows to accomodate new data
 as required.
@@ -677,8 +706,8 @@ vector data is one of the things that make vectors efficient.</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 2.4. The string class' data-toggle="tooltip">
-    <a href="string.html" aria-label="2.4. The string class">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 4.4. The string class' data-toggle="tooltip">
+    <a href="string.html" aria-label="4.4. The string class">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -688,8 +717,8 @@ vector data is one of the things that make vectors efficient.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3. Introduction to functions' data-toggle="tooltip" >
-    <a href="../function-intro/index.html" aria-label="3. Introduction to functions">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 5. Introduction to functions' data-toggle="tooltip" >
+    <a href="../function-intro/index.html" aria-label="5. Introduction to functions">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
@@ -731,7 +760,7 @@ vector data is one of the things that make vectors efficient.</p>
     </p>
     <p>
         &copy; Copyright 2017-2020 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.0.8.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
     </p>
   </div>
 </footer>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.2. Selected functions &#8212; CISC 187 Course Reader Overview</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
+    <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
+    <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
+    <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
+    <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
+    <script src="../_static/animationbase.js?v=A043C3A7"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
+    <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
+    <script src="../_static/webglinteractive.js?v=2B768384"></script>
+    <script src="../_static/FileSaver.min.js?v=8408C997"></script>
+    <script src="../_static/Blob.js?v=AEC2447"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.bidi.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.fallbacks.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.messagestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.parser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.language.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
+    <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
+    <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+    <script src="../_static/jquery-fix.js?v=1226591B"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
+    <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
+    <script src="../_static/theme.js?v=D899FB97"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.3. Logarithms" href="logarithms.html" />
+    <link rel="prev" title="2.1. Sets and Relations" href="set-notation.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+<script type="text/javascript">
+  eBookConfig = {};
+  
+    eBookConfig.useRunestoneServices = false;
+    eBookConfig.host = 'https://daveparillo.github.io/cisc187-reader/' || 'http://127.0.0.1:8000';
+    eBookConfig.app = eBookConfig.host+'/cisc187-reader';
+    eBookConfig.course = 'cisc187-reader';
+    eBookConfig.basecourse = 'cisc187-reader';
+    eBookConfig.isLoggedIn = false;
+  
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.logLevel = 0;
+  eBookConfig.loginRequired = false;
+  eBookConfig.build_info = "unknown";
+  eBookConfig.python3 = true;
+  eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
+  eBookConfig.runestone_version = '5.5.5';
+  eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
+  eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
+  eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
+  eBookConfig.enable_chatcodes = false ? false : false;
+
+
+</script>
+
+<!-- Ad Serving Headers Only serve ads to Anonymous Users -->
+
+
+
+
+
+  </head><body>
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar" aria-label="navbar toggle" class="visuallyhidden">toggle navbar</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+        
+          <a class="brand-logo" style='background: transparent url("../_static/img/logo_small.png") no-repeat 0px 0px;'>&nbsp;<span aria-label="logo" class="visuallyhidden">Runestone Logo</span> </a>
+        
+        <a class="navbar-brand" href="../index.html" aria-label="index-page">
+          
+          cisc187-reader
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right" >
+
+        <li class="divider-vertical"></li>
+
+
+        <!-- social media dropdown -->
+        <!-- end social media dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'><span aria-label="Search" class="visuallyhidden">Search</span></i>
+          </a>
+          <ul class='dropdown-menu'>
+            
+                <li><a href='../index.html' aria-label="index-page">Table of Contents</a></li>
+            
+            <li><a href='../genindex.html'>Book Index</a></li>
+            <li class="divider"></li>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        
+        <li class="divider-vertical"></li>
+        <!-- <li id="scratch_ac_link"><a href="javascript:ACFactory.toggleScratchActivecode()">Scratch ActiveCode</a></li> -->
+
+        <!-- <li class="dropdown">             -->
+          <li id="scratch_ac_link" class="dropdown"><a href="javascript:ACFactory.toggleScratchActivecode()">
+              <i class="glyphicon glyphicon-pencil" style="opacity:0.9;"><span aria-label="Scratch Activecode" class="visuallyhidden">Scratch Activecode</span></i></a></li>
+        <!-- </li> -->
+
+        <li class="divider-vertical"></li>
+
+        
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <li class="divider-vertical"></li>
+        
+          
+          <li class="divider-vertical"></li>
+        
+        <!-- 
+          
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">2.1. </span>Sets and Relations" data-toggle="tooltip">
+    <a href="set-notation.html" >
+      <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  
+  <li id="relations-next" title='Next Chapter - <span class="section-number">2.3. </span>Logarithms' data-toggle="tooltip" >              
+    <a href="logarithms.html" >
+        <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  <li class="divider-vertical"></li>
+
+<script type="text/javascript">
+  opts = {'placement':'bottom',
+          'selector': '',
+          'delay': { show: 100, hide: 50}
+         };
+
+  $('#relations-prev').tooltip(opts);
+  $('#relations-next').tooltip(opts);
+</script>
+        -->
+        
+          <li></li>
+        
+      </ul>
+
+      </div> <!-- navbar -->
+
+
+
+
+
+
+
+    </div> <!-- container -->
+  </div>
+</div>
+
+
+<div class="container" id="continue-reading"></div>
+
+<div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
+  
+  <div class="section" id="selected-functions">
+<span id="index-0"></span><h1><span class="section-number">2.2. </span>Selected functions<a class="headerlink" href="#selected-functions" title="Permalink to this headline">¶</a></h1>
+<p>This page collects together definitions for a few
+significant mathematical concepts and functions which are used
+frequently throughout the text.</p>
+<p><strong>Modulus function</strong>
+The modulus function returns the remainder of
+an integer division.
+Sometimes written <span class="math notranslate nohighlight">\(n \bmod m\)</span> in mathematical expressions,
+the syntax in C++ is <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">%</span> <span class="pre">m</span></code>.
+From the definition of remainder, <span class="math notranslate nohighlight">\(n \bmod m\)</span> is the integer
+<span class="math notranslate nohighlight">\(r\)</span> such that <span class="math notranslate nohighlight">\(n = qm + r\)</span> for <span class="math notranslate nohighlight">\(q\)</span> an integer,
+and <span class="math notranslate nohighlight">\(|r| &lt; |m|\)</span>.</p>
+<p>Therefore, the result of <span class="math notranslate nohighlight">\(n \bmod m\)</span> must be between 0 and
+<span class="math notranslate nohighlight">\(m-1\)</span> when <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(m\)</span> are positive integers.
+For example, <span class="math notranslate nohighlight">\(5 \bmod 3 = 2\)</span>; <span class="math notranslate nohighlight">\(25 \bmod 3 = 1\)</span>,
+<span class="math notranslate nohighlight">\(5 \bmod 7 = 5\)</span>, and <span class="math notranslate nohighlight">\(5 \bmod 5 = 0\)</span>.</p>
+<p>There is more than one way to assign values to <span class="math notranslate nohighlight">\(q\)</span>
+and <span class="math notranslate nohighlight">\(r\)</span>, depending on how integer division is interpreted.
+The most common mathematical definition computes the mod function as
+<span class="math notranslate nohighlight">\(n \bmod m = n - m\lfloor n/m\rfloor\)</span>.
+In this case, <span class="math notranslate nohighlight">\(-3 \bmod 5 = 2\)</span>.
+However, Java and C++ compilers typically use the underlying
+processor’s machine instruction for computing integer arithmetic.
+On many computers this is done by truncating the resulting fraction,
+meaning <span class="math notranslate nohighlight">\(n \bmod m = n - m (\mathrm{trunc}(n/m))\)</span>.
+Under this definition, <span class="math notranslate nohighlight">\(-3 \bmod 5 = -3\)</span>.
+Another language might do something different.</p>
+<p>Unfortunately, for many applications this is not what the user wants
+or expects.
+For example, many hash systems
+will perform some computation on a record’s <a class="reference internal" href="../glossary.html#term-key"><span class="xref std std-term">key</span></a> value and then
+take the result modulo the hash table size.
+The expectation here would be that the result is a legal index into
+the hash table, not a negative number.
+Implementers of hash functions must either ensure that the
+result of the computation is always positive, or else add the hash
+table size to the result of the modulo function when that result is
+negative.</p>
+<p><strong>Factorial function</strong>
+The factorial function, written <span class="math notranslate nohighlight">\(n!\)</span> for <span class="math notranslate nohighlight">\(n\)</span> an
+integer greater than 0, is the product of
+the integers between 1 and <span class="math notranslate nohighlight">\(n\)</span>, inclusive.
+Thus, <span class="math notranslate nohighlight">\(5! = 1 \cdot 2 \cdot 3 \cdot 4 \cdot 5 = 120\)</span>.
+As a special case, <span class="math notranslate nohighlight">\(0! = 1\)</span>.
+The factorial function grows quickly as <span class="math notranslate nohighlight">\(n\)</span> becomes larger.
+Because computing the factorial function directly is a time-consuming
+process, it can be useful to have an equation that provides a
+good approximation.
+Stirling’s approximation states that
+<span class="math notranslate nohighlight">\(n! \approx \sqrt{2\pi n}(\frac{n}{e})^n\)</span>,
+where <span class="math notranslate nohighlight">\(e \approx 2.71828\)</span>
+(<span class="math notranslate nohighlight">\(e\)</span> is the base for the system of natural logarithms) <a class="footnote-reference brackets" href="#id2" id="id1">1</a>.
+Thus we see that while <span class="math notranslate nohighlight">\(n!\)</span> grows
+slower than <span class="math notranslate nohighlight">\(n^n\)</span> (because <span class="math notranslate nohighlight">\(\sqrt{2\pi n}/e^n &lt; 1\)</span>),
+it grows faster than <span class="math notranslate nohighlight">\(c^n\)</span> for any positive integer constant
+<span class="math notranslate nohighlight">\(c\)</span>.</p>
+<p id="index-1"><strong>Permutations</strong>
+A permutation of a sequence <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>
+is simply the members of <span class="math notranslate nohighlight">\(\mathbf{S}\)</span> arranged in some order.
+For example, a permutation of the integers 1 through <span class="math notranslate nohighlight">\(n\)</span> would
+be those values arranged in some order.
+If the sequence contains <span class="math notranslate nohighlight">\(n\)</span> distinct members, then there are
+<span class="math notranslate nohighlight">\(n!\)</span> different permutations for the sequence.
+This is because there are <span class="math notranslate nohighlight">\(n\)</span> choices for the first member in
+the permutation; for each choice of first member there are <span class="math notranslate nohighlight">\(n-1\)</span>
+choices for the second member, and so on.</p>
+<div id='permute' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="permute" >
+<p>Sometimes one would like to obtain a random permutation for a
+sequence, that is, one of the <span class="math notranslate nohighlight">\(n!\)</span> possible permutations is
+selected in such a way that each permutation has equal probability of
+being selected.
+A simple function for generating a random permutation is as
+follows.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//Randomly permute the values in array</span>
+<span class="kt">void</span> <span class="nf">permute</span><span class="p">(</span><span class="kt">int</span> <span class="n">data</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">uniform_int_distribution</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="mi">-1</span><span class="p">}</span> <span class="p">(</span><span class="n">eng</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="mi">-1</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>  <span class="c1">// swap data[i-1] with a random</span>
+  <span class="p">}</span>                                 <span class="c1">// position in the range 0 to i-1.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here, the <span class="math notranslate nohighlight">\(n\)</span> values of the sequence are stored in
+positions 0 through <span class="math notranslate nohighlight">\(n-1\)</span> of array <code class="docutils literal notranslate"><span class="pre">data</span></code>.
+Function <a class="reference external" href="https://en.cppreference.com/w/cpp/utility/swap">swap</a>
+exchanges elements in array <code class="docutils literal notranslate"><span class="pre">data</span></code>,
+and <a class="reference external" href="https://en.cppreference.com/w/cpp/numeric/random/uniform_int_distribution">uniform_int_distribution</a>
+returns an integer value uniformly distributed
+in the range 0 to <span class="math notranslate nohighlight">\(i-1\)</span>.</p>
+</div><div data-component="tab" data-tabname="Run It" >
+
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=math_permute_ac >
+<div id=math_permute_ac_question class="ac_question col-md-12">
+
+</div>
+<textarea data-lang="cpp" id="math_permute_ac_editor" data-question_label="2.2.1" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
+#include <iostream>
+#include <random>
+#include <utility>
+
+namespace {
+  // make a random number generator
+  std::random_device r;
+  std::default_random_engine eng(r());
+}
+
+//Randomly permute the values in array
+void permute(int data[], int n) {
+  for (int i = n; i > 0; --i) {
+    int j = std::uniform_int_distribution<int> {0, i-1} (eng);
+    std::swap(data[i-1], data[j]);  // swap data[i-1] with a random
+  }                                 // position in the range 0 to i-1.
+}
+void print(int data[], int n) {
+  for (int i = 0; i<n; ++i) {
+    std::cout << data[i] << '\t';
+  }
+  std::cout << std::endl;
+}
+int main() {
+  int data[] = {1,1,2,3,5,8,13,21,34};
+
+  for (int i = 0; i<5; ++i) {
+    permute(data, 9);
+    print(data, 9);
+  }
+  std::cout << '\n';
+}
+</textarea>
+</div>
+</div>
+</div><div data-component="tab" data-tabname="shuffle" >
+<p>Randomly shuffling a range of data is a common enough activity
+that it is implemented in the standard library.
+The <a class="reference external" href="https://en.cppreference.com/w/cpp/algorithm/random_shuffle">shuffle</a> function
+does what our permute function does, but a bit more generically.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">shuffle</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">end</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">eng</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Instead of an entire array it takes a range of data and
+a random number generator.</p>
+</div><div data-component="tab" data-tabname="Run shuffle" >
+
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=math_permute_shuffle_ac >
+<div id=math_permute_shuffle_ac_question class="ac_question col-md-12">
+
+</div>
+<textarea data-lang="cpp" id="math_permute_shuffle_ac_editor" data-question_label="2.2.2" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
+#include <algorithm>
+#include <iostream>
+#include <iterator>
+#include <random>
+
+namespace {
+  std::random_device r;
+  std::default_random_engine eng(r());  // make a random number generator
+}
+
+void print(int data[], int n) {
+  for (int i = 0; i<n; ++i) {
+    std::cout << data[i] << '\t';
+  }
+  std::cout << std::endl;
+}
+int main() {
+  int data[] = {1,1,2,3,5,8,13,21,34};
+
+  for (int i = 0; i<5; ++i) {
+    std::shuffle(std::begin(data), std::end(data), eng);
+    print(data, 9);
+  }
+  std::cout << std::endl;
+}
+</textarea>
+</div>
+</div>
+</div>
+    </div>
+
+<p><strong>Boolean variables</strong>
+A boolean variable
+is a variable that takes one of two values:
+<code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>.
+These two values are often associated with the values 1 and 0,
+respectively, although there is no reason why this needs to be the
+case.
+It is poor programming practice to rely on the
+correspondence between 0 and False, because these are logically
+distinct objects of different types.</p>
+<p><strong>Logic Notation</strong>
+We will occasionally make use of the notation of symbolic or boolean
+logic.
+<span class="math notranslate nohighlight">\(A \Rightarrow B\)</span> means “<span class="math notranslate nohighlight">\(A\)</span> implies <span class="math notranslate nohighlight">\(B\)</span>” or
+“If <span class="math notranslate nohighlight">\(A\)</span> then <span class="math notranslate nohighlight">\(B\)</span>”.
+<span class="math notranslate nohighlight">\(A \Leftrightarrow B\)</span> means “<span class="math notranslate nohighlight">\(A\)</span> if and only if <span class="math notranslate nohighlight">\(B\)</span>”
+or “<span class="math notranslate nohighlight">\(A\)</span> is equivalent to <span class="math notranslate nohighlight">\(B\)</span>”.
+<span class="math notranslate nohighlight">\(A \vee B\)</span> means “<span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span>”
+(useful both in the context of symbolic
+logic or when performing a boolean operation).
+<span class="math notranslate nohighlight">\(A \wedge B\)</span> means “<span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>”.
+<span class="math notranslate nohighlight">\(\sim\!A\)</span> and <span class="math notranslate nohighlight">\(\overline{A}\)</span> both mean “not <span class="math notranslate nohighlight">\(A\)</span>” or
+the negation of <span class="math notranslate nohighlight">\(A\)</span> where <span class="math notranslate nohighlight">\(A\)</span> is a boolean variable.</p>
+<p><strong>Floor and ceiling</strong>
+The <a class="reference internal" href="../glossary.html#term-floor"><span class="xref std std-term">floor</span></a> of <span class="math notranslate nohighlight">\(x\)</span> (written <span class="math notranslate nohighlight">\(\lfloor x \rfloor\)</span>)
+takes real value <span class="math notranslate nohighlight">\(x\)</span> and returns the greatest
+integer <span class="math notranslate nohighlight">\(\leq x\)</span>.
+For example, <span class="math notranslate nohighlight">\(\lfloor 3.4 \rfloor = 3\)</span>,
+as does <span class="math notranslate nohighlight">\(\lfloor 3.0 \rfloor\)</span>,
+while <span class="math notranslate nohighlight">\(\lfloor -3.4 \rfloor = -4\)</span> and
+<span class="math notranslate nohighlight">\(\lfloor -3.0 \rfloor = -3\)</span>.
+The <a class="reference internal" href="../glossary.html#term-ceiling"><span class="xref std std-term">ceiling</span></a> of <span class="math notranslate nohighlight">\(x\)</span> (written
+<span class="math notranslate nohighlight">\(\lceil x \rceil\)</span>) takes real value <span class="math notranslate nohighlight">\(x\)</span> and returns the
+least integer <span class="math notranslate nohighlight">\(\geq x\)</span>.
+For example, <span class="math notranslate nohighlight">\(\lceil 3.4 \rceil = 4\)</span>, as does
+<span class="math notranslate nohighlight">\(\lceil 4.0 \rceil\)</span>,
+while <span class="math notranslate nohighlight">\(\lceil -3.4 \rceil = \lceil -3.0 \rceil = -3\)</span>.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>The symbol “<span class="math notranslate nohighlight">\(\approx\)</span>” means “approximately equal.”</p>
+</dd>
+</dl>
+<div class="admonition-more-to-explore admonition">
+<p class="admonition-title">More to Explore</p>
+<ul class="simple">
+<li><p>From cppreference.com</p>
+<ul>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/numeric/random">Random number generation</a> and
+<a class="reference external" href="https://en.cppreference.com/w/cpp/algorithm/random_shuffle">random_shuffle</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/numeric/math">Common math functions</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/algorithm/is_permuation">is_permuation</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/algorithm/next_permuation">next_permuation</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/types">types</a> - including <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+  <div id=scprogresscontainer>
+    You have attempted <span id=scprogresstotal></span> of <span id=scprogressposs></span> activities on this page <div id="subchapterprogress"></div>
+  </div>
+  
+      
+<ul>
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 2.1. Sets and Relations' data-toggle="tooltip">
+    <a href="set-notation.html" aria-label="2.1. Sets and Relations">
+        <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
+            <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
+        </div>
+    </a>
+  </li>
+</ul>
+
+  
+<ul>
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 2.3. Logarithms' data-toggle="tooltip" >
+    <a href="logarithms.html" aria-label="2.3. Logarithms">
+      <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
+          <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
+      </div>
+    </a>
+  </li>
+</ul>
+
+<script type="text/javascript">
+
+  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
+
+</script>
+
+<script>
+	function mouseOverPrev() {
+		document.getElementById("relations-prev").style.opacity=1;
+	}
+
+	function mouseOutPrev() {
+		document.getElementById("relations-prev").style.opacity=0.4;
+	}
+	function mouseOverNext() {
+		document.getElementById("relations-next").style.opacity=1;
+	}
+
+	function mouseOutNext() {
+		document.getElementById("relations-next").style.opacity=0.4;
+	}
+</script>
+  
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      
+      | <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017-2020 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
+    </p>
+  </div>
+</footer>
+
+
+
+
+<script> getSwitch(); </script>
+
+
+  </body>
+</html>
