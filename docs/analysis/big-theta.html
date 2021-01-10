@@ -375,10 +375,20 @@ The analysis for most commonly used algorithms is well understood and
 we can almost always give a <span class="math notranslate nohighlight">\(\Theta\)</span> analysis for them.
 However, the class of NP-Complete
 problems all have no definitive <span class="math notranslate nohighlight">\(\Theta\)</span> analysis, just some
-unsatisfying big-O and <span class="math notranslate nohighlight">\(\Omega\)</span> analyses.
-Even some “simple” programs are hard to analyze.
-Nobody currently knows the true upper or lower bounds for the
-following code fragment.</p>
+unsatisfying big-O and <span class="math notranslate nohighlight">\(\Omega\)</span> analyses.</p>
+<p>Even some “simple” programs are hard to analyze.
+Consider the <em>Collatz Conjecture</em>.
+The Collatz Conjecture or 3x+1 problem can be summarized as follows:</p>
+<blockquote>
+<div><p>Take any positive integer <span class="math notranslate nohighlight">\(n\)</span>.
+If <span class="math notranslate nohighlight">\(n\)</span> is even, divide <span class="math notranslate nohighlight">\(n\)</span> by 2.
+If <span class="math notranslate nohighlight">\(n\)</span> is odd, multiply <span class="math notranslate nohighlight">\(n\)</span> by 3.
+Repeat the process indefinitely.
+The conjecture states that no matter which number you start with,
+you will always reach 1 eventually.</p>
+</div></blockquote>
+<p>Nobody currently knows the true upper or lower bounds for the
+conjecture, because it is unknown if it is true.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> n &gt; <span class="m">1</span>
    <span class="k">if</span> n is odd
       n ← <span class="m">3</span>*n + <span class="m">1</span>
@@ -479,7 +489,7 @@ the upper and lower bounds are the same.</p>
 
             <div class="runestone alert alert-warning">
             <ul data-component="multiplechoice" data-question_label="3.6.3.1" data-multipleanswers="false"  id="mc-bigtheta1"  style="visibility: hidden;">
-            <p>Q-1: Determine the proper relationship between the following pair of functions.</p>
+            <p>sc-1-1: Determine the proper relationship between the following pair of functions.</p>
 <p><span class="math notranslate nohighlight">\(f(n) = \sqrt n\)</span></p>
 <p><span class="math notranslate nohighlight">\(g(n) = \log n^2\)</span></p>
 <li data-component="answer" data-correct id="mc-bigtheta1_opt_a"><p><span class="math notranslate nohighlight">\(f(n) \mbox{ is } \Omega(g(n))\)</span></p>
@@ -496,7 +506,7 @@ the upper and lower bounds are the same.</p>
 
             <div class="runestone alert alert-warning">
             <ul data-component="multiplechoice" data-question_label="3.6.3.2" data-multipleanswers="false"  id="mc-bigtheta2"  style="visibility: hidden;">
-            <p>Q-2: Determine the proper relationship between the following pair of functions.</p>
+            <p>sc-1-2: Determine the proper relationship between the following pair of functions.</p>
 <p><span class="math notranslate nohighlight">\(f(n) = \log n^2\)</span></p>
 <p><span class="math notranslate nohighlight">\(g(n) = \log n + 5\)</span></p>
 <li data-component="answer"  id="mc-bigtheta2_opt_a"><p><span class="math notranslate nohighlight">\(f(n) \mbox{ is } \Omega(g(n))\)</span></p>
@@ -514,7 +524,9 @@ the upper and lower bounds are the same.</p>
 
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to explore</p>
-<p>TBD</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Collatz_conjecture">Collatz Conjecture</a> on wikipedia.</p></li>
+</ul>
 </div>
 </div>
 </div>

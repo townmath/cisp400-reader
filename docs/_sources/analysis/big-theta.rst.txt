@@ -166,9 +166,20 @@ we can almost always give a :math:`\Theta` analysis for them.
 However, the class of NP-Complete
 problems all have no definitive :math:`\Theta` analysis, just some
 unsatisfying big-O and :math:`\Omega` analyses.
+
 Even some "simple" programs are hard to analyze.
+Consider the *Collatz Conjecture*.
+The Collatz Conjecture or 3x+1 problem can be summarized as follows:
+
+   Take any positive integer :math:`n`. 
+   If :math:`n` is even, divide :math:`n` by 2.
+   If :math:`n` is odd, multiply :math:`n` by 3.
+   Repeat the process indefinitely.
+   The conjecture states that no matter which number you start with,
+   you will always reach 1 eventually.
+
 Nobody currently knows the true upper or lower bounds for the
-following code fragment.
+conjecture, because it is unknown if it is true.
 
 .. code-block:: bash
 
@@ -336,4 +347,4 @@ Skill Check
 
 .. admonition:: More to explore
 
-   TBD
+   - `Collatz Conjecture <https://en.wikipedia.org/wiki/Collatz_conjecture>`__ on wikipedia.
