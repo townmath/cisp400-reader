@@ -252,6 +252,7 @@ Glossary
       small, since we are referring to the best from a class of inputs
       (i.e, we want the best of those inputs of size :math:`n`).
 
+   big-O notation
    big-Oh notation
       In algorithm analysis, a shorthand notation for describing the
       upper bound for an algorithm or problem.
@@ -547,6 +548,7 @@ Glossary
       Compare to :term:`simple type` and :term:`composite type`.
 
    constant running time
+   constant time
       The cost of a function whose running time is not related to its
       input size.
       In Theta notation, this is traditionally written as

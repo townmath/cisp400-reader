@@ -39,6 +39,7 @@ Chapters
    math/index.rst
    analysis/index.rst
    string+vector/index.rst
+
    function-intro/index.rst
    function-overloads/index.rst
    pointers/index.rst
@@ -47,12 +48,13 @@ Chapters
    class-I-intro/index.rst
    class-II-functions/index.rst
    class-III-design/index.rst
+
    class-templates/index.rst
    class-IV-copy/index.rst
 
-   allocators/index.rst
    stack/index.rst
    list/index.rst
+
    trees/index.rst
    algorithms/index.rst
 
@@ -70,15 +72,29 @@ Back Matter
 * :ref:`genindex`
 * :doc:`toc`
 
-.. reveal:: about
-   :showtitle: About this Book
-   :modal:
-   :modalTitle: About this Book
+Acknowledgements
+----------------
 
-   This interactive book is intended as a supplement to other material provided for the course 
-   CISC 187 'C++ and Data Structures'.
+This book is based on work from the 
+`Runestone Interactive <http://runestoneinteractive.org>`_ Project.
 
-   This book is based on work from the `Runestone Interactive <http://runestoneinteractive.org>`_ Project 
+Codelens based on `Online Python Tutor <http://www.pythontutor.com>`_
 
-   Codelens based on `Online Python Tutor <http://www.pythontutor.com>`_
+Portions of this book would not be possible without the generosity of others
+who have created excellent textbooks and materials and also
+chose to release them in a shareable and extensible manner.
+Some content in this book is adapted from
+`On Complexity <https://runestone.academy/runestone/books/published/complex>`__, 
+by Janice L. Pearce
+released under the 
+`Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0) <http://creativecommons.org/licenses/by-nc-sa/4.0/>`__,
+`Problem Solving with Algorithms and Data Structures using C++ <https://runestone.academy/runestone/books/published/cppds>`__,
+by Brad Miller and David Ranum, Luther College, and Jan Pearce, Berea College
+also released under the 
+`CC BY-NC-SA 4.0 <http://creativecommons.org/licenses/by-nc-sa/4.0/>`__,
+and `Open Data Structures (OpenDSA) <https://opendsa-server.cs.vt.edu>`__
+by Ville Karavirta and Cliff Shaffer
+which is distributed under the `MIT License <https://github.com/OpenDSA/OpenDSA/blob/master/MIT-license.txt>`__
+
+
 

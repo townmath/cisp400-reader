@@ -57,7 +57,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.3. Logarithms" href="logarithms.html" />
+    <link rel="next" title="2.3. Modulus operator" href="modulus.html" />
     <link rel="prev" title="2.1. Sets and Relations" href="set-notation.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -194,8 +194,8 @@
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">2.3. </span>Logarithms' data-toggle="tooltip" >              
-    <a href="logarithms.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">2.3. </span>Modulus operator' data-toggle="tooltip" >              
+    <a href="modulus.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -238,50 +238,25 @@
   
   <div class="section" id="selected-functions">
 <span id="index-0"></span><h1><span class="section-number">2.2. </span>Selected functions<a class="headerlink" href="#selected-functions" title="Permalink to this headline">¶</a></h1>
-<p>This page collects together definitions for a few
-significant mathematical concepts and functions which are used
-frequently throughout the text.</p>
-<p><strong>Modulus function</strong>
-The modulus function returns the remainder of
-an integer division.
-Sometimes written <span class="math notranslate nohighlight">\(n \bmod m\)</span> in mathematical expressions,
-the syntax in C++ is <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">%</span> <span class="pre">m</span></code>.
-From the definition of remainder, <span class="math notranslate nohighlight">\(n \bmod m\)</span> is the integer
-<span class="math notranslate nohighlight">\(r\)</span> such that <span class="math notranslate nohighlight">\(n = qm + r\)</span> for <span class="math notranslate nohighlight">\(q\)</span> an integer,
-and <span class="math notranslate nohighlight">\(|r| &lt; |m|\)</span>.</p>
-<p>Therefore, the result of <span class="math notranslate nohighlight">\(n \bmod m\)</span> must be between 0 and
-<span class="math notranslate nohighlight">\(m-1\)</span> when <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(m\)</span> are positive integers.
-For example, <span class="math notranslate nohighlight">\(5 \bmod 3 = 2\)</span>; <span class="math notranslate nohighlight">\(25 \bmod 3 = 1\)</span>,
-<span class="math notranslate nohighlight">\(5 \bmod 7 = 5\)</span>, and <span class="math notranslate nohighlight">\(5 \bmod 5 = 0\)</span>.</p>
-<p>There is more than one way to assign values to <span class="math notranslate nohighlight">\(q\)</span>
-and <span class="math notranslate nohighlight">\(r\)</span>, depending on how integer division is interpreted.
-The most common mathematical definition computes the mod function as
-<span class="math notranslate nohighlight">\(n \bmod m = n - m\lfloor n/m\rfloor\)</span>.
-In this case, <span class="math notranslate nohighlight">\(-3 \bmod 5 = 2\)</span>.
-However, Java and C++ compilers typically use the underlying
-processor’s machine instruction for computing integer arithmetic.
-On many computers this is done by truncating the resulting fraction,
-meaning <span class="math notranslate nohighlight">\(n \bmod m = n - m (\mathrm{trunc}(n/m))\)</span>.
-Under this definition, <span class="math notranslate nohighlight">\(-3 \bmod 5 = -3\)</span>.
-Another language might do something different.</p>
-<p>Unfortunately, for many applications this is not what the user wants
-or expects.
-For example, many hash systems
-will perform some computation on a record’s <a class="reference internal" href="../glossary.html#term-key"><span class="xref std std-term">key</span></a> value and then
-take the result modulo the hash table size.
-The expectation here would be that the result is a legal index into
-the hash table, not a negative number.
-Implementers of hash functions must either ensure that the
-result of the computation is always positive, or else add the hash
-table size to the result of the modulo function when that result is
-negative.</p>
-<p><strong>Factorial function</strong>
+<p><strong>Factorial</strong>
 The factorial function, written <span class="math notranslate nohighlight">\(n!\)</span> for <span class="math notranslate nohighlight">\(n\)</span> an
 integer greater than 0, is the product of
 the integers between 1 and <span class="math notranslate nohighlight">\(n\)</span>, inclusive.
 Thus, <span class="math notranslate nohighlight">\(5! = 1 \cdot 2 \cdot 3 \cdot 4 \cdot 5 = 120\)</span>.
-As a special case, <span class="math notranslate nohighlight">\(0! = 1\)</span>.
-The factorial function grows quickly as <span class="math notranslate nohighlight">\(n\)</span> becomes larger.
+As a special case, <span class="math notranslate nohighlight">\(0! = 1\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+&amp;&amp;  0! = 1 \\
+&amp;&amp;  n! = n \cdot (n-1)!\end{aligned}\end{split}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Factorial is usually denoted with the symbol <span class="math notranslate nohighlight">\(!\)</span>, which is not to
+be confused with the C++ logical operator ! which means NOT.</p>
+<p>Notice that when used to negate a boolean, the <code class="docutils literal notranslate"><span class="pre">!</span></code>
+appears <em>before</em> the operand, while
+factorial appears <em>after</em> the operand.</p>
+</div>
+<p>The factorial function grows quickly as <span class="math notranslate nohighlight">\(n\)</span> becomes larger.
 Because computing the factorial function directly is a time-consuming
 process, it can be useful to have an equation that provides a
 good approximation.
@@ -293,150 +268,7 @@ Thus we see that while <span class="math notranslate nohighlight">\(n!\)</span> 
 slower than <span class="math notranslate nohighlight">\(n^n\)</span> (because <span class="math notranslate nohighlight">\(\sqrt{2\pi n}/e^n &lt; 1\)</span>),
 it grows faster than <span class="math notranslate nohighlight">\(c^n\)</span> for any positive integer constant
 <span class="math notranslate nohighlight">\(c\)</span>.</p>
-<p id="index-1"><strong>Permutations</strong>
-A permutation of a sequence <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>
-is simply the members of <span class="math notranslate nohighlight">\(\mathbf{S}\)</span> arranged in some order.
-For example, a permutation of the integers 1 through <span class="math notranslate nohighlight">\(n\)</span> would
-be those values arranged in some order.
-If the sequence contains <span class="math notranslate nohighlight">\(n\)</span> distinct members, then there are
-<span class="math notranslate nohighlight">\(n!\)</span> different permutations for the sequence.
-This is because there are <span class="math notranslate nohighlight">\(n\)</span> choices for the first member in
-the permutation; for each choice of first member there are <span class="math notranslate nohighlight">\(n-1\)</span>
-choices for the second member, and so on.</p>
-<div id='permute' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="permute" >
-<p>Sometimes one would like to obtain a random permutation for a
-sequence, that is, one of the <span class="math notranslate nohighlight">\(n!\)</span> possible permutations is
-selected in such a way that each permutation has equal probability of
-being selected.
-A simple function for generating a random permutation is as
-follows.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//Randomly permute the values in array</span>
-<span class="kt">void</span> <span class="nf">permute</span><span class="p">(</span><span class="kt">int</span> <span class="n">data</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">uniform_int_distribution</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="mi">-1</span><span class="p">}</span> <span class="p">(</span><span class="n">eng</span><span class="p">);</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="mi">-1</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>  <span class="c1">// swap data[i-1] with a random</span>
-  <span class="p">}</span>                                 <span class="c1">// position in the range 0 to i-1.</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Here, the <span class="math notranslate nohighlight">\(n\)</span> values of the sequence are stored in
-positions 0 through <span class="math notranslate nohighlight">\(n-1\)</span> of array <code class="docutils literal notranslate"><span class="pre">data</span></code>.
-Function <a class="reference external" href="https://en.cppreference.com/w/cpp/utility/swap">swap</a>
-exchanges elements in array <code class="docutils literal notranslate"><span class="pre">data</span></code>,
-and <a class="reference external" href="https://en.cppreference.com/w/cpp/numeric/random/uniform_int_distribution">uniform_int_distribution</a>
-returns an integer value uniformly distributed
-in the range 0 to <span class="math notranslate nohighlight">\(i-1\)</span>.</p>
-</div><div data-component="tab" data-tabname="Run It" >
-
-<div class="runestone explainer ac_section alert alert-warning">
-<div data-component="activecode" id=math_permute_ac >
-<div id=math_permute_ac_question class="ac_question col-md-12">
-
-</div>
-<textarea data-lang="cpp" id="math_permute_ac_editor" data-question_label="2.2.1" 
-      data-timelimit=25000     
-    data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
-    style="visibility: hidden;">
-#include <iostream>
-#include <random>
-#include <utility>
-
-namespace {
-  // make a random number generator
-  std::random_device r;
-  std::default_random_engine eng(r());
-}
-
-//Randomly permute the values in array
-void permute(int data[], int n) {
-  for (int i = n; i > 0; --i) {
-    int j = std::uniform_int_distribution<int> {0, i-1} (eng);
-    std::swap(data[i-1], data[j]);  // swap data[i-1] with a random
-  }                                 // position in the range 0 to i-1.
-}
-void print(int data[], int n) {
-  for (int i = 0; i<n; ++i) {
-    std::cout << data[i] << '\t';
-  }
-  std::cout << std::endl;
-}
-int main() {
-  int data[] = {1,1,2,3,5,8,13,21,34};
-
-  for (int i = 0; i<5; ++i) {
-    permute(data, 9);
-    print(data, 9);
-  }
-  std::cout << '\n';
-}
-</textarea>
-</div>
-</div>
-</div><div data-component="tab" data-tabname="shuffle" >
-<p>Randomly shuffling a range of data is a common enough activity
-that it is implemented in the standard library.
-The <a class="reference external" href="https://en.cppreference.com/w/cpp/algorithm/random_shuffle">shuffle</a> function
-does what our permute function does, but a bit more generically.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">shuffle</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">end</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">eng</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>Instead of an entire array it takes a range of data and
-a random number generator.</p>
-</div><div data-component="tab" data-tabname="Run shuffle" >
-
-<div class="runestone explainer ac_section alert alert-warning">
-<div data-component="activecode" id=math_permute_shuffle_ac >
-<div id=math_permute_shuffle_ac_question class="ac_question col-md-12">
-
-</div>
-<textarea data-lang="cpp" id="math_permute_shuffle_ac_editor" data-question_label="2.2.2" 
-      data-timelimit=25000     
-    data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
-    style="visibility: hidden;">
-#include <algorithm>
-#include <iostream>
-#include <iterator>
-#include <random>
-
-namespace {
-  std::random_device r;
-  std::default_random_engine eng(r());  // make a random number generator
-}
-
-void print(int data[], int n) {
-  for (int i = 0; i<n; ++i) {
-    std::cout << data[i] << '\t';
-  }
-  std::cout << std::endl;
-}
-int main() {
-  int data[] = {1,1,2,3,5,8,13,21,34};
-
-  for (int i = 0; i<5; ++i) {
-    std::shuffle(std::begin(data), std::end(data), eng);
-    print(data, 9);
-  }
-  std::cout << std::endl;
-}
-</textarea>
-</div>
-</div>
-</div>
-    </div>
-
-<p><strong>Boolean variables</strong>
-A boolean variable
-is a variable that takes one of two values:
-<code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>.
-These two values are often associated with the values 1 and 0,
-respectively, although there is no reason why this needs to be the
-case.
-It is poor programming practice to rely on the
-correspondence between 0 and False, because these are logically
-distinct objects of different types.</p>
-<p><strong>Logic Notation</strong>
+<p id="index-1"><strong>Logic notation</strong>
 We will occasionally make use of the notation of symbolic or boolean
 logic.
 <span class="math notranslate nohighlight">\(A \Rightarrow B\)</span> means “<span class="math notranslate nohighlight">\(A\)</span> implies <span class="math notranslate nohighlight">\(B\)</span>” or
@@ -449,7 +281,7 @@ logic or when performing a boolean operation).
 <span class="math notranslate nohighlight">\(A \wedge B\)</span> means “<span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>”.
 <span class="math notranslate nohighlight">\(\sim\!A\)</span> and <span class="math notranslate nohighlight">\(\overline{A}\)</span> both mean “not <span class="math notranslate nohighlight">\(A\)</span>” or
 the negation of <span class="math notranslate nohighlight">\(A\)</span> where <span class="math notranslate nohighlight">\(A\)</span> is a boolean variable.</p>
-<p><strong>Floor and ceiling</strong>
+<p id="index-2"><strong>Floor and ceiling</strong>
 The <a class="reference internal" href="../glossary.html#term-floor"><span class="xref std std-term">floor</span></a> of <span class="math notranslate nohighlight">\(x\)</span> (written <span class="math notranslate nohighlight">\(\lfloor x \rfloor\)</span>)
 takes real value <span class="math notranslate nohighlight">\(x\)</span> and returns the greatest
 integer <span class="math notranslate nohighlight">\(\leq x\)</span>.
@@ -473,11 +305,9 @@ while <span class="math notranslate nohighlight">\(\lceil -3.4 \rceil = \lceil -
 <ul class="simple">
 <li><p>From cppreference.com</p>
 <ul>
-<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/numeric/random">Random number generation</a> and
-<a class="reference external" href="https://en.cppreference.com/w/cpp/algorithm/random_shuffle">random_shuffle</a></p></li>
 <li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/numeric/math">Common math functions</a></p></li>
-<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/algorithm/is_permuation">is_permuation</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/algorithm/next_permuation">next_permuation</a></p></li>
 <li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/types">types</a> - including <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/numeric/math/floor">floor</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/numeric/math/ceil">ceil</a></p></li>
 </ul>
 </li>
 </ul>
@@ -502,8 +332,8 @@ while <span class="math notranslate nohighlight">\(\lceil -3.4 \rceil = \lceil -
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 2.3. Logarithms' data-toggle="tooltip" >
-    <a href="logarithms.html" aria-label="2.3. Logarithms">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 2.3. Modulus operator' data-toggle="tooltip" >
+    <a href="modulus.html" aria-label="2.3. Modulus operator">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

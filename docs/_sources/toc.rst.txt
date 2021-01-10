@@ -20,6 +20,7 @@ Main Body
    math/index.rst
    analysis/index.rst
    string+vector/index.rst
+
    function-intro/index.rst
    function-overloads/index.rst
    pointers/index.rst
@@ -31,7 +32,6 @@ Main Body
    class-templates/index.rst
    class-IV-copy/index.rst
 
-   allocators/index.rst
    stack/index.rst
    list/index.rst
    trees/index.rst

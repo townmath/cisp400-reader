@@ -7,6 +7,5 @@ Copying and moving memory
    copy.rst
    rvalue.rst
    move.rst
-   containers.rst
-   vector.rst
+   allocators.rst
 

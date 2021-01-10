@@ -19,9 +19,12 @@ Mathematical Background
 
    set-notation.rst
    functions.rst
+   modulus.rst
+   permutations.rst
    logarithms.rst
    summations.rst
    estimation.rst
+   psuedocode.rst
 
 
 This chapter presents mathematical notation,

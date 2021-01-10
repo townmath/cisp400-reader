@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2.3. Logarithms &#8212; CISC 187 Course Reader Overview</title>
+    <title>2.5. Logarithms &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,8 +57,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.4. Summations" href="summations.html" />
-    <link rel="prev" title="2.2. Selected functions" href="functions.html" />
+    <link rel="next" title="2.6. Summations" href="summations.html" />
+    <link rel="prev" title="2.4. Permutations" href="permutations.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">2.2. </span>Selected functions" data-toggle="tooltip">
-    <a href="functions.html" >
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">2.4. </span>Permutations" data-toggle="tooltip">
+    <a href="permutations.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">2.4. </span>Summations' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">2.6. </span>Summations' data-toggle="tooltip" >              
     <a href="summations.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -237,46 +237,12 @@
 
   
   <div class="section" id="logarithms">
-<span id="index-0"></span><h1><span class="section-number">2.3. </span>Logarithms<a class="headerlink" href="#logarithms" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">2.5. </span>Logarithms<a class="headerlink" href="#logarithms" title="Permalink to this headline">¶</a></h1>
 <p>The logarithm of base <span class="math notranslate nohighlight">\(b\)</span> for value <span class="math notranslate nohighlight">\(y\)</span> is the
 power to which <span class="math notranslate nohighlight">\(b\)</span> is raised to get <span class="math notranslate nohighlight">\(y\)</span>.
 Normally, this is written as <span class="math notranslate nohighlight">\(\log_b y = x\)</span>.
 Thus, if <span class="math notranslate nohighlight">\(\log_b y = x\)</span> then <span class="math notranslate nohighlight">\(b^x = y\)</span>,
 and <span class="math notranslate nohighlight">\(b^{log_b y} = y\)</span>.</p>
-<p>Logarithms are used frequently by programmers.
-Here are two typical uses.</p>
-<div class="topic">
-<p class="topic-title">Example</p>
-<p>Many programs require an encoding for a collection of objects.
-What is the minimum number of bits needed to represent <span class="math notranslate nohighlight">\(n\)</span>
-distinct code values?
-The answer is <span class="math notranslate nohighlight">\(\lceil \log_2 n \rceil\)</span> bits.
-For example, if you have 1000 codes to store, you will require at
-least <span class="math notranslate nohighlight">\(\lceil \log_2 1000 \rceil = 10\)</span> bits to have 1000
-different codes (10 bits provide 1024 distinct code values).</p>
-</div>
-<div class="topic">
-<p class="topic-title">Example</p>
-<p>Consider the binary search
-algorithm for finding a given value within an array sorted by value
-from lowest to highest.
-Binary search first looks at the middle element
-and determines if the value being searched for is in the upper half
-or the lower half of the array.
-The algorithm then continues splitting the appropriate
-subarray in half until the desired value is found.
-How many times can an array of size (n) be split in half until
-only one element remains in the final subarray?
-The answer is <span class="math notranslate nohighlight">\(\lceil \log_2 n \rceil\)</span> times.</p>
-</div>
-<p>In this course, nearly all logarithms used have a base of two.
-This is because data structures and algorithms most often divide
-things in half, or store codes with binary bits.
-Whenever you see the notation <span class="math notranslate nohighlight">\(\log n\)</span> in this text,
-either <span class="math notranslate nohighlight">\(\log_2 n\)</span> is meant or else the term is being used
-asymptotically and so the actual base does not matter.
-For logarithms using any base other than two, we will show the base
-explicitly.</p>
 <p>Logarithms have the following properties, for any positive values of
 <span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(n\)</span>, and <span class="math notranslate nohighlight">\(r\)</span>, and any positive integers
 <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
@@ -299,6 +265,88 @@ constant factors in costs.
 Property (4) says that such analyses need not be concerned with the
 base of the logarithm, because this can change the total cost only by
 a constant factor.</p>
+<div id='math_logs' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="log base 2" >
+<p>C and C++ have always included functions to compute <span class="math notranslate nohighlight">\(\log_e\)</span>
+and <span class="math notranslate nohighlight">\(\log_{10}\)</span>. New in C++11 is a function specifically
+for base 2.
+As we will see, base 2 logarithms are used frequently and it is
+convenient to not have to perform change in base calculations
+when <span class="math notranslate nohighlight">\(\log_2\)</span> is needed.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">log</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>  <span class="c1">// natural log of 1000</span>
+
+<span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">log10</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>  <span class="c1">// base 10 log of 1000</span>
+
+<span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">log2</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>  <span class="c1">// base 2 log of 1000</span>
+</pre></div>
+</div>
+<p>In this course, nearly all logarithms used have a base of two.
+This is because data structures and algorithms most often divide
+things in half, or store codes with binary bits.
+Whenever you see the notation <span class="math notranslate nohighlight">\(\log n\)</span> in this text,
+either <span class="math notranslate nohighlight">\(\log_2 n\)</span> is meant or else the term is being used
+asymptotically and so the actual base does not matter.
+For logarithms using any base other than two, we will show the base
+explicitly.</p>
+</div><div data-component="tab" data-tabname="Run It" >
+
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=ac_math_log2 >
+<div id=ac_math_log2_question class="ac_question col-md-12">
+
+</div>
+<textarea data-lang="cpp" id="ac_math_log2_editor" data-question_label="2.5.1" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"     data-caption='Log Operations'  data-wasm=/_static
+    style="visibility: hidden;">
+#include <iostream>
+#include <cmath>
+int main()
+{
+    std::cout << "log(1) = " << std::log(1) << '\n'
+              << "base-5 logarithm of 125 = " << std::log(125)/std::log(5) << '\n';
+
+    std::cout << "log2(65536) = " << std::log2(65536) << '\n'
+        << "log2(0.125) = " << std::log2(0.125) << '\n'
+        << "log2(0x020f) = " << std::log2(0x020f)
+        << " (highest set bit is in position 9)\n"
+        << "base-5 logarithm of 125 = " << std::log2(125)/std::log2(5) << '\n';
+
+    // special values
+    std::cout << "log2(1) = " << std::log2(1) << '\n'
+              << "log2(+Inf) = " << std::log2(INFINITY) << '\n';
+
+}
+</textarea>
+</div>
+</div>
+</div>
+    </div>
+
+<div class="topic">
+<p class="topic-title">Example</p>
+<p>Many programs require an encoding for a collection of objects.
+What is the minimum number of bits needed to represent <span class="math notranslate nohighlight">\(n\)</span>
+distinct code values?
+The answer is <span class="math notranslate nohighlight">\(\lceil \log_2 n \rceil\)</span> bits.
+For example, if you have 1000 codes to store, you will require at
+least <span class="math notranslate nohighlight">\(\lceil \log_2 1000 \rceil = 10\)</span> bits to have 1000
+different codes (10 bits provide 1024 distinct code values).</p>
+</div>
+<div class="topic">
+<p class="topic-title">Example</p>
+<p>Consider the binary search
+algorithm for finding a given value within an array sorted by value
+from lowest to highest.</p>
+<p>Binary search first looks at the middle element
+and determines if the value being searched for is in the upper half
+or the lower half of the array.
+The algorithm then continues splitting the appropriate
+subarray in half until the desired value is found.
+How many times can an array of size (n) be split in half until
+only one element remains in the final subarray?
+The answer is <span class="math notranslate nohighlight">\(\lceil \log_2 n \rceil\)</span> times.</p>
+</div>
 <p>A useful identity to know is:</p>
 <div class="math notranslate nohighlight">
 \[2^{\log n} = n\]</div>
@@ -324,6 +372,62 @@ For example, <span class="math notranslate nohighlight">\(\log^* 1024 = 4\)</spa
 <span class="math notranslate nohighlight">\(\log 1024 = 10\)</span>, <span class="math notranslate nohighlight">\(\log 10 \approx 3.33\)</span>,
 <span class="math notranslate nohighlight">\(\log 3.33 \approx 1.74\)</span>,
 and <span class="math notranslate nohighlight">\(\log 1.74 &lt; 1\)</span>, which is a total of 4 log operations.</p>
+<div class="section" id="skill-check">
+<h2><span class="section-number">2.5.1. </span>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
+<div id='math_log_check' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Q1" >
+
+        <div class="runestone">
+        <div data-component="fillintheblank" data-question_label="2.5.1.1" id="fitb_math_log1"  style="visibility: hidden;">
+            <p>sc-1-2: Simplify the following expression into the form <span class="math notranslate nohighlight">\(log(c)\)</span>:
+<span class="math notranslate nohighlight">\(\log(15) - \log(3)\)</span></p>
+<input type="text">
+        <script type="application/json">
+            [[{"regex": "^\\s*log\\(5\\)\\s*$", "regexFlags": "i", "feedback": "<p>Good job.</p>\n"}, {"regex": "^\\s*log\\(15/3\\)\\s*$", "regexFlags": "i", "feedback": "<p>Close. This expression can be even simpler.</p>\n"}, {"number": [0.6399999999999999, 0.74], "feedback": "<p>This is a numeric approximation of the base 10 log, not a simplification.</p>\n"}, {"number": [1.64, 1.74], "feedback": "<p>This is a numeric approximation of the natural log, not a simplification.</p>\n"}, {"regex": "^\\s*x\\s*$", "regexFlags": "i", "feedback": "<p>Use the rule <span class=\"math notranslate nohighlight\">\\(\\log(a)\u2212\\log(b)=\\log(\\frac{a}{b})\\)</span></p>\n"}]]
+        </script>
+
+        </div>
+        </div>
+            </div><div data-component="tab" data-tabname="Q2" >
+
+        <div class="runestone">
+        <div data-component="fillintheblank" data-question_label="2.5.1.2" id="fitb_math_log2"  style="visibility: hidden;">
+            <p>sc-1-3: Simplify the following expression into the form <span class="math notranslate nohighlight">\(log(c)\)</span>:
+<span class="math notranslate nohighlight">\(\log(3) + \log(4)\)</span></p>
+<input type="text">
+        <script type="application/json">
+            [[{"regex": "^\\s*log\\(12\\)\\s*$", "regexFlags": "i", "feedback": "<p>Good job.</p>\n"}, {"regex": "^\\s*log\\(3\\*4\\)\\s*$", "regexFlags": "i", "feedback": "<p>Close. This expression can be even simpler.</p>\n"}, {"number": [1.02, 1.12], "feedback": "<p>This is a numeric approximation of the base 10 log, not a simplification.</p>\n"}, {"number": [2.43, 2.53], "feedback": "<p>This is a numeric approximation of the natural log, not a simplification.</p>\n"}, {"regex": "^\\s*x\\s*$", "regexFlags": "i", "feedback": "<p>Use the rule <span class=\"math notranslate nohighlight\">\\(\\log(a)+\\log(b)=\\log(a*b)\\)</span></p>\n"}]]
+        </script>
+
+        </div>
+        </div>
+            </div><div data-component="tab" data-tabname="Q3" >
+
+        <div class="runestone">
+        <div data-component="fillintheblank" data-question_label="2.5.1.3" id="fitb_math_log3"  style="visibility: hidden;">
+            <p>sc-1-4: Solve the following expression:
+<span class="math notranslate nohighlight">\(\log_{729}(9)\)</span></p>
+<input type="text">
+        <script type="application/json">
+            [[{"regex": "^\\s*1/3\\s*$", "regexFlags": "i", "feedback": "<p>Good job.</p>\n"}, {"number": [0.28, 0.38], "feedback": "<p>This is a numeric approximation not an exact solution. Note the cube root of 729 is 9.</p>\n"}, {"regex": "^\\s*x\\s*$", "regexFlags": "i", "feedback": "<p>Use the rule if <span class=\"math notranslate nohighlight\">\\(b^y = x\\)</span>, then <span class=\"math notranslate nohighlight\">\\(\\log_bx = y\\)</span></p>\n"}]]
+        </script>
+
+        </div>
+        </div>
+            </div>
+    </div>
+
+<div class="admonition-more-to-explore admonition">
+<p class="admonition-title">More to Explore</p>
+<ul class="simple">
+<li><p>From cppreference.com</p>
+<ul>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/numeric/math/log">log</a>, <a class="reference external" href="https://en.cppreference.com/w/cpp/numeric/math/log">log</a>, and <a class="reference external" href="https://en.cppreference.com/w/cpp/numeric/math/log2">log2</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="topic">
+<p class="topic-title">Footnotes</p>
 <dl class="footnote brackets">
 <dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>These properties are the idea behind the slide rule.
@@ -341,7 +445,8 @@ the correct numeric answer by taking the inverse of the
 logarithm for the result.</p>
 </dd>
 </dl>
-<p>Here is some practice with manipulating logarithms.</p>
+</div>
+</div>
 </div>
 
 
@@ -351,8 +456,8 @@ logarithm for the result.</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 2.2. Selected functions' data-toggle="tooltip">
-    <a href="functions.html" aria-label="2.2. Selected functions">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 2.4. Permutations' data-toggle="tooltip">
+    <a href="permutations.html" aria-label="2.4. Permutations">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -362,8 +467,8 @@ logarithm for the result.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 2.4. Summations' data-toggle="tooltip" >
-    <a href="summations.html" aria-label="2.4. Summations">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 2.6. Summations' data-toggle="tooltip" >
+    <a href="summations.html" aria-label="2.6. Summations">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

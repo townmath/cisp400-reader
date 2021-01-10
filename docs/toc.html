@@ -334,13 +334,19 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="math/functions.html">2.2. Selected functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="math/logarithms.html">2.3. Logarithms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="math/summations.html">2.4. Summations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="math/summations.html#summation-facts">2.4.1. Summation facts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="math/summations.html#approximating-sums">2.4.2. Approximating Sums</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math/modulus.html">2.3. Modulus operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math/permutations.html">2.4. Permutations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math/logarithms.html">2.5. Logarithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="math/logarithms.html#skill-check">2.5.1. Skill Check</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="math/estimation.html">2.5. Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math/summations.html">2.6. Summations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="math/summations.html#summation-facts">2.6.1. Summation facts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="math/summations.html#approximating-sums">2.6.2. Approximating Sums</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="math/estimation.html">2.7. Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math/psuedocode.html">2.8. Pseudocode conventions and definitions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analysis/index.html">3. Algorithm Analysis</a><ul>
@@ -355,6 +361,21 @@
 <li class="toctree-l3"><a class="reference internal" href="analysis/compare.html#basic-operations-and-input-size">3.2.1. Basic operations and input size</a></li>
 <li class="toctree-l3"><a class="reference internal" href="analysis/compare.html#growth-rates">3.2.2. Growth Rates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="analysis/compare.html#skill-check">3.2.3. Skill Check</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="analysis/cases.html">3.3. Best, worst, and average cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis/big-o.html">3.4. Asymptotic Analysis and Upper Bounds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="analysis/big-o.html#big-o-notation">3.4.1. Big-O Notation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis/big-o.html#skill-check">3.4.2. Skill Check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis/big-o.html#using-summation-facts">3.4.3. Using summation facts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis/big-o.html#pitfall-confusing-upper-bound-and-worst-case">3.4.4. Pitfall: Confusing upper bound and worst case</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="analysis/big-theta.html">3.5. Lower Bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis/big-theta.html#theta-notation">3.6. Theta Notation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="analysis/big-theta.html#classifying-functions">3.6.1. Classifying Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis/big-theta.html#pitfall-confusing-lower-bound-and-best-case">3.6.2. Pitfall: Confusing lower bound and best case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis/big-theta.html#skill-check">3.6.3. Skill Check</a></li>
 </ul>
 </li>
 </ul>
@@ -614,7 +635,15 @@
 <li class="toctree-l3"><a class="reference internal" href="class-templates/containers.html#initializer-list-constructors">12.3.1. Initializer list constructors</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="class-templates/std-array.html">12.4. The <code class="docutils literal notranslate"><span class="pre">std::array</span></code> Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class-templates/stl-containers.html">12.4. Standard Template Library Containers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class-templates/stl-containers.html#ordered-and-sorted-containers">12.4.1. Ordered and sorted containers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="class-templates/array.html">12.5. The <code class="docutils literal notranslate"><span class="pre">std::array</span></code> class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class-templates/vector.html">12.6. The <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class-templates/vector.html#passing-vectors-to-c-functions">12.6.1. Passing vectors to C functions</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="class-IV-copy/index.html">13. Copying and moving memory</a><ul>
@@ -627,107 +656,96 @@
 <li class="toctree-l3"><a class="reference internal" href="class-IV-copy/move.html#move-constructors-and-move-assignment">13.3.1. Move constructors and move assignment</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="class-IV-copy/containers.html">13.4. Standard Template Library Containers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="class-IV-copy/containers.html#ordered-and-sorted-containers">13.4.1. Ordered and sorted containers</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="class-IV-copy/vector.html">13.5. The vector class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="class-IV-copy/vector.html#passing-vectors-to-c-functions">13.5.1. Passing vectors to C functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class-IV-copy/allocators.html">13.4. Allocators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class-IV-copy/allocators.html#using-std-allocator-traits">13.4.1. Using std::allocator_traits</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="allocators/index.html">14. Memory allocators</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="allocators/allocators.html">14.1. Allocators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="allocators/allocators.html#using-std-allocator-traits">14.1.1. Using std::allocator_traits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stack/index.html">14. Stacks and Queues</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stack/adapter.html">14.1. The Adapter pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stack/stack.html">14.2. The stack class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stack/stack.html#postfix-notation">14.2.1. Postfix Notation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stack/queue.html">14.3. The queue class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stack/deque.html">14.4. The deque class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="list/index.html">15. Linked lists</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="list/list.html">15.1. The list class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list/forward-list.html">15.2. std::forward_list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list/iterators.html">15.3. Iterable ADT’s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list/iterator-pattern.html">15.4. Iterator pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="list/iterator-operations.html">15.5. Basic iterator operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="list/iterator-operations.html#iterator-categories">15.5.1. Iterator categories</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="list/using.html">15.6. Using iterators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="list/using.html#limits-of-range-based-for-loops">15.6.1. Limits of Range-based for loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="list/using.html#container-functions-that-require-iterators">15.6.2. Container functions that require iterators</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="stack/index.html">15. Stacks and Queues</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="stack/adapter.html">15.1. The Adapter pattern</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stack/stack.html">15.2. The stack class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="stack/stack.html#postfix-notation">15.2.1. Postfix Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trees/index.html">16. Trees</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trees/trees.html">16.1. Tree ADT concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="trees/trees.html#the-tree-adt">16.1.1. The tree ADT</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="stack/queue.html">15.3. The queue class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stack/deque.html">15.4. The deque class</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="list/index.html">16. Linked lists</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="list/list.html">16.1. The list class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="list/forward-list.html">16.2. std::forward_list</a></li>
-<li class="toctree-l2"><a class="reference internal" href="list/iterators.html">16.3. Iterable ADT’s</a></li>
-<li class="toctree-l2"><a class="reference internal" href="list/iterator-pattern.html">16.4. Iterator pattern</a></li>
-<li class="toctree-l2"><a class="reference internal" href="list/iterator-operations.html">16.5. Basic iterator operations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="list/iterator-operations.html#iterator-categories">16.5.1. Iterator categories</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="list/using.html">16.6. Using iterators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="list/using.html#limits-of-range-based-for-loops">16.6.1. Limits of Range-based for loops</a></li>
-<li class="toctree-l3"><a class="reference internal" href="list/using.html#container-functions-that-require-iterators">16.6.2. Container functions that require iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trees/bst.html">16.2. Binary Search Trees</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="trees/bst.html#the-binary-search-tree-adt">16.2.1. The Binary Search Tree ADT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trees/bst.html#searching-binary-trees">16.2.2. Searching binary trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trees/bst.html#inserting-into-binary-trees">16.2.3. Inserting into binary trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trees/bst.html#erasing-binary-tree-nodes">16.2.4. Erasing binary tree nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="trees/bst.html#removing-a-leaf-node">16.2.4.1. Removing a leaf node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trees/bst.html#removing-a-non-leaf-node-with-a-null-child">16.2.4.2. Removing a non-leaf node with a null child</a></li>
+<li class="toctree-l4"><a class="reference internal" href="trees/bst.html#removing-a-non-leaf-node-with-a-two-children">16.2.4.3. Removing a non-leaf node with a two children</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="trees/index.html">17. Trees</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="trees/trees.html">17.1. Tree ADT concepts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="trees/trees.html#the-tree-adt">17.1.1. The tree ADT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trees/bst-iterator.html">16.3. Binary Search Tree iterators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="trees/bst-iterator.html#bst-iterator-begin-and-end">16.3.1. BST iterator <code class="docutils literal notranslate"><span class="pre">begin()</span></code> and <code class="docutils literal notranslate"><span class="pre">end()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="trees/bst-iterator.html#bst-iterator-operator">16.3.2. BST iterator <code class="docutils literal notranslate"><span class="pre">operator++()</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="trees/bst-iterator.html#bst-iterator-using-parent-pointers">16.3.2.1. BST iterator using parent pointers</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="trees/bst.html">17.2. Binary Search Trees</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="trees/bst.html#the-binary-search-tree-adt">17.2.1. The Binary Search Tree ADT</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trees/bst.html#searching-binary-trees">17.2.2. Searching binary trees</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trees/bst.html#inserting-into-binary-trees">17.2.3. Inserting into binary trees</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trees/bst.html#erasing-binary-tree-nodes">17.2.4. Erasing binary tree nodes</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="trees/bst.html#removing-a-leaf-node">17.2.4.1. Removing a leaf node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="trees/bst.html#removing-a-non-leaf-node-with-a-null-child">17.2.4.2. Removing a non-leaf node with a null child</a></li>
-<li class="toctree-l4"><a class="reference internal" href="trees/bst.html#removing-a-non-leaf-node-with-a-two-children">17.2.4.3. Removing a non-leaf node with a two children</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trees/bst-iterator.html#implementing-bst-iterators">16.3.3. Implementing BST iterators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="trees/bst-iterator.html#implementing-operator">16.3.3.1. Implementing <code class="docutils literal notranslate"><span class="pre">operator++()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="trees/bst-iterator.html">17.3. Binary Search Tree iterators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="trees/bst-iterator.html#bst-iterator-begin-and-end">17.3.1. BST iterator <code class="docutils literal notranslate"><span class="pre">begin()</span></code> and <code class="docutils literal notranslate"><span class="pre">end()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="trees/bst-iterator.html#bst-iterator-operator">17.3.2. BST iterator <code class="docutils literal notranslate"><span class="pre">operator++()</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="trees/bst-iterator.html#bst-iterator-using-parent-pointers">17.3.2.1. BST iterator using parent pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trees/bst-iterator.html#using-parent-pointers">16.4. Using parent pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trees/set.html">16.5. The set class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="trees/set.html#variations-on-std-set">16.5.1. Variations on std::set</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="trees/bst-iterator.html#implementing-bst-iterators">17.3.3. Implementing BST iterators</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="trees/bst-iterator.html#implementing-operator">17.3.3.1. Implementing <code class="docutils literal notranslate"><span class="pre">operator++()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trees/map.html">16.6. The map class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="trees/map.html#selected-map-functions">16.6.1. Selected map functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trees/map.html#map-structure">16.6.2. Map structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trees/map.html#variations-on-std-map">16.6.3. Variations on std::map</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="trees/unordered_map.html">16.7. Hashing concepts</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="trees/bst-iterator.html#using-parent-pointers">17.4. Using parent pointers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="trees/set.html">17.5. The set class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="trees/set.html#variations-on-std-set">17.5.1. Variations on std::set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithms/index.html">17. Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="algorithms/intro.html">17.1. Background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="algorithms/intro.html#stl-algorithms-at-a-glance">17.1.1. STL Algorithms at a glance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithms/intro.html#stl-algorithms-and-loops">17.1.2. STL algorithms and loops</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="trees/map.html">17.6. The map class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="trees/map.html#selected-map-functions">17.6.1. Selected map functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trees/map.html#map-structure">17.6.2. Map structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="trees/map.html#variations-on-std-map">17.6.3. Variations on std::map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms/model.html">17.2. Basic Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="algorithms/model.html#basic-model-in-action-find">17.2.1. Basic Model in Action: find()</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="trees/unordered_map.html">17.7. Hashing concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms/refactor.html">17.3. Refactoring to Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="algorithms/refactor.html#removing-a-final-assumption">17.3.1. Removing a final assumption</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="algorithms/index.html">18. Algorithms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/intro.html">18.1. Background</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="algorithms/intro.html#stl-algorithms-at-a-glance">18.1.1. STL Algorithms at a glance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="algorithms/intro.html#stl-algorithms-and-loops">18.1.2. STL algorithms and loops</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/model.html">18.2. Basic Model</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="algorithms/model.html#basic-model-in-action-find">18.2.1. Basic Model in Action: find()</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/refactor.html">18.3. Refactoring to Algorithms</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="algorithms/refactor.html#removing-a-final-assumption">18.3.1. Removing a final assumption</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/copy.html">18.4. std::copy and Iterator Adapters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms/copy.html">17.4. std::copy and Iterator Adapters</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>

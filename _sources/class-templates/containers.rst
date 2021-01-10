@@ -21,7 +21,7 @@ You are already familiar with several container classes:
 - ``std::array``
 
 There are more in the STL, but they all have one thing in common.
-They store a collection of data of the same type.
+They store a collection of data of **a single type**.
 
 Containers are like arrays in that regard, however,
 container classes have many features that raw arrays lack.

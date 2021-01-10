@@ -19,6 +19,9 @@ Algorithm Analysis
 
    intro.rst
    compare.rst
+   cases.rst
+   big-o.rst
+   big-theta.rst
 
 
 How long will it take to process the company payroll once we complete

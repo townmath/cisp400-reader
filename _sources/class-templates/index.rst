@@ -7,5 +7,7 @@ Class templates
    templates.rst
    overloads.rst
    containers.rst
-   std-array.rst
+   stl-containers.rst
+   array.rst
+   vector.rst
 

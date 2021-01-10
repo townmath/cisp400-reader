@@ -116,9 +116,22 @@ because the cost depends on the value of :math:`n`
    This algorithm is called the *largest-value sequential search*
    and is illustrated by the following function:
 
-   codeinclude Misc/LargestTest
+   .. code-block:: bash
 
-   Here, the size of the problem is ``A.length``,
+      largest(array: A)
+         max_value ← 1
+         index  ← 2
+         while index < array_size(A)
+            if A[index] > A[max_value]
+               max_value = index
+            done if
+         done while
+
+         return max_index
+      done largest
+
+
+   Here, the size of the problem is ``array_size(A)``,
    the number of integers stored in array ``A``.
    The basic operation is to compare an integer's value to that
    of the largest value seen so far.
@@ -138,10 +151,10 @@ because the cost depends on the value of :math:`n`
    We do not care right now what the precise value of :math:`c` might
    be.
    Nor are we concerned with the time required to increment
-   variable :math:`i` because this must be done for each value in the
+   variable :math:`index` because this must be done for each value in the
    array, or the time for the actual assignment when a larger value is
    found, or the little bit of extra time taken to initialize
-   ``currlarge``.
+   ``max_value``.
    We just want a reasonable approximation for the time taken to
    execute the algorithm.
    The total time to run ``largest`` is therefore approximately
@@ -186,7 +199,12 @@ because the cost depends on the value of :math:`n`
 
    Consider the following code:
 
-   codeinclude:: Misc/Anal
+   .. code-block:: cpp
+      
+      sum = 0;
+      for (i=1; i<=n; i++)
+        for (j=1; j<=n; j++)
+          sum++;
 
    What is the running time for this code fragment?
    Clearly it takes longer to run when :math:`n` is larger.
@@ -204,7 +222,6 @@ because the cost depends on the value of :math:`n`
 
 Growth Rates
 ------------
-
 The :term:`growth rate` for an algorithm is the rate at which the cost
 of the algorithm grows as the size of its input grows.
 The following figure shows a graph for six equations,
