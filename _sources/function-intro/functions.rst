@@ -209,6 +209,7 @@ a region of memory that on typical machines grows downward,
 even though the most recent additions to the stack are called the “top” of the stack. 
 
 .. graphviz::
+   :align: center
 
    digraph memory {
      fontname = "Bitstream Vera Sans"

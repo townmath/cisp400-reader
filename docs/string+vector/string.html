@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.4. The string class &#8212; CISC 187 Course Reader Overview</title>
+    <title>2.4. The string class &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,8 +57,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.5. The vector class" href="vector.html" />
-    <link rel="prev" title="4.2. String abstractions in C" href="byte_string.html" />
+    <link rel="next" title="2.5. The vector class" href="vector.html" />
+    <link rel="prev" title="2.2. String abstractions in C" href="byte_string.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">4.2. </span>String abstractions in C" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">2.2. </span>String abstractions in C" data-toggle="tooltip">
     <a href="byte_string.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">4.5. </span>The vector class' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">2.5. </span>The vector class' data-toggle="tooltip" >              
     <a href="vector.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -237,7 +237,7 @@
 
   
   <div class="section" id="the-string-class">
-<span id="index-0"></span><h1><span class="section-number">4.4. </span>The string class<a class="headerlink" href="#the-string-class" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">2.4. </span>The string class<a class="headerlink" href="#the-string-class" title="Permalink to this headline">¶</a></h1>
 <p>Like a byte string, a <code class="docutils literal notranslate"><span class="pre">std::string</span></code> is storage for a character sequence:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="c1">        // access std::string functions</span><span class="cp"></span>
 
@@ -266,7 +266,7 @@ that stores no characters.</p>
 <div id=string_simple_operator_ac1_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="string_simple_operator_ac1_editor" data-question_label="4.4.1" 
+<textarea data-lang="cpp" id="string_simple_operator_ac1_editor" data-question_label="2.4.1" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -308,7 +308,7 @@ characters in a string.</p>
 <div id=string_front_back_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="string_front_back_ac_editor" data-question_label="4.4.2" 
+<textarea data-lang="cpp" id="string_front_back_ac_editor" data-question_label="2.4.2" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -335,7 +335,7 @@ an array of characters to the end of a string.</p>
 <div id=string_append_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="string_append_ac_editor" data-question_label="4.4.3" 
+<textarea data-lang="cpp" id="string_append_ac_editor" data-question_label="2.4.3" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -375,7 +375,7 @@ an array of characters at a position in a string.</p>
 <div id=string_insert_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="string_insert_ac_editor" data-question_label="4.4.4" 
+<textarea data-lang="cpp" id="string_insert_ac_editor" data-question_label="2.4.4" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -461,7 +461,7 @@ works for C++ versions older than C++14.</p>
 <div id=string_auto_deduction_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="string_auto_deduction_ac_editor" data-question_label="4.4.5" 
+<textarea data-lang="cpp" id="string_auto_deduction_ac_editor" data-question_label="2.4.5" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++1z&#x27;]"       data-wasm=/_static
@@ -497,7 +497,7 @@ int main()
     </div>
 
 <div class="section" id="getting-information-out-of-a-string">
-<span id="index-2"></span><h2><span class="section-number">4.4.1. </span>Getting information out of a string<a class="headerlink" href="#getting-information-out-of-a-string" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">2.4.1. </span>Getting information out of a string<a class="headerlink" href="#getting-information-out-of-a-string" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">string</span></code> knows its own size and can provide other useful information.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cassert&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
@@ -573,7 +573,7 @@ Don’t take my word for it, try it yourself.</p>
 <div id=ac-string-std-find_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="ac-string-std-find_editor" data-question_label="4.4.1.1" 
+<textarea data-lang="cpp" id="ac-string-std-find_editor" data-question_label="2.4.1.1" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++1y&#x27;]"       data-wasm=/_static
@@ -612,14 +612,14 @@ as an indicator of <em>not found</em> by functions that return an index (like fi
 
     <div class="runestone" style="margin-left: auto; margin-right:auto">
         <div id="nkKeA74p3RY" data-component="youtube" class="align-left youtube-video"
-            data-video-height="281" data-question_label="4.4.1.2"
+            data-video-height="281" data-question_label="2.4.1.2"
             data-video-width="500" data-video-videoid="nkKeA74p3RY"
             data-video-divid="nkKeA74p3RY" data-video-start="0"
             data-video-end="-1" ></div>
     </div>
     </div>
 <div class="section" id="converting-a-std-string-to-a-c-string">
-<span id="index-4"></span><h2><span class="section-number">4.4.2. </span>Converting a std::string to a C string<a class="headerlink" href="#converting-a-std-string-to-a-c-string" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2><span class="section-number">2.4.2. </span>Converting a std::string to a C string<a class="headerlink" href="#converting-a-std-string-to-a-c-string" title="Permalink to this headline">¶</a></h2>
 <p>You cannot use <code class="docutils literal notranslate"><span class="pre">std::string</span></code> in a function
 that expects <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char*</span></code> - you must convert it
 to a null terminated character array.</p>
@@ -634,14 +634,14 @@ to a null terminated character array.</p>
 </div>
 </div>
 <div class="section" id="skill-check">
-<h2><span class="section-number">4.4.3. </span>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.4.3. </span>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
 <p>The questions in this hidden section provide a chance to demonstrate
 your understanding of the concepts discussed so far.</p>
 
     <div data-component="reveal" id="reveal-skill-check-string"   data-showtitle="Show" data-hidetitle="Hide"  style="visibility: hidden;">
     
         <div class="runestone">
-        <div data-component="fillintheblank" data-question_label="4.4.3.1" id="string_fitb1"  style="visibility: hidden;">
+        <div data-component="fillintheblank" data-question_label="2.4.3.1" id="string_fitb1"  style="visibility: hidden;">
             <p>sc-1-8: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;The rain in Spain. . . &quot;</span><span class="p">;</span>
 <span class="kt">size_t</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;in&quot;</span><span class="p">);</span>
@@ -657,7 +657,7 @@ your understanding of the concepts discussed so far.</p>
         </div>
             
         <div class="runestone" style="max-width: none;">
-        <pre data-component="parsons" data-question_label="4.4.3.2" id="string_pp1"  data-adaptive="true"    data-noindent="true"  data-language="c"   style="visibility: hidden;">
+        <pre data-component="parsons" data-question_label="2.4.3.2" id="string_pp1"  data-adaptive="true"    data-noindent="true"  data-language="c"   style="visibility: hidden;">
         <span data-question>sc-1-9 </span>int main() {
 ---
   std::string  us = "Team USA";
@@ -680,7 +680,7 @@ your understanding of the concepts discussed so far.</p>
         </div>
     
         <div class="runestone">
-        <div data-component="fillintheblank" data-question_label="4.4.3.3" id="string_fitb5"  style="visibility: hidden;">
+        <div data-component="fillintheblank" data-question_label="2.4.3.3" id="string_fitb5"  style="visibility: hidden;">
             <p>sc-1-10: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
@@ -726,8 +726,8 @@ your understanding of the concepts discussed so far.</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 4.2. String abstractions in C' data-toggle="tooltip">
-    <a href="byte_string.html" aria-label="4.2. String abstractions in C">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 2.2. String abstractions in C' data-toggle="tooltip">
+    <a href="byte_string.html" aria-label="2.2. String abstractions in C">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -737,8 +737,8 @@ your understanding of the concepts discussed so far.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 4.5. The vector class' data-toggle="tooltip" >
-    <a href="vector.html" aria-label="4.5. The vector class">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 2.5. The vector class' data-toggle="tooltip" >
+    <a href="vector.html" aria-label="2.5. The vector class">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

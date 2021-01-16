@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.3. Types &#8212; CISC 187 Course Reader Overview</title>
+    <title>1.4. Types &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,7 +57,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.4. Code comments" href="comments.html" />
+    <link rel="next" title="1.5. Code comments" href="comments.html" />
     <link rel="prev" title="1.2. Building software" href="compiling.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -194,7 +194,7 @@
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">1.4. </span>Code comments' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">1.5. </span>Code comments' data-toggle="tooltip" >              
     <a href="comments.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -237,7 +237,7 @@
 
   
   <div class="section" id="types">
-<span id="index-0"></span><h1><span class="section-number">1.3. </span>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">1.4. </span>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h1>
 <p>In C++, objects, references, functions, and expressions all have a property called <em>type</em>,
 which both restricts the operations that are permitted for those entities
 and provides semantic meaning to the otherwise generic sequences of bits.</p>
@@ -289,7 +289,7 @@ balance.</p>
 </li>
 </ul>
 <div class="section" id="fundamental-representations">
-<h2><span class="section-number">1.3.1. </span>Fundamental representations<a class="headerlink" href="#fundamental-representations" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.1. </span>Fundamental representations<a class="headerlink" href="#fundamental-representations" title="Permalink to this headline">¶</a></h2>
 <p>Machines view stored data as sequences of bits that
 can be manipulated by specific instructions.
 These instructions include shifts, logical operations,
@@ -353,7 +353,7 @@ three commonly used representations have been used:</p>
 this was not always the case.
 In fact, during the 60’s and 70’s, debates raged about the best number format representations.</p>
 <div class="section" id="sign-and-magnitude">
-<span id="index-1"></span><h3><span class="section-number">1.3.1.1. </span>Sign and magnitude<a class="headerlink" href="#sign-and-magnitude" title="Permalink to this headline">¶</a></h3>
+<span id="index-1"></span><h3><span class="section-number">1.4.1.1. </span>Sign and magnitude<a class="headerlink" href="#sign-and-magnitude" title="Permalink to this headline">¶</a></h3>
 <p>Arguably the easiest to understand as the representation is very similar to how
 signed numbers are represented in mathematics.
 The number’s sign is stored in a <em>sign bit</em>:
@@ -395,7 +395,7 @@ exponent, and mantissa of a few small numbers.</p>
 <div id=ac_floats_2_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="c" id="ac_floats_2_editor" data-question_label="1.3.1.1.1" 
+<textarea data-lang="c" id="ac_floats_2_editor" data-question_label="1.4.1.1.1" 
       data-timelimit=25000     
     data-audio=''      
            data-wasm=/_static
@@ -471,7 +471,7 @@ floating point representations and which do not.</p>
 </div>
 </div>
 <div class="section" id="one-s-complement">
-<h3><span class="section-number">1.3.1.2. </span>One’s complement<a class="headerlink" href="#one-s-complement" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.4.1.2. </span>One’s complement<a class="headerlink" href="#one-s-complement" title="Permalink to this headline">¶</a></h3>
 <p>Alternatively, a system known as ones’ complement can be used to represent negative numbers.
 The ones’ complement form of a negative binary number is the bitwise NOT applied to each bit in the number.
 That is, each negative number is the “complement” of its positive counterpart.</p>
@@ -522,7 +522,7 @@ two’s complement numbers.
 No modern computers store one’s complement signed integers.</p>
 </div>
 <div class="section" id="two-s-complement">
-<span id="index-2"></span><h3><span class="section-number">1.3.1.3. </span>Two’s complement<a class="headerlink" href="#two-s-complement" title="Permalink to this headline">¶</a></h3>
+<span id="index-2"></span><h3><span class="section-number">1.4.1.3. </span>Two’s complement<a class="headerlink" href="#two-s-complement" title="Permalink to this headline">¶</a></h3>
 <p>A variation of one’s complement that avoids the “two zeroes problem” is two’s complement.
 In two’s complement, negative numbers are represented by the bit pattern which is one
 greater (in an unsigned sense) than the one’s complement of the positive value.
@@ -613,7 +613,7 @@ A value can be provided when declared:</p>
 <div id=ac_one_comp_1_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="ac_one_comp_1_editor" data-question_label="1.3.1.3.1" 
+<textarea data-lang="cpp" id="ac_one_comp_1_editor" data-question_label="1.4.1.3.1" 
       data-timelimit=25000     
     data-audio=''      
            data-wasm=/_static
@@ -641,7 +641,7 @@ int main() {
 
 </div>
 <div class="section" id="overflow">
-<span id="index-3"></span><h3><span class="section-number">1.3.1.4. </span>Overflow<a class="headerlink" href="#overflow" title="Permalink to this headline">¶</a></h3>
+<span id="index-3"></span><h3><span class="section-number">1.4.1.4. </span>Overflow<a class="headerlink" href="#overflow" title="Permalink to this headline">¶</a></h3>
 <p>Why bother with all this obscure discussion about type representation now?
 Because it is very useful to know how numbers are actually stored when debugging your code.
 Sometimes a value cannot be represented in the limited number
@@ -701,7 +701,7 @@ then predict the output of the following program before you run it.</p>
 <div id=ac_types_2_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="ac_types_2_editor" data-question_label="1.3.1.4.1" 
+<textarea data-lang="cpp" id="ac_types_2_editor" data-question_label="1.4.1.4.1" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-Wno-overflow&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -729,7 +729,7 @@ int main() {
 
     <div class="runestone" style="margin-left: auto; margin-right:auto">
         <div id="zxb8DvLUqcM" data-component="youtube" class="align-left youtube-video"
-            data-video-height="281" data-question_label="1.3.1.4.2"
+            data-video-height="281" data-question_label="1.4.1.4.2"
             data-video-width="500" data-video-videoid="zxb8DvLUqcM"
             data-video-divid="zxb8DvLUqcM" data-video-start="0"
             data-video-end="-1" ></div>
@@ -758,7 +758,7 @@ unsigned type?</p></li>
 </ul>
 </div>
 <div class="section" id="preventing-overflow-errors">
-<h4><span class="section-number">1.3.1.4.1. </span>Preventing overflow errors<a class="headerlink" href="#preventing-overflow-errors" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">1.4.1.4.1. </span>Preventing overflow errors<a class="headerlink" href="#preventing-overflow-errors" title="Permalink to this headline">¶</a></h4>
 <p>The C and C++ compilers do not check math overflow for you.
 You can turn on compiler warnings that can inform you about
 possible overflow or type conversion problems.
@@ -809,11 +809,11 @@ could use the following checks:</p>
 </div>
 </div>
 <div class="section" id="compound-types">
-<h2><span class="section-number">1.3.2. </span>Compound types<a class="headerlink" href="#compound-types" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.2. </span>Compound types<a class="headerlink" href="#compound-types" title="Permalink to this headline">¶</a></h2>
 <p>Most of the compound types will be covered in greater detail later in this book.
 Those that aren’t covered later are discussed now.</p>
 <div class="section" id="array-types">
-<h3><span class="section-number">1.3.2.1. </span>Array types<a class="headerlink" href="#array-types" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.4.2.1. </span>Array types<a class="headerlink" href="#array-types" title="Permalink to this headline">¶</a></h3>
 <p>An <strong>array</strong> is a block of memory that holds one or more objects of a given type.
 Declare an array by giving the type of object the array holds followed by
 the array name and the size in square brackets:</p>
@@ -855,7 +855,7 @@ Consider the statement:</p>
 <div id=types_ac_3_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="types_ac_3_editor" data-question_label="1.3.2.1.1" 
+<textarea data-lang="cpp" id="types_ac_3_editor" data-question_label="1.4.2.1.1" 
       data-timelimit=25000     
     data-audio=''      
            data-wasm=/_static
@@ -876,7 +876,7 @@ int main () {
 
 </div>
 <div class="section" id="reference-types">
-<h3><span class="section-number">1.3.2.2. </span>Reference types<a class="headerlink" href="#reference-types" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.4.2.2. </span>Reference types<a class="headerlink" href="#reference-types" title="Permalink to this headline">¶</a></h3>
 <p>A <a class="reference internal" href="../glossary.html#term-reference"><span class="xref std std-term">reference</span></a> type
 declares a named variable as an alias to an <em>already-existing</em> object or function.</p>
 <p>References are a C++ addition - one of the few types not present in C.</p>
@@ -899,7 +899,7 @@ All of the references discussed until then will be <em>lvalue references</em>.</
 </div>
 </div>
 <div class="section" id="the-type-std-size-t">
-<h2><span class="section-number">1.3.3. </span>The type <code class="docutils literal notranslate"><span class="pre">std::size_t</span></code><a class="headerlink" href="#the-type-std-size-t" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.3. </span>The type <code class="docutils literal notranslate"><span class="pre">std::size_t</span></code><a class="headerlink" href="#the-type-std-size-t" title="Permalink to this headline">¶</a></h2>
 <p>There exists an implementation defined <code class="docutils literal notranslate"><span class="pre">typedef</span></code> <strong>std::size_t</strong>.
 The type <code class="docutils literal notranslate"><span class="pre">std::size_t</span></code> represents the maximum number of bytes
 that can be stored for an object of any type (including array).</p>
@@ -943,7 +943,7 @@ This makes absolute consistency in all situations impossible.</p>
 <div id=ac-size-type-1_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="ac-size-type-1_editor" data-question_label="1.3.3.1" 
+<textarea data-lang="cpp" id="ac-size-type-1_editor" data-question_label="1.4.3.1" 
       data-timelimit=25000     
     data-audio=''      
            data-wasm=/_static
@@ -972,14 +972,14 @@ int main() {
 </div>
 </div>
 <div class="section" id="skill-check">
-<h2><span class="section-number">1.3.4. </span>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.4. </span>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
 <p>The questions in this hidden section provide a chance to demonstrate
 your understanding of the concepts discussed so far.</p>
 
     <div data-component="reveal" id="reveal-skill-check-types"   data-showtitle="Show" data-hidetitle="Hide"  style="visibility: hidden;">
     
 <div class="runestone">
-<ul data-component="dragndrop" data-question_label="1.3.4.1" id="types_dnd_type1"  style="visibility: hidden;">
+<ul data-component="dragndrop" data-question_label="1.4.4.1" id="types_dnd_type1"  style="visibility: hidden;">
     <span data-component="question">Q-7: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct</span>
 	<span data-component=feedback>Review the summaries above.</span>
 
@@ -996,7 +996,7 @@ your understanding of the concepts discussed so far.</p>
     <li data-component="dropzone" for="types_dnd_type1_drag4">bool</li>
 </ul></div>
             <div class="runestone alert alert-warning">
-            <ul data-component="multiplechoice" data-question_label="1.3.4.2" data-multipleanswers="true"  id="types_mc1"  style="visibility: hidden;">
+            <ul data-component="multiplechoice" data-question_label="1.4.4.2" data-multipleanswers="true"  id="types_mc1"  style="visibility: hidden;">
             <p>Q-8: Which declarations are valid?</p>
 
             <li data-component="answer"  id="types_mc1_opt_a">int 3;</li><li data-component="feedback">Declarations must always include a name</li>
@@ -1015,7 +1015,7 @@ As written, this is assignment, not declaration</li>
             </div>
             
 <div class="runestone">
-<ul data-component="dragndrop" data-question_label="1.3.4.3" id="types_dnd_type2"  style="visibility: hidden;">
+<ul data-component="dragndrop" data-question_label="1.4.4.3" id="types_dnd_type2"  style="visibility: hidden;">
     <span data-component="question">Q-9: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct.</span>
 	<span data-component=feedback>Review the summaries above.</span>
 
@@ -1032,7 +1032,7 @@ As written, this is assignment, not declaration</li>
     <li data-component="dropzone" for="types_dnd_type2_drag4">casting</li>
 </ul></div>
         <div class="runestone">
-        <div data-component="fillintheblank" data-question_label="1.3.4.4" id="types_fitb1"  style="visibility: hidden;">
+        <div data-component="fillintheblank" data-question_label="1.4.4.4" id="types_fitb1"  style="visibility: hidden;">
             <p>Q-10: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -1051,7 +1051,7 @@ As written, this is assignment, not declaration</li>
         </div>
             
         <div class="runestone">
-        <div data-component="fillintheblank" data-question_label="1.3.4.5" id="types_fitb2"  style="visibility: hidden;">
+        <div data-component="fillintheblank" data-question_label="1.4.4.5" id="types_fitb2"  style="visibility: hidden;">
             <p>Q-11: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">~</span><span class="mi">-1</span><span class="p">;</span>
 </pre></div>
@@ -1071,7 +1071,7 @@ As written, this is assignment, not declaration</li>
 <p>Fix all the errors in the code below:</p>
 
 </div>
-<textarea data-lang="cpp" id="types_ac1_editor" data-question_label="1.3.4.6" 
+<textarea data-lang="cpp" id="types_ac1_editor" data-question_label="1.4.4.6" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27; &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -1087,7 +1087,7 @@ int main() {
 </div>
 
         <div class="runestone" style="max-width: none;">
-        <pre data-component="parsons" data-question_label="1.3.4.7" id="types_par1"  data-adaptive="true"    data-noindent="true"  data-language="c"   style="visibility: hidden;">
+        <pre data-component="parsons" data-question_label="1.4.4.7" id="types_par1"  data-adaptive="true"    data-noindent="true"  data-language="c"   style="visibility: hidden;">
         <span data-question>Q-13 </span>#include <iostream>
 ---
 void func() {
@@ -1103,7 +1103,7 @@ void func() {
         </div>
     
         <div class="runestone">
-        <div data-component="fillintheblank" data-question_label="1.3.4.8" id="types_fitb3"  style="visibility: hidden;">
+        <div data-component="fillintheblank" data-question_label="1.4.4.8" id="types_fitb3"  style="visibility: hidden;">
             <p>Q-14: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
@@ -1173,8 +1173,8 @@ variable length <a class="reference external" href="https://developers.google.co
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 1.4. Code comments' data-toggle="tooltip" >
-    <a href="comments.html" aria-label="1.4. Code comments">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 1.5. Code comments' data-toggle="tooltip" >
+    <a href="comments.html" aria-label="1.5. Code comments">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

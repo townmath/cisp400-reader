@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>11.6. Design patterns &#8212; CISC 187 Course Reader Overview</title>
+    <title>9.6. Design patterns &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,8 +57,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="12. Class templates" href="../class-templates/index.html" />
-    <link rel="prev" title="11.5. Abstract base classes" href="interfaces.html" />
+    <link rel="next" title="10. Class templates" href="../class-templates/index.html" />
+    <link rel="prev" title="9.5. Abstract base classes" href="interfaces.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">11.5. </span>Abstract base classes" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">9.5. </span>Abstract base classes" data-toggle="tooltip">
     <a href="interfaces.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">12. </span>Class templates' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">10. </span>Class templates' data-toggle="tooltip" >              
     <a href="../class-templates/index.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -237,7 +237,7 @@
 
   
   <div class="section" id="design-patterns">
-<span id="index-0"></span><h1><span class="section-number">11.6. </span>Design patterns<a class="headerlink" href="#design-patterns" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">9.6. </span>Design patterns<a class="headerlink" href="#design-patterns" title="Permalink to this headline">¶</a></h1>
 <p>A software design pattern is a general,
 reusable solution to a common software problem.
 It is not an actual implementation,
@@ -258,7 +258,7 @@ The book had 4 authors and together they became known as the
 <p class="attribution">—Head First Design Patterns, Freeman and Robson, 2014, p. 1.</p>
 </div></blockquote>
 <div class="section" id="fixing-an-inheritance-problem">
-<span id="index-1"></span><h2><span class="section-number">11.6.1. </span>Fixing an inheritance problem<a class="headerlink" href="#fixing-an-inheritance-problem" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">9.6.1. </span>Fixing an inheritance problem<a class="headerlink" href="#fixing-an-inheritance-problem" title="Permalink to this headline">¶</a></h2>
 <p>Recall our flying penguin problem from the section on <a class="reference internal" href="inheritance.html"><span class="doc">Inheritance</span></a>:</p>
 <div class="graphviz"><img src="../_images/graphviz-4f4a8568388d21558ad3c2e2b10048d157749acf.png" alt="Bird inheritance" class="graphviz" /></div>
 <p>This type of design error is actually common.</p>
@@ -321,7 +321,7 @@ we can later change or extend them without impacting other parts of the system.<
 <p>This simple idea is the motivation behind nearly every design pattern.</p>
 </div>
 <div class="section" id="strategy-pattern">
-<span id="index-2"></span><h3><span class="section-number">11.6.1.1. </span>Strategy pattern<a class="headerlink" href="#strategy-pattern" title="Permalink to this headline">¶</a></h3>
+<span id="index-2"></span><h3><span class="section-number">9.6.1.1. </span>Strategy pattern<a class="headerlink" href="#strategy-pattern" title="Permalink to this headline">¶</a></h3>
 <p>We can think of flying as a <em>strategy</em> different birds employ to move around.
 Birds don’t <em>inherit</em> a fly behavior, they <em>have it</em>.
 The centerpiece of the solution is to isolate many different
@@ -446,7 +446,7 @@ it also allowed a simple hook to enable changing the behavior at runtime.</p>
 </div>
 </div>
 <div class="section" id="chain-of-responsibility-pattern">
-<span id="index-3"></span><h2><span class="section-number">11.6.2. </span>Chain of Responsibility pattern<a class="headerlink" href="#chain-of-responsibility-pattern" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2><span class="section-number">9.6.2. </span>Chain of Responsibility pattern<a class="headerlink" href="#chain-of-responsibility-pattern" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes we need to give more than one object a chance to handle a request.
 The Chain of Responsibility pattern is a ‘behavioral’ software design pattern.
 The goal of the pattern is to separate request senders and request handlers,
@@ -568,7 +568,7 @@ then calling the chain is easy:</p>
 <div id=ac_class_design_pattern_chain_of_responsibility_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="ac_class_design_pattern_chain_of_responsibility_editor" data-question_label="11.6.2.1" 
+<textarea data-lang="cpp" id="ac_class_design_pattern_chain_of_responsibility_editor" data-question_label="9.6.2.1" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -681,8 +681,8 @@ that’s still over 20 years ago!</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 11.5. Abstract base classes' data-toggle="tooltip">
-    <a href="interfaces.html" aria-label="11.5. Abstract base classes">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 9.5. Abstract base classes' data-toggle="tooltip">
+    <a href="interfaces.html" aria-label="9.5. Abstract base classes">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -692,8 +692,8 @@ that’s still over 20 years ago!</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 12. Class templates' data-toggle="tooltip" >
-    <a href="../class-templates/index.html" aria-label="12. Class templates">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 10. Class templates' data-toggle="tooltip" >
+    <a href="../class-templates/index.html" aria-label="10. Class templates">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

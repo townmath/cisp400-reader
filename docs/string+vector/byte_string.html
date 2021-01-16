@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.2. String abstractions in C &#8212; CISC 187 Course Reader Overview</title>
+    <title>2.2. String abstractions in C &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,8 +57,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.4. The string class" href="string.html" />
-    <link rel="prev" title="4.1. Using string and vector" href="intro.html" />
+    <link rel="next" title="2.4. The string class" href="string.html" />
+    <link rel="prev" title="2.1. Using string and vector" href="intro.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">4.1. </span>Using string and vector" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">2.1. </span>Using string and vector" data-toggle="tooltip">
     <a href="intro.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">4.4. </span>The string class' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">2.4. </span>The string class' data-toggle="tooltip" >              
     <a href="string.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -237,7 +237,7 @@
 
   
   <div class="section" id="string-abstractions-in-c">
-<span id="index-0"></span><h1><span class="section-number">4.2. </span>String abstractions in C<a class="headerlink" href="#string-abstractions-in-c" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">2.2. </span>String abstractions in C<a class="headerlink" href="#string-abstractions-in-c" title="Permalink to this headline">¶</a></h1>
 <p>In the C language,
 the abstract idea of a string is implemented with an array of characters.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// the char array must be null terminated</span>
@@ -287,7 +287,7 @@ The null character is a  <code class="docutils literal notranslate"><span class=
 <div id=byte_string_null_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="byte_string_null_ac_editor" data-question_label="4.2.1" 
+<textarea data-lang="cpp" id="byte_string_null_ac_editor" data-question_label="2.2.1" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++1z&#x27;]"       data-wasm=/_static
@@ -343,7 +343,7 @@ Their simplicity makes them a pain to work with,
 which is why the Standard Template Library (STL) contains the <a class="reference external" href="https://en.cppreference.com/w/cpp/string">string</a> class.</p>
 </div>
 <div class="section" id="working-with-c-strings">
-<h1><span class="section-number">4.3. </span>Working with C strings<a class="headerlink" href="#working-with-c-strings" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2.3. </span>Working with C strings<a class="headerlink" href="#working-with-c-strings" title="Permalink to this headline">¶</a></h1>
 <p>The C programming language has a set of functions implementing operations
 on strings (character strings and byte strings) in the standard library.
 Various operations, such as copying, concatenation, tokenization, and searching are supported.</p>
@@ -358,7 +358,7 @@ directly, rather than create a temporary <code class="docutils literal notransla
 perform an operation and then convert back.
 In general, you want to try to avoid these kinds of unnecessary type conversions.</p>
 <div class="section" id="change-character-case">
-<span id="index-3"></span><h2><span class="section-number">4.3.1. </span>Change character case<a class="headerlink" href="#change-character-case" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2><span class="section-number">2.3.1. </span>Change character case<a class="headerlink" href="#change-character-case" title="Permalink to this headline">¶</a></h2>
 <p>Many languages provide utilities to change character case as part of the
 string class.</p>
 <p>Not C++.</p>
@@ -386,7 +386,7 @@ Non-ASCII acharacters are not handled.</p>
 <div id=string_toupper_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="string_toupper_ac_editor" data-question_label="4.3.1.1" 
+<textarea data-lang="cpp" id="string_toupper_ac_editor" data-question_label="2.3.1.1" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -419,7 +419,7 @@ as the character type provided.</p>
 <div id=string_toupper_locale_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="string_toupper_locale_ac_editor" data-question_label="4.3.1.2" 
+<textarea data-lang="cpp" id="string_toupper_locale_ac_editor" data-question_label="2.3.1.2" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -459,7 +459,7 @@ int main() {
 
 </div>
 <div class="section" id="convert-a-byte-string-to-a-number">
-<span id="index-4"></span><h2><span class="section-number">4.3.2. </span>Convert a byte string to a number<a class="headerlink" href="#convert-a-byte-string-to-a-number" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2><span class="section-number">2.3.2. </span>Convert a byte string to a number<a class="headerlink" href="#convert-a-byte-string-to-a-number" title="Permalink to this headline">¶</a></h2>
 <p>Another common task in programming is to parse a byte string
 and extract a numeric value.</p>
 <p>Later we will learn C++ object-oriented techniques that accomplish
@@ -483,7 +483,7 @@ number representation and converts them to an integer value.</p>
 <div id=byte_string_atoi_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="byte_string_atoi_ac_editor" data-question_label="4.3.2.1" 
+<textarea data-lang="cpp" id="byte_string_atoi_ac_editor" data-question_label="2.3.2.1" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -513,7 +513,7 @@ int main() {
 <div id=byte_string_atof_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="byte_string_atof_ac_editor" data-question_label="4.3.2.2" 
+<textarea data-lang="cpp" id="byte_string_atof_ac_editor" data-question_label="2.3.2.2" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -541,7 +541,7 @@ int main()
 
 </div>
 <div class="section" id="copying-and-comparing-c-strings">
-<span id="index-5"></span><h2><span class="section-number">4.3.3. </span>Copying and comparing C strings<a class="headerlink" href="#copying-and-comparing-c-strings" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2><span class="section-number">2.3.3. </span>Copying and comparing C strings<a class="headerlink" href="#copying-and-comparing-c-strings" title="Permalink to this headline">¶</a></h2>
 <p>Unlike most of the types we work with in C++,
 byte strings are simple arrays.
 Arrays cannot be assigned to each other using <code class="docutils literal notranslate"><span class="pre">operator=</span></code>.
@@ -566,7 +566,7 @@ to the destination character array.</p>
 <div id=byte_string_strcpy_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="byte_string_strcpy_ac_editor" data-question_label="4.3.3.1" 
+<textarea data-lang="cpp" id="byte_string_strcpy_ac_editor" data-question_label="2.3.3.1" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -599,7 +599,7 @@ number of characters.</p>
 <div id=byte_string_strncpy_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="byte_string_strncpy_ac_editor" data-question_label="4.3.3.2" 
+<textarea data-lang="cpp" id="byte_string_strncpy_ac_editor" data-question_label="2.3.3.2" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -637,7 +637,7 @@ If the first operand is less than the second, then a negative value is returned.
 <div id=byte_string_strcmp_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="byte_string_strcmp_ac_editor" data-question_label="4.3.3.3" 
+<textarea data-lang="cpp" id="byte_string_strcmp_ac_editor" data-question_label="2.3.3.3" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -690,7 +690,7 @@ a specified number of characters.</p>
 <div id=byte_string_strncmp_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="byte_string_strncmp_ac_editor" data-question_label="4.3.3.4" 
+<textarea data-lang="cpp" id="byte_string_strncmp_ac_editor" data-question_label="2.3.3.4" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -734,14 +734,14 @@ int main() {
 
 </div>
 <div class="section" id="skill-check">
-<h2><span class="section-number">4.3.4. </span>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3.4. </span>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
 <p>The questions in this hidden section provide a chance to demonstrate
 your understanding of the concepts discussed so far.</p>
 
     <div data-component="reveal" id="reveal-skill-check-byte_string"   data-showtitle="Show" data-hidetitle="Hide"  style="visibility: hidden;">
     
         <div class="runestone">
-        <div data-component="fillintheblank" data-question_label="4.3.4.1" id="byte_string_fitb2"  style="visibility: hidden;">
+        <div data-component="fillintheblank" data-question_label="2.3.4.1" id="byte_string_fitb2"  style="visibility: hidden;">
             <p>sc-1-10: Given the following:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">text</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
 <span class="n">strcpy</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">);</span>
@@ -763,7 +763,7 @@ your understanding of the concepts discussed so far.</p>
 <p>Fix the errors in the <code class="docutils literal notranslate"><span class="pre">printf</span></code> line below:</p>
 
 </div>
-<textarea data-lang="cpp" id="byte_string_sc_ac1_editor" data-question_label="4.3.4.2" 
+<textarea data-lang="cpp" id="byte_string_sc_ac1_editor" data-question_label="2.3.4.2" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -782,7 +782,7 @@ int main() {
 </div>
 
         <div class="runestone">
-        <div data-component="fillintheblank" data-question_label="4.3.4.3" id="byte_string_fitb3"  style="visibility: hidden;">
+        <div data-component="fillintheblank" data-question_label="2.3.4.3" id="byte_string_fitb3"  style="visibility: hidden;">
             <p>sc-1-12: Which <code class="docutils literal notranslate"><span class="pre">#include</span></code> is required to use functions such as
 <code class="docutils literal notranslate"><span class="pre">std::atoi</span></code> and <code class="docutils literal notranslate"><span class="pre">std::atof</span></code>?</p>
 <input type="text">
@@ -794,7 +794,7 @@ int main() {
         </div>
             
         <div class="runestone">
-        <div data-component="fillintheblank" data-question_label="4.3.4.4" id="byte_string_fitb4"  style="visibility: hidden;">
+        <div data-component="fillintheblank" data-question_label="2.3.4.4" id="byte_string_fitb4"  style="visibility: hidden;">
             <p>sc-1-13: Which <code class="docutils literal notranslate"><span class="pre">#include</span></code> is required to use functions such as
 <code class="docutils literal notranslate"><span class="pre">std::stoi</span></code> and <code class="docutils literal notranslate"><span class="pre">std::stol</span></code>?</p>
 <input type="text">
@@ -830,8 +830,8 @@ int main() {
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 4.1. Using string and vector' data-toggle="tooltip">
-    <a href="intro.html" aria-label="4.1. Using string and vector">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 2.1. Using string and vector' data-toggle="tooltip">
+    <a href="intro.html" aria-label="2.1. Using string and vector">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -841,8 +841,8 @@ int main() {
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 4.4. The string class' data-toggle="tooltip" >
-    <a href="string.html" aria-label="4.4. The string class">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 2.4. The string class' data-toggle="tooltip" >
+    <a href="string.html" aria-label="2.4. The string class">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

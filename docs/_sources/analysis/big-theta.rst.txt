@@ -173,7 +173,7 @@ The Collatz Conjecture or 3x+1 problem can be summarized as follows:
 
    Take any positive integer :math:`n`. 
    If :math:`n` is even, divide :math:`n` by 2.
-   If :math:`n` is odd, multiply :math:`n` by 3.
+   If :math:`n` is odd, multiply :math:`n` by 3 and add 1.
    Repeat the process indefinitely.
    The conjecture states that no matter which number you start with,
    you will always reach 1 eventually.

@@ -1136,6 +1136,7 @@ Glossary
       a synonym for :term:`data member`.
 
    integrated development environment
+   IDE
       A software suite that consolidates many tools developers need to 
       write and test software.
       An IDE normally consists of a source code editor, version control,

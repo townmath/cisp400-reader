@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>12.2. Overloading operator[] &#8212; CISC 187 Course Reader Overview</title>
+    <title>10.2. Overloading operator[] &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,8 +57,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="12.3. Container classes" href="containers.html" />
-    <link rel="prev" title="12.1. Class templates" href="templates.html" />
+    <link rel="next" title="10.3. Container classes" href="containers.html" />
+    <link rel="prev" title="10.1. Class templates" href="templates.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">12.1. </span>Class templates" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">10.1. </span>Class templates" data-toggle="tooltip">
     <a href="templates.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">12.3. </span>Container classes' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">10.3. </span>Container classes' data-toggle="tooltip" >              
     <a href="containers.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -237,7 +237,7 @@
 
   
   <div class="section" id="overloading-operator">
-<span id="index-0"></span><h1><span class="section-number">12.2. </span>Overloading <code class="docutils literal notranslate"><span class="pre">operator[]</span></code><a class="headerlink" href="#overloading-operator" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">10.2. </span>Overloading <code class="docutils literal notranslate"><span class="pre">operator[]</span></code><a class="headerlink" href="#overloading-operator" title="Permalink to this headline">¶</a></h1>
 <p>User-defined types that provide array-like access that allows both reading and writing
 often overload <code class="docutils literal notranslate"><span class="pre">operator[]</span></code>.</p>
 <p>One of the rules of the language is that <code class="docutils literal notranslate"><span class="pre">operator[]</span></code> must be implemented
@@ -262,7 +262,7 @@ If your type has data in multiple dimensions, then
 prefer overloading <code class="docutils literal notranslate"><span class="pre">operator()</span></code> instead.
 For a detailed description of the <em>why</em>, refer to the following subsection.</p>
 <div class="section" id="multi-dimension-array-access">
-<h2><span class="section-number">12.2.1. </span>Multi-dimension array access<a class="headerlink" href="#multi-dimension-array-access" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.2.1. </span>Multi-dimension array access<a class="headerlink" href="#multi-dimension-array-access" title="Permalink to this headline">¶</a></h2>
 <p>To provide multidimensional array access semantics,
 e.g. to implement a 3D array access <code class="docutils literal notranslate"><span class="pre">a[i][j][k]</span> <span class="pre">=</span> <span class="pre">x;</span></code>,
 the overload for <code class="docutils literal notranslate"><span class="pre">operator[]</span></code> must return a reference to a 2D object,
@@ -331,7 +331,7 @@ a <code class="docutils literal notranslate"><span class="pre">const</span></cod
 <div id=ac_matrix_function_call_operator_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="ac_matrix_function_call_operator_editor" data-question_label="12.2.1.1" 
+<textarea data-lang="cpp" id="ac_matrix_function_call_operator_editor" data-question_label="10.2.1.1" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -458,7 +458,7 @@ All the memory management is handled by the vector class.</p>
 <div id=ac_matrix_index_operator_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="ac_matrix_index_operator_editor" data-question_label="12.2.1.2" 
+<textarea data-lang="cpp" id="ac_matrix_index_operator_editor" data-question_label="10.2.1.2" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -555,8 +555,8 @@ int main()
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 12.1. Class templates' data-toggle="tooltip">
-    <a href="templates.html" aria-label="12.1. Class templates">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 10.1. Class templates' data-toggle="tooltip">
+    <a href="templates.html" aria-label="10.1. Class templates">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -566,8 +566,8 @@ int main()
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 12.3. Container classes' data-toggle="tooltip" >
-    <a href="containers.html" aria-label="12.3. Container classes">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 10.3. Container classes' data-toggle="tooltip" >
+    <a href="containers.html" aria-label="10.3. Container classes">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

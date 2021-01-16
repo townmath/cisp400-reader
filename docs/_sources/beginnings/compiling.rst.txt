@@ -105,11 +105,12 @@ client if you run Microsoft Windows is PuTTY:
 
    http://www.chiark.greenend.org.uk/~sgtatham/putty/
 
-In ``git`` you would type the following in the *GIT Bash* to connect to the buffy server:
+In ``git`` you would type the following in the *GIT Bash* 
+to connect to the server:
 
 .. code-block:: none
 
-   host@user: ssh fireNN@209.129.16.61
+   ssh fireNN@209.129.16.61
 
 where *fireNN** is the user name assigned to you by the instructor.
 
@@ -198,6 +199,143 @@ for example:
 
 Both of these commands return the exact same output.
 
+Compiling code on your local computer
+=====================================
+The following sections describe briefly how to get started with
+a local development environment, if you wish.
+
+In all cases, you still need to install 
+`git <https://git-scm.com>`__ and
+`CMake <https://cmake.org>`__.
+
+This book does **not** explain how to install these :term:`IDE's<IDE>`.
+Use the documentation provided with your IDE for that.
+
+Compiling with Visual Studio
+----------------------------
+In this course you need to be using Visual Studio 2019
+at a minimum to complete all the assignments.
+
+In order to enable CMake integration with Visual Studio
+ensure you have the additional software for Linux C++ development.
+
+Use git to clone your assignments repository to your computer.
+Now you are ready to compile an assignment.
+
+1. Create a directory named build and open CMake GUI.
+2. Select 'Browse Source' and select the folder containing 
+   the lab you want to build.
+3. Select 'Browse Build' and select the `build` folder you created.
+4. In the lower left corner, select 'Configure' and
+   select 'Visual Studio 16 2019 Win64' from the list of
+   available generators.
+
+   Leave the remaining selections alone and
+   press 'Finish` when done.
+
+   Don't worry (yet) if you see any warnings or errors.
+5. Press 'Generate'. When finished ("Generating done")
+   close CMake GUI.
+6. Open the generated solution (.sln) file in Visual Studio.
+
+Build the solution then open
+Test --> Windows --> Test Explorer to view test results or rerun tests.
+
+If this doesn't work, try
+the instructions on the 
+`Microsoft site <https://docs.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=vs-2017>`__.
+
+Select the documentation for your version of Visual Studio.
+
+**Using the Visual Studio command line:**
+
+1. Create a directory named build.
+2. Open the Visual Studio Developer prompt.
+   `cd` into the build directory created in the previous step.
+3. Type `cmake ..`
+
+   This should create a standard Visual Studio solution that
+   you can run from the command line or the IDE.
+
+4. Type `MSBuild lab1.sln` to build all projects in the **Debug** configuation
+5. Type `ctest -C Debug` to run all tests
+
+
+To remove all executable files:
+
+.. code-block:: none
+
+   MSBuild lab1.sln -target:Clean
+   MSBuild lab1.sln -t:Clean
+
+To build a single test:
+
+.. code-block:: none
+   
+   MSBuild lab1.sln -t:step1
+
+To build all files in **Release** configuration,
+without any Debug symbols:
+
+.. code-block:: none
+
+   MSBuild lab1.sln -p:Configuration=Release
+   # run tests
+   ctest -C Release
+
+If this doesn't work, try
+`the instructions on the Microsoft site <https://docs.microsoft.com/en-us/cpp/build/walkthrough-compiling-a-native-cpp-program-on-the-command-line?view=vs-2019>`__
+
+
+
+
+Compiling with Code Blocks
+--------------------------
+Use git to clone your assignments repository to your computer.
+Now you are ready to compile an assignment.
+
+1. Create a directory named build and open CMake GUI.
+2. Select 'Browse Source' and select the folder containing 
+   the lab you want to build.
+3. Select 'Browse Build' and select the `build` folder.
+4. In the lower left corner, select 'Configure' and
+   select 'CodeBlocks - MinGW Makefiles' from the list of
+   available generators.
+
+   Leave the radio selections alone and
+   press 'Finish` when done.
+
+   Campus windows computers may complain about a `sh.exe` program in your path
+   outside of CodeBlocks.
+   To fix this error:
+
+   - Delete the CMake variable `CMAKE_SH` in the variables list.
+   - Press 'Configure' a second time.
+
+5. Press 'Generate'. When finished ("Generating done")
+   close CMake GUI.
+6. Open the generated "CBP" file in CodeBlocks.
+   It should be in the build folder you pointed at in step 3.
+
+Build the 'all' target to compile and link programs and tests.
+Test cases must be run individually - 
+there is no target to run all the tests.
+
+Compiling with XCode
+--------------------
+Use git to clone your assignments repository to your computer.
+Now you are ready to compile an assignment.
+
+Open a terminal in the directory containing your lab, then:
+
+.. code-block:: none
+
+   mkdir build
+   cd build
+   cmake -G Xcode ..
+
+Open the Xcode project and build as usual.
+
 
 -----
 
@@ -208,7 +346,7 @@ Both of these commands return the exact same output.
    - Clang docs
 
      - `clang-tidy <https://clang.llvm.org/extra/clang-tidy/>`__
-     - `clang forst <https://clang.llvm.org/docs/ClangFormat.html>`__
+     - `clang format <https://clang.llvm.org/docs/ClangFormat.html>`__
      - `Clang C++ status <https://clang.llvm.org/cxx_status.html>`__
    
    - :doc:`../back-matter/app-a/make`

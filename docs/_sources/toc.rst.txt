@@ -11,14 +11,20 @@ Front Matter
    front-matter/foreword.rst
    front-matter/preface.rst
 
+Preliminaries
+-------------
+
+.. toctree::
+
+   math/index.rst
+   analysis/index.rst
+
 Main Body
 ---------
 
 .. toctree::
 
    beginnings/index.rst
-   math/index.rst
-   analysis/index.rst
    string+vector/index.rst
 
    function-intro/index.rst

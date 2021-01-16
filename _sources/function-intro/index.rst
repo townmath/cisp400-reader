@@ -2,7 +2,6 @@ Introduction to functions
 =========================
 
 .. toctree::
-   :caption: Introduction to functions
    :maxdepth: 2
 
    functions.rst
@@ -15,3 +14,7 @@ Introduction to functions
    error-handling.rst
    static-functions.rst
 
+An introduction to functions, 
+including function parameters, namespaces, and scopes.
+The keyword ``const`` is introduced and will be revisited over several
+chapters.

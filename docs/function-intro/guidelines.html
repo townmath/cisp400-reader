@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.5. General function writing guidelines &#8212; CISC 187 Course Reader Overview</title>
+    <title>3.5. General function writing guidelines &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,8 +57,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.6. Keyword: const" href="constants.html" />
-    <link rel="prev" title="5.4. Namespaces" href="namespace.html" />
+    <link rel="next" title="3.6. Keyword: const" href="constants.html" />
+    <link rel="prev" title="3.4. Namespaces" href="namespace.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">5.4. </span>Namespaces" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">3.4. </span>Namespaces" data-toggle="tooltip">
     <a href="namespace.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">5.6. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">const</span></code>' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">3.6. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">const</span></code>' data-toggle="tooltip" >              
     <a href="constants.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -237,7 +237,7 @@
 
   
   <div class="section" id="general-function-writing-guidelines">
-<span id="index-0"></span><h1><span class="section-number">5.5. </span>General function writing guidelines<a class="headerlink" href="#general-function-writing-guidelines" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">3.5. </span>General function writing guidelines<a class="headerlink" href="#general-function-writing-guidelines" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic">
 <li><p>Write for clarity and correctness <strong>first</strong></p></li>
 <li><p>Avoid <em>premature optimization</em></p></li>
@@ -273,7 +273,7 @@ side effects are almost always unexpected.</p>
 <div id=functions_guidelines_side_effects_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="functions_guidelines_side_effects_ac_editor" data-question_label="5.5.1" 
+<textarea data-lang="cpp" id="functions_guidelines_side_effects_ac_editor" data-question_label="3.5.1" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -342,13 +342,13 @@ Unless you <em>completely</em> trust the caller (and their caller…)</p>
 
     <div class="runestone" style="margin-left: auto; margin-right:auto">
         <div id="9mWWNYRHAIQ" data-component="youtube" class="align-left youtube-video"
-            data-video-height="281" data-question_label="5.5.2"
+            data-video-height="281" data-question_label="3.5.2"
             data-video-width="500" data-video-videoid="9mWWNYRHAIQ"
             data-video-divid="9mWWNYRHAIQ" data-video-start="0"
             data-video-end="-1" ></div>
     </div>
     <div class="section" id="when-to-write-a-function">
-<h2><span class="section-number">5.5.1. </span>When to write a function<a class="headerlink" href="#when-to-write-a-function" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.5.1. </span>When to write a function<a class="headerlink" href="#when-to-write-a-function" title="Permalink to this headline">¶</a></h2>
 <p>As with any kind of abstraction, there are two goals to making a function:</p>
 <ul>
 <li><p><strong>Encapsulation</strong>:
@@ -443,7 +443,7 @@ and have the advantage of working on any <a class="reference internal" href="../
 </div>
 </div>
 <div class="section" id="example-number-guessing">
-<h2><span class="section-number">5.5.2. </span>Example: number guessing<a class="headerlink" href="#example-number-guessing" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.5.2. </span>Example: number guessing<a class="headerlink" href="#example-number-guessing" title="Permalink to this headline">¶</a></h2>
 <p>A more realistic example might help.
 While randomly surfing the internet,</p>
 <div id='function_guidelines_guessing_example_tab' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Original" >
@@ -512,7 +512,7 @@ is implicitly void.</p>
 <div id=function_random_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="function_random_ac_editor" data-question_label="5.5.2.1" 
+<textarea data-lang="cpp" id="function_random_ac_editor" data-question_label="3.5.2.1" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -615,8 +615,8 @@ from GitHub</p></li>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 5.4. Namespaces' data-toggle="tooltip">
-    <a href="namespace.html" aria-label="5.4. Namespaces">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 3.4. Namespaces' data-toggle="tooltip">
+    <a href="namespace.html" aria-label="3.4. Namespaces">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -626,8 +626,8 @@ from GitHub</p></li>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 5.6. Keyword:  const ' data-toggle="tooltip" >
-    <a href="constants.html" aria-label="5.6. Keyword:  const ">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.6. Keyword:  const ' data-toggle="tooltip" >
+    <a href="constants.html" aria-label="3.6. Keyword:  const ">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

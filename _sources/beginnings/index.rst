@@ -2,7 +2,6 @@ Getting started
 ===============
 
 .. toctree::
-   :caption: Getting started
    :maxdepth: 2
 
    hello-world.rst

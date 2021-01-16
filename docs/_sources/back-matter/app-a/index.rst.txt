@@ -2,7 +2,6 @@ Appendix A - Development Environment
 ====================================
 
 .. toctree::
-   :caption: Development Tools
    :maxdepth: 2
 
    linux.rst

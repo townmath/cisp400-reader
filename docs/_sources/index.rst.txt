@@ -28,6 +28,14 @@ Front Matter
 
    toc.rst
 
+Preliminaries
+=============
+.. toctree::
+   :maxdepth: 1
+
+   math/index.rst
+   analysis/index.rst
+
 Chapters
 ========
 
@@ -36,8 +44,6 @@ Chapters
    :maxdepth: 1
 
    beginnings/index.rst
-   math/index.rst
-   analysis/index.rst
    string+vector/index.rst
 
    function-intro/index.rst

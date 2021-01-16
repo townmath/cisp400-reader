@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>11.4. Inheritance &#8212; CISC 187 Course Reader Overview</title>
+    <title>9.4. Inheritance &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,8 +57,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="11.5. Abstract base classes" href="interfaces.html" />
-    <link rel="prev" title="11.3. Composition" href="composition.html" />
+    <link rel="next" title="9.5. Abstract base classes" href="interfaces.html" />
+    <link rel="prev" title="9.3. Composition" href="composition.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">11.3. </span>Composition" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">9.3. </span>Composition" data-toggle="tooltip">
     <a href="composition.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">11.5. </span>Abstract base classes' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">9.5. </span>Abstract base classes' data-toggle="tooltip" >              
     <a href="interfaces.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -237,7 +237,7 @@
 
   
   <div class="section" id="inheritance">
-<span id="index-0"></span><h1><span class="section-number">11.4. </span>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">9.4. </span>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h1>
 <p>Inheritance enables new classes to receive — or inherit —
 the properties and methods of existing classes.
 In C++, we can extend a class,
@@ -303,7 +303,7 @@ more information about your intent and can flag functions
 with incorrect signatures.</p>
 <p>Note that a class may inherit from more than one base class.</p>
 <div class="section" id="base-class-references-and-pointers">
-<h2><span class="section-number">11.4.1. </span>Base class references and pointers<a class="headerlink" href="#base-class-references-and-pointers" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.4.1. </span>Base class references and pointers<a class="headerlink" href="#base-class-references-and-pointers" title="Permalink to this headline">¶</a></h2>
 <p>One of the primary benefits of inheritance become apparent when passed
 as parameters or when used in container classes.
 Object references and pointers will call the correct derived class member
@@ -374,7 +374,7 @@ implemented with a vector of raw pointers:</p>
 but requires a bit more code to manage our own memory.</p>
 </div>
 <div class="section" id="when-to-use-inheritance">
-<h2><span class="section-number">11.4.2. </span>When to use inheritance<a class="headerlink" href="#when-to-use-inheritance" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.4.2. </span>When to use inheritance<a class="headerlink" href="#when-to-use-inheritance" title="Permalink to this headline">¶</a></h2>
 <p>Adapted from <em>Composition vs. Inheritance: How to Choose?</em>.</p>
 <p>The most common — and beneficial — use of inheritance is to
 incrementally extend types.
@@ -408,7 +408,7 @@ But if you must have some guidelines, consider these.</p>
 </ul>
 </div>
 <div class="section" id="private-inheritance">
-<span id="index-1"></span><h2><span class="section-number">11.4.3. </span>Private inheritance<a class="headerlink" href="#private-inheritance" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">9.4.3. </span>Private inheritance<a class="headerlink" href="#private-inheritance" title="Permalink to this headline">¶</a></h2>
 <p>In the classes derived from <code class="docutils literal notranslate"><span class="pre">shape</span></code>,
 we declare <code class="docutils literal notranslate"><span class="pre">public</span></code> members of the shape class
 to also have <code class="docutils literal notranslate"><span class="pre">public</span></code> access the derived classes.
@@ -438,7 +438,7 @@ is a <a class="reference external" href="http://en.cppreference.com/mwiki/index.
 we don’t want to expose all of the functions of a <code class="docutils literal notranslate"><span class="pre">deque</span></code> in a <code class="docutils literal notranslate"><span class="pre">stack</span></code>.</p>
 </div>
 <div class="section" id="non-virtual-base-class-functions">
-<span id="index-2"></span><h2><span class="section-number">11.4.4. </span>Non-virtual base class functions<a class="headerlink" href="#non-virtual-base-class-functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">9.4.4. </span>Non-virtual base class functions<a class="headerlink" href="#non-virtual-base-class-functions" title="Permalink to this headline">¶</a></h2>
 <p>Every non-virtual base class function defines a
 <strong>mandatory interface</strong> for all derived classes.
 The language allows a derived class to implement its own version.
@@ -474,7 +474,7 @@ interface defined by a base class,
 then it probably shouldn’t be a derived class.</p>
 </div>
 <div class="section" id="multiple-inheritance">
-<span id="index-3"></span><h2><span class="section-number">11.4.5. </span>Multiple inheritance<a class="headerlink" href="#multiple-inheritance" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2><span class="section-number">9.4.5. </span>Multiple inheritance<a class="headerlink" href="#multiple-inheritance" title="Permalink to this headline">¶</a></h2>
 <p>C++ allows for a single class to inherit capabilities from more than 1 class.
 The constructors of inherited classes are called in the same order
 in which they are inherited.
@@ -486,7 +486,7 @@ B’s constructor is called before A’s constructor.</p>
 <div id=ac_mult_inherit_ex1_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="ac_mult_inherit_ex1_editor" data-question_label="11.4.5.1" 
+<textarea data-lang="cpp" id="ac_mult_inherit_ex1_editor" data-question_label="9.4.5.1" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -534,7 +534,7 @@ For example:</p>
 <div id=ac_mult_inherit_ex2_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="ac_mult_inherit_ex2_editor" data-question_label="11.4.5.2" 
+<textarea data-lang="cpp" id="ac_mult_inherit_ex2_editor" data-question_label="9.4.5.2" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -646,7 +646,7 @@ for maintainability, and often for performance.</p>
 </div></blockquote>
 </div>
 <div class="section" id="design-problems">
-<span id="index-4"></span><h2><span class="section-number">11.4.6. </span>Design problems<a class="headerlink" href="#design-problems" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2><span class="section-number">9.4.6. </span>Design problems<a class="headerlink" href="#design-problems" title="Permalink to this headline">¶</a></h2>
 <p>New programmers are generally eager to “do things the OO way”
 and tend to overuse inheritance relationships.
 This is especially true if starting with UML diagrams:
@@ -709,8 +709,8 @@ from the C++ FAQ</p></li>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 11.3. Composition' data-toggle="tooltip">
-    <a href="composition.html" aria-label="11.3. Composition">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 9.3. Composition' data-toggle="tooltip">
+    <a href="composition.html" aria-label="9.3. Composition">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -720,8 +720,8 @@ from the C++ FAQ</p></li>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 11.5. Abstract base classes' data-toggle="tooltip" >
-    <a href="interfaces.html" aria-label="11.5. Abstract base classes">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 9.5. Abstract base classes' data-toggle="tooltip" >
+    <a href="interfaces.html" aria-label="9.5. Abstract base classes">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

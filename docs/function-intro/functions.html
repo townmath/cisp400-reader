@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.1. Introduction to functions &#8212; CISC 187 Course Reader Overview</title>
+    <title>3.1. Introduction to functions &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,8 +57,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.2. Passing parameters" href="parameter-passing.html" />
-    <link rel="prev" title="5. Introduction to functions" href="index.html" />
+    <link rel="next" title="3.2. Passing parameters" href="parameter-passing.html" />
+    <link rel="prev" title="3. Introduction to functions" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">5. </span>Introduction to functions" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">3. </span>Introduction to functions" data-toggle="tooltip">
     <a href="index.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">5.2. </span>Passing parameters' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">3.2. </span>Passing parameters' data-toggle="tooltip" >              
     <a href="parameter-passing.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -237,7 +237,7 @@
 
   
   <div class="section" id="introduction-to-functions">
-<span id="index-0"></span><h1><span class="section-number">5.1. </span>Introduction to functions<a class="headerlink" href="#introduction-to-functions" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">3.1. </span>Introduction to functions<a class="headerlink" href="#introduction-to-functions" title="Permalink to this headline">¶</a></h1>
 <p>A <em>function</em> is a group of statements that work together to perform a task.
 A function is composed of:</p>
 <ul class="simple">
@@ -278,7 +278,7 @@ the task it defines can be executed as often as needed.</p>
 <div id=functions_simple_intro_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="functions_simple_intro_ac_editor" data-question_label="5.1.1" 
+<textarea data-lang="cpp" id="functions_simple_intro_ac_editor" data-question_label="3.1.1" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -306,7 +306,7 @@ int main () {
 
 
 <div class="runestone" style="max-width: none;">
-    <div class="alert alert-warning cd_section" data-question_label="5.1.2">
+    <div class="alert alert-warning cd_section" data-question_label="3.1.2">
         <div class="pytutorVisualizer" id="functions_simple_intro_cl"
            data-params='{"embeddedMode": true, "lang": "cpp", "jumpToEnd": false}'>
         </div>
@@ -326,7 +326,7 @@ allTraceData["functions_simple_intro_cl"] = {"code": "#include <iostream>\n\nint
 </script>
 </div>
 <div class="section" id="function-declarations-and-compilation-units">
-<h2><span class="section-number">5.1.1. </span>Function declarations and compilation units<a class="headerlink" href="#function-declarations-and-compilation-units" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.1. </span>Function declarations and compilation units<a class="headerlink" href="#function-declarations-and-compilation-units" title="Permalink to this headline">¶</a></h2>
 <p>By default, functions have global <a class="reference internal" href="../glossary.html#term-scope"><span class="xref std std-term">scope</span></a>:
 they can be used anywhere in your program, even in other files.
 If a file doesn’t contain a <a class="reference internal" href="../glossary.html#term-declaration"><span class="xref std std-term">declaration</span></a> for a function  before it is used,
@@ -408,7 +408,7 @@ Using <code class="docutils literal notranslate"><span class="pre">make</span></
 </div>
 </div>
 <div class="section" id="the-call-stack">
-<span id="index-2"></span><h2><span class="section-number">5.1.2. </span>The call stack<a class="headerlink" href="#the-call-stack" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">3.1.2. </span>The call stack<a class="headerlink" href="#the-call-stack" title="Permalink to this headline">¶</a></h2>
 <p>Functions are routinely called from many places
 and more than one function can be ‘active’ at any one time.
 The CPU needs a mechanism to keep track of every function call,
@@ -419,7 +419,7 @@ memory locations built into the CPU itself,
 but most will go on the <a class="reference internal" href="../glossary.html#term-stack"><span class="xref std std-term">stack</span></a>,
 a region of memory that on typical machines grows downward,
 even though the most recent additions to the stack are called the “top” of the stack.</p>
-<div class="graphviz"><img src="../_images/graphviz-e095a93ee60d7653a392cac5786b4ef4d6975d31.png" alt="digraph memory {
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-e095a93ee60d7653a392cac5786b4ef4d6975d31.png" alt="digraph memory {
   fontname = &quot;Bitstream Vera Sans&quot;
   label=&quot;Typical program memory layout&quot;
   node [
@@ -434,6 +434,7 @@ even though the most recent additions to the stack are called the “top” of t
   ]
 
 }" class="graphviz" /></div>
+</div>
 <p>Typically, each called function and any local variables, return values, or
 parameters passed in, is stored in a special data structure called a <strong>stack frame</strong>
 or an <strong>activation record</strong>.
@@ -476,11 +477,11 @@ Any information stored in local variables is lost.</p>
 <p>Read the code below and predict what the output should be <strong>before</strong> stepping through it.</p>
 
 <div class="runestone" style="max-width: none;">
-    <div class="alert alert-warning cd_section" data-question_label="5.1.2.1">
+    <div class="alert alert-warning cd_section" data-question_label="3.1.2.1">
         <div class="pytutorVisualizer" id="functions_dig_deeper_cl"
            data-params='{"embeddedMode": true, "lang": "cpp", "jumpToEnd": false}'>
         </div>
-        <p class="runestone_caption"><span class="runestone_caption_text">Activity: CodeLens 5.1.2.1 (functions_dig_deeper_cl)</span> </p>
+        <p class="runestone_caption"><span class="runestone_caption_text">Activity: CodeLens 3.1.2.1 (functions_dig_deeper_cl)</span> </p>
     </div>
 
 <script type="text/javascript">
@@ -517,8 +518,8 @@ from Buckys C++ Programming Tutorials.</p></li>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 5. Introduction to functions' data-toggle="tooltip">
-    <a href="index.html" aria-label="5. Introduction to functions">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 3. Introduction to functions' data-toggle="tooltip">
+    <a href="index.html" aria-label="3. Introduction to functions">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -528,8 +529,8 @@ from Buckys C++ Programming Tutorials.</p></li>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 5.2. Passing parameters' data-toggle="tooltip" >
-    <a href="parameter-passing.html" aria-label="5.2. Passing parameters">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.2. Passing parameters' data-toggle="tooltip" >
+    <a href="parameter-passing.html" aria-label="3.2. Passing parameters">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

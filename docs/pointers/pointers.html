@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7.1. Pointers &#8212; CISC 187 Course Reader Overview</title>
+    <title>5.1. Pointers &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,8 +57,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7.2. Free store pointers" href="free-store.html" />
-    <link rel="prev" title="7. Pointers" href="index.html" />
+    <link rel="next" title="5.2. Free store pointers" href="free-store.html" />
+    <link rel="prev" title="5. Pointers" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">7. </span>Pointers" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">5. </span>Pointers" data-toggle="tooltip">
     <a href="index.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">7.2. </span>Free store pointers' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">5.2. </span>Free store pointers' data-toggle="tooltip" >              
     <a href="free-store.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -237,7 +237,7 @@
 
   
   <div class="section" id="pointers">
-<span id="index-0"></span><h1><span class="section-number">7.1. </span>Pointers<a class="headerlink" href="#pointers" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">5.1. </span>Pointers<a class="headerlink" href="#pointers" title="Permalink to this headline">¶</a></h1>
 <p>People make a big deal out of pointers.
 They really aren’t that hard to understand.
 We already know that a variable stores some value:</p>
@@ -251,7 +251,7 @@ We already know that a variable stores some value:</p>
 </div>
 <p>The value assigned to <code class="docutils literal notranslate"><span class="pre">e_pointer</span></code> is the <em>address of</em> the variable <code class="docutils literal notranslate"><span class="pre">euler</span></code>.</p>
 <div class="section" id="declaring-pointers">
-<span id="index-1"></span><h2><span class="section-number">7.1.1. </span>Declaring pointers<a class="headerlink" href="#declaring-pointers" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">5.1.1. </span>Declaring pointers<a class="headerlink" href="#declaring-pointers" title="Permalink to this headline">¶</a></h2>
 <p>While some of the memory in a running program is stored in
 a small number of <strong>registers</strong>,
 these live on the CPU chip and perform specialized functions like keeping track of the
@@ -356,7 +356,7 @@ to get the value stored in the pointer, or to assign a new value.</p>
 </div>
 </div>
 <div class="section" id="using-pointers">
-<h2><span class="section-number">7.1.2. </span>Using pointers<a class="headerlink" href="#using-pointers" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1.2. </span>Using pointers<a class="headerlink" href="#using-pointers" title="Permalink to this headline">¶</a></h2>
 <p>The simplest way to use a pointer is to get their value as with any other variable.
 This value will be an address,
 which can be stored in another pointer variable of the same type.</p>
@@ -400,7 +400,7 @@ it is a compile error to assign an int pointer to a double pointer:</p>
 </div>
 </div>
 <div class="section" id="comparison-with-references">
-<span id="index-2"></span><h2><span class="section-number">7.1.3. </span>Comparison with references<a class="headerlink" href="#comparison-with-references" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">5.1.3. </span>Comparison with references<a class="headerlink" href="#comparison-with-references" title="Permalink to this headline">¶</a></h2>
 <p>Recall from our earlier discussions of pass by reference
 that the <code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">of</span></code> operator <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> allows us to pass by reference:</p>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -483,7 +483,7 @@ which, by definition, would involve having the reference refer to a different ob
 <p>We still need to be able to do all these kinds of memory manipulations.
 In C++, we achieve these goals using <em>pointers</em>.</p>
 <div class="section" id="function-passing-semantics">
-<h3><span class="section-number">7.1.3.1. </span>Function passing semantics<a class="headerlink" href="#function-passing-semantics" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.3.1. </span>Function passing semantics<a class="headerlink" href="#function-passing-semantics" title="Permalink to this headline">¶</a></h3>
 <p>We can pass pointers to a function that expects a reference:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cassert&gt;</span><span class="cp"></span>
 
@@ -546,7 +546,7 @@ they can expect it to change.</p>
 </div>
 </div>
 <div class="section" id="pointers-and-arrays">
-<span id="index-3"></span><h2><span class="section-number">7.1.4. </span>Pointers and arrays<a class="headerlink" href="#pointers-and-arrays" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2><span class="section-number">5.1.4. </span>Pointers and arrays<a class="headerlink" href="#pointers-and-arrays" title="Permalink to this headline">¶</a></h2>
 <p>Pointers are not arrays and arrays are not pointers.
 However, much confusion arises between them because
 <em>arrays in expressions</em> often behave like pointers.
@@ -607,7 +607,7 @@ arrays are not expected, but pointers are:</p>
 </pre></div>
 </div>
 <div class="section" id="array-indexing-pitfalls">
-<h3><span class="section-number">7.1.4.1. </span>Array indexing pitfalls<a class="headerlink" href="#array-indexing-pitfalls" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.4.1. </span>Array indexing pitfalls<a class="headerlink" href="#array-indexing-pitfalls" title="Permalink to this headline">¶</a></h3>
 <p><strong>Pitfall #1</strong></p>
 <p>Arrays perform absolutely no bounds checking.</p>
 <p>Read that again.</p>
@@ -664,7 +664,7 @@ then  <code class="docutils literal notranslate"><span class="pre">a[i]</span></
 <div id=ac-array-index-1_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="ac-array-index-1_editor" data-question_label="7.1.4.1.1" 
+<textarea data-lang="cpp" id="ac-array-index-1_editor" data-question_label="5.1.4.1.1" 
       data-timelimit=25000     
     data-audio=''      
            data-wasm=/_static
@@ -693,7 +693,7 @@ The lesson: use variables appropriate for the scope.
 In this case, perhaps a single letter (a) for the array was too short.</p>
 </div>
 <div class="section" id="arrays-of-type-char">
-<span id="index-4"></span><h3><span class="section-number">7.1.4.2. </span>Arrays of type <code class="docutils literal notranslate"><span class="pre">char</span></code><a class="headerlink" href="#arrays-of-type-char" title="Permalink to this headline">¶</a></h3>
+<span id="index-4"></span><h3><span class="section-number">5.1.4.2. </span>Arrays of type <code class="docutils literal notranslate"><span class="pre">char</span></code><a class="headerlink" href="#arrays-of-type-char" title="Permalink to this headline">¶</a></h3>
 <p>In the C language,
 the abstract idea of a string is implemented with an array of characters.
 Arrays of <code class="docutils literal notranslate"><span class="pre">char</span></code> that are null terminated are commonly called <em>C strings</em>.</p>
@@ -706,7 +706,7 @@ the C string as a loop exit condition:</p>
 <div id=ac-c-copy-idiom_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="c" id="ac-c-copy-idiom_editor" data-question_label="7.1.4.2.1" 
+<textarea data-lang="c" id="ac-c-copy-idiom_editor" data-question_label="5.1.4.2.1" 
       data-timelimit=25000  data-codelens="true"   
     data-audio=''      
            data-wasm=/_static
@@ -749,7 +749,7 @@ What happens?</p>
 </div>
 </div>
 <div class="section" id="pointers-to-pointers">
-<h2><span class="section-number">7.1.5. </span>Pointers to pointers<a class="headerlink" href="#pointers-to-pointers" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1.5. </span>Pointers to pointers<a class="headerlink" href="#pointers-to-pointers" title="Permalink to this headline">¶</a></h2>
 <p>A pointer can point to any memory address within the scope of the program,
 which includes pointers themselves.
 Each new pointer just adds another to the chain of pointers.
@@ -816,14 +816,14 @@ the pointer, what it points to, and <em>what the pointer that it points to point
 
     <div class="runestone" style="margin-left: auto; margin-right:auto">
         <div id="0QOxC7ADT80" data-component="youtube" class="align-left youtube-video"
-            data-video-height="281" data-question_label="7.1.5.1"
+            data-video-height="281" data-question_label="5.1.5.1"
             data-video-width="500" data-video-videoid="0QOxC7ADT80"
             data-video-divid="0QOxC7ADT80" data-video-start="0"
             data-video-end="-1" ></div>
     </div>
     </div>
 <div class="section" id="parsing-the-command-line">
-<span id="index-6"></span><h2><span class="section-number">7.1.6. </span>Parsing the command line<a class="headerlink" href="#parsing-the-command-line" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2><span class="section-number">5.1.6. </span>Parsing the command line<a class="headerlink" href="#parsing-the-command-line" title="Permalink to this headline">¶</a></h2>
 <p>Now we have enough tools in our tool kit to understand command line arguments.
 Up to now, all of our examples showing the function <code class="docutils literal notranslate"><span class="pre">main()</span></code>
 did not include any function parameters.
@@ -998,7 +998,7 @@ and a switch with no value after it.</p>
 </div>
 </div>
 <div class="section" id="constant-pointers">
-<span id="index-8"></span><h2><span class="section-number">7.1.7. </span>Constant pointers<a class="headerlink" href="#constant-pointers" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2><span class="section-number">5.1.7. </span>Constant pointers<a class="headerlink" href="#constant-pointers" title="Permalink to this headline">¶</a></h2>
 <p>Pointers can be declared <code class="docutils literal notranslate"><span class="pre">const</span></code>, just like any other type.
 Where <code class="docutils literal notranslate"><span class="pre">const</span></code> appears controls what is held constant:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// odd whitespace to help see where const is used</span>
@@ -1020,7 +1020,7 @@ You can use this pointer to change the value of x, but can’t point to a differ
 </ul>
 </div>
 <div class="section" id="the-nullptr-type">
-<h2><span class="section-number">7.1.8. </span>The <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> type<a class="headerlink" href="#the-nullptr-type" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1.8. </span>The <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> type<a class="headerlink" href="#the-nullptr-type" title="Permalink to this headline">¶</a></h2>
 <p>In section <cite>Comparison with references</cite>,
 we mentioned that unlike a reference,
 a pointer might point to ‘nothing’.</p>
@@ -1115,7 +1115,7 @@ Consider the following code example, from Effective Modern C++:</p>
 </div>
 </div>
 <div class="section" id="void-pointers">
-<h2><span class="section-number">7.1.9. </span><code class="docutils literal notranslate"><span class="pre">void</span></code> pointers<a class="headerlink" href="#void-pointers" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1.9. </span><code class="docutils literal notranslate"><span class="pre">void</span></code> pointers<a class="headerlink" href="#void-pointers" title="Permalink to this headline">¶</a></h2>
 <p>A <em>void pointer</em> is a
 pointer to some memory, but the compiler doesn’t know the type.</p>
 <p>It is about as close to a raw machine address as you can get in C++.</p>
@@ -1192,8 +1192,8 @@ to another pointer type that has a size:</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 7. Pointers' data-toggle="tooltip">
-    <a href="index.html" aria-label="7. Pointers">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 5. Pointers' data-toggle="tooltip">
+    <a href="index.html" aria-label="5. Pointers">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -1203,8 +1203,8 @@ to another pointer type that has a size:</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 7.2. Free store pointers' data-toggle="tooltip" >
-    <a href="free-store.html" aria-label="7.2. Free store pointers">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 5.2. Free store pointers' data-toggle="tooltip" >
+    <a href="free-store.html" aria-label="5.2. Free store pointers">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

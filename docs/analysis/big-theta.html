@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.5. Lower Bounds &#8212; CISC 187 Course Reader Overview</title>
+    <title>Lower Bounds &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,8 +57,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. String and Vector" href="../string%2Bvector/index.html" />
-    <link rel="prev" title="3.4. Asymptotic Analysis and Upper Bounds" href="big-o.html" />
+    <link rel="next" title="1. Getting started" href="../beginnings/index.html" />
+    <link rel="prev" title="Asymptotic Analysis and Upper Bounds" href="big-o.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,14 +188,14 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">3.4. </span>Asymptotic Analysis and Upper Bounds" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - Asymptotic Analysis and Upper Bounds" data-toggle="tooltip">
     <a href="big-o.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">4. </span>String and Vector' data-toggle="tooltip" >              
-    <a href="../string%2Bvector/index.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">1. </span>Getting started' data-toggle="tooltip" >              
+    <a href="../beginnings/index.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -237,7 +237,7 @@
 
   
   <div class="section" id="lower-bounds">
-<h1><span class="section-number">3.5. </span>Lower Bounds<a class="headerlink" href="#lower-bounds" title="Permalink to this headline">¶</a></h1>
+<h1>Lower Bounds<a class="headerlink" href="#lower-bounds" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference internal" href="../glossary.html#term-big-O-notation"><span class="xref std std-term">Big-O notation</span></a> describes an upper bound.
 In other words, big-O notation states a claim about the greatest
 amount of some resource (usually time) that is required by an
@@ -346,7 +346,7 @@ behavior of algorithms.</p>
 </div>
 </div>
 <div class="section" id="theta-notation">
-<h1><span class="section-number">3.6. </span>Theta Notation<a class="headerlink" href="#theta-notation" title="Permalink to this headline">¶</a></h1>
+<h1>Theta Notation<a class="headerlink" href="#theta-notation" title="Permalink to this headline">¶</a></h1>
 <p>The definitions for big-O and <span class="math notranslate nohighlight">\(\Omega\)</span> give us ways to
 describe the upper bound for an algorithm (if we can find an equation
 for the maximum cost of a particular class of inputs of size
@@ -382,7 +382,7 @@ The Collatz Conjecture or 3x+1 problem can be summarized as follows:</p>
 <blockquote>
 <div><p>Take any positive integer <span class="math notranslate nohighlight">\(n\)</span>.
 If <span class="math notranslate nohighlight">\(n\)</span> is even, divide <span class="math notranslate nohighlight">\(n\)</span> by 2.
-If <span class="math notranslate nohighlight">\(n\)</span> is odd, multiply <span class="math notranslate nohighlight">\(n\)</span> by 3.
+If <span class="math notranslate nohighlight">\(n\)</span> is odd, multiply <span class="math notranslate nohighlight">\(n\)</span> by 3 and add 1.
 Repeat the process indefinitely.
 The conjecture states that no matter which number you start with,
 you will always reach 1 eventually.</p>
@@ -411,7 +411,7 @@ In rare occasions when the discussion is explicitly about the upper or
 lower bound of a problem or algorithm, the corresponding notation will
 be used in preference to <span class="math notranslate nohighlight">\(\Theta\)</span> notation.</p>
 <div class="section" id="classifying-functions">
-<h2><span class="section-number">3.6.1. </span>Classifying Functions<a class="headerlink" href="#classifying-functions" title="Permalink to this headline">¶</a></h2>
+<h2>Classifying Functions<a class="headerlink" href="#classifying-functions" title="Permalink to this headline">¶</a></h2>
 <p>Given functions <span class="math notranslate nohighlight">\(f(n)\)</span> and <span class="math notranslate nohighlight">\(g(n)\)</span> whose growth rates are
 expressed as algebraic equations, we might like to determine if one
 grows faster than the other.
@@ -440,7 +440,7 @@ Thus, <span class="math notranslate nohighlight">\(n^2\)</span> is in <span clas
 </div>
 </div>
 <div class="section" id="pitfall-confusing-lower-bound-and-best-case">
-<h2><span class="section-number">3.6.2. </span>Pitfall: Confusing lower bound and best case<a class="headerlink" href="#pitfall-confusing-lower-bound-and-best-case" title="Permalink to this headline">¶</a></h2>
+<h2>Pitfall: Confusing lower bound and best case<a class="headerlink" href="#pitfall-confusing-lower-bound-and-best-case" title="Permalink to this headline">¶</a></h2>
 <p>A common mistake people make is confusing the lower bound and best case
 cost for an algorithm.
 In part this is because for simple algorithms,
@@ -484,12 +484,12 @@ We can say the cost is <span class="math notranslate nohighlight">\(\Theta\)</sp
 the upper and lower bounds are the same.</p>
 </div>
 <div class="section" id="skill-check">
-<h2><span class="section-number">3.6.3. </span>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
+<h2>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
 <div id='tabbed_check1' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Q1" >
 
             <div class="runestone alert alert-warning">
-            <ul data-component="multiplechoice" data-question_label="3.6.3.1" data-multipleanswers="false"  id="mc-bigtheta1"  style="visibility: hidden;">
-            <p>sc-1-1: Determine the proper relationship between the following pair of functions.</p>
+            <ul data-component="multiplechoice" data-question_label="1" data-multipleanswers="false"  id="mc-bigtheta1"  style="visibility: hidden;">
+            <p>Q-1: Determine the proper relationship between the following pair of functions.</p>
 <p><span class="math notranslate nohighlight">\(f(n) = \sqrt n\)</span></p>
 <p><span class="math notranslate nohighlight">\(g(n) = \log n^2\)</span></p>
 <li data-component="answer" data-correct id="mc-bigtheta1_opt_a"><p><span class="math notranslate nohighlight">\(f(n) \mbox{ is } \Omega(g(n))\)</span></p>
@@ -505,8 +505,8 @@ the upper and lower bounds are the same.</p>
             </div><div data-component="tab" data-tabname="Q2" >
 
             <div class="runestone alert alert-warning">
-            <ul data-component="multiplechoice" data-question_label="3.6.3.2" data-multipleanswers="false"  id="mc-bigtheta2"  style="visibility: hidden;">
-            <p>sc-1-2: Determine the proper relationship between the following pair of functions.</p>
+            <ul data-component="multiplechoice" data-question_label="2" data-multipleanswers="false"  id="mc-bigtheta2"  style="visibility: hidden;">
+            <p>Q-2: Determine the proper relationship between the following pair of functions.</p>
 <p><span class="math notranslate nohighlight">\(f(n) = \log n^2\)</span></p>
 <p><span class="math notranslate nohighlight">\(g(n) = \log n + 5\)</span></p>
 <li data-component="answer"  id="mc-bigtheta2_opt_a"><p><span class="math notranslate nohighlight">\(f(n) \mbox{ is } \Omega(g(n))\)</span></p>
@@ -538,8 +538,8 @@ the upper and lower bounds are the same.</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 3.4. Asymptotic Analysis and Upper Bounds' data-toggle="tooltip">
-    <a href="big-o.html" aria-label="3.4. Asymptotic Analysis and Upper Bounds">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - Asymptotic Analysis and Upper Bounds' data-toggle="tooltip">
+    <a href="big-o.html" aria-label="Asymptotic Analysis and Upper Bounds">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -549,8 +549,8 @@ the upper and lower bounds are the same.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 4. String and Vector' data-toggle="tooltip" >
-    <a href="../string%2Bvector/index.html" aria-label="4. String and Vector">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 1. Getting started' data-toggle="tooltip" >
+    <a href="../beginnings/index.html" aria-label="1. Getting started">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

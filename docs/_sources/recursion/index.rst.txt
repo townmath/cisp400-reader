@@ -2,7 +2,6 @@ Recursion
 =========
 
 .. toctree::
-   :caption: Recursion
    :maxdepth: 2
 
    intro.rst

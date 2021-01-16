@@ -131,10 +131,14 @@ Conceptually, the book is separated into 5 modules:
 - Containers
 - Iterators and Trees
 
+Note there are 2 sections before Chapter 1 intended as review and 
+reference material.
+
 The first 2 chapters cover the introductory topics:
 
 Chapter 1
    A review of basic topics from first semester C++.
+   It also introduces how to compile software using CMake.
 
 Chapter 2
    An introduction to ``string`` and ``vector``.
@@ -206,12 +210,10 @@ Chapter 11
    This chapter described copy constructors, then explores
    lvalues, rvalues, and rvalue references as a way to help
    explain move constructors and move assignment in C++.
-
-Chapter 12
    A brief introduction to using allocators, what they are for,
    and how to add them to a container.
 
-Chapter 13
+Chapter 12
    Introduces the Stack and Queue ADT's and explains how they are 
    implemented in C++ by adapting other containers.
    The Adapter design pattern is introduced.
@@ -221,18 +223,18 @@ both linear linked lists as well as linked tree data structures.
 They also describe their relation to algorithms.
 Both data structures **and** algorithms are needed to make useful programs.
 
-Chapter 14
+Chapter 13
    An exploration of linked lists.
    The primary motivation for discussing lists at this point is to
    use a list implementation as a reason for needing a class
    to have a supporting iterator class.
    The Iterator design pattern is introduced.
 
-Chapter 15
+Chapter 14
    Introduction to Trees, Binary Search Trees, sets and maps,
    and their application to searching and sorting.
 
-Chapter 16
+Chapter 15
    The STL algorithms, the basic model in the standard library
    connecting containers, iterators, and algorithms.
 

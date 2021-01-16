@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.4. Asymptotic Analysis and Upper Bounds &#8212; CISC 187 Course Reader Overview</title>
+    <title>Asymptotic Analysis and Upper Bounds &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,8 +57,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.5. Lower Bounds" href="big-theta.html" />
-    <link rel="prev" title="3.3. Best, worst, and average cases" href="cases.html" />
+    <link rel="next" title="Lower Bounds" href="big-theta.html" />
+    <link rel="prev" title="Best, worst, and average cases" href="cases.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">3.3. </span>Best, worst, and average cases" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - Best, worst, and average cases" data-toggle="tooltip">
     <a href="cases.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">3.5. </span>Lower Bounds' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - Lower Bounds' data-toggle="tooltip" >              
     <a href="big-theta.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -237,7 +237,7 @@
 
   
   <div class="section" id="asymptotic-analysis-and-upper-bounds">
-<span id="index-0"></span><h1><span class="section-number">3.4. </span>Asymptotic Analysis and Upper Bounds<a class="headerlink" href="#asymptotic-analysis-and-upper-bounds" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1>Asymptotic Analysis and Upper Bounds<a class="headerlink" href="#asymptotic-analysis-and-upper-bounds" title="Permalink to this headline">¶</a></h1>
 <p>Recall our growth rates from a little while ago.</p>
 <div class="figure align-default">
 <img alt="../_images/big-o-1.png" src="../_images/big-o-1.png" />
@@ -274,7 +274,7 @@ a limit (in the calculus sense).
 However, it has proved to be so useful to ignore all constant factors
 that asymptotic analysis is used for most algorithm comparisons.</p>
 <div class="section" id="big-o-notation">
-<h2><span class="section-number">3.4.1. </span>Big-O Notation<a class="headerlink" href="#big-o-notation" title="Permalink to this headline">¶</a></h2>
+<h2>Big-O Notation<a class="headerlink" href="#big-o-notation" title="Permalink to this headline">¶</a></h2>
 <p>When trying to characterize an algorithm’s efficiency in terms of
 execution time, independent of any particular program or computer, it is
 important to quantify the number of operations or steps that the
@@ -371,11 +371,11 @@ magnitude <span class="math notranslate nohighlight">\(f(n)=n^{2}\)</span>, or s
 </div>
 </div>
 <div class="section" id="skill-check">
-<h2><span class="section-number">3.4.2. </span>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
+<h2>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
 <div id='tabbed_check1' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Q1" >
 
             <div class="runestone alert alert-warning">
-            <ul data-component="multiplechoice" data-question_label="3.4.2.1" data-multipleanswers="false"  id="bigo3"  style="visibility: hidden;">
+            <ul data-component="multiplechoice" data-question_label="1" data-multipleanswers="false"  id="bigo3"  style="visibility: hidden;">
             <p>Q-1: If the exact number of steps is <span class="math notranslate nohighlight">\(T(n)=2n+3n^{2}-1\)</span> what is the Big O?</p>
 
             <li data-component="answer"  id="bigo3_opt_a">O(2n)</li><li data-component="feedback">No, 3n<sup>2</sup> dominates 2n. Try again.</li>
@@ -394,7 +394,7 @@ magnitude <span class="math notranslate nohighlight">\(f(n)=n^{2}\)</span>, or s
             </div><div data-component="tab" data-tabname="Q2" >
 
         <div class="runestone" style="max-width: none;">
-        <pre data-component="parsons" data-question_label="3.4.2.2" id="parsonsBigO"        style="visibility: hidden;">
+        <pre data-component="parsons" data-question_label="2" id="parsonsBigO"        style="visibility: hidden;">
         <span data-question>Q-2 Without looking at the graph above, from top to bottom order the following from most to least efficient.</span>constant
 logarithmic
 linear
@@ -407,7 +407,7 @@ exponential
     </div><div data-component="tab" data-tabname="Q3" >
 
             <div class="runestone alert alert-warning">
-            <ul data-component="multiplechoice" data-question_label="3.4.2.3" data-multipleanswers="false"  id="crossoverefficiency"  style="visibility: hidden;">
+            <ul data-component="multiplechoice" data-question_label="3" data-multipleanswers="false"  id="crossoverefficiency"  style="visibility: hidden;">
             <p>Q-3: Which of the following statements is true about the two algorithms?
 Algorithm 1: 100n + 1
 Algorithm 2: n^2 + n + 1</p>
@@ -428,7 +428,7 @@ Algorithm 2: n^2 + n + 1</p>
 
 </div>
 <div class="section" id="using-summation-facts">
-<h2><span class="section-number">3.4.3. </span>Using summation facts<a class="headerlink" href="#using-summation-facts" title="Permalink to this headline">¶</a></h2>
+<h2>Using summation facts<a class="headerlink" href="#using-summation-facts" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes we can combine our knowledge of
 asymptotic analysis and math facts to make algorithms more
 efficient.</p>
@@ -461,7 +461,7 @@ more expensive as the size of <span class="math notranslate nohighlight">\(n\)</
 <div id=ac_analysis_accumulate_bigo_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="ac_analysis_accumulate_bigo_editor" data-question_label="3.4.3.1" 
+<textarea data-lang="cpp" id="ac_analysis_accumulate_bigo_editor" data-question_label="4" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -537,7 +537,7 @@ that the <code class="docutils literal notranslate"><span class="pre">accumulate
 while the <code class="docutils literal notranslate"><span class="pre">accumulate1</span></code> function runs in <span class="math notranslate nohighlight">\(O(n)\)</span> time.</p>
 </div>
 <div class="section" id="pitfall-confusing-upper-bound-and-worst-case">
-<h2><span class="section-number">3.4.4. </span>Pitfall: Confusing upper bound and worst case<a class="headerlink" href="#pitfall-confusing-upper-bound-and-worst-case" title="Permalink to this headline">¶</a></h2>
+<h2>Pitfall: Confusing upper bound and worst case<a class="headerlink" href="#pitfall-confusing-upper-bound-and-worst-case" title="Permalink to this headline">¶</a></h2>
 <p>A common mistake people make is confusing the upper bound and worst case
 cost for an algorithm.
 The upper bound represents the highest growth rate an
@@ -590,8 +590,8 @@ And the answer should be (sequential search):</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 3.3. Best, worst, and average cases' data-toggle="tooltip">
-    <a href="cases.html" aria-label="3.3. Best, worst, and average cases">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - Best, worst, and average cases' data-toggle="tooltip">
+    <a href="cases.html" aria-label="Best, worst, and average cases">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -601,8 +601,8 @@ And the answer should be (sequential search):</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.5. Lower Bounds' data-toggle="tooltip" >
-    <a href="big-theta.html" aria-label="3.5. Lower Bounds">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - Lower Bounds' data-toggle="tooltip" >
+    <a href="big-theta.html" aria-label="Lower Bounds">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

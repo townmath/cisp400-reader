@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.2. Comparing Algorithms &#8212; CISC 187 Course Reader Overview</title>
+    <title>Comparing Algorithms &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,8 +57,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.3. Best, worst, and average cases" href="cases.html" />
-    <link rel="prev" title="3.1. Problems, Algorithms, and Programs" href="intro.html" />
+    <link rel="next" title="Best, worst, and average cases" href="cases.html" />
+    <link rel="prev" title="Problems, Algorithms, and Programs" href="intro.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">3.1. </span>Problems, Algorithms, and Programs" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - Problems, Algorithms, and Programs" data-toggle="tooltip">
     <a href="intro.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">3.3. </span>Best, worst, and average cases' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - Best, worst, and average cases' data-toggle="tooltip" >              
     <a href="cases.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -237,7 +237,7 @@
 
   
   <div class="section" id="comparing-algorithms">
-<h1><span class="section-number">3.2. </span>Comparing Algorithms<a class="headerlink" href="#comparing-algorithms" title="Permalink to this headline">¶</a></h1>
+<h1>Comparing Algorithms<a class="headerlink" href="#comparing-algorithms" title="Permalink to this headline">¶</a></h1>
 <p>How do you compare two algorithms for solving some problem in terms
 of efficiency?
 We could implement both algorithms as computer programs and then
@@ -316,7 +316,7 @@ than to run an implementation of the algorithm on some computer.
 The only alternative is to use some other measure as a surrogate for
 running time.</p>
 <div class="section" id="basic-operations-and-input-size">
-<h2><span class="section-number">3.2.1. </span>Basic operations and input size<a class="headerlink" href="#basic-operations-and-input-size" title="Permalink to this headline">¶</a></h2>
+<h2>Basic operations and input size<a class="headerlink" href="#basic-operations-and-input-size" title="Permalink to this headline">¶</a></h2>
 <p>Of primary consideration when estimating an algorithm’s performance
 is the number of <em>basic operations</em> required by
 the algorithm to process an input of a certain size.
@@ -435,7 +435,7 @@ Thus, we say that the running time is
 </div>
 </div>
 <div class="section" id="growth-rates">
-<h2><span class="section-number">3.2.2. </span>Growth Rates<a class="headerlink" href="#growth-rates" title="Permalink to this headline">¶</a></h2>
+<h2>Growth Rates<a class="headerlink" href="#growth-rates" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="../glossary.html#term-growth-rate"><span class="xref std std-term">growth rate</span></a> for an algorithm is the rate at which the cost
 of the algorithm grows as the size of its input grows.
 The following figure shows a graph for six equations,
@@ -537,11 +537,11 @@ resources consumed by an algorithm.</p>
 </div>
 </div>
 <div class="section" id="skill-check">
-<h2><span class="section-number">3.2.3. </span>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
+<h2>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
 <div id='analysis_compare_check' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Q1" >
 
         <div class="runestone">
-        <div data-component="fillintheblank" data-question_label="3.2.3.1" id="fill_analysis_compare1"  style="visibility: hidden;">
+        <div data-component="fillintheblank" data-question_label="1" id="fill_analysis_compare1"  style="visibility: hidden;">
             <p>Q-1: Given the following growth functions:
 <span class="math notranslate nohighlight">\(n!, 2^n, 2n^2, 5n \log{2}n, 20n, \mbox{and} 10n\)</span>.</p>
 <p>For the growth function <span class="math notranslate nohighlight">\(n!\)</span>,
@@ -558,7 +558,7 @@ If there is no value for which it is most efficent, type <strong>none</strong>.<
             </div><div data-component="tab" data-tabname="Q2" >
 
         <div class="runestone" style="max-width: none;">
-        <pre data-component="parsons" data-question_label="3.2.3.2" id="pa-analysis-compare1"      data-language="c++"   style="visibility: hidden;">
+        <pre data-component="parsons" data-question_label="2" id="pa-analysis-compare1"      data-language="c++"   style="visibility: hidden;">
         <span data-question>Q-2 Order the following functions so that finally the list will
 contain all the functions in ascending order of their growth rates.</span>5 * log(log(n)
 7 * sqrt(n)
@@ -573,7 +573,7 @@ pow(2,pow(n,2))
     </div><div data-component="tab" data-tabname="Q3" >
 
         <div class="runestone" style="max-width: none;">
-        <pre data-component="parsons" data-question_label="3.2.3.3" id="pa-analysis-compare2"      data-language="c++"   style="visibility: hidden;">
+        <pre data-component="parsons" data-question_label="3" id="pa-analysis-compare2"      data-language="c++"   style="visibility: hidden;">
         <span data-question>Q-3 Order the following functions so that finally the list will
 contain all the functions in ascending order of their growth rates.</span>2 * log(n)
 sqrt(n) * log(n)
@@ -602,8 +602,8 @@ pow(2,n)
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 3.1. Problems, Algorithms, and Programs' data-toggle="tooltip">
-    <a href="intro.html" aria-label="3.1. Problems, Algorithms, and Programs">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - Problems, Algorithms, and Programs' data-toggle="tooltip">
+    <a href="intro.html" aria-label="Problems, Algorithms, and Programs">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -613,8 +613,8 @@ pow(2,n)
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3.3. Best, worst, and average cases' data-toggle="tooltip" >
-    <a href="cases.html" aria-label="3.3. Best, worst, and average cases">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - Best, worst, and average cases' data-toggle="tooltip" >
+    <a href="cases.html" aria-label="Best, worst, and average cases">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
