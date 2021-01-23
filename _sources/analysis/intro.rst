@@ -204,3 +204,12 @@ The following slideshow should help you to visualize the differences.
 .. admonition:: More to Explore
 
    - `Computability and complexity <https://plato.stanford.edu/entries/computability/>`__
+
+
+.. topic:: Acknowledgements
+
+   This section is adapted from 
+   `Open Data Structures (OpenDSA) <https://opendsa-server.cs.vt.edu>`__
+   by Ville Karavirta and Cliff Shaffer
+   which is distributed under the `MIT License <https://github.com/OpenDSA/OpenDSA/blob/master/MIT-license.txt>`__.
+

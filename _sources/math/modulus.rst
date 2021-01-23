@@ -181,3 +181,15 @@ negative.
      - :cmath:`fmod`
      - :cmath:`div`
 
+.. topic:: Acknowledgements
+
+   This section is adapted from 
+   `Problem Solving with Algorithms and Data Structures using C++ <https://runestone.academy/runestone/books/published/cppds>`__,
+   by Brad Miller and David Ranum, Luther College, and Jan Pearce, Berea College
+   released under the 
+   `CC BY-NC-SA 4.0 <http://creativecommons.org/licenses/by-nc-sa/4.0/>`__,
+   and 
+   `Open Data Structures (OpenDSA) <https://opendsa-server.cs.vt.edu>`__
+   by Ville Karavirta and Cliff Shaffer
+   which is distributed under the `MIT License <https://github.com/OpenDSA/OpenDSA/blob/master/MIT-license.txt>`__.
+

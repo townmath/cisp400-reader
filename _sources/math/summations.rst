@@ -289,3 +289,10 @@ close to 0.577, approximates the difference between
    - `700 years of secrets of the Sum of Sums <https://www.youtube.com/watch?v=vQE6-PLcGwU>`__
 
 
+.. topic:: Acknowledgements
+
+   This section is adapted from 
+   `Open Data Structures (OpenDSA) <https://opendsa-server.cs.vt.edu>`__
+   by Ville Karavirta and Cliff Shaffer
+   which is distributed under the `MIT License <https://github.com/OpenDSA/OpenDSA/blob/master/MIT-license.txt>`__.
+

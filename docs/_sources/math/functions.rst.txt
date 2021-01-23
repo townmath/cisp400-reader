@@ -96,3 +96,12 @@ while :math:`\lceil -3.4 \rceil = \lceil -3.0 \rceil = -3`.
      - :cmath:`floor` and :cmath:`ceil`
 
 
+.. topic:: Acknowledgements
+
+   This section is adapted from 
+   `Open Data Structures (OpenDSA) <https://opendsa-server.cs.vt.edu>`__
+   by Ville Karavirta and Cliff Shaffer
+   which is distributed under the `MIT License <https://github.com/OpenDSA/OpenDSA/blob/master/MIT-license.txt>`__.
+
+
+

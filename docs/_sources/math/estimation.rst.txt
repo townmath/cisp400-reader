@@ -113,3 +113,12 @@ purpose.
    item in your shopping cart.
    This will likely give an answer within a couple of dollars of the true
    total.
+
+
+.. topic:: Acknowledgements
+
+   This section is adapted from 
+   `Open Data Structures (OpenDSA) <https://opendsa-server.cs.vt.edu>`__
+   by Ville Karavirta and Cliff Shaffer
+   which is distributed under the `MIT License <https://github.com/OpenDSA/OpenDSA/blob/master/MIT-license.txt>`__.
+

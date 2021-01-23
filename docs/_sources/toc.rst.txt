@@ -41,6 +41,7 @@ Main Body
    stack/index.rst
    list/index.rst
    trees/index.rst
+   sort/index.rst
    algorithms/index.rst
 
    glossary.rst

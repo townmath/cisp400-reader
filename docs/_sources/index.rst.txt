@@ -62,6 +62,7 @@ Chapters
    list/index.rst
 
    trees/index.rst
+   sort/index.rst
    algorithms/index.rst
 
 Back Matter

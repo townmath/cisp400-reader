@@ -210,6 +210,13 @@ Glossary
       In :term:`object-oriented programming <object-oriented programming paradigm>`,
       a synonym for :term:`data member`.
 
+   average case
+      In :term:`algorithm analysis`, the average of the costs for all
+      :term:`problem instances <problem instance>` of a given input
+      size :math:`n`. If not all problem
+      instances have equal probability of occurring, then average case
+      must be calculated using a weighted average.
+
    backing storage
    backing store
       The underlying storage for an :term:`ADT`.
@@ -373,6 +380,18 @@ Glossary
 
    client
       The user of a service.
+
+   closed
+      A set is closed over a (binary) operation if,
+      whenever the operation is applied to two members of the set, the
+      result is a member of the set.
+
+   closed-form solution
+      An algebraic equation with the same value as a :term:`summation`
+      or :term:`recurrence relation`.
+      The process of replacing the summation or
+      recurrence with its closed-form solution is known as solving the
+      summation or recurrence.
 
    closed hash system
       A :term:`hash system` where all records are stored in slots of
@@ -716,6 +735,27 @@ Glossary
       elements in common.
       A collection of disjoint sets partitions some objects
       such that every object is in exactly one of the disjoint sets.
+
+   divide and conquer
+      A technique for designing algorithms where a solution is found
+      by breaking the problem into smaller (similar) subproblems,
+      solving the subproblems, then combining the subproblem solutions
+      to form the solution to the original problem.
+      This process is often implemented using :term:`recursion`.
+
+   divide-and-conquer recurrences
+      A common form of :term:`recurrence relation`
+      that have the form
+
+      .. math::
+
+         {\bf T}(n) = a{\bf T}(n/b) + cn^k; \quad {\bf T}(1) = c
+
+      where :math:`a`, :math:`b`, :math:`c`, and :math:`k` are constants.
+      In general, this recurrence describes a problem of size :math:`n`
+      divided into :math:`a` subproblems of size :math:`n/b`,
+      while :math:`cn^k` is the amount of work necessary to combine the
+      partial solutions.
 
    domain
       The set of possible inputs to a function.
@@ -1990,11 +2030,20 @@ Glossary
       Many data structures are organized containers for a collection
       of records.
 
+   recurrence relation
+      A recurrence relation (or less formally,
+      recurrence) defines a function by means of an
+      expression that includes one or more (smaller) instances of
+      itself.
+      A classic example is the :term:`recursive <recursion>`
+      definition for the
+      factorial function, :math:`F(n) = n*F(n-1)`.
+
    recursion
       The process of using recursive calls.
       An algorithm is recursive if it calls itself to do part of
       its work.
-      See :term:`recursion`.
+      See :term:`recurrence relation`.
 
    recursive call
       Within a :term:`recursive function`, it is a call that the
@@ -2397,6 +2446,13 @@ Glossary
       includes some node :math:`R` of the tree as the subtree
       :term:`root` along with all the :term:`descendants <descendant>`
       of :math:`R`.
+
+   summation
+      The sum of costs for some function applied to a
+      range of parameter values.
+      Often written using Sigma notation.
+      For example, the sum of the integers from 1 to :math:`n` can be
+      written as :math:`\sum_{i=1}^{n} i`.
 
    superset
       In set theory, a set :math:`A` is a :term:`subset` of a

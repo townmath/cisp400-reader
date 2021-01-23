@@ -348,3 +348,11 @@ Skill Check
 .. admonition:: More to explore
 
    - `Collatz Conjecture <https://en.wikipedia.org/wiki/Collatz_conjecture>`__ on wikipedia.
+
+.. topic:: Acknowledgements
+
+   This section is adapted from 
+   `Open Data Structures (OpenDSA) <https://opendsa-server.cs.vt.edu>`__
+   by Ville Karavirta and Cliff Shaffer
+   which is distributed under the `MIT License <https://github.com/OpenDSA/OpenDSA/blob/master/MIT-license.txt>`__.
+

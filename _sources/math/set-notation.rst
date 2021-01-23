@@ -330,3 +330,11 @@ then the order is called a :term:`total order` or :term:`linear order`.
 .. Exercises/Background/SetTFpartialorder.html ka
    :long_name: PartialOrder Exercise
 
+
+.. topic:: Acknowledgements
+
+   This section is adapted from 
+   `Open Data Structures (OpenDSA) <https://opendsa-server.cs.vt.edu>`__
+   by Ville Karavirta and Cliff Shaffer
+   which is distributed under the `MIT License <https://github.com/OpenDSA/OpenDSA/blob/master/MIT-license.txt>`__.
+
