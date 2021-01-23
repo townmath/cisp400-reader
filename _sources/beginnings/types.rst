@@ -612,7 +612,10 @@ Later on, we will cover techniques that improve on iterating through data even m
 
 .. admonition:: Try This!
 
-   Run the following program on the active code server, then try running it on buffy.
+   What do you think the output of the following program will be?
+   If you have access to another computer, try compiling in '32 bit' mode
+
+   Run it and check your assumptions.
 
    .. activecode:: ac-size-type-1
       :language: cpp
@@ -638,6 +641,76 @@ Later on, we will cover techniques that improve on iterating through data even m
    What sizes are different?  Why?
 
    What are the implications of these differences when writing code that needs to run on both?
+
+
+Displaying numbers
+------------------
+The standard library provides facilities to modify the base for integers stored in memory.
+You can change the base using :io:`setbase <manip/setbase>`,
+or change how a number is displayed 
+using :io:`dec <manip/hex>`,
+using :io:`hex <manip/hex>`,
+using :io:`oct <manip/hex>`,
+
+.. tabbed:: tab-hexdecoct
+
+   .. tab:: std::hex
+
+      TThese functions are all I/O manipulators.
+      They may be called with an expression such as 
+      
+      .. code-block:: cpp
+
+         out << std::hex
+        
+      for any out of type :io:`basic_ostream` or with an expression such as
+     
+      .. code-block:: cpp
+
+         in >> std::hex
+         
+      for any in of type :io:`basic_istream`.
+      For example:
+
+      .. code-block:: cpp
+
+         std::cout << "The number 42 in octal:   " << std::oct << 42 << '\n'
+                   << "The number 42 in decimal: " << std::dec << 42 << '\n'
+                   << "The number 42 in hex:     " << std::hex << 42 << '\n';
+         int n;
+         std::istringstream("2A") >> std::hex >> n;
+         std::cout << std::dec << "Parsing \"2A\" as hex gives " << n << '\n';
+         // the output base is sticky until changed
+         std::cout << std::hex << "42 as hex gives " << 42
+                   << " and 21 as hex gives " << 21 << '\n';
+
+
+   .. tab:: Run It
+
+      This example displays a simple table of the ASCII characters
+      in 3 different bases.
+
+      .. activecode:: ac-hex-doc-oct
+         :language: cpp
+         :nocodelens:
+
+         #include <iostream>
+         #include <string>
+
+         int main() {
+           using std::cout;
+           std::string heading = "\ndec\toct\thex\tchar\n";
+           for (int i = 0; i < 128; ++i) {
+             if (!(i%20)) cout << heading;
+             char c = i;
+             // the printable characters are between hex 20 and 7e
+             cout << std::dec << i << '\t'
+                  << std::oct << i << '\t'
+                  << std::hex << i << "\t'" << c << "'\n";
+           }
+           return 0;
+         }
+
 
 
 **Self Check**
