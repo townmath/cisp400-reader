@@ -113,42 +113,45 @@ Displays the contents of the public_html folder in her home directory,
 regardless of where her home directory actually is located.
 
 
-.. reveal:: reveal-skill-check-paths
-   :showtitle: Show Skill Check
-   :hidetitle: Hide Skill Check
+**Self Check**
 
+.. tabbed:: tabbed-skill-check-paths
 
-   .. mchoice:: mc_paths_1
-      :multiple_answers:
-      :correct: a,c,e
-      :answer_a: ../usr/bin
-      :answer_b: /usr/bin
-      :answer_c: ./
-      :answer_d: /
-      :answer_e: user/files
-      :feedback_a: Correct. ../usr/bin does not start with a '/'.
-      :feedback_b: /usr/bin starts with a slash.
-      :feedback_c: Correct. ./ does not start with a '/'.
-      :feedback_d: / this is the 'root' directory.
-      :feedback_e: Correct. user/files does not start with a '/'.
+   .. tab:: Q1
 
-      Which of the following statements are **relative paths**?  Check all that apply.
+      .. mchoice:: mc_paths_1
+         :multiple_answers:
+         :correct: a,c,e
+         :answer_a: ../usr/bin
+         :answer_b: /usr/bin
+         :answer_c: ./
+         :answer_d: /
+         :answer_e: user/files
+         :feedback_a: Correct. ../usr/bin does not start with a '/'.
+         :feedback_b: /usr/bin starts with a slash.
+         :feedback_c: Correct. ./ does not start with a '/'.
+         :feedback_d: / this is the 'root' directory.
+         :feedback_e: Correct. user/files does not start with a '/'.
 
-   .. mchoice:: mc_paths_2
-      :multiple_answers:
-      :correct: a,b,d
-      :answer_a: In directory <tt>/tmp</tt>, <tt>../home/user</tt> 
-      :answer_b: In directory <tt>/home</tt>, <tt>../home/user</tt> 
-      :answer_c: In directory <tt>/home/user</tt>, <tt>..</tt> 
-      :answer_d: In directory <tt>/home/user/work</tt>, <tt>..</tt> 
-      :answer_e: In directory <tt>/home/user/work</tt>, <tt>../../user</tt> 
-      :feedback_a: Correct. 
-      :feedback_b: Correct. 
-      :feedback_c: This lists the contents of <tt>/home</tt>.
-      :feedback_d: Correct. 
-      :feedback_e: This attempts to list the contents is <tt>/user</tt>.
+         Which of the following statements are **relative paths**?  Check all that apply.
 
-      Which of the following paths list the contents ``/home/user``?  Check all that apply.
+   .. tab:: Q2
+
+      .. mchoice:: mc_paths_2
+         :multiple_answers:
+         :correct: a,b,d
+         :answer_a: In directory <tt>/tmp</tt>, <tt>../home/user</tt> 
+         :answer_b: In directory <tt>/home</tt>, <tt>../home/user</tt> 
+         :answer_c: In directory <tt>/home/user</tt>, <tt>..</tt> 
+         :answer_d: In directory <tt>/home/user/work</tt>, <tt>..</tt> 
+         :answer_e: In directory <tt>/home/user/work</tt>, <tt>../../user</tt> 
+         :feedback_a: Correct. 
+         :feedback_b: Correct. 
+         :feedback_c: This lists the contents of <tt>/home</tt>.
+         :feedback_d: Correct. 
+         :feedback_e: This attempts to list the contents is <tt>/user</tt>.
+
+         Which of the following paths list the contents ``/home/user``?  Check all that apply.
 
 Basic commands
 ..............

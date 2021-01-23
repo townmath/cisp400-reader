@@ -157,8 +157,7 @@ For example, :math:`\log^* 1024 = 4` because
 :math:`\log 3.33 \approx 1.74`,
 and :math:`\log 1.74 < 1`, which is a total of 4 log operations.
 
-Skill Check
------------
+**Self Check**
 
 .. tabbed:: math_log_check
 

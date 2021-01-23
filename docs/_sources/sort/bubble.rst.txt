@@ -200,8 +200,7 @@ time.
            return 0;
          }
 
-Self Check
-----------
+**Self Check**
 
 .. tabbed:: tab_check
 

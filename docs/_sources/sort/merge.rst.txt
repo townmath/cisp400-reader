@@ -178,8 +178,7 @@ space to hold the two halves as they are extracted with the slicing
 operations. This additional space can be a critical factor if the vector
 is large and can make this sort problematic when working on large data sets.
 
-Self Check
-----------
+**Self Check**
 
 .. tabbed:: tab_check
 

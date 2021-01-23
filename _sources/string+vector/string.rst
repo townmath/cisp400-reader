@@ -395,79 +395,82 @@ to a null terminated character array.
    printf ("Hello again, %s\n", my_name.c_str());
 
 
-Skill Check
------------
-The questions in this hidden section provide a chance to demonstrate
-your understanding of the concepts discussed so far.
+**Self Check**
 
-.. reveal:: reveal-skill-check-string
+.. tabbed:: tab-skill-check-string
 
-   .. fillintheblank:: string_fitb1
+   .. tab:: Q1
 
-      Given the following:
+      .. fillintheblank:: string_fitb1
 
-      .. code-block:: cpp
+         Given the following:
 
-         std::string x = "The rain in Spain. . . ";
-         size_t pos = x.find("in");
+         .. code-block:: cpp
 
-      What is the value of ``pos``?
+            std::string x = "The rain in Spain. . . ";
+            size_t pos = x.find("in");
 
-      - :6: Correct.
-        :9: No. There is another substring 'in'
-        :7: String positions are zero-based
-        :x: Try again.
+         What is the value of ``pos``?
 
-   .. parsonsprob:: string_pp1
-      :adaptive:
-      :noindent:
-      :language: c
+         - :6: Correct.
+           :9: No. There is another substring 'in'
+           :7: String positions are zero-based
+           :x: Try again.
 
-      int main() {
-      =====
-        std::string  us = "Team USA";
-      =====
-        auto snowflake = us.find_first_of("Korea");
-      =====
-        if (snowflake == std::string::npos) {
-      =====
-          std::cout << "Did not find anything\n";
-      =====
-        } else {
-      =====
-          std::cout << "Found it!\n";
-      =====
-        }
-        return snowflake;
-      =====
-      }
+   .. tab:: Q2
 
-   .. fillintheblank:: string_fitb5
+      .. parsonsprob:: string_pp1
+         :adaptive:
+         :noindent:
+         :language: c
 
-      Given the following:
-
-      .. code-block:: cpp
-
-         #include <string>
-
-         int main (){
-           std::string s = "Donald Duck";
-           int value = 0;
-           if (s.find_first_of(' ') == s.find_last_of(' ')) {
-             value = 3;
+         int main() {
+         =====
+           std::string  us = "Team USA";
+         =====
+           auto snowflake = us.find_first_of("Korea");
+         =====
+           if (snowflake == std::string::npos) {
+         =====
+             std::cout << "Did not find anything\n";
+         =====
            } else {
-             value = 5;
+         =====
+             std::cout << "Found it!\n";
+         =====
            }
-           return value;
+           return snowflake;
+         =====
          }
 
-      What value is returned from main?
+   .. tab:: Q3
 
-      - :3: Correct.
-        :0: In an if/else block one of the blocks must always be
-            entered.
-        :5: What positions are returned from both find statements?
-        :x: Try again.
+      .. fillintheblank:: string_fitb5
+
+         Given the following:
+
+         .. code-block:: cpp
+
+            #include <string>
+
+            int main (){
+              std::string s = "Donald Duck";
+              int value = 0;
+              if (s.find_first_of(' ') == s.find_last_of(' ')) {
+                value = 3;
+              } else {
+                value = 5;
+              }
+              return value;
+            }
+
+         What value is returned from main?
+
+         - :3: Correct.
+           :0: In an if/else block one of the blocks must always be
+               entered.
+           :5: What positions are returned from both find statements?
+           :x: Try again.
 
 
 -----

@@ -387,8 +387,7 @@ resources consumed by an algorithm.
       \mathsf{2^{60}} & \mathsf{2^{90}} & \mathsf{2^{1 {\rm G}}}\\
       \end{array}
 
-Skill Check
------------
+**Self Check**
 
 .. tabbed:: analysis_compare_check
 

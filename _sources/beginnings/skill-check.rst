@@ -6,12 +6,12 @@
     the license is included in the section entitled "GNU Free Documentation
     License".
 
-Skill Check
+Self Check
 ===========
 The questions in this section provide a chance to demonstrate
 your understanding of the concepts discussed so far.
 
-After reading hte material in this chapter,
+After reading the material in this chapter,
 you should be able to answer these questions.
 
 .. fillintheblank:: begin_fitb1

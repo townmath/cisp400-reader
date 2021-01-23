@@ -194,8 +194,8 @@ just as accurate without it.
    magnitude :math:`f(n)=n^{2}`, or simply that it is :math:`O(n^{2})`.
 
 
-Skill Check
------------
+**Self Check**
+
 .. tabbed:: tabbed_check1
 
    .. tab:: Q1

@@ -51,33 +51,39 @@ recursion. In each case we will focus on designing a solution to a
 problem by using the three properties of recursive functions.
 
 
-.. admonition:: Self Check
+**Self Check**
 
-   .. mchoice:: question_recsimp_1
-      :correct: c
-      :answer_a: 6
-      :answer_b: 5
-      :answer_c: 4
-      :answer_d: 3
-      :feedback_a: Good choice: our accumulate example called once for each element, plus the empty vector.
-      :feedback_b: The last call to accumulate is always an empty vector
-      :feedback_c: the first recursive call passes the vector {4,6,8,10}, the second {6,8,10} and so on until the vector is empty.
-      :feedback_d: This would not be enough calls to cover all the numbers on the vector
+.. tabbed:: tab_self_check
 
-      How many recursive calls are made when computing the sum of the vector {2,4,6,8,10}?
+   .. tab:: Q1
 
-   .. mchoice:: question_recsimp_2
-      :correct: d
-      :answer_a: n == 0
-      :answer_b: n == 1
-      :answer_c: n &gt;= 0
-      :answer_d: n &lt;= 1
-      :feedback_a:  Although this would work there are better and slightly more efficient choices. since fact(1) and fact(0) are the same.
-      :feedback_b: A good choice, but what happens if you call fact(0)?
-      :feedback_c: This base case would be true for all numbers greater than zero so fact of any positive number would be 1.
-      :feedback_d: Good, this is the most efficient, and even keeps your program from crashing if you try to compute the factorial of a negative number.
+      .. mchoice:: question_recsimp_1
+         :correct: c
+         :answer_a: 6
+         :answer_b: 5
+         :answer_c: 4
+         :answer_d: 3
+         :feedback_a: Good choice: our accumulate example called once for each element, plus the empty vector.
+         :feedback_b: The last call to accumulate is always an empty vector
+         :feedback_c: the first recursive call passes the vector {4,6,8,10}, the second {6,8,10} and so on until the vector is empty.
+         :feedback_d: This would not be enough calls to cover all the numbers on the vector
 
-      Suppose you are going to write a recusive function to calculate the factorial of a number.  fact(n) returns n * n-1 * n-2 * ... Where the factorial of zero is defined to be 1.  What would be the most appropriate base case?
+         How many recursive calls are made when computing the sum of the vector {2,4,6,8,10}?
+
+   .. tab:: Q2
+
+      .. mchoice:: question_recsimp_2
+         :correct: d
+         :answer_a: n == 0
+         :answer_b: n == 1
+         :answer_c: n &gt;= 0
+         :answer_d: n &lt;= 1
+         :feedback_a:  Although this would work there are better and slightly more efficient choices. since fact(1) and fact(0) are the same.
+         :feedback_b: A good choice, but what happens if you call fact(0)?
+         :feedback_c: This base case would be true for all numbers greater than zero so fact of any positive number would be 1.
+         :feedback_d: Good, this is the most efficient, and even keeps your program from crashing if you try to compute the factorial of a negative number.
+
+         Suppose you are going to write a recusive function to calculate the factorial of a number.  fact(n) returns n * n-1 * n-2 * ... Where the factorial of zero is defined to be 1.  What would be the most appropriate base case?
 
 
 

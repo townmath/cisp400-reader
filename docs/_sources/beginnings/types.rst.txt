@@ -640,134 +640,146 @@ Later on, we will cover techniques that improve on iterating through data even m
    What are the implications of these differences when writing code that needs to run on both?
 
 
-Skill Check
------------
-The questions in this hidden section provide a chance to demonstrate
-your understanding of the concepts discussed so far.
+**Self Check**
 
-.. reveal:: reveal-skill-check-types
+.. tabbed:: tabbed-skill-check-types
 
-   .. dragndrop:: types_dnd_type1
-      :feedback: Review the summaries above.
-      :match_1: Specifying the type and name for a variable|||declaring a variable 
-      :match_2: A whole number|||integer
-      :match_3: A name associated with a memory location.|||variable
-      :match_4: An expression that is either true or false|||bool
-        
-      Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct
-        
-   .. mchoice:: types_mc1
-      :answer_a: int 3;
-      :answer_b: const double pi;
-      :answer_c: x = 21;
-      :answer_d: char* s = "hello";
-      :answer_e: constexpr int min = 1;
-      :correct: d,e
-      :feedback_a: Declarations must always include a name
-      :feedback_b: Constant declarations must always include a value
-      :feedback_c: Declarations must always include a type.
-                   As written, this is assignment, not declaration
-      :feedback_d: Correct
-      :feedback_e: Correct
+   .. tab:: Q1
 
-      Which declarations are valid?
+      .. dragndrop:: types_dnd_type1
+         :feedback: Review the summaries above.
+         :match_1: Specifying the type and name for a variable|||declaring a variable 
+         :match_2: A whole number|||integer
+         :match_3: A name associated with a memory location.|||variable
+         :match_4: An expression that is either true or false|||bool
+           
+         Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct
+           
+   .. tab:: Q2
+
+      .. mchoice:: types_mc1
+         :answer_a: int 3;
+         :answer_b: const double pi;
+         :answer_c: x = 21;
+         :answer_d: char* s = "hello";
+         :answer_e: constexpr int min = 1;
+         :correct: d,e
+         :feedback_a: Declarations must always include a name
+         :feedback_b: Constant declarations must always include a value
+         :feedback_c: Declarations must always include a type.
+                      As written, this is assignment, not declaration
+         :feedback_d: Correct
+         :feedback_e: Correct
+
+         Which declarations are valid?
+
+   .. tab:: Q3
+
+      .. dragndrop:: types_dnd_type2
+         :feedback: Review the summaries above.
+         :match_1: Setting the value of a variable the first time|||initialize
+         :match_2: An operator that returns the remainder|||modulus
+         :match_3: a type used to represent decimal values|||double
+         :match_4: changing the type of a variable|||casting
+           
+         Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct.
+
+   .. tab:: Q4
+
+      .. fillintheblank:: types_fitb1
+
+         Given the following:
+
+         .. code-block:: cpp
+
+            #include <cstdint>
+            int main() {
+              int8_t x = 128, y = 1;
+              auto z   = x+y;
+            }
+
+         What is value stored in ``z``?
+
+         - :-127: Correct.
+           :128: No. ``y`` has been added to ``x``
+           :129: No. The valid range of a signed 8 bit variable is -127 to +128
+           :-1: Sorry, no.
+           :x: This program compiles and runs.
+
+   .. tab:: Q5
+
+      .. fillintheblank:: types_fitb2
+
+         Given the following:
+
+         .. code-block:: cpp
+
+            int x = ~-1;
+
+         What is value stored in ``x``?
+
+         - :0: Correct.
+           :-1: No. ``-1`` Sets all bits in an int type to 1. ``~`` inverts all the bits.
+           :x: This statement compiles and stores a value in ``x``.
 
 
-   .. dragndrop:: types_dnd_type2
-      :feedback: Review the summaries above.
-      :match_1: Setting the value of a variable the first time|||initialize
-      :match_2: An operator that returns the remainder|||modulus
-      :match_3: a type used to represent decimal values|||double
-      :match_4: changing the type of a variable|||casting
-        
-      Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct.
+   .. tab:: Q6
 
-   .. fillintheblank:: types_fitb1
+      .. activecode:: types_ac1
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra' '-std=c++11']
+         :nocodelens:
 
-      Given the following:
+         Fix all the errors in the code below:
 
-      .. code-block:: cpp
-
-         #include <cstdint>
+         ~~~~
          int main() {
-           int8_t x = 128, y = 1;
-           auto z   = x+y;
+           weight = 3
+           distance = 8.5;
+           cout << "Weight: " << weight \n;
+           cout << "Distance: " << distance \n;
          }
 
-      What is value stored in ``z``?
+   .. tab:: Q7
 
-      - :-127: Correct.
-        :128: No. ``y`` has been added to ``x``
-        :129: No. The valid range of a signed 8 bit variable is -127 to +128
-        :-1: Sorry, no.
-        :x: This program compiles and runs.
-
-   .. fillintheblank:: types_fitb2
-
-      Given the following:
-
-      .. code-block:: cpp
-
-         int x = ~-1;
-
-      What is value stored in ``x``?
-
-      - :0: Correct.
-        :-1: No. ``-1`` Sets all bits in an int type to 1. ``~`` inverts all the bits.
-        :x: This statement compiles and stores a value in ``x``.
-
-
-   .. activecode:: types_ac1
-      :language: cpp
-      :compileargs: ['-Wall', '-Wextra' '-std=c++11']
-      :nocodelens:
-
-      Fix all the errors in the code below:
-
-      ~~~~
-      int main() {
-        weight = 3
-        distance = 8.5;
-        cout << "Weight: " << weight \n;
-        cout << "Distance: " << distance \n;
-      }
-
-   .. parsonsprob:: types_par1
-      :adaptive:
-      :noindent:
-      :language: c
-
-      #include <iostream>
-      =====
-      void func() {
-      =====
-         int x = 3, y = 5;
-      =====
-         x = y * 8;
-      =====
-         std::cout << x << std::endl << y << std::endl;
-      =====
-      }
-
-   .. fillintheblank:: types_fitb3
-
-      Given the following:
-
-      .. code-block:: cpp
+      .. parsonsprob:: types_par1
+         :adaptive:
+         :noindent:
+         :language: c
 
          #include <iostream>
-
-         int main () {
-             char x[2][3] = {{'a','b','c'}};
-
-             std::cout << x[0][1] << '\n';
+         =====
+         void func() {
+         =====
+            int x = 3, y = 5;
+         =====
+            x = y * 8;
+         =====
+            std::cout << x << std::endl << y << std::endl;
+         =====
          }
 
-      What is value displayed?
+   .. tab:: Q8
 
-      - :b: Correct.
-        :a: No. array indicies begin at ``0``
-        :x: Try again.
+      .. fillintheblank:: types_fitb3
+
+         Given the following:
+
+         .. code-block:: cpp
+
+            #include <iostream>
+
+            int main () {
+                char x[2][3] = {{'a','b','c'}};
+
+                std::cout << x[0][1] << '\n';
+            }
+
+         What is value displayed?
+
+         - :b: Correct.
+           :a: No. array indicies begin at ``0``
+           :x: Try again.
 
 
 -----

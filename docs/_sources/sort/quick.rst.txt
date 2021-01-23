@@ -200,8 +200,7 @@ is somewhat sorted to begin with. We leave the implementation of this
 pivot value selection as an exercise.
 
 
-Self Check
-----------
+**Self Check**
 
 .. tabbed:: tab_check
 

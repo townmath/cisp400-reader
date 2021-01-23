@@ -294,8 +294,8 @@ We can say the cost is :math:`\Theta` some value.
 Sequential search has worst case cost :math:`\Theta(n)` because 
 the upper and lower bounds are the same.
 
-Skill Check
------------
+**Self Check**
+
 .. tabbed:: tabbed_check1
 
    .. tab:: Q1

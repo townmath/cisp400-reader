@@ -321,40 +321,41 @@ and the functions called from ``main``.
         return 0;
       }
 
-.. reveal:: reveal-skill-check-functions
-   :showtitle: Show Skill Check
-   :hidetitle: Hide Skill Check
+.. tabbed:: tabbed-skill-check-functions
 
-   Given the following program:
+   .. tab:: Q1
 
-   .. code-block:: cpp
-      :linenos:
+      Given the following program:
 
-      #include <iostream>
+      .. code-block:: cpp
+         :linenos:
 
-      int change_and_add(int &a, int &b) {
-        a = 3;
-        b = 4;
-        return a + b;
-      }
+         #include <iostream>
 
-      int main() {
-        int a = 1;
-        int b = 2;
-        int c = change_and_add(a, a);
-        std::cout << a << b << c;
-      }
+         int change_and_add(int &a, int &b) {
+           a = 3;
+           b = 4;
+           return a + b;
+         }
 
-   .. fillintheblank:: fib_param_1
+         int main() {
+           int a = 1;
+           int b = 2;
+           int c = change_and_add(a, a);
+           std::cout << a << b << c;
+         }
 
-      What is the output from this program?
+   .. tab:: Q2
 
-      - :428: Correct.
-        :123: The variable a is modified in this program.
-        :437: The variable b is never modified in this program.
-        :427: Variable a is modified <em>twice</em> before the addition is performed.
-        :.*: What is passed to the function change_and_add? What changes? What doesn't?
+      .. fillintheblank:: fib_param_1
 
+         What is the output from this program?
+
+         - :428: Correct.
+           :123: The variable a is modified in this program.
+           :437: The variable b is never modified in this program.
+           :427: Variable a is modified <em>twice</em> before the addition is performed.
+           :.*: What is passed to the function change_and_add? What changes? What doesn't?
 
 
 -----

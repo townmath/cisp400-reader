@@ -724,68 +724,78 @@ display
   Useful for watching values that change often. 
 
 
-.. reveal:: reveal-skill-check-errors
-   :showtitle: Show Skill Check
-   :hidetitle: Hide Skill Check
+**Self Check**
 
-   .. mchoice:: question1_5_1
-      :answer_a: tracking down programming errors and correcting them.
-      :answer_b: removing all the bugs from your house.
-      :answer_c: finding all the bugs in the program.
-      :answer_d: fixing the bugs in the program.
-      :correct: a
-      :feedback_a: Programming errors are called bugs and the process of finding and removing them from a program is called debugging.
-      :feedback_b: Maybe, but that is not what we are talking about in this context.
-      :feedback_c: This is partially correct.  But, debugging is more than just finding the bugs.  What do you need to do once you find them?
-      :feedback_d: This is partially correct.  But, debugging is more than just fixing the bugs. What do you need to do before you can fix them?
+.. tabbed:: tabbed-skill-check-errors
 
-      Debugging is:
+   .. tab:: Q1
 
-   .. mchoice:: question1_8_1
-      :answer_a: Attempting to divide by 0.
-      :answer_b: Forgetting a semi-colon at the end of a statement where one is required.
-      :answer_c: Forgetting to divide by 100 when printing a percentage amount.
-      :correct: c
-      :feedback_a: A semantic error is an error in logic. In this case the program does not produce the correct output because the problem is not solved correctly. This would be considered a run-time error.
-      :feedback_b: A semantic error is an error in logic. In this case the program does not produce the correct output because the code can not be processed by the compiler or interpreter. This would be considered a syntax error.
-      :feedback_c: This will produce the wrong answer because the programmer implemented the solution incorrectly.  This is a semantic error.
+      .. mchoice:: question1_5_1
+         :answer_a: tracking down programming errors and correcting them.
+         :answer_b: removing all the bugs from your house.
+         :answer_c: finding all the bugs in the program.
+         :answer_d: fixing the bugs in the program.
+         :correct: a
+         :feedback_a: Programming errors are called bugs and the process of finding and removing them from a program is called debugging.
+         :feedback_b: Maybe, but that is not what we are talking about in this context.
+         :feedback_c: This is partially correct.  But, debugging is more than just finding the bugs.  What do you need to do once you find them?
+         :feedback_d: This is partially correct.  But, debugging is more than just fixing the bugs. What do you need to do before you can fix them?
 
-      Which of the following is a semantic error?
+         Debugging is:
 
-   .. mchoice:: question1_6_1
-      :answer_a: Attempting to divide by 0.
-      :answer_b: Forgetting a colon at the end of a statement where one is required.
-      :answer_c: Forgetting to divide by 100 when printing a percentage amount.
-      :correct: b
-      :feedback_a: A syntax error is an error in the structure of the python code that can be detected before the program is executed.   The compiler cannot usually tell if you are trying to divide by 0 until it is executing your program (e.g., you might be asking the user for a value and then dividing by that value - you cannot know what value the user will enter before you run the program).
-      :feedback_b: This is a problem with the formal structure of the program.  The compiler knows where colons are required and can detect when one is missing simply by looking at the code without running it.
-      :feedback_c: This will produce the wrong answer, but wthe compiler ill not consider it an error at all.  The programmer is the one who understands that the answer produced is wrong.
+   .. tab:: Q2
 
-      Which of the following is a syntax error?
+      .. mchoice:: question1_8_1
+         :answer_a: Attempting to divide by 0.
+         :answer_b: Forgetting a semi-colon at the end of a statement where one is required.
+         :answer_c: Forgetting to divide by 100 when printing a percentage amount.
+         :correct: c
+         :feedback_a: A semantic error is an error in logic. In this case the program does not produce the correct output because the problem is not solved correctly. This would be considered a run-time error.
+         :feedback_b: A semantic error is an error in logic. In this case the program does not produce the correct output because the code can not be processed by the compiler or interpreter. This would be considered a syntax error.
+         :feedback_c: This will produce the wrong answer because the programmer implemented the solution incorrectly.  This is a semantic error.
 
-   .. mchoice:: question1_7_1
-      :answer_a: Attempting to divide by 0.
-      :answer_b: Forgetting a colon at the end of a statement where one is required.
-      :answer_c: Forgetting to divide by 100 when printing a percentage amount.
-      :correct: a
-      :feedback_a: The compiler cannot reliably tell if you are trying to divide by 0 until it is executing your program (e.g., you might be asking the user for a value and then dividing by that value - you cannot know what value the user will enter before you run the program).
-      :feedback_b: This is a problem with the formal structure of the program.  The compiler knows where colons are required and can detect when one is missing simply by looking at the code without running it.
-      :feedback_c: This will produce the wrong answer, but the compiler will not consider it an error at all.  The programmer is the one who understands that the answer produced is wrong.
+         Which of the following is a semantic error?
 
-      Which of the following is a run-time error?
+   .. tab:: Q3
 
-   .. mchoice:: question1_6_2
-      :answer_a: The programmer.
-      :answer_b: The compiler / interpreter.
-      :answer_c: The computer.
-      :answer_d: The teacher / instructor.
-      :correct: b
-      :feedback_a: Programmers rarely find all the syntax errors, there is a computer program that will do it for us.
-      :feedback_b: The compiler and / or interpreter is a computer program that determines if your program is written in a way that can be translated into machine language for execution.
-      :feedback_c: Well, sort of.  But it is a special thing in the computer that does it.  The stand alone computer without this additional piece can not do it.
-      :feedback_d: Your teacher and instructor may be able to find most of your syntax errors, but only because they have experience looking at code and possibly writing code.  With experience syntax errors are easier to find.  But we also have an automated way of finding these types of errors.
+      .. mchoice:: question1_6_1
+         :answer_a: Attempting to divide by 0.
+         :answer_b: Forgetting a colon at the end of a statement where one is required.
+         :answer_c: Forgetting to divide by 100 when printing a percentage amount.
+         :correct: b
+         :feedback_a: A syntax error is an error in the structure of the python code that can be detected before the program is executed.   The compiler cannot usually tell if you are trying to divide by 0 until it is executing your program (e.g., you might be asking the user for a value and then dividing by that value - you cannot know what value the user will enter before you run the program).
+         :feedback_b: This is a problem with the formal structure of the program.  The compiler knows where colons are required and can detect when one is missing simply by looking at the code without running it.
+         :feedback_c: This will produce the wrong answer, but wthe compiler ill not consider it an error at all.  The programmer is the one who understands that the answer produced is wrong.
 
-      Who or what typically finds syntax errors?
+         Which of the following is a syntax error?
+
+   .. tab:: Q4
+
+      .. mchoice:: question1_7_1
+         :answer_a: Attempting to divide by 0.
+         :answer_b: Forgetting a colon at the end of a statement where one is required.
+         :answer_c: Forgetting to divide by 100 when printing a percentage amount.
+         :correct: a
+         :feedback_a: The compiler cannot reliably tell if you are trying to divide by 0 until it is executing your program (e.g., you might be asking the user for a value and then dividing by that value - you cannot know what value the user will enter before you run the program).
+         :feedback_b: This is a problem with the formal structure of the program.  The compiler knows where colons are required and can detect when one is missing simply by looking at the code without running it.
+         :feedback_c: This will produce the wrong answer, but the compiler will not consider it an error at all.  The programmer is the one who understands that the answer produced is wrong.
+
+         Which of the following is a run-time error?
+
+   .. tab:: Q5
+
+      .. mchoice:: question1_6_2
+         :answer_a: The programmer.
+         :answer_b: The compiler / interpreter.
+         :answer_c: The computer.
+         :answer_d: The teacher / instructor.
+         :correct: b
+         :feedback_a: Programmers rarely find all the syntax errors, there is a computer program that will do it for us.
+         :feedback_b: The compiler and / or interpreter is a computer program that determines if your program is written in a way that can be translated into machine language for execution.
+         :feedback_c: Well, sort of.  But it is a special thing in the computer that does it.  The stand alone computer without this additional piece can not do it.
+         :feedback_d: Your teacher and instructor may be able to find most of your syntax errors, but only because they have experience looking at code and possibly writing code.  With experience syntax errors are easier to find.  But we also have an automated way of finding these types of errors.
+
+         Who or what typically finds syntax errors?
 
 
 

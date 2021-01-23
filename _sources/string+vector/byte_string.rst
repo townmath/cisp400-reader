@@ -520,68 +520,73 @@ The copy and compare functions are defined in the ``cstring`` header.
             then use :string:`strcoll </byte/strcoll>`.
 
 
-Skill Check
------------
-The questions in this hidden section provide a chance to demonstrate
-your understanding of the concepts discussed so far.
+**Self Check**
 
-.. reveal:: reveal-skill-check-byte_string
+.. tabbed:: tab_check
 
-   .. fillintheblank:: byte_string_fitb2
+   .. tab:: Q1
 
-      Given the following:
+      .. fillintheblank:: byte_string_fitb2
 
-      .. code-block:: c
+         Given the following:
 
-         char text[32];
-         strcpy(text, "hello");
-         int len = strlen(text);
+         .. code-block:: c
 
-      What is the value of ``len``?
+            char text[32];
+            strcpy(text, "hello");
+            int len = strlen(text);
 
-      - :5: Correct.
-        :6: String length does not include the null character.
-        :4: Sizes are not indexes.
-        :x: Try again.
+         What is the value of ``len``?
 
-   .. activecode:: byte_string_sc_ac1
-      :language: cpp
-      :compileargs: ['-Wall', '-Wextra', '-std=c++11']
-      :nocodelens:
+         - :5: Correct.
+           :6: String length does not include the null character.
+           :4: Sizes are not indexes.
+           :x: Try again.
 
-      Fix the errors in the ``printf`` line below:
+   .. tab:: Q2
 
-      ~~~~
-      #include <cstdio>
-      #include <string>
+      .. activecode:: byte_string_sc_ac1
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
+         :nocodelens:
 
-      int main() {
-        std::string yazoo = "ritish alternative band";
-        char c = 'B';
-          
-        printf ("%c%s\n",c, yazoo);
-      }
+         Fix the errors in the ``printf`` line below:
 
-   .. fillintheblank:: byte_string_fitb3
+         ~~~~
+         #include <cstdio>
+         #include <string>
 
-      Which ``#include`` is required to use functions such as
-      ``std::atoi`` and ``std::atof``?
+         int main() {
+           std::string yazoo = "ritish alternative band";
+           char c = 'B';
+             
+           printf ("%c%s\n",c, yazoo);
+         }
 
-      - :cstdlib: Correct.
-        :cstring: These are C library functions
-        :string: These are C library functions
-        :x: Try again.
+   .. tab:: Q3
+
+      .. fillintheblank:: byte_string_fitb3
+
+         Which ``#include`` is required to use functions such as
+         ``std::atoi`` and ``std::atof``?
+
+         - :cstdlib: Correct.
+           :cstring: These are C library functions
+           :string: These are C library functions
+           :x: Try again.
 
 
-   .. fillintheblank:: byte_string_fitb4
+   .. tab:: Q4
 
-      Which ``#include`` is required to use functions such as
-      ``std::stoi`` and ``std::stol``?
+      .. fillintheblank:: byte_string_fitb4
 
-      - :string: Correct.
-        :cstring: These are not C functions
-        :cstdlib: These are string functions added in C++11
-        :x: Try again.
+         Which ``#include`` is required to use functions such as
+         ``std::stoi`` and ``std::stol``?
+
+         - :string: Correct.
+           :cstring: These are not C functions
+           :cstdlib: These are string functions added in C++11
+           :x: Try again.
 
 -----
 

@@ -84,8 +84,7 @@ as the bubble sort and is therefore also :math:`O(n^{2})`. However,
 due to the reduction in the number of exchanges, the selection sort
 typically executes faster in benchmark studies.
 
-Self Check
-----------
+**Self Check**
 
 .. tabbed:: tab_check
 

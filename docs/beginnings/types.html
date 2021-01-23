@@ -970,17 +970,12 @@ int main() {
 <p>What sizes are different?  Why?</p>
 <p>What are the implications of these differences when writing code that needs to run on both?</p>
 </div>
-</div>
-<div class="section" id="skill-check">
-<h2><span class="section-number">1.4.4. </span>Skill Check<a class="headerlink" href="#skill-check" title="Permalink to this headline">¶</a></h2>
-<p>The questions in this hidden section provide a chance to demonstrate
-your understanding of the concepts discussed so far.</p>
+<p><strong>Self Check</strong></p>
+<div id='tabbed-skill-check-types' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Q1" >
 
-    <div data-component="reveal" id="reveal-skill-check-types"   data-showtitle="Show" data-hidetitle="Hide"  style="visibility: hidden;">
-    
 <div class="runestone">
-<ul data-component="dragndrop" data-question_label="1.4.4.1" id="types_dnd_type1"  style="visibility: hidden;">
-    <span data-component="question">Q-7: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct</span>
+<ul data-component="dragndrop" data-question_label="1.4.3.2" id="types_dnd_type1"  style="visibility: hidden;">
+    <span data-component="question">sc-1-7: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct</span>
 	<span data-component=feedback>Review the summaries above.</span>
 
     <li data-component="draggable" id="types_dnd_type1_drag1">Specifying the type and name for a variable</li>
@@ -994,10 +989,11 @@ your understanding of the concepts discussed so far.</p>
 
     <li data-component="draggable" id="types_dnd_type1_drag4">An expression that is either true or false</li>
     <li data-component="dropzone" for="types_dnd_type1_drag4">bool</li>
-</ul></div>
+</ul></div></div><div data-component="tab" data-tabname="Q2" >
+
             <div class="runestone alert alert-warning">
-            <ul data-component="multiplechoice" data-question_label="1.4.4.2" data-multipleanswers="true"  id="types_mc1"  style="visibility: hidden;">
-            <p>Q-8: Which declarations are valid?</p>
+            <ul data-component="multiplechoice" data-question_label="1.4.3.3" data-multipleanswers="true"  id="types_mc1"  style="visibility: hidden;">
+            <p>sc-1-8: Which declarations are valid?</p>
 
             <li data-component="answer"  id="types_mc1_opt_a">int 3;</li><li data-component="feedback">Declarations must always include a name</li>
             
@@ -1013,10 +1009,11 @@ As written, this is assignment, not declaration</li>
 
             </ul>
             </div>
-            
+            </div><div data-component="tab" data-tabname="Q3" >
+
 <div class="runestone">
-<ul data-component="dragndrop" data-question_label="1.4.4.3" id="types_dnd_type2"  style="visibility: hidden;">
-    <span data-component="question">Q-9: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct.</span>
+<ul data-component="dragndrop" data-question_label="1.4.3.4" id="types_dnd_type2"  style="visibility: hidden;">
+    <span data-component="question">sc-1-9: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct.</span>
 	<span data-component=feedback>Review the summaries above.</span>
 
     <li data-component="draggable" id="types_dnd_type2_drag1">Setting the value of a variable the first time</li>
@@ -1030,10 +1027,11 @@ As written, this is assignment, not declaration</li>
 
     <li data-component="draggable" id="types_dnd_type2_drag4">changing the type of a variable</li>
     <li data-component="dropzone" for="types_dnd_type2_drag4">casting</li>
-</ul></div>
+</ul></div></div><div data-component="tab" data-tabname="Q4" >
+
         <div class="runestone">
-        <div data-component="fillintheblank" data-question_label="1.4.4.4" id="types_fitb1"  style="visibility: hidden;">
-            <p>Q-10: Given the following:</p>
+        <div data-component="fillintheblank" data-question_label="1.4.3.5" id="types_fitb1"  style="visibility: hidden;">
+            <p>sc-1-10: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="kt">int8_t</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -1049,10 +1047,11 @@ As written, this is assignment, not declaration</li>
 
         </div>
         </div>
-            
+            </div><div data-component="tab" data-tabname="Q5" >
+
         <div class="runestone">
-        <div data-component="fillintheblank" data-question_label="1.4.4.5" id="types_fitb2"  style="visibility: hidden;">
-            <p>Q-11: Given the following:</p>
+        <div data-component="fillintheblank" data-question_label="1.4.3.6" id="types_fitb2"  style="visibility: hidden;">
+            <p>sc-1-11: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">~</span><span class="mi">-1</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -1064,14 +1063,15 @@ As written, this is assignment, not declaration</li>
 
         </div>
         </div>
-            
+            </div><div data-component="tab" data-tabname="Q6" >
+
 <div class="runestone explainer ac_section alert alert-warning">
 <div data-component="activecode" id=types_ac1 >
 <div id=types_ac1_question class="ac_question col-md-12">
 <p>Fix all the errors in the code below:</p>
 
 </div>
-<textarea data-lang="cpp" id="types_ac1_editor" data-question_label="1.4.4.6" 
+<textarea data-lang="cpp" id="types_ac1_editor" data-question_label="1.4.3.7" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27; &#x27;-std=c++11&#x27;]"       data-wasm=/_static
@@ -1085,10 +1085,11 @@ int main() {
 </textarea>
 </div>
 </div>
+</div><div data-component="tab" data-tabname="Q7" >
 
         <div class="runestone" style="max-width: none;">
-        <pre data-component="parsons" data-question_label="1.4.4.7" id="types_par1"  data-adaptive="true"    data-noindent="true"  data-language="c"   style="visibility: hidden;">
-        <span data-question>Q-13 </span>#include <iostream>
+        <pre data-component="parsons" data-question_label="1.4.3.8" id="types_par1"  data-adaptive="true"    data-noindent="true"  data-language="c"   style="visibility: hidden;">
+        <span data-question>sc-1-13 </span>#include <iostream>
 ---
 void func() {
 ---
@@ -1101,10 +1102,11 @@ void func() {
 }
         </pre>
         </div>
-    
+    </div><div data-component="tab" data-tabname="Q8" >
+
         <div class="runestone">
-        <div data-component="fillintheblank" data-question_label="1.4.4.8" id="types_fitb3"  style="visibility: hidden;">
-            <p>Q-14: Given the following:</p>
+        <div data-component="fillintheblank" data-question_label="1.4.3.9" id="types_fitb3"  style="visibility: hidden;">
+            <p>sc-1-14: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
@@ -1122,9 +1124,10 @@ void func() {
 
         </div>
         </div>
-            
+            </div>
     </div>
-    <hr class="docutils" />
+
+<hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">

@@ -162,8 +162,7 @@ By changing the increment, for example using
 at :math:`O(n^{\frac {3}{2}})`.
 
 
-Self Check
-----------
+**Self Check**
 
 .. tabbed:: tab_check
 
