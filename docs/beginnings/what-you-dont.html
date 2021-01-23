@@ -57,7 +57,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.7. Skill Check" href="skill-check.html" />
+    <link rel="next" title="1.7. Self Check" href="skill-check.html" />
     <link rel="prev" title="1.5. Code comments" href="comments.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -194,7 +194,7 @@
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">1.7. </span>Skill Check' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">1.7. </span>Self Check' data-toggle="tooltip" >              
     <a href="skill-check.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -449,7 +449,7 @@ int main() {
 and has support for some aspects, but not all of C++14 and C++17.</p>
 </div>
 <div class="section" id="parsing-command-line-arguments">
-<h2><span class="section-number">1.6.2. </span>Parsing command line arguments<a class="headerlink" href="#parsing-command-line-arguments" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">1.6.2. </span>Parsing command line arguments<a class="headerlink" href="#parsing-command-line-arguments" title="Permalink to this headline">¶</a></h2>
 <p>Why command line programs?</p>
 <p>C++ is primarily used in <em>systems programming</em> and
 is a fundamental part of all <em>*nix</em> programs.
@@ -479,6 +479,110 @@ If you run a program named <code class="docutils literal notranslate"><span clas
 <span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">:</span>  <span class="s">&quot;www.sdmesa.edu&quot;</span>
 </pre></div>
 </div>
+<div id='tab_cmdline' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="echo" >
+<p>A simple <span class="target" id="index-3"></span>echo program can demonstrate using command line parameters
+in a program.</p>
+<p><a class="reference external" href="https://repl.it/">repl.it</a> is a website that provides a
+variety of compilers online.</p>
+<p>Press the “play” button to compile and run the program.</p>
+<p>The important parts of the program are <code class="docutils literal notranslate"><span class="pre">argc</span></code> and <code class="docutils literal notranslate"><span class="pre">argv</span></code>.</p>
+<p>The loop will execute <span class="math notranslate nohighlight">\(argc - 1\)</span> times and print each
+of the strings on the command line once.</p>
+<p>You can run this program manually in the console or shell by typing</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./main
+</pre></div>
+</div>
+<div>
+<iframe height="400px" width="100%" src="https://repl.it/@DaveParillo/echo?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+</div><div class="admonition-try-this admonition">
+<p class="admonition-title">Try This!</p>
+<p>Run main with a variety of inputs, such as:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>San Diego
+&quot;Mesa College&quot;
+</pre></div>
+</div>
+<p>Can you explain the differences?</p>
+</div>
+</div><div data-component="tab" data-tabname="Parsing values" >
+<p>Everything that is passed to main through <code class="docutils literal notranslate"><span class="pre">argv</span></code> is a C string.
+If you expect to receive a number on the command line,
+you need to transform the value from a character array
+into the appropriate numeric value yourself.</p>
+<p>Traditional command line argument parsing proceeds as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>foreach argument
+<span class="k">do</span>
+   <span class="k">if</span> the current value equals an expected value
+      process the argument
+   <span class="k">else</span> <span class="k">if</span> the current value equals a different expected value
+      process the argument
+   <span class="k">else</span>
+      <span class="nb">let</span> the user know we received something unexpected
+   <span class="k">done</span> <span class="k">if</span>
+<span class="k">done</span> foreach
+</pre></div>
+</div>
+<p>There are many ways to check if two character arrays are equivalent.
+In this example, we use <span class="target" id="index-4"></span>strcmp:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;-h&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// display help text</span>
+  <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The function compares two null-terminated byte strings
+lexicographically (the way they would sort alphabetically).
+The sign of the result is the sign of the difference between the
+values of the first pair of characters
+(both interpreted as unsigned char) that differ in the two strings.
+The behavior is undefined if either argument are not pointers to
+null-terminated strings.</p>
+<p>If the function returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, the the two arrays are considered
+equivalent.</p>
+<p>Sometimes a command line argument is used to communicate that a
+value of a particular type is expected to follow.
+Let’s say we want our hello world program to repeat its message
+a certain number of times.
+We need a way to communicate this information to the program.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&quot;-r&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// We should try to repeat,</span>
+  <span class="c1">// increment the loop counter based on argc</span>
+  <span class="o">++</span><span class="n">i</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">)</span> <span class="p">{</span>              <span class="c1">// is there really a next argument?</span>
+      <span class="n">repeat</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Error using &#39;-r&#39; argument: no repeat value provided</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>There are many other ways to process the command line and many
+libraries exist to aid in the task.
+The technique presented here is simple and only uses facilities from
+the standard library.</p>
+</div><div data-component="tab" data-tabname="Run It" >
+<div>
+<iframe height="400px" width="100%" src="https://repl.it/@DaveParillo/echo-repeat?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+</div></div>
+    </div>
+
+<p>A common source of confusion is distinguishing between ‘standard input’
+and the command line.
+Parameters passed to a program after the program name are only
+stored in the array <code class="docutils literal notranslate"><span class="pre">argv</span></code>.
+Most operating systems allow you to use the special characters
+<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> (<span class="target" id="index-5"></span>redirection operators)
+and <code class="docutils literal notranslate"><span class="pre">|</span></code> <span class="target" id="index-6"></span>pipe operators to direct data into the <span class="target" id="index-7"></span>standard input
+of a program.
+Information sent to a program using redirection or pipes is immediately
+available for use by any facility that can process the standard input
+stream, such as <a class="reference external" href="https://en.cppreference.com/w/cpp/io/cin">cin</a> .</p>
+<p>You can also use <span class="target" id="index-8"></span>cin to manage a ‘scripted conversion’
+with a user, where you prompt for input using <span class="target" id="index-9"></span>cout
+and process the input using cin, however,
+processing standard input using redirection is
+far more flexible in terms of creating reusable programs that
+work together.</p>
+<p>This idea is the foundation of <span class="target" id="index-10"></span>Unix and its many derivatives,
+including <span class="target" id="index-11"></span>GNU/Linux and <span class="target" id="index-12"></span>Mac OS.</p>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
@@ -486,6 +590,13 @@ If you run a program named <code class="docutils literal notranslate"><span clas
 <li><p><a class="reference external" href="https://www.gnu.org/software/libc/manual/html_node/Using-Getopt.html">Using the getopt function</a> - from gnu.org</p></li>
 <li><p>Textbook: <a class="reference internal" href="../pointers/pointers.html"><span class="doc">Pointers</span></a></p></li>
 <li><p>C++17: <a class="reference external" href="http://en.cppreference.com/w/cpp/language/if">constexpr if</a></p></li>
+<li><p>From cppreference.com:</p>
+<ul>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/io/cin">cin</a>, <a class="reference external" href="https://en.cppreference.com/w/cpp/io/cout">cout</a>, and <a class="reference external" href="https://en.cppreference.com/w/cpp/io/cerr">cerr</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/byte/strcmp">strcmp</a>, and <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/byte/strncmp">strncmp</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/byte/atoi">atoi</a>, and <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/byte/strtol">strtol</a></p></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -509,8 +620,8 @@ If you run a program named <code class="docutils literal notranslate"><span clas
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 1.7. Skill Check' data-toggle="tooltip" >
-    <a href="skill-check.html" aria-label="1.7. Skill Check">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 1.7. Self Check' data-toggle="tooltip" >
+    <a href="skill-check.html" aria-label="1.7. Self Check">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
@@ -551,7 +662,7 @@ If you run a program named <code class="docutils literal notranslate"><span clas
       
     </p>
     <p>
-        &copy; Copyright 2017-2020 Dave Parillo.
+        &copy; Copyright 2017-2021 Dave Parillo.
       Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
     </p>
   </div>

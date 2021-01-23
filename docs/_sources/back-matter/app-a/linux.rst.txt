@@ -269,6 +269,9 @@ passwd
   Change your login password
 
 
+.. index::
+   pair: repl.it; bash tutorial
+
 .. admonition:: Try This!
 
    Use this example terminal to try the commands described in this section.

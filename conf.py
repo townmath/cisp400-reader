@@ -89,8 +89,8 @@ highlight_language = 'cpp'
 master_doc = 'index'
 
 # General information about the project.
-project = 'CISC 187 COurse Reader'
-copyright = '2017-2020 Dave Parillo'
+project = 'CISC 187 Course Reader'
+copyright = '2017-2021 Dave Parillo'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
