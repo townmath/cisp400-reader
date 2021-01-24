@@ -23,6 +23,7 @@ Sorting
    quick.rst
    heap.rst
    radix.rst
+   summary.rst
 
 **Sorting** is the process of placing elements from a collection in some
 kind of order. For example, a list of words could be sorted

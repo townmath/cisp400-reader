@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>15. Sorting &#8212; CISC 187 Course Reader Overview</title>
+    <title>15.10. Summary of sorting algorithms &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,8 +57,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15.1. Bubble sort" href="bubble.html" />
-    <link rel="prev" title="14.7. Hashing concepts" href="../trees/unordered_map.html" />
+    <link rel="next" title="16. Algorithms" href="../algorithms/index.html" />
+    <link rel="prev" title="15.9. Radix sort" href="radix.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,14 +188,14 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">14.7. </span>Hashing concepts" data-toggle="tooltip">
-    <a href="../trees/unordered_map.html" >
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">15.9. </span>Radix sort" data-toggle="tooltip">
+    <a href="radix.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">15.1. </span>Bubble sort' data-toggle="tooltip" >              
-    <a href="bubble.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">16. </span>Algorithms' data-toggle="tooltip" >              
+    <a href="../algorithms/index.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -236,53 +236,39 @@
 
 
   
-  <div class="section" id="sorting">
-<h1><span class="section-number">15. </span>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="bubble.html">15.1. Bubble sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="selection.html">15.2. Selection sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="insertion.html">15.3. Insertion sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="insertion.html#costs-of-exchange-sorting">15.4. Costs of Exchange Sorting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shell.html">15.5. Shell sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="merge.html">15.6. Merge sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quick.html">15.7. Quick sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="heap.html">15.8. Heap sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="radix.html">15.9. Radix sort</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="radix.html#array-based-radix-sort">15.9.1. Array-based Radix Sort</a></li>
-<li class="toctree-l2"><a class="reference internal" href="radix.html#radix-sort-analysis">15.9.2. Radix Sort Analysis</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="summary.html">15.10. Summary of sorting algorithms</a></li>
+  <div class="section" id="summary-of-sorting-algorithms">
+<h1><span class="section-number">15.10. </span>Summary of sorting algorithms<a class="headerlink" href="#summary-of-sorting-algorithms" title="Permalink to this headline">¶</a></h1>
+<p>As a convenience, a summary of the key characteristics
+of the sorts discussed in this chapter are presented in
+the following table.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{llll}
+\textbf{Sort} &amp;\textbf{Best Case} &amp;\textbf{Average Case} &amp;\textbf{Worst Case}\\
+\hline
+\textbf{Comparisons:}\\
+\textrm{Bubble}    &amp; \Theta(n^2) &amp; \Theta(n^2) &amp; \Theta(n^2) \\
+\textrm{Heap}      &amp; O(n\log(n)) &amp; O(n\log(n)) &amp; O(n\log(n)) \\
+\textrm{Insertion} &amp; \Theta(n) &amp; \Theta(n^2) &amp; \Theta(n^2) \\
+\textrm{Merge}     &amp; \Omega(n\log(n)) &amp; \Theta(n\log(n)) &amp; \Omega(n\log(n)) \\
+\textrm{Quick}     &amp; \Theta(n) &amp; \Theta(n\log(n)) &amp; \Theta(n^2) \\
+\textrm{Radix}     &amp; \Omega(n\log(n)) &amp; \cdots &amp; \Omega(kn) \\
+\textrm{Selection} &amp; \Theta(n^2) &amp; \Theta(n^2) &amp; \Theta(n^2) \\
+\textrm{Shell}     &amp; O(n\log(n)) &amp; \cdots &amp; O(n^2) \\
+\\
+\textbf{Swaps:}\\
+\textrm{Bubble}    &amp;  0     &amp; \Theta(n^2) &amp; \Theta(n^2) \\
+\textrm{Insertion} &amp;  0     &amp; \Theta(n^2) &amp; \Theta(n^2) \\
+\textrm{Quick}     &amp; 0    &amp; \Theta(n\log(n)) &amp; \Theta(n^2) \\
+\textrm{Radix}     &amp; k         &amp; \Theta(d(n+k)) &amp; \Theta(d(n+k)) \\
+\textrm{Selection} &amp; \Theta(n) &amp; \Theta(n) &amp; \Theta(n) \\
+\hline
+\end{array}\end{split}\]</div>
+<div class="admonition-more-to-explore admonition">
+<p class="admonition-title">More to Explore</p>
+<ul class="simple">
+<li><p>TBD</p></li>
 </ul>
 </div>
-<p><strong>Sorting</strong> is the process of placing elements from a collection in some
-kind of order. For example, a list of words could be sorted
-alphabetically or by length. A list of cities could be sorted by
-population, by area, or by zip code. We have already seen a number of
-algorithms that were able to benefit from having a sorted list (recall
-the final anagram example and the binary search).</p>
-<p>There are many, many sorting algorithms that have been developed and
-analyzed. This suggests that sorting is an important area of study in
-computer science. Sorting a large number of items can take a substantial
-amount of computing resources. Like searching, the efficiency of a
-sorting algorithm is related to the number of items being processed. For
-small collections, a complex sorting method may be more trouble than it’s
-worth. The overhead may be too high. On the other hand, for larger
-collections, we want to take advantage of as many improvements as
-possible. In this section we will discuss several sorting techniques and
-compare them with respect to their running time.</p>
-<p>Before getting into specific algorithms, we should think about the
-operations that can be used to analyze a sorting process. First, it will
-be necessary to compare two values to see which is smaller (or larger).
-In order to sort a collection, it will be necessary to have some
-systematic way to compare values to see if they are out of order. The
-total number of comparisons will be the most common way to measure a
-sort procedure. Second, when values are not in the correct position with
-respect to one another, it may be necessary to exchange them. This
-exchange is a costly operation and the total number of exchanges will
-also be important for evaluating the overall efficiency of the
-algorithm.</p>
 </div>
 
 
@@ -292,8 +278,8 @@ algorithm.</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 14.7. Hashing concepts' data-toggle="tooltip">
-    <a href="../trees/unordered_map.html" aria-label="14.7. Hashing concepts">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 15.9. Radix sort' data-toggle="tooltip">
+    <a href="radix.html" aria-label="15.9. Radix sort">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -303,8 +289,8 @@ algorithm.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 15.1. Bubble sort' data-toggle="tooltip" >
-    <a href="bubble.html" aria-label="15.1. Bubble sort">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 16. Algorithms' data-toggle="tooltip" >
+    <a href="../algorithms/index.html" aria-label="16. Algorithms">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
