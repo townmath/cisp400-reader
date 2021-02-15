@@ -345,8 +345,6 @@ and the functions called from ``main``.
            std::cout << a << b << c;
          }
 
-   .. tab:: Q2
-
       .. fillintheblank:: fib_param_1
 
          What is the output from this program?

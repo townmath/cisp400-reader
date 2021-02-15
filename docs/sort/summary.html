@@ -247,7 +247,7 @@ the following table.</p>
 \hline
 \textbf{Comparisons:}\\
 \textrm{Bubble}    &amp; \Theta(n^2) &amp; \Theta(n^2) &amp; \Theta(n^2) \\
-\textrm{Heap}      &amp; O(n\log(n)) &amp; O(n\log(n)) &amp; O(n\log(n)) \\
+\textrm{Heap}      &amp; O(n\log(n)) &amp; O(n\log(n)) &amp; 2n\log(n)+O(n) \\
 \textrm{Insertion} &amp; \Theta(n) &amp; \Theta(n^2) &amp; \Theta(n^2) \\
 \textrm{Merge}     &amp; \Omega(n\log(n)) &amp; \Theta(n\log(n)) &amp; \Omega(n\log(n)) \\
 \textrm{Quick}     &amp; \Theta(n) &amp; \Theta(n\log(n)) &amp; \Theta(n^2) \\
@@ -257,6 +257,7 @@ the following table.</p>
 \\
 \textbf{Swaps:}\\
 \textrm{Bubble}    &amp;  0     &amp; \Theta(n^2) &amp; \Theta(n^2) \\
+\textrm{Heap}      &amp; \cdots &amp; \cdots &amp; 2n\log(n)+O(nn)) \\
 \textrm{Insertion} &amp;  0     &amp; \Theta(n^2) &amp; \Theta(n^2) \\
 \textrm{Quick}     &amp; 0    &amp; \Theta(n\log(n)) &amp; \Theta(n^2) \\
 \textrm{Radix}     &amp; k         &amp; \Theta(d(n+k)) &amp; \Theta(d(n+k)) \\

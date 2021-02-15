@@ -1,5 +1,5 @@
-Trees
-=====
+Searching: Binary Trees and Hash Tables
+=======================================
 
 .. toctree::
    :maxdepth: 2

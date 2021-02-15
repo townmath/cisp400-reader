@@ -19,7 +19,7 @@ the following table.
    \hline
    \textbf{Comparisons:}\\
    \textrm{Bubble}    & \Theta(n^2) & \Theta(n^2) & \Theta(n^2) \\
-   \textrm{Heap}      & O(n\log(n)) & O(n\log(n)) & O(n\log(n)) \\
+   \textrm{Heap}      & O(n\log(n)) & O(n\log(n)) & 2n\log(n)+O(n) \\
    \textrm{Insertion} & \Theta(n) & \Theta(n^2) & \Theta(n^2) \\
    \textrm{Merge}     & \Omega(n\log(n)) & \Theta(n\log(n)) & \Omega(n\log(n)) \\
    \textrm{Quick}     & \Theta(n) & \Theta(n\log(n)) & \Theta(n^2) \\
@@ -29,6 +29,7 @@ the following table.
    \\
    \textbf{Swaps:}\\
    \textrm{Bubble}    &  0     & \Theta(n^2) & \Theta(n^2) \\
+   \textrm{Heap}      & \cdots & \cdots & 2n\log(n)+O(nn)) \\
    \textrm{Insertion} &  0     & \Theta(n^2) & \Theta(n^2) \\
    \textrm{Quick}     & 0    & \Theta(n\log(n)) & \Theta(n^2) \\
    \textrm{Radix}     & k         & \Theta(d(n+k)) & \Theta(d(n+k)) \\
