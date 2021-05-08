@@ -167,5 +167,8 @@ explicitly in the rvalue reference overload of the assignment operator:
    - The :algorithm:`std::swap <swap>` algorithm
    - `C++ Rvalue references explained <http://thbecker.net/articles/rvalue_references/section_01.html>`__
      The content in this section was adapted from *Rvalue References Explained*, by Thomas Becker.
+   - `Copy and Swap, 20 years later <https://mropert.github.io/2019/01/07/copy_swap_20_years/>`__
+     a deeper dive into some of the tradeoffs of different implementations of copy and move
+     assignment.
 
 

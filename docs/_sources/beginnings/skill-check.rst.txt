@@ -237,12 +237,12 @@ you should be able to answer these questions.
    :answer_c: x = 4, y = 2, z = 3
    :answer_d: x = 4, y = 2.5, z = 3
    :answer_e: x = 6, y = 2, z = 3
-   :correct: e
-   :feedback_a: This code sets x to z * 2 (6), y to y divided by 2 (5 / 2 = 2) and z = to z + 1 (2 + 1 = 3).
-   :feedback_b: This code sets x to z * 2 (6), y must be an int, z is incremented
-   :feedback_c: This code sets x to z * 2 (6),
-   :feedback_d: This code sets x to z * 2 (6), y must be an int
-   :feedback_e: Correct
+   :correct: c
+   :feedback_a: This code sets x to z * 2 (4), y to y divided by 2 (5 / 2 = 2) and z = to z + 1 (2 + 1 = 3).
+   :feedback_b: Variable y must be an int, z is incremented
+   :feedback_c: Correct
+   :feedback_d: This code sets x to z * 2 (4), y must be an int
+   :feedback_e: This code sets x to z * 2 (4)
 
    What are the values of x, y, and z after the following code executes?
 
