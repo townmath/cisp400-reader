@@ -57,7 +57,7 @@ in regular code.  For example:
 
 One notable exception to the 'keep comments to a minimum' rule is
 if you are commenting a public :term:`API` for a library 
-and most reader will only see generated documentation and not the
+and most readers will only see generated documentation and not the
 source code.
 
 In that case, you are generally adding comments to be read by a
