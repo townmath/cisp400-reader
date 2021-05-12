@@ -15,7 +15,7 @@ The recursive traversal algorithms work well for implementing
 tree-based ADT member functions, 
 but if we are trying to hide the trees inside some ADT 
 for example, using binary search trees to implement std::set
-or using STL algorithms or rang-for loops, 
+or using STL algorithms or range-for loops, 
 then we need to provide iterators for walking though the contents of the tree.
 
 Iterators for tree-based data structures can be more complicated than those 
