@@ -142,12 +142,12 @@ can be invoked recursively on the two halves.
                quick_sort(data, first, pivot);
                quick_sort(data, pivot+1, last);
             }
-
+            return data;
          }
 
          int main() {
            vector<int> data = {54, 26, 93, 17, 77, 31, 44, 55, 20};
-           print(quick_sort(data), 0, data.size()-1);
+           print(quick_sort(data, 0, data.size()-1));
            return 0;
          }
 
