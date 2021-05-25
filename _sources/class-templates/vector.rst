@@ -136,7 +136,7 @@ Starting in C++11, extra memory can be returned to the system with a call to
 .. admonition:: Try This!
 
    Change the previous example using different ways of initializing and
-   maodifying the vector.
+   modifying the vector.
    Try to predict the ``print`` output *before* running the program.
 
    Some things to try:
