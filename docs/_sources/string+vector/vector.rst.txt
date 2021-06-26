@@ -211,6 +211,10 @@ and will throw a :error:`std::out_of_range exception <out_of_range>` if an out o
 
    .. tab:: Run It
 
+         This example demonstrates an out of rannge error.
+
+         How can we fix this while changing the least amount of code possible?
+
       .. activecode:: vector_access_operator_ac1
          :language: cpp
          :compileargs: ['-Wall', '-Wextra', '-std=c++11']

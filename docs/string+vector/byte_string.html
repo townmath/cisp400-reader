@@ -424,21 +424,11 @@ as the character type provided.</p>
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
     style="visibility: hidden;">
-#include <cctype>
 #include <iostream>
 #include <locale>
 
 int main() {
   using std::cout;
-  unsigned char c = '\xb8'; // the character ž in ISO-8859-15
-                            // but ¸ (cedilla) in ISO-8859-1
-
-  std::setlocale(LC_ALL, "en_US.iso88591");
-  cout << std::hex << std::showbase;
-  cout << "in iso8859-1, toupper('0xb8') gives " << std::toupper(c) << '\n';
-  std::setlocale(LC_ALL, "en_US.iso885915");
-  cout << "in iso8859-15, toupper('0xb8') gives " << std::toupper(c) << '\n';
-
   char eng[14] = "hello, world!";
 
   for (const auto& c: eng) {
@@ -446,7 +436,7 @@ int main() {
   }
   cout << '\n';
   for (const auto& c: eng) {
-    cout << std::toupper(c, std::locale()) << ' ';
+    cout << "'" << std::toupper(c, std::locale())  << "' ";
   }
 
   return 0;
@@ -668,15 +658,14 @@ int main() {
   }
   std::cout << "value: " << value << '\n';
 }
-
-.. note::
-
-   These functions are not locale-aware.
-
-   If you need to make locale aware comparisons,
-   then use :string:`strcoll </byte/strcoll>`.
 </textarea>
 </div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These functions are not locale-aware.</p>
+<p>If you need to make locale aware comparisons,
+then use <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string//byte/strcoll">strcoll</a>.</p>
 </div>
 </div><div data-component="tab" data-tabname="strncmp()" >
 <p>The <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string//byte/strncmp">strncmp</a> function
@@ -719,15 +708,14 @@ int main() {
     demo("Hello, everybody!", "Hello, world!", 7);
     demo("Hello, everybody!" + 12, "Hello, somebody!" + 11, 5);
 }
-
-.. note::
-
-   These functions are not locale-aware.
-
-   If you need to make locale aware comparisons,
-   then use :string:`strcoll </byte/strcoll>`.
 </textarea>
 </div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These functions are not locale-aware.</p>
+<p>If you need to make locale aware comparisons,
+then use <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string//byte/strcoll">strcoll</a>.</p>
 </div>
 </div>
     </div>

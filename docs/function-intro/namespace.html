@@ -399,20 +399,20 @@ so that they stand out.</p>
 #include <iostream>
 
 namespace {
-  int i;       // defines ::(unique)::i
+  int i = 0;       // defines ::(unique)::i
 }
 
 void f() {
-  i++;         // increments ::(unique)::i
+  ++i;         // increments ::(unique)::i
 }
 
 namespace A {
   namespace {
     // reusing the name 'i' in this scope is a bad idea . . .
-    int i;          // A::(unique)::i
-    int j;          // A::(unique)::j
+    int i = 3;          // A::(unique)::i
+    int j = 5;          // A::(unique)::j
   }
-  void g() { i++; } // A::unique::i++
+  void g() { ++i; } // A::unique::i++
 }
 
 using namespace A;  // introduces all names from A into global namespace
@@ -424,6 +424,9 @@ void h() {
   A::i++; // ok, increments ::A::(unique)::i
   j++;    // ok, increments ::A::(unique)::j
   f();
+}
+
+int main() {
 }
 </textarea>
 </div>

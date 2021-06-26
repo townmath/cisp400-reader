@@ -226,29 +226,19 @@ The string conversion functions are defined in the ``cctype`` header.
          :compileargs: ['-Wall', '-Wextra', '-std=c++11']
          :nocodelens:
 
-         #include <cctype>
          #include <iostream>
          #include <locale>
 
          int main() {
            using std::cout;
-           unsigned char c = '\xb8'; // the character ž in ISO-8859-15
-                                     // but ¸ (cedilla) in ISO-8859-1
-
-           std::setlocale(LC_ALL, "en_US.iso88591");
-           cout << std::hex << std::showbase;
-           cout << "in iso8859-1, toupper('0xb8') gives " << std::toupper(c) << '\n';
-           std::setlocale(LC_ALL, "en_US.iso885915");
-           cout << "in iso8859-15, toupper('0xb8') gives " << std::toupper(c) << '\n';
-
            char eng[14] = "hello, world!";
-             
+
            for (const auto& c: eng) {
              cout << std::toupper(c) << ' ';
            }
            cout << '\n';
            for (const auto& c: eng) {
-             cout << std::toupper(c, std::locale()) << ' ';
+             cout << "'" << std::toupper(c, std::locale())  << "' ";
            }
 
            return 0;
@@ -464,14 +454,14 @@ The copy and compare functions are defined in the ``cstring`` header.
            std::cout << "value: " << value << '\n';
          }
 
-         .. note::
+      .. note::
 
-            These functions are not locale-aware.
+         These functions are not locale-aware.
 
-            If you need to make locale aware comparisons,
-            then use :string:`strcoll </byte/strcoll>`.
+         If you need to make locale aware comparisons,
+         then use :string:`strcoll </byte/strcoll>`.
 
-                  
+               
    .. tab:: strncmp()
       
       The :string:`strncmp </byte/strncmp>` function
@@ -512,12 +502,12 @@ The copy and compare functions are defined in the ``cstring`` header.
              demo("Hello, everybody!" + 12, "Hello, somebody!" + 11, 5);
          }
 
-         .. note::
+      .. note::
 
-            These functions are not locale-aware.
+         These functions are not locale-aware.
 
-            If you need to make locale aware comparisons,
-            then use :string:`strcoll </byte/strcoll>`.
+         If you need to make locale aware comparisons,
+         then use :string:`strcoll </byte/strcoll>`.
 
 
 **Self Check**

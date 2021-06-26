@@ -456,8 +456,11 @@ While randomly surfing the internet,</p>
   sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe></div><div data-component="tab" data-tabname="Bugs" >
 <p>This program has a few bugs.</p>
 <p>Code like:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">tries</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>seems to imply you have 20 tries.
-The program actually give you 21.
+The program actually gives you 21.
 Off-by-one errors like this are common.</p>
 <p>This code looks ok, but isn’t.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Enter a number between 1 and 100 (&quot;</span> <span class="o">&lt;&lt;</span> <span class="mi">20</span> <span class="o">-</span> <span class="n">tries</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; tries left): &quot;</span><span class="p">;</span>
@@ -492,7 +495,7 @@ Otherwise the compiler assumes the function can take <strong>any number</strong>
 of parameters.</p>
 <p>In C++, <code class="docutils literal notranslate"><span class="pre">main()</span></code> or any other function that takes no parameters
 is implicitly void.</p>
-<p>Next problem is the way the random numbers are created:</p>
+<span class="target" id="index-2"></span><span class="target" id="index-3"></span><span class="target" id="index-4"></span><p id="index-5">Next problem is the way the random numbers are created:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">99</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -504,7 +507,7 @@ is implicitly void.</p>
 <li><p>We have to know how rand works</p></li>
 <li><p>We have to remember what modulus does.</p></li>
 </ul>
-<p>Yes, not bit hurdles, but this is where bugs hide.</p>
+<p>Yes, not big hurdles, but this is where bugs hide.</p>
 <p>The standard library has a superior alternative to <code class="docutils literal notranslate"><span class="pre">rand</span></code>:</p>
 
 <div class="runestone explainer ac_section alert alert-warning">

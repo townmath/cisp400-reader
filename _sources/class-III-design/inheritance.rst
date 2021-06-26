@@ -20,7 +20,7 @@ Consider the following example:
 
 .. code-block:: cpp
 
-   class enum Color {RED, ORANGE, YELLOW, GREEN, BLUE, INDIGO, VIOLET};
+   enum class Color {RED, ORANGE, YELLOW, GREEN, BLUE, INDIGO, VIOLET};
 
    class shape {
        Color color_ = Color::BLUE;

@@ -212,7 +212,7 @@ often from now on.
 .. admonition:: Try This!
 
    Modify the ``print_n`` function signature so that 
-   the variable ``repeat`` is a **reference** istead of a copy.
+   the variable ``repeat`` is a **reference** instead of a copy.
 
    .. activecode:: function_pass_by_ref_ac
       :language: cpp

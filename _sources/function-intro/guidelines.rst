@@ -249,12 +249,12 @@ While randomly surfing the internet,
 
       Code like:
 
-      .. code-block:
+      .. code-block:: cpp
 
          if(tries >= 20)
 
       seems to imply you have 20 tries.
-      The program actually give you 21.
+      The program actually gives you 21.
       Off-by-one errors like this are common.
 
 
@@ -307,6 +307,11 @@ While randomly surfing the internet,
       is implicitly void.
 
 
+      .. index:: rand
+      .. index:: random
+      .. index:: random_device
+      .. index:: uniform_int_distribution
+
       Next problem is the way the random numbers are created:
 
       .. code-block:: cpp
@@ -323,7 +328,7 @@ While randomly surfing the internet,
       - We have to know how rand works
       - We have to remember what modulus does.
 
-      Yes, not bit hurdles, but this is where bugs hide.
+      Yes, not big hurdles, but this is where bugs hide.
 
       The standard library has a superior alternative to ``rand``:
 
