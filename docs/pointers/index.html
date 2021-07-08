@@ -58,7 +58,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5.1. Pointers" href="pointers.html" />
-    <link rel="prev" title="4.4. Trailing return types" href="../function-overloads/trailing-return.html" />
+    <link rel="prev" title="4.5. General function writing guidelines" href="../function-overloads/guidelines.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,8 +188,8 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">4.4. </span>Trailing return types" data-toggle="tooltip">
-    <a href="../function-overloads/trailing-return.html" >
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">4.5. </span>General function writing guidelines" data-toggle="tooltip">
+    <a href="../function-overloads/guidelines.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -242,34 +242,43 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pointers.html">5.1. Pointers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pointers.html#declaring-pointers">5.1.1. Declaring pointers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pointers.html#using-pointers">5.1.2. Using pointers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pointers.html#comparison-with-references">5.1.3. Comparison with references</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pointers.html#pointers-and-arrays">5.1.4. Pointers and arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pointers.html#pointers-to-pointers">5.1.5. Pointers to pointers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pointers.html#parsing-the-command-line">5.1.6. Parsing the command line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pointers.html#constant-pointers">5.1.7. Constant pointers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pointers.html#the-nullptr-type">5.1.8. The <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> type</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pointers.html#void-pointers">5.1.9. <code class="docutils literal notranslate"><span class="pre">void</span></code> pointers</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="free-store.html">5.2. Free store pointers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="free-store.html#stl-memory-management">5.2.1. STL memory management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pointers_using.html">5.2. Using pointers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pointers_vs_references.html">5.3. Comparison with references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pointers_vs_references.html#function-passing-semantics">5.3.1. Function passing semantics</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="valgrind.html">5.3. Pointer debugging</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="valgrind.html#valgrind">5.3.1. Valgrind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pointers_vs_arrays.html">5.4. Pointers and arrays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pointers_vs_arrays.html#array-indexing-pitfalls">5.4.1. Array indexing pitfalls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pointers_vs_arrays.html#arrays-of-type-char">5.4.2. Arrays of type <code class="docutils literal notranslate"><span class="pre">char</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="function-pointers.html">5.4. Pointers to functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function-pointers.html#example-caesar-ciphers">5.4.1. Example: Caesar ciphers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pointers_to_pointers.html">5.5. Pointers to pointers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pointers_other.html">5.6. Other pointer characteristics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pointers_other.html#constant-pointers">5.6.1. Constant pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pointers_other.html#the-nullptr-type">5.6.2. The <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pointers_other.html#void-pointers">5.6.3. <code class="docutils literal notranslate"><span class="pre">void</span></code> pointers</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="lambda.html">5.5. Lambda expressions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lambda.html#assigning-a-lambda-to-a-variable">5.5.1. Assigning a lambda to a variable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lambda.html#trailing-return-types-in-lambda-expressions">5.5.2. Trailing return types in lambda expressions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="free-store.html">5.7. Free store pointers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="free-store.html#stl-memory-management">5.7.1. STL memory management</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="std_function.html">5.6. The std::function template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="valgrind.html">5.8. Pointer debugging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="valgrind.html#valgrind">5.8.1. Valgrind</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="function-pointers.html">5.9. Pointers to functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function-pointers.html#example-caesar-ciphers">5.9.1. Example: Caesar ciphers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lambda.html">5.10. Lambda expressions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lambda.html#assigning-a-lambda-to-a-variable">5.10.1. Assigning a lambda to a variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lambda.html#trailing-return-types-in-lambda-expressions">5.10.2. Trailing return types in lambda expressions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="std_function.html">5.11. The std::function template</a></li>
 </ul>
 </div>
 </div>
@@ -281,8 +290,8 @@
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 4.4. Trailing return types' data-toggle="tooltip">
-    <a href="../function-overloads/trailing-return.html" aria-label="4.4. Trailing return types">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 4.5. General function writing guidelines' data-toggle="tooltip">
+    <a href="../function-overloads/guidelines.html" aria-label="4.5. General function writing guidelines">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>

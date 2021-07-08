@@ -8,4 +8,5 @@ Function overloads and templates
    templates.rst
    concepts.rst
    trailing-return.rst
+   guidelines.rst
 

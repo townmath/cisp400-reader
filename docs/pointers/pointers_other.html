@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.6. Other pointer characteristics &#8212; CISC 187 Course Reader Overview</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
+    <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
+    <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
+    <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
+    <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
+    <script src="../_static/animationbase.js?v=A043C3A7"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
+    <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
+    <script src="../_static/webglinteractive.js?v=2B768384"></script>
+    <script src="../_static/FileSaver.min.js?v=8408C997"></script>
+    <script src="../_static/Blob.js?v=AEC2447"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.bidi.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.fallbacks.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.messagestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.parser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.language.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
+    <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
+    <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+    <script src="../_static/jquery-fix.js?v=1226591B"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
+    <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
+    <script src="../_static/theme.js?v=D899FB97"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.7. Free store pointers" href="free-store.html" />
+    <link rel="prev" title="5.5. Pointers to pointers" href="pointers_to_pointers.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+<script type="text/javascript">
+  eBookConfig = {};
+  
+    eBookConfig.useRunestoneServices = false;
+    eBookConfig.host = 'https://daveparillo.github.io/cisc187-reader/' || 'http://127.0.0.1:8000';
+    eBookConfig.app = eBookConfig.host+'/cisc187-reader';
+    eBookConfig.course = 'cisc187-reader';
+    eBookConfig.basecourse = 'cisc187-reader';
+    eBookConfig.isLoggedIn = false;
+  
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.logLevel = 0;
+  eBookConfig.loginRequired = false;
+  eBookConfig.build_info = "unknown";
+  eBookConfig.python3 = true;
+  eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
+  eBookConfig.runestone_version = '5.5.5';
+  eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
+  eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
+  eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
+  eBookConfig.enable_chatcodes = false ? false : false;
+
+
+</script>
+
+<!-- Ad Serving Headers Only serve ads to Anonymous Users -->
+
+
+
+
+
+  </head><body>
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar" aria-label="navbar toggle" class="visuallyhidden">toggle navbar</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+        
+          <a class="brand-logo" style='background: transparent url("../_static/img/logo_small.png") no-repeat 0px 0px;'>&nbsp;<span aria-label="logo" class="visuallyhidden">Runestone Logo</span> </a>
+        
+        <a class="navbar-brand" href="../index.html" aria-label="index-page">
+          
+          cisc187-reader
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right" >
+
+        <li class="divider-vertical"></li>
+
+
+        <!-- social media dropdown -->
+        <!-- end social media dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'><span aria-label="Search" class="visuallyhidden">Search</span></i>
+          </a>
+          <ul class='dropdown-menu'>
+            
+                <li><a href='../index.html' aria-label="index-page">Table of Contents</a></li>
+            
+            <li><a href='../genindex.html'>Book Index</a></li>
+            <li class="divider"></li>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        
+        <li class="divider-vertical"></li>
+        <!-- <li id="scratch_ac_link"><a href="javascript:ACFactory.toggleScratchActivecode()">Scratch ActiveCode</a></li> -->
+
+        <!-- <li class="dropdown">             -->
+          <li id="scratch_ac_link" class="dropdown"><a href="javascript:ACFactory.toggleScratchActivecode()">
+              <i class="glyphicon glyphicon-pencil" style="opacity:0.9;"><span aria-label="Scratch Activecode" class="visuallyhidden">Scratch Activecode</span></i></a></li>
+        <!-- </li> -->
+
+        <li class="divider-vertical"></li>
+
+        
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <li class="divider-vertical"></li>
+        
+          
+          <li class="divider-vertical"></li>
+        
+        <!-- 
+          
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">5.5. </span>Pointers to pointers" data-toggle="tooltip">
+    <a href="pointers_to_pointers.html" >
+      <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  
+  <li id="relations-next" title='Next Chapter - <span class="section-number">5.7. </span>Free store pointers' data-toggle="tooltip" >              
+    <a href="free-store.html" >
+        <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  <li class="divider-vertical"></li>
+
+<script type="text/javascript">
+  opts = {'placement':'bottom',
+          'selector': '',
+          'delay': { show: 100, hide: 50}
+         };
+
+  $('#relations-prev').tooltip(opts);
+  $('#relations-next').tooltip(opts);
+</script>
+        -->
+        
+          <li></li>
+        
+      </ul>
+
+      </div> <!-- navbar -->
+
+
+
+
+
+
+
+    </div> <!-- container -->
+  </div>
+</div>
+
+
+<div class="container" id="continue-reading"></div>
+
+<div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
+  
+  <div class="section" id="other-pointer-characteristics">
+<h1><span class="section-number">5.6. </span>Other pointer characteristics<a class="headerlink" href="#other-pointer-characteristics" title="Permalink to this headline">¶</a></h1>
+<p>This section wraps up pointers with a discussion of some
+alternative constraints and special pointer types.</p>
+<div class="section" id="constant-pointers">
+<span id="index-0"></span><h2><span class="section-number">5.6.1. </span>Constant pointers<a class="headerlink" href="#constant-pointers" title="Permalink to this headline">¶</a></h2>
+<p>Pointers can be declared <code class="docutils literal notranslate"><span class="pre">const</span></code>, just like any other type.
+Where <code class="docutils literal notranslate"><span class="pre">const</span></code> appears controls what is held constant:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// odd whitespace to help see where const is used</span>
+      <span class="kt">int</span>         <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+      <span class="kt">int</span><span class="o">*</span>       <span class="n">p1</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>  <span class="c1">// non-const pointer to non-const int</span>
+<span class="k">const</span> <span class="kt">int</span><span class="o">*</span>       <span class="n">p2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>  <span class="c1">// non-const pointer to const int</span>
+      <span class="kt">int</span><span class="o">*</span> <span class="k">const</span> <span class="n">p3</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>  <span class="c1">// const pointer to non-const int</span>
+<span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="k">const</span> <span class="n">p4</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>  <span class="c1">// const pointer to const int</span>
+</pre></div>
+</div>
+<p>You may find it helpful to read pointer declarations from right to left.</p>
+<ul class="simple">
+<li><p>In <code class="docutils literal notranslate"><span class="pre">p1</span></code>, nothing is constant.  Either the pointer or the value pointed to can change.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">p2</span></code>, the pointer can change,  but the value pointed to is constant.
+You can’t use this pointer to change the value of x.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">p3</span></code>, the pointer is constant,  but the value pointed to can change.
+You can use this pointer to change the value of x, but can’t point to a different variable.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">p4</span></code>, both are held constant.</p></li>
+</ul>
+</div>
+<div class="section" id="the-nullptr-type">
+<span id="index-1"></span><h2><span class="section-number">5.6.2. </span>The <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> type<a class="headerlink" href="#the-nullptr-type" title="Permalink to this headline">¶</a></h2>
+<p>In section <cite>Comparison with references</cite>,
+we mentioned that unlike a reference,
+a pointer might point to ‘nothing’.</p>
+<p>What exactly is ‘nothing’?</p>
+<p>Many languages refer to this ‘nothing’ as <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+<p>Prior to C++11, there was no unambiguous definition.
+Typically the value 0 was used:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#define NULL 0LL</span>
+</pre></div>
+</div>
+<p>This definition carries over from standard C.</p>
+<p>Using the value <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span> <span class="pre">0</span></code> as an indicator for a null pointer created
+several problems over the years in C++ programs.</p>
+<p>Null pointers are the same type as regular integral types.</p>
+<p>While it is unlikely that the number 0 could ever be confused with a valid address,
+it creates problems regular old C never had to handle.
+Specifically, C++ introduces function overloads,
+which exposes the weakness in using an integral type for both
+numbers and the concept <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.
+For example:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+<span class="cp">#define NULL 0LL</span>
+
+<span class="c1">// Three overloads of f</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>   <span class="p">{</span> <span class="n">puts</span><span class="p">(</span><span class="s">&quot;f(int)&quot;</span><span class="p">);</span> <span class="p">}</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span>  <span class="p">{</span> <span class="n">puts</span><span class="p">(</span><span class="s">&quot;f(bool)&quot;</span><span class="p">);</span> <span class="p">}</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="p">{</span> <span class="n">puts</span><span class="p">(</span><span class="s">&quot;f(void*)&quot;</span><span class="p">);</span> <span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>     <span class="c1">// calls f(int) overload, not f(void*)</span>
+
+  <span class="n">f</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>  <span class="c1">// might not compile, typically calls</span>
+            <span class="c1">// f(int) overload.</span>
+            <span class="c1">// Never calls f(void*)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The overload with <code class="docutils literal notranslate"><span class="pre">f(NULL)</span></code> is never called,
+because <code class="docutils literal notranslate"><span class="pre">NULL</span></code> is not a pointer type.</p>
+<p>C++ resolves this by creating a new type just to hold the null pointer.
+The type is <code class="docutils literal notranslate"><span class="pre">nullptr_t</span></code> and the variable of that type is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+
+<span class="c1">// Three overloads of f</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>   <span class="p">{</span> <span class="n">puts</span><span class="p">(</span><span class="s">&quot;f(int)&quot;</span><span class="p">);</span> <span class="p">}</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span>  <span class="p">{</span> <span class="n">puts</span><span class="p">(</span><span class="s">&quot;f(bool)&quot;</span><span class="p">);</span> <span class="p">}</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="p">{</span> <span class="n">puts</span><span class="p">(</span><span class="s">&quot;f(void*)&quot;</span><span class="p">);</span> <span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>        <span class="c1">// calls f(int) overload as before</span>
+
+  <span class="n">f</span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span>  <span class="c1">// calls f(void*) overload</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> is a distinct type.
+It is not a pointer type, pointer to member, integral type, size type, reference type,
+or a member of any type group.
+The <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> <strong>does</strong> implicitly convert to a pointer type.</p>
+<p>In short, using <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> improves code clarity and correctness.
+Using <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> improves code clarity, especially when auto variables are involved.
+Consider the following code example, from Effective Modern C++:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// A function that returns a pointer</span>
+<span class="kt">int</span><span class="o">*</span> <span class="nf">findRecord</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// If you don’t happen to know (or can’t easily find out) what findRecord returns,</span>
+  <span class="c1">// it may not be clear whether result is a pointer type or an integral type.</span>
+  <span class="c1">//</span>
+  <span class="c1">// After all, 0 (what result is tested against) could go either way.</span>
+
+  <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">findRecord</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// If you see the following, on the other hand ...</span>
+  <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">findRecord</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span>
+    <span class="c1">// there’s no ambiguity: result must be a pointer type.</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="void-pointers">
+<h2><span class="section-number">5.6.3. </span><code class="docutils literal notranslate"><span class="pre">void</span></code> pointers<a class="headerlink" href="#void-pointers" title="Permalink to this headline">¶</a></h2>
+<p>A <em>void pointer</em> is a
+pointer to some memory, but the compiler doesn’t know the type.</p>
+<p>It is about as close to a raw machine address as you can get in C++.</p>
+<p>Legitimate uses are
+calls between functions in different languages or
+templates where the provided value could literally be <em>anything</em>,
+such as the actual implementation of <code class="docutils literal notranslate"><span class="pre">new</span></code> in C++.</p>
+<div class="admonition-important admonition">
+<p class="admonition-title">Important!</p>
+<p><code class="docutils literal notranslate"><span class="pre">void*</span></code> is not the same as <code class="docutils literal notranslate"><span class="pre">void</span></code></p>
+<p>There are no objects of type void:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">;</span>           <span class="c1">// declare an int</span>
+<span class="kt">void</span> <span class="n">x</span><span class="p">;</span>          <span class="c1">// error!  void is not a type</span>
+<span class="kt">void</span> <span class="nf">print</span><span class="p">();</span>    <span class="c1">// function returns nothing</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Any</strong> pointer can be assigned to <code class="docutils literal notranslate"><span class="pre">void*</span></code>:</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span>    <span class="n">i</span>  <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">5</span><span class="p">};</span>
+<span class="kt">double</span><span class="o">*</span> <span class="n">x</span>  <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="kt">int</span><span class="o">*</span>    <span class="n">j</span>  <span class="o">=</span> <span class="n">i</span><span class="p">;</span>             <span class="c1">// OK: i and j are both int*</span>
+<span class="kt">void</span><span class="o">*</span>   <span class="n">p1</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>             <span class="c1">// OK: assign int* to void*</span>
+<span class="kt">void</span><span class="o">*</span>   <span class="n">p2</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>             <span class="c1">// OK: assign double* to void*</span>
+
+<span class="kt">int</span><span class="o">*</span>    <span class="n">i2</span> <span class="o">=</span> <span class="n">p1</span><span class="p">;</span>            <span class="c1">// error</span>
+                            <span class="c1">// can&#39;t assign void* to int*</span>
+</pre></div>
+</td></tr></table></div>
+<p>The last assignment is invalid, even though <code class="docutils literal notranslate"><span class="pre">p1</span></code> was last assigned an <code class="docutils literal notranslate"><span class="pre">int*</span></code>.
+A human reader knows the void pointer currently holds an int pointer,
+but the compiler does not.</p>
+<p>The compiler <strong>can’t</strong> know the size of the value pointed to.
+<code class="docutils literal notranslate"><span class="pre">void</span></code> isn’t a type, so it has no size:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span>    <span class="n">i</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">5</span><span class="p">};</span>
+<span class="kt">void</span><span class="o">*</span>   <span class="n">p</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>             <span class="c1">// OK</span>
+<span class="kt">int</span><span class="o">*</span>    <span class="n">j</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>             <span class="c1">// error</span>
+</pre></div>
+</div>
+<p>To resolve this error,
+we have to give the compiler size information.
+We can use one of C++ <em>casts</em> to convert <code class="docutils literal notranslate"><span class="pre">void*</span></code>
+to another pointer type that has a size:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span>    <span class="n">i</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">{</span><span class="mi">5</span><span class="p">};</span>
+<span class="kt">void</span><span class="o">*</span>   <span class="n">p</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>                    <span class="c1">// OK</span>
+<span class="c1">//int*  j = p;                    // error</span>
+<span class="kt">int</span><span class="o">*</span>    <span class="n">j</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span> <span class="c1">// OK</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="admonition-more-to-explore admonition">
+<p class="admonition-title">More to Explore</p>
+<ul class="simple">
+<li><p>From the ISO C++ FAQ: <a class="reference external" href="https://isocpp.org/wiki/faq/const-correctness#ptr-to-const-aliasing">Does “Const Fred* p” mean that *p can’t change?</a></p></li>
+<li><p>Effective Modern C++ by Scott Meyers <a class="reference external" href="https://www.google.com/search?q=isbn+0636920033707">Item 8: Prefer nullptr to 0 and NULL</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+  <div id=scprogresscontainer>
+    You have attempted <span id=scprogresstotal></span> of <span id=scprogressposs></span> activities on this page <div id="subchapterprogress"></div>
+  </div>
+  
+      
+<ul>
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 5.5. Pointers to pointers' data-toggle="tooltip">
+    <a href="pointers_to_pointers.html" aria-label="5.5. Pointers to pointers">
+        <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
+            <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
+        </div>
+    </a>
+  </li>
+</ul>
+
+  
+<ul>
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 5.7. Free store pointers' data-toggle="tooltip" >
+    <a href="free-store.html" aria-label="5.7. Free store pointers">
+      <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
+          <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
+      </div>
+    </a>
+  </li>
+</ul>
+
+<script type="text/javascript">
+
+  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
+
+</script>
+
+<script>
+	function mouseOverPrev() {
+		document.getElementById("relations-prev").style.opacity=1;
+	}
+
+	function mouseOutPrev() {
+		document.getElementById("relations-prev").style.opacity=0.4;
+	}
+	function mouseOverNext() {
+		document.getElementById("relations-next").style.opacity=1;
+	}
+
+	function mouseOutNext() {
+		document.getElementById("relations-next").style.opacity=0.4;
+	}
+</script>
+  
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      
+      | <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017-2021 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
+    </p>
+  </div>
+</footer>
+
+
+
+
+<script> getSwitch(); </script>
+
+
+  </body>
+</html>

@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.2. Free store pointers &#8212; CISC 187 Course Reader Overview</title>
+    <title>5.7. Free store pointers &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,8 +57,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.3. Pointer debugging" href="valgrind.html" />
-    <link rel="prev" title="5.1. Pointers" href="pointers.html" />
+    <link rel="next" title="5.8. Pointer debugging" href="valgrind.html" />
+    <link rel="prev" title="5.6. Other pointer characteristics" href="pointers_other.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,13 +188,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">5.1. </span>Pointers" data-toggle="tooltip">
-    <a href="pointers.html" >
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">5.6. </span>Other pointer characteristics" data-toggle="tooltip">
+    <a href="pointers_other.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">5.3. </span>Pointer debugging' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">5.8. </span>Pointer debugging' data-toggle="tooltip" >              
     <a href="valgrind.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -237,7 +237,7 @@
 
   
   <div class="section" id="free-store-pointers">
-<span id="index-0"></span><h1><span class="section-number">5.2. </span>Free store pointers<a class="headerlink" href="#free-store-pointers" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">5.7. </span>Free store pointers<a class="headerlink" href="#free-store-pointers" title="Permalink to this headline">¶</a></h1>
 <p>So far, all of our variables have been created on the <a class="reference internal" href="../glossary.html#term-stack"><span class="xref std std-term">stack</span></a>.
 Another way to say this is our variables have <em>automatic storage duration</em>.
 Variables exist only as long as the scope in which they were created.
@@ -328,7 +328,7 @@ Also, remember that computers are <em>fast</em>.
 Depending on what your program does,
 even a short program can run out of memory before accomplishing all of its goals.</p>
 <div class="section" id="stl-memory-management">
-<span id="index-1"></span><h2><span class="section-number">5.2.1. </span>STL memory management<a class="headerlink" href="#stl-memory-management" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">5.7.1. </span>STL memory management<a class="headerlink" href="#stl-memory-management" title="Permalink to this headline">¶</a></h2>
 <p>When memory is allocated using <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=operator new">operator new</a>,
 eventually it must be recovered using <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=operator delete">operator delete</a>.
 When only a few lines of code are requesting memory,
@@ -362,7 +362,7 @@ Much online documentation and many text books still refer to and recommend <code
 The <code class="docutils literal notranslate"><span class="pre">auto_ptr</span></code> function was officially deprecated in C++11 and removed in C++17.
 Generally, where old texts refer to <code class="docutils literal notranslate"><span class="pre">auto_ptr</span></code>, use <code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code> instead.</p>
 <div class="section" id="class-std-unique-ptr">
-<h3><span class="section-number">5.2.1.1. </span>Class <code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code><a class="headerlink" href="#class-std-unique-ptr" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.7.1.1. </span>Class <code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code><a class="headerlink" href="#class-std-unique-ptr" title="Permalink to this headline">¶</a></h3>
 <p>A <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::unique_ptr">std::unique_ptr</a> is a so-called ‘smart pointer’ that owns and manages another object through a pointer
 and disposes of that object when the <code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code> goes out of scope.
 A <code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code> is a very lightweight wrapper around a pointer.
@@ -458,8 +458,8 @@ or transfer ownership to a different <code class="docutils literal notranslate">
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 5.1. Pointers' data-toggle="tooltip">
-    <a href="pointers.html" aria-label="5.1. Pointers">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 5.6. Other pointer characteristics' data-toggle="tooltip">
+    <a href="pointers_other.html" aria-label="5.6. Other pointer characteristics">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -469,8 +469,8 @@ or transfer ownership to a different <code class="docutils literal notranslate">
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 5.3. Pointer debugging' data-toggle="tooltip" >
-    <a href="valgrind.html" aria-label="5.3. Pointer debugging">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 5.8. Pointer debugging' data-toggle="tooltip" >
+    <a href="valgrind.html" aria-label="5.8. Pointer debugging">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
