@@ -71,11 +71,11 @@ everyone to know on the first day of class.
 Review this material and if anything looks unfamiliar
 then read the linked content and ask questions.
 
-.. index:: 
+.. index:: #pragma once
    pair: introductory topics; header files
+   single: header guard
 
-Source files and header files
------------------------------
+**Source files and header files**
 
 One of the primary goals of this course is to begin creating programs more
 complex than those written previously.
@@ -93,6 +93,11 @@ but you should know by now:
 
   See `cppreference.com <https://en.cppreference.com/w/cpp/preprocessor/include>`__
   for more information.
+
+.. index:: 
+   pair: introductory topics; compilation vs. linking
+
+**Compilation vs. linking**
 
 * What happens during compilation?  Linking?
 * How to use function *main()*, *argc*, and *argv*
@@ -115,66 +120,8 @@ They are output functions C++ inherits from C.
 Normally, in C++ we use stream I/O functions and classes,
 but the old C functions are still there if you need them.
 
-.. tabbed:: command-line
-
-   .. tab:: Command line
-
-      The function `main` gets special treatment in C++.
-      Every executable program must contain **exactly one**
-      function named *main*.
-      Only two signatures are valid:
-
-      .. code-block:: cpp
-
-         int main()
-
-      and:
-
-      .. code-block:: cpp
-
-         int main(int, char* [])  // char** is also allowed
-
-      The first form is preferred when main does not process arguments from the
-      command line.
-
-      The second form is required if the program **does** process command line
-      arguments.
-      The first parameter is a count of how many arguments are in the second parameter.
-      The second parameter is an array of 'C strings'.
-      A 'C string' is a character array, so the second parameter is
-      a two-dimensional array of characters.
-
-      .. code-block:: cpp
-
-         int main(int argc, char** argv)
-
-      The two parameters are commonly named `argc` (argument count) and
-      `argv` (argument values).
-
-      Another thing to notice is that `main` returns a value.
-      Some example programs in this course omit the final return from main.
-      Returning at least `0` from main is considered a best practice,
-      however, if you don't most compilers will add a zero return value
-      for you automatically.
-
-   .. tab:: Try It
-
-      .. activecode:: hello_world_ac
-         :language: cpp
-         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
-         :nocodelens:
-
-         #include <iostream>
-
-         int main(int argc, char** argv) {
-           for (int i=0; i < argc; ++i) {
-             std::cout << "Hello " << argv[i] << "!\n";
-           }
-           return argc;  // who receives this value?
-         }
-         
-Built-in types and type conversions
------------------------------------
+Built-in types, variables and operations
+----------------------------------------
 You should already be familiar with declaring fundamental :cpp:`types`
 (``int``, ``char``, ``double``, ``unsigned``, etc.).
 You should also know that other :types:`fixed width integer types <integer>`
@@ -185,6 +132,11 @@ You should also be familiar with the basic math operations and operators
 Including the shortcut operators (``++``, ``+=``, etc.).
 We will be expanding our knowledge of operators and operations
 extensively during this course.
+
+.. index:: 
+   single: type conversion
+   single: widening conversion
+   single: narrowing conversion
 
 You should know the difference between *declaring*, *initializing*, and
 *assigning a value* to a variable.
@@ -249,11 +201,8 @@ Finally, you should know the basic keywords of the language,
 at least those common to both C and C++, and legal identifier names
 for functions and variables.
 
-
-
 User-defined types
 ------------------
-
 Although you may not have done any object oriented programming yourself,
 you probably have used objects, even if you weren't aware of it.
 The C++ standard provides many classes.
@@ -269,8 +218,8 @@ You should have already encountered code like:
    std::cin  >> name;
    std::cout << "Hello," << name << "!\n";
 
-Hopefully, you have been taught the basics of :cpp:`string` and :container:`vector`
-as it is hard to imagine doing much (non-embedded) C++ programming without ever using either.
+You may have been taught the basics of :cpp:`string` and :container:`vector`.
+It is hard to do much (non-embedded) C++ programming without ever using either.
 A bit like writing a paragraph in English without using the letter 'e'.
 Try that sometime!
 
@@ -279,7 +228,7 @@ often in this course, so if you haven't used them yet,
 don't worry - you will.
 
 File input and output
-.....................
+---------------------
 
 I expect you to know how to use some form of file input and output,
 whether it is the C-style :cstdio:`printf` and :cstdio:`scanf`, or the
@@ -291,45 +240,148 @@ alternative to ``cout``.
 
 Don't panic.
 
-While file I/O is not a primary focus of this course, you will be expected to employ
-basic I/O in labs and projects.
+While file I/O is not a primary focus of this course,
+you will be expected to employ basic I/O in labs and projects.
 
-Using ``cin`` to access user data:
+.. tabbed:: tab_io_examples
 
-.. activecode:: hello_world_cin_ac
-   :language: cpp
-   :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
-   :nocodelens:
-   :stdin: Alice
+   .. tab:: C style IO
 
-   #include <iostream>
-   #include <string>
+      This example uses ``printf`` and ``scanf`` to interact with
+      the standard console input and output.
 
-   int main () {
-     std::string name;
-     std::cin >> name;
-     std::cout << "Hello, " << name << "!\n";
-   }
+      .. activecode:: hello_world_scanf_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+         :nocodelens:
+         :stdin: Alice
+
+         #include <cstdio>
+
+         int main () {
+           char name[20];
+           scanf("%s", name);
+           printf("Hello, %s!\n", name);
+         }
+
+      .. admonition:: Try This!
+
+         Feel free to change the input to something else to see what happens.
+
+         What happens if we enter a name longer tahn our buffer size?
+
+   .. tab:: C++ style IO
+
+      This example uses ``std::cout`` and ``std::cin`` to interact with
+      the standard console input and output.
 
 
-Reading from a file to access external data:
+      .. activecode:: hello_world_cin_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+         :nocodelens:
+         :stdin: Alice
 
-.. code-block:: cpp
+         #include <iostream>
+         #include <string>
 
-   #include <fstream>
-   #include <iostream>
+         int main () {
+           std::string name;
+           std::cin >> name;
+           std::cout << "Hello, " << name << "!\n";
+         }
 
-   int main () {
-     // assuming the file 'poem.txt' exists in the current directory
-     std::ifstream is("poem.txt");
-     char c;
-     while (is.get(c)) {  // read the text file one byte (char) at a time
-       std::cout << c;
-     }
-     is.close();
-     return 0;
-   }
+      Feel free to change the input to something else to see what happens.
 
+
+   .. tab:: C file IO
+
+      Reading from a file to access external data:
+
+      .. activecode:: df_ac_poem_c_file_io
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+         :datafile: poem.txt
+         :nocodelens:
+
+         #include <cstdio>
+
+         int main() {
+            FILE* ptr = fopen("poem.txt","r");
+
+            return 0;
+         }
+
+   .. tab:: C++ file IO
+
+      Reading from a file to access external data:
+
+      .. activecode:: df_ac_poem_stream_io
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+         :datafile: poem.txt
+         :nocodelens:
+
+         #include <fstream>
+         #include <iostream>
+
+         int main () {
+           // assuming the file 'poem.txt' exists in the current directory
+           std::ifstream is("poem.txt");
+           char c;
+           // read the text file one byte (char) at a time
+           while (is.get(c)) {
+             std::cout << c;
+           }
+           is.close();
+           return 0;
+         }
+
+      .. admonition:: Try This!
+
+         Change this program to read from the poem file
+         one **line** at a time instead of reading single
+         characters at a time.
+
+         Hint: change ``char`` to ``std::string`` and use :string:`getline`
+         instead of ``get``.
+
+   .. tab:: poem.txt
+
+      .. datafile:: poem.txt
+         :edit:
+
+         "Beware the Jabberwock, my son!
+           The jaws that bite, the claws that catch!
+         Beware the Jubjub bird, and shun
+           The frumious Bandersnatch!"
+
+         He took his vorpal sword in hand:
+           Long time the manxome foe he sought --
+         So rested he by the Tumtum tree,
+           And stood awhile in thought.
+
+         And, as in uffish thought he stood,
+           The Jabberwock, with eyes of flame,
+         Came whiffling through the tulgey wood,
+           And burbled as it came!
+
+         One, two! One, two! And through and through
+           The vorpal blade went snicker-snack!
+         He left it dead, and with its head
+           He went galumphing back.
+
+         And, has thou slain the Jabberwock?
+           Come to my arms, my beamish boy!
+         O frabjous day! 'Callooh! Callay!'
+           He chortled in his joy.
+
+Keep in mind that each of the I/O examples presented are just
+one way to solve these problems.
+Each of them could have been written differently and
+achieved exactly the same goals.
+At this point, we are not concerned with a thorough treatment
+of input and output, rather we are just reviewing major concepts.
 
 Statements and branching
 ------------------------
