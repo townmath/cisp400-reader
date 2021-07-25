@@ -513,11 +513,18 @@ int main () {
     style="visibility: hidden;">
 #include <cstdio>
 
-int main() {
-   FILE* ptr = fopen("poem.txt","r");
-
-   return 0;
+// assuming the file 'poem.txt' exists in the current directory
+FILE* ptr = fopen("poem.txt","r");
+if (ptr == NULL) {
+  printf("Unable to open poem.txt.");
+  return 1;
 }
+char c;
+// read the text file one byte (char) at a time
+while (fscanf(ptr,"%c",&c) == 1) {
+  putchar(c);
+}
+return 0;
 </textarea>
 </div>
 </div>
@@ -564,6 +571,8 @@ instead of <code class="docutils literal notranslate"><span class="pre">get</spa
 <div class="runestone datafile">
 <div class="datafile_caption">Data file: <code>poem.txt</code></div>
 <pre data-component="datafile" id=poem.txt  data-edit="true" data-rows="20" data-cols="43">
+          Jabberwocky
+
 "Beware the Jabberwock, my son!
   The jaws that bite, the claws that catch!
 Beware the Jubjub bird, and shun
@@ -588,6 +597,8 @@ And, has thou slain the Jabberwock?
   Come to my arms, my beamish boy!
 O frabjous day! 'Callooh! Callay!'
   He chortled in his joy.
+
+              -- Lewis Carroll, 1871
 </pre></div>
 </div>
     </div>
@@ -596,8 +607,11 @@ O frabjous day! 'Callooh! Callay!'
 one way to solve these problems.
 Each of them could have been written differently and
 achieved exactly the same goals.
+For example, reading files one byte at a time is not generally
+the most efficient file read solution, but it is extremely simple.
 At this point, we are not concerned with a thorough treatment
-of input and output, rather we are just reviewing major concepts.</p>
+of input and output, rather we are just reviewing major concepts
+and showing the differences between C standard I/O and C++ I/O.</p>
 </div>
 <div class="section" id="statements-and-branching">
 <h2><span class="section-number">1.1.4. </span>Statements and branching<a class="headerlink" href="#statements-and-branching" title="Permalink to this headline">¶</a></h2>

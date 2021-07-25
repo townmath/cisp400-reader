@@ -306,11 +306,18 @@ you will be expected to employ basic I/O in labs and projects.
 
          #include <cstdio>
 
-         int main() {
-            FILE* ptr = fopen("poem.txt","r");
-
-            return 0;
+         // assuming the file 'poem.txt' exists in the current directory
+         FILE* ptr = fopen("poem.txt","r");
+         if (ptr == NULL) {
+           printf("Unable to open poem.txt.");
+           return 1;
          }
+         char c;
+         // read the text file one byte (char) at a time
+         while (fscanf(ptr,"%c",&c) == 1) {
+           putchar(c);
+         }
+         return 0;
 
    .. tab:: C++ file IO
 
@@ -351,6 +358,8 @@ you will be expected to employ basic I/O in labs and projects.
       .. datafile:: poem.txt
          :edit:
 
+                   Jabberwocky
+
          "Beware the Jabberwock, my son!
            The jaws that bite, the claws that catch!
          Beware the Jubjub bird, and shun
@@ -376,12 +385,17 @@ you will be expected to employ basic I/O in labs and projects.
          O frabjous day! 'Callooh! Callay!'
            He chortled in his joy.
 
+                       -- Lewis Carroll, 1871
+
 Keep in mind that each of the I/O examples presented are just
 one way to solve these problems.
 Each of them could have been written differently and
 achieved exactly the same goals.
+For example, reading files one byte at a time is not generally
+the most efficient file read solution, but it is extremely simple.
 At this point, we are not concerned with a thorough treatment
-of input and output, rather we are just reviewing major concepts.
+of input and output, rather we are just reviewing major concepts
+and showing the differences between C standard I/O and C++ I/O.
 
 Statements and branching
 ------------------------

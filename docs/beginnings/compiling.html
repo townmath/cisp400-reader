@@ -275,35 +275,73 @@ It generates native makefiles, projects, and workspaces
 that can be used in the compiler environment of your choice.</p>
 </dd>
 <dt>Clang</dt><dd><p>The Clang project provides a language front-end and tooling infrastructure for
-languages in the C language family (C, C++, Objective C/C++, OpenCL, CUDA, and RenderScript).
+languages in the C language family.
 For our purposes the Clang project provides:</p>
 <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">clang</span></code>: a C compiler</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">clang++</span></code>: a C++ compiler</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">clang-tidy</span></code>: a C++ “linter”</p>
 <p>A linting tools is a program that analyzes your source code statically
 (without running it) to check for possible issues or bugs.</p>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">clang-format</span></code>: a source code (re) formatter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lldb</span></code>: a debugger.</p>
+<p>A debugger is a program that allows you to control and view internal
+details of your program.
+You can pause execution, view or change variables, and see source code.
+As the name implies, the tool is usually used to help find and fix bugs.</p>
+</li>
 </ul>
 <p>There are many other tools in the Clang suite, but these are the ones
 you’ll interact with most often.</p>
+<p>Clang is the default compiler on MacOS and is an option
+on most Linux based systems.</p>
 </dd>
-<dt>Doctest</dt><dd><p><code class="docutils literal notranslate"><span class="pre">doctest</span></code> is a fast C++ testing framework based on the popular
-<a class="reference external" href="https://github.com/catchorg/Catch2">Catch Unit Test</a> framework.</p>
+<dt>Doctest</dt><dd><p><a class="reference external" href="https://github.com/onqtam/doctest/blob/master/doc/markdown/tutorial.md">doctest</a>
+is a fast C++ testing framework based on the popular
+<a class="reference external" href="https://github.com/catchorg/Catch2">Catch Unit Test</a> framework.
+Most labs use doctest to assess your work as you progress through the lab.</p>
+</dd>
+<dt>GCC</dt><dd><p>The GNU Compiler Collection (GCC) provides a tooling infrastructure for
+C, C++, FORTRAN, and a few other languages.
+For our purposes GCC provides:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gcc</span></code>: a C compiler</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gcc++</span></code>: a C++ compiler</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gdb</span></code>: a debugger.</p></li>
+</ul>
+<p>GCC is the default compiler for most Unix and Linux based systems.</p>
 </dd>
 <dt>Git</dt><dd><p><a class="reference external" href="https://git-scm.com">Git</a> is a distributed version-control system
 for tracking changes in source code during software development.
 It is designed for coordinating work among programmers,
 but it can be used to track changes in any set of files.</p>
 </dd>
+<dt>Make</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">make</span></code> program is a tool used to help make things.
+Using <em>make</em> we define <em>targets</em> in a text file and each <em>target</em>
+runs a <em>recipe</em>.
+Using targets and recipes in combination allows make to perform many
+complex tasks automatically.</p>
+</dd>
 </dl>
+<p>On Linux based systems these tools work together like this:</p>
+<ul>
+<li><p>We use <code class="docutils literal notranslate"><span class="pre">git</span></code> to download the latest copy of our code.</p></li>
+<li><p>We use <code class="docutils literal notranslate"><span class="pre">CMake</span></code> to create our build files, which are generally Makefiles.</p></li>
+<li><p>Once the Makefile has been created, we use <code class="docutils literal notranslate"><span class="pre">make</span></code> to perform tasks.
+The simplest command <code class="docutils literal notranslate"><span class="pre">make</span></code> will try to build all the software in the
+current directory.</p>
+<p>Make will use either <code class="docutils literal notranslate"><span class="pre">gcc</span></code> or <code class="docutils literal notranslate"><span class="pre">clang</span></code> to actually compile code.</p>
+</li>
+<li><p>Test cases are written using the <code class="docutils literal notranslate"><span class="pre">doctest</span></code> library and build using <code class="docutils literal notranslate"><span class="pre">make</span></code>.</p></li>
+</ul>
 <div class="section" id="how-to-access-the-mesa-server">
 <span id="index-1"></span><h2><span class="section-number">1.2.1. </span>How to access the Mesa Server<a class="headerlink" href="#how-to-access-the-mesa-server" title="Permalink to this headline">¶</a></h2>
 <p>All projects and some of the lab assignments are required to be handed in on the
 San Diego Mesa College server <strong>buffy</strong>.
 Access is only available using a <em>secure shell</em> client program (ssh).
 There are a few ways to access the server using <code class="docutils literal notranslate"><span class="pre">ssh</span></code>.
-If you have a MacOS X or Linux computer available already, then you already have ssh installed.
+If you have a MacOS or Linux computer available already, then you already have ssh installed.
 If you have a Windows computer,
 then <a class="reference external" href="https://git-scm.com">git</a> is recommended.
 Technically, <code class="docutils literal notranslate"><span class="pre">git</span></code> is a source code revision control program,
@@ -331,9 +369,7 @@ then you may compile the software and run tests.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>All of these steps are demonstrated on a <cite>*nix</cite> style operating system:
-GNU/Linux, Unix, Mac OSX, or Cygwin on Windows.</p>
-<p>I do not know if you could run them on the <em>Windows System for Linux (WSL)</em>
-as I have never tried that.</p>
+GNU/Linux, Unix, MacOS, or Cygwin on Windows.</p>
 </div>
 <ol class="arabic">
 <li><p>First, open a terminal since all of the command that follow are typed
@@ -395,7 +431,7 @@ ctest -R step1
 </div>
 </div>
 <div class="section" id="compiling-code-on-your-local-computer">
-<h1><span class="section-number">1.3. </span>Compiling code on your local computer<a class="headerlink" href="#compiling-code-on-your-local-computer" title="Permalink to this headline">¶</a></h1>
+<span id="index-3"></span><h1><span class="section-number">1.3. </span>Compiling code on your local computer<a class="headerlink" href="#compiling-code-on-your-local-computer" title="Permalink to this headline">¶</a></h1>
 <p>The following sections describe briefly how to get started with
 a local development environment, if you wish.</p>
 <p>In all cases, you still need to install
@@ -411,6 +447,9 @@ at a minimum to complete all the assignments.</p>
 ensure you have the additional software for Linux C++ development.</p>
 <p>Use git to clone your assignments repository to your computer.
 Now you are ready to compile an assignment.</p>
+<div id='tab_msvc' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="GUI" >
+<p>These instructions describe how to build software using the
+Visual Studio Graphical User Interface (GUI).</p>
 <ol class="arabic">
 <li><p>Create a directory named build and open CMake GUI.</p></li>
 <li><p>Select ‘Browse Source’ and select the folder containing
@@ -433,9 +472,11 @@ Test –&gt; Windows –&gt; Test Explorer to view test results or rerun tests.<
 the instructions on the
 <a class="reference external" href="https://docs.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=vs-2017">Microsoft site</a>.</p>
 <p>Select the documentation for your version of Visual Studio.</p>
-<p><strong>Using the Visual Studio command line:</strong></p>
+</div><div data-component="tab" data-tabname="Terminal" >
+<p>These instructions describe how to build software using the
+Using the Visual Studio command line</p>
 <ol class="arabic">
-<li><p>Create a directory named build.</p></li>
+<li><p>Create a directory named build adjacent, but <strong>not in</strong> your source directory.</p></li>
 <li><p>Open the Visual Studio Developer prompt.
 <cite>cd</cite> into the build directory created in the previous step.</p></li>
 <li><p>Type <cite>cmake ..</cite></p>
@@ -463,6 +504,9 @@ ctest -C Release
 </div>
 <p>If this doesn’t work, try
 <a class="reference external" href="https://docs.microsoft.com/en-us/cpp/build/walkthrough-compiling-a-native-cpp-program-on-the-command-line?view=vs-2019">the instructions on the Microsoft site</a></p>
+</div>
+    </div>
+
 </div>
 <div class="section" id="compiling-with-code-blocks">
 <h2><span class="section-number">1.3.2. </span>Compiling with Code Blocks<a class="headerlink" href="#compiling-with-code-blocks" title="Permalink to this headline">¶</a></h2>

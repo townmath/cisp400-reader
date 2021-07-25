@@ -7,9 +7,9 @@
     License".
 
 .. index:: compiling,
-   single: cmake
-   single: clang; clang-tidy; clang-format
-   single: git
+   single: cmake; make
+   single: clang; clang-tidy; clang-format; gcc
+   single: git; ssh
    single: doctest; catch2
 
 Building software
@@ -55,9 +55,10 @@ CMake
 
 Clang
    The Clang project provides a language front-end and tooling infrastructure for
-   languages in the C language family (C, C++, Objective C/C++, OpenCL, CUDA, and RenderScript).
+   languages in the C language family.
    For our purposes the Clang project provides:
 
+   - ``clang``: a C compiler
    - ``clang++``: a C++ compiler
    - ``clang-tidy``: a C++ "linter"
 
@@ -65,20 +66,62 @@ Clang
      (without running it) to check for possible issues or bugs.
 
    - ``clang-format``: a source code (re) formatter.
+   - ``lldb``: a debugger.
+
+     A debugger is a program that allows you to control and view internal
+     details of your program.
+     You can pause execution, view or change variables, and see source code.
+     As the name implies, the tool is usually used to help find and fix bugs.
+
 
    There are many other tools in the Clang suite, but these are the ones
    you'll interact with most often.
 
+   Clang is the default compiler on MacOS and is an option 
+   on most Linux based systems.
 
 Doctest
-   ``doctest`` is a fast C++ testing framework based on the popular
+   `doctest <https://github.com/onqtam/doctest/blob/master/doc/markdown/tutorial.md>`__
+   is a fast C++ testing framework based on the popular
    `Catch Unit Test <https://github.com/catchorg/Catch2>`__ framework.
+   Most labs use doctest to assess your work as you progress through the lab.
+
+GCC
+   The GNU Compiler Collection (GCC) provides a tooling infrastructure for
+   C, C++, FORTRAN, and a few other languages.
+   For our purposes GCC provides:
+
+   - ``gcc``: a C compiler
+   - ``gcc++``: a C++ compiler
+   - ``gdb``: a debugger.
+
+   GCC is the default compiler for most Unix and Linux based systems.
 
 Git
    `Git <https://git-scm.com>`__ is a distributed version-control system
    for tracking changes in source code during software development.
    It is designed for coordinating work among programmers,
    but it can be used to track changes in any set of files.
+
+Make
+   The ``make`` program is a tool used to help make things.
+   Using *make* we define *targets* in a text file and each *target*
+   runs a *recipe*. 
+   Using targets and recipes in combination allows make to perform many
+   complex tasks automatically.
+
+
+On Linux based systems these tools work together like this:
+
+- We use ``git`` to download the latest copy of our code.
+- We use ``CMake`` to create our build files, which are generally Makefiles.
+- Once the Makefile has been created, we use ``make`` to perform tasks.
+  The simplest command ``make`` will try to build all the software in the
+  current directory.
+
+  Make will use either ``gcc`` or ``clang`` to actually compile code.
+
+- Test cases are written using the ``doctest`` library and build using ``make``.
 
 .. index:: 
    pair: ssh; secure shell
@@ -90,7 +133,7 @@ All projects and some of the lab assignments are required to be handed in on the
 San Diego Mesa College server **buffy**.
 Access is only available using a *secure shell* client program (ssh).
 There are a few ways to access the server using ``ssh``.
-If you have a MacOS X or Linux computer available already, then you already have ssh installed.
+If you have a MacOS or Linux computer available already, then you already have ssh installed.
 If you have a Windows computer, 
 then `git <https://git-scm.com>`__ is recommended.
 Technically, ``git`` is a source code revision control program,
@@ -129,10 +172,7 @@ then you may compile the software and run tests.
 .. note::
 
    All of these steps are demonstrated on a `*nix` style operating system:
-   GNU/Linux, Unix, Mac OSX, or Cygwin on Windows.
-
-   I do not know if you could run them on the *Windows System for Linux (WSL)*
-   as I have never tried that.
+   GNU/Linux, Unix, MacOS, or Cygwin on Windows.
 
 1. First, open a terminal since all of the command that follow are typed
    on the command line.
@@ -199,6 +239,9 @@ for example:
 
 Both of these commands return the exact same output.
 
+.. index:: compiling locally
+   single: IDE
+
 Compiling code on your local computer
 =====================================
 The following sections describe briefly how to get started with
@@ -222,71 +265,79 @@ ensure you have the additional software for Linux C++ development.
 Use git to clone your assignments repository to your computer.
 Now you are ready to compile an assignment.
 
-1. Create a directory named build and open CMake GUI.
-2. Select 'Browse Source' and select the folder containing 
-   the lab you want to build.
-3. Select 'Browse Build' and select the `build` folder you created.
-4. In the lower left corner, select 'Configure' and
-   select 'Visual Studio 16 2019 Win64' from the list of
-   available generators.
+.. tabbed:: tab_msvc
 
-   Leave the remaining selections alone and
-   press 'Finish` when done.
+   .. tab:: GUI
 
-   Don't worry (yet) if you see any warnings or errors.
-5. Press 'Generate'. When finished ("Generating done")
-   close CMake GUI.
-6. Open the generated solution (.sln) file in Visual Studio.
+      These instructions describe how to build software using the
+      Visual Studio Graphical User Interface (GUI).
 
-Build the solution then open
-Test --> Windows --> Test Explorer to view test results or rerun tests.
+      1. Create a directory named build and open CMake GUI.
+      2. Select 'Browse Source' and select the folder containing 
+         the lab you want to build.
+      3. Select 'Browse Build' and select the `build` folder you created.
+      4. In the lower left corner, select 'Configure' and
+         select 'Visual Studio 16 2019 Win64' from the list of
+         available generators.
 
-If this doesn't work, try
-the instructions on the 
-`Microsoft site <https://docs.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=vs-2017>`__.
+         Leave the remaining selections alone and
+         press 'Finish` when done.
 
-Select the documentation for your version of Visual Studio.
+         Don't worry (yet) if you see any warnings or errors.
+      5. Press 'Generate'. When finished ("Generating done")
+         close CMake GUI.
+      6. Open the generated solution (.sln) file in Visual Studio.
 
-**Using the Visual Studio command line:**
+      Build the solution then open
+      Test --> Windows --> Test Explorer to view test results or rerun tests.
 
-1. Create a directory named build.
-2. Open the Visual Studio Developer prompt.
-   `cd` into the build directory created in the previous step.
-3. Type `cmake ..`
+      If this doesn't work, try
+      the instructions on the 
+      `Microsoft site <https://docs.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=vs-2017>`__.
 
-   This should create a standard Visual Studio solution that
-   you can run from the command line or the IDE.
+      Select the documentation for your version of Visual Studio.
 
-4. Type `MSBuild lab1.sln` to build all projects in the **Debug** configuation
-5. Type `ctest -C Debug` to run all tests
+   .. tab:: Terminal
 
+      These instructions describe how to build software using the
+      Using the Visual Studio command line
 
-To remove all executable files:
+      1. Create a directory named build adjacent, but **not in** your source directory.
+      2. Open the Visual Studio Developer prompt.
+         `cd` into the build directory created in the previous step.
+      3. Type `cmake ..`
 
-.. code-block:: none
+         This should create a standard Visual Studio solution that
+         you can run from the command line or the IDE.
 
-   MSBuild lab1.sln -target:Clean
-   MSBuild lab1.sln -t:Clean
-
-To build a single test:
-
-.. code-block:: none
-   
-   MSBuild lab1.sln -t:step1
-
-To build all files in **Release** configuration,
-without any Debug symbols:
-
-.. code-block:: none
-
-   MSBuild lab1.sln -p:Configuration=Release
-   # run tests
-   ctest -C Release
-
-If this doesn't work, try
-`the instructions on the Microsoft site <https://docs.microsoft.com/en-us/cpp/build/walkthrough-compiling-a-native-cpp-program-on-the-command-line?view=vs-2019>`__
+      4. Type `MSBuild lab1.sln` to build all projects in the **Debug** configuation
+      5. Type `ctest -C Debug` to run all tests
 
 
+      To remove all executable files:
+
+      .. code-block:: none
+
+         MSBuild lab1.sln -target:Clean
+         MSBuild lab1.sln -t:Clean
+
+      To build a single test:
+
+      .. code-block:: none
+         
+         MSBuild lab1.sln -t:step1
+
+      To build all files in **Release** configuration,
+      without any Debug symbols:
+
+      .. code-block:: none
+
+         MSBuild lab1.sln -p:Configuration=Release
+         # run tests
+         ctest -C Release
+
+      If this doesn't work, try
+      `the instructions on the Microsoft site <https://docs.microsoft.com/en-us/cpp/build/walkthrough-compiling-a-native-cpp-program-on-the-command-line?view=vs-2019>`__
 
 
 Compiling with Code Blocks
