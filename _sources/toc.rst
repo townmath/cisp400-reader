@@ -16,6 +16,7 @@ Preliminaries
 
 .. toctree::
 
+   c_review/index.rst
    math/index.rst
    analysis/index.rst
 
@@ -24,7 +25,7 @@ Main Body
 
 .. toctree::
 
-   beginnings/index.rst
+   build_tools/index.rst
    string+vector/index.rst
 
    function-intro/index.rst

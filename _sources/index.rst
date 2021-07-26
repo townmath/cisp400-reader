@@ -33,6 +33,7 @@ Preliminaries
 .. toctree::
    :maxdepth: 1
 
+   c_review/index.rst
    math/index.rst
    analysis/index.rst
 
@@ -43,7 +44,7 @@ Chapters
    :numbered:
    :maxdepth: 1
 
-   beginnings/index.rst
+   build_tools/index.rst
    string+vector/index.rst
 
    function-intro/index.rst
