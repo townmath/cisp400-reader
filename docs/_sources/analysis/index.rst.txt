@@ -13,6 +13,13 @@
 
 Algorithm Analysis
 ==================
+This chapter introduces the motivation, basic notation, and
+fundamental techniques of algorithm analysis.
+We focus on a methodology known as
+:term:`asymptotic algorithm analysis`, or simply
+:term:`asymptotic analysis`.
+Asymptotic analysis attempts to estimate the resource
+consumption of an algorithm.
 
 .. toctree::
    :maxdepth: 2
@@ -33,14 +40,7 @@ Questions like these ask us to consider the difficulty of a problem,
 or the relative efficiency of two or more approaches to solving a
 problem.
 
-This chapter introduces the motivation, basic notation, and
-fundamental techniques of algorithm analysis.
-We focus on a methodology known as
-:term:`asymptotic algorithm analysis`, or simply
-:term:`asymptotic analysis`.
-Asymptotic analysis attempts to estimate the resource
-consumption of an algorithm.
-It allows us to compare the relative costs of two or more
+Asymptotic analysis allows us to compare the relative costs of two or more
 algorithms for solving the same problem.
 Asymptotic analysis also gives algorithm designers a tool for
 estimating whether a proposed solution is likely to meet the resource

@@ -238,11 +238,28 @@
   
   <div class="section" id="development-tools">
 <h1><span class="section-number">1. </span>Development tools<a class="headerlink" href="#development-tools" title="Permalink to this headline">¶</a></h1>
+<p>This chapter introduces the development environment used throughout
+the book and what you need to do in order to complete assignments.</p>
+<p>Understanding the first 3 section of this chapter are critical -
+all assignments are turned in using <code class="docutils literal notranslate"><span class="pre">git</span></code> and are
+compiled and tested using <code class="docutils literal notranslate"><span class="pre">cmake</span></code>.
+People who plan to complete assignments on a system other than
+the Mesa server may find the section
+<a class="reference internal" href="compiling.html#local-compile-label"><span class="std std-ref">Compiling code on your local computer</span></a> useful.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="git-setup.html">1.1. Git setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git-using.html">1.2. Version control</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="git-using.html#setting-up-git">1.2.1. Setting up git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git-setup.html">1.1. Git setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="git-setup.html#step-1-install-git">1.1.1. Step 1: Install Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git-setup.html#step-2-setup-your-username-and-email-address-in-git">1.1.2. Step 2: Setup your username and email address in Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git-setup.html#step-3-setup-authentication">1.1.3. Step 3: Setup authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="git-using.html">1.2. Using Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="git-using.html#initialize-a-git-repository">1.2.1. Initialize a git repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git-using.html#editing-files">1.2.2. Editing files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git-using.html#renaming-files">1.2.3. Renaming files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git-using.html#adding-and-removing-files">1.2.4. Adding and removing files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git-using.html#recovering-files-from-the-repository">1.2.5. Recovering files from the repository</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="compiling.html">1.3. Building software</a><ul>
@@ -256,6 +273,16 @@
 <li class="toctree-l2"><a class="reference internal" href="compiling.html#compiling-with-xcode">1.4.3. Compiling with XCode</a></li>
 </ul>
 </li>
+</ul>
+</div>
+<p>The remaining sections in this chapter are useful at various times
+throughout the course, but you should not try to master them all
+in the first week.</p>
+<p>If you plan to work mostly on the Mesa server,
+the introduction to GNU/Linux commands and the vim text editor
+are highly recommended.</p>
+<div class="toctree-wrapper compound">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="linux.html">1.5. Introducing Gnu/Linux</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="linux.html#the-command-line">1.5.1. The command line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linux.html#absolute-vs-relative-paths">1.5.2. Absolute vs relative paths</a></li>
@@ -271,12 +298,26 @@
 <li class="toctree-l2"><a class="reference internal" href="vim.html#navigating-to-make-errors">1.6.6. Navigating to <em>make</em> errors</a></li>
 </ul>
 </li>
+</ul>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">gcc</span></code> and <code class="docutils literal notranslate"><span class="pre">make</span></code> section is purely for reference,
+but does provide some insight into how software gets built
+and can help remove some of the ‘magic’ from the build process.</p>
+<div class="toctree-wrapper compound">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="make.html">1.7. Command-line compiling</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="make.html#the-c-compiler">1.7.1. The C++ compiler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="make.html#the-make-utility">1.7.2. The make utility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="make.html#running-your-programs">1.7.3. Running your programs</a></li>
 </ul>
 </li>
+</ul>
+</div>
+<p>You may choose to defer reading about debugging until you actually need
+to use it and can treat it like a quick primer.
+When you are working on project 1 is a good time to read this section.</p>
+<div class="toctree-wrapper compound">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">1.8. Debugging</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="debugging.html#syntax-errors">1.8.1. Syntax errors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging.html#link-errors">1.8.2. Link errors</a></li>
@@ -288,11 +329,6 @@
 </li>
 </ul>
 </div>
-<p>This chapter introduces the development environment used throughout
-the book and what you need to do in order to complete assignments.</p>
-<p>For work completed on the Mesa server, the last few sections provide
-an introduction to GNU/Linux commands, the vim text editor,
-and details of make files and debugging.</p>
 </div>
 
 

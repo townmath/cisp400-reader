@@ -13,6 +13,11 @@
 
 Mathematical Background
 =======================
+This chapter presents mathematical notation,
+background, and techniques used throughout the book.
+This material is provided primarily for review and reference.
+You might wish to return to the relevant sections when you encounter
+unfamiliar notation or mathematical techniques in later chapters.
 
 .. toctree::
    :maxdepth: 2
@@ -26,12 +31,6 @@ Mathematical Background
    estimation.rst
    psuedocode.rst
 
-
-This chapter presents mathematical notation,
-background, and techniques used throughout the book.
-This material is provided primarily for review and reference.
-You might wish to return to the relevant sections when you encounter
-unfamiliar notation or mathematical techniques in later chapters.
 
 The concept of :doc:`estimation` might be unfamiliar to many readers.
 Estimation is not a mathematical technique,

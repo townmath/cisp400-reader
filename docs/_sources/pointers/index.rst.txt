@@ -1,5 +1,6 @@
 Pointers
 ========
+The pointer data type and indirect addressing are covered.
 
 .. toctree::
    :maxdepth: 2

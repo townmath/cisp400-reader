@@ -1,5 +1,7 @@
 Stacks and Queues
 =================
+The Adapter design pattern is explored in the context of
+the STL containers ``stack`` and ``queue``.
 
 .. toctree::
    :maxdepth: 2

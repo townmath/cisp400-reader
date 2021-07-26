@@ -7,6 +7,8 @@
 
 Frequently asked questions (FAQ)
 ================================
+This section is a collection of my answers to some frequently asked questions
+you may find useful.
 
 .. toctree::
    :maxdepth: 1

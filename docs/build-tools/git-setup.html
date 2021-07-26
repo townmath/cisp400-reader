@@ -57,7 +57,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.2. Version control" href="git-using.html" />
+    <link rel="next" title="1.2. Using Git" href="git-using.html" />
     <link rel="prev" title="1. Development tools" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -194,7 +194,7 @@
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">1.2. </span>Version control' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">1.2. </span>Using Git' data-toggle="tooltip" >              
     <a href="git-using.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -251,17 +251,19 @@ and configure Git on your computer.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You will not be able to turn in any assignments until
-all three steps have been completed.</p>
+<strong>all three</strong> steps have been completed.</p>
 </div>
-<p><strong>Step 1</strong></p>
+<div class="section" id="step-1-install-git">
+<h2><span class="section-number">1.1.1. </span>Step 1: Install Git<a class="headerlink" href="#step-1-install-git" title="Permalink to this headline">¶</a></h2>
 <p>Download and install the version of git appropriate for your operating system
 from the  <a class="reference external" href="https://git-scm.com/downloads">git download site</a>.
 You may down load the GUI if you like, however, all of the examples
 in this text will be on the command line.</p>
 <p>If you are only using the Mesa server, you can skip this step.
 Git has been installed for you.</p>
-<p><strong>Step 2</strong></p>
-<p>Setup your username and email address in Git.</p>
+</div>
+<div class="section" id="step-2-setup-your-username-and-email-address-in-git">
+<h2><span class="section-number">1.1.2. </span>Step 2: Setup your username and email address in Git<a class="headerlink" href="#step-2-setup-your-username-and-email-address-in-git" title="Permalink to this headline">¶</a></h2>
 <p>Git uses a username to associate commits with an identity.
 The Git username is not the same as your GitHub username.
 In this class, you should use the name you used to register for this course.</p>
@@ -305,17 +307,264 @@ push from the command line as well as web-based Git operations you make.</p>
 <p>If you want to receive email when I create issues or comment on your code,
 then you should use a valid email address.</p>
 <p>If you want to keep your email address private, you can do this on GitHub.
-For more information see the <a class="reference external" href="https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address#about-commit-email-addresses">Manaing email page</a>
+For more information see the
+<a class="reference external" href="https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address#about-commit-email-addresses">Manaing email page</a>
 on GitHub.</p>
-<p><strong>Step 3</strong></p>
-<p>Setup authentication.</p>
+</div>
+<div class="section" id="step-3-setup-authentication">
+<h2><span class="section-number">1.1.3. </span>Step 3: Setup authentication<a class="headerlink" href="#step-3-setup-authentication" title="Permalink to this headline">¶</a></h2>
+<p>When you connect to a GitHub repository from Git,
+you’ll need to authenticate with GitHub using either HTTPS or SSH.</p>
+<p>Starting in 13 August 2021, basic authentication using a password to Git
+no longer works.
+GitHub requires the use of token-based authentication
+(for example, a personal access token, or an SSH key)
+for all authenticated Git operations.
+See <a class="reference external" href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">this blog post</a>
+for details.</p>
+<p>Although GitHub provides many authentication choices,
+in this class you will need to be able to access
+GitHub from the Mesa server.
+This means you need to use either a personal access token or SSH.</p>
+<p>You do not need to create both, but you are free to do so.</p>
+<ul class="simple">
+<li><p>A personal access token only works when
+performing Git operations over HTTPS.</p></li>
+<li><p>An SSH key only works when
+performing Git operations over SSH.</p></li>
+</ul>
+<div class="section" id="creating-an-ssh-key">
+<h3><span class="section-number">1.1.3.1. </span>Creating an SSH key<a class="headerlink" href="#creating-an-ssh-key" title="Permalink to this headline">¶</a></h3>
+<p>You can connect to GitHub using the Secure Shell Protocol (SSH),
+which provides a secure channel over an unsecured network.</p>
+<p>Using the SSH protocol,
+you can connect and authenticate to remote servers and services.
+With SSH keys,
+you can connect to GitHub without supplying your username and
+personal access token at each visit.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As a security precaution,
+GitHub automatically removes your inactive SSH key
+haven’t been used in a year.
+For more information, see
+“<a class="reference external" href="https://docs.github.com/en/articles/deleted-or-missing-ssh-keys">Deleted or missing SSH keys</a>.”</p>
+</div>
+<p>If you don’t already have an SSH key,
+then you must generate a new SSH key to use for authentication.
+If you’re unsure whether you already have an SSH key,
+then you can check for existing keys.
+For more information, see “<a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/checking-for-existing-ssh-keys">Checking for existing SSH keys</a>.”</p>
+<p>To create an SSH key do the following:</p>
+<ol class="arabic">
+<li><p>Login to the Mesa server or open a local terminal or Git Bash shell</p></li>
+<li><p>Paste the text below, substituting in your GitHub email address:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;
+</pre></div>
+</div>
+<p>This creates a new ssh key, using the provided email as a label.
+You should see:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Generating public/private ed25519 key pair.
+</pre></div>
+</div>
+</li>
+<li><p>When you’re prompted to “Enter a file in which to save the key,”
+press Enter. This accepts the default file location.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Enter file in which to save the key (/var2/home/fire/fire40/.ssh/id_ed25519):
+</pre></div>
+</div>
+<p>You should see:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Created directory &#39;/var2/home/fire/fire40/.ssh&#39;.
+</pre></div>
+</div>
+</li>
+<li><p>At the prompt, type a secure passphrase.
+For more information, see
+“<a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/working-with-ssh-key-passphrases">Working with SSH key passphrases</a>.”</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Enter passphrase (empty for no passphrase): [Type a passphrase]
+Enter same passphrase again: [Type passphrase again]
+</pre></div>
+</div>
+<p>You will see some other output, but most important is the file containing
+your public key, which will be similar to:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Your public key has been saved in /var2/home/fire/fire40/.ssh/id_ed25519.pub.
+</pre></div>
+</div>
+<p>Make note of that, as you’ll need it in the next steps.</p>
+</li>
+</ol>
+<p>To configure your GitHub account to use your SSH key,
+you’ll also need to add it to your GitHub account.</p>
+<ol class="arabic">
+<li><p>First, copy your public SSH key.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cat /var2/home/fire/fireNN/.ssh/id_ed25519.pub
+</pre></div>
+</div>
+<p>This command will display the contents of your public key
+(change NN to your fire number)
+which you can then copy and paste in the browser.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p><strong>Private keys are sensitive data!</strong></p>
+<p>Treat your private keys like passwords and keep them secret.</p>
+<p>Your private key is stored in a separate file -  by default
+it is the same file name as your public key without the “.pub”
+file extension.</p>
+<p>Never post your private key on a web page or any other public location
+even for a short time.</p>
+<p>If you think your private key has been compromised, you should delete
+it and create a new one.</p>
+</div>
+</li>
+<li><p>In the upper-right corner of any page, click your profile photo,
+then click <strong>Settings</strong>.</p></li>
+<li><p>In the user settings sidebar, click <strong>SSH and GPG keys</strong>.</p></li>
+<li><p>Click <strong>New SSH key</strong> or <strong>Add SSH key</strong>.</p></li>
+<li><p>In the “Title” field, add a descriptive label for the new key.
+For example, if you created this on the Mesa server,
+you might call this key “Mesa College CISC187”.</p></li>
+<li><p>Paste your key into the “Key” field.</p></li>
+<li><p>Click <strong>Add SSH key</strong>.</p></li>
+<li><p>If prompted, confirm your <strong>GitHub password</strong>.</p></li>
+</ol>
+<p>Now you are ready to use your SSH key.</p>
+</div>
+<div class="section" id="using-an-ssh-key-on-the-command-line">
+<h3><span class="section-number">1.1.3.2. </span>Using an SSH key on the command line<a class="headerlink" href="#using-an-ssh-key-on-the-command-line" title="Permalink to this headline">¶</a></h3>
+<p>After you’ve set up your SSH key and added it to your GitHub account,
+you can use it.
+Since the setup is more complicated than a simple token,
+it’s a good idea to test it first.
+When you test your connection,
+you’ll need to authenticate using your SSH key passphrase you created earlier.</p>
+<p>Test your SSH keys:</p>
+<ol class="arabic">
+<li><p>Login to the Mesa server (or other location of you public/private SSH key pair)</p></li>
+<li><p>Enter the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ssh -T git@github.com
+</pre></div>
+</div>
+<p>This will attempt to connect to github.com over ssh.</p>
+<p>You may see a warning like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The authenticity of host &#39;github.com (IP ADDRESS)&#39; can&#39;t be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)?
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the fingerprint in the message you see matches
+<a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/githubs-ssh-key-fingerprints">GitHub’s RSA public key fingerprint</a>.
+If it does, then type yes:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Hi username! You&#39;ve successfully authenticated, but GitHub does not
+provide shell access.
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the resulting message contains your username.
+If you receive a “permission denied” message, see
+“<a class="reference external" href="https://docs.github.com/en/articles/error-permission-denied-publickey">Error: Permission denied (publickey)</a>”.</p></li>
+</ol>
+<p>A common source of error is using your GitHub username over SSH.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Always use the “git” user</p>
+<p>All connections, including those for remote URLs,
+must be made as the “git” user.
+If you try to connect with your GitHub username:</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ssh -T GITHUB-USERNAME@github.com
+</pre></div>
+</div>
+<p>then it will fail:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Permission denied (publickey).
+</pre></div>
+</div>
+<p>Once your SSH key is setup correctly, the only real difference in using it is
+the URL you use to clone a repository.
+To clone using SSH use the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:DaveParillo/cisc187-TTYY-fireNN.git
+</pre></div>
+</div>
+<p>In the above URL, replace <strong>TT</strong> with either</p>
+<ul class="simple">
+<li><p><strong>sp</strong> in the spring term</p></li>
+<li><p><strong>fa</strong> in the fall term</p></li>
+</ul>
+<p>and replace <strong>YY</strong> with the 2 digit year of the semester
+and replace <strong>NN</strong> with your 2 digit fire number assigned to you.</p>
+<p>For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:DaveParillo/cisc187-sp21-fire01.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-github-personal-access-token">
+<h3><span class="section-number">1.1.3.3. </span>Creating a GitHub personal access token<a class="headerlink" href="#creating-a-github-personal-access-token" title="Permalink to this headline">¶</a></h3>
+<p>Personal access tokens (PATs) are an alternative to using passwords for
+authentication to GitHub when using the git command line.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As a security precaution,
+GitHub automatically removes personal access tokens that
+haven’t been used in a year.</p>
+</div>
+<p>Follow the instructions on
+<a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">GitHub</a>
+to create a personal access token</p>
+<p>At a minimum, you will want to ensure you give the token access to repositories
+from the command line.
+At the “scopes” or “permissions” screen, ensure you have <strong>repo</strong> selected.</p>
+<p>After you have copied your token and leave the token creation page,
+you will not be able to see it again.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p><strong>Tokens are sensitive data!</strong></p>
+<p>Treat your tokens like passwords and keep them secret.</p>
+<p>A PAT is not your password, but it provides access to your source code.</p>
+<p>If you think your token has been comprimised, delete it on GitHub
+and make a new token.</p>
+</div>
+</div>
+<div class="section" id="using-a-token-on-the-command-line">
+<h3><span class="section-number">1.1.3.4. </span>Using a token on the command line<a class="headerlink" href="#using-a-token-on-the-command-line" title="Permalink to this headline">¶</a></h3>
+<p>Once you have a token, you can enter it instead of your password when
+performing Git operations over HTTPS.</p>
+<p>For example, to get a copy of all your assignments
+on the command line you would enter the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/DaveParillo/cisc187-sp21-fire01.git
+Username: your_username
+Password: your_token
+</pre></div>
+</div>
+<p>In the above URL, replace <strong>TT</strong> with either</p>
+<ul class="simple">
+<li><p><strong>sp</strong> in the spring term</p></li>
+<li><p><strong>fa</strong> in the fall term</p></li>
+</ul>
+<p>and replace <strong>YY</strong> with the 2 digit year of the semester
+and replace <strong>NN</strong> with your 2 digit fire number assigned to you.</p>
+<p>Do <strong>not</strong> enter your password at the prompt.
+Yes, I know it says ‘password’.
+Enter your personal access token
+Personal access tokens can only be used for HTTPS Git operations.</p>
+<p>Instead of manually entering your PAT for every HTTPS Git operation,
+you can cache your PAT with a Git client.
+Git will temporarily store your credentials in memory
+until an expiry interval has passed.
+You can also store the token in a plain text file that Git
+can read before every request.</p>
+<p>For more information, see
+“<a class="reference external" href="https://docs.github.com/en/github/getting-started-with-github/caching-your-github-credentials-in-git">Caching your GitHub credentials in Git</a>.”</p>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://git-scm.com/doc">Git Documentation</a></p></li>
 <li><p><a class="reference external" href="https://docs.github.com/en/get-started/quickstart">GitHub quickstart</a></p></li>
+<li><p><a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">Creating SSH Keys</a></p></li>
+<li><p><a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">Creating a GitHub Personal Access Token</a></p></li>
 </ul>
+</div>
+</div>
 </div>
 </div>
 
@@ -337,8 +586,8 @@ on GitHub.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 1.2. Version control' data-toggle="tooltip" >
-    <a href="git-using.html" aria-label="1.2. Version control">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 1.2. Using Git' data-toggle="tooltip" >
+    <a href="git-using.html" aria-label="1.2. Using Git">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

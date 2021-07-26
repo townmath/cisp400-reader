@@ -242,10 +242,15 @@ Both of these commands return the exact same output.
 .. index:: compiling locally
    single: IDE
 
+.. _local-compile-label:
+
 Compiling code on your local computer
 =====================================
 The following sections describe briefly how to get started with
 a local development environment, if you wish.
+
+If you plan to use the Mesa server,
+then you can ignore the rest of this section.
 
 In all cases, you still need to install 
 `git <https://git-scm.com>`__ and

@@ -11,6 +11,16 @@
 
 Sorting
 =======
+**Sorting** is the process of placing elements from a collection in some
+kind of order. For example, a list of words could be sorted
+alphabetically or by length. A list of cities could be sorted by
+population, by area, or by zip code. We have already seen a number of
+algorithms that were able to benefit from having a sorted list (recall
+the final anagram example and the binary search).
+
+This chapter introduces several sorting algorithms and their trade-offs.
+This chapter refers to relative algorithm performance,
+so reviewing the chapter on :doc:`analysis <../analysis/index>` may help.
 
 .. toctree::
    :maxdepth: 2
@@ -24,13 +34,6 @@ Sorting
    heap.rst
    radix.rst
    summary.rst
-
-**Sorting** is the process of placing elements from a collection in some
-kind of order. For example, a list of words could be sorted
-alphabetically or by length. A list of cities could be sorted by
-population, by area, or by zip code. We have already seen a number of
-algorithms that were able to benefit from having a sorted list (recall
-the final anagram example and the binary search).
 
 There are many, many sorting algorithms that have been developed and
 analyzed. This suggests that sorting is an important area of study in

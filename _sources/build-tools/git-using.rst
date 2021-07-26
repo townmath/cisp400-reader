@@ -9,9 +9,8 @@
 .. index:: 
    triple: introductory topics; version control; git
 
-Version control
-===============
-
+Using Git
+=========
 When you are programming, you will make mistakes. 
 If you program long enough, 
 these will eventually include shenanigans like accidentally deleting all of your source files. 
@@ -19,9 +18,6 @@ You are also likely to spend some of your time trying out things that don’t wo
 at the end of which you’d like to go back to the last version of your program that did work. 
 All these problems can be solved by using a **version control system**.
 
-
-If you have never used version control software before, I recommend ``git``.
-If you have used it before, feel free to continue using what you are familiar with.
 A brief summary of git is given below. 
 For more details, see the tutorials available at http://git-scm.com.
 
@@ -31,30 +27,42 @@ Whatever version control software you use, they all follow the same basic patter
 
    You only need to do this step once.
 
+   If you already have a repository available on a remote server,
+   then you can use ``git clone`` instead of ``git init``.
+
 #. Work with repository
 
   a. Create new files
   b. Add files to repository
   c. Edit existing files
   d. Commit changes
+  e. Push local changes to a remote server like GitHub for safe keeping.
   
   Repeat the above as often as needed.
 
 
-Setting up git
---------------
-
+Initialize a git repository
+---------------------------
 Typically you run git inside a directory that holds some project you are working 
 on (for example, homework). 
 Before you can do anything with git, 
-you need to create the repository, 
-which is a hidden directory .git that records changes to your files:
+you need to create or copy a repository, 
+which is a hidden directory .git that records changes to your files.
+
+In this example, we will be walking though a small empty repository.
+
+If we choose to put it in a new directory *git-demo*:
 
 .. code-block:: none
 
     $ mkdir git-demo
     $ cd git-demo/
     $ git init
+
+Then we should see something like:
+
+.. code-block:: none
+
     Initialized empty Git repository in /var2/home/dparillo/git-demo/.git/
 
 Now let’s create a file and use ``git add`` to add it to the repository:
@@ -64,7 +72,7 @@ Now let’s create a file and use ``git add`` to add it to the repository:
     $ echo 'int main(int argc, char** argv) { return 0; }' > tiny.cpp
     $ git add tiny.cpp
 
-The ``git status`` command will tell us that Git knows about tiny.c, 
+The ``git status`` command will tell us that Git knows about ``tiny.cpp``, 
 but hasn't committed the changes to the repository yet:
 
 .. code-block:: none
@@ -79,24 +87,11 @@ but hasn't committed the changes to the repository yet:
 
       new file:   tiny.cpp
 
-
-The ``git commit`` command will save the actual changes, 
-along with a message saying what you did. 
-But before we commit our changes, 
-we should configure git with our actual name and email address.
-This step is not required in a standalone repository like the one
-we are using here, but in a shared repository,
-it's considered best practice to use a real name and email
-in case someone needs to contact you:
-
-.. code-block:: none
-
-   $ git config --global user.email you@example.com
-
 .. index::
    pair: vim; git editor
 
-Now we are ready to save our changes in the git database.
+The ``git commit`` command will save the actual changes, 
+along with a message saying what you did. 
 For short messages, 
 the easiest way to do this is to include the message on the command line:
 
@@ -126,7 +121,7 @@ You can see what commits made so far using ``git log``:
         a very short c++ program
 
 Editing files
-.............
+-------------
 
 Suppose I edit tiny.cpp using my favorite editor to turn it into the classic hello-world program:
 
@@ -156,10 +151,9 @@ I can see what files have changed using git status:
 
 Notice how Git reminds me to use ``git commit -a`` to include these changes in my next commit. 
 I can also do ``git add tiny.cpp`` to only include the changes to tiny.cpp 
-(maybe I made changes to a different file that I want to commit separately), 
-but usually that’s too much work.
+(maybe I made changes to a different file that I want to commit separately). 
 
-If I want to know the details of the changes since my last commit, I can do git diff:
+If I want to know the details of the changes since my last commit, I can run ``git diff``:
 
 .. code-block:: none
 
@@ -178,7 +172,7 @@ If I want to know the details of the changes since my last commit, I can do git 
     +}
     
 
-Since I like these changes, I do a commit:
+Since I like these changes, I commit them:
 
 .. code-block:: none
 
@@ -204,14 +198,14 @@ The repository now contains two commits:
         a very short c++ program
 
 Renaming files
-..............
+--------------
 
 You can rename a file with ``git mv``. 
-This is just like regular ``mv``, 
+This is just like the regular Linux ``mv`` command, 
 except that it tells Git what you are doing.
-If you for get to use ``git mv`` it's not normally a problem.
+If you forget to use ``git mv`` it's not normally a problem.
 Unless your changes are massive, git is usually good about
-figuring out when files have been moved.:
+figuring out when files have been moved:
 
 .. code-block:: none
 
@@ -236,7 +230,7 @@ These changes don’t get written to the repository unless you do another git co
      rename tiny.cpp => hello.cpp (100%)
 
 Adding and removing files
-.........................
+-------------------------
 
 To add a file, create it and call ``git add``:
 
@@ -281,8 +275,7 @@ To remove a file, use ``git rm``:
      delete mode 100644 goodbye.cpp
 
 Recovering files from the repository
-....................................
-
+------------------------------------
 Nothing is ever truly deleted from the repository once checked in.
 If you accidentally delete something, you can recover it from the repository.:
 

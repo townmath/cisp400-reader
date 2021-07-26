@@ -1,5 +1,12 @@
 Introduction to functions
 =========================
+An introduction to functions, 
+including function parameters, namespaces, and scopes.
+The keyword ``const`` is introduced and will be revisited over several
+chapters.
+
+The special characteristics of ``main`` and
+command line argument handling are introduced.
 
 .. toctree::
    :maxdepth: 2
@@ -14,10 +21,3 @@ Introduction to functions
    error-handling.rst
    static-functions.rst
 
-An introduction to functions, 
-including function parameters, namespaces, and scopes.
-The keyword ``const`` is introduced and will be revisited over several
-chapters.
-
-The special characteristics of ``main`` and
-command line argument handling are introduced.

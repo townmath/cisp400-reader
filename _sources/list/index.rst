@@ -1,5 +1,12 @@
 Linked lists
 ============
+This section focuses on a sequential data structure in which
+data elements do not occupy a continuous block of memory.
+While linked list are useful, they do present a problem
+that will need to be solved: visiting the next linked
+list item in a generic way.
+
+We use this problem as our springboard for iterators.
 
 .. toctree::
    :maxdepth: 2

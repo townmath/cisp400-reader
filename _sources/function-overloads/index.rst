@@ -1,5 +1,7 @@
 Function overloads and templates
 ================================
+This section focuses on C++ extensions to simple functions,
+especially overloaded functions and function templates.
 
 .. toctree::
    :maxdepth: 2
