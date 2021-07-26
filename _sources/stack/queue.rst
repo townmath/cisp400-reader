@@ -138,6 +138,70 @@ performing ``queue`` operations:
 
 The STL containers ``std::list`` and ``std::deque`` can be adapted to create a queue.
 
+Circular queues
+---------------
+
+.. graphviz::
+   :graphviz_dot: twopi
+   :align: center
+   :alt: ring buffer
+
+   digraph { 
+      // a [style=invis];
+      // edge [style=invis];
+      a -> b, c, d, e, f, i, j, k, l
+   }
+
+.. graphviz::
+   :graphviz_dot: circo
+   :align: center
+   :alt: ring buffer
+
+   digraph { 
+      // a [style=invis];
+      // edge [style=invis];
+      mindist=0.5;
+      // a -> b, c, d, e, f, i, j, k, l
+      edge [style="", arrowhead=vee, dir=back];
+      // root=a;
+      a->b
+      b->c
+      c->d
+      d->e
+      e->f
+      f->g
+      g->h
+      h->i
+      i->j
+      j->k
+      k->l
+      l->a
+
+   }
+
+.. graphviz::
+   :align: center
+   :alt: ring buffer
+
+   digraph {
+     node[shape=record];
+     graph[pencolor=transparent];
+     rankdir=LR;
+     p1[label="{<data> 12|<next>}"];
+     p2[label="{<data> 99|<next>}"];
+     p3[label="{<data> 37|<next>}"];
+
+     edge[tailclip=false,arrowtail=dot,dir=both];
+
+     {node[shape=point height=0] p0 p4} // make p0 and p4 to small to see
+     p0:n -> p1[arrowtail=none]
+     p0:s -> p4:s[dir=none] // add edge with no arrow to make it look like one long edge, also make p0 the tail so we don't have a recursition that may course dot to rearange the nodes
+     p1:next:c -> p2:data;
+     p2:next:c -> p3:data;
+     p3:next:c -> p4:n[arrowhead=none]
+   }
+
+
 -----
 
 .. admonition:: More to Explore
