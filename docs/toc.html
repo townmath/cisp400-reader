@@ -57,7 +57,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Mathematical Background" href="math/index.html" />
+    <link rel="next" title="C and C++ concepts" href="c_review/index.html" />
     <link rel="prev" title="Preface" href="front-matter/preface.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -194,8 +194,8 @@
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - Mathematical Background' data-toggle="tooltip" >              
-    <a href="math/index.html" >
+  <li id="relations-next" title='Next Chapter - C and C++ concepts' data-toggle="tooltip" >              
+    <a href="c_review/index.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -275,6 +275,44 @@
 <h2>Preliminaries<a class="headerlink" href="#preliminaries" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="c_review/index.html">C and C++ concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="c_review/hello-world.html">Hello, world!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="c_review/hello-world.html#built-in-types-variables-and-operations">Built-in types, variables and operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="c_review/hello-world.html#user-defined-types">User-defined types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="c_review/hello-world.html#file-input-and-output">File input and output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="c_review/hello-world.html#statements-and-branching">Statements and branching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="c_review/hello-world.html#fixing-errors-in-code">Fixing errors in code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="c_review/types.html">Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="c_review/types.html#fundamental-representations">Fundamental representations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="c_review/types.html#sign-and-magnitude">Sign and magnitude</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_review/types.html#one-s-complement">One’s complement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_review/types.html#two-s-complement">Two’s complement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_review/types.html#overflow">Overflow</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="c_review/types.html#preventing-overflow-errors">Preventing overflow errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="c_review/types.html#compound-types">Compound types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="c_review/types.html#array-types">Array types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="c_review/types.html#reference-types">Reference types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="c_review/types.html#the-type-std-size-t">The type <code class="docutils literal notranslate"><span class="pre">std::size_t</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="c_review/types.html#displaying-numbers">Displaying numbers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="c_review/comments.html">Code comments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="c_review/comments.html#comments-in-assignments">Comments in assignments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="c_review/comments.html#commenting-anti-patterns">Commenting “anti-patterns”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="c_review/what-you-dont.html">What you don’t need to know (yet)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c_review/skill-check.html">Self Check</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="math/index.html">Mathematical Background</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="math/set-notation.html">Sets and Relations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="math/set-notation.html#set-notation">Set Notation</a></li>
@@ -331,59 +369,84 @@
 <h2>Main Body<a class="headerlink" href="#main-body" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="beginnings/index.html">1. Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="beginnings/hello-world.html">1.1. Hello, world!</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/hello-world.html#source-files-and-header-files">1.1.1. Source files and header files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/hello-world.html#built-in-types-and-type-conversions">1.1.2. Built-in types and type conversions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/hello-world.html#user-defined-types">1.1.3. User-defined types</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="beginnings/hello-world.html#file-input-and-output">1.1.3.1. File input and output</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/hello-world.html#statements-and-branching">1.1.4. Statements and branching</a></li>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/hello-world.html#fixing-errors-in-code">1.1.5. Fixing errors in code</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beginnings/compiling.html">1.2. Building software</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/compiling.html#how-to-access-the-mesa-server">1.2.1. How to access the Mesa Server</a></li>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/compiling.html#for-the-impatient-a-quick-summary">1.2.2. For the impatient: A quick summary</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beginnings/compiling.html#compiling-code-on-your-local-computer">1.3. Compiling code on your local computer</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/compiling.html#compiling-with-visual-studio">1.3.1. Compiling with Visual Studio</a></li>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/compiling.html#compiling-with-code-blocks">1.3.2. Compiling with Code Blocks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/compiling.html#compiling-with-xcode">1.3.3. Compiling with XCode</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="beginnings/types.html">1.4. Types</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/types.html#fundamental-representations">1.4.1. Fundamental representations</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="beginnings/types.html#sign-and-magnitude">1.4.1.1. Sign and magnitude</a></li>
-<li class="toctree-l4"><a class="reference internal" href="beginnings/types.html#one-s-complement">1.4.1.2. One’s complement</a></li>
-<li class="toctree-l4"><a class="reference internal" href="beginnings/types.html#two-s-complement">1.4.1.3. Two’s complement</a></li>
-<li class="toctree-l4"><a class="reference internal" href="beginnings/types.html#overflow">1.4.1.4. Overflow</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="beginnings/types.html#preventing-overflow-errors">1.4.1.4.1. Preventing overflow errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-tools/index.html">1. Development tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="build-tools/git-setup.html">1.1. Git setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-tools/git-using.html">1.2. Version control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/git-using.html#setting-up-git">1.2.1. Setting up git</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/git-using.html#editing-files">1.2.1.1. Editing files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/git-using.html#renaming-files">1.2.1.2. Renaming files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/git-using.html#adding-and-removing-files">1.2.1.3. Adding and removing files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/git-using.html#recovering-files-from-the-repository">1.2.1.4. Recovering files from the repository</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/types.html#compound-types">1.4.2. Compound types</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="beginnings/types.html#array-types">1.4.2.1. Array types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="beginnings/types.html#reference-types">1.4.2.2. Reference types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-tools/compiling.html">1.3. Building software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/compiling.html#how-to-access-the-mesa-server">1.3.1. How to access the Mesa Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/compiling.html#for-the-impatient-a-quick-summary">1.3.2. For the impatient: A quick summary</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/types.html#the-type-std-size-t">1.4.3. The type <code class="docutils literal notranslate"><span class="pre">std::size_t</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/types.html#displaying-numbers">1.4.4. Displaying numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-tools/compiling.html#compiling-code-on-your-local-computer">1.4. Compiling code on your local computer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/compiling.html#compiling-with-visual-studio">1.4.1. Compiling with Visual Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/compiling.html#compiling-with-code-blocks">1.4.2. Compiling with Code Blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/compiling.html#compiling-with-xcode">1.4.3. Compiling with XCode</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="beginnings/comments.html">1.5. Code comments</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/comments.html#comments-in-assignments">1.5.1. Comments in assignments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/comments.html#commenting-anti-patterns">1.5.2. Commenting “anti-patterns”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-tools/linux.html">1.5. Introducing Gnu/Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/linux.html#the-command-line">1.5.1. The command line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/linux.html#absolute-vs-relative-paths">1.5.2. Absolute vs relative paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/linux.html#basic-commands">1.5.3. Basic commands</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="beginnings/what-you-dont.html">1.6. What you don’t need to know (yet)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="beginnings/what-you-dont.html#c">1.6.1. C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-tools/vim.html">1.6. Introducing the vim editor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/vim.html#modes">1.6.1. Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/vim.html#motions">1.6.2. Motions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/vim.html#word-motions">1.6.2.1. Word motions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/vim.html#other-motions">1.6.2.2. Other motions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="beginnings/skill-check.html">1.7. Self Check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/vim.html#selections">1.6.3. Selections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/vim.html#command-motion-examples">1.6.4. Command &amp; motion examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/vim.html#creating-hello-world-using-vim">1.6.5. Creating ‘Hello World’ using vim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/vim.html#navigating-to-make-errors">1.6.6. Navigating to <em>make</em> errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="build-tools/make.html">1.7. Command-line compiling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/make.html#the-c-compiler">1.7.1. The C++ compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/make.html#the-make-utility">1.7.2. The make utility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/make.html#running-your-programs">1.7.3. Running your programs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="build-tools/debugging.html">1.8. Debugging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/debugging.html#syntax-errors">1.8.1. Syntax errors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/debugging.html#i-can-t-get-my-program-to-compile-no-matter-what-i-do">1.8.1.1. I can’t get my program to compile no matter what I do.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/debugging.html#link-errors">1.8.2. Link errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/debugging.html#runtime-errors">1.8.3. Runtime errors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/debugging.html#my-program-does-absolutely-nothing">1.8.3.1. My program does absolutely nothing.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/debugging.html#my-program-hangs">1.8.3.2. My program hangs.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/debugging.html#infinite-loops">1.8.3.3. Infinite loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/debugging.html#infinite-recursion">1.8.3.4. Infinite recursion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/debugging.html#semantic-errors">1.8.4. Semantic errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/debugging.html#general-debugging-tips">1.8.5. General debugging tips</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/debugging.html#my-program-doesn-t-work">1.8.5.1. My program doesn’t work</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/debugging.html#i-ve-got-a-big-hairy-expression-and-it-doesn-t-do-what-i-expect">1.8.5.2. I’ve got a big hairy expression and it doesn’t do what I expect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/debugging.html#i-ve-got-a-function-that-doesn-t-return-what-i-expect">1.8.5.3. I’ve got a function that doesn’t return what I expect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/debugging.html#assertions">1.8.5.4. Assertions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="build-tools/debugging.html#debugging-tools">1.8.6. Debugging tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="build-tools/debugging.html#the-gnu-debugger-gdb">1.8.6.1. The GNU debugger (gdb)</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="build-tools/debugging.html#useful-gdb-commands">1.8.6.1.1. Useful gdb commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="string%2Bvector/index.html">2. String and Vector</a><ul>
@@ -783,74 +846,6 @@
 <h2>Back Matter<a class="headerlink" href="#back-matter" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="back-matter/app-a/index.html">Appendix A - Development Environment</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="back-matter/app-a/linux.html">Introducing Gnu/Linux</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/linux.html#the-command-line">The command line</a></li>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/linux.html#absolute-vs-relative-paths">Absolute vs relative paths</a></li>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/linux.html#basic-commands">Basic commands</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="back-matter/app-a/vim.html">Introducing the vim editor</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/vim.html#modes">Modes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/vim.html#motions">Motions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/vim.html#word-motions">Word motions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/vim.html#other-motions">Other motions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/vim.html#selections">Selections</a></li>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/vim.html#command-motion-examples">Command &amp; motion examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/vim.html#creating-hello-world-using-vim">Creating ‘Hello World’ using vim</a></li>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/vim.html#navigating-to-make-errors">Navigating to <em>make</em> errors</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="back-matter/app-a/make.html">Command-line compiling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/make.html#the-c-compiler">The C++ compiler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/make.html#the-make-utility">The make utility</a></li>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/make.html#running-your-programs">Running your programs</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="back-matter/app-a/version-control.html">Version control</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/version-control.html#setting-up-git">Setting up git</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/version-control.html#editing-files">Editing files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/version-control.html#renaming-files">Renaming files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/version-control.html#adding-and-removing-files">Adding and removing files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/version-control.html#recovering-files-from-the-repository">Recovering files from the repository</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="back-matter/app-a/debugging.html">Debugging</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/debugging.html#syntax-errors">Syntax errors</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/debugging.html#i-can-t-get-my-program-to-compile-no-matter-what-i-do">I can’t get my program to compile no matter what I do.</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/debugging.html#link-errors">Link errors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/debugging.html#runtime-errors">Runtime errors</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/debugging.html#my-program-does-absolutely-nothing">My program does absolutely nothing.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/debugging.html#my-program-hangs">My program hangs.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/debugging.html#infinite-loops">Infinite loops</a></li>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/debugging.html#infinite-recursion">Infinite recursion</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/debugging.html#semantic-errors">Semantic errors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/debugging.html#general-debugging-tips">General debugging tips</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/debugging.html#my-program-doesn-t-work">My program doesn’t work</a></li>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/debugging.html#i-ve-got-a-big-hairy-expression-and-it-doesn-t-do-what-i-expect">I’ve got a big hairy expression and it doesn’t do what I expect</a></li>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/debugging.html#i-ve-got-a-function-that-doesn-t-return-what-i-expect">I’ve got a function that doesn’t return what I expect</a></li>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/debugging.html#assertions">Assertions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="back-matter/app-a/debugging.html#debugging-tools">Debugging tools</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="back-matter/app-a/debugging.html#the-gnu-debugger-gdb">The GNU debugger (gdb)</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="back-matter/app-a/debugging.html#useful-gdb-commands">Useful gdb commands</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="back-matter/faq.html">Frequently asked questions (FAQ)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="back-matter/q101-why-not-an-ide.html">Why not use an IDE?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="back-matter/q110-what-language.html">What language should I learn?</a><ul>
@@ -896,8 +891,8 @@
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - Mathematical Background' data-toggle="tooltip" >
-    <a href="math/index.html" aria-label="Mathematical Background">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - C and C++ concepts' data-toggle="tooltip" >
+    <a href="c_review/index.html" aria-label="C and C++ concepts">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

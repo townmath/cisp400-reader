@@ -44,7 +44,7 @@ Chapters
    :numbered:
    :maxdepth: 1
 
-   build_tools/index.rst
+   build-tools/index.rst
    string+vector/index.rst
 
    function-intro/index.rst
@@ -71,7 +71,6 @@ Back Matter
 .. toctree::
    :maxdepth: 1
 
-   back-matter/app-a/index.rst
    back-matter/faq.rst
    back-matter/ascii.rst
 

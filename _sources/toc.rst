@@ -25,7 +25,7 @@ Main Body
 
 .. toctree::
 
-   build_tools/index.rst
+   build-tools/index.rst
    string+vector/index.rst
 
    function-intro/index.rst
@@ -52,7 +52,6 @@ Back Matter
 -----------
 .. toctree::
 
-   back-matter/app-a/index.rst
    back-matter/faq.rst
    back-matter/ascii.rst
 
