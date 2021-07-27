@@ -287,87 +287,94 @@ Currently, two compilers are installed on the image:
 - GCC 10
 - Clang 11
 
-along with support tools, debuggers, and the same checking scripts
+along with support tools, debuggers, vim plugins, and checking scripts
 that are installed on the Mesa server.
 
-In order to use the docker image, you first need to
-`install docker <https://docs.docker.com/get-docker/>`__
-for your operating system.
+.. tabbed:: tab_docker
 
-.. note:: Windows operating system requirements
+   .. tab:: Install
 
-   Windows 10 Professional or Enterprise is required for Docker on Windows
-   using Hyper-V. 
+      In order to use the docker image, you first need to
+      `install docker <https://docs.docker.com/get-docker/>`__
+      for your operating system.
 
-   Docker uses a hypervisor with a VM, and the host server (your computer)
-   must support virtualization.
-   Since older Windows versions and Windows 10 Home edition do not support
-   Hyper-V.
+      .. note:: Windows operating system requirements
 
-   For Windows Home or Education builds running under WSL2 is an option.
-   See the install documentation for details.
+         Windows 10 Professional or Enterprise is required for Docker on Windows
+         using Hyper-V. 
 
-   In any Windows build at least 4GB available RAM is recommended.
+         Docker uses a hypervisor with a VM, and the host server (your computer)
+         must support virtualization.
+         Since older Windows versions and Windows 10 Home edition do not support
+         Hyper-V.
 
-Once docker is installed, open a Terminal window,
-or on Windows, a Powershell window is recommended.
-Type:
+         For Windows Home or Education builds running under WSL2 is an option.
+         See the install documentation for details.
 
-.. code-block:: none
+         In any Windows build at least 4GB available RAM is recommended.
 
-   docker pull dparillo/cisc187
+      Once docker is installed, open a Terminal window,
+      or on Windows, a Powershell terminal and type:
 
-This command will download the docker image and make it available to run.
-To run the docker image type:
+      .. code-block:: none
 
-.. code-block:: none
+         docker pull dparillo/cisc187
 
-   docker run --rm -it -v `pwd`:/mnt/cisc187 dparillo/cisc187
+      This command will download the CISC187 docker image
+      and make it available to run.
 
-Meaning of these options:
+   .. tab:: Run
 
-``--rm``:
-   Automatically remove the container when it exits.
-   There is no need to save it.
-   It is useful to think of docker containers as applications that
-   perform some task and clean up when finished.
- 
-   One of the powerful things about this is that it is impossible
-   to damage or corrupt your development environment.
-   If you think you did something bad, exit the container and restart.
-  
-``-i``:
-   Keep STDIN open even if not attached.
-   Instead of the short ``-i``, you can use ``--interactive``.
+      To run the docker image type:
 
-``-t``:
-   Allocate a pseudo TTY. This allows you to communicate with your docker
-   container in the window where you started it. 
-   Instead of the short ``-t``, you can use ``--tty``.
+      .. code-block:: none
 
-``-v``:
-   Bind mount a volume from the local computer onto the host.
-   The general syntax is ``-v /absolute/local/path:/absolute/container/path``
-   Instead of the short ``-v``, you can use ``--volume``.
+         docker run --rm -it -v `pwd`:/mnt/cisc187 dparillo/cisc187
 
-   The idea here is that your source code is never really inside the docker container.
-   Your source code is separate, but visible to the running container.
+      Meaning of these options:
 
-   Also note that the ``pwd`` command is on option on Linux and MacOS,
-   but on Windows, you will need to type the complete path to your
-   git repository.
+      ``--rm``:
+         Automatically remove the container when it exits.
+         There is no need to save it.
+         It is useful to think of docker containers as applications that
+         perform some task and clean up when finished.
+       
+         One of the powerful things about this is that it is impossible
+         to damage or corrupt your development environment.
+         If you think you did something bad, exit the container and restart.
+        
+      ``-i``:
+         Keep STDIN open even if not attached.
+         Instead of the short ``-i``, you can use ``--interactive``.
 
-The container mount point was not chosen at random.
-The container is set up with ``/mnt/cisc187`` as the *WORKDIR*.
-When the container starts, you start in this directory.
+      ``-t``:
+         Allocate a pseudo TTY. This allows you to communicate with your docker
+         container in the window where you started it. 
+         Instead of the short ``-t``, you can use ``--tty``.
 
-The run command has `many more options available <https://docs.docker.com/engine/reference/commandline/run/>`__
-and docker has many more commands other than the run command,
-but this is all you need to know to compile assignments.
+      ``-v``:
+         Bind mount a volume from the local computer onto the host.
+         The general syntax is ``-v /absolute/local/path:/absolute/container/path``
+         Instead of the short ``-v``, you can use ``--volume``.
 
-Now you are ready to compile an assignment.
-Once this container is up and running,
-builds are exactly the same as on the Mesa server:
+         The idea here is that your source code is never really inside the docker container.
+         Your source code is separate, but visible to the running container.
+
+         Also note that the ``pwd`` command is on option on Linux and MacOS,
+         but on Windows, you will need to type the complete path to your
+         git repository.
+
+      The container mount point was not chosen at random.
+      The container is set up with ``/mnt/cisc187`` as the *WORKDIR*.
+      When the container starts, you start in this directory.
+
+      The run command has `many more options available <https://docs.docker.com/engine/reference/commandline/run/>`__
+      and docker has many more commands other than the run command,
+      but this is all you need to know to compile assignments.
+
+Once the CISC187 docker container is running
+you are ready to compile an assignment.
+Builds are exactly the same as on the Mesa server:
 
 .. code-block:: none
 

@@ -462,8 +462,9 @@ support for up to some C++20 features.</p>
 <li><p>GCC 10</p></li>
 <li><p>Clang 11</p></li>
 </ul>
-<p>along with support tools, debuggers, and the same checking scripts
+<p>along with support tools, debuggers, vim plugins, and checking scripts
 that are installed on the Mesa server.</p>
+<div id='tab_docker' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Install" >
 <p>In order to use the docker image, you first need to
 <a class="reference external" href="https://docs.docker.com/get-docker/">install docker</a>
 for your operating system.</p>
@@ -481,13 +482,14 @@ See the install documentation for details.</p>
 <p>In any Windows build at least 4GB available RAM is recommended.</p>
 </div>
 <p>Once docker is installed, open a Terminal window,
-or on Windows, a Powershell window is recommended.
-Type:</p>
+or on Windows, a Powershell terminal and type:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker pull dparillo/cisc187
 </pre></div>
 </div>
-<p>This command will download the docker image and make it available to run.
-To run the docker image type:</p>
+<p>This command will download the CISC187 docker image
+and make it available to run.</p>
+</div><div data-component="tab" data-tabname="Run" >
+<p>To run the docker image type:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run --rm -it -v `pwd`:/mnt/cisc187 dparillo/cisc187
 </pre></div>
 </div>
@@ -524,9 +526,12 @@ When the container starts, you start in this directory.</p>
 <p>The run command has <a class="reference external" href="https://docs.docker.com/engine/reference/commandline/run/">many more options available</a>
 and docker has many more commands other than the run command,
 but this is all you need to know to compile assignments.</p>
-<p>Now you are ready to compile an assignment.
-Once this container is up and running,
-builds are exactly the same as on the Mesa server:</p>
+</div>
+    </div>
+
+<p>Once the CISC187 docker container is running
+you are ready to compile an assignment.
+Builds are exactly the same as on the Mesa server:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir build
 cd build
 cmake ..
