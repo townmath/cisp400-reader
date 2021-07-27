@@ -6,7 +6,7 @@
     the license is included in the section entitled "GNU Free Documentation
     License".
 
-.. index:: compiling,
+.. index:: compiling
    single: cmake; make
    single: clang; clang-tidy; clang-format; gcc
    single: git; ssh
@@ -248,16 +248,137 @@ Compiling code on your local computer
 =====================================
 The following sections describe briefly how to get started with
 a local development environment, if you wish.
+One of the primary motivations for building locally is to avoid
+a persistent internet connection running your SSH session.
+
+If you have bad or intermittent internet connectivity,
+then this section is for you.
 
 If you plan to use the Mesa server,
 then you can ignore the rest of this section.
 
-In all cases, you still need to install 
+As with all things C++, you have choices.
+The options described here do not represent all of the many ways
+one might build C++ programs locally, but are common choices
+on Windows and MacOS machines.
+
+In most cases, you still need to install 
 `git <https://git-scm.com>`__ and
 `CMake <https://cmake.org>`__.
 
 This book does **not** explain how to install these :term:`IDE's<IDE>`.
 Use the documentation provided with your IDE for that.
+
+.. index:: 
+   pair: compiling; Docker
+
+Compiling using the CISC187 Docker image
+----------------------------------------
+Use git to clone your assignments repository to your computer.
+
+The CISC187 Docker image provides an environment much like the
+development environment on the Mesa server, but locally.
+The main difference between the docker image and the Mesa server
+is that the compilers on the docker image are much newer and include
+support for up to some C++20 features.
+
+Currently, two compilers are installed on the image:
+
+- GCC 10
+- Clang 11
+
+along with support tools, debuggers, and the same checking scripts
+that are installed on the Mesa server.
+
+In order to use the docker image, you first need to
+`install docker <https://docs.docker.com/get-docker/>`__
+for your operating system.
+
+.. note:: Windows operating system requirements
+
+   Windows 10 Professional or Enterprise is required for Docker on Windows
+   using Hyper-V. 
+
+   Docker uses a hypervisor with a VM, and the host server (your computer)
+   must support virtualization.
+   Since older Windows versions and Windows 10 Home edition do not support
+   Hyper-V.
+
+   For Windows Home or Education builds running under WSL2 is an option.
+   See the install documentation for details.
+
+   In any Windows build at least 4GB available RAM is recommended.
+
+Once docker is installed, open a Terminal window,
+or on Windows, a Powershell window is recommended.
+Type:
+
+.. code-block:: none
+
+   docker pull dparillo/cisc187
+
+This command will download the docker image and make it available to run.
+To run the docker image type:
+
+.. code-block:: none
+
+   docker run --rm -it -v `pwd`:/mnt/cisc187 dparillo/cisc187
+
+Meaning of these options:
+
+``--rm``:
+   Automatically remove the container when it exits.
+   There is no need to save it.
+   It is useful to think of docker containers as applications that
+   perform some task and clean up when finished.
+ 
+   One of the powerful things about this is that it is impossible
+   to damage or corrupt your development environment.
+   If you think you did something bad, exit the container and restart.
+  
+``-i``:
+   Keep STDIN open even if not attached.
+   Instead of the short ``-i``, you can use ``--interactive``.
+
+``-t``:
+   Allocate a pseudo TTY. This allows you to communicate with your docker
+   container in the window where you started it. 
+   Instead of the short ``-t``, you can use ``--tty``.
+
+``-v``:
+   Bind mount a volume from the local computer onto the host.
+   The general syntax is ``-v /absolute/local/path:/absolute/container/path``
+   Instead of the short ``-v``, you can use ``--volume``.
+
+   The idea here is that your source code is never really inside the docker container.
+   Your source code is separate, but visible to the running container.
+
+   Also note that the ``pwd`` command is on option on Linux and MacOS,
+   but on Windows, you will need to type the complete path to your
+   git repository.
+
+The container mount point was not chosen at random.
+The container is set up with ``/mnt/cisc187`` as the *WORKDIR*.
+When the container starts, you start in this directory.
+
+The run command has `many more options available <https://docs.docker.com/engine/reference/commandline/run/>`__
+and docker has many more commands other than the run command,
+but this is all you need to know to compile assignments.
+
+Now you are ready to compile an assignment.
+Once this container is up and running,
+builds are exactly the same as on the Mesa server:
+
+.. code-block:: none
+
+   mkdir build
+   cd build
+   cmake ..
+   make
+   make test
+
+.. index:: 
+   pair: compiling; Visual Stidio
 
 Compiling with Visual Studio
 ----------------------------
@@ -345,6 +466,9 @@ Now you are ready to compile an assignment.
       `the instructions on the Microsoft site <https://docs.microsoft.com/en-us/cpp/build/walkthrough-compiling-a-native-cpp-program-on-the-command-line?view=vs-2019>`__
 
 
+.. index:: 
+   pair: compiling; Code Blocks
+
 Compiling with Code Blocks
 --------------------------
 Use git to clone your assignments repository to your computer.
@@ -377,7 +501,11 @@ Build the 'all' target to compile and link programs and tests.
 Test cases must be run individually - 
 there is no target to run all the tests.
 
-Compiling with XCode
+.. index:: 
+   pair: compiling; Xcode
+   pair: compiling; MacOS
+
+Compiling with Xcode
 --------------------
 Use git to clone your assignments repository to your computer.
 Now you are ready to compile an assignment.
@@ -391,6 +519,35 @@ Open a terminal in the directory containing your lab, then:
    cmake -G Xcode ..
 
 Open the Xcode project and build as usual.
+
+.. index:: 
+   pair: compiling; Linux
+
+Compiling on Linux
+------------------
+Use git to clone your assignments repository to your computer.
+
+You'll need to install a C++ tool chain,
+the details tend to vary by distribution, however,
+most Linux distributions have good documentation for installing C++ tools.
+The only thing you should verify is that your distro has a modern version
+of a C++ compiler (C++14 at a minimum) available.
+The GNU Compiler Collection (GCC) or Clang are preferred.
+
+Once you have a tool chain installed,
+use git to clone your assignments repository to your computer.
+Now you are ready to compile an assignment.
+
+The process is exactly the same as on the Mesa server.
+Open a terminal in the directory containing your lab, then:
+
+.. code-block:: none
+
+   mkdir build
+   cd build
+   cmake ..
+   make
+   make test
 
 
 -----

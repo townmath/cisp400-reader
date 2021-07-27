@@ -32,13 +32,13 @@ Whatever version control software you use, they all follow the same basic patter
 
 #. Work with repository
 
-  a. Create new files
-  b. Add files to repository
-  c. Edit existing files
-  d. Commit changes
-  e. Push local changes to a remote server like GitHub for safe keeping.
-  
-  Repeat the above as often as needed.
+   a. Create new files
+   b. Add files to repository
+   c. Edit existing files
+   d. Commit changes
+   e. Push local changes to a remote server like GitHub for safe keeping.
+   
+   Repeat the above as often as needed.
 
 
 Initialize a git repository
@@ -63,7 +63,7 @@ Then we should see something like:
 
 .. code-block:: none
 
-    Initialized empty Git repository in /var2/home/dparillo/git-demo/.git/
+    Initialized empty Git repository in /home/runner/WorrisomeSophisticatedCybernetics/git-demo/.git
 
 Now let’s create a file and use ``git add`` to add it to the repository:
 
@@ -119,6 +119,15 @@ You can see what commits made so far using ``git log``:
     Date:   Sat Jun 10 12:07:51 2017 -0700
 
         a very short c++ program
+
+.. admonition:: Try This!
+
+   Head on over to `replit.com <https://replit.com/>`__
+   and use the console window in a repl and practice the steps described
+   in this section.
+
+   You can run git commands in repl's for any language,
+   but in order to compile ``tiny.cpp``, you'll need to be in a C++ repl.
 
 Editing files
 -------------
@@ -322,6 +331,7 @@ but the checkout did add tiny.cpp and stage it for commit:
 
 .. admonition:: More to Explore
 
+   - `Git: An Introduction for Beginners <https://blog.replit.com/git-introduction-beginners-career-karma>`__
    - `CISC187 git repository <https://github.com/DaveParillo/cisc187>`_
    - `Git Home <http://git-scm.com>`_
 

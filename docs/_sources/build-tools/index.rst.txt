@@ -21,7 +21,7 @@ The remaining sections in this chapter are useful at various times
 throughout the course, but you should not try to master them all
 in the first week.
 
-If you plan to work mostly on the Mesa server, 
+If you plan to work mostly on the Mesa server or the docker image then
 the introduction to GNU/Linux commands and the vim text editor
 are highly recommended.
 
@@ -40,8 +40,6 @@ and can help remove some of the 'magic' from the build process.
    :maxdepth: 2
 
    make.rst
-
-
 
 You may choose to defer reading about debugging until you actually need
 to use it and can treat it like a quick primer.
