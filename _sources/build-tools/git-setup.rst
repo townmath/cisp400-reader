@@ -134,8 +134,8 @@ personal access token at each visit.
 .. note::
 
    As a security precaution,
-   GitHub automatically removes your inactive SSH key
-   haven't been used in a year.
+   GitHub automatically removes your inactive SSH keys
+   that have not been used for a year.
    For more information, see 
    "`Deleted or missing SSH keys <https://docs.github.com/en/articles/deleted-or-missing-ssh-keys>`__."
 
@@ -291,15 +291,15 @@ A common source of error is using your GitHub username over SSH.
    must be made as the "git" user.
    If you try to connect with your GitHub username:
 
-.. code-block:: none
+   .. code-block:: none
 
-   ssh -T GITHUB-USERNAME@github.com
+      ssh -T GITHUB-USERNAME@github.com
 
-then it will fail:
+   then it will fail:
 
-.. code-block:: none
+   .. code-block:: none
 
-   Permission denied (publickey).
+      Permission denied (publickey).
 
 Once your SSH key is setup correctly, the only real difference in using it is
 the URL you use to clone a repository.
