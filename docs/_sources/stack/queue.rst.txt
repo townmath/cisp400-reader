@@ -140,66 +140,305 @@ The STL containers ``std::list`` and ``std::deque`` can be adapted to create a q
 
 Circular queues
 ---------------
+A :index:`circular queue`, :index:`cyclic buffer`, or :index:`ring buffer` 
+is a data structure that uses a single, 
+fixed-size buffer as if it were connected end-to-end.
+A ring buffer is a good choice when you need the
+behavior of a queue and the buffer size can be fixed.
 
-.. graphviz::
-   :graphviz_dot: twopi
-   :align: center
-   :alt: ring buffer
+There are many ways to implement this data structure and the following
+is just an example of one.
 
-   digraph { 
-      // a [style=invis];
-      // edge [style=invis];
-      a -> b, c, d, e, f, i, j, k, l
-   }
+.. tabbed:: ring_concept_tab
 
-.. graphviz::
-   :graphviz_dot: circo
-   :align: center
-   :alt: ring buffer
+   .. tab:: Empty
 
-   digraph { 
-      // a [style=invis];
-      // edge [style=invis];
-      mindist=0.5;
-      // a -> b, c, d, e, f, i, j, k, l
-      edge [style="", arrowhead=vee, dir=back];
-      // root=a;
-      a->b
-      b->c
-      c->d
-      d->e
-      e->f
-      f->g
-      g->h
-      h->i
-      i->j
-      j->k
-      k->l
-      l->a
+      Conceptually, a circular buffer is a closed ring of data.
 
-   }
+      - One element needs to be chosen as the start of the data.
+        The terms ``start``, ``begin``, or ``head`` are all reasonable.
+      - One element needs to be chosen as the end of the data.
+        The terms ``last``, ``end``, or ``tail`` are all reasonable.
 
-.. graphviz::
-   :align: center
-   :alt: ring buffer
+      The start locations of ``head`` and ``tail`` are arbitrary.
 
-   digraph {
-     node[shape=record];
-     graph[pencolor=transparent];
-     rankdir=LR;
-     p1[label="{<data> 12|<next>}"];
-     p2[label="{<data> 99|<next>}"];
-     p3[label="{<data> 37|<next>}"];
+      A ring buffer is initially empty and of some predefined length.
+      For example, this is an 8-element buffer conceptually:
 
-     edge[tailclip=false,arrowtail=dot,dir=both];
+      .. graphviz::
+         :graphviz_dot: circo
+         :align: center
+         :alt: empty buffer
 
-     {node[shape=point height=0] p0 p4} // make p0 and p4 to small to see
-     p0:n -> p1[arrowtail=none]
-     p0:s -> p4:s[dir=none] // add edge with no arrow to make it look like one long edge, also make p0 the tail so we don't have a recursition that may course dot to rearange the nodes
-     p1:next:c -> p2:data;
-     p2:next:c -> p3:data;
-     p3:next:c -> p4:n[arrowhead=none]
-   }
+         digraph { 
+            mindist=0.5;
+            node [fontname = "Bitstream Vera Sans", fontsize=14,
+              style=filled, fillcolor=lightblue
+            ];
+
+            0->1
+            1->2
+            2->3
+            3->4
+            4->5
+            5->6
+            6->7
+            7->0
+            node [shape=plain, style=""];
+            head -> 0
+            tail -> 0
+         }
+
+      The ``tail`` node always refers to the element just past the end
+      of our data (as always).
+      So when the head and tail are equal, the buffer is empty.
+
+      The ``capacity`` is the maximum number of elements that can be
+      stored in the buffer.
+      In this example, the capcacity is ``8``.
+
+      The ``size`` is the current number of elements used in the buffer.
+      In our initially empty buffer, the size is ``0``.
+
+      Since there are no true circular sections of memory, it is normal to
+      represent a circular buffer in a normal contiguous linear memory block.
+      An array is a good choice.
+
+      .. graphviz:: 
+         :align: center
+         :alt: empty buffer - linear representation
+
+         digraph {
+           node [fontname = "Bitstream Vera Sans", 
+                  fontsize=14,
+                  shape=record, 
+                  style=filled, 
+                  fillcolor=lightblue
+           ];
+           ring [label="<f0>0 | <f1>1 | <f2>2 | <f3>3 | <f4>4 | <f5>5 | <f6>6 | <f7>7 "] 
+           ring:f7:e -> ring:f0:w
+           node [shape=plain, style=""];
+           ring:f0 -> head [dir=back]
+           ring:f3 -> tail [style=invis]
+           ring:f0:se -> tail [dir=back]
+         }
+
+   .. tab:: Add
+
+      Adding one element to the buffer involves storing a new value 
+      at the tail location and moving the tail.
+
+      .. graphviz::
+         :graphviz_dot: circo
+         :align: center
+         :alt: add one to buffer
+
+         digraph { 
+            mindist=0.5;
+            node [fontname = "Bitstream Vera Sans", fontsize=14,
+              style=filled, fillcolor=lightblue, label=""
+            ];
+            0->1
+            1->2
+            2->3
+            3->4
+            4->5
+            5->6
+            6->7
+            7->0
+            0 [label="A"]
+            node [shape=plain, style=""];
+            head [label="head"];
+            tail [label="tail"];
+            head -> 0
+            tail -> 1
+         }
+
+      And in the array:
+
+      .. graphviz:: 
+         :align: center
+         :alt: add one - linear representation
+
+         digraph {
+           node [fontname = "Bitstream Vera Sans", 
+                  fontsize=14,
+                  shape=record, 
+                  style=filled, 
+                  fillcolor=lightblue
+           ];
+           ring [label="<f0>A| <f1> | <f2> | <f3> | <f4> | <f5> | <f6> | <f7> "] 
+           ring:f7:e -> ring:f0:w
+           node [shape=plain, style=""];
+           ring:f0 -> head [dir=back]
+           ring:f3 -> tail [style=invis]
+           ring:f1 -> tail [dir=back]
+         }
+
+      The buffer size is now ``1``.
+
+      If two more items are added, the tail moves accordingly.
+      The head does not move as items are added.
+
+      .. graphviz::
+         :align: center
+         :alt: add two more to buffer
+
+         digraph {
+           node [fontname = "Bitstream Vera Sans", 
+                  fontsize=14,
+                  shape=record, 
+                  style=filled, 
+                  fillcolor=lightblue
+           ];
+           ring [label="<f0>A | <f1>B | <f2>C | <f3> | <f4> | <f5> | <f6> | <f7> "] 
+           ring:f7:e -> ring:f0:w
+           node [shape=plain, style=""];
+           ring:f0 -> head [dir=back]
+           ring:f3 -> tail [style=invis]
+           ring:f3 -> tail [dir=back]
+         }
+
+      The buffer size is now ``3``.
+
+   .. tab:: Remove
+
+      Removing an element from the buffer involves 
+      
+      - returning the oldest element from the buffer
+      - moving the head
+      - decrease buffer size
+
+      As with earlier containers, there is no need to erase the oldest
+      element, since after the head has moved, we can no longer access it.
+
+      .. graphviz::
+         :align: center
+         :alt: remove 1 element
+
+         digraph {
+           node [fontname = "Bitstream Vera Sans", 
+                  fontsize=14,
+                  shape=record, 
+                  style=filled, 
+                  fillcolor=lightblue
+           ];
+           ring [label="<f0>A | <f1>B | <f2>C | <f3> | <f4> | <f5> | <f6> | <f7> "] 
+           ring:f7:e -> ring:f0:w
+           node [shape=plain, style=""];
+           ring:f1 -> head [dir=back]
+           ring:f3 -> tail [style=invis]
+           ring:f3 -> tail [dir=back]
+         }
+
+      The buffer size is now ``2``.
+
+   .. tab:: Full Buffer
+
+      Starting with our buffer containing [B,C], we can add elements until it
+      is completely full.
+
+      Recall we popped ``A`` from this buffer earlier.
+      
+      Adding a few elements moves the tail and increases the size.
+
+      .. graphviz::
+         :align: center
+         :alt: adding more to buffer
+
+         digraph {
+           node [fontname = "Bitstream Vera Sans", 
+                  fontsize=14,
+                  shape=record, 
+                  style=filled, 
+                  fillcolor=lightblue
+           ];
+           ring [label="<f0>A | <f1>B | <f2>C | <f3>D | <f4>E | <f5>F | <f6> | <f7> "] 
+           ring:f7:e -> ring:f0:w
+           node [shape=plain, style=""];
+           ring:f1 -> head [dir=back]
+           ring:f6 -> tail [style=invis]
+           ring:f6 -> tail [dir=back]
+         }
+
+      At this point the buffer is almost full.
+      The tail now refers to the first element in the array.
+      It needed to wrap around to avoid potentially allowing a write outside
+      the array bounds.
+      The slot containing 'A' is available for writing, since it was removed earlier.
+
+      .. graphviz::
+         :align: center
+         :alt: almost full buffer
+
+         digraph {
+           node [fontname = "Bitstream Vera Sans", 
+                  fontsize=14,
+                  shape=record, 
+                  style=filled, 
+                  fillcolor=lightblue
+           ];
+           ring [label="<f0>A | <f1>B | <f2>C | <f3>D | <f4>E | <f5>F | <f6>G | <f7>H "] 
+           ring:f7:e -> ring:f0:w
+           node [shape=plain, style=""];
+           ring:f1 -> head [dir=back]
+           ring:f0 -> tail [style=invis]
+           ring:f0 -> tail [dir=back]
+         }
+
+      One more write to the element at position 0 and
+      now the buffer is completely full.
+
+      .. graphviz::
+         :align: center
+         :alt: full buffer
+
+         digraph {
+           node [fontname = "Bitstream Vera Sans", 
+                  fontsize=14,
+                  shape=record, 
+                  style=filled, 
+                  fillcolor=lightblue
+           ];
+           ring [label="<f0>I | <f1>B | <f2>C | <f3>D | <f4>E | <f5>F | <f6>G | <f7>H "] 
+           ring:f7:e -> ring:f0:w
+           node [shape=plain, style=""];
+           ring:f1 -> head [dir=back]
+           ring:f0 -> tail [style=invis]
+           ring:f1 -> tail [dir=back]
+         }
+
+      The buffer size is now ``8``.
+      It is important to note that in this implementation
+      ``head == tail`` does not represent the idea of an empty buffer.
+      In this implementation the ``head == tail`` state can mean either
+      a completely empty or a full queue.
+
+      An extra variable ``size`` is used to distinguish empty from full,
+      since we know the array size
+      ahead of time.
+      If we chose to not keep track of size and use only the head and tail
+      then the maximum size of the would be :math:`capacity - 1`.
+
+      Different designs could result in different outcomes, there are no
+      hard and fast rules here.
+      I chose this implementation because it is easy to reason about and
+      does not waste a storage slot, at the cost of an additional variable.
+
+      What do we do when our buffer is full?
+      At this point, we have choices:
+
+      - Allow no writes to the buffer until elements are removed.
+
+        This is common when it is important to never lose any information,
+        such as when processing keystrokes from the user, or managing a
+        print queue.
+
+      - Allow writes to overwrite the oldest elements.
+        The oldest values are lost in favor of new values.
+
+        This implementation is used when the oldest information may 
+        no longer be important enough by the time the buffer is full.
 
 
 -----
@@ -210,5 +449,6 @@ Circular queues
    - STL :container:`queue` class
    - `MyCodeSchool <http://www.mycodeschool.com>`__ video: 
      `Data structures: introduction to queue <https://www.youtube.com/watch?v=XuCbpw6Bj1U&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&index=22>`__ 
+   - `Wikipedia circular buffer <https://en.wikipedia.org/wiki/Circular_buffer>`_
 
 

@@ -345,8 +345,8 @@ personal access token at each visit.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>As a security precaution,
-GitHub automatically removes your inactive SSH key
-haven’t been used in a year.
+GitHub automatically removes your inactive SSH keys
+that have not been used for a year.
 For more information, see
 “<a class="reference external" href="https://docs.github.com/en/articles/deleted-or-missing-ssh-keys">Deleted or missing SSH keys</a>.”</p>
 </div>
@@ -471,13 +471,13 @@ If you receive a “permission denied” message, see
 <p>All connections, including those for remote URLs,
 must be made as the “git” user.
 If you try to connect with your GitHub username:</p>
-</div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ssh -T GITHUB-USERNAME@github.com
 </pre></div>
 </div>
 <p>then it will fail:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Permission denied (publickey).
 </pre></div>
+</div>
 </div>
 <p>Once your SSH key is setup correctly, the only real difference in using it is
 the URL you use to clone a repository.
