@@ -129,7 +129,7 @@ The following example uses some common conventions for user defined types:
      }
    template <typename T> 
      inline bool operator<=(const item<T>& rhs, const item<T>& lhs) {
-       return !(y < rhs);
+       return !(lhs > rhs);
      }
    template <typename T> 
      inline bool operator>=(const item<T>& rhs, const item<T>& lhs) {
@@ -195,7 +195,8 @@ for ``operator==``:
 
 .. code-block:: cpp
 
-   friend bool operator==(const item& x, const item& y) {
+   template <typename U> 
+   friend bool operator==(const item<U>& x, const item<U>& y) {
      return x.value == y.value;
    }
 

@@ -348,7 +348,7 @@ the default implementation for the marked special member function.</p>
    <span class="p">}</span>
  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span>
    <span class="kr">inline</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;=</span><span class="p">(</span><span class="k">const</span> <span class="n">item</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">rhs</span><span class="p">,</span> <span class="k">const</span> <span class="n">item</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">lhs</span><span class="p">)</span> <span class="p">{</span>
-     <span class="k">return</span> <span class="o">!</span><span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">rhs</span><span class="p">);</span>
+     <span class="k">return</span> <span class="o">!</span><span class="p">(</span><span class="n">lhs</span> <span class="o">&gt;</span> <span class="n">rhs</span><span class="p">);</span>
    <span class="p">}</span>
  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span>
    <span class="kr">inline</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">&gt;=</span><span class="p">(</span><span class="k">const</span> <span class="n">item</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">rhs</span><span class="p">,</span> <span class="k">const</span> <span class="n">item</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">lhs</span><span class="p">)</span> <span class="p">{</span>
@@ -403,7 +403,8 @@ This is considered best practice by many programmers.</p>
 </div></blockquote>
 <p>Compare to the functionally similar friend, member overload
 for <code class="docutils literal notranslate"><span class="pre">operator==</span></code>:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">friend</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">item</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="n">item</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">friend</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">item</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="n">item</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">y</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
