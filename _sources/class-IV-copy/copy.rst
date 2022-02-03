@@ -302,9 +302,11 @@ This class encapsulates an array of characters, providing 4 functions:
                   data[i] = std::toupper(data[i]);
                }
 
-               ~string() {
-                 delete[] data;
-               }
+               // In this broken class, the destructor delete the same
+               // memory multiple times, which is a crash
+               // ~string() {
+               //   delete[] data;
+               // }
 
                char* c_str() { return data; }
            };
@@ -396,7 +398,7 @@ it is in the process of being constructed.
 
 .. tabbed:: copy_assign_tab
 
-   .. tab:: Copy constructor
+   .. tab:: Copy assignment
 
       Copy **assignment** is called when both *already exist* and
       you want to copy the right hand side object into the left hand side object.

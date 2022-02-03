@@ -489,8 +489,20 @@ or on Windows, a Powershell terminal and type:</p>
 <p>This command will download the CISC187 docker image
 and make it available to run.</p>
 </div><div data-component="tab" data-tabname="Run" >
-<p>To run the docker image type:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run --rm -it -v `pwd`:/mnt/cisc187 dparillo/cisc187
+<p>To run the docker image on windows type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run --rm -it -v C:\Path\To\Source\Directory:/mnt/cisc187 dparillo/cisc187
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An important thing to notice is when mounting a volume with <code class="docutils literal notranslate"><span class="pre">-v</span></code>
+on Windows, the Windows part, left of the <code class="docutils literal notranslate"><span class="pre">:</span></code> uses Windows
+Path separator characters (<code class="docutils literal notranslate"><span class="pre">\</span></code>), and on the Linux side, Linux
+Path separator characters are used (<code class="docutils literal notranslate"><span class="pre">/</span></code>).
+The Windows file path must include the drive letter.</p>
+</div>
+<p>The same command on Mac or Linux:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run --rm -it -v /path/to/source:/mnt/cisc187 dparillo/cisc187
 </pre></div>
 </div>
 <p>Meaning of these options:</p>
@@ -515,9 +527,6 @@ The general syntax is <code class="docutils literal notranslate"><span class="pr
 Instead of the short <code class="docutils literal notranslate"><span class="pre">-v</span></code>, you can use <code class="docutils literal notranslate"><span class="pre">--volume</span></code>.</p>
 <p>The idea here is that your source code is never really inside the docker container.
 Your source code is separate, but visible to the running container.</p>
-<p>Also note that the <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command is on option on Linux and MacOS,
-but on Windows, you will need to type the complete path to your
-git repository.</p>
 </dd>
 </dl>
 <p>The container mount point was not chosen at random.
@@ -673,6 +682,54 @@ make
 make test
 </pre></div>
 </div>
+</div>
+<div class="section" id="which-option-should-i-choose">
+<h2><span class="section-number">1.4.6. </span>Which option should I choose?<a class="headerlink" href="#which-option-should-i-choose" title="Permalink to this headline">¶</a></h2>
+<p>There are a lot of options and the choices can be confusing.
+The short answer is that there is no wrong choice.
+Also, you can change you mind at any time and even
+shift from one compile option to another as you prefer.</p>
+<p>So how are these options really different from each other?</p>
+<ol class="arabic">
+<li><p>The <strong>I</strong> in IDE stands for <em>integrated</em>
+They frequently include a large collection of tools to help
+with many tasks professional programmers encounter often.</p>
+<p>For this reason they tend to be large and use
+a fair amount of CPU and memory.</p>
+</li>
+<li><p>Accessing a remote server like buffy requires minimal
+CPU and memory locally.
+Most of the resources you are using are on the remote server.
+It is also the easiest to access.
+All the software you need is already installed on the server.
+You only need a ssh client.</p>
+<p>The main drawbacks are:</p>
+<ul class="simple">
+<li><p>You have no control over the environment - you don’t own the server.</p></li>
+<li><p>Using the remote server requires good internet.
+If you lose your internet for any reason,
+then you will lose your connection.</p></li>
+</ul>
+</li>
+<li><p>Docker blends the two previous choices.
+You get a local server separate from your computer that has
+everything you need installed.
+It uses less resources than a typical IDE and if needed
+you can limit the resources it uses and like a local IDE,
+does not require persistent internet to work.
+Also, if you want you can modify the docker image
+and make your own custom version.</p>
+<p>The main drawbacks are:</p>
+<ul class="simple">
+<li><p>After installing Docker there is anew persistent service
+running on your computer.</p></li>
+<li><p>It is still not a real replacement for an IDE.</p></li>
+</ul>
+</li>
+</ol>
+<p>This decision chart may help.</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-096fd9eba048fbb6ac078fe6bb7f60f5b5762a1d.png" alt="Choosing a build system" class="graphviz" /></div>
+</div>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
@@ -687,6 +744,7 @@ make test
 </ul>
 </li>
 <li><p><a class="reference internal" href="make.html"><span class="doc">Command-line compiling</span></a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Grok">Grok definition</a></p></li>
 </ul>
 </div>
 </div>
@@ -752,7 +810,7 @@ make test
       
     </p>
     <p>
-        &copy; Copyright 2017-2021 Dave Parillo.
+        &copy; Copyright 2017-2022 Dave Parillo.
       Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
     </p>
   </div>

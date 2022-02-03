@@ -325,11 +325,25 @@ that are installed on the Mesa server.
 
    .. tab:: Run
 
-      To run the docker image type:
+      To run the docker image on windows type:
 
       .. code-block:: none
 
-         docker run --rm -it -v `pwd`:/mnt/cisc187 dparillo/cisc187
+         docker run --rm -it -v C:\Path\To\Source\Directory:/mnt/cisc187 dparillo/cisc187
+
+      .. note::
+
+         An important thing to notice is when mounting a volume with ``-v``
+         on Windows, the Windows part, left of the ``:`` uses Windows
+         Path separator characters (``\``), and on the Linux side, Linux
+         Path separator characters are used (``/``).
+         The Windows file path must include the drive letter.
+
+      The same command on Mac or Linux:
+
+      .. code-block:: none
+
+         docker run --rm -it -v /path/to/source:/mnt/cisc187 dparillo/cisc187
 
       Meaning of these options:
 
@@ -359,10 +373,6 @@ that are installed on the Mesa server.
 
          The idea here is that your source code is never really inside the docker container.
          Your source code is separate, but visible to the running container.
-
-         Also note that the ``pwd`` command is on option on Linux and MacOS,
-         but on Windows, you will need to type the complete path to your
-         git repository.
 
       The container mount point was not chosen at random.
       The container is set up with ``/mnt/cisc187`` as the *WORKDIR*.
@@ -557,6 +567,124 @@ Open a terminal in the directory containing your lab, then:
    make test
 
 
+Which option should I choose?
+-----------------------------
+There are a lot of options and the choices can be confusing.
+The short answer is that there is no wrong choice.
+Also, you can change you mind at any time and even
+shift from one compile option to another as you prefer.
+
+So how are these options really different from each other?
+
+#. The **I** in IDE stands for *integrated*
+   They frequently include a large collection of tools to help
+   with many tasks professional programmers encounter often.
+
+   For this reason they tend to be large and use 
+   a fair amount of CPU and memory.
+
+#. Accessing a remote server like buffy requires minimal
+   CPU and memory locally.
+   Most of the resources you are using are on the remote server.
+   It is also the easiest to access.
+   All the software you need is already installed on the server.
+   You only need a ssh client.
+
+   The main drawbacks are:
+
+   - You have no control over the environment - you don't own the server.
+   - Using the remote server requires good internet.
+     If you lose your internet for any reason,
+     then you will lose your connection.
+
+#. Docker blends the two previous choices.
+   You get a local server separate from your computer that has
+   everything you need installed.
+   It uses less resources than a typical IDE and if needed
+   you can limit the resources it uses and like a local IDE,
+   does not require persistent internet to work.
+   Also, if you want you can modify the docker image
+   and make your own custom version.
+
+   The main drawbacks are:
+
+   - After installing Docker there is anew persistent service
+     running on your computer.
+   - It is still not a real replacement for an IDE.
+
+This decision chart may help.
+
+
+.. digraph:: choices
+   :align: center
+   :alt: Choosing a build system
+
+   node [fontname = "Bitstream Vera Sans", fontsize=14,
+         style=filled, fillcolor=lightblue,
+         shape=rect
+   ]
+  
+   ide [
+       label = "Already\nhave your\nown IDE?"
+       shape = diamond
+   ]
+   ide_chain [
+       label = "Your\nIDE grocks cmake\n& git?"
+       shape = diamond
+   ]
+     
+   simple [
+       label = "Crave\nsimplicity?"
+       shape = diamond
+   ]
+     
+   docker [
+       label = "Interested\nin docker?"
+       shape = diamond
+   ]
+     
+   cpu [
+       label = "Computer can\nrun docker?"
+       shape = diamond
+   ]
+     
+   node [fillcolor="wheat"]
+     
+   git [
+       label = "Install git"
+   ]
+   cmake [
+       label = "Install cmake"
+   ]
+   use_buffy [
+       label = "Use buffy"
+   ]
+   use_docker [
+       label = "Use docker"
+   ]
+   use_ide [
+       label = "Use your IDE"
+   ]
+
+
+   ide -> ide_chain [ label = "Yes" ];
+   ide_chain -> use_ide [ label = "Yes" ];
+   ide_chain -> git [ label = "No"];
+   ide_chain -> cmake [ label = "No"];
+   ide -> simple [ label = "No" , constraint = false];
+   simple -> docker [ label = "No" ];
+   simple -> use_buffy [label="Yes",  constraint=false];
+   docker -> cpu [label="Yes"]
+   docker:e -> use_buffy [label="No", constraint=false];
+   docker->use_docker [style=invis, weight=0];
+   cpu -> use_docker [ label = "Yes"];
+   cpu:e -> use_buffy [ label = "No", constraint=false]
+   cmake -> use_ide
+   git -> use_ide
+
+
+
+
 -----
 
 .. admonition:: More to Explore
@@ -570,5 +698,6 @@ Open a terminal in the directory containing your lab, then:
      - `Clang C++ status <https://clang.llvm.org/cxx_status.html>`__
    
    - :doc:`make`
+   - `Grok definition <https://en.wikipedia.org/wiki/Grok>`__
 
 
