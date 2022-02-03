@@ -653,6 +653,9 @@ This decision chart may help.
    git [
        label = "Install git"
    ]
+   git2 [
+       label = "Install git"
+   ]
    cmake [
        label = "Install cmake"
    ]
@@ -673,9 +676,10 @@ This decision chart may help.
    ide_chain -> cmake [ label = "No"];
    ide -> simple [ label = "No" , constraint = false];
    simple -> docker [ label = "No" ];
-   simple -> use_buffy [label="Yes",  constraint=false];
+   simple -> git2 [label="Yes",  constraint=false];
+   git2 -> use_buffy;
    docker -> cpu [label="Yes"]
-   docker:e -> use_buffy [label="No", constraint=false];
+   docker -> use_buffy [label="No", constraint=false];
    docker->use_docker [style=invis, weight=0];
    cpu -> use_docker [ label = "Yes"];
    cpu:e -> use_buffy [ label = "No", constraint=false]
