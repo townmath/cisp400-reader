@@ -164,7 +164,7 @@ Because we prefer keeping scope to a minimum, we *prefer*:
   Even a local variable can have too much scope, as in the preceding example.
 
 There is no reason in modern languages to declare all your variables at the start of a function.
-This is actually a requirement of alder languages like FORTRAN and the original K&R dialect of C.
+This is actually a requirement of older languages like FORTRAN and the original K&R dialect of C.
 In modern languages, it's an old habit some people have carried forward for no good reason.
 
 One of the simplest things you can do as a programmer to improve the clarity and
