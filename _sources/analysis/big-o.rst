@@ -27,7 +27,7 @@ Recall our growth rates from a little while ago.
    from scipy.special import gamma
 
    n = np.linspace(1, 20, 1000)
-   plt.plot(n,gamma(n))
+   plt.plot(n,gamma(n+1))
    plt.plot(n, 2**n)
    plt.plot(n, 2*n**2)
    plt.plot(n, 5*n*np.log2(n))

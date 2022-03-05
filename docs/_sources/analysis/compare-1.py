@@ -4,7 +4,7 @@ from scipy.special import gamma
 from matplotlib.patches import Rectangle
 
 n = np.linspace(1, 55, 1000)
-plt.plot(n,gamma(n))
+plt.plot(n,gamma(n+1))
 plt.plot(n, 2**n)
 plt.plot(n, 2*n**2)
 plt.plot(n, 5*n*np.log2(n))
@@ -14,7 +14,7 @@ plt.plot(n, 10*n, '--')
 plt.ylim(0,2000)
 plt.xlim(0,50)
 
-plt.text(5,1800,'n!')
+plt.text(4,1800,'n!')
 plt.text(12, 1800, '$2^n$')
 plt.text(25, 1600, '$2n^2$')
 plt.text(40, 1400, '$5n\cdot\log_{2}(n)$')

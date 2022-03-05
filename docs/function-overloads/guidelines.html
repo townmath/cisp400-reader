@@ -507,7 +507,9 @@ is implicitly void.</p>
 <li><p>We have to know how rand works</p></li>
 <li><p>We have to remember what modulus does.</p></li>
 </ul>
-<p>Yes, not big hurdles, but this is where bugs hide.</p>
+<p>Yes, not big hurdles, but this is where bugs hide.
+And for the record, the program asks the user to pick a number
+from 1 to 100, but this algorithm will never choose 1.</p>
 <p>The standard library has a superior alternative to <code class="docutils literal notranslate"><span class="pre">rand</span></code>:</p>
 
 <div class="runestone explainer ac_section alert alert-warning">
@@ -566,7 +568,8 @@ How many times is the number <code class="docutils literal notranslate"><span cl
 <p>If you wanted to change the max number of guesses to 10,
 how many places do you need to remember?
 And this is just one file.
-These kinds of duplications can become insiduous as prgrams grow.
+These kinds of duplications can become painful to
+maintain as programs grow.
 They can quickly get out of control.</p>
 <p>Finally, this is just a pet peeve of mine:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Safely exit.</span>
