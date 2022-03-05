@@ -329,6 +329,8 @@ While randomly surfing the internet,
       - We have to remember what modulus does.
 
       Yes, not big hurdles, but this is where bugs hide.
+      And for the record, the program asks the user to pick a number
+      from 1 to 100, but this algorithm will never choose 1.
 
       The standard library has a superior alternative to ``rand``:
 
@@ -390,7 +392,8 @@ While randomly surfing the internet,
       If you wanted to change the max number of guesses to 10,
       how many places do you need to remember?
       And this is just one file.
-      These kinds of duplications can become insiduous as prgrams grow.
+      These kinds of duplications can become painful to
+      maintain as programs grow.
       They can quickly get out of control.
 
       Finally, this is just a pet peeve of mine:
