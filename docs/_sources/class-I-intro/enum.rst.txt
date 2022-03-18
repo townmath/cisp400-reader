@@ -72,8 +72,8 @@ Consider the following program:
    #include <iostream>
    enum Direction { north, south, east, west };
 
-   static void show_direction(const int direction) {
-     std::cout << "Direction: " << direction << "\\n";
+   void show_direction(int direction) {
+     std::cout << "Direction: " << direction << '\n';
    }
 
    int main() {
@@ -82,7 +82,9 @@ Consider the following program:
      int num = dir;
      show_direction(num);
 
-     for (int i = north; i < 8; ++i) show_direction(i);
+     for (int i = north; i < 8; ++i) {
+       show_direction(i);
+     }
      return 0;
    }
 
@@ -214,5 +216,5 @@ Another example uses the same techniques to build a deck of cards.
 .. admonition:: More to Explore
 
    - :lang:`Enumeration declaration <enum>`
-   - `Enumberation (MIcrosoft) <https://docs.microsoft.com/en-us/cpp/cpp/enumerations-cpp?view=vs-2019>`__
+   - `Enumeration (Microsoft) <https://docs.microsoft.com/en-us/cpp/cpp/enumerations-cpp?view=vs-2019>`__
 

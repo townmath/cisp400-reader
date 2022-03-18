@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>15. Sorting &#8212; CISC 187 Course Reader Overview</title>
+    <title>14.9. Resolving collisions &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -57,8 +57,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15.1. Bubble sort" href="bubble.html" />
-    <link rel="prev" title="14.9. Resolving collisions" href="../trees/hash_table_collisions.html" />
+    <link rel="next" title="15. Sorting" href="../sort/index.html" />
+    <link rel="prev" title="14.8. Hash functions" href="hash_functions.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -188,14 +188,14 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">14.9. </span>Resolving collisions" data-toggle="tooltip">
-    <a href="../trees/hash_table_collisions.html" >
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">14.8. </span>Hash functions" data-toggle="tooltip">
+    <a href="hash_functions.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">15.1. </span>Bubble sort' data-toggle="tooltip" >              
-    <a href="bubble.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">15. </span>Sorting' data-toggle="tooltip" >              
+    <a href="../sort/index.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -236,56 +236,96 @@
 
 
   
-  <div class="section" id="sorting">
-<h1><span class="section-number">15. </span>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h1>
-<p><strong>Sorting</strong> is the process of placing elements from a collection in some
-kind of order. For example, a list of words could be sorted
-alphabetically or by length. A list of cities could be sorted by
-population, by area, or by zip code. We have already seen a number of
-algorithms that were able to benefit from having a sorted list (recall
-the final anagram example and the binary search).</p>
-<p>This chapter introduces several sorting algorithms and their trade-offs.
-This chapter refers to relative algorithm performance,
-so reviewing the chapter on <a class="reference internal" href="../analysis/index.html"><span class="doc">analysis</span></a> may help.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="bubble.html">15.1. Bubble sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="selection.html">15.2. Selection sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="insertion.html">15.3. Insertion sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="insertion.html#costs-of-exchange-sorting">15.4. Costs of Exchange Sorting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shell.html">15.5. Shell sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="merge.html">15.6. Merge sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quick.html">15.7. Quick sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="heap.html">15.8. Heap sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="radix.html">15.9. Radix sort</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="radix.html#array-based-radix-sort">15.9.1. Array-based Radix Sort</a></li>
-<li class="toctree-l2"><a class="reference internal" href="radix.html#radix-sort-analysis">15.9.2. Radix Sort Analysis</a></li>
+  <div class="section" id="resolving-collisions">
+<span id="index-0"></span><h1><span class="section-number">14.9. </span>Resolving collisions<a class="headerlink" href="#resolving-collisions" title="Permalink to this headline">¶</a></h1>
+<p>Since we know that perfect hash functions are not generally
+possible except in limited cases,
+we must assume that sometimes a hash function will generate
+the same value for two different objects.</p>
+<p>For example, in our simple hash table example,
+if we need to add another value that <em>collides</em>
+with an existing entry,
+then how can we store it?</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-3bc712e3a615c0e7315fd7c2666c81511ca901c9.png" alt="Simple hash table" class="graphviz" /></div>
+</div>
+<p>There are two general approaches:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../glossary.html#term-open-hashing"><span class="xref std std-term">Open hashing</span></a>:
+The hash table stores data structures that each holds multiple items.</p></li>
+<li><p><a class="reference internal" href="../glossary.html#term-closed-hashing"><span class="xref std std-term">Closed hashing</span></a>
+The keys are stored directly in the table.
+This requires finding an open bucket in the table for each value.</p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="summary.html">15.10. Summary of sorting algorithms</a></li>
+<div id='tab_graph' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Example set" >
+<div class="graphviz"><img src="../_images/graphviz-477042c807885bda7562cc020d48ca2a226a4a51.png" alt="Fruit set" class="graphviz" /></div>
+</div><div data-component="tab" data-tabname="Example map" >
+<p>When the ADT is a map, the process is similar.
+In a map ADT, the value hashed is the map <a class="reference internal" href="../glossary.html#term-key"><span class="xref std std-term">key</span></a>,
+since this is what uniquely identifies map items.</p>
+<p>Each <a class="reference internal" href="../glossary.html#term-bucket"><span class="xref std std-term">bucket</span></a> provides access to one or more map entries
+(<a class="reference internal" href="../glossary.html#term-key-value-pair"><span class="xref std std-term">key-value pairs</span></a>).</p>
+<div class="graphviz"><img src="../_images/graphviz-09862b2346b73b50d54e39a3afde5c2779b296da.png" alt="Fruit inventory map" class="graphviz" /></div>
+</div>
+    </div>
+
+<p>In order to use a type in an unordered container,
+the type must override 3 functions:</p>
+<ul class="simple">
+<li><p>override <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::hash">std::hash</a></p></li>
+<li><p>override <code class="docutils literal notranslate"><span class="pre">operator==</span></code></p></li>
+<li><p>override <code class="docutils literal notranslate"><span class="pre">operator&lt;</span></code></p></li>
+</ul>
+<p>before the type will compile when added to an unordered container.</p>
+<p>Consider the following <a class="reference internal" href="../glossary.html#term-hash-table"><span class="xref std std-term">hash table</span></a>:</p>
+<div class="graphviz"><img src="../_images/graphviz-b9d3e7e8cd1b7cffbfada6143bfe44185a8c62ae.png" alt="Simple hash table" class="graphviz" /></div>
+<p>How does the software find the value <code class="docutils literal notranslate"><span class="pre">34</span></code> in this data structure?</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">hash</span></code> override is used to compute the bucket.
+In this case the bucket is at index position <code class="docutils literal notranslate"><span class="pre">8</span></code>.</p>
+<p>Each element in the list stored in the bucket is evaluated using
+<code class="docutils literal notranslate"><span class="pre">operator==</span></code>.
+As soon as <code class="docutils literal notranslate"><span class="pre">operator==</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code> the value is returned.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">operator&lt;</span></code> function is used when adding new elements to buckets.
+New elements are kept sorted when added in order to reduce the time it takes to extract values from buckets.
+It should be clear that the performance of this data structure is
+highly dependent upon the quality of the <a class="reference internal" href="../glossary.html#term-hash-function"><span class="xref std std-term">hash function</span></a>.
+Always returning <code class="docutils literal notranslate"><span class="pre">42</span></code> is a <em>legitimate</em> value for a hash,
+but an extremely poor one,
+because your <a class="reference internal" href="../glossary.html#term-hash-table"><span class="xref std std-term">hash table</span></a> is no better than a <a class="reference internal" href="../glossary.html#term-linked-list"><span class="xref std std-term">linked list</span></a>.</p>
+<p>All of the built in fundamental types and some other library types such as <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::string">std::string</a>
+already have hash overrides defined.
+If you define your own <code class="docutils literal notranslate"><span class="pre">struct</span></code> or <code class="docutils literal notranslate"><span class="pre">class</span></code>, you need to write your own override.
+Consider a <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Point</span></code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Point</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>   <span class="c1">// must override std::hash</span>
+  <span class="k">template</span> <span class="o">&lt;&gt;</span>
+  <span class="k">struct</span> <span class="nc">hash</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&gt;</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">)</span> <span class="k">const</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="p">((</span><span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">()(</span><span class="mi">7919</span><span class="p">)</span>
+            <span class="o">^</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="o">^</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The override must be a function template,
+although in this case, no template parameter is needed.
+The template declaration <code class="docutils literal notranslate"><span class="pre">template</span> <span class="pre">&lt;&gt;</span></code> is perfectly valid.</p>
+<p>A <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::hash">std::hash</a> override must be defined as a function object that takes the type as a parameter
+and returns a <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::size_t">std::size_t</a>.</p>
+<hr class="docutils" />
+<div class="admonition-more-to-explore admonition">
+<p class="admonition-title">More to Explore</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.partow.net/programming/hashfunctions/">General purpose hash function algorithms</a></p></li>
 </ul>
 </div>
-<p>There are many, many sorting algorithms that have been developed and
-analyzed. This suggests that sorting is an important area of study in
-computer science. Sorting a large number of items can take a substantial
-amount of computing resources. Like searching, the efficiency of a
-sorting algorithm is related to the number of items being processed. For
-small collections, a complex sorting method may be more trouble than it’s
-worth. The overhead may be too high. On the other hand, for larger
-collections, we want to take advantage of as many improvements as
-possible. In this section we will discuss several sorting techniques and
-compare them with respect to their running time.</p>
-<p>Before getting into specific algorithms, we should think about the
-operations that can be used to analyze a sorting process. First, it will
-be necessary to compare two values to see which is smaller (or larger).
-In order to sort a collection, it will be necessary to have some
-systematic way to compare values to see if they are out of order. The
-total number of comparisons will be the most common way to measure a
-sort procedure. Second, when values are not in the correct position with
-respect to one another, it may be necessary to exchange them. This
-exchange is a costly operation and the total number of exchanges will
-also be important for evaluating the overall efficiency of the
-algorithm.</p>
 </div>
 
 
@@ -295,8 +335,8 @@ algorithm.</p>
   
       
 <ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 14.9. Resolving collisions' data-toggle="tooltip">
-    <a href="../trees/hash_table_collisions.html" aria-label="14.9. Resolving collisions">
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 14.8. Hash functions' data-toggle="tooltip">
+    <a href="hash_functions.html" aria-label="14.8. Hash functions">
         <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
             <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
         </div>
@@ -306,8 +346,8 @@ algorithm.</p>
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 15.1. Bubble sort' data-toggle="tooltip" >
-    <a href="bubble.html" aria-label="15.1. Bubble sort">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 15. Sorting' data-toggle="tooltip" >
+    <a href="../sort/index.html" aria-label="15. Sorting">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>

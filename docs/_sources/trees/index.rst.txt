@@ -11,6 +11,8 @@ This section focuses on what the standard library refers to as
    bst-iterator.rst
    set.rst
    map.rst
-   unordered_map.rst
+   hash_table.rst
+   hash_functions.rst
+   hash_table_collisions.rst
 
 

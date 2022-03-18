@@ -393,6 +393,7 @@ Glossary
       recurrence with its closed-form solution is known as solving the
       summation or recurrence.
 
+   closed hashing
    closed hash system
       A :term:`hash system` where all records are stored in slots of
       the :term:`hash table`.
@@ -1624,6 +1625,7 @@ Glossary
    open addressing
       A synonym for :term:`closed hashing <closed hash system>`.
 
+   open hashing
    open hash system
       A :term:`hash system` where multiple records might be associated
       with the same slot of a :term:`hash table`.
