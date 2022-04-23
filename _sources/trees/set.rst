@@ -135,7 +135,16 @@ multiset
 unordered_set
    A ``set`` of unique objects stored based on the object :term:`hash function`.
    Added in C++11.
-  
+
+   In order to use a type in an unordered container,
+   the type must override 3 functions:
+
+   - override :utility:`std::hash<hash>`
+   - override ``operator==``
+   - override ``operator<``
+
+   before the type will compile when added to an unordered container.
+     
 unordered_multiset
    An ``unordered_set`` in which duplicate keys are allowed.
   

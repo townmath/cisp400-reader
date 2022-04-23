@@ -181,8 +181,6 @@ The template declaration ``template <>`` is perfectly valid.
    of different parts of an object have the same value
    or are simple multiples of one another.
 
-
-
 -----
 
 .. admonition:: More to Explore
