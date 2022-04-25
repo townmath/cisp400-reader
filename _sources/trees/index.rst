@@ -14,5 +14,7 @@ This section focuses on what the standard library refers to as
    hash_table.rst
    hash_functions.rst
    hash_table_collisions.rst
+   open_hashing.rst
+   closed_hashing.rst
 
 

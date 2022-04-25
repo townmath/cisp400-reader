@@ -1413,6 +1413,10 @@ Glossary
       In the context of compilers, it is any constant value.
       Similar to a :term:`terminal`.
 
+   load factor
+      In a :term:`hash table`, the number of items contained 
+      in the table divided by the table size.
+
    local variable
       A variable declared within a function or method.
       It exists only from the time when the function is called to when
