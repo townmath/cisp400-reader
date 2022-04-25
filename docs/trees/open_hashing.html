@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14.10. Open hashing &#8212; CISC 187 Course Reader Overview</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
+    <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
+    <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
+    <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
+    <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
+    <script src="../_static/animationbase.js?v=A043C3A7"></script>
+    <script src="../_static/html4css1.css?v=4533ACD3"></script>
+    <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
+    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
+    <script src="../_static/webglinteractive.js?v=2B768384"></script>
+    <script src="../_static/FileSaver.min.js?v=8408C997"></script>
+    <script src="../_static/Blob.js?v=AEC2447"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.bidi.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.fallbacks.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.messagestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.parser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.language.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
+    <script src="../_static/runestone.js?v=92D8BBF0"></script>
+    <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
+    <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+    <script src="../_static/jquery-fix.js?v=1226591B"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
+    <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
+    <script src="../_static/theme.js?v=D899FB97"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="14.11. Closed hashing" href="closed_hashing.html" />
+    <link rel="prev" title="14.9. Resolving collisions" href="hash_table_collisions.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+<script type="text/javascript">
+  eBookConfig = {};
+  
+    eBookConfig.useRunestoneServices = false;
+    eBookConfig.host = 'https://daveparillo.github.io/cisc187-reader/' || 'http://127.0.0.1:8000';
+    eBookConfig.app = eBookConfig.host+'/cisc187-reader';
+    eBookConfig.course = 'cisc187-reader';
+    eBookConfig.basecourse = 'cisc187-reader';
+    eBookConfig.isLoggedIn = false;
+  
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.logLevel = 0;
+  eBookConfig.loginRequired = false;
+  eBookConfig.build_info = "unknown";
+  eBookConfig.python3 = true;
+  eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
+  eBookConfig.runestone_version = '5.5.5';
+  eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
+  eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
+  eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
+  eBookConfig.enable_chatcodes = false ? false : false;
+
+
+</script>
+
+<!-- Ad Serving Headers Only serve ads to Anonymous Users -->
+
+
+
+
+
+  </head><body>
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar" aria-label="navbar toggle" class="visuallyhidden">toggle navbar</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+        
+          <a class="brand-logo" style='background: transparent url("../_static/img/logo_small.png") no-repeat 0px 0px;'>&nbsp;<span aria-label="logo" class="visuallyhidden">Runestone Logo</span> </a>
+        
+        <a class="navbar-brand" href="../index.html" aria-label="index-page">
+          
+          cisc187-reader
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right" >
+
+        <li class="divider-vertical"></li>
+
+
+        <!-- social media dropdown -->
+        <!-- end social media dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'><span aria-label="Search" class="visuallyhidden">Search</span></i>
+          </a>
+          <ul class='dropdown-menu'>
+            
+                <li><a href='../index.html' aria-label="index-page">Table of Contents</a></li>
+            
+            <li><a href='../genindex.html'>Book Index</a></li>
+            <li class="divider"></li>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        
+        <li class="divider-vertical"></li>
+        <!-- <li id="scratch_ac_link"><a href="javascript:ACFactory.toggleScratchActivecode()">Scratch ActiveCode</a></li> -->
+
+        <!-- <li class="dropdown">             -->
+          <li id="scratch_ac_link" class="dropdown"><a href="javascript:ACFactory.toggleScratchActivecode()">
+              <i class="glyphicon glyphicon-pencil" style="opacity:0.9;"><span aria-label="Scratch Activecode" class="visuallyhidden">Scratch Activecode</span></i></a></li>
+        <!-- </li> -->
+
+        <li class="divider-vertical"></li>
+
+        
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <li class="divider-vertical"></li>
+        
+          
+          <li class="divider-vertical"></li>
+        
+        <!-- 
+          
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">14.9. </span>Resolving collisions" data-toggle="tooltip">
+    <a href="hash_table_collisions.html" >
+      <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  
+  <li id="relations-next" title='Next Chapter - <span class="section-number">14.11. </span>Closed hashing' data-toggle="tooltip" >              
+    <a href="closed_hashing.html" >
+        <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  <li class="divider-vertical"></li>
+
+<script type="text/javascript">
+  opts = {'placement':'bottom',
+          'selector': '',
+          'delay': { show: 100, hide: 50}
+         };
+
+  $('#relations-prev').tooltip(opts);
+  $('#relations-next').tooltip(opts);
+</script>
+        -->
+        
+          <li></li>
+        
+      </ul>
+
+      </div> <!-- navbar -->
+
+
+
+
+
+
+
+    </div> <!-- container -->
+  </div>
+</div>
+
+
+<div class="container" id="continue-reading"></div>
+
+<div class="container" id="main-content" role="main">
+<!-- Ad Serving for Runestone Campaign -->
+
+
+  
+  <div class="section" id="open-hashing">
+<span id="index-0"></span><h1><span class="section-number">14.10. </span>Open hashing<a class="headerlink" href="#open-hashing" title="Permalink to this headline">¶</a></h1>
+<p>One collision avoidance strategy is <a class="reference internal" href="../glossary.html#term-separate-chaining"><span class="xref std std-term">separate chaining</span></a>.
+In separate chaining the hash table is implemented as an array of
+variable sized containers that can hold however many elements that have
+actually collided at each array location.</p>
+<p>A linked list is a typical choices for implementing the chain,
+which is where the term “chaining” actually originates.</p>
+<div id='tab_graph' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Example set" >
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-bd7fc56e4258eb0472dd58f2aae3dd9360ddb92b.png" alt="Fruit set" class="graphviz" /></div>
+</div>
+</div><div data-component="tab" data-tabname="Example map" >
+<p>When the ADT is a map, the process is similar.
+In a map ADT, the value hashed is the map <a class="reference internal" href="../glossary.html#term-key"><span class="xref std std-term">key</span></a>,
+since this is what uniquely identifies map items.</p>
+<p>Each <a class="reference internal" href="../glossary.html#term-bucket"><span class="xref std std-term">bucket</span></a> provides access to one or more map entries
+(<a class="reference internal" href="../glossary.html#term-key-value-pair"><span class="xref std std-term">key-value pairs</span></a>).</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-5bf1b75fd75b37fb2c21771ba84bed6b848061d0.png" alt="Fruit inventory map" class="graphviz" /></div>
+</div>
+</div>
+    </div>
+
+<p>The linked lists allows the hash table to be dynamically sized,
+and each array element is its own <a class="reference internal" href="../glossary.html#term-bucket"><span class="xref std std-term">bucket</span></a>.</p>
+<p>A <a class="reference internal" href="../glossary.html#term-set"><span class="xref std std-term">set</span></a> provides a simple demonstration of the capabilities
+of a hashed data structure.
+Recall that <a class="reference external" href="https://en.cppreference.com/w/cpp/container/set">set</a> defines a container that stores
+unique items.</p>
+<div id='hash_set_tab_group' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="hash_set" >
+<p>The template variables for a hash set defines the type
+of data stored in the set: the <code class="docutils literal notranslate"><span class="pre">Key</span></code>.
+This hash table will be fixed size, so we denote that with
+the non-type template parameter <code class="docutils literal notranslate"><span class="pre">N</span></code>.
+The Comparator allows the template to accept a function
+used to find items in the chain.
+The default is <a class="reference external" href="https://en.cppreference.com/w/cpp/algorithm/equal">equal</a>, but another
+<a class="reference internal" href="../glossary.html#term-predicate"><span class="xref std std-term">binary predicate</span></a> can be substituted.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span>
+          <span class="kt">size_t</span> <span class="n">N</span><span class="p">,</span>
+          <span class="k">class</span> <span class="nc">Comparator</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">equal_to</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;&gt;</span>
+<span class="k">class</span> <span class="nc">hash_set</span>
+<span class="p">{</span>
+  <span class="k">public</span><span class="o">:</span>
+    <span class="k">using</span> <span class="n">Container</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">value_type</span> <span class="o">=</span> <span class="n">Key</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">key_type</span>   <span class="o">=</span> <span class="n">Key</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">iterator</span>   <span class="o">=</span> <span class="k">typename</span> <span class="nc">Container</span><span class="o">::</span><span class="n">iterator</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">const_iterator</span>  <span class="o">=</span> <span class="k">const</span> <span class="n">iterator</span><span class="p">;</span>
+
+    <span class="n">hash_set</span> <span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+  <span class="k">private</span><span class="o">:</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">Container</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;</span> <span class="n">buckets</span><span class="p">;</span>
+    <span class="n">Comparator</span> <span class="n">compare</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">sz</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="p">};</span>
+</pre></div>
+</div>
+</div><div data-component="tab" data-tabname="find" >
+<p>Finding anything in a hash table using separate chaining
+is a two step process.  Consider the following <a class="reference internal" href="../glossary.html#term-hash-table"><span class="xref std std-term">hash table</span></a>:</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-15be9af29c0ff1149f84b560db01c6f1830acc69.png" alt="Simple hash table" class="graphviz" /></div>
+</div>
+<p>How does the software find the value <code class="docutils literal notranslate"><span class="pre">34</span></code> in this data structure?</p>
+<p>First we need to find the right bucket.
+The <code class="docutils literal notranslate"><span class="pre">hash</span></code> override is used to compute the bucket.
+In this case the bucket is at index position <code class="docutils literal notranslate"><span class="pre">8</span></code>.</p>
+<p>Note we use <code class="docutils literal notranslate"><span class="pre">std::hash&lt;&gt;</span></code> here.
+Any <code class="docutils literal notranslate"><span class="pre">Key</span></code> type stored in this set must override <code class="docutils literal notranslate"><span class="pre">std::hash</span></code>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">private</span><span class="o">:</span>
+   <span class="n">Container</span><span class="o">&amp;</span> <span class="n">find_bucket</span> <span class="p">(</span><span class="k">const</span> <span class="n">Key</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span>
+   <span class="p">{</span>
+     <span class="k">return</span> <span class="n">buckets</span><span class="p">[</span><span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">value</span><span class="p">)</span> <span class="o">%</span> <span class="n">N</span><span class="p">];</span>
+   <span class="p">}</span>
+</pre></div>
+</div>
+<p>Next, we search through the list stored in that bucket
+looking for a specific value.
+Each element in the list stored in the bucket is evaluated using
+<code class="docutils literal notranslate"><span class="pre">operator==</span></code> - the default for <code class="docutils literal notranslate"><span class="pre">std::equal_to</span></code>.
+As soon as <code class="docutils literal notranslate"><span class="pre">operator==</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code> the value is returned.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">iterator</span> <span class="nf">find</span> <span class="p">(</span><span class="k">const</span> <span class="n">Key</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Container</span><span class="o">&amp;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">find_bucket</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">find_if</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">b</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+           <span class="p">[</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">](</span><span class="n">Key</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+             <span class="k">return</span> <span class="n">compare</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+           <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>It should be clear that the performance of this data structure is
+highly dependent upon the quality of the <a class="reference internal" href="../glossary.html#term-hash-function"><span class="xref std std-term">hash function</span></a>.
+Always returning <code class="docutils literal notranslate"><span class="pre">42</span></code> is a <em>legitimate</em> value for a hash,
+but an extremely poor one,
+because your <a class="reference internal" href="../glossary.html#term-hash-table"><span class="xref std std-term">hash table</span></a> is no better than a <a class="reference internal" href="../glossary.html#term-linked-list"><span class="xref std std-term">linked list</span></a>.</p>
+</div><div data-component="tab" data-tabname="insert" >
+<p>Insert is similar to find.
+We use <code class="docutils literal notranslate"><span class="pre">find_bucket</span></code> to get the correct array element,
+if it exists.
+The we search to see if the value already exists in the linked list.
+If it does, replace the existing value with the new one.
+Otherwise, we add it to the list.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">insert</span> <span class="p">(</span><span class="k">const</span> <span class="n">Key</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Container</span><span class="o">&amp;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">find_bucket</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+  <span class="n">iterator</span> <span class="n">pos</span> <span class="o">=</span>
+    <span class="n">find_if</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">b</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+        <span class="p">[</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">](</span><span class="n">Key</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">compare</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span> <span class="p">});</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">==</span> <span class="n">b</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">b</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="o">++</span><span class="n">sz</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="o">*</span><span class="n">pos</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div><div data-component="tab" data-tabname="erase" >
+<p>Erase is similar to insert.</p>
+<ol class="arabic">
+<li><p>Find the bucket</p></li>
+<li><p>Search for the value</p></li>
+<li><p>If you find it, erase it.</p>
+<p>Otherwise, do nothing.</p>
+</li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">erase</span> <span class="p">(</span><span class="k">const</span> <span class="n">Key</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">Container</span><span class="o">&amp;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">find_bucket</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+<span class="n">iterator</span> <span class="n">pos</span> <span class="o">=</span>
+  <span class="n">find_if</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">b</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
+      <span class="p">[</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">](</span><span class="n">Key</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">compare</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span> <span class="p">});</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">!=</span> <span class="n">b</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
+  <span class="n">b</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">pos</span><span class="p">);</span>
+  <span class="o">--</span><span class="n">sz</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div><div data-component="tab" data-tabname="Run it" >
+
+<div class="runestone explainer ac_section alert alert-warning">
+<div data-component="activecode" id=hash_table_open_ac >
+<div id=hash_table_open_ac_question class="ac_question col-md-12">
+
+</div>
+<textarea data-lang="cpp" id="hash_table_open_ac_editor" data-question_label="14.10.1" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+    style="visibility: hidden;">
+#include <array>
+#include <algorithm>
+#include <cstddef>
+#include <functional>
+#include <iomanip>
+#include <iostream>
+#include <list>
+#include <utility>
+
+using std::list;
+using std::array;
+
+
+template <class Key,
+         size_t N,
+         class Comparator=std::equal_to<Key>>
+class hash_set
+{
+  public:
+    using Container = list<Key>;
+    using value_type = Key;
+    using key_type   = Key;
+    using iterator   = typename Container::iterator;
+    using const_iterator  = const iterator;
+
+    hash_set() = default;
+
+    iterator find (const Key& value)
+    {
+      Container& b = find_bucket(value);
+      return find_if(b.begin(), b.end(),
+            [this, &value](Key x) { return compare(x, value); });
+    }
+
+    const_iterator find (const Key& value) const
+    {
+      const Container& b = find_bucket(value);
+      return find_if(b.begin(), b.end(),
+            [this, &value](Key x) { return compare(x, value); });
+    }
+
+    int count (const Key& value) const
+    {
+      const Container& b = find_bucket(value);
+      return (find_if(b.begin(), b.end(),
+            [this, &value](Key x) { return compare(x, value); })
+        == b.end()) ? 0 : 1;
+    }
+
+    void insert (const Key& value)
+    {
+      Container& b = find_bucket(value);
+      iterator pos =
+        find_if(b.begin(), b.end(),
+            [this, &value](Key x) { return compare(x, value); });
+      if (pos == b.end()) {
+        b.push_back(value);
+        ++sz;
+      }
+      else {
+        * pos = value;
+      }
+    }
+
+    void erase (const Key& value)
+    {
+      Container& b = find_bucket(value);
+      iterator pos =
+        find_if(b.begin(), b.end(),
+            [this, &value](Key x) { return compare(x, value); });
+      if (pos != b.end()) {
+        b.erase(pos);
+        --sz;
+      }
+    }
+
+    constexpr
+      size_t size() const noexcept { return sz; }
+
+    constexpr
+      bool empty() const noexcept { return sz == 0; }
+
+  private:
+    array<Container, N> buckets;
+    Comparator compare;
+    size_t sz = 0;
+
+    Container& find_bucket (const Key& value)
+    {
+      return buckets[std::hash<Key>()(value) % N];
+    }
+
+    constexpr
+      const Container& find_bucket (const Key& value) const
+      {
+        return buckets[std::hash<Key>()(value) % N];
+      }
+
+    friend
+    std::ostream& operator<<(std::ostream& os, const hash_set& rhs)
+    {
+      os << '[';
+      int i = 0;
+      for (const auto& bucket: rhs.buckets) {
+        for (const auto& value: bucket) {
+          os << i << ':' << value << ',';
+        }
+        ++i;
+      }
+      return os << ']';
+    }
+};
+
+int main() {
+  auto foo = hash_set<int, 11>{};
+  foo.insert(72);
+  foo.insert(72);
+  std::cout << "count: " << foo.count(72) << std::endl;
+
+  foo.erase(72);
+  std::cout << "count: " << foo.count(72) << std::endl;
+
+  foo.insert(-1);
+  foo.insert(0);
+  foo.insert(1);
+  foo.insert(2);
+  foo.insert(9);
+  foo.insert(81);
+  foo.insert(121);
+  foo.insert(572);
+  foo.insert(999);
+  std::cout << foo << std::endl;
+  auto it = foo.find(572);
+  std::cout << "value 572: " << *it << std::endl;
+}
+</textarea>
+</div>
+</div>
+</div>
+    </div>
+
+<div class="section" id="analysis-of-separate-chaining">
+<h2><span class="section-number">14.10.1. </span>Analysis of separate chaining<a class="headerlink" href="#analysis-of-separate-chaining" title="Permalink to this headline">¶</a></h2>
+<p>Suppose we have inserted <span class="math notranslate nohighlight">\(sz\)</span> items into a table of size <span class="math notranslate nohighlight">\(N\)</span></p>
+<p>In the worst case, all <span class="math notranslate nohighlight">\(sz\)</span> items will hash to the same list,
+and we will be reduced to doing a linear search of that list:
+<span class="math notranslate nohighlight">\(O(sz)\)</span>.</p>
+<p>We could use a tree for each bucket,
+which would reduce the cost of searching buckets to <span class="math notranslate nohighlight">\(O(\log_{2}(sz))\)</span>
+with an extra cost that <code class="docutils literal notranslate"><span class="pre">Key</span></code> types support a <code class="docutils literal notranslate"><span class="pre">operator&lt;</span></code> comparison
+in addition to the <code class="docutils literal notranslate"><span class="pre">operator==</span></code> comparison required with list buckets.</p>
+<p>In the average case, we assume that the <code class="docutils literal notranslate"><span class="pre">sz</span></code> items are distributed evenly
+among the lists.
+Since we have <code class="docutils literal notranslate"><span class="pre">sz</span></code> items distributed among <code class="docutils literal notranslate"><span class="pre">N</span></code> lists,
+the cost is <span class="math notranslate nohighlight">\(O(N \cdot sz)\)</span>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">N</span></code> is much larger than <code class="docutils literal notranslate"><span class="pre">sz</span></code>,
+and if our hash function uniformly distributes our keys,
+then most lists will have 0 or 1 item,
+and the average case is approximately <span class="math notranslate nohighlight">\(O(1)\)</span>.
+But if <code class="docutils literal notranslate"><span class="pre">sz</span></code> is much larger than <code class="docutils literal notranslate"><span class="pre">N</span></code>,
+we are looking at an <span class="math notranslate nohighlight">\(O(sz)\)</span>
+linear search sped up by a constant factor (<code class="docutils literal notranslate"><span class="pre">N</span></code>), but still <span class="math notranslate nohighlight">\(O(sz)\)</span>.</p>
+<p>Bottom line: hash tables let us trade space for speed.</p>
+<hr class="docutils" />
+<div class="admonition-more-to-explore admonition">
+<p class="admonition-title">More to Explore</p>
+<ul class="simple">
+<li><p>The content on this page was adapted from
+<a class="reference external" href="https://www.cs.odu.edu/~zeil/cs361/f16/Public/collisions/index.html">Resolving Collisions</a>,
+by Steven J. Zeil for his data structures course CS361.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+  <div id=scprogresscontainer>
+    You have attempted <span id=scprogresstotal></span> of <span id=scprogressposs></span> activities on this page <div id="subchapterprogress"></div>
+  </div>
+  
+      
+<ul>
+  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 14.9. Resolving collisions' data-toggle="tooltip">
+    <a href="hash_table_collisions.html" aria-label="14.9. Resolving collisions">
+        <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
+            <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
+        </div>
+    </a>
+  </li>
+</ul>
+
+  
+<ul>
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 14.11. Closed hashing' data-toggle="tooltip" >
+    <a href="closed_hashing.html" aria-label="14.11. Closed hashing">
+      <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
+          <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
+      </div>
+    </a>
+  </li>
+</ul>
+
+<script type="text/javascript">
+
+  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
+
+</script>
+
+<script>
+	function mouseOverPrev() {
+		document.getElementById("relations-prev").style.opacity=1;
+	}
+
+	function mouseOutPrev() {
+		document.getElementById("relations-prev").style.opacity=0.4;
+	}
+	function mouseOverNext() {
+		document.getElementById("relations-next").style.opacity=1;
+	}
+
+	function mouseOutNext() {
+		document.getElementById("relations-next").style.opacity=0.4;
+	}
+</script>
+  
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      
+      | <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017-2022 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
+    </p>
+  </div>
+</footer>
+
+
+
+
+<script> getSwitch(); </script>
+
+
+  </body>
+</html>

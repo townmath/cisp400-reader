@@ -57,7 +57,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15. Sorting" href="../sort/index.html" />
+    <link rel="next" title="14.10. Open hashing" href="open_hashing.html" />
     <link rel="prev" title="14.8. Hash functions" href="hash_functions.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -194,8 +194,8 @@
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">15. </span>Sorting' data-toggle="tooltip" >              
-    <a href="../sort/index.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">14.10. </span>Open hashing' data-toggle="tooltip" >              
+    <a href="open_hashing.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -256,341 +256,18 @@ The hash table stores data structures that each holds multiple items.</p></li>
 The keys are stored directly in the table.
 This requires finding an open bucket in the table for each value.</p></li>
 </ul>
-<div class="section" id="open-hashing">
-<h2><span class="section-number">14.9.1. </span>Open hashing<a class="headerlink" href="#open-hashing" title="Permalink to this headline">¶</a></h2>
 <p>Historically, one of the most common approaches to dealing with collisions
 has been to use fixed size <a class="reference internal" href="../glossary.html#term-bucket"><span class="xref std std-term">buckets</span></a>, for example
 an array that can hold up to k (some small constant) elements.
 The problem with this approach is
 if we get more than <span class="math notranslate nohighlight">\(k\)</span> collisions at the same location,
 then we still need to fall back to some other technique.</p>
-<p>So instead, we’ll look at <a class="reference internal" href="../glossary.html#term-separate-chaining"><span class="xref std std-term">separate chaining</span></a>.
-In separate chaining the hash table is implemented as an array of
-variable sized containers that can hold however many elements that have
-actually collided at each array location.</p>
-<p>A linked list is a typical choices for implementing the chain,
-which is where the term “chaining” actually originates.</p>
-<div id='tab_graph' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Example set" >
-<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-963fe45702b05d7454a9e70095d1566eee869f7b.png" alt="Fruit set" class="graphviz" /></div>
-</div>
-</div><div data-component="tab" data-tabname="Example map" >
-<p>When the ADT is a map, the process is similar.
-In a map ADT, the value hashed is the map <a class="reference internal" href="../glossary.html#term-key"><span class="xref std std-term">key</span></a>,
-since this is what uniquely identifies map items.</p>
-<p>Each <a class="reference internal" href="../glossary.html#term-bucket"><span class="xref std std-term">bucket</span></a> provides access to one or more map entries
-(<a class="reference internal" href="../glossary.html#term-key-value-pair"><span class="xref std std-term">key-value pairs</span></a>).</p>
-<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-045faa18039442e2e18ffd19fd1114b204b154f5.png" alt="Fruit inventory map" class="graphviz" /></div>
-</div>
-</div>
-    </div>
-
-<p>Although these containers are dynamically sized,
-they are still called “buckets”.</p>
-<p>A <a class="reference internal" href="../glossary.html#term-set"><span class="xref std std-term">set</span></a> provides a simple demonstration of the capabilities
-of a hashed data structure.
-Recall that <a class="reference external" href="https://en.cppreference.com/w/cpp/container/set">set</a> defines a container that stores
-unique items.</p>
-<div id='hash_set_tab_group' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="hash_set" >
-<p>The template variables for a hash set defines the type
-of data stored in the set: the <code class="docutils literal notranslate"><span class="pre">Key</span></code>.
-This hash table will be fixed size, so we denote that with
-the non-type template parameter <code class="docutils literal notranslate"><span class="pre">N</span></code>.
-The Comparator allows the template to accept a function
-used to find items in the chain.
-The default is <a class="reference external" href="https://en.cppreference.com/w/cpp/algorithm/equal">equal</a>, but another
-<a class="reference internal" href="../glossary.html#term-predicate"><span class="xref std std-term">binary predicate</span></a> can be substituted.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span>
-          <span class="kt">size_t</span> <span class="n">N</span><span class="p">,</span>
-          <span class="k">class</span> <span class="nc">Comparator</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">equal_to</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;&gt;</span>
-<span class="k">class</span> <span class="nc">hash_set</span>
-<span class="p">{</span>
-  <span class="k">public</span><span class="o">:</span>
-    <span class="k">using</span> <span class="n">Container</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="k">using</span> <span class="n">value_type</span> <span class="o">=</span> <span class="n">Key</span><span class="p">;</span>
-    <span class="k">using</span> <span class="n">key_type</span>   <span class="o">=</span> <span class="n">Key</span><span class="p">;</span>
-    <span class="k">using</span> <span class="n">iterator</span>   <span class="o">=</span> <span class="k">typename</span> <span class="nc">Container</span><span class="o">::</span><span class="n">iterator</span><span class="p">;</span>
-    <span class="k">using</span> <span class="n">const_iterator</span>  <span class="o">=</span> <span class="k">const</span> <span class="n">iterator</span><span class="p">;</span>
-
-    <span class="n">hash_set</span> <span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-
-  <span class="k">private</span><span class="o">:</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">Container</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;</span> <span class="n">buckets</span><span class="p">;</span>
-    <span class="n">Comparator</span> <span class="n">compare</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">sz</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="p">};</span>
-</pre></div>
-</div>
-</div><div data-component="tab" data-tabname="find" >
-<p>Finding anything in a hash table using separate chaining
-is a two step process.  Consider the following <a class="reference internal" href="../glossary.html#term-hash-table"><span class="xref std std-term">hash table</span></a>:</p>
-<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-92ad39f5b1a16ff9fdc3a9895b9be2fb8567e86a.png" alt="Simple hash table" class="graphviz" /></div>
-</div>
-<p>How does the software find the value <code class="docutils literal notranslate"><span class="pre">34</span></code> in this data structure?</p>
-<p>First we need to find the right bucket.
-The <code class="docutils literal notranslate"><span class="pre">hash</span></code> override is used to compute the bucket.
-In this case the bucket is at index position <code class="docutils literal notranslate"><span class="pre">8</span></code>.</p>
-<p>Note we use <code class="docutils literal notranslate"><span class="pre">std::hash&lt;&gt;</span></code> here.
-Any <code class="docutils literal notranslate"><span class="pre">Key</span></code> type stored in this set must override <code class="docutils literal notranslate"><span class="pre">std::hash</span></code>.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">private</span><span class="o">:</span>
-   <span class="n">Container</span><span class="o">&amp;</span> <span class="n">find_bucket</span> <span class="p">(</span><span class="k">const</span> <span class="n">Key</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span>
-   <span class="p">{</span>
-     <span class="k">return</span> <span class="n">buckets</span><span class="p">[</span><span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">value</span><span class="p">)</span> <span class="o">%</span> <span class="n">N</span><span class="p">];</span>
-   <span class="p">}</span>
-</pre></div>
-</div>
-<p>Next, we search through the list stored in that bucket
-looking for a specific value.
-Each element in the list stored in the bucket is evaluated using
-<code class="docutils literal notranslate"><span class="pre">operator==</span></code> - the default for <code class="docutils literal notranslate"><span class="pre">std::equal_to</span></code>.
-As soon as <code class="docutils literal notranslate"><span class="pre">operator==</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code> the value is returned.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">iterator</span> <span class="nf">find</span> <span class="p">(</span><span class="k">const</span> <span class="n">Key</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">Container</span><span class="o">&amp;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">find_bucket</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
-  <span class="k">return</span> <span class="n">find_if</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">b</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
-           <span class="p">[</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">](</span><span class="n">Key</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-             <span class="k">return</span> <span class="n">compare</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
-           <span class="p">});</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>It should be clear that the performance of this data structure is
-highly dependent upon the quality of the <a class="reference internal" href="../glossary.html#term-hash-function"><span class="xref std std-term">hash function</span></a>.
-Always returning <code class="docutils literal notranslate"><span class="pre">42</span></code> is a <em>legitimate</em> value for a hash,
-but an extremely poor one,
-because your <a class="reference internal" href="../glossary.html#term-hash-table"><span class="xref std std-term">hash table</span></a> is no better than a <a class="reference internal" href="../glossary.html#term-linked-list"><span class="xref std std-term">linked list</span></a>.</p>
-</div><div data-component="tab" data-tabname="insert" >
-<p>Insert is similar to find.
-We use <code class="docutils literal notranslate"><span class="pre">find_bucket</span></code> to get the correct array element,
-if it exists.
-The we search to see if the value already exists in the linked list.
-If it does, replace the existing value with the new one.
-Otherwise, we add it to the list.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">insert</span> <span class="p">(</span><span class="k">const</span> <span class="n">Key</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">Container</span><span class="o">&amp;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">find_bucket</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
-  <span class="n">iterator</span> <span class="n">pos</span> <span class="o">=</span>
-    <span class="n">find_if</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">b</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
-        <span class="p">[</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">](</span><span class="n">Key</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">compare</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span> <span class="p">});</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">==</span> <span class="n">b</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
-    <span class="n">b</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
-    <span class="o">++</span><span class="n">sz</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-    <span class="o">*</span><span class="n">pos</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div><div data-component="tab" data-tabname="erase" >
-<p>Erase is similar to insert.</p>
-<ol class="arabic">
-<li><p>Find the bucket</p></li>
-<li><p>Search for the value</p></li>
-<li><p>If you find it, erase it.</p>
-<p>Otherwise, do nothing.</p>
-</li>
-</ol>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">erase</span> <span class="p">(</span><span class="k">const</span> <span class="n">Key</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="n">Container</span><span class="o">&amp;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">find_bucket</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
-<span class="n">iterator</span> <span class="n">pos</span> <span class="o">=</span>
-  <span class="n">find_if</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">b</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
-      <span class="p">[</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">](</span><span class="n">Key</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">compare</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span> <span class="p">});</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">!=</span> <span class="n">b</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
-  <span class="n">b</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">pos</span><span class="p">);</span>
-  <span class="o">--</span><span class="n">sz</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div><div data-component="tab" data-tabname="Run it" >
-
-<div class="runestone explainer ac_section alert alert-warning">
-<div data-component="activecode" id=hash_table_open_ac >
-<div id=hash_table_open_ac_question class="ac_question col-md-12">
-
-</div>
-<textarea data-lang="cpp" id="hash_table_open_ac_editor" data-question_label="14.9.1.1" 
-      data-timelimit=25000     
-    data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
-    style="visibility: hidden;">
-#include <array>
-#include <algorithm>
-#include <cstddef>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <list>
-#include <utility>
-
-using std::list;
-using std::array;
-
-
-template <class Key,
-         size_t N,
-         class Comparator=std::equal_to<Key>>
-class hash_set
-{
-  public:
-    using Container = list<Key>;
-    using value_type = Key;
-    using key_type   = Key;
-    using iterator   = typename Container::iterator;
-    using const_iterator  = const iterator;
-
-    hash_set() = default;
-
-    iterator find (const Key& value)
-    {
-      Container& b = find_bucket(value);
-      return find_if(b.begin(), b.end(),
-            [this, &value](Key x) { return compare(x, value); });
-    }
-
-    const_iterator find (const Key& value) const
-    {
-      const Container& b = find_bucket(value);
-      return find_if(b.begin(), b.end(),
-            [this, &value](Key x) { return compare(x, value); });
-    }
-
-    int count (const Key& value) const
-    {
-      const Container& b = find_bucket(value);
-      return (find_if(b.begin(), b.end(),
-            [this, &value](Key x) { return compare(x, value); })
-        == b.end()) ? 0 : 1;
-    }
-
-    void insert (const Key& value)
-    {
-      Container& b = find_bucket(value);
-      iterator pos =
-        find_if(b.begin(), b.end(),
-            [this, &value](Key x) { return compare(x, value); });
-      if (pos == b.end()) {
-        b.push_back(value);
-        ++sz;
-      }
-      else {
-        * pos = value;
-      }
-    }
-
-    void erase (const Key& value)
-    {
-      Container& b = find_bucket(value);
-      iterator pos =
-        find_if(b.begin(), b.end(),
-            [this, &value](Key x) { return compare(x, value); });
-      if (pos != b.end()) {
-        b.erase(pos);
-        --sz;
-      }
-    }
-
-    constexpr
-      size_t size() const noexcept { return sz; }
-
-    constexpr
-      bool empty() const noexcept { return sz == 0; }
-
-  private:
-    array<Container, N> buckets;
-    Comparator compare;
-    size_t sz = 0;
-
-    Container& find_bucket (const Key& value)
-    {
-      return buckets[std::hash<Key>()(value) % N];
-    }
-
-    constexpr
-      const Container& find_bucket (const Key& value) const
-      {
-        return buckets[std::hash<Key>()(value) % N];
-      }
-
-    friend
-    std::ostream& operator<<(std::ostream& os, const hash_set& rhs)
-    {
-      os << '[';
-      int i = 0;
-      for (const auto& bucket: rhs.buckets) {
-        for (const auto& value: bucket) {
-          os << i << ':' << value << ',';
-        }
-        ++i;
-      }
-      return os << ']';
-    }
-};
-
-int main() {
-  auto foo = hash_set<int, 11>{};
-  foo.insert(72);
-  foo.insert(72);
-  std::cout << "count: " << foo.count(72) << std::endl;
-
-  foo.erase(72);
-  std::cout << "count: " << foo.count(72) << std::endl;
-
-  foo.insert(-1);
-  foo.insert(0);
-  foo.insert(1);
-  foo.insert(2);
-  foo.insert(9);
-  foo.insert(81);
-  foo.insert(121);
-  foo.insert(572);
-  foo.insert(999);
-  std::cout << foo << std::endl;
-  auto it = foo.find(572);
-  std::cout << "value 572: " << *it << std::endl;
-}
-</textarea>
-</div>
-</div>
-</div>
-    </div>
-
-</div>
-<div class="section" id="complexity-of-separate-chaining">
-<h2><span class="section-number">14.9.2. </span>Complexity of Separate Chaining<a class="headerlink" href="#complexity-of-separate-chaining" title="Permalink to this headline">¶</a></h2>
-<p>Suppose we have inserted <span class="math notranslate nohighlight">\(sz\)</span> items into a table of size <span class="math notranslate nohighlight">\(N\)</span></p>
-<p>In the worst case, all <span class="math notranslate nohighlight">\(sz\)</span> items will hash to the same list,
-and we will be reduced to doing a linear search of that list:
-<span class="math notranslate nohighlight">\(O(sz)\)</span>.</p>
-<p>We could use a tree for each bucket,
-which would reduce the cost of searching buckets to <span class="math notranslate nohighlight">\(O(\log_{2}(sz))\)</span>
-with an extra cost that <code class="docutils literal notranslate"><span class="pre">Key</span></code> types support a <code class="docutils literal notranslate"><span class="pre">operator&lt;</span></code> comparison
-in addition to the <code class="docutils literal notranslate"><span class="pre">operator==</span></code> comparison required with list buckets.</p>
-<p>In the average case, we assume that the <code class="docutils literal notranslate"><span class="pre">sz</span></code> items are distributed evenly
-among the lists.
-Since we have <code class="docutils literal notranslate"><span class="pre">sz</span></code> items distributed among <code class="docutils literal notranslate"><span class="pre">N</span></code> lists,
-the cost is <span class="math notranslate nohighlight">\(O(N \cdot sz)\)</span>.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">N</span></code> is much larger than <code class="docutils literal notranslate"><span class="pre">sz</span></code>,
-and if our hash function uniformly distributes our keys,
-then most lists will have 0 or 1 item,
-and the average case is approximately <span class="math notranslate nohighlight">\(O(1)\)</span>.
-But if <code class="docutils literal notranslate"><span class="pre">sz</span></code> is much larger than <code class="docutils literal notranslate"><span class="pre">N</span></code>,
-we are looking at an <span class="math notranslate nohighlight">\(O(sz)\)</span>
-linear search sped up by a constant factor (<code class="docutils literal notranslate"><span class="pre">N</span></code>), but still <span class="math notranslate nohighlight">\(O(sz)\)</span>.</p>
-<p>Bottom line: hash tables let us trade space for speed.</p>
-</div>
-<div class="section" id="closed-hashing">
-<h2><span class="section-number">14.9.3. </span>Closed Hashing<a class="headerlink" href="#closed-hashing" title="Permalink to this headline">¶</a></h2>
-<p>TBD</p>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.partow.net/programming/hashfunctions/">General purpose hash function algorithms</a></p></li>
 </ul>
-</div>
 </div>
 </div>
 
@@ -612,8 +289,8 @@ linear search sped up by a constant factor (<code class="docutils literal notran
 
   
 <ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 15. Sorting' data-toggle="tooltip" >
-    <a href="../sort/index.html" aria-label="15. Sorting">
+  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 14.10. Open hashing' data-toggle="tooltip" >
+    <a href="open_hashing.html" aria-label="14.10. Open hashing">
       <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
           <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
       </div>
