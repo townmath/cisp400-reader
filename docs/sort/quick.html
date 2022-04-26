@@ -402,9 +402,9 @@ yellow.</p>
 <p>To analyze the <code class="docutils literal notranslate"><span class="pre">quick_sort</span></code> function, note that for a list of length
 <em>n</em>, if the partition always occurs in the middle of the list, there
 will again be <span class="math notranslate nohighlight">\(\log n\)</span> divisions. In order to find the split
-point, each of the <em>n</em> items needs to be checked against the pivot
-value. The result is <span class="math notranslate nohighlight">\(n\log n\)</span>. In addition, there is no need
-for additional memory as in the merge sort process.</p>
+point, each of the <em>n</em> items needs to be checked against the pivot value.
+Therefore, the average case complexity is <span class="math notranslate nohighlight">\(n\cdot \log n\)</span>.
+In addition, there is no copying of list data as in the merge sort process.</p>
 <p>Unfortunately, in the worst case, the split points may not be in the
 middle and can be very skewed to the left or the right, leaving a very
 uneven division. In this case, sorting a list of <em>n</em> items divides into
@@ -412,6 +412,17 @@ sorting a list of 0 items and a list of <span class="math notranslate nohighligh
 sorting a list of <span class="math notranslate nohighlight">\(n-1\)</span> divides into a list of size 0 and a list
 of size <span class="math notranslate nohighlight">\(n-2\)</span>, and so on. The result is an <span class="math notranslate nohighlight">\(O(n^{2})\)</span>
 sort with all of the overhead that recursion requires.</p>
+<p>A recursive <span class="math notranslate nohighlight">\(O(n^{2})\)</span> algorithm makes quick sort susceptible to
+stack overflow errors on very large data sets.</p>
+<p>Quick sort therefore poses an interesting dilemma.
+The quick sort average case is very fast.
+It tends to be the fastest, on average, of the known <span class="math notranslate nohighlight">\(O(n \cdot log{n})\)</span>
+average case sorting algorithms in actual clock time.
+But its worst case is just dreadful.</p>
+<p>So the suitability of quick sort winds up coming down to a question of
+how often we would actually expect to encounter the worst case or
+<em>nearly</em> worst case behavior.
+That, in turn, depends upon the choice of pivot.</p>
 <p>We mentioned earlier that there are different ways to choose the pivot
 value. In particular, we can attempt to alleviate some of the potential
 for an uneven division by using a technique called <strong>median of three</strong>.

@@ -164,11 +164,13 @@ So the merge operation which results in a vector of size *n* requires *n*
 operations. 
 The result of this analysis is that :math:`\log n` splits,
 each of which costs :math:`n` for a total of :math:`n\log n` operations. 
-A merge sort is an :math:`O(n\log n)` algorithm.
+A merge sort is an :math:`O(n \cdot log n)` algorithm and even better,
+it is also :math:`\Omega(n \cdot log n)` in the worst case.
+
 
 Recall that the slicing operator is :math:`O(k)` where k is the size
 of the slice. In order to guarantee that ``merge_sort`` will be
-:math:`O(n\log n)` we will need to remove the slice operator. Again,
+:math:`O(n \cdot log n)` we will need to remove the slice operator. Again,
 this is possible if we simply pass the starting and ending indices along
 with the vector when we make the recursive call. We leave this as an
 exercise.

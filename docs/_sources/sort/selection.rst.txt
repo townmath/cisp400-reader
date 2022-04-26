@@ -80,9 +80,13 @@ final item must be in place after the :math:`(n-1)` step.
 
 
 You may see that the selection sort makes the same number of comparisons
-as the bubble sort and is therefore also :math:`O(n^{2})`. However,
-due to the reduction in the number of exchanges, the selection sort
-typically executes faster in benchmark studies.
+as the bubble sort and is therefore also :math:`O(n^{2})`. 
+Like the bubble sort, the selection sort makes no exchanges when the
+data is already sorted ascending.
+In other cases selection sort generally makes fewer exchanges
+than bubble sort when presented with the same data.
+Due to the smaller number of exchanges, the selection sort
+typically executes faster than bubble sort.
 
 **Self Check**
 

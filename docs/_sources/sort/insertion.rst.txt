@@ -43,7 +43,7 @@ one way to implement an insertion sort could be this.
 This sort is still :math:`O(n^{2})`, but works differently from
 the bubble sort and selection sort, since
 it always maintains a sorted subvector in the container.
-Each new item is then “inserted” back into
+Each new item is then "inserted" back into
 the previous subvector such that the sorted subvector is one item larger.
 :ref:`Figure 4 <fig_insertionsort>` shows the insertion sorting process. 
 The shaded items represent the ordered subvectors as the

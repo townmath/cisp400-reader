@@ -396,10 +396,11 @@ So the merge operation which results in a vector of size <em>n</em> requires <em
 operations.
 The result of this analysis is that <span class="math notranslate nohighlight">\(\log n\)</span> splits,
 each of which costs <span class="math notranslate nohighlight">\(n\)</span> for a total of <span class="math notranslate nohighlight">\(n\log n\)</span> operations.
-A merge sort is an <span class="math notranslate nohighlight">\(O(n\log n)\)</span> algorithm.</p>
+A merge sort is an <span class="math notranslate nohighlight">\(O(n \cdot log n)\)</span> algorithm and even better,
+it is also <span class="math notranslate nohighlight">\(\Omega(n \cdot log n)\)</span> in the worst case.</p>
 <p>Recall that the slicing operator is <span class="math notranslate nohighlight">\(O(k)\)</span> where k is the size
 of the slice. In order to guarantee that <code class="docutils literal notranslate"><span class="pre">merge_sort</span></code> will be
-<span class="math notranslate nohighlight">\(O(n\log n)\)</span> we will need to remove the slice operator. Again,
+<span class="math notranslate nohighlight">\(O(n \cdot log n)\)</span> we will need to remove the slice operator. Again,
 this is possible if we simply pass the starting and ending indices along
 with the vector when we make the recursive call. We leave this as an
 exercise.</p>

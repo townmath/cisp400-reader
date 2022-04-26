@@ -174,9 +174,9 @@ yellow.
 To analyze the ``quick_sort`` function, note that for a list of length
 *n*, if the partition always occurs in the middle of the list, there
 will again be :math:`\log n` divisions. In order to find the split
-point, each of the *n* items needs to be checked against the pivot
-value. The result is :math:`n\log n`. In addition, there is no need
-for additional memory as in the merge sort process.
+point, each of the *n* items needs to be checked against the pivot value. 
+Therefore, the average case complexity is :math:`n\cdot \log n`. 
+In addition, there is no copying of list data as in the merge sort process.
 
 Unfortunately, in the worst case, the split points may not be in the
 middle and can be very skewed to the left or the right, leaving a very
@@ -185,6 +185,20 @@ sorting a list of 0 items and a list of :math:`n-1` items. Then
 sorting a list of :math:`n-1` divides into a list of size 0 and a list
 of size :math:`n-2`, and so on. The result is an :math:`O(n^{2})`
 sort with all of the overhead that recursion requires.
+
+A recursive :math:`O(n^{2})` algorithm makes quick sort susceptible to
+stack overflow errors on very large data sets.
+
+Quick sort therefore poses an interesting dilemma.
+The quick sort average case is very fast.
+It tends to be the fastest, on average, of the known :math:`O(n \cdot log{n})`
+average case sorting algorithms in actual clock time.
+But its worst case is just dreadful.
+
+So the suitability of quick sort winds up coming down to a question of
+how often we would actually expect to encounter the worst case or 
+*nearly* worst case behavior.
+That, in turn, depends upon the choice of pivot.
 
 We mentioned earlier that there are different ways to choose the pivot
 value. In particular, we can attempt to alleviate some of the potential

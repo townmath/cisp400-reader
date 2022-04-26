@@ -326,9 +326,13 @@ int main() {
     </div>
 
 <p>You may see that the selection sort makes the same number of comparisons
-as the bubble sort and is therefore also <span class="math notranslate nohighlight">\(O(n^{2})\)</span>. However,
-due to the reduction in the number of exchanges, the selection sort
-typically executes faster in benchmark studies.</p>
+as the bubble sort and is therefore also <span class="math notranslate nohighlight">\(O(n^{2})\)</span>.
+Like the bubble sort, the selection sort makes no exchanges when the
+data is already sorted ascending.
+In other cases selection sort generally makes fewer exchanges
+than bubble sort when presented with the same data.
+Due to the smaller number of exchanges, the selection sort
+typically executes faster than bubble sort.</p>
 <p><strong>Self Check</strong></p>
 <div id='tab_check' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Q1" >
 
