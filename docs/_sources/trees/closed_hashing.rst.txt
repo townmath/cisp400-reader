@@ -575,7 +575,7 @@ If the table is less than half full (:math:`\lambda \lt 0.5`)
 then we expect to try **on average** no more than 2 slots 
 during a search or insert. 
 Not too bad.
-But as :`\lambda` gets larger,
+But as :math:`\lambda` gets larger,
 the average number of slots examined grows toward ``N``.
 As the table fills and ``sz`` approaches ``N``, the performance
 degenerates toward :math:`O(N)` behavior.
