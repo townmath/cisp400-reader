@@ -1,70 +1,51 @@
+<!-- ****************************************
+     |docname| - main template for this theme
+     **************************************** -->
 <!DOCTYPE html>
 
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>2.5. The vector class &#8212; CISC 187 Course Reader Overview</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
     <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
-    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
-    <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
-    <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/637.fafafbd97df8a0d1.css?v=B5361BC8" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone.e4d5592da655219f.css?v=32648AE5" />
+
+
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
     <script src="../_static/html4css1.css?v=4533ACD3"></script>
-    <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
-    <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
-    <script src="../_static/Blob.js?v=AEC2447"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.bidi.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.fallbacks.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.messagestore.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.parser.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.language.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script src="../_static/runestone.js?v=92D8BBF0"></script>
-    <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
-    <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
-    <script src="../_static/jquery-fix.js?v=1226591B"></script>
-    <script src="../_static/bootstrap-sphinx.js"></script>
-    <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
-    <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
-    <script src="../_static/theme.js?v=D899FB97"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/runtime.b0f8547c48f16a9f.bundle.js?v=2731F567"></script>
+    <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
+    <script src="../_static/runestone.0e9550fe42760516.bundle.js?v=71AD37BA"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3. Introduction to functions" href="../function-intro/index.html" />
     <link rel="prev" title="2.4. The string class" href="string.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
 
-<script type="text/javascript">
+
+<script>
   eBookConfig = {};
   
     eBookConfig.useRunestoneServices = false;
@@ -73,6 +54,8 @@
     eBookConfig.course = 'cisc187-reader';
     eBookConfig.basecourse = 'cisc187-reader';
     eBookConfig.isLoggedIn = false;
+    eBookConfig.enableCompareMe = eBookConfig.useRunestoneServices;
+    eBookConfig.new_server_prefix = '';
   
   eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
   eBookConfig.logLevel = 0;
@@ -80,18 +63,16 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '5.5.5';
+  eBookConfig.runestone_version = '6.2.1';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
   eBookConfig.enable_chatcodes = false ? false : false;
-
+  eBookConfig.enableScratchAC = true;
 
 </script>
 
 <!-- Ad Serving Headers Only serve ads to Anonymous Users -->
-
-
 
 
 
@@ -105,15 +86,16 @@
 
     <div class="navbar-header">
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
-        <span class="icon-bar" aria-label="navbar toggle" class="visuallyhidden">toggle navbar</span>
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="navbar toggle">
+        <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
 
       <div>
         
-          <a class="brand-logo" style='background: transparent url("../_static/img/logo_small.png") no-repeat 0px 0px;'>&nbsp;<span aria-label="logo" class="visuallyhidden">Runestone Logo</span> </a>
+        
+          <div class="brand-logo"><img src="../_static/img/RAIcon.png" alt=""></div>
         
         <a class="navbar-brand" href="../index.html" aria-label="index-page">
           
@@ -128,17 +110,16 @@
       <ul class="nav navbar-nav navbar-right" >
 
         <li class="divider-vertical"></li>
-
+        <li><span id="browsing_warning"></span></li>
 
         <!-- social media dropdown -->
         <!-- end social media dropdown -->
 
         <li class="divider-vertical"></li>
-
         <!-- search dropdown -->
         <li class="dropdown">
           <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-            <i class="glyphicon glyphicon-search" style='opacity:0.9;'><span aria-label="Search" class="visuallyhidden">Search</span></i>
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'><span class="visuallyhidden" aria-label="Search">Search</span></i>
           </a>
           <ul class='dropdown-menu'>
             
@@ -171,8 +152,8 @@
         <!-- <li id="scratch_ac_link"><a href="javascript:ACFactory.toggleScratchActivecode()">Scratch ActiveCode</a></li> -->
 
         <!-- <li class="dropdown">             -->
-          <li id="scratch_ac_link" class="dropdown"><a href="javascript:ACFactory.toggleScratchActivecode()">
-              <i class="glyphicon glyphicon-pencil" style="opacity:0.9;"><span aria-label="Scratch Activecode" class="visuallyhidden">Scratch Activecode</span></i></a></li>
+          <li id="scratch_ac_link" class="dropdown"><a href="javascript:runestoneComponents.popupScratchAC()">
+              <i class="glyphicon glyphicon-pencil" style="opacity:0.9;"><span class="visuallyhidden" aria-label="Scratch Activecode" >Scratch Activecode</span></i></a></li>
         <!-- </li> -->
 
         <li class="divider-vertical"></li>
@@ -201,42 +182,36 @@
   </li>
   <li class="divider-vertical"></li>
 
-<script type="text/javascript">
+<script>
   opts = {'placement':'bottom',
           'selector': '',
           'delay': { show: 100, hide: 50}
          };
 
-  $('#relations-prev').tooltip(opts);
-  $('#relations-next').tooltip(opts);
+  window.addEventListener('load', (event) => {
+    $('#relations-prev').tooltip(opts);
+    $('#relations-next').tooltip(opts);
+  });
 </script>
         -->
         
           <li></li>
         
       </ul>
-
-      </div> <!-- navbar -->
-
-
-
-
-
-
-
-    </div> <!-- container -->
-  </div>
-</div>
+      </div> <!-- navbar-collapse -->
+    </div> <!-- navbar -->
+  </div> <!-- container -->
 
 
 <div class="container" id="continue-reading"></div>
 
 <div class="container" id="main-content" role="main">
+
 <!-- Ad Serving for Runestone Campaign -->
 
 
   
-  <div class="section" id="the-vector-class">
+  <section id="the-vector-class">
 <span id="index-0"></span><h1><span class="section-number">2.5. </span>The vector class<a class="headerlink" href="#the-vector-class" title="Permalink to this headline">¶</a></h1>
 <p>A <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">vector</a> is intended to behave like a dynamically sized array.
 It is a <a class="reference internal" href="../glossary.html#term-template"><span class="xref std std-term">template</span></a>, so unlike a string,
@@ -246,7 +221,7 @@ More on templates later, for now,
 we just need to know enough to know how declare a vector.</p>
 <p>As with strings, in standard C,
 the typical way to work with a collection of data is with an array:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">a</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Some downsides to arrays are that they:</p>
@@ -261,7 +236,7 @@ Declaring a <code class="docutils literal notranslate"><span class="pre">vector<
 from the previous section.
 In order to access the STL vector capabilities,
 use <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;vector&gt;</span></code>.</p>
-<div id='tab_vector_declare' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Declare" >
+<div id='tab_vector_declare' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Declare" >
 <p>To properly declare a vector,
 the <em>type</em> of data stored in the vector
 must be declared as a type parameter.</p>
@@ -273,13 +248,13 @@ There are some limits we will cover later,
 but for now, know that any normal type you already have learned about
 can be stored in a vector.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// an empty vector of int</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">;</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// initialize and store: &quot;x&quot;, &quot;x&quot;</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">dos_equis</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">);</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dos_equis</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;x&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// C++11 initialization list syntax</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pi_digits</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pi_digits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Unlike a fundamental type,
@@ -288,21 +263,21 @@ an uninitialized variable.
 It creates a fully formed vector with no elements stored in it yet.
 This is perfectly OK and normal.</p>
 <p>However, a common error is to forget to include the template parameter:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span> <span class="n">x</span><span class="p">;</span>        <span class="c1">// compile error</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">        </span><span class="c1">// compile error</span>
 </pre></div>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div class="runestone explainer ac_section alert alert-warning">
-<div data-component="activecode" id=vector_declare_simple_ac >
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=vector_declare_simple_ac data-question_label="2.5.1">
 <div id=vector_declare_simple_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="vector_declare_simple_ac_editor" data-question_label="2.5.1" 
+<textarea data-lang="cpp" id="vector_declare_simple_ac_editor" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
-    style="visibility: hidden;">
+     style="visibility: hidden;">
 #include <iostream>
 #include <string>
 #include <vector>
@@ -336,7 +311,7 @@ int main() {
     </div>
 
 <p id="index-1">Given a vector declared as:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>A container capable of storing 4 integers is created:</p>
@@ -368,7 +343,7 @@ node [
 <p>Although the <code class="docutils literal notranslate"><span class="pre">vector</span></code> object is initialized, its contents are not.
 Many compilers will initialize the contents to zero, but don’t rely on this behavior.
 Explicitly initialize with a default value, if that is what you want:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">-1</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p id="index-2">A vector comes with a rich assortment of convenience functions.
@@ -376,15 +351,15 @@ Like an array, the <a class="reference external" href="https://en.cppreference.c
 without bounds checking.
 Like a string, the <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/operator_at">at</a> function provides bounds checking
 and will throw a <a class="reference external" href="https://en.cppreference.com/w/cpp/error/out_of_range">std::out_of_range exception</a> if an out of bounds index is used on the <code class="docutils literal notranslate"><span class="pre">vector</span></code>.</p>
-<div id='tab_vector_simple_access' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Access operations" >
+<div id='tab_vector_simple_access' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Access operations" >
 <p>Like arrays, indexes are zero-based.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// read vector elements</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;First element: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;First element: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">numbers</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;First element: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;First element: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// write vector elements</span>
-<span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="n">numbers</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="n">numbers</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>A common source of error occurs when printing
@@ -392,7 +367,7 @@ a vector.
 A vector feels like a built-in type and
 this seems like it should work:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// compile error</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;all numbers: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">numbers</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;all numbers: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">numbers</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The vector type does not ‘know’ how to send it’s
@@ -408,16 +383,16 @@ the standard library?</p>
 <p>How can we fix this while changing the least amount of code possible?</p>
 </div></blockquote>
 
-<div class="runestone explainer ac_section alert alert-warning">
-<div data-component="activecode" id=vector_access_operator_ac1 >
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=vector_access_operator_ac1 data-question_label="2.5.2">
 <div id=vector_access_operator_ac1_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="vector_access_operator_ac1_editor" data-question_label="2.5.2" 
+<textarea data-lang="cpp" id="vector_access_operator_ac1_editor" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
-    style="visibility: hidden;">
+     style="visibility: hidden;">
 #include <iostream>
 #include <vector>
 
@@ -456,30 +431,30 @@ or an equality comparison between two vectors <code class="docutils literal notr
 means the two vectors are equal if <code class="docutils literal notranslate"><span class="pre">a.size()</span> <span class="pre">==</span> <span class="pre">b.size()</span></code>
 and each element in <code class="docutils literal notranslate"><span class="pre">a</span></code> compares equal with each element in <code class="docutils literal notranslate"><span class="pre">b</span></code>
 in the same position in the vector.</p>
-<div id='tab_vector_compare_and_assign' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Compare operations" >
+<div id='tab_vector_compare_and_assign' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Compare operations" >
 <p>Vectors support the same syntax as the built in types.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// declare 2 vectors, one empty and one not</span>
 
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">y</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">};</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
 
-<span class="kt">bool</span> <span class="n">test</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">);</span>   <span class="c1">// test is false</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">   </span><span class="c1">// test is false</span>
 
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div class="runestone explainer ac_section alert alert-warning">
-<div data-component="activecode" id=vector_operator_equal_assign_ac >
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=vector_operator_equal_assign_ac data-question_label="2.5.3">
 <div id=vector_operator_equal_assign_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="vector_operator_equal_assign_ac_editor" data-question_label="2.5.3" 
+<textarea data-lang="cpp" id="vector_operator_equal_assign_ac_editor" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
-    style="visibility: hidden;">
+     style="visibility: hidden;">
 #include <vector>
 #include <iostream>
 
@@ -513,16 +488,16 @@ int main() {
 <p>Create two vectors of strings containing
 the same values and check them for equality.</p>
 
-<div class="runestone explainer ac_section alert alert-warning">
-<div data-component="activecode" id=vector_operation_string_compare_try_this_ac >
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=vector_operation_string_compare_try_this_ac data-question_label="2.5.4">
 <div id=vector_operation_string_compare_try_this_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="vector_operation_string_compare_try_this_ac_editor" data-question_label="2.5.4" 
+<textarea data-lang="cpp" id="vector_operation_string_compare_try_this_ac_editor" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
-    style="visibility: hidden;">
+     style="visibility: hidden;">
 #include <iostream>
 
 int main() {
@@ -531,7 +506,7 @@ int main() {
 </div>
 </div>
 </div>
-<div class="section" id="adding-data-to-a-vector">
+<section id="adding-data-to-a-vector">
 <h2><span class="section-number">2.5.1. </span>Adding data to a vector<a class="headerlink" href="#adding-data-to-a-vector" title="Permalink to this headline">¶</a></h2>
 <p>How do we solve the <a class="reference external" href="https://en.cppreference.com/w/cpp/error/out_of_range">out_of_range</a> exception from a few examples ago?
 How do we dynamically add data to a <code class="docutils literal notranslate"><span class="pre">vector</span></code>?</p>
@@ -562,7 +537,7 @@ node [
   labels:f2 -&gt; values:f2;
   {rank=same; struct,labels};
 }" class="graphviz" /></div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">values</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">values</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Appends the value 40 to the end of the vector.</p>
@@ -591,31 +566,31 @@ node [
   labels:f4 -&gt; values:f3;
   {rank=same; struct,labels};
 }" class="graphviz" /></div>
-<div id='tab_vector_push_back' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="push_back and pop_back" >
+<div id='tab_vector_push_back' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="push_back and pop_back" >
 <p><a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/push_back">push_back</a> appends an element to the end
 and increases the capacity of the vector, if needed.</p>
 <p><a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/pop_back">pop_back</a> reduces the size of the vector by one.
 The last element is no longer available.</p>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">pop_back</span></code> does not return a value.</p>
 <p>If you need that last element, remember to save it first.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">letters</span> <span class="p">{</span><span class="sc">&#39;a&#39;</span><span class="p">,</span> <span class="sc">&#39;b&#39;</span><span class="p">,</span> <span class="sc">&#39;c&#39;</span><span class="p">};</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">letters</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="p">};</span><span class="w"></span>
 
-<span class="n">letters</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="sc">&#39;d&#39;</span><span class="p">);</span>  <span class="c1">// add &#39;d&#39; to the end of the vector</span>
-<span class="n">letters</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>      <span class="c1">// pop_back is the opposite:</span>
+<span class="n">letters</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="sc">&#39;d&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">// add &#39;d&#39; to the end of the vector</span>
+<span class="n">letters</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span><span class="w">      </span><span class="c1">// pop_back is the opposite:</span>
 </pre></div>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
-<div class="runestone explainer ac_section alert alert-warning">
-<div data-component="activecode" id=vector_push_back_example_ac >
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=vector_push_back_example_ac data-question_label="2.5.1.1">
 <div id=vector_push_back_example_ac_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="vector_push_back_example_ac_editor" data-question_label="2.5.1.1" 
+<textarea data-lang="cpp" id="vector_push_back_example_ac_editor" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
-    style="visibility: hidden;">
+     style="visibility: hidden;">
 #include <vector>
 #include <iostream>
 
@@ -643,8 +618,8 @@ int main() {
 </div>
     </div>
 
-</div>
-<div class="section" id="vector-capacity">
+</section>
+<section id="vector-capacity">
 <span id="index-3"></span><h2><span class="section-number">2.5.2. </span>Vector capacity<a class="headerlink" href="#vector-capacity" title="Permalink to this headline">¶</a></h2>
 <p>A vector exposes an interface that ‘feels like’ an array,
 but the underlying storage grows to accomodate new data
@@ -700,60 +675,35 @@ vector data is one of the things that make vectors efficient.</p>
 <li><p>WikiBooks.org C++ Programming <a class="reference external" href="https://en.wikibooks.org/wiki/C%2B%2B_Programming/STL#Containers">STL Containers</a></p></li>
 </ul>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
-  <div id=scprogresscontainer>
-    You have attempted <span id=scprogresstotal></span> of <span id=scprogressposs></span> activities on this page <div id="subchapterprogress"></div>
+  <div id="scprogresscontainer">
+    You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
   </div>
-  
-      
-<ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 2.4. The string class' data-toggle="tooltip">
-    <a href="string.html" aria-label="2.4. The string class">
-        <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
-            <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
-        </div>
+
+  <ul role="navigation" class="nextprev-list nextprev-list" aria-label="Change page">
+<li id="relations-prev" class="navLink" title='Previous Section - 2.4. The string class' data-toggle="tooltip">
+  <a href="string.html" aria-label="Previous - 2.4. The string class">
+    <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
+  </a>
+</li>
+
+  <li id="relations-next" class="navLink" title='Next Section - 3. Introduction to functions' data-toggle="tooltip" >
+    <a href="../function-intro/index.html" aria-label="Next - 3. Introduction to functions">
+      <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
     </a>
   </li>
 </ul>
-
-  
-<ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 3. Introduction to functions' data-toggle="tooltip" >
-    <a href="../function-intro/index.html" aria-label="3. Introduction to functions">
-      <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
-          <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
-      </div>
-    </a>
-  </li>
-</ul>
-
-<script type="text/javascript">
-
-  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
-  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
-
-</script>
 
 <script>
-	function mouseOverPrev() {
-		document.getElementById("relations-prev").style.opacity=1;
-	}
-
-	function mouseOutPrev() {
-		document.getElementById("relations-prev").style.opacity=0.4;
-	}
-	function mouseOverNext() {
-		document.getElementById("relations-next").style.opacity=1;
-	}
-
-	function mouseOutNext() {
-		document.getElementById("relations-next").style.opacity=0.4;
-	}
+window.addEventListener('load', (event) => {
+  $('#relations-prev').tooltip({'placement': 'right', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement': 'left', 'delay': { show: 100, hide: 50}});
+});
 </script>
-  
+
 </div>
 <footer class="footer">
   <div class="container">
@@ -764,7 +714,7 @@ vector data is one of the things that make vectors efficient.</p>
     </p>
     <p>
         &copy; Copyright 2017-2022 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.2.1.
     </p>
   </div>
 </footer>
@@ -772,7 +722,11 @@ vector data is one of the things that make vectors efficient.</p>
 
 
 
-<script> getSwitch(); </script>
+<script>
+  window.addEventListener('load', (event) => {
+    runestoneComponents.getSwitch();
+  });
+</script>
 
 
   </body>

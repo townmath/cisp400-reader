@@ -585,8 +585,7 @@ A kitchen **has a** sink in it.
 
 .. admonition:: More to Explore
 
-   - `Derived classes <https://en.cppreference.com/w/cpp/language/derived_class>`__
-     from cppreference.com
+   - :lang:`Derived classes <derived_class>` from cppreference.com
    - `Ineritance basics 
      <https://isocpp.org/wiki/faq/basics-of-inheritance>`__
      from the C++ FAQ

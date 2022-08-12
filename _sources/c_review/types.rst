@@ -530,9 +530,6 @@ they cannot appear on the left hand side of an assignment operator
          }
 
 
-
-
-
 Reference types
 ...............
 
@@ -800,7 +797,7 @@ using :io:`oct <manip/hex>`,
 
       .. activecode:: types_ac1
          :language: cpp
-         :compileargs: ['-Wall', '-Wextra' '-std=c++11']
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
          :nocodelens:
 
          Fix all the errors in the code below:
@@ -818,8 +815,8 @@ using :io:`oct <manip/hex>`,
       .. parsonsprob:: types_par1
          :adaptive:
          :noindent:
-         :language: c
 
+         -----
          #include <iostream>
          =====
          void func() {
@@ -854,7 +851,6 @@ using :io:`oct <manip/hex>`,
            :a: No. array indicies begin at ``0``
            :x: Try again.
 
-
 -----
 
 .. admonition:: More to Explore
@@ -866,17 +862,17 @@ using :io:`oct <manip/hex>`,
 
    - `MyCodeSchool <http://www.mycodeschool.com>`__ video: `Data types, constants, and variables <https://www.youtube.com/watch?v=OSyjOvFbAGI&list=PL2_aWCzGMAwLSqGsERZGXGkA5AfMhcknE&index=6>`__ 
    - `Two's complement <http://www.cs.cornell.edu/~tomf/notes/cps104/twoscomp.html>`__
-   - ISO CPP Super FAQ: `Floating point questions <https://isocpp.org/wiki/faq/newbie#floating-pt-errs>`_
+   - ISO CPP Super FAQ: `Floating point questions <https://isocpp.org/wiki/faq/newbie#floating-pt-errs>`__
    - `What every computer scientist should know about floating-point arithmetic 
-     <http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>`_
-   - `CPP Core Guidelines: Arithmetic <https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#arithmetic>`_
+     <http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>`__
+   - CPP Core Guidelines: :core:`Arithmetic <arithmetic>`
    - An interesting alternative to explore, Google Protocol Buffers use
-     variable length `zig-zag encoding <https://developers.google.com/protocol-buffers/docs/encoding?csw=1>`_
-   - `Secure Coding in C++: Integers <https://resources.sei.cmu.edu/asset_files/Presentation/2011_017_001_51345.pdf>`_
+     variable length `zig-zag encoding <https://developers.google.com/protocol-buffers/docs/encoding?csw=1>`__
+   - `Secure Coding in C++: Integers <https://resources.sei.cmu.edu/asset_files/Presentation/2011_017_001_51345.pdf>`__
 
 
 .. topic:: Footnotes
 
-   .. [Aspnes2014] Adapted from `The IEEE-754 floating-point standard (PineWiki) <http://www.cs.yale.edu/homes/aspnes/pinewiki/C(2f)FloatingPoint.html>`_ and `Class 223 notes <http://www.cs.yale.edu/homes/aspnes/classes/223/notes.pdf>`_ page 101. Retrieved 2017-06-09.
+   .. [Aspnes2014] Adapted from `The IEEE-754 floating-point standard (PineWiki) <http://www.cs.yale.edu/homes/aspnes/pinewiki/C(2f)FloatingPoint.html>`_ and `Class 223 notes <http://www.cs.yale.edu/homes/aspnes/classes/223/notes.pdf>`__ page 101. Retrieved 2017-06-09.
 
 

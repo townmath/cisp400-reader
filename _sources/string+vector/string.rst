@@ -424,6 +424,7 @@ to a null terminated character array.
          :noindent:
          :language: c
 
+         -----
          int main() {
          =====
            std::string  us = "Team USA";

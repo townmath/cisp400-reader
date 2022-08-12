@@ -84,7 +84,7 @@ We need several generic operations on **data**:
 
       Like find, we define a pair of iterators. ``first`` and ``last``.
       The iterator type should support the requirements of 
-      `InputIterator <https://en.cppreference.com/w/cpp/named_req/InputIterator>`__.
+      :cpp:`InputIterator <named_req/InputIterator>`.
 
       A separate template parameter for the initial sum finishes the signature.
 
@@ -187,5 +187,6 @@ The STL has a large collection of
 
    - From CPP Core Guidelines
 
-     - `T.2 <https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#t2-use-templates-to-express-algorithms-that-apply-to-many-argument-types>`__: Use templates to express algorithms that apply to many argument types
+     - :core:`T.2 <t2-use-templates-to-express-algorithms-that-apply-to-many-argument-types>`:
+       Use templates to express algorithms that apply to many argument types
 

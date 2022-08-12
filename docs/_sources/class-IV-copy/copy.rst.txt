@@ -485,5 +485,5 @@ it is in the process of being constructed.
 
    - From cppreference.com:
 
-     - `Copy constructors <https://en.cppreference.com/w/cpp/language/copy_constructor>`__
+     - :lang:`Copy constructors <copy_constructor>`
 

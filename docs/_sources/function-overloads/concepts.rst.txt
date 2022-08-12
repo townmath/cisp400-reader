@@ -30,7 +30,7 @@ Concepts
 ........
 
 Without resorting to the 
-`experimental technical specification <http://en.cppreference.com/w/cpp/language/constraints>`_
+:lang:`experimental technical specification <constraints>`
 you can still get some of the readability improvements from concepts,
 just by defining an alias for the type your template expects:
 
@@ -112,7 +112,7 @@ It is planned for release in C++20.
 
 You will sometimes encounter *named requirements* in C++ code.
 
-The named requirements listed `on this page <https://en.cppreference.com/w/cpp/named_req>`_
+The named requirements listed :cpp:`on this page <named_req>`
 are the named requirements used in the normative text of the C++ standard to define the 
 expectations of the standard library.
 
@@ -132,7 +132,7 @@ they can improve the intent of expected template types.
    - `Concepts C++ <https://en.wikipedia.org/wiki/Concepts_(C%2B%2B)>`_ from Wikipedia
    - From cppreference.com
 
-       - `Constraints and concepts <http://en.cppreference.com/w/cpp/concept>`_ 
-       - `Named requirements <https://en.cppreference.com/w/cpp/named_req>`_
+       - :cpp:`Constraints and concepts <concept>`
+       - :cpp:`Named requirements <named_req>`
 
 

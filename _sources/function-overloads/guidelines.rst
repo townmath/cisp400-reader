@@ -117,6 +117,7 @@ General function writing guidelines
 
 .. youtube:: 9mWWNYRHAIQ
    :http: https
+   :divid: return_9mWWNYRHAIQ
 
 When to write a function
 ------------------------
@@ -437,10 +438,8 @@ While we were at it, we fixed some bugs and made it a bit more reusable and main
 
 .. admonition:: More to Explore
 
-   - `C++ Core Guidelines for functions 
-     <https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-functions>`_
-     from GitHub
-   - `Unit testing library list <https://en.cppreference.com/w/cpp/links/libs#Testing>`__
+   - :core:`C++ Core Guidelines for functions <S-functions>`
+   - :cpp:`Unit testing library list <links/libs#Testing>`
    - A very brief description of 
      "`extract method <http://refactoring.com/catalog/extractMethod.html>`_" from Martin Fowler's Refactoring site.
    - `ExtractMethod <http://c2.com/cgi/wiki?ExtractMethod>`_ discussion from the 

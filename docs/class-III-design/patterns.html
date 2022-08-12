@@ -1,70 +1,51 @@
+<!-- ****************************************
+     |docname| - main template for this theme
+     **************************************** -->
 <!DOCTYPE html>
 
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>9.6. Design patterns &#8212; CISC 187 Course Reader Overview</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
     <link rel="stylesheet" type="text/css" href="../_static/CodeChat.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css?v=B36B48D" />
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
-    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-3.4.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/presenter_mode.css?v=9FF1320F" />
-    <link rel="stylesheet" type="text/css" href="../_static/jquery-ui-1.10.3.custom.min.css?v=97E0178A" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/user-highlights.css?v=A2326E52" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone-custom-sphinx-bootstrap.css?v=5.5.5" />
-    <link rel="stylesheet" type="text/css" href="../_static/theme-overrides.css?v=2DAFE138" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/637.fafafbd97df8a0d1.css?v=B5361BC8" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone.e4d5592da655219f.css?v=32648AE5" />
+
+
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/pytutor-embed.bundle.js?v=268B5C04"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
     <script src="../_static/html4css1.css?v=4533ACD3"></script>
-    <script src="../_static/jquery.highlight.js?v=F1C496C8"></script>
-    <script src="../_static/sql-wasm.js?v=D71B5933"></script>
-    <script src="https://cdn.jsdelivr.net/npm/handsontable@7.2.2/dist/handsontable.full.js"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
-    <script src="../_static/Blob.js?v=AEC2447"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.bidi.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.emitter.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.fallbacks.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.messagestore.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.parser.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.5/jquery.i18n.language.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.2/build/vega.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.5.0/build/vega-lite.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.14.0/build/vega-embed.js"></script>
-    <script src="../_static/runestone.js?v=92D8BBF0"></script>
-    <script src="../_static/jquery-ui-1.10.3.custom.min.js?v=2B07FE4F"></script>
-    <script src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
-    <script src="../_static/jquery-fix.js?v=1226591B"></script>
-    <script src="../_static/bootstrap-sphinx.js"></script>
-    <script src="../_static/jquery.idle-timer.js?v=E942DAF1"></script>
-    <script src="../_static/presenter_mode.js?v=2DF16FB4"></script>
-    <script src="../_static/theme.js?v=D899FB97"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/runtime.b0f8547c48f16a9f.bundle.js?v=2731F567"></script>
+    <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
+    <script src="../_static/runestone.0e9550fe42760516.bundle.js?v=71AD37BA"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10. Class templates" href="../class-templates/index.html" />
     <link rel="prev" title="9.5. Abstract base classes" href="interfaces.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
 
-<script type="text/javascript">
+
+<script>
   eBookConfig = {};
   
     eBookConfig.useRunestoneServices = false;
@@ -73,6 +54,8 @@
     eBookConfig.course = 'cisc187-reader';
     eBookConfig.basecourse = 'cisc187-reader';
     eBookConfig.isLoggedIn = false;
+    eBookConfig.enableCompareMe = eBookConfig.useRunestoneServices;
+    eBookConfig.new_server_prefix = '';
   
   eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
   eBookConfig.logLevel = 0;
@@ -80,18 +63,16 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '5.5.5';
+  eBookConfig.runestone_version = '6.2.1';
   eBookConfig.jobehost = 'https://fierce-ridge-58946.herokuapp.com/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
   eBookConfig.enable_chatcodes = false ? false : false;
-
+  eBookConfig.enableScratchAC = true;
 
 </script>
 
 <!-- Ad Serving Headers Only serve ads to Anonymous Users -->
-
-
 
 
 
@@ -105,15 +86,16 @@
 
     <div class="navbar-header">
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
-        <span class="icon-bar" aria-label="navbar toggle" class="visuallyhidden">toggle navbar</span>
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="navbar toggle">
+        <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
 
       <div>
         
-          <a class="brand-logo" style='background: transparent url("../_static/img/logo_small.png") no-repeat 0px 0px;'>&nbsp;<span aria-label="logo" class="visuallyhidden">Runestone Logo</span> </a>
+        
+          <div class="brand-logo"><img src="../_static/img/RAIcon.png" alt=""></div>
         
         <a class="navbar-brand" href="../index.html" aria-label="index-page">
           
@@ -128,17 +110,16 @@
       <ul class="nav navbar-nav navbar-right" >
 
         <li class="divider-vertical"></li>
-
+        <li><span id="browsing_warning"></span></li>
 
         <!-- social media dropdown -->
         <!-- end social media dropdown -->
 
         <li class="divider-vertical"></li>
-
         <!-- search dropdown -->
         <li class="dropdown">
           <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-            <i class="glyphicon glyphicon-search" style='opacity:0.9;'><span aria-label="Search" class="visuallyhidden">Search</span></i>
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'><span class="visuallyhidden" aria-label="Search">Search</span></i>
           </a>
           <ul class='dropdown-menu'>
             
@@ -171,8 +152,8 @@
         <!-- <li id="scratch_ac_link"><a href="javascript:ACFactory.toggleScratchActivecode()">Scratch ActiveCode</a></li> -->
 
         <!-- <li class="dropdown">             -->
-          <li id="scratch_ac_link" class="dropdown"><a href="javascript:ACFactory.toggleScratchActivecode()">
-              <i class="glyphicon glyphicon-pencil" style="opacity:0.9;"><span aria-label="Scratch Activecode" class="visuallyhidden">Scratch Activecode</span></i></a></li>
+          <li id="scratch_ac_link" class="dropdown"><a href="javascript:runestoneComponents.popupScratchAC()">
+              <i class="glyphicon glyphicon-pencil" style="opacity:0.9;"><span class="visuallyhidden" aria-label="Scratch Activecode" >Scratch Activecode</span></i></a></li>
         <!-- </li> -->
 
         <li class="divider-vertical"></li>
@@ -201,42 +182,36 @@
   </li>
   <li class="divider-vertical"></li>
 
-<script type="text/javascript">
+<script>
   opts = {'placement':'bottom',
           'selector': '',
           'delay': { show: 100, hide: 50}
          };
 
-  $('#relations-prev').tooltip(opts);
-  $('#relations-next').tooltip(opts);
+  window.addEventListener('load', (event) => {
+    $('#relations-prev').tooltip(opts);
+    $('#relations-next').tooltip(opts);
+  });
 </script>
         -->
         
           <li></li>
         
       </ul>
-
-      </div> <!-- navbar -->
-
-
-
-
-
-
-
-    </div> <!-- container -->
-  </div>
-</div>
+      </div> <!-- navbar-collapse -->
+    </div> <!-- navbar -->
+  </div> <!-- container -->
 
 
 <div class="container" id="continue-reading"></div>
 
 <div class="container" id="main-content" role="main">
+
 <!-- Ad Serving for Runestone Campaign -->
 
 
   
-  <div class="section" id="design-patterns">
+  <section id="design-patterns">
 <span id="index-0"></span><h1><span class="section-number">9.6. </span>Design patterns<a class="headerlink" href="#design-patterns" title="Permalink to this headline">¶</a></h1>
 <p>A software design pattern is a general,
 reusable solution to a common software problem.
@@ -257,7 +232,7 @@ The book had 4 authors and together they became known as the
 <div><p>… with patterns you get <em>experience</em> reuse.</p>
 <p class="attribution">—Head First Design Patterns, Freeman and Robson, 2014, p. 1.</p>
 </div></blockquote>
-<div class="section" id="fixing-an-inheritance-problem">
+<section id="fixing-an-inheritance-problem">
 <span id="index-1"></span><h2><span class="section-number">9.6.1. </span>Fixing an inheritance problem<a class="headerlink" href="#fixing-an-inheritance-problem" title="Permalink to this headline">¶</a></h2>
 <p>Recall our flying penguin problem from the section on <a class="reference internal" href="inheritance.html"><span class="doc">Inheritance</span></a>:</p>
 <div class="graphviz"><img src="../_images/graphviz-4f4a8568388d21558ad3c2e2b10048d157749acf.png" alt="Bird inheritance" class="graphviz" /></div>
@@ -320,7 +295,7 @@ By isolating the parts most likely to change frequently,
 we can later change or extend them without impacting other parts of the system.</p>
 <p>This simple idea is the motivation behind nearly every design pattern.</p>
 </div>
-<div class="section" id="strategy-pattern">
+<section id="strategy-pattern">
 <span id="index-2"></span><h3><span class="section-number">9.6.1.1. </span>Strategy pattern<a class="headerlink" href="#strategy-pattern" title="Permalink to this headline">¶</a></h3>
 <p>We can think of flying as a <em>strategy</em> different birds employ to move around.
 Birds don’t <em>inherit</em> a fly behavior, they <em>have it</em>.
@@ -331,40 +306,40 @@ Each implementation defines a different <strong>strategy</strong> for the interf
 <div class="graphviz"><img src="../_images/graphviz-6fc0bb2553a39a2bd16773c14357300eb96d90ab.png" alt="Flying strategy" class="graphviz" /></div>
 <p>Any callable entity (function, function object, or lambda) is
 a potential strategy that derived classes of a bird can now use.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;functional&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;utility&gt;</span><span class="cp"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;functional&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span><span class="cp"></span>
 
 <span class="cp">#define FunctionObject typename</span>
 
 <span class="c1">// an alias to avoid copying std::function ... everywhere</span>
-<span class="k">using</span> <span class="n">fly_strategy</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">fly_strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">class</span> <span class="nc">fly_behavior</span> <span class="p">{</span>
-  <span class="k">public</span><span class="o">:</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="n">FunctionObject</span> <span class="n">F</span><span class="o">&gt;</span>
-    <span class="k">explicit</span> <span class="n">fly_behavior</span><span class="p">(</span><span class="n">F</span> <span class="n">strategy</span><span class="p">)</span>
-      <span class="o">:</span> <span class="n">strategy</span> <span class="p">{</span><span class="n">strategy</span><span class="p">}</span>
-    <span class="p">{</span> <span class="p">}</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">fly_behavior</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="n">FunctionObject</span><span class="w"> </span><span class="n">F</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">fly_behavior</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">strategy</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">strategy</span><span class="w"> </span><span class="p">{</span><span class="n">strategy</span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kt">void</span> <span class="n">fly</span><span class="p">()</span> <span class="p">{</span> <span class="n">strategy</span><span class="p">();</span> <span class="p">}</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">fly</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">strategy</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 
-  <span class="k">private</span><span class="o">:</span>
-    <span class="n">fly_strategy</span> <span class="n">strategy</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="w">  </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">fly_strategy</span><span class="w"> </span><span class="n">strategy</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
 <span class="c1">// a function object that implements a strategy</span>
-<span class="k">struct</span> <span class="nc">soar</span>
-<span class="p">{</span>
-  <span class="kt">void</span> <span class="nf">operator</span><span class="p">()</span> <span class="p">()</span> <span class="p">{</span>
-   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;fly by soaring.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">soar</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;fly by soaring.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
 <span class="c1">// a free function can also implement a strategy</span>
-<span class="kt">void</span> <span class="nf">no_flying_allowed</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;I don&#39;t fly.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">no_flying_allowed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;I don&#39;t fly.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The base class now <em>delgates</em> the fly behavior to the strategy
@@ -379,25 +354,25 @@ design decision.
 In general, if the strategy also needs to store state information,
 then implement as a class or function object.
 If the strategy is stateless, then implement a functional solution.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">bird</span> <span class="p">{</span>
-  <span class="n">fly_strategy</span> <span class="n">strategy</span> <span class="o">=</span> <span class="n">soar</span><span class="p">();</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">bird</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">fly_strategy</span><span class="w"> </span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soar</span><span class="p">();</span><span class="w"></span>
 
-  <span class="k">public</span><span class="o">:</span>
-  <span class="n">bird</span> <span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="k">explicit</span> <span class="nf">bird</span><span class="p">(</span><span class="n">fly_strategy</span> <span class="n">strategy</span><span class="p">)</span>
-   <span class="o">:</span> <span class="n">strategy</span><span class="p">(</span><span class="n">strategy</span><span class="p">)</span>
-  <span class="p">{}</span>
-  <span class="o">~</span><span class="n">bird</span> <span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="n">bird</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">bird</span><span class="p">(</span><span class="n">fly_strategy</span><span class="w"> </span><span class="n">strategy</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">strategy</span><span class="p">(</span><span class="n">strategy</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{}</span><span class="w"></span>
+<span class="w">  </span><span class="o">~</span><span class="n">bird</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
 
-  <span class="c1">// change strategy mid-stream</span>
-  <span class="kt">void</span> <span class="nf">fly_behavior</span> <span class="p">(</span><span class="n">fly_strategy</span> <span class="n">new_strategy</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">strategy</span> <span class="o">=</span> <span class="n">new_strategy</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// change strategy mid-stream</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">fly_behavior</span><span class="w"> </span><span class="p">(</span><span class="n">fly_strategy</span><span class="w"> </span><span class="n">new_strategy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_strategy</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="kt">void</span> <span class="nf">fly</span><span class="p">()</span> <span class="p">{</span>
-   <span class="n">strategy</span><span class="p">();</span>
-  <span class="p">}</span>
-<span class="p">};</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">fly</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">strategy</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 <p>In this example, a bird may</p>
@@ -408,44 +383,44 @@ If the strategy is stateless, then implement a functional solution.</p>
 </ul>
 <p>An example of birds using the strategy:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// a hawk can use the default soar behavior</span>
-<span class="k">class</span> <span class="nc">hawk</span> <span class="o">:</span> <span class="k">public</span> <span class="n">bird</span> <span class="p">{</span>
-  <span class="k">public</span><span class="o">:</span>
-   <span class="n">hawk</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">hawk</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">bird</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">   </span><span class="n">hawk</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
 <span class="c1">// this penguin defines its fly behavior using a free function</span>
-<span class="k">class</span> <span class="nc">penguin</span> <span class="o">:</span> <span class="k">public</span> <span class="n">bird</span> <span class="p">{</span>
-  <span class="k">public</span><span class="o">:</span>
-   <span class="n">penguin</span><span class="p">()</span>
-     <span class="o">:</span> <span class="n">bird</span><span class="p">(</span><span class="n">no_flying_allowed</span><span class="p">)</span>
-   <span class="p">{}</span>
-<span class="p">};</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">penguin</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">bird</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">   </span><span class="n">penguin</span><span class="p">()</span><span class="w"></span>
+<span class="w">     </span><span class="o">:</span><span class="w"> </span><span class="n">bird</span><span class="p">(</span><span class="n">no_flying_allowed</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="p">{}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">hawk</span> <span class="n">h</span><span class="p">;</span>
-  <span class="n">h</span><span class="p">.</span><span class="n">fly</span><span class="p">();</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">hawk</span><span class="w"> </span><span class="n">h</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">h</span><span class="p">.</span><span class="n">fly</span><span class="p">();</span><span class="w"></span>
 
-  <span class="n">penguin</span> <span class="n">p</span><span class="p">;</span>
-  <span class="n">p</span><span class="p">.</span><span class="n">fly</span><span class="p">();</span>
+<span class="w">  </span><span class="n">penguin</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">p</span><span class="p">.</span><span class="n">fly</span><span class="p">();</span><span class="w"></span>
 
-  <span class="c1">// change the behavior for just this penguin</span>
-  <span class="n">p</span><span class="p">.</span><span class="n">fly_behavior</span><span class="p">(</span>
-     <span class="p">[](){</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;With a rocket pack, now I can fly!!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-     <span class="p">}</span>
-  <span class="p">);</span>
-  <span class="n">p</span><span class="p">.</span><span class="n">fly</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// change the behavior for just this penguin</span>
+<span class="w">  </span><span class="n">p</span><span class="p">.</span><span class="n">fly_behavior</span><span class="p">(</span><span class="w"></span>
+<span class="w">     </span><span class="p">[](){</span><span class="w"></span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;With a rocket pack, now I can fly!!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">p</span><span class="p">.</span><span class="n">fly</span><span class="p">();</span><span class="w"></span>
 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Notice that we fixed our inheritance problem by using <a class="reference internal" href="../glossary.html#term-composition"><span class="xref std std-term">composition</span></a>.
 Not only did composition allow us to encapsulate a family of behaviors,
 it also allowed a simple hook to enable changing the behavior at runtime.</p>
-</div>
-</div>
-<div class="section" id="chain-of-responsibility-pattern">
+</section>
+</section>
+<section id="chain-of-responsibility-pattern">
 <span id="index-3"></span><h2><span class="section-number">9.6.2. </span>Chain of Responsibility pattern<a class="headerlink" href="#chain-of-responsibility-pattern" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes we need to give more than one object a chance to handle a request.
 The Chain of Responsibility pattern is a ‘behavioral’ software design pattern.
@@ -467,22 +442,22 @@ it can be dynamically created,
 so you could also think of it as a more general,
 dynamically-built switch statement.</p>
 <p>This fun example is adapted from Thinking in C++, Vol 2.</p>
-<div id='cor_pattern_tab' data-component="tabbedStuff"  class='alert alert-warning'><div data-component="tab" data-tabname="Abstract class" >
+<div id='cor_pattern_tab' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Abstract class" >
 <p>First we define an abstract class each handler
 in the chain of responsibility must implement.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
-<span class="k">enum</span> <span class="k">class</span> <span class="nc">Answer</span> <span class="p">{</span> <span class="n">NO</span><span class="p">,</span> <span class="n">YES</span> <span class="p">};</span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Answer</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">NO</span><span class="p">,</span><span class="w"> </span><span class="n">YES</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
 <span class="c1">// This is our abstract handler</span>
 <span class="c1">// Every class that inherits from this</span>
 <span class="c1">// must implement the canIHave function</span>
-<span class="k">struct</span> <span class="nc">GimmeStrategy</span> <span class="p">{</span>
-  <span class="k">virtual</span> <span class="n">Answer</span> <span class="n">canIHave</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">virtual</span> <span class="o">~</span><span class="n">GimmeStrategy</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">GimmeStrategy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">Answer</span><span class="w"> </span><span class="nf">canIHave</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">GimmeStrategy</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Rather than a <code class="docutils literal notranslate"><span class="pre">bool</span></code>, in this case, our early termination
@@ -490,33 +465,33 @@ criteria is an enumerated type.</p>
 </div><div data-component="tab" data-tabname="Implementing classes" >
 <p>For a chain to be a chain, at least two classes must implement the interface.
 (It’s not much of a chain with only 1 link).</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">AskMom</span> <span class="o">:</span> <span class="k">public</span> <span class="n">GimmeStrategy</span> <span class="p">{</span>
-  <span class="n">Answer</span> <span class="nf">canIHave</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Mommy? Can I have this?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">};</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">AskMom</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GimmeStrategy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">Answer</span><span class="w"> </span><span class="nf">canIHave</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Mommy? Can I have this?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">AskDad</span> <span class="o">:</span> <span class="k">public</span> <span class="n">GimmeStrategy</span> <span class="p">{</span>
-  <span class="n">Answer</span> <span class="nf">canIHave</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Dad, I really need this!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">AskDad</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GimmeStrategy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">Answer</span><span class="w"> </span><span class="nf">canIHave</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Dad, I really need this!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">AskGrandpa</span> <span class="o">:</span> <span class="k">public</span> <span class="n">GimmeStrategy</span> <span class="p">{</span>
-  <span class="n">Answer</span> <span class="nf">canIHave</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Grandpa, is it my birthday yet?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">AskGrandpa</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GimmeStrategy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">Answer</span><span class="w"> </span><span class="nf">canIHave</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Grandpa, is it my birthday yet?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">AskGrandma</span> <span class="o">:</span> <span class="k">public</span> <span class="n">GimmeStrategy</span> <span class="p">{</span>
-  <span class="n">Answer</span> <span class="nf">canIHave</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Grandma, I really love you!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">Answer</span><span class="o">::</span><span class="n">YES</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">AskGrandma</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GimmeStrategy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">Answer</span><span class="w"> </span><span class="nf">canIHave</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Grandma, I really love you!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">YES</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 </div><div data-component="tab" data-tabname="Building the chain" >
@@ -530,49 +505,49 @@ How that is implemented should be invisible to users.</p>
 <p>While the <code class="docutils literal notranslate"><span class="pre">Gimme</span></code> class also is derived from the <code class="docutils literal notranslate"><span class="pre">GimmeStrategy</span></code>
 it is used to construct the chain of all the other strategies
 used.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Gimme</span> <span class="o">:</span> <span class="k">public</span> <span class="n">GimmeStrategy</span> <span class="p">{</span>
-   <span class="k">private</span><span class="o">:</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;&gt;</span> <span class="n">chain</span><span class="p">;</span>
-   <span class="k">public</span><span class="o">:</span>
-     <span class="n">Gimme</span><span class="p">()</span> <span class="p">{</span>
-       <span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span> <span class="n">AskMom</span><span class="p">));</span>
-       <span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span> <span class="n">AskDad</span><span class="p">));</span>
-       <span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span> <span class="n">AskGrandpa</span><span class="p">));</span>
-       <span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span> <span class="n">AskGrandma</span><span class="p">));</span>
-     <span class="p">}</span>
-     <span class="n">Answer</span> <span class="n">canIHave</span><span class="p">()</span> <span class="p">{</span>
-       <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">it</span><span class="p">:</span> <span class="n">chain</span><span class="p">)</span> <span class="p">{</span>
-         <span class="k">if</span> <span class="p">(</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">canIHave</span><span class="p">()</span> <span class="o">==</span> <span class="n">Answer</span><span class="o">::</span><span class="n">YES</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="n">Answer</span><span class="o">::</span><span class="n">YES</span><span class="p">;</span>
-         <span class="p">}</span>
-       <span class="p">}</span>
-       <span class="c1">// Reached end without success...</span>
-       <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Waaaaaahh!!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-       <span class="k">return</span> <span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span>
-     <span class="p">}</span>
-<span class="p">};</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Gimme</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GimmeStrategy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">chain</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">     </span><span class="n">Gimme</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">       </span><span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AskMom</span><span class="p">));</span><span class="w"></span>
+<span class="w">       </span><span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AskDad</span><span class="p">));</span><span class="w"></span>
+<span class="w">       </span><span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AskGrandpa</span><span class="p">));</span><span class="w"></span>
+<span class="w">       </span><span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AskGrandma</span><span class="p">));</span><span class="w"></span>
+<span class="w">     </span><span class="p">}</span><span class="w"></span>
+<span class="w">     </span><span class="n">Answer</span><span class="w"> </span><span class="n">canIHave</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">       </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">it</span><span class="o">:</span><span class="w"> </span><span class="n">chain</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">canIHave</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">YES</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">YES</span><span class="p">;</span><span class="w"></span>
+<span class="w">         </span><span class="p">}</span><span class="w"></span>
+<span class="w">       </span><span class="p">}</span><span class="w"></span>
+<span class="w">       </span><span class="c1">// Reached end without success...</span>
+<span class="w">       </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Waaaaaahh!!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 <p>Once the abstract and implementing classes have been defined,
 then calling the chain is easy:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">Gimme</span> <span class="n">chain</span><span class="p">;</span>
-  <span class="n">chain</span><span class="p">.</span><span class="n">canIHave</span><span class="p">();</span>
-<span class="p">}</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">Gimme</span><span class="w"> </span><span class="n">chain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">chain</span><span class="p">.</span><span class="n">canIHave</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 
-<div class="runestone explainer ac_section alert alert-warning">
-<div data-component="activecode" id=ac_class_design_pattern_chain_of_responsibility >
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=ac_class_design_pattern_chain_of_responsibility data-question_label="9.6.2.1">
 <div id=ac_class_design_pattern_chain_of_responsibility_question class="ac_question col-md-12">
 
 </div>
-<textarea data-lang="cpp" id="ac_class_design_pattern_chain_of_responsibility_editor" data-question_label="9.6.2.1" 
+<textarea data-lang="cpp" id="ac_class_design_pattern_chain_of_responsibility_editor" 
       data-timelimit=25000     
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
-    style="visibility: hidden;">
+     style="visibility: hidden;">
 #include <iostream>
 #include <memory>
 #include <vector>
@@ -671,60 +646,35 @@ that’s still over 20 years ago!</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
-  <div id=scprogresscontainer>
-    You have attempted <span id=scprogresstotal></span> of <span id=scprogressposs></span> activities on this page <div id="subchapterprogress"></div>
+  <div id="scprogresscontainer">
+    You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
   </div>
-  
-      
-<ul>
-  <li id="relations-prev" style="opacity:0.4" onmouseover="mouseOverPrev()" onmouseout="mouseOutPrev()"class="navLink" title='Previous Section - 9.5. Abstract base classes' data-toggle="tooltip">
-    <a href="interfaces.html" aria-label="9.5. Abstract base classes">
-        <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
-            <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
-        </div>
+
+  <ul role="navigation" class="nextprev-list nextprev-list" aria-label="Change page">
+<li id="relations-prev" class="navLink" title='Previous Section - 9.5. Abstract base classes' data-toggle="tooltip">
+  <a href="interfaces.html" aria-label="Previous - 9.5. Abstract base classes">
+    <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
+  </a>
+</li>
+
+  <li id="relations-next" class="navLink" title='Next Section - 10. Class templates' data-toggle="tooltip" >
+    <a href="../class-templates/index.html" aria-label="Next - 10. Class templates">
+      <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
     </a>
   </li>
 </ul>
-
-  
-<ul>
-  <li id="relations-next" style="opacity:0.4" onmouseover="mouseOverNext()" onmouseout="mouseOutNext()" class="navLink" title='Next Section - 10. Class templates' data-toggle="tooltip" >
-    <a href="../class-templates/index.html" aria-label="10. Class templates">
-      <div style="background-color: white; border-style:solid; border-color:lightgrey; border-width:2px; width:100px; height:50px">
-          <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
-      </div>
-    </a>
-  </li>
-</ul>
-
-<script type="text/javascript">
-
-  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
-  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
-
-</script>
 
 <script>
-	function mouseOverPrev() {
-		document.getElementById("relations-prev").style.opacity=1;
-	}
-
-	function mouseOutPrev() {
-		document.getElementById("relations-prev").style.opacity=0.4;
-	}
-	function mouseOverNext() {
-		document.getElementById("relations-next").style.opacity=1;
-	}
-
-	function mouseOutNext() {
-		document.getElementById("relations-next").style.opacity=0.4;
-	}
+window.addEventListener('load', (event) => {
+  $('#relations-prev').tooltip({'placement': 'right', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement': 'left', 'delay': { show: 100, hide: 50}});
+});
 </script>
-  
+
 </div>
 <footer class="footer">
   <div class="container">
@@ -735,7 +685,7 @@ that’s still over 20 years ago!</p>
     </p>
     <p>
         &copy; Copyright 2017-2022 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 5.5.5.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.2.1.
     </p>
   </div>
 </footer>
@@ -743,7 +693,11 @@ that’s still over 20 years ago!</p>
 
 
 
-<script> getSwitch(); </script>
+<script>
+  window.addEventListener('load', (event) => {
+    runestoneComponents.getSwitch();
+  });
+</script>
 
 
   </body>

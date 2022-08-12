@@ -111,6 +111,6 @@ because they do not work well in multi-threaded applications.
 
   - From: cppreference.com: 
 
-    - `function declarations <http://en.cppreference.com/w/cpp/language/function>`_. 
-    - `Static local variables <https://en.cppreference.com/w/cpp/language/storage_duration#Static_local_variables>`__.
+    - :lang:`function declarations <function>`
+    - :lang:`Static local variables <storage_duration#Static_local_variables>`
 

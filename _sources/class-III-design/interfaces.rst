@@ -345,8 +345,8 @@ Attempting to override a final function is a compile error.
 .. admonition:: More to Explore
 
    - From cppreference.com:
-     - `virtual function specifier <https://en.cppreference.com/w/cpp/language/virtual>`__
-     - `Abstract classes <https://en.cppreference.com/w/cpp/language/abstract_class>`__
-     - `final specifier <https://en.cppreference.com/w/cpp/language/final>`__
+     - :lang:`virtual function specifier <virtual>`
+     - :lang:`Abstract classes <abstract_class>`
+     - :lang:`final specifier <final>`
    - `Virtuality <http://www.gotw.ca/publications/mill18.htm>`__ by Herb Sutter
 

@@ -53,7 +53,7 @@ The following class is a 'bag' - a general purpose container.
        void swap(bag<T> item);
    };
 
-As this class demonstrates, a :cref:`std::vector` is a *bag*:
+As this class demonstrates, a :container:`std::vector <vector>` is a *bag*:
 a general purpose container for (nearly) any type.
 
 Recall the reason why we wanted to create a function template.
@@ -81,7 +81,7 @@ The following example uses some common conventions for user defined types:
   of the same type when passed as the only parameter to a function.
 - Binary operator overloads use *lhs* and *rhs* to denote the
   right-hand side and left-hand side operands of the binary operation.
-- The `default keyword <https://en.cppreference.com/w/cpp/language/member_functions#Special_member_functions>`__ is used to instruct the compiler to create
+- The :lang:`default keyword <member_functions#Special_member_functions>` is used to instruct the compiler to create
   the default implementation for the marked special member function.
 
   Only special member functions may be marked ``default``.
@@ -228,6 +228,6 @@ for ``operator==``:
 .. admonition:: More to Explore
 
    - :cref:`friend specifier`
-   - Item 44 from `C++ Coding Standards, Sutter and Alexandrescu, 2004. <https://www.google.com/search?client=safari&rls=en&q=isbn+978-0321113580>`__
+   - Item 44 from `C++ Coding Standards, Sutter and Alexandrescu, 2004. <https://www.google.com/search?rls=en&q=isbn+978-0321113580>`__
    - C++ Core guidelines for :core:`overloads <#SS-overload>`
 

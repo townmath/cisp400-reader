@@ -91,8 +91,7 @@ but you should know by now:
   * What are :term:`header guards <header guard>`?
   * What is ``#pragma once``?
 
-  See `cppreference.com <https://en.cppreference.com/w/cpp/preprocessor/include>`__
-  for more information.
+  See :cpp:`preprocessor/include` for more information.
 
 .. index:: 
    pair: introductory topics; compilation vs. linking
@@ -301,15 +300,15 @@ you will be expected to employ basic I/O in labs and projects.
       .. activecode:: df_ac_poem_c_file_io
          :language: cpp
          :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
-         :datafile: poem.txt
+         :datafile: poem
          :nocodelens:
 
          #include <cstdio>
 
-         // assuming the file 'poem.txt' exists in the current directory
-         FILE* ptr = fopen("poem.txt","r");
+         // assuming the file 'poem' exists in the current directory
+         FILE* ptr = fopen("poem","r");
          if (ptr == NULL) {
-           printf("Unable to open poem.txt.");
+           printf("Unable to open poem.");
            return 1;
          }
          char c;
@@ -326,15 +325,15 @@ you will be expected to employ basic I/O in labs and projects.
       .. activecode:: df_ac_poem_stream_io
          :language: cpp
          :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
-         :datafile: poem.txt
+         :datafile: poem
          :nocodelens:
 
          #include <fstream>
          #include <iostream>
 
          int main () {
-           // assuming the file 'poem.txt' exists in the current directory
-           std::ifstream is("poem.txt");
+           // assuming the file 'poem' exists in the current directory
+           std::ifstream is("poem");
            char c;
            // read the text file one byte (char) at a time
            while (is.get(c)) {
@@ -353,9 +352,9 @@ you will be expected to employ basic I/O in labs and projects.
          Hint: change ``char`` to ``std::string`` and use :string:`getline`
          instead of ``get``.
 
-   .. tab:: poem.txt
+   .. tab:: poem
 
-      .. datafile:: poem.txt
+      .. datafile:: poem
          :edit:
 
                    Jabberwocky

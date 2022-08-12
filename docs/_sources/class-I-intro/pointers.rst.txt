@@ -94,7 +94,7 @@ Putting it all together:
 
    - From cppreference.com
 
-     - `C++ Operator precedence <https://en.cppreference.com/w/cpp/language/operator_precedence>`__ and
-       `member access operators <https://en.cppreference.com/w/cpp/language/operator_member_access#Built-in_member_access_operators>`__.
+     - :lang:`C++ Operator precedence <operator_precedence>` and
+       :lang:`member access operators <operator_member_access#Built-in_member_access_operators>`.
 
 

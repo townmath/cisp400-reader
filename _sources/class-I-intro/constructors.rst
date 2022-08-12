@@ -303,21 +303,16 @@ We made several changes:
 
    - From cppreference.com
 
-     - `Classes <https://en.cppreference.com/w/cpp/language/classes>`__.
-     - `Default constructors <https://en.cppreference.com/w/cpp/language/default_constructor>`__.
+     - :lang:`Classes <classes>`
+     - :lang:`Default constructors <default_constructor>`
 
    - From C++ Core Guidelines
 
-     - `Constructors
-       <https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#S-ctor>`__
-     - `Prefer in-class iniitalizers
-       <https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#c48-prefer-in-class-initializers-to-member-initializers-in-constructors-for-constant-initializers>`__
-     - Default operations: `rule of zero
-       <https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rc-zero>`__
-       and `rule of five
-       <https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rc-five>`__
-     - `Concrete types
-       <http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#SS-concrete>`__
+     - :core:`Constructors <S-ctor>`
+     - :core:`Prefer in-class iniitalizers <c48-prefer-in-class-initializers-to-member-initializers-in-constructors-for-constant-initializers>`
+     - Default operations: :core:`rule of zero <Rc-zero>`
+       and :core:`rule of five <Rc-five>`
+     - :core:`Concrete types <SS-concrete>`
 
    - `CplusPlus.com classes tutorial <http://www.cplusplus.com/doc/tutorial/classes/>`__.
 

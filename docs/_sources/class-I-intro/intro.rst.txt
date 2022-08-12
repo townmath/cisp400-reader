@@ -139,7 +139,7 @@ In C++, a ``struct`` **is a** ``class`` with default public access:
             forgetting to include a trailing ``;`` is a common source of error.
          
          #. The function ``main`` accesses the function ``hello`` using the 
-            `member access operator <https://en.cppreference.com/w/cpp/language/operator_member_access>`__.
+            :lang:`member access operator <operator_member_access>`.
 
             The general format is *object name* . *member name*.
 

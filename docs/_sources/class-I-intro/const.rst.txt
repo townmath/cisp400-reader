@@ -103,6 +103,6 @@ then a compile error results.
 
    - From cppreference.com
 
-     - `Const and volatile type qualifiers <https://en.cppreference.com/w/cpp/language/cv>`__.
-     - `Const member functions <https://en.cppreference.com/w/cpp/language/member_functions>`__.
+     - :lang:`Const and volatile type qualifiers <cv>`.
+     - :lang:`Const member functions <member_functions>`.
 

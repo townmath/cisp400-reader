@@ -600,9 +600,8 @@ or an explicit constructor call:
      Much of the content in this section was taken from there.
    - :lang:`Converting constructors <converting_constructor>`
    - C++ Core Guidelines for :core:`overloading <#SS-overload>`
-   - `Comparison operators <https://en.cppreference.com/w/cpp/language/operator_comparison>`__
-     from cppreference.com.
-   - `Named requirements: Compare <https://en.cppreference.com/w/cpp/named_req/Compare>`__.
+   - :lang:`Comparison operators <operator_comparison>` from cppreference.com.
+   - :cpp:`Named requirements: Compare <named_req/Compare>`.
      This page also includes a list of the parts of the STL that expect types
      that satisfy this requirement.
    - Effective Java, 3rd edition, Joshua Bloch. Addison-Wesley Professional, Jan 2018.

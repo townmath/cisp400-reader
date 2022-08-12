@@ -245,9 +245,10 @@ involves several steps.
 
    - From cppreference.com
 
-     - Named requirement `Allocator <https://en.cppreference.com/w/cpp/named_req/Allocator>`__ 
+     - Named requirement :cpp:`Allocator <named_req/Allocator>`
      - :memory:`allocator_traits`
      - :memory:`new`
+
    - Writing allocators
 
      - `Memory Management with std::allocator <https://www.modernescpp.com/index.php/memory-management-with-std-allocator>`__

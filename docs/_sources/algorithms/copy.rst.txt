@@ -25,6 +25,6 @@ if there is no 'next' element.
 
    - From cppreference.com
 
-     - `std::copy <https://en.cppreference.com/w/cpp/algorithm/copy>`__
-     - `std::inserter <https://en.cppreference.com/w/cpp/iterator/inserter>`__
+     - :algorithm:`std::copy <copy>`
+     - :iterator:`std::inserter <inserter>`
 

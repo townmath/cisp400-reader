@@ -128,10 +128,10 @@ Having a simple convention to distinguish them is important.
    - `Include guards <https://en.wikipedia.org/wiki/Include_guard>`__ from wikipedia.
    - From cppreference.com
 
-     - `Source file inclusion <https://en.cppreference.com/w/cpp/preprocessor/include>`__.
-     - `#pragma directives <https://en.cppreference.com/w/cpp/preprocessor/impl>`__.
+     - :cpp:`Source file inclusion <preprocessor/include>`
+     - :cpp:`#pragma directives <preprocessor/impl>`
 
    - From C++ Core Guidelines
 
-     - `Interfaces <https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#S-interfaces>`__
+     - :core:`Interfaces <S-interfaces>`
 
