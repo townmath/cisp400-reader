@@ -66,6 +66,7 @@ extlinks = {
         'utility': ('https://en.cppreference.com/w/cpp/utility/%s', ''),
         'vector': ('https://en.cppreference.com/w/cpp/container/vector/%s', ''),
         'types': ('https://en.cppreference.com/w/cpp/types/%s', ''),
+        'wiki': ('https://en.wikipedia.org/wiki/%s', ''),
         'issue': ('https://github.com/sphinx-doc/sphinx/issues/%s', 'issue ')
         }
 # normal use cas iss :issue:`123`

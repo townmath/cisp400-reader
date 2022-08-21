@@ -569,9 +569,9 @@ an essential part of the pattern.
 .. admonition:: More to Explore
 
    - `Strategy Design Pattern <http://www.oodesign.com/strategy-pattern.html>`__ on oodesign.com
-     and on `Wikipedia <https://en.wikipedia.org/wiki/Strategy_pattern>`__.
+     and on :wiki:`Wikipedia <Strategy_pattern>`.
    - `Chain of Responsibility Design Pattern <http://www.oodesign.com/chain-of-responsibility-pattern.html>`__ on oodesign.com
-     and on `Wikipedia <https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern>`__.
+     and on :wiki:`Wikipedia <Chain-of-responsibility_pattern>`.
    - Bruce Eckel. Thinking in C++, Vol 2.,  section 3.3.10.
 
    - `Design Patterns Are Missing Language Features <http://wiki.c2.com/?DesignPatternsAreMissingLanguageFeatures>`__ from the PortlandPatternRepository.

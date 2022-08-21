@@ -129,7 +129,7 @@ they can improve the intent of expected template types.
 .. admonition:: More to Explore
 
    - `a bit of background for concepts and C++17 <https://isocpp.org/blog/2016/02/a-bit-of-background-for-concepts-and-cpp17-bjarne-stroustrup>`_ Bjarne Stroustrup
-   - `Concepts C++ <https://en.wikipedia.org/wiki/Concepts_(C%2B%2B)>`_ from Wikipedia
+   - :wiki:`Concepts C++ <Concepts_(C%2B%2B)>` from Wikipedia
    - From cppreference.com
 
        - :cpp:`Constraints and concepts <concept>`

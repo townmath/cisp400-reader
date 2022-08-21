@@ -137,6 +137,6 @@ outlined when we grouped the addition sequence using parentheses.
 
 .. admonition:: More to Explore
 
-   - `Recursion on Wikipedia <https://en.wikipedia.org/wiki/Recursion_(computer_science)>`_
+   - :wiki:`Recursion <Recursion_(computer_science)>` on Wikipedia 
    - `TED: The magic of Fibonacci numbers, Arthur Benjamin <https://www.youtube.com/watch?v=SjSHVDfXHQ4>`_
 

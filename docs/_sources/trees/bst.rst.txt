@@ -516,7 +516,7 @@ or has at most one child.
      `Data structures: binary search trees <https://www.youtube.com/watch?v=pYT9F8_LFTM&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&index=27>`__ 
    - Wikipedia
 
-     - `binary search tree <https://en.wikipedia.org/wiki/Binary_search_tree>`__
+     - :wiki:`binary search tree <Binary_search_tree>`
 
    - `Binary tree visualizer <http://btv.melezinek.cz>`__
 

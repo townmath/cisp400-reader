@@ -36,8 +36,8 @@ Main Body
    class-I-intro/index.rst
    class-II-functions/index.rst
    class-III-design/index.rst
-   class-templates/index.rst
-   class-IV-copy/index.rst
+   class-IV-templates/index.rst
+   class-V-memory/index.rst
 
    stack/index.rst
    list/index.rst

@@ -218,7 +218,7 @@ every member of the set is unique.
 The integers define a set, because every number is unique.
 The values <code class="docutils literal notranslate"><span class="pre">{3,</span> <span class="pre">1,</span> <span class="pre">4,</span> <span class="pre">1,</span> <span class="pre">5,</span> <span class="pre">9}</span></code> do <strong>not</strong> define a proper set,
 because the value <code class="docutils literal notranslate"><span class="pre">1</span></code> is repeated.</p>
-<p>In C++, a <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::set">std::set</a> must also be sorted.
+<p>In C++, a <a class="reference external" href="https://en.cppreference.com/w/cpp/container/set">std::set</a> must also be sorted.
 Like <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>, a <code class="docutils literal notranslate"><span class="pre">set</span></code> is a generic class
 and declarations must include the object <a class="reference internal" href="../glossary.html#term-type"><span class="xref std std-term">type</span></a>
 stored in the class:</p>
@@ -242,7 +242,7 @@ The new object simply replaces the old.</p>
     </div>
     <p>Like the sequence containers,
 each element in a set can be visited one at a time
-using a <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=range for">range for</a> loop.</p>
+using a <a class="reference external" href="https://en.cppreference.com/w/cpp/language/range-for">range-for</a> loop.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span><span class="cp"></span>
 
@@ -271,11 +271,10 @@ traditional for loops using an index are not possible:</p>
 <a class="reference internal" href="../glossary.html#term-comparable"><span class="xref std std-term">comparable</span></a>.
 The comparison operator (<a class="reference internal" href="../glossary.html#term-comparator"><span class="xref std std-term">comparator</span></a>)
 used in sets by default is <code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">&lt;</span></code>.
-Any type used in a <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::set">std::set</a>
+Any type used in a <a class="reference external" href="https://en.cppreference.com/w/cpp/container/set">set</a>
 should overload <code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">&lt;</span></code>.
-All of the <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=fundamental types">fundamental types</a>
-are <a class="reference internal" href="../glossary.html#term-comparable"><span class="xref std std-term">comparable</span></a>.</p>
-<p>Use <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=set::insert">set::insert</a> to add a new element to a <code class="docutils literal notranslate"><span class="pre">set</span></code> or replace an existing element:</p>
+All of the <a class="reference external" href="https://en.cppreference.com/w/cpp/language/types">types</a> are <a class="reference internal" href="../glossary.html#term-comparable"><span class="xref std std-term">comparable</span></a>.</p>
+<p>Use <a class="reference external" href="https://en.cppreference.com/w/cpp/container/set/insert">set::insert</a> to add a new element to a <code class="docutils literal notranslate"><span class="pre">set</span></code> or replace an existing element:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span><span class="w"></span>
 <span class="n">x</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span><span class="w"></span>
 </pre></div>
@@ -286,18 +285,15 @@ every ‘get’ is a search:</p>
 <span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>The <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=set::find">set::find</a> function returns an <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a> to the element
-with a specific key.
-We will discuss iterators in detail soon.
-For now, you can treat the iterator as if it was a pointer to access the value
-returned from find:</p>
+<p>The <a class="reference external" href="https://en.cppreference.com/w/cpp/container/set/find">set::find</a> function returns an <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a> to the element
+with a specific key:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span><span class="w"></span>
 <span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span><span class="w"></span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">it</span><span class="p">;</span><span class="w">         </span><span class="c1">// print the value returned from find()</span>
 </pre></div>
 </div>
-<p>The <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=set::erase">set::erase</a> function is used to remove an element from a <code class="docutils literal notranslate"><span class="pre">set</span></code>.
-<a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=set::erase">set::erase</a> takes an iterator as the position in the <code class="docutils literal notranslate"><span class="pre">set</span></code> to remove:</p>
+<p>The <a class="reference external" href="https://en.cppreference.com/w/cpp/container/set/erase">set::erase</a> function is used to remove an element from a <code class="docutils literal notranslate"><span class="pre">set</span></code>.
+<code class="docutils literal notranslate"><span class="pre">set::erase</span></code> takes an iterator as the position in the <code class="docutils literal notranslate"><span class="pre">set</span></code> to remove:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span><span class="w"></span>
 <span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span><span class="w"></span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -309,12 +305,12 @@ returned from find:</p>
 </pre></div>
 </div>
 <section id="variations-on-std-set">
-<h2><span class="section-number">14.5.1. </span>Variations on std::set<a class="headerlink" href="#variations-on-std-set" title="Permalink to this headline">¶</a></h2>
-<p>The STL provides 3 alternate forms of <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::set">std::set</a> class:</p>
+<span id="index-1"></span><h2><span class="section-number">14.5.1. </span>Variations on std::set<a class="headerlink" href="#variations-on-std-set" title="Permalink to this headline">¶</a></h2>
+<p>The STL provides 3 alternate forms of <code class="docutils literal notranslate"><span class="pre">std::set</span></code> class:</p>
 <dl>
-<dt>multiset</dt><dd><p>A <code class="docutils literal notranslate"><span class="pre">set</span></code> in which duplicate keys are allowed.</p>
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/container/multiset">multiset</a></dt><dd><p>A <code class="docutils literal notranslate"><span class="pre">set</span></code> in which duplicate keys are allowed.</p>
 </dd>
-<dt>unordered_set</dt><dd><p>A <code class="docutils literal notranslate"><span class="pre">set</span></code> of unique objects stored based on the object <a class="reference internal" href="../glossary.html#term-hash-function"><span class="xref std std-term">hash function</span></a>.
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/container/unordered_set">unordered_set</a></dt><dd><p>A <code class="docutils literal notranslate"><span class="pre">set</span></code> of unique objects stored based on the object <a class="reference internal" href="../glossary.html#term-hash-function"><span class="xref std std-term">hash function</span></a>.
 Added in C++11.</p>
 <p>In order to use a type in an unordered container,
 the type must override 3 functions:</p>
@@ -325,7 +321,7 @@ the type must override 3 functions:</p>
 </ul>
 <p>before the type will compile when added to an unordered container.</p>
 </dd>
-<dt>unordered_multiset</dt><dd><p>An <code class="docutils literal notranslate"><span class="pre">unordered_set</span></code> in which duplicate keys are allowed.</p>
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/container/unordered_multiset">unordered_multiset</a></dt><dd><p>An <code class="docutils literal notranslate"><span class="pre">unordered_set</span></code> in which duplicate keys are allowed.</p>
 </dd>
 </dl>
 <hr class="docutils" />

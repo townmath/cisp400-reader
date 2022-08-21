@@ -347,7 +347,7 @@ the upper and lower bounds are the same.
 
 .. admonition:: More to explore
 
-   - `Collatz Conjecture <https://en.wikipedia.org/wiki/Collatz_conjecture>`__ on wikipedia.
+   - :wiki:`Collatz Conjecture <Collatz_conjecture>` on wikipedia.
 
 .. topic:: Acknowledgements
 

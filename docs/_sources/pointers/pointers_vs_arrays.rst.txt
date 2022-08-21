@@ -243,10 +243,10 @@ when working with character data from an uncontrolled source
 
 .. admonition:: More to Explore
 
-   - Array declarations in `C <http://en.cppreference.com/w/c/language/array>`_ and `C++ <http://en.cppreference.com/w/cpp/language/array>`_
+   - Array declarations in :c:`C <language/array>` and :lang:`C++ <array>`
    - MITRE Common Weakness Enumerations
      `Off by one error <https://cwe.mitre.org/data/definitions/193.html>`__
-   - `Wikipedia Off-by-one errors <https://en.wikipedia.org/wiki/Off-by-one_error>`__
+   - :wiki:`Wikipedia Off-by-one errors <Off-by-one_error>`
   
 
 

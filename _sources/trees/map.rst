@@ -8,18 +8,20 @@
 
 .. index:: 
    pair: associative containers; map
+   single: key-value pair
+   single: std::pair
 
 The map class
 =============
 
 A :term:`map` refers to any data structure that 'maps' :term:`keys <key>` to values.
-The ``map`` class is arguably the most useful container in the STL
+The ``map`` class is arguably the most popular container in the STL
 after ``vector``.
 
 All the containers discussed so far focused on storing 1 thing.
 That is, each stores values of a single type.
 Maps add a new wrinkle.
-A ``map`` stores **pairs** of things.
+A ``map`` stores :utility:`pairs <pair>` of things.
 Traditionally, the pair stored is referred to as a :term:`key-value pair`.\ [1]_
 
 Nearly every programming language provides some kind of ``map`` implementation.
@@ -29,10 +31,10 @@ but structurally, they are very similar.
 **Values** are retrieved from a ``map`` using the **key**.
 Each :term:`key` must be unique.
 In other words, keys are members of a ``set``.
-Like a :cref:`std::set`,
+Like a :container:`std::set <set>`,
 adding a second node with the same key replaces the old value.
-Unlike a :cref:`std::set`,
-a :cref:`std::map` provides the :cref:`map::operator[]`.
+Unlike a ``std::set``,
+a :container:`std::map <map>` provides the :container:`map::operator[] <map/operator_at>`.
 
 .. code-block:: cpp
 
@@ -65,14 +67,14 @@ a :cref:`std::map` provides the :cref:`map::operator[]`.
 Selected map functions
 ----------------------
 Access and assignment
-    :cref:`map::operator=`, :cref:`map::at`, and :cref:`map::operator[]`
+    :container:`operator= <operator%3D>`, :container:`at and operator[] <operator_at>`
 Capacity
-    :cref:`map::empty`, :cref:`map::size`, and :cref:`map::max_size`
+    :container:`empty`, :container:`size`, and :container:`max_size`
 Modifiers
-    :cref:`map::clear`, :cref:`map::emplace`, :cref:`map::insert`, :cref:`map::erase`, :cref:`map::swap`
+    :container:`clear`, :container:`emplace`, :container:`insert`, :container:`erase`, :container:`swap`
 Lookup
-    :cref:`map::count`, :cref:`map::find`, :cref:`map::equal_range`, 
-    :cref:`map::upper_bound` and :cref:`map::lower_bound`
+    :container:`count`, :container:`find`, :container:`equal_range`, 
+    :container:`upper_bound` and :container:`lower_bound`
 
 For large data sets, the lookup functions in a ``map`` are faster than their
 counterparts in a sequential container such as ``vector``.
@@ -87,7 +89,8 @@ counterparts in a sequential container such as ``vector``.
 Map structure
 -------------
 Internally, a ``map`` is a sorted :term:`complete binary tree`.
-Each node in the tree is a :cref:`std::pair`.
+(Technically it is often implemented as a :wiki:`Red-black tree <Red-black_tree>`).
+Each node in the tree is a :utility:`std::pair <pair>`.
 
 
 .. digraph:: larger
@@ -277,17 +280,17 @@ which produces:
 
 Variations on std::map
 ----------------------
-The STL provides 3 alternate forms of :cref:`std::map` class:
+The STL provides 3 alternate forms of :container:`map` class:
 
-multimap
+container:`multimap`
    A ``map`` in which duplicate keys are allowed.
 
-unordered_map
+:container:`unordered_map`
    A ``map`` of unique :term:`key-value pairs <key-value pair>` 
    stored based on the :term:`key` object :term:`hash function`.
    Added in C++11.
   
-unordered_multimap
+:container:`unordered_multimap`
    An ``unordered_map`` in which duplicate keys are allowed.
  
 
@@ -296,7 +299,8 @@ unordered_multimap
 
 .. admonition:: More to Explore
 
- - `STL containers library <http://en.cppreference.com/w/cpp/container>`_
+   - :cpp:`STL containers library </container>`
+   - :wiki:`Red-black tree <Red-black_tree>` on Wikipedia
 
 .. topic:: Footnotes
 

@@ -51,7 +51,7 @@ First, a good, short blog post about
 `how to teach yourself programming <http://norvig.com/21-days.html>`__.
 Good advice.
 
-- `Clean Code, A Handbook of Agile Software Craftsmanship <https://en.wikipedia.org/wiki/Special:BookSources/9780132350884>`__
+- :wiki:`Clean Code, A Handbook of Agile Software Craftsmanship <Special:BookSources/9780132350884>`
 - `Code Complete <http://cc2e.com>`__ A true compendium.
   Which may be a 'pro' or a 'con' for you.
 
@@ -70,8 +70,7 @@ Good advice.
   This is just less comprehensive - it’s ‘agile’!
 
 - Chapter 16 of the 
-  `Mythical Man-Month <https://en.wikipedia.org/wiki/The_Mythical_Man-Month>`__:
-  *No silver bullets*.
+  :wiki:`Mythical Man-Month <The_Mythical_Man-Month>`: *No silver bullets*.
 
   This book gets a lot of endorsements, but honestly,
   I think most of it is not too relevant to modern computing problems,

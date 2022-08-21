@@ -12,7 +12,7 @@
 Background
 ==========
 
-Recall from :doc:`../class-templates/containers` that a container
+Recall from :doc:`../class-IV-templates/containers` that a container
 is a generic collection.
 Containers allow us to store data using *well-known* data structures.
 The STL containers provide the patterns we can use to make

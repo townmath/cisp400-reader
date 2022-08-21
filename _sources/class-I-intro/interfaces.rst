@@ -125,7 +125,7 @@ Having a simple convention to distinguish them is important.
 
 .. admonition:: More to Explore
 
-   - `Include guards <https://en.wikipedia.org/wiki/Include_guard>`__ from wikipedia.
+   - :wiki:`Include guards <Include_guard>` from wikipedia.
    - From cppreference.com
 
      - :cpp:`Source file inclusion <preprocessor/include>`

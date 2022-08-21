@@ -693,7 +693,7 @@ This decision chart may help.
 
 .. admonition:: More to Explore
 
-   - `Sofware build <https://en.wikipedia.org/wiki/Software_build>`__
+   - :wiki:`Sofware build <Software_build>`
    - `Git Documentation <https://git-scm.com/doc>`__
    - Clang docs
 
@@ -702,6 +702,6 @@ This decision chart may help.
      - `Clang C++ status <https://clang.llvm.org/cxx_status.html>`__
    
    - :doc:`make`
-   - `Grok definition <https://en.wikipedia.org/wiki/Grok>`__
+   - :wiki:`Grok definition <Grok>`
 
 

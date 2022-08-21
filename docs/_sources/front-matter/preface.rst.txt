@@ -36,7 +36,7 @@ Perhaps a short story would help make the point more clearly:
 
 .. topic:: English As She is Spoke
 
-   `English As She Is Spoke <https://en.wikipedia.org/wiki/English_As_She_Is_Spoke>`_ 
+   :wiki:`English As She Is Spoke <English_As_She_Is_Spoke>`
    is the common name of a 19th-century book written by Pedro Carolino.
 
    A well-meaning person, to be sure; his goal was to create a

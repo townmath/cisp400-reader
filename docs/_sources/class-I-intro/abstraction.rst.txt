@@ -317,7 +317,7 @@ change it later once we realize it did not control any of its invariants.
 
    - :lang:`C++ enumerations <enum>`
    - :lang:`Default constructors <default_constructor>`
-   - `Abstraction in OOP <https://en.wikipedia.org/wiki/Abstraction_(computer_science)#Abstraction_in_object_oriented_programming>`__
+   - :wiki:`Abstraction in OOP <Abstraction_(computer_science)#Abstraction_in_object_oriented_programming>`
 
 .. topic:: Footnotes
 

@@ -7,7 +7,7 @@
     License".
 
 .. index:: 
-   pair: associative containers; map
+   pair: associative containers; set
 
 The set class
 =============
@@ -17,7 +17,7 @@ The integers define a set, because every number is unique.
 The values ``{3, 1, 4, 1, 5, 9}`` do **not** define a proper set,
 because the value ``1`` is repeated.
 
-In C++, a :cref:`std::set` must also be sorted.
+In C++, a :container:`std::set <set>` must also be sorted.
 Like ``std::vector``, a ``set`` is a generic class
 and declarations must include the object :term:`type`
 stored in the class:
@@ -44,7 +44,7 @@ What will be stored in ``x`` after initialization?
    
 Like the sequence containers,
 each element in a set can be visited one at a time
-using a :cref:`range for` loop.
+using a :lang:`range-for` loop.
 
 .. code-block:: cpp
 
@@ -78,12 +78,11 @@ Sets of any type can be created as long as the type is
 :term:`comparable`.
 The comparison operator (:term:`comparator`) 
 used in sets by default is ``operator <``.
-Any type used in a :cref:`std::set`
+Any type used in a :container:`set`
 should overload ``operator <``.
-All of the :cref:`fundamental types`
-are :term:`comparable`.
+All of the :lang:`types` are :term:`comparable`.
 
-Use :cref:`set::insert` to add a new element to a ``set`` or replace an existing element:
+Use :container:`set::insert <set/insert>` to add a new element to a ``set`` or replace an existing element:
 
 .. code-block:: cpp
 
@@ -98,12 +97,8 @@ every 'get' is a search:
      std::set<int> x {2,7,1,8,4,5,9};
      auto it = x.find(8);
 
-The :cref:`set::find` function returns an :term:`iterator` to the element
-with a specific key.
-We will discuss iterators in detail soon.
-For now, you can treat the iterator as if it was a pointer to access the value
-returned from find:
-
+The :container:`set::find <set/find>` function returns an :term:`iterator` to the element
+with a specific key:
 
 .. code-block:: cpp
 
@@ -111,8 +106,8 @@ returned from find:
      auto it = x.find(8);
      std::cout << *it;         // print the value returned from find()
 
-The :cref:`set::erase` function is used to remove an element from a ``set``.
-:cref:`set::erase` takes an iterator as the position in the ``set`` to remove:
+The :container:`set::erase <set/erase>` function is used to remove an element from a ``set``.
+``set::erase`` takes an iterator as the position in the ``set`` to remove:
 
 .. code-block:: cpp
 
@@ -125,14 +120,16 @@ The :cref:`set::erase` function is used to remove an element from a ``set``.
      it = x.find(8);
      assert ( it == x.end() );  // this should be true
 
+.. index:: multiset, unordered_set, unordered_multiset
+
 Variations on std::set
 ----------------------
-The STL provides 3 alternate forms of :cref:`std::set` class:
+The STL provides 3 alternate forms of ``std::set`` class:
 
-multiset
+:container:`multiset`
    A ``set`` in which duplicate keys are allowed.
 
-unordered_set
+:container:`unordered_set`
    A ``set`` of unique objects stored based on the object :term:`hash function`.
    Added in C++11.
 
@@ -145,7 +142,7 @@ unordered_set
 
    before the type will compile when added to an unordered container.
      
-unordered_multiset
+:container:`unordered_multiset`
    An ``unordered_set`` in which duplicate keys are allowed.
   
 

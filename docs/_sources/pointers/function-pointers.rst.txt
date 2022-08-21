@@ -157,9 +157,9 @@ The C++11 :lang:`type alias` allows defining a name that refers to a previously 
 Example: Caesar ciphers
 -----------------------
 
-A simple substitution cipher, called `ROT13 <https://en.wikipedia.org/wiki/ROT13>`_, short for 'rotate 13 places'
+A simple substitution cipher, called :wiki:`ROT13`, short for 'rotate 13 places'
 can be used to obfuscate text by replacing each letter with the letter 13 letters after it in the alphabet.
-It is a special case of the `Caesar cipher <https://en.wikipedia.org/wiki/Caesar_cipher>`_, 
+It is a special case of the :wiki:`Caesar cipher <Caesar_cipher>`, 
 used in ancient Rome to obscure communication between Julius Caesar and his generals.
 A related variation called ROT47 extends the idea of ROT13 to include numbers and common symbols.
 
@@ -276,7 +276,7 @@ standard input
 
    - `MyCodeSchool <http://www.mycodeschool.com>`__ video: 
      `Pointers in C/C++: function pointers <https://www.youtube.com/watch?v=ynYtgGUNelE&list=PL2_aWCzGMAwLZp6LMUKI3cc7pgGsasm2_&index=15>`__ 
-   - `Caesar cipher <https://en.wikipedia.org/wiki/Caesar_cipher>`_ from Wikipedia.
+   - :wiki:`Caesar cipher <Caesar_cipher>` from Wikipedia.
    - From: cppreference.com: 
 
      - `pointers <http://en.cppreference.com/w/cpp/language/pointer>`_

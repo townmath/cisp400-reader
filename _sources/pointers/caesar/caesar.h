@@ -6,8 +6,6 @@
 // !! DO NOT use to encrypt sensitive data!!
 // These functions are easily decrypted, even using pencil and paper.
 //
-// See: https://en.wikipedia.org/wiki/Caesar_cipher
-//
 
 #include <string>
 

@@ -305,18 +305,20 @@ you will be expected to employ basic I/O in labs and projects.
 
          #include <cstdio>
 
-         // assuming the file 'poem' exists in the current directory
-         FILE* ptr = fopen("poem","r");
-         if (ptr == NULL) {
-           printf("Unable to open poem.");
-           return 1;
+         int main() {
+            // assuming the file 'poem' exists in the current directory
+            FILE* ptr = fopen("poem","r");
+            if (ptr == NULL) {
+              printf("Unable to open poem.");
+              return 1;
+            }
+            char c;
+            // read the text file one byte (char) at a time
+            while (fscanf(ptr,"%c",&c) == 1) {
+              putchar(c);
+            }
+            return 0;
          }
-         char c;
-         // read the text file one byte (char) at a time
-         while (fscanf(ptr,"%c",&c) == 1) {
-           putchar(c);
-         }
-         return 0;
 
    .. tab:: C++ file IO
 

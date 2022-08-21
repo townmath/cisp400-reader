@@ -516,15 +516,14 @@ We will revisit the builder pattern later after we cover inheritance.
 
 .. admonition:: More to Explore
 
-   - `Most vexing parse (wikipedia) <https://en.wikipedia.org/wiki/Most_vexing_parse>`__
+   - :wiki:`Most vexing parse (wikipedia) <Most_vexing_parse>`
    - Item #6 "Most Vexing Parse" from 'Effective STL' by Scott Meyers (Addison-Wesley Professional).  
      Copyright 2001 Scott Meyers, 978-0-201-74962-5.
    - Builder design pattern:
 
      - `Builder Design Pattern 
        <http://www.oodesign.com/builder-pattern.html>`__ on oodesign.com
-     - `Builder Design Pattern
-       <https://en.wikipedia.org/wiki/Builder_pattern>`__ on Wikipedia
+     - :wiki:`Builder Design Pattern <Builder_pattern>` on Wikipedia
      - `Example telescoping constructor <https://gist.github.com/DavidTPate/9041099>`__
      - Effective Java, by Joshua Bloch. 
        Item #2: Consider a builder when faced with many constructor parameters
