@@ -366,7 +366,7 @@ on the command line you would enter the following:
 
 .. code-block:: none
 
-   git clone git@github.com:DaveParillo/cisc187-TTYY-fireNN.git
+   git clone https://github.com/DaveParillo/cisc187-TTYY-fireNN.git
    Username: your_username
    Password: your_token
 
