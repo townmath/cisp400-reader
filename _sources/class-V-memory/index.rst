@@ -10,4 +10,5 @@ This section discusses class-based memory management in C++.
    rvalue.rst
    move.rst
    allocators.rst
+   constexpr-classes.rst
 
