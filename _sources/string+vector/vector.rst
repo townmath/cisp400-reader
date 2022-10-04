@@ -153,7 +153,8 @@ A container capable of storing 4 integers is created:
    }
 
 Although the ``vector`` object is initialized, its contents are not.
-Many compilers will initialize the contents to zero, but don't rely on this behavior.
+Many compiler implementations will initialize the contents to zero,
+but don't rely on this behavior.
 Explicitly initialize with a default value, if that is what you want:
 
 .. code-block:: cpp
