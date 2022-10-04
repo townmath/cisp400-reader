@@ -221,6 +221,7 @@ This class encapsulates an array of characters, providing 4 functions:
          #include <cstddef>
          #include <cstring>
          #include <iostream>
+         #include <locale>
 
          namespace mesa {
            class string {
@@ -239,11 +240,12 @@ This class encapsulates an array of characters, providing 4 functions:
                }
                void upper_case() {
                  for (size_t i=0; i < sz; ++i)
-                  data[i] = std::toupper(data[i]);
+                  data[i] = std::toupper(data[i], locale());
                }
 
                ~string() {
-                 delete[] data;
+                 // commented out to prevent double delete
+                 // delete[] data;
                }
 
                char* c_str() { return data; }
@@ -281,6 +283,7 @@ This class encapsulates an array of characters, providing 4 functions:
          #include <cstddef>
          #include <cstring>
          #include <iostream>
+         #include <locale>
 
          namespace mesa {
            class string {
@@ -299,7 +302,7 @@ This class encapsulates an array of characters, providing 4 functions:
                }
                void upper_case() {
                  for (size_t i=0; i < sz; ++i)
-                  data[i] = std::toupper(data[i]);
+                  data[i] = std::toupper(data[i], locale());
                }
 
                // In this broken class, the destructor delete the same

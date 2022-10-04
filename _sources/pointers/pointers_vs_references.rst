@@ -99,8 +99,8 @@ We can pass pointers to a function that expects a reference:
    int main() {
      int  i = 5;
      int* p = &i;
-     by_reference(*p);
-     assert (i = -1);
+     by_reference(p);
+     assert (i == -1);
      return 0;
    }
 

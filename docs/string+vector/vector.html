@@ -341,7 +341,8 @@ node [
   {rank=same; struct,labels};
 }" class="graphviz" /></div>
 <p>Although the <code class="docutils literal notranslate"><span class="pre">vector</span></code> object is initialized, its contents are not.
-Many compilers will initialize the contents to zero, but don’t rely on this behavior.
+Many compiler implementations will initialize the contents to zero,
+but don’t rely on this behavior.
 Explicitly initialize with a default value, if that is what you want:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
 </pre></div>
