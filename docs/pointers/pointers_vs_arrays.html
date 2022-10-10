@@ -283,6 +283,68 @@ arrays are not expected, but pointers are:</p>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
+<div id='array-pointer-tabbed' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Run It" >
+<p>This example shows many of the concepts we have discussed so far in one spot.</p>
+
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=ac-array-pointer-cpp-larger-example-with-addresses data-question_label="5.4.1">
+<div id=ac-array-pointer-cpp-larger-example-with-addresses_question class="ac_question col-md-12">
+
+</div>
+<textarea data-lang="cpp" id="ac-array-pointer-cpp-larger-example-with-addresses_editor" 
+      data-timelimit=25000     
+    data-audio=''      
+           data-wasm=/_static
+     style="visibility: hidden;">
+#include <iostream>
+
+int main()
+{
+    using std::cout;
+    int data[5] = {8, 13, 21, 34, 55};
+
+    int* p1 = data;
+    int* p2 = data + 1;
+    int  i1 = * data + 1;
+    int  i2 = * (data + 1);
+    int  i3 = * p2 + 1;
+
+    cout << "The address of data is: " << data << ", " << &data  << ", " << p1 << '\n';
+    cout << "The 1st val in data is: " << * data << ", " << * p1 << '\n';
+    cout << "The address of p1 is: " << &p1 << '\n';
+
+    cout << "The address of data[1] is: " << (data+1) << ", " << p2 << '\n';
+    cout << "The 2nd val in data is: " << * (data+1) << ", " << * p2 << ", " << i2 << '\n';
+
+    cout << "8+1 equals: " << (* data +1) << ", " << i1  << ", " << * p1 + 1 << '\n';
+    cout << "13+1 equals: " << * (data +1)+1 << ", " << i3  << ", " << * p2 + 1 << '\n';
+
+    cout << "(*data + 1): \t" << (* data) << "\t\t" << (* data + 1) << '\n';
+    cout << "*(data + 1): \t" << (* data) << "\t\t" << * (data + 1) << '\n';
+    cout << "(&data + 1): \t" << (* (&data)) << " " << (&data + 1) << '\n';
+
+    cout << "Print dataay address locations:\n";
+    for (int i=0; i<5; ++i) {
+      cout << (data+i) << ", "; // each location is 4 bytes larger
+    }
+    cout << std::endl;
+
+    int array_bytes = sizeof data;
+    int int_bytes = sizeof (int);
+    int array_size = array_bytes / int_bytes;
+
+    cout << "size: " << array_size
+         << "\n# bytes in array: " << array_bytes
+         << "\n# bytes in 1 int: " << int_bytes << '\n';
+
+    return 0;
+}
+</textarea>
+</div>
+</div>
+</div>
+    </div>
+
 <section id="array-indexing-pitfalls">
 <h2><span class="section-number">5.4.1. </span>Array indexing pitfalls<a class="headerlink" href="#array-indexing-pitfalls" title="Permalink to this headline">¶</a></h2>
 <p><strong>Pitfall #1</strong></p>

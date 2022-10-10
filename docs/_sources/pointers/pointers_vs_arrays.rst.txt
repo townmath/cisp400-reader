@@ -90,6 +90,63 @@ This behavior applies to function calling as well:
     f(p); // okay: function takes a pointer
    }
 
+
+.. tabbed:: array-pointer-tabbed
+
+   .. tab:: Run It
+
+      This example shows many of the concepts we have discussed so far in one spot.
+
+      .. activecode:: ac-array-pointer-cpp-larger-example-with-addresses
+         :language: cpp
+         :nocodelens:
+
+
+         #include <iostream>
+
+         int main()
+         {
+             using std::cout;
+             int data[5] = {8, 13, 21, 34, 55};
+             
+             int* p1 = data;
+             int* p2 = data + 1;
+             int  i1 = * data + 1;
+             int  i2 = * (data + 1);
+             int  i3 = * p2 + 1;
+             
+             cout << "The address of data is: " << data << ", " << &data  << ", " << p1 << '\n';
+             cout << "The 1st val in data is: " << * data << ", " << * p1 << '\n';
+             cout << "The address of p1 is: " << &p1 << '\n';
+             
+             cout << "The address of data[1] is: " << (data+1) << ", " << p2 << '\n';
+             cout << "The 2nd val in data is: " << * (data+1) << ", " << * p2 << ", " << i2 << '\n';
+             
+             cout << "8+1 equals: " << (* data +1) << ", " << i1  << ", " << * p1 + 1 << '\n';
+             cout << "13+1 equals: " << * (data +1)+1 << ", " << i3  << ", " << * p2 + 1 << '\n';
+
+             cout << "(*data + 1): \t" << (* data) << "\t\t" << (* data + 1) << '\n';
+             cout << "*(data + 1): \t" << (* data) << "\t\t" << * (data + 1) << '\n';
+             cout << "(&data + 1): \t" << (* (&data)) << " " << (&data + 1) << '\n';
+             
+             cout << "Print dataay address locations:\n";
+             for (int i=0; i<5; ++i) {
+               cout << (data+i) << ", "; // each location is 4 bytes larger
+             }
+             cout << std::endl;
+             
+             int array_bytes = sizeof data;
+             int int_bytes = sizeof (int);
+             int array_size = array_bytes / int_bytes;
+
+             cout << "size: " << array_size
+                  << "\n# bytes in array: " << array_bytes
+                  << "\n# bytes in 1 int: " << int_bytes << '\n';
+
+             return 0;
+         }
+
+
 Array indexing pitfalls
 .......................
 

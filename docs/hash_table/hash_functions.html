@@ -345,7 +345,7 @@ and a set of standard overrides for types in the standard library.</p>
 <h2><span class="section-number">15.2.3. </span>Hashing user defined types<a class="headerlink" href="#hashing-user-defined-types" title="Permalink to this headline">¶</a></h2>
 <p>If you define your own <code class="docutils literal notranslate"><span class="pre">struct</span></code> or <code class="docutils literal notranslate"><span class="pre">class</span></code>, you need to write your own
 hash function.
-Normally tyhis will be a <code class="docutils literal notranslate"><span class="pre">std::hash&lt;&gt;</span></code> override.
+Normally this will be a <code class="docutils literal notranslate"><span class="pre">std::hash&lt;&gt;</span></code> override.
 Consider a <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">point</span></code> and a sample hash function:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
