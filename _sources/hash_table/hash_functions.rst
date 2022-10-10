@@ -147,7 +147,7 @@ Hashing user defined types
 --------------------------
 If you define your own ``struct`` or ``class``, you need to write your own 
 hash function.
-Normally tyhis will be a ``std::hash<>`` override.
+Normally this will be a ``std::hash<>`` override.
 Consider a ``struct point`` and a sample hash function:
 
 .. code-block:: cpp
