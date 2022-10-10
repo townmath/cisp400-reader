@@ -114,12 +114,35 @@ As we will see later, a ``class`` defines a type,
 so for the purposes of a template, they are the same.
 Whether you use 'typename' or 'class' is a matter of preference.
 
+.. admonition:: Template parameters are optional
+
+   It looks strange to have a template with no template parameters,
+   but it is perfectly legal. For example, as we will explore as part of
+   hash tables, the overloads of ``std::hash<>`` normally do not include
+   template parameters:
+
+   .. code-block:: cpp
+
+      struct point {
+        int x;
+        int y;
+      }
+
+      namespace std {
+        template <>
+        struct hash<point>
+        {
+            // hash function implementation for a point
+        };
+      }
+
+
 The identifier ``T`` is traditional,
 but any valid variable name could be used.
 In introductory template tutorials ``AnyType`` is not uncommon.
 
 Templates are normally completely specified in header files.
-Because templates are neither declarations, nor definitions,
+Because templates are not either declarations or definitions,
 it is an error to write a template in a cpp source file and then
 try to use it in another source file.
 
