@@ -267,10 +267,32 @@ do exactly the same thing.</p>
 The template defines a <em>function generating recipe</em>
 using a <em>generic type</em> as a placeholder.
 Templates are created using the <code class="docutils literal notranslate"><span class="pre">template</span></code> keyword,
-followed by template parameters in angle brackets <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>.
+followed by zero or more template parameters in angle brackets <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>.
 For example:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">template</span><span class="o">-</span><span class="n">parameters</span><span class="o">&gt;</span><span class="w"> </span><span class="n">function</span><span class="o">-</span><span class="n">declaration</span><span class="w"></span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Template parameters are optional.</strong></p>
+<p>It looks strange to have a template with no template parameters,
+but it is perfectly legal. For example, as we will explore as part of
+hash tables, the overloads of <code class="docutils literal notranslate"><span class="pre">std::hash&lt;&gt;</span></code> normally do not include
+template parameters:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">hash</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// hash function implementation for a point</span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 </div>
 <div id='sum_function_template_tabbed' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Example" >
 <p>Using templates, our previous sum functions collapse down to:</p>
@@ -314,27 +336,6 @@ it is common to see either <code class="docutils literal notranslate"><span clas
 As we will see later, a <code class="docutils literal notranslate"><span class="pre">class</span></code> defines a type,
 so for the purposes of a template, they are the same.
 Whether you use ‘typename’ or ‘class’ is a matter of preference.</p>
-<div class="admonition-template-parameters-are-optional admonition">
-<p class="admonition-title">Template parameters are optional</p>
-<p>It looks strange to have a template with no template parameters,
-but it is perfectly legal. For example, as we will explore as part of
-hash tables, the overloads of <code class="docutils literal notranslate"><span class="pre">std::hash&lt;&gt;</span></code> normally do not include
-template parameters:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"></span>
-<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">hash</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// hash function implementation for a point</span>
-<span class="w">  </span><span class="p">};</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
 <p>The identifier <code class="docutils literal notranslate"><span class="pre">T</span></code> is traditional,
 but any valid variable name could be used.
 In introductory template tutorials <code class="docutils literal notranslate"><span class="pre">AnyType</span></code> is not uncommon.</p>
@@ -530,6 +531,7 @@ there is no way for the compiler to ‘deduce’ the second operand <code class=
 <li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/template_parameters">Template parameters</a></p></li>
 <li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/implicit_conversion">Implicit type conversion</a> and
 <a class="reference external" href="https://en.cppreference.com/w/cpp/language/operator_arithmetic#Conversions">arithmetic conversions</a></p></li>
+<li><p>The utlity function <a class="reference external" href="https://en.cppreference.com/w/cpp/utility/hash">std::hash</a></p></li>
 </ul>
 </li>
 </ul>

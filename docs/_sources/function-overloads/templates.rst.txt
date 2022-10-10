@@ -68,12 +68,37 @@ In C++, we can define a **template** for a function.
 The template defines a *function generating recipe* 
 using a *generic type* as a placeholder.
 Templates are created using the ``template`` keyword, 
-followed by template parameters in angle brackets ``<>``.
+followed by zero or more template parameters in angle brackets ``<>``.
 For example:
 
 .. code-block:: cpp
 
    template <template-parameters> function-declaration 
+
+.. note:: 
+
+   **Template parameters are optional.**
+
+   It looks strange to have a template with no template parameters,
+   but it is perfectly legal. For example, as we will explore as part of
+   hash tables, the overloads of ``std::hash<>`` normally do not include
+   template parameters:
+
+   .. code-block:: cpp
+
+      struct point {
+        int x;
+        int y;
+      }
+
+      namespace std {
+        template <>
+        struct hash<point>
+        {
+            // hash function implementation for a point
+        };
+      }
+
 
 .. tabbed:: sum_function_template_tabbed
 
@@ -113,29 +138,6 @@ it is common to see either ``typename`` or ``class``.
 As we will see later, a ``class`` defines a type,
 so for the purposes of a template, they are the same.
 Whether you use 'typename' or 'class' is a matter of preference.
-
-.. admonition:: Template parameters are optional
-
-   It looks strange to have a template with no template parameters,
-   but it is perfectly legal. For example, as we will explore as part of
-   hash tables, the overloads of ``std::hash<>`` normally do not include
-   template parameters:
-
-   .. code-block:: cpp
-
-      struct point {
-        int x;
-        int y;
-      }
-
-      namespace std {
-        template <>
-        struct hash<point>
-        {
-            // hash function implementation for a point
-        };
-      }
-
 
 The identifier ``T`` is traditional,
 but any valid variable name could be used.
@@ -360,5 +362,6 @@ is a required template parameter:
      - :lang:`Template parameters <template_parameters>`
      - :lang:`Implicit type conversion <implicit_conversion>` and
        :lang:`arithmetic conversions <operator_arithmetic#Conversions>`
+     - The utlity function :utility:`std::hash <hash>`
 
 
