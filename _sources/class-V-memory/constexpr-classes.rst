@@ -205,86 +205,90 @@ Each simply constructs a new distance based on the units implied by the literal 
            return int(avg_travel); // 264000m
          }
 
+   .. tab:: Run It
 
-.. codelens:: codelens-memory-constexpr-classes
-   :language: cpp
+      .. activecode:: ac_memory_constexpr_classes
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++1z']
+         :nocodelens:
 
-   #include <initializer_list>
 
-   namespace length{
+         #include <initializer_list>
 
-     class distance{
-       public:
-         explicit constexpr distance(double i)
-           :m{i}
-         {}
+         namespace length{
 
-         constexpr distance operator+=(const distance& other) {
-           return distance(m + other.m);
+           class distance{
+             public:
+               explicit constexpr distance(double i)
+                 :m{i}
+               {}
+
+               constexpr distance operator+=(const distance& other) {
+                 return distance(m + other.m);
+               }
+               constexpr distance operator-=(const distance& other) {
+                 return distance(m - other.m);
+               }
+               constexpr distance operator*=(double scalar) {
+                 return distance(m*scalar);
+               }
+               constexpr distance operator/=(int scalar) {
+                 return distance(m/scalar);
+               }
+
+               constexpr operator int() const { return static_cast<int>(m);}
+
+             private:
+               double m;	 // meters 
+           };
+
+           constexpr distance operator+(distance lhs, const distance& rhs){
+             return distance(lhs+= rhs);
+           }
+           constexpr distance operator-(distance lhs,const distance& rhs){
+             return distance(lhs-= rhs);
+           }
+           constexpr distance operator*(double scalar, distance a){
+             return distance(a*=scalar);
+           }
+           constexpr distance operator/(distance a, int denominator){
+             return distance(a/=denominator);
+           }
+
+           namespace unit{
+             constexpr distance operator "" _km(long double d){
+               return distance(1000*d);
+             }
+             constexpr distance operator "" _m(long double m){
+               return distance(m);
+             }
+           }
+           
+         } // end namespace length
+           
+         constexpr length::distance average_distance(std::initializer_list<length::distance> distances){
+           auto sum = length::distance{0.0};
+           for (auto d: distances) sum = sum + d;
+           return sum/distances.size(); 
          }
-         constexpr distance operator-=(const distance& other) {
-           return distance(m - other.m);
+
+         int main(){
+           using namespace length::unit;
+
+           constexpr auto work = 63.0_km;
+           constexpr auto commute = 2 * work;
+           constexpr auto gym = 2 * 1600.0_m;
+           constexpr auto shopping = 2 * 1200.0_m;
+           
+           constexpr auto week1 = 4*commute + gym + shopping;
+           constexpr auto week2 = 4*commute + 2*gym;
+           constexpr auto week3 = 4*gym     + 2*shopping;
+           constexpr auto week4 = 5*gym     + shopping;
+           
+           constexpr auto avg_travel = average_distance({week1,week2,week3,week4});
+           
+           return int(avg_travel); // 264000m
          }
-         constexpr distance operator*=(double scalar) {
-           return distance(m*scalar);
-         }
-         constexpr distance operator/=(int scalar) {
-           return distance(m/scalar);
-         }
-
-         constexpr operator int() const { return static_cast<int>(m);}
-
-       private:
-         double m;	 // meters 
-     };
-
-     constexpr distance operator+(distance lhs, const distance& rhs){
-       return distance(lhs+= rhs);
-     }
-     constexpr distance operator-(distance lhs,const distance& rhs){
-       return distance(lhs-= rhs);
-     }
-     constexpr distance operator*(double scalar, distance a){
-       return distance(a*=scalar);
-     }
-     constexpr distance operator/(distance a, int denominator){
-       return distance(a/=denominator);
-     }
-
-     namespace unit{
-       constexpr distance operator "" _km(long double d){
-         return distance(1000*d);
-       }
-       constexpr distance operator "" _m(long double m){
-         return distance(m);
-       }
-     }
-     
-   } // end namespace length
-     
-   constexpr length::distance average_distance(std::initializer_list<length::distance> distances){
-     auto sum = length::distance{0.0};
-     for (auto d: distances) sum = sum + d;
-     return sum/distances.size(); 
-   }
-
-   int main(){
-     using namespace length::unit;
-
-     constexpr auto work = 63.0_km;
-     constexpr auto commute = 2 * work;
-     constexpr auto gym = 2 * 1600.0_m;
-     constexpr auto shopping = 2 * 1200.0_m;
-     
-     constexpr auto week1 = 4*commute + gym + shopping;
-     constexpr auto week2 = 4*commute + 2*gym;
-     constexpr auto week3 = 4*gym     + 2*shopping;
-     constexpr auto week4 = 5*gym     + shopping;
-     
-     constexpr auto avg_travel = average_distance({week1,week2,week3,week4});
-     
-     return int(avg_travel); // 264000m
-   }
 
 Declaring all variables as ``constexpr`` means all instances of distance and all functions are constant expressions.
 The compiler performs all of these operations at compile time.
