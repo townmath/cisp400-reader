@@ -314,10 +314,10 @@ yields the following:</p>
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="k">operator</span><span class="o">-</span><span class="p">(</span><span class="n">distance</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="k">const</span><span class="w"> </span><span class="n">distance</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">){</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">distance</span><span class="p">(</span><span class="n">lhs</span><span class="o">-=</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">scalar</span><span class="p">,</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="n">a</span><span class="p">){</span><span class="w"></span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">scalar</span><span class="p">,</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="n">a</span><span class="p">){</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">distance</span><span class="p">(</span><span class="n">a</span><span class="o">*=</span><span class="n">scalar</span><span class="p">);</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="k">operator</span><span class="o">/</span><span class="p">(</span><span class="n">distance</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denominator</span><span class="p">){</span><span class="w"></span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="k">operator</span><span class="o">/</span><span class="p">(</span><span class="n">distance</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">denominator</span><span class="p">){</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">distance</span><span class="p">(</span><span class="n">a</span><span class="o">/=</span><span class="n">denominator</span><span class="p">);</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 
@@ -380,6 +380,10 @@ generate a few weeks works of values and compute the final result.</p>
 </pre></div>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
+<p>This example does not print a value, but merely returns the final value
+from main.
+If you’re curious as to why, copy this code into
+the online <a class="reference external" href="https://godbolt.org">Compiler explorer</a></p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=ac_memory_constexpr_classes data-question_label="11.6.1">

@@ -129,10 +129,10 @@ yields the following:
      constexpr distance operator-(distance lhs,const distance& rhs){
        return distance(lhs-= rhs);
      }
-     constexpr distance operator*(double scalar, distance a){
+     constexpr distance operator*(int scalar, distance a){
        return distance(a*=scalar);
      }
-     constexpr distance operator/(distance a, int denominator){
+     constexpr distance operator/(distance a, size_t denominator){
        return distance(a/=denominator);
      }
 
@@ -207,11 +207,16 @@ Each simply constructs a new distance based on the units implied by the literal 
 
    .. tab:: Run It
 
+      This example does not print a value, but merely returns the final value
+      from main.
+      If you're curious as to why, copy this code into
+      the online `Compiler explorer <https://godbolt.org>`__
+ 
+
       .. activecode:: ac_memory_constexpr_classes
          :language: cpp
          :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++1z']
          :nocodelens:
-
 
          #include <cstdlib>
          #include <initializer_list>
