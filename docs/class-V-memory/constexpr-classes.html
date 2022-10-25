@@ -3,7 +3,7 @@
      **************************************** -->
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -375,104 +375,33 @@ generate a few weeks works of values and compute the final result.</p>
 
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">avg_travel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">average_distance</span><span class="p">({</span><span class="n">week1</span><span class="p">,</span><span class="n">week2</span><span class="p">,</span><span class="n">week3</span><span class="p">,</span><span class="n">week4</span><span class="p">});</span><span class="w"></span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">avg_travel</span><span class="p">);</span><span class="w"> </span><span class="c1">// 26400m</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">avg_travel</span><span class="p">);</span><span class="w"> </span><span class="c1">// 264000m</span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
-</div>
-</div><div data-component="tab" data-tabname="Run It" >
-
-<div class="runestone explainer ac_section ">
-<div data-component="activecode" id=ac-memory-constexpr-classes data-question_label="11.6.1">
-<div id=ac-memory-constexpr-classes_question class="ac_question col-md-12">
-
-</div>
-<textarea data-lang="cpp" id="ac-memory-constexpr-classes_editor" 
-      data-timelimit=25000     
-    data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-Wpedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
-     style="visibility: hidden;">
-#include <initializer_list>
-
-namespace length{
-
-  class distance{
-    public:
-      explicit constexpr distance(double i)
-        :m{i}
-      {}
-
-      constexpr distance operator+=(const distance& other) {
-        return distance(m + other.m);
-      }
-      constexpr distance operator-=(const distance& other) {
-        return distance(m - other.m);
-      }
-      constexpr distance operator*=(double scalar) {
-        return distance(m*scalar);
-      }
-      constexpr distance operator/=(int scalar) {
-        return distance(m/scalar);
-      }
-
-      constexpr operator int() const { return static_cast<int>(m);}
-
-    private:
-      double m;         // meters
-  };
-
-  constexpr distance operator+(distance lhs, const distance& rhs){
-    return distance(lhs+= rhs);
-  }
-  constexpr distance operator-(distance lhs,const distance& rhs){
-    return distance(lhs-= rhs);
-  }
-  constexpr distance operator*(double scalar, distance a){
-    return distance(a*=scalar);
-  }
-  constexpr distance operator/(distance a, int denominator){
-    return distance(a/=denominator);
-  }
-
-  namespace unit{
-    constexpr distance operator "" _km(long double d){
-      return distance(1000*d);
-    }
-    constexpr distance operator "" _m(long double m){
-      return distance(m);
-    }
-  }
-
-} // end namespace length
-
-constexpr length::distance average_distance(std::initializer_list<length::distance> distances){
-  auto sum = length::distance{0.0};
-  for (auto d: distances) sum = sum + d;
-  return sum/distances.size();
-}
-
-int main(){
-  using namespace length::unit;
-
-  constexpr auto work = 63.0_km;
-  constexpr auto commute = 2 * work;
-  constexpr auto gym = 2 * 1600.0_m;
-  constexpr auto shopping = 2 * 1200.0_m;
-
-  constexpr auto week1 = 4*commute + gym + shopping;
-  constexpr auto week2 = 4*commute + 2*gym;
-  constexpr auto week3 = 4*gym     + 2*shopping;
-  constexpr auto week4 = 5*gym     + shopping;
-
-  constexpr auto avg_travel = average_distance({week1,week2,week3,week4});
-
-  return int(avg_travel); // 26400m
-}
-</textarea>
-</div>
 </div>
 </div>
     </div>
 
+
+<div class="runestone codelens ">
+    <div class="cd_section" data-component="codelens" data-question_label="11.6.1">
+        <div class="pytutorVisualizer" id="codelens-memory-constexpr-classes"
+           data-params='{"embeddedMode": true, "lang": "cpp", "jumpToEnd": false}'>
+        </div>
+        <p class="runestone_caption"><span class="runestone_caption_text">Activity: CodeLens 11.6.1 (codelens-memory-constexpr-classes)</span> </p>
+    </div>
+
+<script>
+var codelens-memory-constexpr-classes_vis;
+
+if (allTraceData === undefined) {
+   var allTraceData = {};
+}
+
+allTraceData["codelens-memory-constexpr-classes"] = {"code": "#include <initializer_list>\n\nnamespace length{\n\n  class distance{\n    public:\n      explicit constexpr distance(double i)\n        :m{i}\n      {}\n\n      constexpr distance operator+=(const distance& other) {\n        return distance(m + other.m);\n      }\n      constexpr distance operator-=(const distance& other) {\n        return distance(m - other.m);\n      }\n      constexpr distance operator*=(double scalar) {\n        return distance(m*scalar);\n      }\n      constexpr distance operator/=(int scalar) {\n        return distance(m/scalar);\n      }\n\n      constexpr operator int() const { return static_cast<int>(m);}\n\n    private:\n      double m;       // meters\n  };\n\n  constexpr distance operator+(distance lhs, const distance& rhs){\n    return distance(lhs+= rhs);\n  }\n  constexpr distance operator-(distance lhs,const distance& rhs){\n    return distance(lhs-= rhs);\n  }\n  constexpr distance operator*(double scalar, distance a){\n    return distance(a*=scalar);\n  }\n  constexpr distance operator/(distance a, int denominator){\n    return distance(a/=denominator);\n  }\n\n  namespace unit{\n    constexpr distance operator \"\" _km(long double d){\n      return distance(1000*d);\n    }\n    constexpr distance operator \"\" _m(long double m){\n      return distance(m);\n    }\n  }\n\n} // end namespace length\n\nconstexpr length::distance average_distance(std::initializer_list<length::distance> distances){\n  auto sum = length::distance{0.0};\n  for (auto d: distances) sum = sum + d;\n  return sum/distances.size();\n}\n\nint main(){\n  using namespace length::unit;\n\n  constexpr auto work = 63.0_km;\n  constexpr auto commute = 2 * work;\n  constexpr auto gym = 2 * 1600.0_m;\n  constexpr auto shopping = 2 * 1200.0_m;\n\n  constexpr auto week1 = 4*commute + gym + shopping;\n  constexpr auto week2 = 4*commute + 2*gym;\n  constexpr auto week3 = 4*gym     + 2*shopping;\n  constexpr auto week4 = 5*gym     + shopping;\n\n  constexpr auto avg_travel = average_distance({week1,week2,week3,week4});\n\n  return int(avg_travel); // 264000m\n}", "trace": [{"exception_msg": "error: body of constexpr function 'constexpr length::distance average_distance(std::initializer_list<length::distance>)' not a return-statement", "line": 58, "event": "uncaught_exception"}]}
+;
+</script>
+</div>
 <p>Declaring all variables as <code class="docutils literal notranslate"><span class="pre">constexpr</span></code> means all instances of distance and all functions are constant expressions.
 The compiler performs all of these operations at compile time.
 That means the <em>entire program will be executed at compile time</em> and

@@ -3,12 +3,12 @@
      **************************************** -->
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>14.6. The map class &#8212; CISC 187 Course Reader Overview</title>
+    <title>14.7. The map class &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -39,7 +39,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="16. Sorting" href="../sort/index.html" />
-    <link rel="prev" title="14.5. The set class" href="set.html" />
+    <link rel="prev" title="14.6. The set class" href="set.html" />
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
@@ -169,7 +169,7 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">14.5. </span>The set class" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">14.6. </span>The set class" data-toggle="tooltip">
     <a href="set.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
@@ -212,7 +212,7 @@
 
   
   <section id="the-map-class">
-<span id="index-0"></span><h1><span class="section-number">14.6. </span>The map class<a class="headerlink" href="#the-map-class" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">14.7. </span>The map class<a class="headerlink" href="#the-map-class" title="Permalink to this headline">¶</a></h1>
 <p>A <a class="reference internal" href="../glossary.html#term-map"><span class="xref std std-term">map</span></a> refers to any data structure that ‘maps’ <a class="reference internal" href="../glossary.html#term-key"><span class="xref std std-term">keys</span></a> to values.
 The <code class="docutils literal notranslate"><span class="pre">map</span></code> class is arguably the most popular container in the STL
 after <code class="docutils literal notranslate"><span class="pre">vector</span></code>.</p>
@@ -259,7 +259,7 @@ a <a class="reference external" href="https://en.cppreference.com/w/cpp/containe
 </pre></div>
 </div>
 <section id="selected-map-functions">
-<h2><span class="section-number">14.6.1. </span>Selected map functions<a class="headerlink" href="#selected-map-functions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.7.1. </span>Selected map functions<a class="headerlink" href="#selected-map-functions" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
 <dt>Access and assignment</dt><dd><p><a class="reference external" href="https://en.cppreference.com/w/cpp/container/operator%3D">operator=</a>, <a class="reference external" href="https://en.cppreference.com/w/cpp/container/operator_at">at and operator[]</a></p>
 </dd>
@@ -281,7 +281,7 @@ All access requires either knowing the key or having an iterator.</p>
 </div>
 </section>
 <section id="map-structure">
-<h2><span class="section-number">14.6.2. </span>Map structure<a class="headerlink" href="#map-structure" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.7.2. </span>Map structure<a class="headerlink" href="#map-structure" title="Permalink to this headline">¶</a></h2>
 <p>Internally, a <code class="docutils literal notranslate"><span class="pre">map</span></code> is a sorted <a class="reference internal" href="../glossary.html#term-complete-binary-tree"><span class="xref std std-term">complete binary tree</span></a>.
 (Technically it is often implemented as a <a class="reference external" href="https://en.wikipedia.org/wiki/Red-black_tree">Red-black tree</a>).
 Each node in the tree is a <a class="reference external" href="https://en.cppreference.com/w/cpp/utility/pair">std::pair</a>.</p>
@@ -432,7 +432,7 @@ apple, 12
 </div>
 </section>
 <section id="variations-on-std-map">
-<h2><span class="section-number">14.6.3. </span>Variations on std::map<a class="headerlink" href="#variations-on-std-map" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.7.3. </span>Variations on std::map<a class="headerlink" href="#variations-on-std-map" title="Permalink to this headline">¶</a></h2>
 <p>The STL provides 3 alternate forms of <a class="reference external" href="https://en.cppreference.com/w/cpp/container/map">map</a> class:</p>
 <dl class="simple">
 <dt>container:<cite>multimap</cite></dt><dd><p>A <code class="docutils literal notranslate"><span class="pre">map</span></code> in which duplicate keys are allowed.</p>
@@ -470,8 +470,8 @@ On cppreference.com you’ll see it shortened even further to just <code class="
   </div>
 
   <ul role="navigation" class="nextprev-list nextprev-list" aria-label="Change page">
-<li id="relations-prev" class="navLink" title='Previous Section - 14.5. The set class' data-toggle="tooltip">
-  <a href="set.html" aria-label="Previous - 14.5. The set class">
+<li id="relations-prev" class="navLink" title='Previous Section - 14.6. The set class' data-toggle="tooltip">
+  <a href="set.html" aria-label="Previous - 14.6. The set class">
     <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
   </a>
 </li>

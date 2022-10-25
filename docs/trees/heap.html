@@ -3,12 +3,12 @@
      **************************************** -->
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Priority queues &#8212; CISC 187 Course Reader Overview</title>
+    <title>14.5. Heaps &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -36,8 +36,11 @@
     <script src="../_static/runtime.b0f8547c48f16a9f.bundle.js?v=2731F567"></script>
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
     <script src="../_static/runestone.0e9550fe42760516.bundle.js?v=71AD37BA"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="14.6. The set class" href="set.html" />
+    <link rel="prev" title="14.3. Binary Search Tree iterators" href="bst-iterator.html" />
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
@@ -167,6 +170,18 @@
         
         <!-- 
           
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">14.3. </span>Binary Search Tree iterators" data-toggle="tooltip">
+    <a href="bst-iterator.html" >
+      <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  
+  <li id="relations-next" title='Next Chapter - <span class="section-number">14.6. </span>The set class' data-toggle="tooltip" >              
+    <a href="set.html" >
+        <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  <li class="divider-vertical"></li>
 
 <script>
   opts = {'placement':'bottom',
@@ -197,8 +212,108 @@
 
 
   
-  <section id="priority-queues">
-<span id="index-0"></span><h1>Priority queues<a class="headerlink" href="#priority-queues" title="Permalink to this headline">¶</a></h1>
+  <section id="heaps">
+<span id="index-0"></span><h1><span class="section-number">14.5. </span>Heaps<a class="headerlink" href="#heaps" title="Permalink to this headline">¶</a></h1>
+<p>A <a class="reference internal" href="../glossary.html#term-heap"><span class="xref std std-term">heap</span></a> is a special tree-like data structure.
+There are many types of heaps, however, in this chapter,
+we will discuss only <em>binary heaps</em>.
+In this section, we will refer to binary heaps merely as heaps.
+Like binary search trees, heaps have two key attributes:</p>
+<ul>
+<li><p>The underlying tree must be <strong>complete</strong></p></li>
+<li><p>The order of elements must obey the <em>heap property</em></p>
+<p>For a <a class="reference internal" href="../glossary.html#term-min-heap"><span class="xref std std-term">min heap</span></a> a parent element must be <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> all its children.</p>
+<p>For a <a class="reference internal" href="../glossary.html#term-max-heap"><span class="xref std std-term">max heap</span></a> a parent element must be <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> all its children.</p>
+</li>
+</ul>
+<p>One of the side-effects of heap is that the minimum (or maximum)
+value can always be found at the tree root.</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-49e83788bc37968b19d265fa3c85fae5d6e65582.png" alt="An example min heap" class="graphviz" /></div>
+</div>
+<p>We can show that a complete binary tree of height <span class="math notranslate nohighlight">\(h\)</span> has between
+<span class="math notranslate nohighlight">\(2h\)</span> and <span class="math notranslate nohighlight">\(2(h+1) − 1\)</span> nodes.
+This implies that the height of a complete binary tree is <span class="math notranslate nohighlight">\(\lfloor \log N \rfloor\)</span>,
+which results in <span class="math notranslate nohighlight">\(O(\log N)\)</span> performance.</p>
+<p>Although logically a heap is a tree-like data structure,
+because the tree must be complete, it fits easily into an array.
+It is very common to use an array for the <em>physical implementation</em> of a heap,
+since it is much more efficient than a general purpose tree
+bound together with pointers.
+For a tree of height <span class="math notranslate nohighlight">\(2^h - 1\)</span>:</p>
+<ul class="simple">
+<li><p>The parent of a node <cite>i</cite> is located at index <span class="math notranslate nohighlight">\(\lfloor \frac{i}{2} \rfloor\)</span></p></li>
+<li><p>The left child of a node <cite>i</cite> is located at index <span class="math notranslate nohighlight">\(2i\)</span></p></li>
+<li><p>The right child of a node <cite>i</cite> is located at index <span class="math notranslate nohighlight">\(2i + 1\)</span></p></li>
+</ul>
+<p>To get our math to work out nicely, we place the root node at index position 1.
+This storage location won’t go to waste – it is used when nodes removed from the
+tree and maintaining the heap property is required.</p>
+<p>The array representation of the min heap is:</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-a6c60802f0723e56e68dc16d39d36f91623bfbbf.png" alt="Array representation of a min heap" class="graphviz" /></div>
+</div>
+<p>Depending on the implementation,
+the backing store may or may not have extra storage.</p>
+<p>The heap interface can be implemented as follows:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="k">class</span><span class="w"> </span><span class="nc">Container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">       </span><span class="k">class</span><span class="w"> </span><span class="nc">Compare</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">greater</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Container</span><span class="o">::</span><span class="n">value_type</span><span class="o">&gt;&gt;</span><span class="w"></span>
+<span class="w">   </span><span class="c1">// require T is comparable</span>
+<span class="w">   </span><span class="k">class</span><span class="w"> </span><span class="nc">binary_heap</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">     </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">       </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">using</span><span class="w"> </span><span class="n">value_compare</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Compare</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">static_assert</span><span class="p">((</span><span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Container</span><span class="o">::</span><span class="n">value_type</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">),</span><span class="w"></span>
+<span class="w">         </span><span class="s">&quot;heap type must match underlying container value type&quot;</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="w">       </span><span class="n">binary_heap</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">       </span><span class="c1">// Construct a heap from an unsorted container</span>
+<span class="w">       </span><span class="k">explicit</span><span class="w"> </span><span class="n">binary_heap</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Container</span><span class="o">&amp;</span><span class="w"> </span><span class="n">items</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w">     </span><span class="nf">clear</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w">     </span><span class="nf">empty</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w">      </span><span class="nf">full</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">size_t</span><span class="w">    </span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">front</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">       </span><span class="kt">void</span><span class="w"> </span><span class="nf">pop</span><span class="p">();</span><span class="w"></span>
+<span class="w">       </span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">     </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">       </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="n">Container</span><span class="w"> </span><span class="n">heap_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">T</span><span class="p">{}};</span><span class="w"></span>
+
+<span class="w">       </span><span class="kt">void</span><span class="w"> </span><span class="nf">percolate_down</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">hole</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="kt">void</span><span class="w"> </span><span class="nf">build_heap</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="kt">void</span><span class="w"> </span><span class="nf">percolate_up</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">   </span><span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The defining operations of a heap are:</p>
+<dl>
+<dt>Constructors</dt><dd><p>Creates a new underlying container of the container adaptor from a variety of data sources.</p>
+<p>Calls <code class="docutils literal notranslate"><span class="pre">build_heap</span></code> to ensure the heap property satisfied when
+construction is complete.</p>
+</dd>
+<dt>push</dt><dd><p>Add a new value to the heap, while maintaining the heap property.</p>
+<p>Calls <code class="docutils literal notranslate"><span class="pre">percolate_up</span></code> to perform the work.</p>
+</dd>
+<dt>pop</dt><dd><p>Remove a value while maintaining the heap property.</p>
+<p>Calls <code class="docutils literal notranslate"><span class="pre">percolate_down</span></code> to perform the work.</p>
+</dd>
+<dt>front</dt><dd><p>Peek at the heap root element.</p>
+</dd>
+</dl>
+<p>In this implementation, any container that implements
+<code class="docutils literal notranslate"><span class="pre">front()</span></code>, <code class="docutils literal notranslate"><span class="pre">push_back()</span></code>, and <code class="docutils literal notranslate"><span class="pre">pop_back()</span></code> are candidates
+for the backing store. This example uses vector by default.
+The Compare class allows the same class to function as either a min heap
+(the default), or another comparison function.
+Using <a class="reference external" href="https://en.cppreference.com/w/cpp/utility/functional/less">less</a> would transform the heap into a max heap.</p>
+<section id="priority-queues">
+<span id="index-1"></span><h2><span class="section-number">14.5.1. </span>Priority queues<a class="headerlink" href="#priority-queues" title="Permalink to this headline">¶</a></h2>
 <p>A <a class="reference internal" href="../glossary.html#term-priority-queue"><span class="xref std std-term">priority queue</span></a> is conceptually similar to a normal queue.
 It is a queue in which each element has an associated <em>priority</em>.
 Unlike a standard queue which is strictly <a class="reference internal" href="../glossary.html#term-FIFO"><span class="xref std std-term">FIFO</span></a>,
@@ -206,120 +321,12 @@ a priority queue always removes the highest priority item first,
 regardless of when the item was inserted.</p>
 <p>This key difference means that a queue is not a good starting point
 for a priority queue implementation.</p>
-<p>The integers define a set, because every number is unique.
-The values <code class="docutils literal notranslate"><span class="pre">{3,</span> <span class="pre">1,</span> <span class="pre">4,</span> <span class="pre">1,</span> <span class="pre">5,</span> <span class="pre">9}</span></code> do <strong>not</strong> define a proper set,
-because the value <code class="docutils literal notranslate"><span class="pre">1</span></code> is repeated.</p>
-<p>In C++, a <a class="reference external" href="https://en.cppreference.com/w/cpp/container/set">std::set</a> must also be sorted.
-Like <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>, a <code class="docutils literal notranslate"><span class="pre">set</span></code> is a generic class
-and declarations must include the object <a class="reference internal" href="../glossary.html#term-type"><span class="xref std std-term">type</span></a>
-stored in the class:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span><span class="cp"></span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span><span class="w"></span>
-</pre></div>
-</div>
-<p>What will be stored in <code class="docutils literal notranslate"><span class="pre">x</span></code> after initialization?</p>
-
-    <div data-component="reveal" class="runestone " id="reveal_init"   data-showtitle="Show" data-hidetitle="Hide"  style="visibility: hidden;">
-    <p>The two defining characteristics of a <code class="docutils literal notranslate"><span class="pre">set</span></code> are:</p>
-<ul class="simple">
-<li><p>A <code class="docutils literal notranslate"><span class="pre">set</span></code> is sorted.</p></li>
-<li><p>A <code class="docutils literal notranslate"><span class="pre">set</span></code> may contain only unique values.</p></li>
-</ul>
-<p>Defining a set with non-unique values is not an error.
-The new object simply replaces the old.</p>
-<p>When initialized, <code class="docutils literal notranslate"><span class="pre">x</span></code> will contain: <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">2</span> <span class="pre">4</span> <span class="pre">5</span> <span class="pre">7</span> <span class="pre">8</span> <span class="pre">9</span></code></p>
-
-    </div>
-    <p>Like the sequence containers,
-each element in a set can be visited one at a time
-using a <a class="reference external" href="https://en.cppreference.com/w/cpp/language/range-for">range-for</a> loop.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span><span class="w"></span>
-
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">i</span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Because <code class="docutils literal notranslate"><span class="pre">set</span></code> does not provide <code class="docutils literal notranslate"><span class="pre">operator[]</span></code>,
-traditional for loops using an index are not possible:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span><span class="w"></span>
-
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// OK</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">;</span><span class="w">         </span><span class="c1">// compile error</span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Sets of any type can be created as long as the type is
-<a class="reference internal" href="../glossary.html#term-comparable"><span class="xref std std-term">comparable</span></a>.
-The comparison operator (<a class="reference internal" href="../glossary.html#term-comparator"><span class="xref std std-term">comparator</span></a>)
-used in sets by default is <code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">&lt;</span></code>.
-Any type used in a <a class="reference external" href="https://en.cppreference.com/w/cpp/container/set">set</a>
-should overload <code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">&lt;</span></code>.
-All of the <a class="reference external" href="https://en.cppreference.com/w/cpp/language/types">types</a> are <a class="reference internal" href="../glossary.html#term-comparable"><span class="xref std std-term">comparable</span></a>.</p>
-<p>Use <a class="reference external" href="https://en.cppreference.com/w/cpp/container/set/insert">set::insert</a> to add a new element to a <code class="docutils literal notranslate"><span class="pre">set</span></code> or replace an existing element:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span><span class="w"></span>
-<span class="n">x</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Because a <code class="docutils literal notranslate"><span class="pre">set</span></code> is not an indexed container,
-every ‘get’ is a search:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span><span class="w"></span>
-<span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-<p>The <a class="reference external" href="https://en.cppreference.com/w/cpp/container/set/find">set::find</a> function returns an <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a> to the element
-with a specific key:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span><span class="w"></span>
-<span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span><span class="w"></span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">it</span><span class="p">;</span><span class="w">         </span><span class="c1">// print the value returned from find()</span>
-</pre></div>
-</div>
-<p>The <a class="reference external" href="https://en.cppreference.com/w/cpp/container/set/erase">set::erase</a> function is used to remove an element from a <code class="docutils literal notranslate"><span class="pre">set</span></code>.
-<code class="docutils literal notranslate"><span class="pre">set::erase</span></code> takes an iterator as the position in the <code class="docutils literal notranslate"><span class="pre">set</span></code> to remove:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span><span class="w"></span>
-<span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span><span class="w"></span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">x</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span><span class="w"></span>
-<span class="n">assert</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w">  </span><span class="c1">// this should be true</span>
-</pre></div>
-</div>
-<section id="variations-on-std-set">
-<span id="index-1"></span><h2>Variations on std::set<a class="headerlink" href="#variations-on-std-set" title="Permalink to this headline">¶</a></h2>
-<p>The STL provides 3 alternate forms of <code class="docutils literal notranslate"><span class="pre">std::set</span></code> class:</p>
-<dl>
-<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/container/multiset">multiset</a></dt><dd><p>A <code class="docutils literal notranslate"><span class="pre">set</span></code> in which duplicate keys are allowed.</p>
-</dd>
-<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/container/unordered_set">unordered_set</a></dt><dd><p>A <code class="docutils literal notranslate"><span class="pre">set</span></code> of unique objects stored based on the object <a class="reference internal" href="../glossary.html#term-hash-function"><span class="xref std std-term">hash function</span></a>.
-Added in C++11.</p>
-<p>In order to use a type in an unordered container,
-the type must override 3 functions:</p>
-<ul class="simple">
-<li><p>override <a class="reference external" href="https://en.cppreference.com/w/cpp/utility/hash">std::hash</a></p></li>
-<li><p>override <code class="docutils literal notranslate"><span class="pre">operator==</span></code></p></li>
-<li><p>override <code class="docutils literal notranslate"><span class="pre">operator&lt;</span></code></p></li>
-</ul>
-<p>before the type will compile when added to an unordered container.</p>
-</dd>
-<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/container/unordered_multiset">unordered_multiset</a></dt><dd><p>An <code class="docutils literal notranslate"><span class="pre">unordered_set</span></code> in which duplicate keys are allowed.</p>
-</dd>
-</dl>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/container/priority_queue">std::priority_queue</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Heap_(data_structure)">Heap data structures</a></p></li>
 </ul>
 </div>
 </section>
@@ -331,6 +338,17 @@ the type must override 3 functions:</p>
   </div>
 
   <ul role="navigation" class="nextprev-list nextprev-list" aria-label="Change page">
+<li id="relations-prev" class="navLink" title='Previous Section - 14.3. Binary Search Tree iterators' data-toggle="tooltip">
+  <a href="bst-iterator.html" aria-label="Previous - 14.3. Binary Search Tree iterators">
+    <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
+  </a>
+</li>
+
+  <li id="relations-next" class="navLink" title='Next Section - 14.6. The set class' data-toggle="tooltip" >
+    <a href="set.html" aria-label="Next - 14.6. The set class">
+      <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
+    </a>
+  </li>
 </ul>
 
 <script>

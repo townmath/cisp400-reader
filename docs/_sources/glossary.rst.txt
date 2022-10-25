@@ -1027,7 +1027,7 @@ Glossary
 
    header guard
       In C and C++, used to prevent definitions copied into a file
-      using the ``#include`` directive from beging defined
+      using the ``#include`` directive from being defined
       more than once.
 
       .. code-block:: cpp
@@ -1039,7 +1039,7 @@ Glossary
 
    header node
       Commonly used in implementations for a :term:`linked list` or
-      related structure, this :term:`node` preceeds the first element
+      related structure, this :term:`node` precedes the first element
       of the list.
       Its purpose is to simplify the code implementation by
       reducing the number of special cases that must be programmed
@@ -1048,6 +1048,7 @@ Glossary
    heap
       This term has two different meanings.
       Sometimes, it is a synonym for :term:`free store`.
+
       A heap may also refer to a particular data structure.
       This data structure is a :term:`complete binary tree` with the
       requirement that every :term:`node` has a value greater than its

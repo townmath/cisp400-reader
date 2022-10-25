@@ -1,5 +1,5 @@
-Binary Search Trees
-===================
+Trees and associative data structures
+=====================================
 This section introduces what the standard library refers to as
 "associative data structures" - non-sequential data structures.
 
@@ -9,6 +9,7 @@ This section introduces what the standard library refers to as
    trees.rst
    bst.rst
    bst-iterator.rst
+   heap.rst
    set.rst
    map.rst
 
