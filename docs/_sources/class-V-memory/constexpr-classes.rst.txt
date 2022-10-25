@@ -213,6 +213,7 @@ Each simply constructs a new distance based on the units implied by the literal 
          :nocodelens:
 
 
+         #include <cstdlib>
          #include <initializer_list>
 
          namespace length{
@@ -248,10 +249,10 @@ Each simply constructs a new distance based on the units implied by the literal 
            constexpr distance operator-(distance lhs,const distance& rhs){
              return distance(lhs-= rhs);
            }
-           constexpr distance operator*(double scalar, distance a){
+           constexpr distance operator*(int scalar, distance a){
              return distance(a*=scalar);
            }
-           constexpr distance operator/(distance a, int denominator){
+           constexpr distance operator/(distance a, size_t denominator){
              return distance(a/=denominator);
            }
 
