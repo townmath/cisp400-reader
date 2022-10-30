@@ -10,10 +10,10 @@
 
 Pseudocode conventions and definitions
 ======================================
-Occassionally an example wil use pseudocode to represent
+Some examples use 'pseudocode' to represent
 program logic independent of any mainstream programming language.
-When pseudocode is used, the question goal is to understand the algorithm.
-Syntax is not a consideration.
+When pseudocode is used, the objective is to understand the algorithm
+using simplified representations.
 
 The following notations and conventions are used.
 

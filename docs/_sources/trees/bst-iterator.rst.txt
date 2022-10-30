@@ -512,7 +512,7 @@ is the current node.
 .. admonition:: More to Explore
 
    - The content on this page was adapted from
-     `Binary Search Trees <https://www.cs.odu.edu/~zeil/cs361/f16/Public/treetraversal/index.html>`__,
+     `Binary Search Trees <https://www.cs.odu.edu/~zeil/cs361/latest/Public/treetraversal/index.html>`__,
      by Steven J. Zeil for his data structures course CS361.
 
    - `Binary tree visualizer <http://btv.melezinek.cz>`__

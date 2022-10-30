@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>14.5. Heaps &#8212; CISC 187 Course Reader Overview</title>
+    <title>14.5. Priority queues &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -212,13 +212,63 @@
 
 
   
-  <section id="heaps">
-<span id="index-0"></span><h1><span class="section-number">14.5. </span>Heaps<a class="headerlink" href="#heaps" title="Permalink to this headline">¶</a></h1>
+  <section id="priority-queues">
+<span id="index-0"></span><h1><span class="section-number">14.5. </span>Priority queues<a class="headerlink" href="#priority-queues" title="Permalink to this headline">¶</a></h1>
+<p>If we have a collection of elements that carry a “score”,
+then how can we find and remove the element with the smallest (or largest) score?
+What if new elements may be added at any time?</p>
+<p>This collection is called a <a class="reference internal" href="../glossary.html#term-priority-queue"><span class="xref std std-term">priority queue</span></a> because:</p>
+<ul class="simple">
+<li><p>Like <a class="reference external" href="https://en.cppreference.com/w/cpp/container/queue">std::queue</a>, it is used to simulate objects waiting in line.</p></li>
+<li><p>But instead of FIFO, the processing order is determined by the object “priority” or score.</p></li>
+</ul>
+<p>Like <a class="reference external" href="https://en.cppreference.com/w/cpp/container/stack">std::stack</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/container/queue">std::queue</a>,
+<a class="reference external" href="https://en.cppreference.com/w/cpp/container/priority_queue">std::priority_queue</a> is an adapter that works on an underlying sequential container,
+which must provide random-access iterators (vector or deque). For example:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">event</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">event_queue</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Priority queues are often used to manage scheduling.
+The classic example of a priority queue is an emergency room.
+Patients are not served in the order they arrive, but in order of severity.</p>
+<p>In a software application, if we wanted to simulate urban traffic,
+we might create a series of events, some of which spawn other future events:</p>
+<ul class="simple">
+<li><p>Simulated traffic light need an event for the next change.  When a light
+changes to red, we schedule a change event to green some number of seconds
+later. When a light changes to green, we schedule a change-to-yellow event
+some time a little later, and so on.</p></li>
+<li><p>Parking lots and garages might be simulated as objects that, at random time
+intervals, toss a new car out on to the street in front of the lot or garage.
+The car-generation interval might vary with the time of day (e.g., at 5:00PM,
+when everyone is leaving work, the interval between cars leaving each garage
+would be reduced).</p></li>
+<li><p>Each moving car on the street would have an event associated with the time it
+needs to reach the next intersection along its path. When it reaches the
+intersection, we schedule a new event for the intersection after that, and so
+on.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">(</span>simulation has not ended<span class="o">)</span>
+   get next event from event_queue
+   trigger event
+end <span class="k">while</span>
+</pre></div>
+</div>
+<p>In this example, the ‘priority’ value is time.
+Regardless of when an event is sent, we want the events to occur in their correct time order.</p>
+<p>Although ‘queue` is in the name, a queue is not a good starting point
+for a priority queue implementation.
+However, there is a data type perfectly suited to this task – a heap.
+In fact, heaps are used to implement priority queues so often that the terms
+are often used interchangeably.</p>
+<section id="heaps">
+<span id="index-1"></span><h2><span class="section-number">14.5.1. </span>Heaps<a class="headerlink" href="#heaps" title="Permalink to this headline">¶</a></h2>
 <p>A <a class="reference internal" href="../glossary.html#term-heap"><span class="xref std std-term">heap</span></a> is a special tree-like data structure.
 There are many types of heaps, however, in this chapter,
 we will discuss only <em>binary heaps</em>.
 In this section, we will refer to binary heaps merely as heaps.
-Like binary search trees, heaps have two key attributes:</p>
+A heap may be a binary tree, but it is <strong>not</strong> a binary search tree.
+Heaps have two key attributes:</p>
 <ul>
 <li><p>The underlying tree must be <strong>complete</strong></p></li>
 <li><p>The order of elements must obey the <em>heap property</em></p>
@@ -235,7 +285,7 @@ value can always be found at the tree root.</p>
 This implies that the height of a complete binary tree is <span class="math notranslate nohighlight">\(\lfloor \log N \rfloor\)</span>,
 which results in <span class="math notranslate nohighlight">\(O(\log N)\)</span> performance.</p>
 <p>Although logically a heap is a tree-like data structure,
-because the tree must be complete, it fits easily into an array.
+because the tree must be complete, it fits easily into an array or vector.
 It is very common to use an array for the <em>physical implementation</em> of a heap,
 since it is much more efficient than a general purpose tree
 bound together with pointers.
@@ -246,10 +296,10 @@ For a tree of height <span class="math notranslate nohighlight">\(2^h - 1\)</spa
 <li><p>The right child of a node <cite>i</cite> is located at index <span class="math notranslate nohighlight">\(2i + 1\)</span></p></li>
 </ul>
 <p>To get our math to work out nicely, we place the root node at index position 1.
-This storage location won’t go to waste – it is used when nodes removed from the
+This storage location won’t go to waste – it is used when we remove nodes from the
 tree and maintaining the heap property is required.</p>
 <p>The array representation of the min heap is:</p>
-<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-a6c60802f0723e56e68dc16d39d36f91623bfbbf.png" alt="Array representation of a min heap" class="graphviz" /></div>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-5c0696a0a42c23d1937823276dceb099c58646f1.png" alt="Array representation of a min heap" class="graphviz" /></div>
 </div>
 <p>Depending on the implementation,
 the backing store may or may not have extra storage.</p>
@@ -293,17 +343,17 @@ the backing store may or may not have extra storage.</p>
 </div>
 <p>The defining operations of a heap are:</p>
 <dl>
+<dt>front</dt><dd><p>Peek at the heap root element.</p>
+</dd>
+<dt>pop</dt><dd><p>Remove a value while maintaining the heap property.</p>
+<p>Calls <code class="docutils literal notranslate"><span class="pre">percolate_down</span></code> to perform the work.</p>
+</dd>
 <dt>Constructors</dt><dd><p>Creates a new underlying container of the container adaptor from a variety of data sources.</p>
 <p>Calls <code class="docutils literal notranslate"><span class="pre">build_heap</span></code> to ensure the heap property satisfied when
 construction is complete.</p>
 </dd>
 <dt>push</dt><dd><p>Add a new value to the heap, while maintaining the heap property.</p>
 <p>Calls <code class="docutils literal notranslate"><span class="pre">percolate_up</span></code> to perform the work.</p>
-</dd>
-<dt>pop</dt><dd><p>Remove a value while maintaining the heap property.</p>
-<p>Calls <code class="docutils literal notranslate"><span class="pre">percolate_down</span></code> to perform the work.</p>
-</dd>
-<dt>front</dt><dd><p>Peek at the heap root element.</p>
 </dd>
 </dl>
 <p>In this implementation, any container that implements
@@ -312,19 +362,128 @@ for the backing store. This example uses vector by default.
 The Compare class allows the same class to function as either a min heap
 (the default), or another comparison function.
 Using <a class="reference external" href="https://en.cppreference.com/w/cpp/utility/functional/less">less</a> would transform the heap into a max heap.</p>
-<section id="priority-queues">
-<span id="index-1"></span><h2><span class="section-number">14.5.1. </span>Priority queues<a class="headerlink" href="#priority-queues" title="Permalink to this headline">¶</a></h2>
-<p>A <a class="reference internal" href="../glossary.html#term-priority-queue"><span class="xref std std-term">priority queue</span></a> is conceptually similar to a normal queue.
-It is a queue in which each element has an associated <em>priority</em>.
-Unlike a standard queue which is strictly <a class="reference internal" href="../glossary.html#term-FIFO"><span class="xref std std-term">FIFO</span></a>,
-a priority queue always removes the highest priority item first,
-regardless of when the item was inserted.</p>
-<p>This key difference means that a queue is not a good starting point
-for a priority queue implementation.</p>
+</section>
+<section id="percolate-up">
+<h2><span class="section-number">14.5.2. </span>Percolate up<a class="headerlink" href="#percolate-up" title="Permalink to this headline">¶</a></h2>
+<p>When a new node is added to the heap, we initially use <code class="docutils literal notranslate"><span class="pre">push_back</span></code>
+to append the new value to the ‘last’ open position in the tree (the hole).
+At this point the tree is still complete, but the new value
+is not in the correct position (except through some random stroke of luck).
+So after the initial <code class="docutils literal notranslate"><span class="pre">push_back</span></code> the heap property is violated and
+must be restored.</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-4fda410c0e94b33840bad734d45ab7d265cce5c7.png" alt="Precolate up - no move needed" class="graphviz" /></div>
+</div>
+<p>If however, the new value is less then its parent, it must be moved into a
+valid position.</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-c202da0fe7c10303c730ce80171c2e697ac3b88f.png" alt="Percolate up - move needed" class="graphviz" /></div>
+</div>
+<p>First we swap the value at position ‘b’ with the value at position ‘e’:</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-813889ad426a9715ddcc68e65a72510d0c1c8c74.png" alt="Percolate up - first move" class="graphviz" /></div>
+</div>
+<p>The value at position ‘d’ is still larger then ‘b’, so we are not done:</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-e13b5f92fe572df6db2c4f0c4255c8629a82b3d2.png" alt="Percolate up - last move" class="graphviz" /></div>
+</div>
+<p>Now that ‘a’ is less than ‘b’ and all of the children of ‘b’
+are greater than ‘b’, the heap property has been restored and we are done.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">percolate_up</span></code> function does all the hard work.
+In truth, it is a fairly short function.
+The algorithm outline is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>percolate_up <span class="o">(</span>value<span class="o">)</span>
+   heap<span class="o">[</span><span class="m">0</span><span class="o">]</span> ← value
+   hole ← last position <span class="k">in</span> heap
+   <span class="k">while</span> <span class="o">(</span>value &lt; parent_of_hole<span class="o">)</span>
+      move parent value to hole
+      <span class="nb">set</span> hole to parent position
+   <span class="k">done</span> <span class="k">while</span>
+   move heap<span class="o">[</span><span class="m">0</span><span class="o">]</span> to heap<span class="o">[</span>hole<span class="o">]</span>
+<span class="k">done</span> percolate_up
+</pre></div>
+</div>
+<p>The actual implementation is a lab exercise.</p>
+<p>To implement <code class="docutils literal notranslate"><span class="pre">push</span></code> using <code class="docutils literal notranslate"><span class="pre">percolate_up</span></code>, we:</p>
+<ul class="simple">
+<li><p>Increase backing store capacity, if needed.</p></li>
+<li><p>Push the value onto the end of the tree.</p></li>
+<li><p>Increase the tree size by 1.</p></li>
+<li><p>Percolate up from the last node in the tree.</p></li>
+</ul>
+</section>
+<section id="percolate-down">
+<h2><span class="section-number">14.5.3. </span>Percolate down<a class="headerlink" href="#percolate-down" title="Permalink to this headline">¶</a></h2>
+<p>When we return a value from the top of the heap, we return the root node value.
+We now have a hole that needs to be filled.
+One approach is to move the last node in the heap to the root position
+and then ‘percolate_down’ to push the value to its proper location in the tree.
+This has a few of advantages;</p>
+<ul class="simple">
+<li><p>It maintains the completeness property of our tree</p></li>
+<li><p>It is relatively straightforward to implement.
+The same algorithm can be used independent of the tree structure
+or any node value.</p></li>
+</ul>
+<p>Since this is a little more complicated than <code class="docutils literal notranslate"><span class="pre">percolate_up</span></code>,
+the entire function is shown.
+The main complication is that the current node might have 0 children, 1 child,
+or 2 children, so we need to be careful that we don’t try to access the value of
+non-existent children.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">percolate_down</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">hole</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">heap_</span><span class="p">[</span><span class="n">hole</span><span class="p">]);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">child</span><span class="p">;</span><span class="w"> </span><span class="n">hole</span><span class="o">*</span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">size_</span><span class="p">;</span><span class="w"> </span><span class="n">hole</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hole</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">child</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">size_</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">heap_</span><span class="p">[</span><span class="n">child</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">heap_</span><span class="p">[</span><span class="n">child</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="o">++</span><span class="n">child</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">heap_</span><span class="p">[</span><span class="n">child</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tmp</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">heap_</span><span class="p">[</span><span class="n">hole</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">heap_</span><span class="p">[</span><span class="n">child</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="n">heap_</span><span class="p">[</span><span class="n">hole</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>A walk-through follows.
+When we pop ‘a’ from the heap, we leave a space that must be filled
+while maintaining the heap property.</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-681b355293f75c4975df5bd96078e18eeb0a5fcf.png" alt="Percolate down" class="graphviz" /></div>
+</div>
+<p>Grab the last value in the tree, which may or may not be the largest value.
+Move this value into the root position.
+Since the largest value is in the root position, the heap property is no longer valid.
+We have to restore the heap property by pushing this value down
+until the heap property is restored.</p>
+<p>We can achieve this by continually exchanging the smallest child value with the
+current value until the heap property is restored.</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-527a1afd80ceab7e062bbbd17117972842fdda67.png" alt="Percolate down" class="graphviz" /></div>
+</div>
+<p>The ‘j’ is still larger than ‘d’, so again, we exchange the two values.</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-2dfe20c40ce455d9e587cca898d30883a2bf0dd7.png" alt="Percolate down" class="graphviz" /></div>
+</div>
+<p>When we check the left node, the value ‘j’ is less then ‘m’.
+We can’t stop at this point, because this node has another child.
+The ‘j’ is still larger than ‘i’, so we exchange values,
+however this time we traverse the right sub tree.</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-69edfe477bd0d0b509efdde30ea48b2953832c47.png" alt="Percolate down" class="graphviz" /></div>
+</div>
+<p>At this point, the node ‘j’ has no children, so we are done.</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-dc1116099b619ea2fc0ba4c27bc0140fe0fffa32.png" alt="Percolate down" class="graphviz" /></div>
+</div>
+<p>To implement <code class="docutils literal notranslate"><span class="pre">pop</span></code> using <code class="docutils literal notranslate"><span class="pre">percolate_down</span></code>, we:</p>
+<ul class="simple">
+<li><p>Move the last tree node to the root.</p></li>
+<li><p>Reduce the tree size by 1</p></li>
+<li><p>Percolate down from the root node.</p></li>
+</ul>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
+<li><p>The content on this page was adapted from
+<a class="reference external" href="https://www.cs.odu.edu/~zeil/cs361/latest/Public/bst/index.html">Binary Search Trees</a>,
+by Steven J. Zeil for his data structures course CS361.</p></li>
 <li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/container/priority_queue">std::priority_queue</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Heap_(data_structure)">Heap data structures</a></p></li>
 </ul>
