@@ -28,24 +28,52 @@ move assignment      ``operator=(X&&)``
 destructor           ``~X()``
 ==================== =======================
 
-The default constructor can be overloaded like any other function.
-When you design your types, you may create constructors with
-one, two, or more arguments as appropriate.
+default constructor
+   Create a new object in 'the default way'.
+   If you do not write one, the compiler will unless you write your
+   own overloaded constructor.
 
-A *destructor* is a special function that is **always** called when
-an object goes out of scope.
-The purpose of a destructor is to reclaim any memory or perform any other
-cleanup tasks that need doing before the object is finally destroyed.
-A few points about destructors:
+   The default constructor can be overloaded like any other function.
+   When you design your types, you may create constructors with
+   one, two, or more arguments as appropriate.
 
-- Like constructors, destructors have no return type.
-- Destructors take no arguments, so they never have a parameter list.
-  There is no way to overload a destructor.
-- We don't call this function ourselves, we leave that to a program as it runs.
+copy constructor
+   Create a new object by copying an existing object.
 
-We will explore destructors more when we explore containers.
-For now, just remember that a destructor always exists for every class
-whether you write one or not and it is always called when the class is destroyed.
+copy assignment
+   Replace the state of an existing object using another object.
+
+move constructor
+   Added in C++11.
+   Like copy construction, but the existing source object is invalidated.
+   The state is *moved* from the source object when the new object is constructed.
+
+move assignment
+   Added in C++11.
+   Like copy assignment, but the existing source object is invalidated.
+   The state is *moved* from the source object when the object state is transferred.
+
+   Move assignment and move constructors are optional.
+   If you do not define them, the compiler will fall back to the copy constructor and
+   copy assignment instead.
+   However, move semantics may make your code more efficient by replacing potentially
+   expensive copy operations with faster alternatives.
+
+destructor
+   A *destructor* is a special function that is **always** called when
+   an object goes out of scope.
+   The purpose of a destructor is to reclaim any memory or perform any other
+   cleanup tasks that need doing before the object is finally destroyed.
+   A few points about destructors:
+
+   - Like constructors, destructors have no return type.
+   - Destructors take no arguments, so they never have a parameter list.
+     There is no way to overload a destructor.
+   - We don't call this function ourselves, we leave that to a program as it runs.
+
+   We will explore destructors more when we explore containers.
+   For now, just remember that a destructor always exists for every class
+   whether you write one or not and it is always called when the class is destroyed.
 
 
 The compiler will **not** generate a default
