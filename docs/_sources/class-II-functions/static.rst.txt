@@ -17,8 +17,8 @@ Static members are **not** stored in any instance of a class.
 In fact, you don't need to ever create a class instance
 in order to access static members.
 
-Like global variables, static member lifetime is the same as the entire
-program lifetime.
+Like global variables, static member variables persist as long as the entire program.
+For global variables refresher, refer to the section :ref:`variable-scope`.
 
 The static keyword is only used with the declaration of a static member, 
 inside the class definition, but not with the definition of that static member:
@@ -39,9 +39,11 @@ An example of a static member:
    class counter {
       static int instance_count;   // declaration, but no definition
       public:
+         // increase the count when the counter object is created
          counter() {
             ++instance_count;
          }
+         // decrease the count when the counter object is destroyed
          ~counter() {
             --instance_count;
          }

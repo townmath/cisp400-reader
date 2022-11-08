@@ -218,8 +218,8 @@ static member functions and variables.
 Static members are <strong>not</strong> stored in any instance of a class.
 In fact, you don’t need to ever create a class instance
 in order to access static members.</p>
-<p>Like global variables, static member lifetime is the same as the entire
-program lifetime.</p>
+<p>Like global variables, static member variables persist as long as the entire program.
+For global variables refresher, refer to the section <a class="reference internal" href="../function-intro/scope.html#variable-scope"><span class="std std-ref">Scope</span></a>.</p>
 <p>The static keyword is only used with the declaration of a static member,
 inside the class definition, but not with the definition of that static member:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// declaration (uses &#39;static&#39;)</span>
@@ -234,9 +234,11 @@ inside the class definition, but not with the definition of that static member:<
 <span class="k">class</span><span class="w"> </span><span class="nc">counter</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">   </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">instance_count</span><span class="p">;</span><span class="w">   </span><span class="c1">// declaration, but no definition</span>
 <span class="w">   </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// increase the count when the counter object is created</span>
 <span class="w">      </span><span class="n">counter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">         </span><span class="o">++</span><span class="n">instance_count</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// decrease the count when the counter object is destroyed</span>
 <span class="w">      </span><span class="o">~</span><span class="n">counter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">         </span><span class="o">--</span><span class="n">instance_count</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="p">}</span><span class="w"></span>

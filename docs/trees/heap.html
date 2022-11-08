@@ -320,8 +320,9 @@ the backing store may or may not have extra storage.</p>
 
 <span class="w">       </span><span class="c1">// Construct a heap from an unsorted container</span>
 <span class="w">       </span><span class="k">explicit</span><span class="w"> </span><span class="n">binary_heap</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Container</span><span class="o">&amp;</span><span class="w"> </span><span class="n">items</span><span class="p">);</span><span class="w"></span>
+<span class="w">       </span><span class="k">explicit</span><span class="w"> </span><span class="n">binary_heap</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">initializer_list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"></span>
 
-<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w">     </span><span class="nf">clear</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w">     </span><span class="n">clear</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
 <span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w">     </span><span class="nf">empty</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
 <span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w">      </span><span class="nf">full</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
 <span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">size_t</span><span class="w">    </span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
@@ -477,6 +478,28 @@ however this time we traverse the right sub tree.</p>
 <li><p>Reduce the tree size by 1</p></li>
 <li><p>Percolate down from the root node.</p></li>
 </ul>
+<p><strong>Build heap</strong></p>
+<p>Frequently we want to create a binary heap from an existing collection
+which could be the template type <code class="docutils literal notranslate"><span class="pre">Container</span></code> or an <code class="docutils literal notranslate"><span class="pre">initializer_list&lt;T&gt;</span></code> in
+our example heap.
+These constructors take <span class="math notranslate nohighlight">\(N\)</span> arbitrarily items and transforms them into a heap.
+We could achieve this with <span class="math notranslate nohighlight">\(N\)</span> successive inserts.
+Each insert will take <span class="math notranslate nohighlight">\(O(1)\)</span> average and <span class="math notranslate nohighlight">\(O(log N)\)</span> worst-case time,
+the total running time of this algorithm would be <span class="math notranslate nohighlight">\(O(N)\)</span> average but <span class="math notranslate nohighlight">\(O(N log N)\)</span> worst-case.
+Since this is a special instruction and there are no other operations intervening,
+and we already know that the instruction can be performed in linear average time,
+it is reasonable to expect that with reasonable care a linear time bound can be guaranteed.</p>
+<p>The general algorithm is to place all the items into the tree in any order,
+maintaining the structure property.
+Then, if percolate_down(i) percolates down from node i, the buildHeap routine in Figure 6.14 can be used by the constructor to create a heap-ordered tree.</p>
+<p>To implement <code class="docutils literal notranslate"><span class="pre">build_heap</span></code> using <code class="docutils literal notranslate"><span class="pre">percolate_down</span></code>, we:</p>
+<ul class="simple">
+<li><p>Copy all items from the source container or range into the heap backing store in any order.
+As long no uninitialized values are present in the range <span class="math notranslate nohighlight">\(\left [ begin(), end() \right )\)</span>,
+then the heap structure is maintained and only the heap order property needs work.</p></li>
+<li><p>Call <code class="docutils literal notranslate"><span class="pre">percolate_down</span></code> starting from the heap midpoint and iterate down to the root node.</p></li>
+</ul>
+<p>The actual implementation of <code class="docutils literal notranslate"><span class="pre">build_heap</span></code> is a lab assignment.</p>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>

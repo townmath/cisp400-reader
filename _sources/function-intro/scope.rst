@@ -10,6 +10,8 @@
 
 .. index:: scope
 
+.. _variable-scope:
+
 Scope
 =====
 Each name that appears in a C++ program is only valid in some *possibly discontiguous*
@@ -32,6 +34,14 @@ unqualified name lookup can be used to associate the name with its declaration.
    void func () {
      assert (n == 3);          // only name 'n' in scope is the global one
    }
+
+It is important to remember that global variables are exactly that -- global.
+They are visible everywhere in every scope.
+Once created, there is no way to make a global variable go away.
+And since there is only 1 "global scope" it is easy to accidentally create name
+conflicts with variables in local scopes.
+This is one of (but not only) reason why global variables are considered
+something to avoid on most programming projects.
 
 .. admonition:: Macro assert
 
@@ -60,12 +70,13 @@ all of the assertions about ``n`` are ``true``:
    int n = 3;
 
    int main() {
-     int n = 42;
+     assert (n == 3);
+     int n = 42;          // local n shadows global version
      assert (n == 42);
 
      // a new block scope can be created anywhere
      {
-       double n = -3.14159;
+       double n = -3.14159;          // inner scope shadows both outer scopes
        assert (n - -3.1415 < 0.01);
      
      } // double n is no longer in scope 
@@ -78,6 +89,45 @@ all of the assertions about ``n`` are ``true``:
    Remove the braces that form the block scope around ``double n``.
 
    What do you expect to happen?
+
+The global variable ``n`` is created before main is ever called and exists after main exists.
+Global variables always exist for the entire lifetime of a program.
+They are one of the few things in a program that outlive the ``main()`` function.
+
+Global variables are created in the order they are encountered in a program.
+Because global variables are stored in special memory locations.
+If they are constants, they are stored in the ``code`` program segment.
+If they are variable, they are stored in the ``data`` program segment.
+Because these memory segments function like stacks, they are created and destroyed like stacks.
+In the case of global variables, the first variable created will be the last variable destroyed.
+
+
+One last mention about global variables: globals of primitive types are initialized by default.
+This is not the same behavior as local variables, which are uninitialized by default.
+The confusion about when variables are initialized is a common source of error.
+
+.. index:: local variables
+
+Local variables
+---------------
+
+You may read somewhere that global variables are evil, harmful, or whatever.
+There are no *harmful* language features.
+
+There *are* some language features that can get you into trouble if you have not
+carefully weighed the pros and cons of their use.
+That is why in this book, 
+we generally like to avoid absolutes and to use *prefer*.
+
+We *prefer* keeping scope to the absolute minimum to get something done.
+Because we prefer keeping scope to a minimum, we *prefer*: 
+
+- Local variables over global variables.
+- Declaring variables in the block where they are used.
+
+There is no reason in modern languages to declare all your variables at the start of a function.
+This is actually a requirement of older languages like FORTRAN and the original K&R dialect of C.
+In modern languages, it's an old habit some people have carried forward for no good reason.
 
 Errors related to scope are common,
 especially for beginning programmers who tend to rely more on 
@@ -141,31 +191,7 @@ For example, what is the output of the following?
            }
          }
 
-
-.. index:: local variables
-
-Local variables
----------------
-
-You may read somewhere that global variables are evil, harmful, or whatever.
-There are no *harmful* language features.
-
-There *are* some language features that can get you into trouble if you have not
-carefully weighed the pros and cons of their use.
-That is why in this book, 
-we generally like to avoid absolutes and to use *prefer*.
-
-We *prefer* keeping scope to the absolute minimum to get something done.
-Because we prefer keeping scope to a minimum, we *prefer*: 
-
-- Local variables over global variables.
-- Declaring variables in the block where they are used.
-
-  Even a local variable can have too much scope, as in the preceding example.
-
-There is no reason in modern languages to declare all your variables at the start of a function.
-This is actually a requirement of older languages like FORTRAN and the original K&R dialect of C.
-In modern languages, it's an old habit some people have carried forward for no good reason.
+Even a local variable can have too much scope, as in the preceding example.
 
 One of the simplest things you can do as a programmer to improve the clarity and
 maintainability of your code and reduce errors is to minimize the scope of local variables.

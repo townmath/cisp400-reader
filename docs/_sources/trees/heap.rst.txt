@@ -194,6 +194,7 @@ The heap interface can be implemented as follows:
 
           // Construct a heap from an unsorted container
           explicit binary_heap(const Container& items);
+          explicit binary_heap(std::initializer_list<T> list) 
 
           constexpr void     clear() noexcept;
           constexpr bool     empty() const noexcept;
@@ -676,6 +677,31 @@ To implement ``pop`` using ``percolate_down``, we:
 - Reduce the tree size by 1
 - Percolate down from the root node.
 
+**Build heap**
+
+Frequently we want to create a binary heap from an existing collection
+which could be the template type ``Container`` or an ``initializer_list<T>`` in
+our example heap.
+These constructors take :math:`N` arbitrarily items and transforms them into a heap.
+We could achieve this with :math:`N` successive inserts.
+Each insert will take :math:`O(1)` average and :math:`O(log N)` worst-case time, 
+the total running time of this algorithm would be :math:`O(N)` average but :math:`O(N log N)` worst-case. 
+Since this is a special instruction and there are no other operations intervening, 
+and we already know that the instruction can be performed in linear average time, 
+it is reasonable to expect that with reasonable care a linear time bound can be guaranteed.
+
+The general algorithm is to place all the items into the tree in any order, 
+maintaining the structure property.
+Then, if percolate_down(i) percolates down from node i, the buildHeap routine in Figure 6.14 can be used by the constructor to create a heap-ordered tree.
+
+To implement ``build_heap`` using ``percolate_down``, we:
+
+- Copy all items from the source container or range into the heap backing store in any order.
+  As long no uninitialized values are present in the range :math:`\left [ begin(), end() \right )`,
+  then the heap structure is maintained and only the heap order property needs work.
+- Call ``percolate_down`` starting from the heap midpoint and iterate down to the root node.
+
+The actual implementation of ``build_heap`` is a lab assignment.
 
 
 -----

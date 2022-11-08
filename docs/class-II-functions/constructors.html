@@ -252,6 +252,20 @@ we let the compiler generate the default constructors for us.</p>
 <p>The default constructor can be overloaded like any other function.
 When you design your types, you may create constructors with
 one, two, or more arguments as appropriate.</p>
+<p>A <em>destructor</em> is a special function that is <strong>always</strong> called when
+an object goes out of scope.
+The purpose of a destructor is to reclaim any memory or perform any other
+cleanup tasks that need doing before the object is finally destroyed.
+A few points about destructors:</p>
+<ul class="simple">
+<li><p>Like constructors, destructors have no return type.</p></li>
+<li><p>Destructors take no arguments, so they never have a parameter list.
+There is no way to overload a destructor.</p></li>
+<li><p>We don’t call this function ourselves, we leave that to a program as it runs.</p></li>
+</ul>
+<p>We will explore destructors more when we explore containers.
+For now, just remember that a destructor always exists for every class
+whether you write one or not and it is always called when the class is destroyed.</p>
 <p>The compiler will <strong>not</strong> generate a default
 constructor if we write any non-default ones.
 The compiler may still create other default operations.</p>
