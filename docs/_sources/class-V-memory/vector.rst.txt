@@ -11,6 +11,8 @@
    pair: vector; size
    pair: vector; capacity
 
+.. _vector-memory:
+
 The ``std::vector`` class
 =========================
 The :container:`std::vector <vector>` is a sequence container 
@@ -19,7 +21,10 @@ If you have taken a class in linear algebra,
 the vector ADT has nothing to do with mathematics,
 but is simply sequential data structure.
 
-Like an array, elements are stored continuously.
+It is a flexible and frequently used container.
+Refer to :ref:`vector-intro` for an introduction to the basic functions available.
+
+Like an array, elements are stored in adjacent memory slots.
 This means that elements can be accessed not only through iterators, 
 but also using offsets to regular pointers to elements.
 The benefit of this is that a pointer to an element of a vector may be passed 
@@ -29,11 +34,11 @@ Unlike an array,
 vector storage is handled automatically, being expanded and contracted as needed. 
 Vectors usually occupy more space than static arrays, 
 because more memory is allocated to handle future growth. 
-This way a vector does not need to reallocate each time an element is inserted, 
+This way a vector does not need to reallocate each time an element is inserted,
 but only when the additional memory is exhausted. 
-The total amount of allocated memory can be queried using the :container:`vector::capacity <vector/capacity>` function. 
+The total amount of allocated memory can be queried using the :vector:`capacity` function. 
 Starting in C++11, extra memory can be returned to the system with a call to
-:container:`vector::shrink_to_fit <vector/shrink_to_fit>`.
+:vector:`shrink_to_fit`.
 
 
 .. index:: 

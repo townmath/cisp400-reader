@@ -19,20 +19,20 @@ the size of a ``std::array`` must be defined when declared.
 
    std::array <int, 12> days_per_month;
 
-The ``std::array`` class is very lightweight and has very little
+The array class is very lightweight and has very little
 costs over a raw array.
 Additionally, ``std::array`` provides convenience functions such as:
 
-:cref:`array::at()`
-   range checked access
+:container:`at() <array/operator_at>` and :container:`operator[] <array/operator_at>` 
+   range checked access and unchecked access
 
-:cref:`array::front()` and :cref:`array::back()`
+:container:`front() <array/front>` and :container:`back() <array/back>`
    access to the first and last elements
 
-:cref:`array::size()`
+:container:`size() <array/size>` 
    return the number of elements
 
-:cref:`array::empty()`
+:container:`empty() <array/empty>` 
    check if the container is empty
 
 Unlike a raw array, ``std::array`` cannot infer its size if

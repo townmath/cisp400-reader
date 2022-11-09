@@ -158,40 +158,41 @@ Consider the following:
    namespace mesa {
      class string {
        private:
-         char* data;
-         size_t sz;
+         char* data = nullptr;
+         size_t sz = 0;
 
        public:
-         explicit string(const char* value = "") {
-           sz = std::strlen(value) + 1;
+         string() = default;
+         explicit string(const char* source) {
+           // if source not null terminated, strlen behavior is undefined
+           sz = std::strlen(source) + 1; // +1 for null terminator
            data = new char[sz];
-           for (size_t i=0; i < sz; ++i) {
-            data[i] = value[i];
-           }
-           data[sz-1] = '\0';
+           std::strncpy(data, source, sz);
          }
+
          void upper_case() {
-           for (size_t i=0; i < sz; ++i)
-            data[i] = std::toupper(data[i]);
+           for (size_t i=0; i < sz; ++i) {
+             data[i] = std::toupper(data[i], std::locale());
+           }
          }
 
          ~string() {
            delete[] data;
          }
 
-         char* c_str() { return data; }
+         char* c_str() const noexcept { return data; }
      };
-
    } // namespace mesa
 
 
-This class encapsulates an array of characters, providing 4 functions:
+This class encapsulates an array of characters, providing 5 functions:
 
-- A one arg constructor that also serves as the default constructor
+- A default constructor.
+- A one arg constructor that converts a cstring into a ``mesa::string``
   The constructor allocates memory for the ``char`` array and copies
   the provided string
 - A destructor to clean up memory allocated by the constructor
-- A function ``upper`` to transform the entire array to upper case.
+- A function ``upper_case`` to transform the entire string to upper case.
 
 .. tabbed:: shallow_copy_tab
 
@@ -226,21 +227,22 @@ This class encapsulates an array of characters, providing 4 functions:
          namespace mesa {
            class string {
              private:
-               char* data;
-               size_t sz;
+               char* data = nullptr;
+               size_t sz = 0;
 
              public:
-               explicit string(const char* value = "") {
-                 sz = std::strlen(value) + 1;
+               string() = default;
+               explicit string(const char* source) {
+                 // if source not null terminated, strlen behavior is undefined
+                 sz = std::strlen(source) + 1; // +1 for null terminator
                  data = new char[sz];
-                 for (size_t i=0; i < sz; ++i) {
-                  data[i] = value[i];
-                 }
-                 data[sz-1] = '\0';
+                 std::strncpy(data, source, sz);
                }
+
                void upper_case() {
-                 for (size_t i=0; i < sz; ++i)
-                  data[i] = std::toupper(data[i], locale());
+                 for (size_t i=0; i < sz; ++i) {
+                   data[i] = std::toupper(data[i], std::locale());
+                 }
                }
 
                ~string() {
@@ -265,6 +267,8 @@ This class encapsulates an array of characters, providing 4 functions:
 
       Even though we copied ``hello``,
       changing the case of copy also resulted in changes to the original.
+      In this case, we only copied the pointer, not the data pointed to.
+
       When we copy a value, we expect a *cloned object*.
       A object that in all respects has the same attributes,
       but that is separate and distinct.
@@ -288,21 +292,22 @@ This class encapsulates an array of characters, providing 4 functions:
          namespace mesa {
            class string {
              private:
-               char* data;
-               size_t sz;
+               char* data = nullptr;
+               size_t sz = 0;
 
              public:
-               explicit string(const char* value = "") {
-                 sz = std::strlen(value) + 1;
+               string() = default;
+               explicit string(const char* source) {
+                 // if source not null terminated, strlen behavior is undefined
+                 sz = std::strlen(source) + 1; // +1 for null terminator
                  data = new char[sz];
-                 for (size_t i=0; i < sz; ++i) {
-                  data[i] = value[i];
-                 }
-                 data[sz-1] = '\0';
+                 std::strncpy(data, source, sz);
                }
+
                void upper_case() {
-                 for (size_t i=0; i < sz; ++i)
-                  data[i] = std::toupper(data[i], locale());
+                 for (size_t i=0; i < sz; ++i) {
+                   data[i] = std::toupper(data[i], std::locale());
+                 }
                }
 
                // In this broken class, the destructor delete the same
@@ -361,7 +366,7 @@ Fixing these problems requires writing a custom copy constructor.
    string (const string& other) {
      sz = other.sz;
      data = new char[sz];
-     std::strcpy(data, other.data);
+     std::strncpy(data, other.data, sz);
    }
 
 Each class member needs to be copied.
@@ -370,7 +375,7 @@ It's the pointer member that needs special treatment:
 
 - Initialize a new memory block large enough to hold the copy
 - Copy each element of the source array into the destination.
-  This is what :cpp:`std::strcpy<string/byte/strcpy>` does.
+  This is what :string:`std::strncpy<byte/strncpy>` does.
 
 In contrast to a *shallow* copy,
 this copy is a **deep copy**.
@@ -427,14 +432,13 @@ it is in the process of being constructed.
 
            A& operator=(const A& other)
            {
+             if (this == &other) { return * this; }
              n = other.n;
              d = other.d;
-             return *this;
+             return * this;
            }
 
          };
-
-.. format comment*
 
    .. tab:: Run It
 
@@ -467,6 +471,7 @@ it is in the process of being constructed.
            }
            A& operator=(const A& other)
            {
+             if (this == &other) { return * this; }
              std::cout << "copy assign A\n";
              n = other.n;
              d = other.d;
@@ -481,6 +486,10 @@ it is in the process of being constructed.
            a = b;
            return b.n;
          }
+
+.. admonition:: Try This!
+
+   Write a copy assignment function for the ``mesa::string`` class.
 
 -----
 

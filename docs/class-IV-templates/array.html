@@ -219,17 +219,17 @@ the size of a <code class="docutils literal notranslate"><span class="pre">std::
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="o">&gt;</span><span class="w"> </span><span class="n">days_per_month</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">std::array</span></code> class is very lightweight and has very little
+<p>The array class is very lightweight and has very little
 costs over a raw array.
 Additionally, <code class="docutils literal notranslate"><span class="pre">std::array</span></code> provides convenience functions such as:</p>
 <dl class="simple">
-<dt><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=array::at()">array::at()</a></dt><dd><p>range checked access</p>
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/container/array/operator_at">at()</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/container/array/operator_at">operator[]</a></dt><dd><p>range checked access and unchecked access</p>
 </dd>
-<dt><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=array::front()">array::front()</a> and <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=array::back()">array::back()</a></dt><dd><p>access to the first and last elements</p>
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/container/array/front">front()</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/container/array/back">back()</a></dt><dd><p>access to the first and last elements</p>
 </dd>
-<dt><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=array::size()">array::size()</a></dt><dd><p>return the number of elements</p>
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/container/array/size">size()</a></dt><dd><p>return the number of elements</p>
 </dd>
-<dt><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=array::empty()">array::empty()</a></dt><dd><p>check if the container is empty</p>
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/container/array/empty">empty()</a></dt><dd><p>check if the container is empty</p>
 </dd>
 </dl>
 <p>Unlike a raw array, <code class="docutils literal notranslate"><span class="pre">std::array</span></code> cannot infer its size if

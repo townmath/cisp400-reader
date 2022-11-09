@@ -212,13 +212,15 @@
 
   
   <section id="the-std-vector-class">
-<span id="index-0"></span><h1><span class="section-number">11.1. </span>The <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> class<a class="headerlink" href="#the-std-vector-class" title="Permalink to this headline">¶</a></h1>
+<span id="vector-memory"></span><span id="index-0"></span><h1><span class="section-number">11.1. </span>The <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> class<a class="headerlink" href="#the-std-vector-class" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">std::vector</a> is a sequence container
 that simulates a dynamically sized array.
 If you have taken a class in linear algebra,
 the vector ADT has nothing to do with mathematics,
 but is simply sequential data structure.</p>
-<p>Like an array, elements are stored continuously.
+<p>It is a flexible and frequently used container.
+Refer to <a class="reference internal" href="../string%2Bvector/vector.html#vector-intro"><span class="std std-ref">The vector class</span></a> for an introduction to the basic functions available.</p>
+<p>Like an array, elements are stored in adjacent memory slots.
 This means that elements can be accessed not only through iterators,
 but also using offsets to regular pointers to elements.
 The benefit of this is that a pointer to an element of a vector may be passed
@@ -229,9 +231,9 @@ Vectors usually occupy more space than static arrays,
 because more memory is allocated to handle future growth.
 This way a vector does not need to reallocate each time an element is inserted,
 but only when the additional memory is exhausted.
-The total amount of allocated memory can be queried using the <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/capacity">vector::capacity</a> function.
+The total amount of allocated memory can be queried using the <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/capacity">capacity</a> function.
 Starting in C++11, extra memory can be returned to the system with a call to
-<a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/shrink_to_fit">vector::shrink_to_fit</a>.</p>
+<a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/shrink_to_fit">shrink_to_fit</a>.</p>
 <div id='tab_vector_sz_cap' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Size vs Capacity" >
 <p>A vector declared as:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span><span class="w"></span>

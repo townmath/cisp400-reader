@@ -6,8 +6,9 @@
     the license is included in the section entitled "GNU Free Documentation
     License".
 
-
 .. index:: vector
+
+.. _vector-intro:
 
 The vector class
 ================
@@ -19,14 +20,14 @@ More on templates later, for now,
 we just need to know enough to know how declare a vector.
 
 As with strings, in standard C, 
-the typical way to work with a collection of data is with an array:
+the typical way to work with a collection of data is with a 'raw' array:
 
 .. code-block:: c
 
    int a[] = {3, 1, 4, 1, 5, 9};
 
 
-Some downsides to arrays are that they:
+Some downsides to raw arrays are that they:
 
 - Do not know their own size
 - Need to have their size specified when declared
@@ -242,6 +243,20 @@ and will throw a :error:`std::out_of_range exception <out_of_range>` if an out o
            return 0;
          }
 
+The vector class also provides:
+
+:vector:`front` and :vector:`back`
+   return a reference to the first and last elements
+
+:vector:`size` 
+   return the number of elements
+
+:vector:`empty` 
+   return ``true`` if the container is empty
+
+Although there are more functions, these are the ones we need to worry about for now.
+We will be looking more at memory management in vectors in :ref:`vector-memory`.
+
 .. admonition:: Something to consider
 
    What is the difference between a ``std::string`` and 
@@ -452,7 +467,7 @@ Appends the value 40 to the end of the vector.
 Vector capacity
 ---------------
 A vector exposes an interface that 'feels like' an array,
-but the underlying storage grows to accomodate new data
+but the underlying storage grows to accommodate new data
 as required.
 With an array, you either have to allocate as much memory
 as you *might* need in the worst case,

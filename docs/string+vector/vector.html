@@ -212,7 +212,7 @@
 
   
   <section id="the-vector-class">
-<span id="index-0"></span><h1><span class="section-number">2.5. </span>The vector class<a class="headerlink" href="#the-vector-class" title="Permalink to this headline">¶</a></h1>
+<span id="vector-intro"></span><span id="index-0"></span><h1><span class="section-number">2.5. </span>The vector class<a class="headerlink" href="#the-vector-class" title="Permalink to this headline">¶</a></h1>
 <p>A <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">vector</a> is intended to behave like a dynamically sized array.
 It is a <a class="reference internal" href="../glossary.html#term-template"><span class="xref std std-term">template</span></a>, so unlike a string,
 which is a container for characters only,
@@ -220,11 +220,11 @@ a vector can serve as a container for any type.
 More on templates later, for now,
 we just need to know enough to know how declare a vector.</p>
 <p>As with strings, in standard C,
-the typical way to work with a collection of data is with an array:</p>
+the typical way to work with a collection of data is with a ‘raw’ array:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Some downsides to arrays are that they:</p>
+<p>Some downsides to raw arrays are that they:</p>
 <ul class="simple">
 <li><p>Do not know their own size</p></li>
 <li><p>Need to have their size specified when declared</p></li>
@@ -419,6 +419,17 @@ int main() {
 </div>
     </div>
 
+<p>The vector class also provides:</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/front">front</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/back">back</a></dt><dd><p>return a reference to the first and last elements</p>
+</dd>
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/size">size</a></dt><dd><p>return the number of elements</p>
+</dd>
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/empty">empty</a></dt><dd><p>return <code class="docutils literal notranslate"><span class="pre">true</span></code> if the container is empty</p>
+</dd>
+</dl>
+<p>Although there are more functions, these are the ones we need to worry about for now.
+We will be looking more at memory management in vectors in <a class="reference internal" href="../class-V-memory/vector.html#vector-memory"><span class="std std-ref">The std::vector class</span></a>.</p>
 <div class="admonition-something-to-consider admonition">
 <p class="admonition-title">Something to consider</p>
 <p>What is the difference between a <code class="docutils literal notranslate"><span class="pre">std::string</span></code> and
@@ -623,7 +634,7 @@ int main() {
 <section id="vector-capacity">
 <span id="index-3"></span><h2><span class="section-number">2.5.2. </span>Vector capacity<a class="headerlink" href="#vector-capacity" title="Permalink to this headline">¶</a></h2>
 <p>A vector exposes an interface that ‘feels like’ an array,
-but the underlying storage grows to accomodate new data
+but the underlying storage grows to accommodate new data
 as required.
 With an array, you either have to allocate as much memory
 as you <em>might</em> need in the worst case,
