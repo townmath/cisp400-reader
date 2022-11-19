@@ -458,11 +458,10 @@ The remaining binary arithmetic operators are implemented using the same pattern
 
 Increment and decrement operators
 ---------------------------------
-When the postfix increment and decrement appear in an expression, 
-the corresponding user-defined function (``operator++`` or ``operator--``) 
-is called with an integer argument 0. 
-Typically, it is implemented as ``T operator++(int)``, 
-where the argument is ignored. 
+Unlike many of the operator overloads in this section,
+the increment and decrement operators are *unary* operators -- only one
+operand, the current object, is involved.
+
 The postfix increment and decrement operator is usually implemented 
 in terms of the prefix version:
 
@@ -473,18 +472,35 @@ in terms of the prefix version:
        // prefix increment
        T& operator++()
        {
-           // actual increment takes place here
+           // do the actual increment here
            return *this;
        }
 
        // postfix increment
-       T operator++(int)
+       const T operator++(int)
        {
            T tmp(*this); // copy
            operator++(); // pre-increment
            return tmp;   // return old value
        }
    };
+
+There are a couple of things to notice about postfix increment:
+
+- It returns a constant copy of the previous object value.
+
+  Any modifications made to the returned object after calling ``operator++(int)`` would be 
+  modifying a temporary object. This is always bad.
+  Returning a ``const`` object prevents accidental changes to a temporary object.
+  This overload should never return a reference.
+
+- It takes a 'dummy parameter' of type int.
+
+  The 'dummy' parameter simply allows two functions with the same name -- ``operator++``
+  to have different overloads and therefore different behaviors.
+  When the postfix increment and decrement appear in an expression, 
+  the corresponding user-defined function (``operator++`` or ``operator--``) 
+  is called with an integer argument 0. 
 
 Conversion operators
 --------------------

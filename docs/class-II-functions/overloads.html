@@ -592,24 +592,22 @@ compound assignments:</p>
 </section>
 <section id="increment-and-decrement-operators">
 <h2><span class="section-number">8.4.7. </span>Increment and decrement operators<a class="headerlink" href="#increment-and-decrement-operators" title="Permalink to this headline">¶</a></h2>
-<p>When the postfix increment and decrement appear in an expression,
-the corresponding user-defined function (<code class="docutils literal notranslate"><span class="pre">operator++</span></code> or <code class="docutils literal notranslate"><span class="pre">operator--</span></code>)
-is called with an integer argument 0.
-Typically, it is implemented as <code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">operator++(int)</span></code>,
-where the argument is ignored.
-The postfix increment and decrement operator is usually implemented
+<p>Unlike many of the operator overloads in this section,
+the increment and decrement operators are <em>unary</em> operators – only one
+operand, the current object, is involved.</p>
+<p>The postfix increment and decrement operator is usually implemented
 in terms of the prefix version:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">T</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// prefix increment</span>
 <span class="w">    </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">()</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// actual increment takes place here</span>
+<span class="w">        </span><span class="c1">// do the actual increment here</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="c1">// postfix increment</span>
-<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">T</span><span class="w"> </span><span class="nf">tmp</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span><span class="w"> </span><span class="c1">// copy</span>
 <span class="w">        </span><span class="k">operator</span><span class="o">++</span><span class="p">();</span><span class="w"> </span><span class="c1">// pre-increment</span>
@@ -618,6 +616,22 @@ in terms of the prefix version:</p>
 <span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
+<p>There are a couple of things to notice about postfix increment:</p>
+<ul>
+<li><p>It returns a constant copy of the previous object value.</p>
+<p>Any modifications made to the returned object after calling <code class="docutils literal notranslate"><span class="pre">operator++(int)</span></code> would be
+modifying a temporary object. This is always bad.
+Returning a <code class="docutils literal notranslate"><span class="pre">const</span></code> object prevents accidental changes to a temporary object.
+This overload should never return a reference.</p>
+</li>
+<li><p>It takes a ‘dummy parameter’ of type int.</p>
+<p>The ‘dummy’ parameter simply allows two functions with the same name – <code class="docutils literal notranslate"><span class="pre">operator++</span></code>
+to have different overloads and therefore different behaviors.
+When the postfix increment and decrement appear in an expression,
+the corresponding user-defined function (<code class="docutils literal notranslate"><span class="pre">operator++</span></code> or <code class="docutils literal notranslate"><span class="pre">operator--</span></code>)
+is called with an integer argument 0.</p>
+</li>
+</ul>
 </section>
 <section id="conversion-operators">
 <h2><span class="section-number">8.4.8. </span>Conversion operators<a class="headerlink" href="#conversion-operators" title="Permalink to this headline">¶</a></h2>
