@@ -256,48 +256,49 @@ element in the container or to <code class="docutils literal notranslate"><span 
 each category of iterator is defined by the operations that can be performed on it.
 This definition means that any type that supports the necessary operations
 can be used as an iterator — for example,
-a pointer supports all of the operations required by <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=Random Access Iterator">Random Access Iterator</a>,
-so a pointer can be used anywhere a <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=Random Access Iterator">Random Access Iterator</a> is expected.</p>
-<p>All of the iterator categories (except <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=Output Iterator">Output Iterator</a>) can be organized into a hierarchy,
-where more powerful iterator categories (e.g. <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=Random Access Iterator">Random Access Iterator</a>)
-support the operations of less powerful categories (e.g. <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=Input Iterator">Input Iterator</a>).
+a pointer supports all of the operations required by
+<a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator">Random Access Iterator</a>,
+so a pointer can be used anywhere a <a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator">Random Access Iterator</a> is expected.</p>
+<p>All of the iterator categories (except <a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/OutputIterator">Output Iterator</a>) can be organized into a hierarchy,
+where more powerful iterator categories Random Access Iterator)
+support the operations of less powerful categories (e.g. <a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/InputIterator">Input Iterator</a>).
 If an iterator falls into one of these categories and also satisfies the
-requirements of <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=Output Iterator">Output Iterator</a>,
+requirements of <a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/OutputIterator">Output Iterator</a>,
 then it is called a <em>mutable iterator</em> and supports both input and output.
 Non-mutable iterators are called <em>constant iterators</em>.</p>
-<div class="graphviz"><img src="../_images/graphviz-d1b072119e955fe13743352a6504445a3a6ea9bd.png" alt="Iterator categories" usemap="#iter_categories" class="graphviz" /></div>
+<div class="graphviz"><img src="../_images/graphviz-587a9f424c5c076d7d380348774018a86785eccd.png" alt="Iterator categories" usemap="#iter_categories" class="graphviz" /></div>
 <map id="iter_categories" name="iter_categories">
-<area shape="rect" id="node1" href="http://en.cppreference.com/w/cpp/concept/InputIterator" title="Input Iterator" alt="" coords="53,5,203,36"/>
-<area shape="rect" id="node2" href="http://en.cppreference.com/w/cpp/concept/ForwardIterator" title="Forward Iterator" alt="" coords="39,65,217,96"/>
-<area shape="rect" id="node6" href="http://en.cppreference.com/w/cpp/concept/OutputIterator" title="Output Iterator" alt="" coords="333,125,499,156"/>
-<area shape="rect" id="node3" href="http://en.cppreference.com/w/cpp/concept/BidirectionalIterator" title="Bidirectional Iterator" alt="" coords="19,125,237,156"/>
-<area shape="rect" id="node4" href="http://en.cppreference.com/w/cpp/concept/RandomAccessIterator" title="RandomAccess Iterator" alt="" coords="5,185,251,216"/>
-<area shape="rect" id="node5" href="http://en.cppreference.com/w/cpp/concept/ContiguousIterator" title="Contiguous Iterator" alt="" coords="25,245,231,276"/>
+<area shape="rect" id="node1" href="http://en.cppreference.com/w/cpp/named_req/InputIterator" title="Input Iterator" alt="" coords="53,5,203,36"/>
+<area shape="rect" id="node2" href="http://en.cppreference.com/w/cpp/named_req/ForwardIterator" title="Forward Iterator" alt="" coords="39,65,217,96"/>
+<area shape="rect" id="node6" href="http://en.cppreference.com/w/cpp/named_req/OutputIterator" title="Output Iterator" alt="" coords="333,125,499,156"/>
+<area shape="rect" id="node3" href="http://en.cppreference.com/w/cpp/named_req/BidirectionalIterator" title="Bidirectional Iterator" alt="" coords="19,125,237,156"/>
+<area shape="rect" id="node4" href="http://en.cppreference.com/w/cpp/named_req/RandomAccessIterator" title="RandomAccess Iterator" alt="" coords="5,185,251,216"/>
+<area shape="rect" id="node5" href="http://en.cppreference.com/w/cpp/named_req/ContiguousIterator" title="Contiguous Iterator" alt="" coords="25,245,231,276"/>
 </map><dl>
-<dt><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=Input Iterator">Input Iterator</a></dt><dd><p>Read elements and increments using <code class="docutils literal notranslate"><span class="pre">operator++</span></code>, without multiple passes.
-Classes like <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::basic_istream">std::basic_istream</a> provide this iterator.</p>
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/InputIterator">Input Iterator</a></dt><dd><p>Read elements and increments using <code class="docutils literal notranslate"><span class="pre">operator++</span></code>, without multiple passes.
+Classes like <a class="reference external" href="https://en.cppreference.com/w/cpp/io/basic_istream">basic_istream</a> provide this iterator.</p>
 </dd>
-<dt><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=Forward Iterator">Forward Iterator</a></dt><dd><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=InputIterator">InputIterator</a>, plus increment using <code class="docutils literal notranslate"><span class="pre">operator++</span></code>, with multiple passes.
-The <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::forward_list">std::forward_list</a> container provides this iterator.</p>
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/ForwardIterator">Forward Iterator</a></dt><dd><p><a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/InputIterator">InputIterator</a>, plus increment using <code class="docutils literal notranslate"><span class="pre">operator++</span></code>, with multiple passes.
+The <a class="reference external" href="https://en.cppreference.com/w/cpp/container/forward_list">forward_list</a> container provides this iterator.</p>
 </dd>
-<dt><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=Bidirectional Iterator">Bidirectional Iterator</a></dt><dd><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=ForwardIterator">ForwardIterator</a>, plus decrement using <code class="docutils literal notranslate"><span class="pre">operator--</span></code>
-Containers like <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::list">std::list</a>, <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::map">std::map</a>, and <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::set">std::set</a>
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/BidirectionalIterator">Bidirectional Iterator</a></dt><dd><p><a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/ForwardIterator">ForwardIterator</a>, plus decrement using <code class="docutils literal notranslate"><span class="pre">operator--</span></code>
+Containers like <a class="reference external" href="https://en.cppreference.com/w/cpp/container/list">list</a>, <a class="reference external" href="https://en.cppreference.com/w/cpp/container/map">map</a>, and <a class="reference external" href="https://en.cppreference.com/w/cpp/container/set">set</a>
 provide this iterator.</p>
 </dd>
-<dt><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=Random Access Iterator">Random Access Iterator</a></dt><dd><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=BidirectionalIterator">BidirectionalIterator</a>, plus access using <code class="docutils literal notranslate"><span class="pre">operator[]</span></code>
-Before C++17, containers like <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::vector">std::vector</a>, <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::array">std::array</a>, and <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::string">std::string</a>
-provided this iterator.
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator">Random Access Iterator</a></dt><dd><p><a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/BidirectionalIterator">BidirectionalIterator</a>, plus access using <code class="docutils literal notranslate"><span class="pre">operator[]</span></code>
+Before C++17, containers like <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">vector</a>, <a class="reference external" href="https://en.cppreference.com/w/cpp/container/array">array</a>,
+and <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string">string</a> provided this iterator.
 It is still used for unordered collections like
-<a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::unordered_map">std::unordered_map</a> and <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::unordered_set">std::unordered_set</a></p>
+<a class="reference external" href="https://en.cppreference.com/w/cpp/container/unordered_map">unordered_map</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/container/unordered_set">unordered_set</a></p>
 </dd>
-<dt><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=Contiguous Iterator">Contiguous Iterator</a></dt><dd><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=RandomAccessIterator">RandomAccessIterator</a>, plus the container make a continuous storage guarantee.
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/ContiguousIterator">Contiguous Iterator</a></dt><dd><p><a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator">RandomAccessIterator</a>, plus the container makes a continuous storage guarantee.
 This category was added in C++17.
-Before C++17, iterators of containers like <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::vector">std::vector</a> and <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::array">std::array</a>
+Before C++17, iterators of containers like <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">vector</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/container/array">array</a>
 were often treated as a separate category.
 This category simply formalizes what was happening in practice.</p>
 </dd>
-<dt><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=Output Iterator">Output Iterator</a></dt><dd><p>More of a ‘sub category of all of the others.
-If the iterator allows writing to the element, it is also an <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=OutputIterator">OutputIterator</a>
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/OutputIterator">Output Iterator</a></dt><dd><p>More of a ‘sub category’ of all of the others.
+If the iterator allows writing to the element, it is also an <a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/OutputIterator">OutputIterator</a>
 An output iterator can <strong>only</strong> be dereferenced on the left-hand side of an expression:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">};</span><span class="w"></span>
 <span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"></span>
@@ -311,7 +312,7 @@ An output iterator can <strong>only</strong> be dereferenced on the left-hand si
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/iterator">Iterator Library</a> at cppreference.com</p></li>
-<li><p>C++ Concepts: <a class="reference external" href="http://en.cppreference.com/w/cpp/concept/Iterator">Iterator</a></p></li>
+<li><p>C++ Named Requirements: <a class="reference external" href="http://en.cppreference.com/w/cpp/named_req/Iterator">Iterator</a></p></li>
 </ul>
 </div>
 </section>

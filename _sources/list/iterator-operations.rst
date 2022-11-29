@@ -48,14 +48,15 @@ Instead of being defined by specific types,
 each category of iterator is defined by the operations that can be performed on it. 
 This definition means that any type that supports the necessary operations 
 can be used as an iterator |---| for example, 
-a pointer supports all of the operations required by :cref:`Random Access Iterator`,
-so a pointer can be used anywhere a :cref:`Random Access Iterator` is expected.
+a pointer supports all of the operations required by 
+:req:`Random Access Iterator <RandomAccessIterator>`,
+so a pointer can be used anywhere a :req:`Random Access Iterator <RandomAccessIterator>` is expected.
 
-All of the iterator categories (except :cref:`Output Iterator`) can be organized into a hierarchy, 
-where more powerful iterator categories (e.g. :cref:`Random Access Iterator`) 
-support the operations of less powerful categories (e.g. :cref:`Input Iterator`). 
+All of the iterator categories (except :req:`Output Iterator <OutputIterator>`) can be organized into a hierarchy, 
+where more powerful iterator categories Random Access Iterator) 
+support the operations of less powerful categories (e.g. :req:`Input Iterator <InputIterator>`). 
 If an iterator falls into one of these categories and also satisfies the 
-requirements of :cref:`Output Iterator`, 
+requirements of :req:`Output Iterator <OutputIterator>`, 
 then it is called a *mutable iterator* and supports both input and output. 
 Non-mutable iterators are called *constant iterators*.
 
@@ -80,13 +81,13 @@ Non-mutable iterators are called *constant iterators*.
     ];
     edge [dir=back, arrowsize=0.5];
 
-    input [label="Input Iterator", URL="http://en.cppreference.com/w/cpp/concept/InputIterator"];
-    fwd [label="Forward Iterator", URL="http://en.cppreference.com/w/cpp/concept/ForwardIterator"];
-    bi [label="Bidirectional Iterator", URL="http://en.cppreference.com/w/cpp/concept/BidirectionalIterator"];
-    random [label="RandomAccess Iterator", URL="http://en.cppreference.com/w/cpp/concept/RandomAccessIterator"];
-    contiguous [label="Contiguous Iterator", URL="http://en.cppreference.com/w/cpp/concept/ContiguousIterator"];
+    input [label="Input Iterator", URL="http://en.cppreference.com/w/cpp/named_req/InputIterator"];
+    fwd [label="Forward Iterator", URL="http://en.cppreference.com/w/cpp/named_req/ForwardIterator"];
+    bi [label="Bidirectional Iterator", URL="http://en.cppreference.com/w/cpp/named_req/BidirectionalIterator"];
+    random [label="RandomAccess Iterator", URL="http://en.cppreference.com/w/cpp/named_req/RandomAccessIterator"];
+    contiguous [label="Contiguous Iterator", URL="http://en.cppreference.com/w/cpp/named_req/ContiguousIterator"];
  
-    output [label="Output Iterator", URL="http://en.cppreference.com/w/cpp/concept/OutputIterator"];
+    output [label="Output Iterator", URL="http://en.cppreference.com/w/cpp/named_req/OutputIterator"];
 
     input -> fwd -> bi -> random -> contiguous [weight=100];
     edge [style=dotted, dir=none];
@@ -94,39 +95,39 @@ Non-mutable iterators are called *constant iterators*.
     {rank=same; output bi};
 
 
-:cref:`Input Iterator`
+:req:`Input Iterator <InputIterator>`
    Read elements and increments using ``operator++``, without multiple passes.
-   Classes like :cref:`std::basic_istream` provide this iterator.
+   Classes like :io:`basic_istream <basic_istream>` provide this iterator.
 
 
-:cref:`Forward Iterator`
-   :cref:`InputIterator`, plus increment using ``operator++``, with multiple passes.  
-   The :cref:`std::forward_list` container provides this iterator.
+:req:`Forward Iterator <ForwardIterator>`
+   :req:`InputIterator`, plus increment using ``operator++``, with multiple passes.  
+   The :container:`forward_list` container provides this iterator.
 
-:cref:`Bidirectional Iterator`
-   :cref:`ForwardIterator`, plus decrement using ``operator--``
-   Containers like :cref:`std::list`, :cref:`std::map`, and :cref:`std::set`
+:req:`Bidirectional Iterator <BidirectionalIterator>`
+   :req:`ForwardIterator`, plus decrement using ``operator--``
+   Containers like :container:`list`, :container:`map`, and :container:`set`
    provide this iterator.
 
 
-:cref:`Random Access Iterator`
-   :cref:`BidirectionalIterator`, plus access using ``operator[]``
-   Before C++17, containers like :cref:`std::vector`, :cref:`std::array`, and :cref:`std::string`
-   provided this iterator.
+:req:`Random Access Iterator <RandomAccessIterator>`
+   :req:`BidirectionalIterator`, plus access using ``operator[]``
+   Before C++17, containers like :container:`vector`, :container:`array`, 
+   and :cpp:`string <string/basic_string>` provided this iterator.
    It is still used for unordered collections like 
-   :cref:`std::unordered_map` and :cref:`std::unordered_set`
+   :container:`unordered_map` and :container:`unordered_set`
 
 
-:cref:`Contiguous Iterator`
-   :cref:`RandomAccessIterator`, plus the container make a continuous storage guarantee.
+:req:`Contiguous Iterator <ContiguousIterator>`
+   :req:`RandomAccessIterator`, plus the container makes a continuous storage guarantee.
    This category was added in C++17.
-   Before C++17, iterators of containers like :cref:`std::vector` and :cref:`std::array`
+   Before C++17, iterators of containers like :container:`vector` and :container:`array`
    were often treated as a separate category.
    This category simply formalizes what was happening in practice.
 
-:cref:`Output Iterator`
-   More of a 'sub category of all of the others.
-   If the iterator allows writing to the element, it is also an :cref:`OutputIterator`
+:req:`Output Iterator <OutputIterator>`
+   More of a 'sub category' of all of the others.
+   If the iterator allows writing to the element, it is also an :req:`OutputIterator`
    An output iterator can **only** be dereferenced on the left-hand side of an expression:
 
    .. code-block:: cpp
@@ -140,4 +141,4 @@ Non-mutable iterators are called *constant iterators*.
 .. admonition:: More to Explore
 
   - `Iterator Library <http://en.cppreference.com/w/cpp/iterator>`_ at cppreference.com
-  - C++ Concepts: `Iterator <http://en.cppreference.com/w/cpp/concept/Iterator>`_
+  - C++ Named Requirements: `Iterator <http://en.cppreference.com/w/cpp/named_req/Iterator>`_
