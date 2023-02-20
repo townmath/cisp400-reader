@@ -61,6 +61,7 @@ extlinks = {
         'keyword': ('https://en.cppreference.com/w/cpp/keyword/%s', ''),
         'lang': ('https://en.cppreference.com/w/cpp/language/%s', ''),
         'memory': ('https://en.cppreference.com/w/cpp/memory/%s', ''),
+        'req': ('https://en.cppreference.com/w/cpp/named_req/%s', ''),
         'numeric': ('https://en.cppreference.com/w/cpp/numeric/%s', ''),
         'string': ('https://en.cppreference.com/w/cpp/string/basic_string/%s', ''),
         'utility': ('https://en.cppreference.com/w/cpp/utility/%s', ''),

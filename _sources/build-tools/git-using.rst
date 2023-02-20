@@ -265,6 +265,20 @@ If that directory is the current directory, ``.`` is acceptable.
 When you specify a directory, then all of the files new or modified are
 added recursively from that point downward.
 
+.. admonition:: Git add and commit best practices
+
+   It is easy to inadvertently add files you did not mean to when adding a directory.
+   Check what you have added using ``git status`` to ensure the files
+   you are about to commit belong in the commit.
+
+   If you accidentally add files you did not mean to, then it is easy to
+   "un-add" them using ``git revert``.
+
+   General rules for adding files:
+
+   1. Commit only source files you have created or modified.
+   2. Avoid committing binary files and generated build artifacts.
+
 To remove a file, use ``git rm``:
 
 .. code-block:: bash

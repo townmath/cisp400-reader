@@ -422,6 +422,19 @@ $ git commit -m &#39;started to make a second program to say goodbye&#39;
 If that directory is the current directory, <code class="docutils literal notranslate"><span class="pre">.</span></code> is acceptable.
 When you specify a directory, then all of the files new or modified are
 added recursively from that point downward.</p>
+<div class="admonition-git-add-and-commit-best-practices admonition">
+<p class="admonition-title">Git add and commit best practices</p>
+<p>It is easy to inadvertently add files you did not mean to when adding a directory.
+Check what you have added using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> to ensure the files
+you are about to commit belong in the commit.</p>
+<p>If you accidentally add files you did not mean to, then it is easy to
+“un-add” them using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span></code>.</p>
+<p>General rules for adding files:</p>
+<ol class="arabic simple">
+<li><p>Commit only source files you have created or modified.</p></li>
+<li><p>Avoid committing binary files and generated build artifacts.</p></li>
+</ol>
+</div>
 <p>To remove a file, use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rm</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git rm goodbye.cpp
 rm <span class="s1">&#39;goodbye.cpp&#39;</span>
