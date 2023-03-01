@@ -35,8 +35,7 @@ I trust it as far as it goes, but it is incomplete.
 
 Videos
 ------
-
-have a love hate relationship. I can't learn anything from them, but I get everyone learns differently.
+I have a love hate relationship. I can't learn anything from them, but I get everyone learns differently.
 Also, it bugs me that people always are trying to sell you something on YouTube.
 That said, here are some video sources that I trust.
 Some are linked from my textbook:
