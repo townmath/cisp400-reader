@@ -6,7 +6,7 @@
     the license is included in the section entitled "GNU Free Documentation
     License".
 
-.. index:: 
+.. index:: pointer operations
    pair: pointers; using
 
 Using pointers
@@ -27,6 +27,37 @@ Once a pointer has been dereferenced, it is treated exactly like any other varia
 .. code-block:: cpp
 
    *p = *p + *q; // n = 4
+
+Pointers support many of the same operations as other arithmetic types.
+
++--------------+--------------------------------------------------------+
+| Operation    |  Result                                                |
++==============+========================================================+
+| ``p == q``   | ``true`` if and only if ``p`` and ``q``                |
+|              | both store the same address or the ``nullptr`` type    |
++--------------+--------------------------------------------------------+
+| ``p != q``   | negation of above                                      |
++--------------+--------------------------------------------------------+
+| ``*p``       | refers to the value pointed to by ``p``                |
++--------------+--------------------------------------------------------+
+| ``*p = val`` | writes ``val`` to the storage location                 |
+|              | pointed to by ``p``                                    |
++--------------+--------------------------------------------------------+
+| ``val = *p`` | reads from the location pointed to by ``p`` and        |
+|              | writes to ``val``                                      |
++--------------+--------------------------------------------------------+
+| ``++p``      | increment the pointer, making it point to the next     |
+| ``p++``      | memory address after ``p``                             |
++--------------+--------------------------------------------------------+
+| ``p = p+x``  | add the integral value ``x`` to the pointer making it  |
+|              | point to ``x`` memory addresses after ``p``            |
++--------------+--------------------------------------------------------+
+| ``--p``      | decrement the pointer, making it point to the previous |
+| ``p--``      | memory address before ``p``                            |
++--------------+--------------------------------------------------------+
+| ``p = p-x``  | subtract ``x`` from ``p`` making it                    |
+|              | point to ``x`` memory addresses before ``p``           |
++--------------+--------------------------------------------------------+
 
 The ``*`` operator binds very tightly, in other words,
 is it has high *precedence*.
