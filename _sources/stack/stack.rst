@@ -64,29 +64,32 @@ T top()
    // shows push and pop
    digraph g {
        graph [
-          rankdir=LR;
-          labelloc=b;
-          label="std::stack elements";
-       ];
+          rankdir=LR
+          labelloc=b
+          label="std::stack elements"
+       ]
        node [fontname = "Bitstream Vera Sans", fontsize=14,
              style=filled, fillcolor=lightblue,
-             shape=box, width=0.5, height=.25, label=""];
+             shape=box, width=0.5, height=.25, label=""]
 
 
        a,b,d,e;
-       node [style=none];
-       c [label=". . .", color=white];
+       node [style=none]
+       c [label=". . .", color=white]
 
-       top [shape=none, label="top()"];
-       push [shape=none, label="push()"];
-       pop [shape=none, label="pop()"];
+       top [shape=none, label="top()"]
+       push [shape=none, label="push()"]
+       pop [shape=none, label="pop()"]
+       front [shape=none, label="first\nelement\nin\nbacking store"]
 
-       a -> b -> c -> d -> e [dir=none, arrowhead=vee];
-       push -> a [style=dotted];
-       pop -> a [dir=back,style=dotted];
 
-       pop:e -> top:w [style=invis]   
-       top -> a [style=dotted, dir=back, constraint=false];
+       a -> b -> c -> d -> e [dir=none, arrowhead=vee]
+       e -> push [dir = back, style=dotted]
+       e-> pop [style=dotted]
+       // front -> a [dir=none, style=dotted, constraint=false]
+
+       top -> pop [style=invis]  
+       top -> e [style=dotted, dir=back, constraint=false]
    }
 
 
