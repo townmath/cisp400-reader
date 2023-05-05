@@ -43,7 +43,7 @@ the swap algorithm in terms of moves
 
 .. code-block:: cpp
 
-   void swap(vector<string>& a, vector<string>nt& b)
+   void swap(vector<string>& a, vector<string>& b)
    {
       auto temp = static_cast<vector<string>&&>(a); // cast to rvalue reference
       a = static_cast<vector<string>&&>(b);
@@ -55,7 +55,7 @@ Simplifying this expression is the motivation behind :utility:`move`:
 
 .. code-block:: cpp
 
-   void swap(vector<string>& a, vector<string>nt& b)
+   void swap(vector<string>& a, vector<string>& b)
    {
       auto temp = std::move(a); // cast to rvalue reference
       a = std::move(b);
