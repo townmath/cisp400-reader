@@ -95,15 +95,15 @@ language = 'en'
 master_doc = 'index'
 
 # General information about the project.
-project = 'CISC 187 Workbook'
-copyright = '2017-2022 Dave Parillo'
+project = 'CISC 187 Textbook'
+copyright = '2017-2023 Dave Parillo'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '1.0.0'
+version = '1.1.0'
 # The full version, including alpha/beta/rc tags.
 release = '0.0'
 

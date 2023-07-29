@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>3.5. Namespaces &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -19,23 +19,27 @@
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/637.fafafbd97df8a0d1.css?v=B5361BC8" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone.e4d5592da655219f.css?v=32648AE5" />
+    <link rel="stylesheet" type="text/css" href="../_static/637.0fa6cababf056764.css?v=F9484CEF" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone.3eb60bc006ae9a54.css?v=3A5A250C" />
 
 
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
     <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
-    <script src="../_static/runtime.b0f8547c48f16a9f.bundle.js?v=2731F567"></script>
+    <script src="../_static/runtime.66b619f51b746382.bundle.js?v=C3F69EE5"></script>
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
-    <script src="../_static/runestone.0e9550fe42760516.bundle.js?v=71AD37BA"></script>
+    <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3.6. Keyword: const" href="constants.html" />
@@ -43,6 +47,10 @@
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+
+
+<link rel="canonical" href="https://{{canonical_host}}{{new_server_prefix}}/books/published/{{base_course}}/{{pagepath}}" />
 
 
 <script>
@@ -63,7 +71,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '6.2.1';
+  eBookConfig.runestone_version = '6.6.2';
   eBookConfig.jobehost = 'https://red-voice-1370.fly.dev/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -110,6 +118,7 @@
       <ul class="nav navbar-nav navbar-right" >
 
         <li class="divider-vertical"></li>
+        <li><span id="ad_warning"></span></li>
         <li><span id="browsing_warning"></span></li>
 
         <!-- social media dropdown -->
@@ -212,7 +221,7 @@
 
   
   <section id="namespaces">
-<span id="index-0"></span><h1><span class="section-number">3.5. </span>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">3.5. </span>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this heading">¶</a></h1>
 <p>When we introduced functions, we noted that all functions are <em>by default</em> global.
 Another way of saying this is that they are by default in the <em>global namespace</em>.
 The <code class="docutils literal notranslate"><span class="pre">namespace</span></code> keyword provides a mechanism
@@ -223,31 +232,31 @@ Namespaces provide a method for preventing name conflicts in large projects.</p>
 <p>Multiple namespace blocks with the same name are allowed.
 All declarations within those blocks are declared in the named scope.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// declare some things in the mesa namespace</span>
-<span class="k">namespace</span><span class="w"> </span><span class="nn">mesa</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.1416</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">details</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">mesa</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.1416</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">details</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="p">);</span>
+<span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="n">mesa</span><span class="o">::</span><span class="n">details</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// define the function declared earlier</span>
 <span class="w">  </span><span class="c1">// do something</span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 
 <span class="c1">//void mesa::oops () {       // error: oops not yet declared in mesa namespace</span>
 <span class="c1">//}</span>
 
 <span class="k">namespace</span><span class="w"> </span><span class="nn">mesa</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// a separate mesa namespace block</span>
-<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">oops</span><span class="w"> </span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">cisc</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">oops</span><span class="w"> </span><span class="p">();</span>
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">cisc</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159265358979</span><span class="p">;</span><span class="w">  </span><span class="c1">// not the same variable as mesa::pi</span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">mesa</span><span class="o">::</span><span class="n">cisc</span><span class="o">::</span><span class="n">pi</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.f</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">mesa</span><span class="o">::</span><span class="n">details</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">mesa</span><span class="o">::</span><span class="n">cisc</span><span class="o">::</span><span class="n">pi</span><span class="p">;</span>
+<span class="w">  </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.f</span><span class="p">;</span>
+<span class="w">  </span><span class="n">mesa</span><span class="o">::</span><span class="n">details</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The larger your project, the more important it is to partition the global namespace.
@@ -272,7 +281,7 @@ If a local variable has the same name as a namespace variable,
 the namespace variable is hidden.
 It is an error to have a namespace variable with the same name as a global variable.</p>
 <section id="anonymous-namespaces">
-<span id="index-1"></span><h2><span class="section-number">3.5.1. </span>Anonymous namespaces<a class="headerlink" href="#anonymous-namespaces" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">3.5.1. </span>Anonymous namespaces<a class="headerlink" href="#anonymous-namespaces" title="Permalink to this heading">¶</a></h2>
 <p>It is possible to define a namespace without a name.
 Unnamed namespace members have potential scope
 from their point of declaration to the <strong>end of the translation unit</strong>.</p>
@@ -282,12 +291,12 @@ where the namespace is defined.</p>
 <p>Unnamed (or anonymous) namespaces are considered a ‘modern’
 C++ alternative to declaring variables as <code class="docutils literal notranslate"><span class="pre">static</span></code>
 within a translation unit.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 
 <span class="c1">// anonymous namespace</span>
-<span class="k">namespace</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">namespace</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>At one point the C++ standards committee planned to deprecate the use
@@ -306,19 +315,19 @@ Only functions and objects can be declared static.</p>
 <p>User defined types, which is the focus of the second half of this course
 cannot be declared static.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// valid statements</span>
-<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">my_function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* function body */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">my_variable</span><span class="p">;</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">my_function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* function body */</span><span class="w"> </span><span class="p">}</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">my_variable</span><span class="p">;</span>
 
 <span class="c1">// invalid</span>
-<span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">sample_class</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* class body */</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
-<span class="k">static</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">sample_struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* struct body */</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">sample_class</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* class body */</span><span class="w"> </span><span class="p">};</span>
+<span class="k">static</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">sample_struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* struct body */</span><span class="w"> </span><span class="p">};</span>
 
 <span class="c1">// valid</span>
-<span class="k">namespace</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">sample_class</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* class body */</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
-<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">sample_struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* struct body */</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">namespace</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">sample_class</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* class body */</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">sample_struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* struct body */</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </li>
@@ -332,9 +341,9 @@ and not just “xyz” with static linkage.</p></li>
 <p>At compile time,
 This definition is treated as a definition of a namespace with a
 unique name and a using-directive in the current scope.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">       </span><span class="c1">// defines ::(unique)::i</span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The unique name of the namespace is hidden.
@@ -342,18 +351,18 @@ Since it is not known, no code outside the current
 translation unit can access it.</p>
 <p>It is technically possible to have more than one unnamed
 namespace in the same translation unit.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">       </span><span class="c1">// defines ::(unique)::i</span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 
-<span class="k">namespace</span><span class="w"> </span><span class="nn">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">namespace</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">namespace</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// reusing the name &#39;i&#39; in this scope is a bad idea . . .</span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="c1">// A::(unique)::i</span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="c1">// A::(unique)::j</span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// A::unique::i++</span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>As a best practice, you should keep unnamed namespaces to a minumum
@@ -363,7 +372,7 @@ so that they stand out.</p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=ac_anon_namespace_1 data-question_label="3.5.1.1">
-<div id=ac_anon_namespace_1_question class="ac_question col-md-12">
+<div id=ac_anon_namespace_1_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="ac_anon_namespace_1_editor" 
@@ -411,7 +420,7 @@ int main() {
 
 </section>
 <section id="prefer-using-declarations-to-using-namespace-std">
-<span id="index-2"></span><h2><span class="section-number">3.5.2. </span>Prefer using declarations to <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">std</span></code><a class="headerlink" href="#prefer-using-declarations-to-using-namespace-std" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">3.5.2. </span>Prefer using declarations to <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">std</span></code><a class="headerlink" href="#prefer-using-declarations-to-using-namespace-std" title="Permalink to this heading">¶</a></h2>
 <p>What’s wrong with <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">std;</span></code>?</p>
 <p>Nothing, technically.
 It was a simplification in your first semester classes.
@@ -435,7 +444,7 @@ first as is, then remove the line <code class="docutils literal notranslate"><sp
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=ac_using_namespace_std_1 data-question_label="3.5.2.1">
-<div id=ac_using_namespace_std_1_question class="ac_question col-md-12">
+<div id=ac_using_namespace_std_1_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="ac_using_namespace_std_1_editor" 
@@ -468,7 +477,7 @@ asked on stack overflow:</p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=ac_using_namespace_std_so_2 data-question_label="3.5.2.2">
-<div id=ac_using_namespace_std_so_2_question class="ac_question col-md-12">
+<div id=ac_using_namespace_std_so_2_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="ac_using_namespace_std_so_2_editor" 
@@ -556,6 +565,8 @@ Rather, they are what make namespaces usable.</p>
 </section>
 
 
+  
+
   <div id="scprogresscontainer">
     You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
   </div>
@@ -590,8 +601,8 @@ window.addEventListener('load', (event) => {
       
     </p>
     <p>
-        &copy; Copyright 2017-2022 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.2.1.
+        &copy; Copyright 2017-2023 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.6.2.
     </p>
   </div>
 </footer>

@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>14.5. Priority queues &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -19,24 +19,27 @@
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/637.fafafbd97df8a0d1.css?v=B5361BC8" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone.e4d5592da655219f.css?v=32648AE5" />
+    <link rel="stylesheet" type="text/css" href="../_static/637.0fa6cababf056764.css?v=F9484CEF" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone.3eb60bc006ae9a54.css?v=3A5A250C" />
 
 
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
     <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
-    <script src="../_static/runtime.b0f8547c48f16a9f.bundle.js?v=2731F567"></script>
+    <script src="../_static/runtime.66b619f51b746382.bundle.js?v=C3F69EE5"></script>
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
-    <script src="../_static/runestone.0e9550fe42760516.bundle.js?v=71AD37BA"></script>
+    <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="14.6. The set class" href="set.html" />
@@ -44,6 +47,10 @@
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+
+
+<link rel="canonical" href="https://{{canonical_host}}{{new_server_prefix}}/books/published/{{base_course}}/{{pagepath}}" />
 
 
 <script>
@@ -64,7 +71,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '6.2.1';
+  eBookConfig.runestone_version = '6.6.2';
   eBookConfig.jobehost = 'https://red-voice-1370.fly.dev/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -111,6 +118,7 @@
       <ul class="nav navbar-nav navbar-right" >
 
         <li class="divider-vertical"></li>
+        <li><span id="ad_warning"></span></li>
         <li><span id="browsing_warning"></span></li>
 
         <!-- social media dropdown -->
@@ -213,7 +221,7 @@
 
   
   <section id="priority-queues">
-<span id="index-0"></span><h1><span class="section-number">14.5. </span>Priority queues<a class="headerlink" href="#priority-queues" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">14.5. </span>Priority queues<a class="headerlink" href="#priority-queues" title="Permalink to this heading">¶</a></h1>
 <p>If we have a collection of elements that carry a “score”,
 then how can we find and remove the element with the smallest (or largest) score?
 What if new elements may be added at any time?</p>
@@ -225,7 +233,7 @@ What if new elements may be added at any time?</p>
 <p>Like <a class="reference external" href="https://en.cppreference.com/w/cpp/container/stack">std::stack</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/container/queue">std::queue</a>,
 <a class="reference external" href="https://en.cppreference.com/w/cpp/container/priority_queue">std::priority_queue</a> is an adapter that works on an underlying sequential container,
 which must provide random-access iterators (vector or deque). For example:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">event</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">event_queue</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">event</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">event_queue</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Priority queues are often used to manage scheduling.
@@ -248,10 +256,10 @@ needs to reach the next intersection along its path. When it reaches the
 intersection, we schedule a new event for the intersection after that, and so
 on.</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">(</span>simulation has not ended<span class="o">)</span>
-   get next event from event_queue
-   trigger event
-end <span class="k">while</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="o">(</span>simulation<span class="w"> </span>has<span class="w"> </span>not<span class="w"> </span>ended<span class="o">)</span>
+<span class="w">   </span>get<span class="w"> </span>next<span class="w"> </span>event<span class="w"> </span>from<span class="w"> </span>event_queue
+<span class="w">   </span>trigger<span class="w"> </span>event
+end<span class="w"> </span><span class="k">while</span>
 </pre></div>
 </div>
 <p>In this example, the ‘priority’ value is time.
@@ -262,7 +270,7 @@ However, there is a data type perfectly suited to this task – a heap.
 In fact, heaps are used to implement priority queues so often that the terms
 are often used interchangeably.</p>
 <section id="heaps">
-<span id="index-1"></span><h2><span class="section-number">14.5.1. </span>Heaps<a class="headerlink" href="#heaps" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">14.5.1. </span>Heaps<a class="headerlink" href="#heaps" title="Permalink to this heading">¶</a></h2>
 <p>A <a class="reference internal" href="../glossary.html#term-heap"><span class="xref std std-term">heap</span></a> is a special tree-like data structure.
 There are many types of heaps, however, in this chapter,
 we will discuss only <em>binary heaps</em>.
@@ -304,42 +312,42 @@ tree and maintaining the heap property is required.</p>
 <p>Depending on the implementation,
 the backing store may or may not have extra storage.</p>
 <p>The heap interface can be implemented as follows:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"></span>
-<span class="w">       </span><span class="k">class</span><span class="w"> </span><span class="nc">Container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">       </span><span class="k">class</span><span class="w"> </span><span class="nc">Compare</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">greater</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Container</span><span class="o">::</span><span class="n">value_type</span><span class="o">&gt;&gt;</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span>
+<span class="w">       </span><span class="k">class</span><span class="w"> </span><span class="nc">Container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="w">       </span><span class="k">class</span><span class="w"> </span><span class="nc">Compare</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">greater</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Container</span><span class="o">::</span><span class="n">value_type</span><span class="o">&gt;&gt;</span>
 <span class="w">   </span><span class="c1">// require T is comparable</span>
-<span class="w">   </span><span class="k">class</span><span class="w"> </span><span class="nc">binary_heap</span><span class="w"></span>
-<span class="w">   </span><span class="p">{</span><span class="w"></span>
-<span class="w">     </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">       </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
-<span class="w">       </span><span class="k">using</span><span class="w"> </span><span class="n">value_compare</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Compare</span><span class="p">;</span><span class="w"></span>
-<span class="w">       </span><span class="k">static_assert</span><span class="p">((</span><span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Container</span><span class="o">::</span><span class="n">value_type</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">),</span><span class="w"></span>
-<span class="w">         </span><span class="s">&quot;heap type must match underlying container value type&quot;</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="k">class</span><span class="w"> </span><span class="nc">binary_heap</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">     </span><span class="k">public</span><span class="o">:</span>
+<span class="w">       </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">;</span>
+<span class="w">       </span><span class="k">using</span><span class="w"> </span><span class="n">value_compare</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Compare</span><span class="p">;</span>
+<span class="w">       </span><span class="k">static_assert</span><span class="p">((</span><span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Container</span><span class="o">::</span><span class="n">value_type</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">),</span>
+<span class="w">         </span><span class="s">&quot;heap type must match underlying container value type&quot;</span><span class="w"> </span><span class="p">);</span>
 
-<span class="w">       </span><span class="n">binary_heap</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="n">binary_heap</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
 <span class="w">       </span><span class="c1">// Construct a heap from an unsorted container</span>
-<span class="w">       </span><span class="k">explicit</span><span class="w"> </span><span class="n">binary_heap</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Container</span><span class="o">&amp;</span><span class="w"> </span><span class="n">items</span><span class="p">);</span><span class="w"></span>
-<span class="w">       </span><span class="k">explicit</span><span class="w"> </span><span class="n">binary_heap</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">initializer_list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"></span>
+<span class="w">       </span><span class="k">explicit</span><span class="w"> </span><span class="n">binary_heap</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Container</span><span class="o">&amp;</span><span class="w"> </span><span class="n">items</span><span class="p">);</span>
+<span class="w">       </span><span class="k">explicit</span><span class="w"> </span><span class="n">binary_heap</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">initializer_list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">)</span>
 
-<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w">     </span><span class="n">clear</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
-<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w">     </span><span class="nf">empty</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
-<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w">      </span><span class="nf">full</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
-<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">size_t</span><span class="w">    </span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
-<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">front</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w">     </span><span class="n">clear</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w">     </span><span class="nf">empty</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w">      </span><span class="nf">full</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">size_t</span><span class="w">    </span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<span class="w">       </span><span class="k">constexpr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">front</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 
-<span class="w">       </span><span class="kt">void</span><span class="w"> </span><span class="nf">pop</span><span class="p">();</span><span class="w"></span>
-<span class="w">       </span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="kt">void</span><span class="w"> </span><span class="nf">pop</span><span class="p">();</span>
+<span class="w">       </span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 
-<span class="w">     </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
-<span class="w">       </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">       </span><span class="n">Container</span><span class="w"> </span><span class="n">heap_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">T</span><span class="p">{}};</span><span class="w"></span>
+<span class="w">     </span><span class="k">private</span><span class="o">:</span>
+<span class="w">       </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">       </span><span class="n">Container</span><span class="w"> </span><span class="n">heap_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">T</span><span class="p">{}};</span>
 
-<span class="w">       </span><span class="kt">void</span><span class="w"> </span><span class="nf">percolate_down</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">hole</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
-<span class="w">       </span><span class="kt">void</span><span class="w"> </span><span class="nf">build_heap</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
-<span class="w">       </span><span class="kt">void</span><span class="w"> </span><span class="nf">percolate_up</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="kt">void</span><span class="w"> </span><span class="nf">percolate_down</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">hole</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<span class="w">       </span><span class="kt">void</span><span class="w"> </span><span class="nf">build_heap</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<span class="w">       </span><span class="kt">void</span><span class="w"> </span><span class="nf">percolate_up</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 
-<span class="w">   </span><span class="p">};</span><span class="w"></span>
+<span class="w">   </span><span class="p">};</span>
 </pre></div>
 </div>
 <p>The defining operations of a heap are:</p>
@@ -365,7 +373,7 @@ The Compare class allows the same class to function as either a min heap
 Using <a class="reference external" href="https://en.cppreference.com/w/cpp/utility/functional/less">less</a> would transform the heap into a max heap.</p>
 </section>
 <section id="percolate-up">
-<h2><span class="section-number">14.5.2. </span>Percolate up<a class="headerlink" href="#percolate-up" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.5.2. </span>Percolate up<a class="headerlink" href="#percolate-up" title="Permalink to this heading">¶</a></h2>
 <p>When a new node is added to the heap, we initially use <code class="docutils literal notranslate"><span class="pre">push_back</span></code>
 to append the new value to the ‘last’ open position in the tree (the hole).
 At this point the tree is still complete, but the new value
@@ -389,15 +397,15 @@ are greater than ‘b’, the heap property has been restored and we are done.</
 <p>The <code class="docutils literal notranslate"><span class="pre">percolate_up</span></code> function does all the hard work.
 In truth, it is a fairly short function.
 The algorithm outline is:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>percolate_up <span class="o">(</span>value<span class="o">)</span>
-   heap<span class="o">[</span><span class="m">0</span><span class="o">]</span> ← value
-   hole ← last position <span class="k">in</span> heap
-   <span class="k">while</span> <span class="o">(</span>value &lt; parent_of_hole<span class="o">)</span>
-      move parent value to hole
-      <span class="nb">set</span> hole to parent position
-   <span class="k">done</span> <span class="k">while</span>
-   move heap<span class="o">[</span><span class="m">0</span><span class="o">]</span> to heap<span class="o">[</span>hole<span class="o">]</span>
-<span class="k">done</span> percolate_up
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>percolate_up<span class="w"> </span><span class="o">(</span>value<span class="o">)</span>
+<span class="w">   </span>heap<span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span>←<span class="w"> </span>value
+<span class="w">   </span>hole<span class="w"> </span>←<span class="w"> </span>last<span class="w"> </span>position<span class="w"> </span><span class="k">in</span><span class="w"> </span>heap
+<span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="o">(</span>value<span class="w"> </span>&lt;<span class="w"> </span>parent_of_hole<span class="o">)</span>
+<span class="w">      </span>move<span class="w"> </span>parent<span class="w"> </span>value<span class="w"> </span>to<span class="w"> </span>hole
+<span class="w">      </span><span class="nb">set</span><span class="w"> </span>hole<span class="w"> </span>to<span class="w"> </span>parent<span class="w"> </span>position
+<span class="w">   </span><span class="k">done</span><span class="w"> </span><span class="k">while</span>
+<span class="w">   </span>move<span class="w"> </span>heap<span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span>to<span class="w"> </span>heap<span class="o">[</span>hole<span class="o">]</span>
+<span class="k">done</span><span class="w"> </span>percolate_up
 </pre></div>
 </div>
 <p>The actual implementation is a lab exercise.</p>
@@ -410,7 +418,7 @@ The algorithm outline is:</p>
 </ul>
 </section>
 <section id="percolate-down">
-<h2><span class="section-number">14.5.3. </span>Percolate down<a class="headerlink" href="#percolate-down" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.5.3. </span>Percolate down<a class="headerlink" href="#percolate-down" title="Permalink to this heading">¶</a></h2>
 <p>When we return a value from the top of the heap, we return the root node value.
 We now have a hole that needs to be filled.
 One approach is to move the last node in the heap to the root position
@@ -427,23 +435,23 @@ the entire function is shown.
 The main complication is that the current node might have 0 children, 1 child,
 or 2 children, so we need to be careful that we don’t try to access the value of
 non-existent children.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">percolate_down</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">hole</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">heap_</span><span class="p">[</span><span class="n">hole</span><span class="p">]);</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">percolate_down</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">hole</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">heap_</span><span class="p">[</span><span class="n">hole</span><span class="p">]);</span>
 
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">child</span><span class="p">;</span><span class="w"> </span><span class="n">hole</span><span class="o">*</span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">size_</span><span class="p">;</span><span class="w"> </span><span class="n">hole</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hole</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">child</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">size_</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">heap_</span><span class="p">[</span><span class="n">child</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">heap_</span><span class="p">[</span><span class="n">child</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="o">++</span><span class="n">child</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">heap_</span><span class="p">[</span><span class="n">child</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tmp</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">heap_</span><span class="p">[</span><span class="n">hole</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">heap_</span><span class="p">[</span><span class="n">child</span><span class="p">]);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="n">heap_</span><span class="p">[</span><span class="n">hole</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">child</span><span class="p">;</span><span class="w"> </span><span class="n">hole</span><span class="o">*</span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">size_</span><span class="p">;</span><span class="w"> </span><span class="n">hole</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hole</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">child</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">size_</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">heap_</span><span class="p">[</span><span class="n">child</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">heap_</span><span class="p">[</span><span class="n">child</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="o">++</span><span class="n">child</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">heap_</span><span class="p">[</span><span class="n">child</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tmp</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">heap_</span><span class="p">[</span><span class="n">hole</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">heap_</span><span class="p">[</span><span class="n">child</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">heap_</span><span class="p">[</span><span class="n">hole</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>A walk-through follows.
@@ -515,6 +523,8 @@ by Steven J. Zeil for his data structures course CS361.</p></li>
 </section>
 
 
+  
+
   <div id="scprogresscontainer">
     You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
   </div>
@@ -549,8 +559,8 @@ window.addEventListener('load', (event) => {
       
     </p>
     <p>
-        &copy; Copyright 2017-2022 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.2.1.
+        &copy; Copyright 2017-2023 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.6.2.
     </p>
   </div>
 </footer>

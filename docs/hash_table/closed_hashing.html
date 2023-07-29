@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>15.5. Closed hashing &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -19,30 +19,37 @@
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/637.fafafbd97df8a0d1.css?v=B5361BC8" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone.e4d5592da655219f.css?v=32648AE5" />
+    <link rel="stylesheet" type="text/css" href="../_static/637.0fa6cababf056764.css?v=F9484CEF" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone.3eb60bc006ae9a54.css?v=3A5A250C" />
 
 
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
     <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
-    <script src="../_static/runtime.b0f8547c48f16a9f.bundle.js?v=2731F567"></script>
+    <script src="../_static/runtime.66b619f51b746382.bundle.js?v=C3F69EE5"></script>
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
-    <script src="../_static/runestone.0e9550fe42760516.bundle.js?v=71AD37BA"></script>
+    <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="15.4. Open hashing" href="open_hashing.html" />
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+
+
+<link rel="canonical" href="https://{{canonical_host}}{{new_server_prefix}}/books/published/{{base_course}}/{{pagepath}}" />
 
 
 <script>
@@ -63,7 +70,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '6.2.1';
+  eBookConfig.runestone_version = '6.6.2';
   eBookConfig.jobehost = 'https://red-voice-1370.fly.dev/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -110,6 +117,7 @@
       <ul class="nav navbar-nav navbar-right" >
 
         <li class="divider-vertical"></li>
+        <li><span id="ad_warning"></span></li>
         <li><span id="browsing_warning"></span></li>
 
         <!-- social media dropdown -->
@@ -208,7 +216,7 @@
 
   
   <section id="closed-hashing">
-<span id="index-0"></span><h1><span class="section-number">15.5. </span>Closed hashing<a class="headerlink" href="#closed-hashing" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">15.5. </span>Closed hashing<a class="headerlink" href="#closed-hashing" title="Permalink to this heading">¶</a></h1>
 <p>In closed hashing, the hash array contains individual elements
 rather than a collection of elements.
 When a key we want to insert collides with a key already in the table,
@@ -218,39 +226,39 @@ the table where we can place the new key.</p>
 one data element and a status field indicating whether that slot is
 <em>occupied</em>, <em>empty</em>, or <em>deleted</em>.</p>
 <div id='hash_set_tab_group' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="hash_set" >
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">hash_status</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">OCCUPIED</span><span class="p">,</span><span class="w"> </span><span class="n">EMPTY</span><span class="p">,</span><span class="w"> </span><span class="n">DELETED</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">hash_status</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">OCCUPIED</span><span class="p">,</span><span class="w"> </span><span class="n">EMPTY</span><span class="p">,</span><span class="w"> </span><span class="n">DELETED</span><span class="w"> </span><span class="p">};</span>
 
-<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
-<span class="k">struct</span><span class="w"> </span><span class="nc">hash_entry</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">hash_status</span><span class="w"> </span><span class="n">info</span><span class="p">;</span><span class="w"></span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">hash_entry</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">  </span><span class="n">hash_status</span><span class="w"> </span><span class="n">info</span><span class="p">;</span>
 
-<span class="w">  </span><span class="n">hash_entry</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="n">info</span><span class="p">(</span><span class="n">hash_status</span><span class="o">::</span><span class="n">EMPTY</span><span class="p">)</span><span class="w">  </span><span class="p">{}</span><span class="w"></span>
-<span class="w">  </span><span class="n">hash_entry</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">hash_status</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">data</span><span class="p">{</span><span class="n">value</span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">(</span><span class="n">status</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{}</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="n">hash_entry</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="n">info</span><span class="p">(</span><span class="n">hash_status</span><span class="o">::</span><span class="n">EMPTY</span><span class="p">)</span><span class="w">  </span><span class="p">{}</span>
+<span class="w">  </span><span class="n">hash_entry</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">hash_status</span><span class="w"> </span><span class="n">status</span><span class="p">)</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">data</span><span class="p">{</span><span class="n">value</span><span class="p">}</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{}</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">hash_set</span></code> backing store is an array of <code class="docutils literal notranslate"><span class="pre">hash_entry</span></code>
 objects.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Key</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="k">class</span><span class="w"> </span><span class="nc">Comparator</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">equal_to</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;&gt;</span><span class="w"></span>
-<span class="k">class</span><span class="w"> </span><span class="nc">hash_set</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Key</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">key_type</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">Key</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Key</span><span class="p">,</span>
+<span class="w">          </span><span class="kt">size_t</span><span class="w"> </span><span class="n">N</span><span class="p">,</span>
+<span class="w">          </span><span class="k">class</span><span class="w"> </span><span class="nc">Comparator</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">equal_to</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">hash_set</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Key</span><span class="p">;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">key_type</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">Key</span><span class="p">;</span>
 
-<span class="w">    </span><span class="n">hash_set</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="n">array</span><span class="o">&lt;</span><span class="n">hash_entry</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="w"> </span><span class="n">table</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">Comparator</span><span class="w"> </span><span class="n">compare</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">sz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="n">hash_set</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">array</span><span class="o">&lt;</span><span class="n">hash_entry</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="w"> </span><span class="n">table</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Comparator</span><span class="w"> </span><span class="n">compare</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">sz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 <p>Collisions are resolved by trying a series of locations,
@@ -286,24 +294,24 @@ mark the position as <code class="docutils literal notranslate"><span class="pre
 <p>Find takes a value of the <code class="docutils literal notranslate"><span class="pre">hash_entry</span></code> key type as a parameter
 and returns the position of the value in the table.
 It returns <code class="docutils literal notranslate"><span class="pre">N</span></code> if the value is not in the table.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span><span class="w"> </span><span class="nf">find</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Key</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">value</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="hll"><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">DELETED</span><span class="w"> </span><span class="o">||</span><span class="w"></span>
-</span><span class="hll"><span class="w">         </span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">OCCUPIED</span><span class="w"></span>
-</span><span class="hll"><span class="w">         </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">compare</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">))))</span><span class="w"></span>
-</span><span class="hll"><span class="w">      </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"></span>
-</span><span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="o">++</span><span class="n">count</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">hash</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">next_slot</span><span class="p">(</span><span class="n">count</span><span class="p">))</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">EMPTY</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">pos</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span><span class="w"> </span><span class="nf">find</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Key</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="hll"><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">DELETED</span><span class="w"> </span><span class="o">||</span>
+</span><span class="hll"><span class="w">         </span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">OCCUPIED</span>
+</span><span class="hll"><span class="w">         </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">compare</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">))))</span>
+</span><span class="hll"><span class="w">      </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
+</span><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="o">++</span><span class="n">count</span><span class="p">;</span>
+<span class="w">    </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">hash</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">next_slot</span><span class="p">(</span><span class="n">count</span><span class="p">))</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">EMPTY</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">pos</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The loop condition is fairly complicated and needs discussion.
@@ -316,17 +324,17 @@ There are three ways to exit this loop:</p>
 </div><div data-component="tab" data-tabname="contains" >
 <p>With <code class="docutils literal notranslate"><span class="pre">find</span></code> in place, other search operations are easy.
 Simply call find and evaluate the results.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">constexpr</span><span class="w"></span>
-<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">contains</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Key</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w">  </span><span class="n">find</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">constexpr</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">contains</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Key</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w">  </span><span class="n">find</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">count</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Key</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">value</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w">  </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">count</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Key</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w">  </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Note that since our set is still forcing a uniqueness constraint,
@@ -339,14 +347,14 @@ Easier than the <code class="docutils literal notranslate"><span class="pre">era
 <li><p>If found, we mark that slot <code class="docutils literal notranslate"><span class="pre">DELETED</span></code> and decrement the size.</p></li>
 <li><p>Otherwise, do nothing.</p></li>
 </ul>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">erase</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Key</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">value</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">DELETED</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="o">--</span><span class="n">sz</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">erase</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Key</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">DELETED</span><span class="p">;</span>
+<span class="w">    </span><span class="o">--</span><span class="n">sz</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div><div data-component="tab" data-tabname="insert" >
@@ -354,30 +362,30 @@ Easier than the <code class="docutils literal notranslate"><span class="pre">era
 looking for an open slot to store a value.</p>
 <p>Because this is a set (and not a multiset) we first call <code class="docutils literal notranslate"><span class="pre">find</span></code>
 to see if the value is already there.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="nf">insert</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Key</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">value</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">value</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">OCCUPIED</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="o">++</span><span class="n">count</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">hash</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">next_slot</span><span class="p">(</span><span class="n">count</span><span class="p">))</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="nf">insert</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Key</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">OCCUPIED</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="o">++</span><span class="n">count</span><span class="p">;</span>
+<span class="w">      </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">hash</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">next_slot</span><span class="p">(</span><span class="n">count</span><span class="p">))</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// could not add, table is full</span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">OCCUPIED</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="o">++</span><span class="n">sz</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">OCCUPIED</span><span class="p">;</span>
+<span class="w">    </span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">    </span><span class="o">++</span><span class="n">sz</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="w">  </span><span class="c1">// else replace existing value</span>
-<span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>If not found (<code class="docutils literal notranslate"><span class="pre">pos</span> <span class="pre">==</span> <span class="pre">N</span></code>), then we need to find a slot.
@@ -397,7 +405,7 @@ with the different probing strategies.</p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=hash_table_closed_ac data-question_label="15.5.1">
-<div id=hash_table_closed_ac_question class="ac_question col-md-12">
+<div id=hash_table_closed_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="hash_table_closed_ac_editor" 
@@ -600,29 +608,29 @@ int main() {
     </div>
 
 <section id="choosing-the-next-slot">
-<span id="index-1"></span><h2><span class="section-number">15.5.1. </span>Choosing the next slot<a class="headerlink" href="#choosing-the-next-slot" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">15.5.1. </span>Choosing the next slot<a class="headerlink" href="#choosing-the-next-slot" title="Permalink to this heading">¶</a></h2>
 <p>The function <code class="docutils literal notranslate"><span class="pre">next_slot(n)</span></code> in the <code class="docutils literal notranslate"><span class="pre">find</span></code> and <code class="docutils literal notranslate"><span class="pre">insert</span></code> functions
 controls the sequence of positions that will be checked.
 It is the implementation of the function <span class="math notranslate nohighlight">\(f(n)\)</span> mentioned earlier.
 Recall the find function:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span><span class="w"> </span><span class="nf">find</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Key</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">value</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">DELETED</span><span class="w"> </span><span class="o">||</span><span class="w"></span>
-<span class="w">         </span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">OCCUPIED</span><span class="w"></span>
-<span class="w">         </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">compare</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">))))</span><span class="w"></span>
-<span class="w">      </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="o">++</span><span class="n">count</span><span class="p">;</span><span class="w"></span>
-<span class="hll"><span class="w">    </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">hash</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">next_slot</span><span class="p">(</span><span class="n">count</span><span class="p">))</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"></span>
-</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">EMPTY</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">pos</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span><span class="w"> </span><span class="nf">find</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Key</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">hash</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">()(</span><span class="n">value</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">DELETED</span><span class="w"> </span><span class="o">||</span>
+<span class="w">         </span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">OCCUPIED</span>
+<span class="w">         </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">compare</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">))))</span>
+<span class="w">      </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="o">++</span><span class="n">count</span><span class="p">;</span>
+<span class="hll"><span class="w">    </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">hash</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">next_slot</span><span class="p">(</span><span class="n">count</span><span class="p">))</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
+</span><span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">table</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hash_status</span><span class="o">::</span><span class="n">EMPTY</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">N</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">pos</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>On our <span class="math notranslate nohighlight">\(n_{th}\)</span> try, we examine the position</p>
@@ -678,7 +686,7 @@ a place to insert a new key.</p>
 </dl>
 </section>
 <section id="analysis-of-closed-hashing">
-<h2><span class="section-number">15.5.2. </span>Analysis of closed hashing<a class="headerlink" href="#analysis-of-closed-hashing" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">15.5.2. </span>Analysis of closed hashing<a class="headerlink" href="#analysis-of-closed-hashing" title="Permalink to this heading">¶</a></h2>
 <p>We define <span class="math notranslate nohighlight">\(\lambda\)</span>, the <a class="reference internal" href="../glossary.html#term-load-factor"><span class="xref std std-term">load factor</span></a> of a hash table,
 as the number of items contained in the table divided by the table size.
 In other words, the load factor measures what fraction of the table is full.
@@ -730,6 +738,8 @@ by Steven J. Zeil for his data structures course CS361.</p></li>
 </section>
 
 
+  
+
   <div id="scprogresscontainer">
     You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
   </div>
@@ -759,8 +769,8 @@ window.addEventListener('load', (event) => {
       
     </p>
     <p>
-        &copy; Copyright 2017-2022 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.2.1.
+        &copy; Copyright 2017-2023 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.6.2.
     </p>
   </div>
 </footer>

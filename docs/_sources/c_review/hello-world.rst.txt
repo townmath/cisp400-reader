@@ -416,6 +416,27 @@ to perform tasks perhaps as complex as:
 * Parsing text
 
 
+For example, loops and conditionals make it easy to 
+print all the odd numbers between 1 and 100, inclusive.
+
+.. activecode:: ac_print_odds_hello_world
+   :language: cpp
+   :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+   :nocodelens:
+
+   #include <iostream>
+   using std::cout;
+
+   int main() {
+     cout << "Odd numbers:\n";
+     for (int num = 1; num <= 100; ++num) {
+       if (num % 2 != 0) {
+         cout << '\t' << num << '\n';
+       }
+     }
+   }
+
+
 Fixing errors in code
 ---------------------
 

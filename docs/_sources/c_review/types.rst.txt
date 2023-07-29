@@ -653,7 +653,7 @@ using :io:`oct <manip/hex>`,
 
    .. tab:: std::hex
 
-      TThese functions are all I/O manipulators.
+      These functions are all I/O manipulators.
       They may be called with an expression such as 
       
       .. code-block:: cpp
@@ -682,12 +682,12 @@ using :io:`oct <manip/hex>`,
                    << " and 21 as hex gives " << 21 << '\n';
 
 
-   .. tab:: Run It
+   .. tab:: ASCII Table
 
       This example displays a simple table of the ASCII characters
       in 3 different bases.
 
-      .. activecode:: ac-hex-doc-oct
+      .. activecode:: types_ascii_table_example_ac
          :language: cpp
          :nocodelens:
 

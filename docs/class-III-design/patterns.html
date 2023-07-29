@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>9.6. Design patterns &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -19,23 +19,27 @@
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/637.fafafbd97df8a0d1.css?v=B5361BC8" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone.e4d5592da655219f.css?v=32648AE5" />
+    <link rel="stylesheet" type="text/css" href="../_static/637.0fa6cababf056764.css?v=F9484CEF" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone.3eb60bc006ae9a54.css?v=3A5A250C" />
 
 
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
     <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
-    <script src="../_static/runtime.b0f8547c48f16a9f.bundle.js?v=2731F567"></script>
+    <script src="../_static/runtime.66b619f51b746382.bundle.js?v=C3F69EE5"></script>
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
-    <script src="../_static/runestone.0e9550fe42760516.bundle.js?v=71AD37BA"></script>
+    <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10. Class templates and std::array" href="../class-IV-templates/index.html" />
@@ -43,6 +47,10 @@
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+
+
+<link rel="canonical" href="https://{{canonical_host}}{{new_server_prefix}}/books/published/{{base_course}}/{{pagepath}}" />
 
 
 <script>
@@ -63,7 +71,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '6.2.1';
+  eBookConfig.runestone_version = '6.6.2';
   eBookConfig.jobehost = 'https://red-voice-1370.fly.dev/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -110,6 +118,7 @@
       <ul class="nav navbar-nav navbar-right" >
 
         <li class="divider-vertical"></li>
+        <li><span id="ad_warning"></span></li>
         <li><span id="browsing_warning"></span></li>
 
         <!-- social media dropdown -->
@@ -212,7 +221,7 @@
 
   
   <section id="design-patterns">
-<span id="index-0"></span><h1><span class="section-number">9.6. </span>Design patterns<a class="headerlink" href="#design-patterns" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">9.6. </span>Design patterns<a class="headerlink" href="#design-patterns" title="Permalink to this heading">¶</a></h1>
 <p>A software design pattern is a general,
 reusable solution to a common software problem.
 It is not an actual implementation,
@@ -233,7 +242,7 @@ The book had 4 authors and together they became known as the
 <p class="attribution">—Head First Design Patterns, Freeman and Robson, 2014, p. 1.</p>
 </div></blockquote>
 <section id="fixing-an-inheritance-problem">
-<span id="index-1"></span><h2><span class="section-number">9.6.1. </span>Fixing an inheritance problem<a class="headerlink" href="#fixing-an-inheritance-problem" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">9.6.1. </span>Fixing an inheritance problem<a class="headerlink" href="#fixing-an-inheritance-problem" title="Permalink to this heading">¶</a></h2>
 <p>Recall our flying penguin problem from the section on <a class="reference internal" href="inheritance.html"><span class="doc">Inheritance</span></a>:</p>
 <div class="graphviz"><img src="../_images/graphviz-4f4a8568388d21558ad3c2e2b10048d157749acf.png" alt="Bird inheritance" class="graphviz" /></div>
 <p>This type of design error is actually common.</p>
@@ -296,7 +305,7 @@ we can later change or extend them without impacting other parts of the system.<
 <p>This simple idea is the motivation behind nearly every design pattern.</p>
 </div>
 <section id="strategy-pattern">
-<span id="index-2"></span><h3><span class="section-number">9.6.1.1. </span>Strategy pattern<a class="headerlink" href="#strategy-pattern" title="Permalink to this headline">¶</a></h3>
+<span id="index-2"></span><h3><span class="section-number">9.6.1.1. </span>Strategy pattern<a class="headerlink" href="#strategy-pattern" title="Permalink to this heading">¶</a></h3>
 <p>We can think of flying as a <em>strategy</em> different birds employ to move around.
 Birds don’t <em>inherit</em> a fly behavior, they <em>have it</em>.
 The centerpiece of the solution is to isolate many different
@@ -306,40 +315,40 @@ Each implementation defines a different <strong>strategy</strong> for the interf
 <div class="graphviz"><img src="../_images/graphviz-6fc0bb2553a39a2bd16773c14357300eb96d90ab.png" alt="Flying strategy" class="graphviz" /></div>
 <p>Any callable entity (function, function object, or lambda) is
 a potential strategy that derived classes of a bird can now use.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;functional&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span><span class="cp"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;functional&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span>
 
 <span class="cp">#define FunctionObject typename</span>
 
 <span class="c1">// an alias to avoid copying std::function ... everywhere</span>
-<span class="k">using</span><span class="w"> </span><span class="n">fly_strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="n">fly_strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">fly_behavior</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="n">FunctionObject</span><span class="w"> </span><span class="n">F</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">fly_behavior</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">strategy</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">strategy</span><span class="w"> </span><span class="p">{</span><span class="n">strategy</span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">fly_behavior</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="n">FunctionObject</span><span class="w"> </span><span class="n">F</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">fly_behavior</span><span class="p">(</span><span class="n">F</span><span class="w"> </span><span class="n">strategy</span><span class="p">)</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">strategy</span><span class="w"> </span><span class="p">{</span><span class="n">strategy</span><span class="p">}</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">fly</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">strategy</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">fly</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">strategy</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 
-<span class="w">  </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="n">fly_strategy</span><span class="w"> </span><span class="n">strategy</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">fly_strategy</span><span class="w"> </span><span class="n">strategy</span><span class="p">;</span>
+<span class="p">};</span>
 
 <span class="c1">// a function object that implements a strategy</span>
-<span class="k">struct</span><span class="w"> </span><span class="nc">soar</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;fly by soaring.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">soar</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;fly by soaring.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
 
 <span class="c1">// a free function can also implement a strategy</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">no_flying_allowed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;I don&#39;t fly.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">no_flying_allowed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;I don&#39;t fly.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The base class now <em>delgates</em> the fly behavior to the strategy
@@ -354,25 +363,25 @@ design decision.
 In general, if the strategy also needs to store state information,
 then implement as a class or function object.
 If the strategy is stateless, then implement a functional solution.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">bird</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">fly_strategy</span><span class="w"> </span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soar</span><span class="p">();</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">bird</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">fly_strategy</span><span class="w"> </span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soar</span><span class="p">();</span>
 
-<span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">  </span><span class="n">bird</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">bird</span><span class="p">(</span><span class="n">fly_strategy</span><span class="w"> </span><span class="n">strategy</span><span class="p">)</span><span class="w"></span>
-<span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">strategy</span><span class="p">(</span><span class="n">strategy</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">{}</span><span class="w"></span>
-<span class="w">  </span><span class="o">~</span><span class="n">bird</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">  </span><span class="n">bird</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">bird</span><span class="p">(</span><span class="n">fly_strategy</span><span class="w"> </span><span class="n">strategy</span><span class="p">)</span>
+<span class="w">   </span><span class="o">:</span><span class="w"> </span><span class="n">strategy</span><span class="p">(</span><span class="n">strategy</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{}</span>
+<span class="w">  </span><span class="o">~</span><span class="n">bird</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 
 <span class="w">  </span><span class="c1">// change strategy mid-stream</span>
-<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">fly_behavior</span><span class="w"> </span><span class="p">(</span><span class="n">fly_strategy</span><span class="w"> </span><span class="n">new_strategy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_strategy</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">fly_behavior</span><span class="w"> </span><span class="p">(</span><span class="n">fly_strategy</span><span class="w"> </span><span class="n">new_strategy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_strategy</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">fly</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="n">strategy</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">fly</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">strategy</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 <p>In this example, a bird may</p>
@@ -383,36 +392,36 @@ If the strategy is stateless, then implement a functional solution.</p>
 </ul>
 <p>An example of birds using the strategy:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// a hawk can use the default soar behavior</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">hawk</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">bird</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">   </span><span class="n">hawk</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">hawk</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">bird</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">   </span><span class="n">hawk</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
 
 <span class="c1">// this penguin defines its fly behavior using a free function</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">penguin</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">bird</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">   </span><span class="n">penguin</span><span class="p">()</span><span class="w"></span>
-<span class="w">     </span><span class="o">:</span><span class="w"> </span><span class="n">bird</span><span class="p">(</span><span class="n">no_flying_allowed</span><span class="p">)</span><span class="w"></span>
-<span class="w">   </span><span class="p">{}</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">penguin</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">bird</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">   </span><span class="n">penguin</span><span class="p">()</span>
+<span class="w">     </span><span class="o">:</span><span class="w"> </span><span class="n">bird</span><span class="p">(</span><span class="n">no_flying_allowed</span><span class="p">)</span>
+<span class="w">   </span><span class="p">{}</span>
+<span class="p">};</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">hawk</span><span class="w"> </span><span class="n">h</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">h</span><span class="p">.</span><span class="n">fly</span><span class="p">();</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">hawk</span><span class="w"> </span><span class="n">h</span><span class="p">;</span>
+<span class="w">  </span><span class="n">h</span><span class="p">.</span><span class="n">fly</span><span class="p">();</span>
 
-<span class="w">  </span><span class="n">penguin</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">p</span><span class="p">.</span><span class="n">fly</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">penguin</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="n">p</span><span class="p">.</span><span class="n">fly</span><span class="p">();</span>
 
 <span class="w">  </span><span class="c1">// change the behavior for just this penguin</span>
-<span class="w">  </span><span class="n">p</span><span class="p">.</span><span class="n">fly_behavior</span><span class="p">(</span><span class="w"></span>
-<span class="w">     </span><span class="p">[](){</span><span class="w"></span>
-<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;With a rocket pack, now I can fly!!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">     </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">p</span><span class="p">.</span><span class="n">fly</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">p</span><span class="p">.</span><span class="n">fly_behavior</span><span class="p">(</span>
+<span class="w">     </span><span class="p">[](){</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;With a rocket pack, now I can fly!!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="w">  </span><span class="n">p</span><span class="p">.</span><span class="n">fly</span><span class="p">();</span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Notice that we fixed our inheritance problem by using <a class="reference internal" href="../glossary.html#term-composition"><span class="xref std std-term">composition</span></a>.
@@ -421,7 +430,7 @@ it also allowed a simple hook to enable changing the behavior at runtime.</p>
 </section>
 </section>
 <section id="chain-of-responsibility-pattern">
-<span id="index-3"></span><h2><span class="section-number">9.6.2. </span>Chain of Responsibility pattern<a class="headerlink" href="#chain-of-responsibility-pattern" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2><span class="section-number">9.6.2. </span>Chain of Responsibility pattern<a class="headerlink" href="#chain-of-responsibility-pattern" title="Permalink to this heading">¶</a></h2>
 <p>Sometimes we need to give more than one object a chance to handle a request.
 The Chain of Responsibility pattern is a ‘behavioral’ software design pattern.
 The goal of the pattern is to separate request senders and request handlers,
@@ -445,19 +454,19 @@ dynamically-built switch statement.</p>
 <div id='cor_pattern_tab' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Abstract class" >
 <p>First we define an abstract class each handler
 in the chain of responsibility must implement.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
 
-<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Answer</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">NO</span><span class="p">,</span><span class="w"> </span><span class="n">YES</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Answer</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">NO</span><span class="p">,</span><span class="w"> </span><span class="n">YES</span><span class="w"> </span><span class="p">};</span>
 
 <span class="c1">// This is our abstract handler</span>
 <span class="c1">// Every class that inherits from this</span>
 <span class="c1">// must implement the canIHave function</span>
-<span class="k">struct</span><span class="w"> </span><span class="nc">GimmeStrategy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">Answer</span><span class="w"> </span><span class="nf">canIHave</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">GimmeStrategy</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">GimmeStrategy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">Answer</span><span class="w"> </span><span class="nf">canIHave</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">GimmeStrategy</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 <p>Rather than a <code class="docutils literal notranslate"><span class="pre">bool</span></code>, in this case, our early termination
@@ -465,33 +474,33 @@ criteria is an enumerated type.</p>
 </div><div data-component="tab" data-tabname="Implementing classes" >
 <p>For a chain to be a chain, at least two classes must implement the interface.
 (It’s not much of a chain with only 1 link).</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">AskMom</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GimmeStrategy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">Answer</span><span class="w"> </span><span class="nf">canIHave</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Mommy? Can I have this?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">AskMom</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GimmeStrategy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Answer</span><span class="w"> </span><span class="nf">canIHave</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Mommy? Can I have this?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
 
-<span class="k">struct</span><span class="w"> </span><span class="nc">AskDad</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GimmeStrategy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">Answer</span><span class="w"> </span><span class="nf">canIHave</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Dad, I really need this!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">AskDad</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GimmeStrategy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Answer</span><span class="w"> </span><span class="nf">canIHave</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Dad, I really need this!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
 
-<span class="k">struct</span><span class="w"> </span><span class="nc">AskGrandpa</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GimmeStrategy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">Answer</span><span class="w"> </span><span class="nf">canIHave</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Grandpa, is it my birthday yet?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">AskGrandpa</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GimmeStrategy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Answer</span><span class="w"> </span><span class="nf">canIHave</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Grandpa, is it my birthday yet?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
 
-<span class="k">struct</span><span class="w"> </span><span class="nc">AskGrandma</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GimmeStrategy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">Answer</span><span class="w"> </span><span class="nf">canIHave</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Grandma, I really love you!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">YES</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">AskGrandma</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GimmeStrategy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Answer</span><span class="w"> </span><span class="nf">canIHave</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Grandma, I really love you!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">YES</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 </div><div data-component="tab" data-tabname="Building the chain" >
@@ -505,42 +514,42 @@ How that is implemented should be invisible to users.</p>
 <p>While the <code class="docutils literal notranslate"><span class="pre">Gimme</span></code> class also is derived from the <code class="docutils literal notranslate"><span class="pre">GimmeStrategy</span></code>
 it is used to construct the chain of all the other strategies
 used.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Gimme</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GimmeStrategy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
-<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">chain</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">     </span><span class="n">Gimme</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">       </span><span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AskMom</span><span class="p">));</span><span class="w"></span>
-<span class="w">       </span><span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AskDad</span><span class="p">));</span><span class="w"></span>
-<span class="w">       </span><span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AskGrandpa</span><span class="p">));</span><span class="w"></span>
-<span class="w">       </span><span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AskGrandma</span><span class="p">));</span><span class="w"></span>
-<span class="w">     </span><span class="p">}</span><span class="w"></span>
-<span class="w">     </span><span class="n">Answer</span><span class="w"> </span><span class="n">canIHave</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">       </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">it</span><span class="o">:</span><span class="w"> </span><span class="n">chain</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">canIHave</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">YES</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">YES</span><span class="p">;</span><span class="w"></span>
-<span class="w">         </span><span class="p">}</span><span class="w"></span>
-<span class="w">       </span><span class="p">}</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Gimme</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GimmeStrategy</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">private</span><span class="o">:</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">chain</span><span class="p">;</span>
+<span class="w">   </span><span class="k">public</span><span class="o">:</span>
+<span class="w">     </span><span class="n">Gimme</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AskMom</span><span class="p">));</span>
+<span class="w">       </span><span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AskDad</span><span class="p">));</span>
+<span class="w">       </span><span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AskGrandpa</span><span class="p">));</span>
+<span class="w">       </span><span class="n">chain</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GimmeStrategy</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AskGrandma</span><span class="p">));</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="w">     </span><span class="n">Answer</span><span class="w"> </span><span class="n">canIHave</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">it</span><span class="o">:</span><span class="w"> </span><span class="n">chain</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">canIHave</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">YES</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">YES</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">       </span><span class="p">}</span>
 <span class="w">       </span><span class="c1">// Reached end without success...</span>
-<span class="w">       </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Waaaaaahh!!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span><span class="w"></span>
-<span class="w">     </span><span class="p">}</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="w">       </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Waaaaaahh!!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="o">::</span><span class="n">NO</span><span class="p">;</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 <p>Once the abstract and implementing classes have been defined,
 then calling the chain is easy:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">Gimme</span><span class="w"> </span><span class="n">chain</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">chain</span><span class="p">.</span><span class="n">canIHave</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Gimme</span><span class="w"> </span><span class="n">chain</span><span class="p">;</span>
+<span class="w">  </span><span class="n">chain</span><span class="p">.</span><span class="n">canIHave</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=ac_class_design_pattern_chain_of_responsibility data-question_label="9.6.2.1">
-<div id=ac_class_design_pattern_chain_of_responsibility_question class="ac_question col-md-12">
+<div id=ac_class_design_pattern_chain_of_responsibility_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="ac_class_design_pattern_chain_of_responsibility_editor" 
@@ -650,6 +659,8 @@ that’s still over 20 years ago!</p>
 </section>
 
 
+  
+
   <div id="scprogresscontainer">
     You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
   </div>
@@ -684,8 +695,8 @@ window.addEventListener('load', (event) => {
       
     </p>
     <p>
-        &copy; Copyright 2017-2022 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.2.1.
+        &copy; Copyright 2017-2023 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.6.2.
     </p>
   </div>
 </footer>

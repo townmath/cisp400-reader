@@ -290,6 +290,32 @@ passwd
       </div>
 
     
+.. admonition:: Try This!
+
+   Modify this program to make the output look like the table in the ascii man page.
+
+   
+   .. activecode:: linux_ascii_table_tryit_ac
+      :language: cpp
+      :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+      :nocodelens:
+
+      #include <iostream>
+      #include <string>
+
+      int main() {
+        std::string heading = "\ndec\toct\thex\tchar\n============================\n";
+        for (int i = 0; i < 128; ++i) {
+          if (i%20 == 0) std::cout << heading;
+          char c = i;
+          // the printable characters are between hex 20 and 7e
+          std::cout << std::dec << i << '\t'
+                    << std::oct << i << '\t'
+                    << std::hex << i << "\t'" << c << "'\n";
+        }
+        return 0;
+      }
+         
 
 -----
 
@@ -302,4 +328,5 @@ passwd
    - :wiki:`UNIX Philosophy <Unix_philosophy>` - from Wikipedia
    - Learn Enough\ |trade| `Command-Line to be Dangerous tutorial <http://www.learnenough.com/command-line-tutorial>`_ by Michael Hartl.
    - `Ryans Tutorials: Linux <http://ryanstutorials.net/linuxtutorial/>`_ - a decent introduction to the linux command line 
+
 

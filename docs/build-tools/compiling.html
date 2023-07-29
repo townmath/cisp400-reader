@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>1.3. Building software &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -19,23 +19,27 @@
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/637.fafafbd97df8a0d1.css?v=B5361BC8" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone.e4d5592da655219f.css?v=32648AE5" />
+    <link rel="stylesheet" type="text/css" href="../_static/637.0fa6cababf056764.css?v=F9484CEF" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone.3eb60bc006ae9a54.css?v=3A5A250C" />
 
 
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
     <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
-    <script src="../_static/runtime.b0f8547c48f16a9f.bundle.js?v=2731F567"></script>
+    <script src="../_static/runtime.66b619f51b746382.bundle.js?v=C3F69EE5"></script>
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
-    <script src="../_static/runestone.0e9550fe42760516.bundle.js?v=71AD37BA"></script>
+    <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1.5. Introducing Gnu/Linux" href="linux.html" />
@@ -43,6 +47,10 @@
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+
+
+<link rel="canonical" href="https://{{canonical_host}}{{new_server_prefix}}/books/published/{{base_course}}/{{pagepath}}" />
 
 
 <script>
@@ -63,7 +71,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '6.2.1';
+  eBookConfig.runestone_version = '6.6.2';
   eBookConfig.jobehost = 'https://red-voice-1370.fly.dev/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -110,6 +118,7 @@
       <ul class="nav navbar-nav navbar-right" >
 
         <li class="divider-vertical"></li>
+        <li><span id="ad_warning"></span></li>
         <li><span id="browsing_warning"></span></li>
 
         <!-- social media dropdown -->
@@ -212,7 +221,7 @@
 
   
   <section id="building-software">
-<span id="index-0"></span><h1><span class="section-number">1.3. </span>Building software<a class="headerlink" href="#building-software" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">1.3. </span>Building software<a class="headerlink" href="#building-software" title="Permalink to this heading">¶</a></h1>
 <p>In this section we will learn one way to compile and run programs.
 If you plan to use the Mesa Linux server,
 then this section describes what you need to know.
@@ -311,7 +320,7 @@ current directory.</p>
 <li><p>Test cases are written using the <code class="docutils literal notranslate"><span class="pre">doctest</span></code> library and build using <code class="docutils literal notranslate"><span class="pre">make</span></code>.</p></li>
 </ul>
 <section id="how-to-access-the-mesa-server">
-<span id="index-1"></span><h2><span class="section-number">1.3.1. </span>How to access the Mesa Server<a class="headerlink" href="#how-to-access-the-mesa-server" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">1.3.1. </span>How to access the Mesa Server<a class="headerlink" href="#how-to-access-the-mesa-server" title="Permalink to this heading">¶</a></h2>
 <p>All projects and some of the lab assignments are required to be handed in on the
 San Diego Mesa College server <strong>buffy</strong>.
 Access is only available using a <em>secure shell</em> client program (ssh).
@@ -336,7 +345,7 @@ to connect to the server:</p>
 <p>where <em>fireNN*</em> is the user name assigned to you by the instructor.</p>
 </section>
 <section id="for-the-impatient-a-quick-summary">
-<span id="index-2"></span><h2><span class="section-number">1.3.2. </span>For the impatient: A quick summary<a class="headerlink" href="#for-the-impatient-a-quick-summary" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">1.3.2. </span>For the impatient: A quick summary<a class="headerlink" href="#for-the-impatient-a-quick-summary" title="Permalink to this heading">¶</a></h2>
 <p>Lab build files are generated using
 <a class="reference external" href="https://cmake.org">CMake</a>.
 Once you have a build file generated for your particular environment,
@@ -406,7 +415,7 @@ ctest -R step1
 </section>
 </section>
 <section id="compiling-code-on-your-local-computer">
-<span id="local-compile-label"></span><span id="index-3"></span><h1><span class="section-number">1.4. </span>Compiling code on your local computer<a class="headerlink" href="#compiling-code-on-your-local-computer" title="Permalink to this headline">¶</a></h1>
+<span id="local-compile-label"></span><span id="index-3"></span><h1><span class="section-number">1.4. </span>Compiling code on your local computer<a class="headerlink" href="#compiling-code-on-your-local-computer" title="Permalink to this heading">¶</a></h1>
 <p>The following sections describe briefly how to get started with
 a local development environment, if you wish.
 One of the primary motivations for building locally is to avoid
@@ -425,7 +434,7 @@ on Windows and MacOS machines.</p>
 <p>This book does <strong>not</strong> explain how to install these <a class="reference internal" href="../glossary.html#term-IDE"><span class="xref std std-term">IDE’s</span></a>.
 Use the documentation provided with your IDE for that.</p>
 <section id="compiling-using-the-cisc187-docker-image">
-<span id="index-4"></span><h2><span class="section-number">1.4.1. </span>Compiling using the CISC187 Docker image<a class="headerlink" href="#compiling-using-the-cisc187-docker-image" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2><span class="section-number">1.4.1. </span>Compiling using the CISC187 Docker image<a class="headerlink" href="#compiling-using-the-cisc187-docker-image" title="Permalink to this heading">¶</a></h2>
 <p>Use git to clone your assignments repository to your computer.</p>
 <p>The CISC187 Docker image provides an environment much like the
 development environment on the Mesa server, but locally.
@@ -525,7 +534,7 @@ make test
 </div>
 </section>
 <section id="compiling-with-visual-studio">
-<span id="index-5"></span><h2><span class="section-number">1.4.2. </span>Compiling with Visual Studio<a class="headerlink" href="#compiling-with-visual-studio" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2><span class="section-number">1.4.2. </span>Compiling with Visual Studio<a class="headerlink" href="#compiling-with-visual-studio" title="Permalink to this heading">¶</a></h2>
 <p>In this course you need to be using Visual Studio 2019
 at a minimum to complete all the assignments.</p>
 <p>In order to enable CMake integration with Visual Studio
@@ -594,7 +603,7 @@ ctest -C Release
 
 </section>
 <section id="compiling-with-code-blocks">
-<span id="index-6"></span><h2><span class="section-number">1.4.3. </span>Compiling with Code Blocks<a class="headerlink" href="#compiling-with-code-blocks" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2><span class="section-number">1.4.3. </span>Compiling with Code Blocks<a class="headerlink" href="#compiling-with-code-blocks" title="Permalink to this heading">¶</a></h2>
 <p>Use git to clone your assignments repository to your computer.
 Now you are ready to compile an assignment.</p>
 <ol class="arabic">
@@ -625,7 +634,7 @@ Test cases must be run individually -
 there is no target to run all the tests.</p>
 </section>
 <section id="compiling-with-xcode">
-<span id="index-7"></span><h2><span class="section-number">1.4.4. </span>Compiling with Xcode<a class="headerlink" href="#compiling-with-xcode" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2><span class="section-number">1.4.4. </span>Compiling with Xcode<a class="headerlink" href="#compiling-with-xcode" title="Permalink to this heading">¶</a></h2>
 <p>Use git to clone your assignments repository to your computer.
 Now you are ready to compile an assignment.</p>
 <p>Open a terminal in the directory containing your lab, then:</p>
@@ -637,7 +646,7 @@ cmake -G Xcode ..
 <p>Open the Xcode project and build as usual.</p>
 </section>
 <section id="compiling-on-linux">
-<span id="index-8"></span><h2><span class="section-number">1.4.5. </span>Compiling on Linux<a class="headerlink" href="#compiling-on-linux" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2><span class="section-number">1.4.5. </span>Compiling on Linux<a class="headerlink" href="#compiling-on-linux" title="Permalink to this heading">¶</a></h2>
 <p>Use git to clone your assignments repository to your computer.</p>
 <p>You’ll need to install a C++ tool chain,
 the details tend to vary by distribution, however,
@@ -659,7 +668,7 @@ make test
 </div>
 </section>
 <section id="which-option-should-i-choose">
-<h2><span class="section-number">1.4.6. </span>Which option should I choose?<a class="headerlink" href="#which-option-should-i-choose" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.6. </span>Which option should I choose?<a class="headerlink" href="#which-option-should-i-choose" title="Permalink to this heading">¶</a></h2>
 <p>There are a lot of options and the choices can be confusing.
 The short answer is that there is no wrong choice.
 Also, you can change you mind at any time and even
@@ -726,6 +735,8 @@ running on your computer.</p></li>
 </section>
 
 
+  
+
   <div id="scprogresscontainer">
     You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
   </div>
@@ -760,8 +771,8 @@ window.addEventListener('load', (event) => {
       
     </p>
     <p>
-        &copy; Copyright 2017-2022 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.2.1.
+        &copy; Copyright 2017-2023 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.6.2.
     </p>
   </div>
 </footer>

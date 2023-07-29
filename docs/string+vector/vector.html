@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>2.5. The vector class &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -19,23 +19,27 @@
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/637.fafafbd97df8a0d1.css?v=B5361BC8" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone.e4d5592da655219f.css?v=32648AE5" />
+    <link rel="stylesheet" type="text/css" href="../_static/637.0fa6cababf056764.css?v=F9484CEF" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone.3eb60bc006ae9a54.css?v=3A5A250C" />
 
 
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
     <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
-    <script src="../_static/runtime.b0f8547c48f16a9f.bundle.js?v=2731F567"></script>
+    <script src="../_static/runtime.66b619f51b746382.bundle.js?v=C3F69EE5"></script>
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
-    <script src="../_static/runestone.0e9550fe42760516.bundle.js?v=71AD37BA"></script>
+    <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3. Introduction to functions" href="../function-intro/index.html" />
@@ -43,6 +47,10 @@
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+
+
+<link rel="canonical" href="https://{{canonical_host}}{{new_server_prefix}}/books/published/{{base_course}}/{{pagepath}}" />
 
 
 <script>
@@ -63,7 +71,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '6.2.1';
+  eBookConfig.runestone_version = '6.6.2';
   eBookConfig.jobehost = 'https://red-voice-1370.fly.dev/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -110,6 +118,7 @@
       <ul class="nav navbar-nav navbar-right" >
 
         <li class="divider-vertical"></li>
+        <li><span id="ad_warning"></span></li>
         <li><span id="browsing_warning"></span></li>
 
         <!-- social media dropdown -->
@@ -212,7 +221,7 @@
 
   
   <section id="the-vector-class">
-<span id="vector-intro"></span><span id="index-0"></span><h1><span class="section-number">2.5. </span>The vector class<a class="headerlink" href="#the-vector-class" title="Permalink to this headline">¶</a></h1>
+<span id="vector-intro"></span><span id="index-0"></span><h1><span class="section-number">2.5. </span>The vector class<a class="headerlink" href="#the-vector-class" title="Permalink to this heading">¶</a></h1>
 <p>A <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">vector</a> is intended to behave like a dynamically sized array.
 It is a <a class="reference internal" href="../glossary.html#term-template"><span class="xref std std-term">template</span></a>, so unlike a string,
 which is a container for characters only,
@@ -221,7 +230,7 @@ More on templates later, for now,
 we just need to know enough to know how declare a vector.</p>
 <p>As with strings, in standard C,
 the typical way to work with a collection of data is with a ‘raw’ array:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">};</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">};</span>
 </pre></div>
 </div>
 <p>Some downsides to raw arrays are that they:</p>
@@ -248,13 +257,13 @@ There are some limits we will cover later,
 but for now, know that any normal type you already have learned about
 can be stored in a vector.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// an empty vector of int</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 
 <span class="c1">// initialize and store: &quot;x&quot;, &quot;x&quot;</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dos_equis</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;x&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dos_equis</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;x&quot;</span><span class="p">);</span>
 
 <span class="c1">// C++11 initialization list syntax</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pi_digits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span><span class="w"></span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pi_digits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span>
 </pre></div>
 </div>
 <p>Unlike a fundamental type,
@@ -270,7 +279,7 @@ This is perfectly OK and normal.</p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=vector_declare_simple_ac data-question_label="2.5.1">
-<div id=vector_declare_simple_ac_question class="ac_question col-md-12">
+<div id=vector_declare_simple_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="vector_declare_simple_ac_editor" 
@@ -311,7 +320,7 @@ int main() {
     </div>
 
 <p id="index-1">Given a vector declared as:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>A container capable of storing 4 integers is created:</p>
@@ -344,7 +353,7 @@ node [
 Many compiler implementations will initialize the contents to zero,
 but don’t rely on this behavior.
 Explicitly initialize with a default value, if that is what you want:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
 </pre></div>
 </div>
 <p id="index-2">A vector comes with a rich assortment of convenience functions.
@@ -355,12 +364,12 @@ and will throw a <a class="reference external" href="https://en.cppreference.com
 <div id='tab_vector_simple_access' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Access operations" >
 <p>Like arrays, indexes are zero-based.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// read vector elements</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;First element: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;First element: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;First element: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;First element: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 
 <span class="c1">// write vector elements</span>
-<span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
-<span class="n">numbers</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="n">numbers</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>A common source of error occurs when printing
@@ -368,7 +377,7 @@ a vector.
 A vector feels like a built-in type and
 this seems like it should work:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// compile error</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;all numbers: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">numbers</span><span class="p">;</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;all numbers: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">numbers</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>The vector type does not ‘know’ how to send it’s
@@ -380,13 +389,13 @@ the standard library?</p>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 <blockquote>
-<div><p>This example demonstrates an out of rannge error.</p>
+<div><p>This example demonstrates an out of range error.</p>
 <p>How can we fix this while changing the least amount of code possible?</p>
 </div></blockquote>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=vector_access_operator_ac1 data-question_label="2.5.2">
-<div id=vector_access_operator_ac1_question class="ac_question col-md-12">
+<div id=vector_access_operator_ac1_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="vector_access_operator_ac1_editor" 
@@ -412,6 +421,46 @@ int main() {
   }
   std::cout << '\n';
   return 0;
+}
+</textarea>
+</div>
+</div>
+</div><div data-component="tab" data-tabname="Fill and print vector" >
+<p>A vector ‘hello world’:</p>
+<ol class="arabic simple">
+<li><p>Fill a vector in one simple way, using push_back</p></li>
+<li><p>iterate through the vector and print</p></li>
+</ol>
+
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=vector_fill_and_print_example_ac data-question_label="2.5.3">
+<div id=vector_fill_and_print_example_ac_question class="ac_question">
+
+</div>
+<textarea data-lang="cpp" id="vector_fill_and_print_example_ac_editor" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+     style="visibility: hidden;">
+#include <iostream>
+#include <string>
+#include <vector>
+
+using std::cout;
+using std::string;
+using std::vector;
+
+
+int main() {
+  vector<string> words = {
+     "reach", "clear", "fall", "set", "yard",
+     "liquid", "wise", "badge", "four", "coherent"
+  };
+
+  cout << "Word list: \n";
+  for (string s: words) {
+    cout << s << ", \thas " << s.size() << " letters\n";
+  }
 }
 </textarea>
 </div>
@@ -447,19 +496,19 @@ in the same position in the vector.</p>
 <p>Vectors support the same syntax as the built in types.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// declare 2 vectors, one empty and one not</span>
 
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">};</span><span class="w"></span>
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 
 <span class="kt">bool</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">   </span><span class="c1">// test is false</span>
 
-<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 </pre></div>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
 <div class="runestone explainer ac_section ">
-<div data-component="activecode" id=vector_operator_equal_assign_ac data-question_label="2.5.3">
-<div id=vector_operator_equal_assign_ac_question class="ac_question col-md-12">
+<div data-component="activecode" id=vector_operator_equal_assign_ac data-question_label="2.5.4">
+<div id=vector_operator_equal_assign_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="vector_operator_equal_assign_ac_editor" 
@@ -501,8 +550,8 @@ int main() {
 the same values and check them for equality.</p>
 
 <div class="runestone explainer ac_section ">
-<div data-component="activecode" id=vector_operation_string_compare_try_this_ac data-question_label="2.5.4">
-<div id=vector_operation_string_compare_try_this_ac_question class="ac_question col-md-12">
+<div data-component="activecode" id=vector_operation_string_compare_try_this_ac data-question_label="2.5.5">
+<div id=vector_operation_string_compare_try_this_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="vector_operation_string_compare_try_this_ac_editor" 
@@ -519,7 +568,7 @@ int main() {
 </div>
 </div>
 <section id="adding-data-to-a-vector">
-<h2><span class="section-number">2.5.1. </span>Adding data to a vector<a class="headerlink" href="#adding-data-to-a-vector" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.5.1. </span>Adding data to a vector<a class="headerlink" href="#adding-data-to-a-vector" title="Permalink to this heading">¶</a></h2>
 <p>How do we solve the <a class="reference external" href="https://en.cppreference.com/w/cpp/error/out_of_range">out_of_range</a> exception from a few examples ago?
 How do we dynamically add data to a <code class="docutils literal notranslate"><span class="pre">vector</span></code>?</p>
 <p>A simple way is to use the <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector/push_back">push_back</a> function.</p>
@@ -549,7 +598,7 @@ node [
   labels:f2 -&gt; values:f2;
   {rank=same; struct,labels};
 }" class="graphviz" /></div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">values</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">values</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Appends the value 40 to the end of the vector.</p>
@@ -585,7 +634,7 @@ and increases the capacity of the vector, if needed.</p>
 The last element is no longer available.</p>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">pop_back</span></code> does not return a value.</p>
 <p>If you need that last element, remember to save it first.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">letters</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="p">};</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">letters</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="p">};</span>
 
 <span class="n">letters</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="sc">&#39;d&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">// add &#39;d&#39; to the end of the vector</span>
 <span class="n">letters</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span><span class="w">      </span><span class="c1">// pop_back is the opposite:</span>
@@ -595,7 +644,7 @@ The last element is no longer available.</p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=vector_push_back_example_ac data-question_label="2.5.1.1">
-<div id=vector_push_back_example_ac_question class="ac_question col-md-12">
+<div id=vector_push_back_example_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="vector_push_back_example_ac_editor" 
@@ -632,7 +681,7 @@ int main() {
 
 </section>
 <section id="vector-capacity">
-<span id="index-3"></span><h2><span class="section-number">2.5.2. </span>Vector capacity<a class="headerlink" href="#vector-capacity" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2><span class="section-number">2.5.2. </span>Vector capacity<a class="headerlink" href="#vector-capacity" title="Permalink to this heading">¶</a></h2>
 <p>A vector exposes an interface that ‘feels like’ an array,
 but the underlying storage grows to accommodate new data
 as required.
@@ -679,6 +728,73 @@ node [
 }" class="graphviz" /></div>
 <p>Managing the storage capacity in addition to the
 vector data is one of the things that make vectors efficient.</p>
+<div id='tab_phrase_o_matic_example' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Phrase O'matic" >
+<p>The ‘phrase-o-matic’ is
+a port of a fun little java program from
+Head First Java, 2nd ed. ISBN-13: 978-0596009205</p>
+
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=vector_phrase_o_matic_example_ac data-question_label="2.5.2.1">
+<div id=vector_phrase_o_matic_example_ac_question class="ac_question">
+
+</div>
+<textarea data-lang="cpp" id="vector_phrase_o_matic_example_ac_editor" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+     style="visibility: hidden;">
+#include <iostream>
+#include <random>
+#include <string>
+#include <vector>
+
+int main() {
+  std::random_device r;
+  std::default_random_engine eng(r());
+  using rand = std::uniform_int_distribution<std::uint64_t>;
+
+  const char* list_one[] = {
+    "24/7", "multi-tier", "30,000 foot", "B-to-B", "win-win",
+    "front-end", "web-based", "pervasive", "smart", "six-sigma",
+    "critical-path", "dynamic", "extreme", "three-tier", "agile"
+  };
+
+  // we prefer vector over arrays
+  const std::vector<std::string> list_two = {
+    "empowered", "sticky", "value-added", "oriented", "centric",
+    "distributed", "clustered", "branded", "outside-the-box",
+    "positioned", "networked", "focused", "leveraged", "aligned",
+    "targeted", "shared", "cooperative", "accelerated"
+  };
+
+  const std::vector<std::string> list_three = {
+    "process", "tipping-point", "solution", "architecture",
+    "core competency", "strategy", "mind-share", "portal",
+    "space", "vision", "paradigm", "mission"
+  };
+
+  const std::size_t one_size = 14;  // arrays don't know their size
+  auto r1 = rand {0, one_size} (eng);
+  auto r2 = rand {0, list_two.size()-1} (eng);   // vectors know their size
+  auto r3 = rand {0, list_three.size()-1} (eng);
+
+  std::string phrase = {list_one[r1]};
+  phrase += " " + list_two[r2] + " " + list_three[r3];
+
+  std::cout << "What we need is a " << phrase << '\n';
+
+  // or could have omitted temporary phrase and simply:
+  // std::cout << "What we need is a " << list_one[r1] << ' '
+  //                                   << list_two[r2] << ' '
+  //                                   << list_three[r3] << '\n';
+  return 0;
+}
+</textarea>
+</div>
+</div>
+</div>
+    </div>
+
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
@@ -690,6 +806,8 @@ vector data is one of the things that make vectors efficient.</p>
 </section>
 </section>
 
+
+  
 
   <div id="scprogresscontainer">
     You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
@@ -725,8 +843,8 @@ window.addEventListener('load', (event) => {
       
     </p>
     <p>
-        &copy; Copyright 2017-2022 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.2.1.
+        &copy; Copyright 2017-2023 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.6.2.
     </p>
   </div>
 </footer>

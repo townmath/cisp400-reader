@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Sets and Relations &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -19,24 +19,27 @@
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/637.fafafbd97df8a0d1.css?v=B5361BC8" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone.e4d5592da655219f.css?v=32648AE5" />
+    <link rel="stylesheet" type="text/css" href="../_static/637.0fa6cababf056764.css?v=F9484CEF" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone.3eb60bc006ae9a54.css?v=3A5A250C" />
 
 
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
     <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
-    <script src="../_static/runtime.b0f8547c48f16a9f.bundle.js?v=2731F567"></script>
+    <script src="../_static/runtime.66b619f51b746382.bundle.js?v=C3F69EE5"></script>
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
-    <script src="../_static/runestone.0e9550fe42760516.bundle.js?v=71AD37BA"></script>
+    <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Selected functions" href="functions.html" />
@@ -44,6 +47,10 @@
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+
+
+<link rel="canonical" href="https://{{canonical_host}}{{new_server_prefix}}/books/published/{{base_course}}/{{pagepath}}" />
 
 
 <script>
@@ -64,7 +71,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '6.2.1';
+  eBookConfig.runestone_version = '6.6.2';
   eBookConfig.jobehost = 'https://red-voice-1370.fly.dev/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -111,6 +118,7 @@
       <ul class="nav navbar-nav navbar-right" >
 
         <li class="divider-vertical"></li>
+        <li><span id="ad_warning"></span></li>
         <li><span id="browsing_warning"></span></li>
 
         <!-- social media dropdown -->
@@ -213,9 +221,9 @@
 
   
   <section id="sets-and-relations">
-<span id="index-0"></span><h1>Sets and Relations<a class="headerlink" href="#sets-and-relations" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1>Sets and Relations<a class="headerlink" href="#sets-and-relations" title="Permalink to this heading">¶</a></h1>
 <section id="set-notation">
-<h2>Set Notation<a class="headerlink" href="#set-notation" title="Permalink to this headline">¶</a></h2>
+<h2>Set Notation<a class="headerlink" href="#set-notation" title="Permalink to this heading">¶</a></h2>
 <p>The concept of a set in the mathematical sense has wide
 application in computer science.
 The notations and techniques of set theory are commonly used
@@ -236,7 +244,7 @@ In this case, <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>�
 base type is integer.</p>
 <p>The following table shows the symbols commonly used to express sets
 and their relationships.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Set Symbology</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{l|l}
@@ -266,7 +274,7 @@ and their relationships.</p>
 \mathbf{P}\,\times\,\mathbf{Q} &amp;
   \mbox{Set (Cartesian) Product: yields a set of ordered pairs}\\
 \end{array}\end{split}\]</div>
-</div>
+</aside>
 <p>Here are some examples of this notation in use.
 First define two sets, <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -334,7 +342,7 @@ sequence <span class="math notranslate nohighlight">\(\langle3, 4, 5, 4\rangle\)
 sequence <span class="math notranslate nohighlight">\(\langle3, 4, 5\rangle\)</span>.</p>
 </section>
 <section id="relations">
-<span id="index-1"></span><h2>Relations<a class="headerlink" href="#relations" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>Relations<a class="headerlink" href="#relations" title="Permalink to this heading">¶</a></h2>
 <p>A <a class="reference internal" href="../glossary.html#term-relation"><span class="xref std std-term">relation</span></a> <span class="math notranslate nohighlight">\(R\)</span> over set <span class="math notranslate nohighlight">\(\mathbf{S}\)</span> is a set of
 ordered pairs from <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>.
 As an example of a relation, if <span class="math notranslate nohighlight">\(\mathbf{S}\)</span> is
@@ -385,7 +393,7 @@ reflexive; if we define a person not to be a sibling of themself, then
 it is not reflexive.</p>
 </section>
 <section id="equivalence-relations">
-<h2>Equivalence Relations<a class="headerlink" href="#equivalence-relations" title="Permalink to this headline">¶</a></h2>
+<h2>Equivalence Relations<a class="headerlink" href="#equivalence-relations" title="Permalink to this heading">¶</a></h2>
 <p><span class="math notranslate nohighlight">\(R\)</span> is an <a class="reference internal" href="../glossary.html#term-equivalence-relation"><span class="xref std std-term">equivalence relation</span></a> on set <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>
 if it is reflexive, symmetric, and transitive.
 An equivalence relation can be used to partition a set into
@@ -399,7 +407,7 @@ An <a class="reference internal" href="../glossary.html#term-equivalence-relatio
 the set into disjoint subsets whose elements are equivalent.
 One application for such <a class="reference internal" href="../glossary.html#term-disjoint-sets"><span class="xref std std-term">disjoint sets</span></a>
 computing a minimal cost spanning tree.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Example</p>
 <p>For the integers, <span class="math notranslate nohighlight">\(=\)</span> is an equivalence relation that
 partitions each element into a distinct subset.
@@ -414,14 +422,14 @@ there are never cases where <span class="math notranslate nohighlight">\(a = b\)
 <span class="math notranslate nohighlight">\(b = c\)</span>.
 So the requirements for symmetry and transitivity are never
 violated, and therefore the relation is symmetric and transitive.</p>
-</div>
-<div class="topic">
+</aside>
+<aside class="topic">
 <p class="topic-title">Example</p>
 <p>If we clarify the definition of sibling to mean that a person is
 a sibling of themself, then the sibling relation is an
 equivalence relation that partitions the set of people.</p>
-</div>
-<div class="topic">
+</aside>
+<aside class="topic">
 <p class="topic-title">Example</p>
 <p>We can use the <a class="reference internal" href="functions.html"><span class="doc">modulus</span></a> function
 to define an equivalence relation.
@@ -443,10 +451,10 @@ then <span class="math notranslate nohighlight">\(y \bmod m = x \bmod m\)</span>
 <span class="math notranslate nohighlight">\(y \bmod m = z \bmod m\)</span>, then
 <span class="math notranslate nohighlight">\(x \bmod m = z \bmod m\)</span>.</p></li>
 </ol>
-</div>
+</aside>
 </section>
 <section id="partial-orders">
-<h2>Partial Orders<a class="headerlink" href="#partial-orders" title="Permalink to this headline">¶</a></h2>
+<h2>Partial Orders<a class="headerlink" href="#partial-orders" title="Permalink to this heading">¶</a></h2>
 <p>A binary relation is called a
 <a class="reference internal" href="../glossary.html#term-partial-order"><span class="xref std std-term">partial order</span></a> if it is antisymmetric and transitive.
 If the relation is reflexive, it is called a
@@ -459,7 +467,7 @@ Elements <span class="math notranslate nohighlight">\(x\)</span> and <span class
 a given relation <span class="math notranslate nohighlight">\(R\)</span> if either <span class="math notranslate nohighlight">\(xRy\)</span> or <span class="math notranslate nohighlight">\(yRx\)</span>.
 If every pair of distinct elements in a partial order are comparable,
 then the order is called a <a class="reference internal" href="../glossary.html#term-total-order"><span class="xref std std-term">total order</span></a> or <a class="reference internal" href="../glossary.html#term-linear-order"><span class="xref std std-term">linear order</span></a>.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Example</p>
 <p>For the integers, relations <span class="math notranslate nohighlight">\(&lt;\)</span> and <span class="math notranslate nohighlight">\(\leq\)</span> define
 partial orders.
@@ -469,8 +477,8 @@ either <span class="math notranslate nohighlight">\(x &lt; y\)</span> or <span c
 Likewise, <span class="math notranslate nohighlight">\(\leq\)</span> is a total order because,
 for every pair of integers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> such that
 <span class="math notranslate nohighlight">\(x \neq y\)</span>, either <span class="math notranslate nohighlight">\(x \leq y\)</span> or <span class="math notranslate nohighlight">\(y \leq x\)</span>.</p>
-</div>
-<div class="topic">
+</aside>
+<aside class="topic">
 <p class="topic-title">Example</p>
 <p>For the powerset of the integers, the subset
 operator defines a partial order (because it is antisymmetric and
@@ -480,17 +488,19 @@ However, sets {1, 2} and {1, 3} are not comparable by the
 subset operator, because neither is a subset of the other.
 Therefore, the subset operator does not define a total order on the
 powerset of the integers.</p>
-</div>
-<div class="topic">
+</aside>
+<aside class="topic">
 <p class="topic-title">Acknowledgements</p>
 <p>This section is adapted from
 <a class="reference external" href="https://opendsa-server.cs.vt.edu">Open Data Structures (OpenDSA)</a>
 by Ville Karavirta and Cliff Shaffer
 which is distributed under the <a class="reference external" href="https://github.com/OpenDSA/OpenDSA/blob/master/MIT-license.txt">MIT License</a>.</p>
-</div>
+</aside>
 </section>
 </section>
 
+
+  
 
   <div id="scprogresscontainer">
     You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
@@ -526,8 +536,8 @@ window.addEventListener('load', (event) => {
       
     </p>
     <p>
-        &copy; Copyright 2017-2022 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.2.1.
+        &copy; Copyright 2017-2023 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.6.2.
     </p>
   </div>
 </footer>

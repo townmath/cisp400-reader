@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>3.1. Introduction to functions &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -19,23 +19,27 @@
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/637.fafafbd97df8a0d1.css?v=B5361BC8" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone.e4d5592da655219f.css?v=32648AE5" />
+    <link rel="stylesheet" type="text/css" href="../_static/637.0fa6cababf056764.css?v=F9484CEF" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone.3eb60bc006ae9a54.css?v=3A5A250C" />
 
 
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
     <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
-    <script src="../_static/runtime.b0f8547c48f16a9f.bundle.js?v=2731F567"></script>
+    <script src="../_static/runtime.66b619f51b746382.bundle.js?v=C3F69EE5"></script>
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
-    <script src="../_static/runestone.0e9550fe42760516.bundle.js?v=71AD37BA"></script>
+    <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3.2. Passing parameters" href="parameter-passing.html" />
@@ -43,6 +47,10 @@
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+
+
+<link rel="canonical" href="https://{{canonical_host}}{{new_server_prefix}}/books/published/{{base_course}}/{{pagepath}}" />
 
 
 <script>
@@ -63,7 +71,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '6.2.1';
+  eBookConfig.runestone_version = '6.6.2';
   eBookConfig.jobehost = 'https://red-voice-1370.fly.dev/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -110,6 +118,7 @@
       <ul class="nav navbar-nav navbar-right" >
 
         <li class="divider-vertical"></li>
+        <li><span id="ad_warning"></span></li>
         <li><span id="browsing_warning"></span></li>
 
         <!-- social media dropdown -->
@@ -212,7 +221,7 @@
 
   
   <section id="introduction-to-functions">
-<span id="index-0"></span><h1><span class="section-number">3.1. </span>Introduction to functions<a class="headerlink" href="#introduction-to-functions" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">3.1. </span>Introduction to functions<a class="headerlink" href="#introduction-to-functions" title="Permalink to this heading">¶</a></h1>
 <p>A <em>function</em> is a group of statements that work together to perform a task.
 A function is composed of:</p>
 <ul class="simple">
@@ -225,10 +234,10 @@ specifying a return type <code class="docutils literal notranslate"><span class=
 </ul>
 </li>
 </ul>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">return_type</span><span class="w"> </span><span class="nf">function_name</span><span class="w"> </span><span class="p">(</span><span class="n">argument</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">return_type</span><span class="w"> </span><span class="nf">function_name</span><span class="w"> </span><span class="p">(</span><span class="n">argument</span><span class="w"> </span><span class="n">list</span><span class="p">)</span>
+<span class="p">{</span>
 <span class="w">   </span><span class="c1">// zero or more statements</span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The part outside the braces is called the <strong>function declaration</strong>.
@@ -237,20 +246,20 @@ Once defined, a function may be called and
 the task it defines can be executed as often as needed.</p>
 <div id='function_simple_intro' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Example" >
 <p>Some simple, specific examples:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">area</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">height</span><span class="o">*</span><span class="n">width</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">area</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">height</span><span class="o">*</span><span class="n">width</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=functions_simple_intro_ac data-question_label="3.1.1">
-<div id=functions_simple_intro_ac_question class="ac_question col-md-12">
+<div id=functions_simple_intro_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="functions_simple_intro_ac_editor" 
@@ -282,6 +291,8 @@ int main () {
 
 <div class="runestone codelens ">
     <div class="cd_section" data-component="codelens" data-question_label="3.1.2">
+        <div id=functions_simple_intro_cl_question class="ac_question">
+        </div>
         <div class="pytutorVisualizer" id="functions_simple_intro_cl"
            data-params='{"embeddedMode": true, "lang": "cpp", "jumpToEnd": false}'>
         </div>
@@ -301,7 +312,7 @@ allTraceData["functions_simple_intro_cl"] = {"code": "#include <iostream>\n\nint
 </script>
 </div>
 <section id="function-declarations-and-compilation-units">
-<h2><span class="section-number">3.1.1. </span>Function declarations and compilation units<a class="headerlink" href="#function-declarations-and-compilation-units" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.1. </span>Function declarations and compilation units<a class="headerlink" href="#function-declarations-and-compilation-units" title="Permalink to this heading">¶</a></h2>
 <p>By default, functions have global <a class="reference internal" href="../glossary.html#term-scope"><span class="xref std std-term">scope</span></a>:
 they can be used anywhere in your program, even in other files.
 If a file doesn’t contain a <a class="reference internal" href="../glossary.html#term-declaration"><span class="xref std std-term">declaration</span></a> for a function  before it is used,
@@ -318,11 +329,11 @@ and is the only option when the function is used in a different file.</p>
 the usual practice is to put them in an <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=include">include</a> file.
 For example, if the <code class="docutils literal notranslate"><span class="pre">area</span></code> function is used in a lot of places,
 we might put it in its own file <code class="docutils literal notranslate"><span class="pre">area.cpp</span></code>:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;area.h&quot;</span><span class="cp"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;area.h&quot;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">area</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">height</span><span class="o">*</span><span class="n">width</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">area</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">height</span><span class="o">*</span><span class="n">width</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p id="index-1">The file <code class="docutils literal notranslate"><span class="pre">area.cpp</span></code> above uses an  <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive to include a copy
@@ -330,10 +341,10 @@ of the following header file area.h:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef AREA_H</span>
 <span class="cp">#define AREA_H</span>
 
-<span class="cm">/* Returns the area of a rectangle */</span><span class="w"></span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">area</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">);</span><span class="w"></span>
+<span class="cm">/* Returns the area of a rectangle */</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">area</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">);</span>
 
-<span class="cp">#endif </span><span class="cm">/* AREA_H */</span><span class="cp"></span>
+<span class="cp">#endif </span><span class="cm">/* AREA_H */</span>
 </pre></div>
 </div>
 <p>Note that the declaration in <code class="docutils literal notranslate"><span class="pre">area.h</span></code> doesn’t have a body.
@@ -360,12 +371,12 @@ a function.</p>
 </div>
 <p>Every other file that needs to use the <code class="docutils literal notranslate"><span class="pre">area</span></code> function uses an include directive
 <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;area.h&quot;</span></code> at the top of the file that uses it:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;area.h&quot;</span><span class="cp"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;area.h&quot;</span>
 <span class="linenos">2</span>
-<span class="linenos">3</span><span class="kt">bool</span><span class="w"> </span><span class="nf">too_small</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">4</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">min_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">5</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">area</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">min_size</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">6</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">3</span><span class="kt">bool</span><span class="w"> </span><span class="nf">too_small</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">4</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">min_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="linenos">5</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">area</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">min_size</span><span class="p">;</span>
+<span class="linenos">6</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">#include</span></code> on line 1 uses double quotes instead of angle brackets;
@@ -378,7 +389,7 @@ Using <code class="docutils literal notranslate"><span class="pre">make</span></
 </div>
 </section>
 <section id="the-call-stack">
-<span id="index-2"></span><h2><span class="section-number">3.1.2. </span>The call stack<a class="headerlink" href="#the-call-stack" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">3.1.2. </span>The call stack<a class="headerlink" href="#the-call-stack" title="Permalink to this heading">¶</a></h2>
 <p>Functions are routinely called from many places
 and more than one function can be ‘active’ at any one time.
 The CPU needs a mechanism to keep track of every function call,
@@ -448,6 +459,8 @@ Any information stored in local variables is lost.</p>
 
 <div class="runestone codelens ">
     <div class="cd_section" data-component="codelens" data-question_label="3.1.2.1">
+        <div id=functions_dig_deeper_cl_question class="ac_question">
+        </div>
         <div class="pytutorVisualizer" id="functions_dig_deeper_cl"
            data-params='{"embeddedMode": true, "lang": "cpp", "jumpToEnd": false}'>
         </div>
@@ -481,6 +494,8 @@ from Buckys C++ Programming Tutorials.</p></li>
 </section>
 </section>
 
+
+  
 
   <div id="scprogresscontainer">
     You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
@@ -516,8 +531,8 @@ window.addEventListener('load', (event) => {
       
     </p>
     <p>
-        &copy; Copyright 2017-2022 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.2.1.
+        &copy; Copyright 2017-2023 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.6.2.
     </p>
   </div>
 </footer>

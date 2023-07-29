@@ -13,6 +13,7 @@ during the first semester.
 
    hello-world.rst
    types.rst
+   random-numbers.rst
    comments.rst
    what-you-dont.rst
    skill-check.rst

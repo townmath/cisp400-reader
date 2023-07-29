@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>14.2. Binary Search Trees &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -19,23 +19,27 @@
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/637.fafafbd97df8a0d1.css?v=B5361BC8" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone.e4d5592da655219f.css?v=32648AE5" />
+    <link rel="stylesheet" type="text/css" href="../_static/637.0fa6cababf056764.css?v=F9484CEF" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone.3eb60bc006ae9a54.css?v=3A5A250C" />
 
 
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
     <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
-    <script src="../_static/runtime.b0f8547c48f16a9f.bundle.js?v=2731F567"></script>
+    <script src="../_static/runtime.66b619f51b746382.bundle.js?v=C3F69EE5"></script>
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
-    <script src="../_static/runestone.0e9550fe42760516.bundle.js?v=71AD37BA"></script>
+    <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="14.3. Binary Search Tree iterators" href="bst-iterator.html" />
@@ -43,6 +47,10 @@
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+
+
+<link rel="canonical" href="https://{{canonical_host}}{{new_server_prefix}}/books/published/{{base_course}}/{{pagepath}}" />
 
 
 <script>
@@ -63,7 +71,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '6.2.1';
+  eBookConfig.runestone_version = '6.6.2';
   eBookConfig.jobehost = 'https://red-voice-1370.fly.dev/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -110,6 +118,7 @@
       <ul class="nav navbar-nav navbar-right" >
 
         <li class="divider-vertical"></li>
+        <li><span id="ad_warning"></span></li>
         <li><span id="browsing_warning"></span></li>
 
         <!-- social media dropdown -->
@@ -212,7 +221,7 @@
 
   
   <section id="binary-search-trees">
-<span id="index-0"></span><h1><span class="section-number">14.2. </span>Binary Search Trees<a class="headerlink" href="#binary-search-trees" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">14.2. </span>Binary Search Trees<a class="headerlink" href="#binary-search-trees" title="Permalink to this heading">¶</a></h1>
 <p>A binary tree T is a binary search tree if, for each node <code class="docutils literal notranslate"><span class="pre">n</span></code>
 with sub-trees <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code>,</p>
 <ul class="simple">
@@ -231,7 +240,7 @@ and is less than or equal than all of its right descendants.</p>
 
     </div>
     <section id="the-binary-search-tree-adt">
-<h2><span class="section-number">14.2.1. </span>The Binary Search Tree ADT<a class="headerlink" href="#the-binary-search-tree-adt" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.2.1. </span>The Binary Search Tree ADT<a class="headerlink" href="#the-binary-search-tree-adt" title="Permalink to this heading">¶</a></h2>
 <p>Structurally, a BST contains pointers to it’s left and right children.
 As discussed in <a class="reference internal" href="../recursion/index.html"><span class="doc">Recursion</span></a>,
 a binary tree can be implemented simply as a recursive data structure.
@@ -252,23 +261,23 @@ common to all binary trees:</p>
 <li><p>Pointers to the left and right child nodes,
 which might themselves be sub-trees.</p></li>
 </ul>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">mesa</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">tree</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">mesa</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">tree</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">   </span><span class="c1">// a binary tree node</span>
-<span class="w">   </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">     </span><span class="k">struct</span><span class="w"> </span><span class="nc">tree_node</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">       </span><span class="n">T</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"></span>
-<span class="w">       </span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w"></span>
-<span class="w">       </span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w"></span>
-<span class="w">       </span><span class="n">tree_node</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">{},</span><span class="w"></span>
-<span class="w">           </span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span><span class="w"></span>
-<span class="w">           </span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"></span>
-<span class="w">         </span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="p">{</span><span class="n">value</span><span class="p">}</span><span class="w"></span>
-<span class="w">       </span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">{</span><span class="n">left</span><span class="p">}</span><span class="w"></span>
-<span class="w">       </span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">{</span><span class="n">right</span><span class="p">}</span><span class="w"></span>
-<span class="w">       </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">     </span><span class="p">};</span><span class="w"></span>
+<span class="w">   </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">     </span><span class="k">struct</span><span class="w"> </span><span class="nc">tree_node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="n">T</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">       </span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">left</span><span class="p">;</span>
+<span class="w">       </span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">right</span><span class="p">;</span>
+<span class="w">       </span><span class="n">tree_node</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">{},</span>
+<span class="w">           </span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span>
+<span class="w">           </span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
+<span class="w">         </span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="p">{</span><span class="n">value</span><span class="p">}</span>
+<span class="w">       </span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">{</span><span class="n">left</span><span class="p">}</span>
+<span class="w">       </span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">{</span><span class="n">right</span><span class="p">}</span>
+<span class="w">       </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="w">     </span><span class="p">};</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="c1">// end namespace tree</span>
 <span class="p">}</span><span class="w"> </span><span class="c1">// end namespace mesa</span>
 </pre></div>
@@ -282,15 +291,15 @@ any binary search tree properties or behavior.</p>
 nodes are visited using infix traversal,
 the data is sorted ascending.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// write a tree to an output stream, infix</span>
-<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">os</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">mesa</span><span class="o">::</span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"></span>
-<span class="w">   </span><span class="p">{</span><span class="w"></span>
-<span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">os</span><span class="p">;</span><span class="w"></span>
-<span class="w">     </span><span class="n">os</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span><span class="w"></span>
-<span class="w">     </span><span class="n">os</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">;</span><span class="w"></span>
-<span class="w">     </span><span class="n">os</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span><span class="w"></span>
-<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="n">os</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">os</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">mesa</span><span class="o">::</span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">node</span><span class="p">)</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">os</span><span class="p">;</span>
+<span class="w">     </span><span class="n">os</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+<span class="w">     </span><span class="n">os</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">os</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="n">os</span><span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Notice we stream <code class="docutils literal notranslate"><span class="pre">tree_node</span></code> objects here,
@@ -304,36 +313,36 @@ all the functions will be defined in the <code class="docutils literal notransla
 <p>The <code class="docutils literal notranslate"><span class="pre">bstree</span></code> class has 1 private member variable: a pointer
 to a <code class="docutils literal notranslate"><span class="pre">tree_node</span></code>.
 The basic skeleton of the class should look familiar:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">mesa</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">mesa</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">  </span><span class="c1">// a binary search tree</span>
-<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">bstree</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">value_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">bstree</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">public</span><span class="o">:</span>
+<span class="w">        </span><span class="k">typedef</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">value_type</span><span class="p">;</span>
 
-<span class="w">        </span><span class="n">bstree</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">bstree</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="w">        </span><span class="c1">// convert a value into a tree</span>
-<span class="w">        </span><span class="k">explicit</span><span class="w"></span>
-<span class="w">          </span><span class="n">bstree</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"></span>
-<span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="n">root</span><span class="p">{</span><span class="k">new</span><span class="w"> </span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{</span><span class="n">value</span><span class="p">}}</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">explicit</span>
+<span class="w">          </span><span class="n">bstree</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
+<span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="n">root</span><span class="p">{</span><span class="k">new</span><span class="w"> </span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{</span><span class="n">value</span><span class="p">}}</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 
 <span class="w">        </span><span class="c1">// copy construct and assign</span>
-<span class="w">        </span><span class="n">bstree</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">bstree</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">bstree</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">bstree</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">bstree</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">bstree</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">);</span>
+<span class="w">        </span><span class="n">bstree</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">bstree</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">);</span>
 
 <span class="w">        </span><span class="c1">// move construct and assign</span>
-<span class="w">        </span><span class="n">bstree</span><span class="p">(</span><span class="n">bstree</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">bstree</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">bstree</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">bstree</span><span class="p">(</span><span class="n">bstree</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">);</span>
+<span class="w">        </span><span class="n">bstree</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">bstree</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">);</span>
 
-<span class="w">        </span><span class="k">constexpr</span><span class="w"></span>
-<span class="w">          </span><span class="kt">bool</span><span class="w"> </span><span class="nf">empty</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">constexpr</span>
+<span class="w">          </span><span class="kt">bool</span><span class="w"> </span><span class="nf">empty</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="w">      </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
-<span class="w">        </span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">private</span><span class="o">:</span>
+<span class="w">        </span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 
-<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span>
 
 <span class="p">}</span><span class="w"> </span><span class="c1">// end namespace mesa</span>
 </pre></div>
@@ -346,7 +355,7 @@ that define the key operations associated with a BST:</p>
 </ul>
 </section>
 <section id="searching-binary-trees">
-<h2><span class="section-number">14.2.2. </span>Searching binary trees<a class="headerlink" href="#searching-binary-trees" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.2.2. </span>Searching binary trees<a class="headerlink" href="#searching-binary-trees" title="Permalink to this heading">¶</a></h2>
 <p>Efficient search of a binary tree uses the same algorithm
 you would use when playing the ‘number guessing’ game.
 If asked to guess a random number between <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">100</span></code> in the
@@ -366,17 +375,17 @@ then we search the left subtree.
 If the target value is larger, then we search the right subtree.</p>
 <p>If it is neither of these things, then we found the value.</p>
 <p>This function is implemented as a <code class="docutils literal notranslate"><span class="pre">mesa::tree</span></code> free function.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
-<span class="kt">bool</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">query_value</span><span class="p">,</span><span class="w"> </span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">query_value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">contains</span><span class="p">(</span><span class="n">query_value</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">query_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">contains</span><span class="p">(</span><span class="n">query_value</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">query_value</span><span class="p">,</span><span class="w"> </span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">node</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">query_value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">contains</span><span class="p">(</span><span class="n">query_value</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">query_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">contains</span><span class="p">(</span><span class="n">query_value</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -384,7 +393,7 @@ If the target value is larger, then we search the right subtree.</p>
 
 </section>
 <section id="inserting-into-binary-trees">
-<h2><span class="section-number">14.2.3. </span>Inserting into binary trees<a class="headerlink" href="#inserting-into-binary-trees" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.2.3. </span>Inserting into binary trees<a class="headerlink" href="#inserting-into-binary-trees" title="Permalink to this heading">¶</a></h2>
 <p>Inserting into a binary tree means adding a new node in the tree
 such that the binary tree property remains intact.</p>
 <div id='insert_tab' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="insert" >
@@ -393,23 +402,23 @@ But how do we find the place at which to insert that new node?
 Ask “where would we go if we were searching for this data in the tree?”
 This process is identical to the search used for the contains function.</p>
 <p>This function is implemented as a <code class="docutils literal notranslate"><span class="pre">bstree</span></code> member function.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"></span>
-<span class="w"> </span><span class="n">insert</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*&amp;</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"></span>
-<span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span>
+<span class="w"> </span><span class="n">insert</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*&amp;</span><span class="w"> </span><span class="n">node</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
 <span class="w">   </span><span class="c1">// add a new leaf</span>
-<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">     </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span><span class="w"></span>
-<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">tree</span><span class="o">::</span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
 <span class="w">   </span><span class="c1">// else the value already exists in the tree</span>
-<span class="w">   </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w"></span>
-<span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
 <p>There are a few important things to notice about this function.</p>
@@ -433,7 +442,7 @@ ascending or descending order, as opposed to inserting unordered data.</p>
 </div>
 </section>
 <section id="erasing-binary-tree-nodes">
-<h2><span class="section-number">14.2.4. </span>Erasing binary tree nodes<a class="headerlink" href="#erasing-binary-tree-nodes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">14.2.4. </span>Erasing binary tree nodes<a class="headerlink" href="#erasing-binary-tree-nodes" title="Permalink to this heading">¶</a></h2>
 <p>The erase process also begins with a search for the place to erase.
 This process is identical to the search used for contains and insert.</p>
 <p>The tricky part of removing a value from a binary search tree
@@ -457,7 +466,7 @@ However, deleting any other node would break the links between tree nodes.</p>
 <li><p>Removing a node that has two children</p></li>
 </ul>
 <section id="removing-a-leaf-node">
-<h3><span class="section-number">14.2.4.1. </span>Removing a leaf node<a class="headerlink" href="#removing-a-leaf-node" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">14.2.4.1. </span>Removing a leaf node<a class="headerlink" href="#removing-a-leaf-node" title="Permalink to this heading">¶</a></h3>
 <p>It’s easy to see that we can always remove any leaf in a
 binary search tree without affecting anything else.
 That is, if we remove any leaf from a binary search tree,
@@ -471,7 +480,7 @@ replacing whichever of its two children pointers was used to get to <code class=
 <p>In other words, leaf nodes are replaced with the null pointer.</p>
 </section>
 <section id="removing-a-non-leaf-node-with-a-null-child">
-<h3><span class="section-number">14.2.4.2. </span>Removing a non-leaf node with a null child<a class="headerlink" href="#removing-a-non-leaf-node-with-a-null-child" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">14.2.4.2. </span>Removing a non-leaf node with a null child<a class="headerlink" href="#removing-a-non-leaf-node-with-a-null-child" title="Permalink to this heading">¶</a></h3>
 <p>Removing nodes from the interior of the tree is a bit more work
 as we need to maintain links between nodes.</p>
 <p>Given the same tree we have been working with so far:</p>
@@ -497,10 +506,6 @@ That pointer should point to the child of the node we are going to remove.</p>
     <p>Verify that if we remove either <code class="docutils literal notranslate"><span class="pre">20</span></code> or <code class="docutils literal notranslate"><span class="pre">70</span></code>,
 the resulting tree is still a valid binary search tree.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><div class="graphviz"><img src="../_images/graphviz-c4640aac37e5e28e9cac60c38413899ee8accb50.png" alt="a binary search tree with 20 removed" class="graphviz" /></div>
 </td>
@@ -520,7 +525,7 @@ then reassign the left child to the current node,
 otherwise assign the right child.</p>
 </section>
 <section id="removing-a-non-leaf-node-with-a-two-children">
-<h3><span class="section-number">14.2.4.3. </span>Removing a non-leaf node with a two children<a class="headerlink" href="#removing-a-non-leaf-node-with-a-two-children" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">14.2.4.3. </span>Removing a non-leaf node with a two children<a class="headerlink" href="#removing-a-non-leaf-node-with-a-two-children" title="Permalink to this heading">¶</a></h3>
 <p>Suppose we wanted to remove the <code class="docutils literal notranslate"><span class="pre">50</span></code> or the <code class="docutils literal notranslate"><span class="pre">30</span></code> from this tree.
 What must we do so that the remaining nodes would still be a valid BST?</p>
 <p>This is a hard case.
@@ -550,10 +555,6 @@ two values that we could safely put in there:</p>
 <li><p>then running as far down to the left as we can go</p></li>
 </ul>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-6305a0cbaf4dede2170accd89eeb6810eb43e722.png" alt="a binary search tree" class="graphviz" /></div>
 </div>
@@ -575,10 +576,6 @@ What makes this last step simple is that it falls under our
 previous case: it is by definition either a leaf,
 or has at most one child.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><div class="graphviz"><img src="../_images/graphviz-afe0f84d9823a9e677a55046fcc57af2cb71e9bd.png" alt="a binary search tree" class="graphviz" /></div>
 </td>
@@ -590,28 +587,28 @@ or has at most one child.</p>
 <div id='erase_tab' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="erase" >
 <p>Putting it all together.</p>
 <p>This function is implemented as a <code class="docutils literal notranslate"><span class="pre">mesa::tree</span></code> free function.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
-<span class="linenos"> 2</span><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">erase</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*&amp;</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"></span>
-<span class="linenos"> 3</span><span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="linenos"> 4</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="linenos"> 2</span><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">erase</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*&amp;</span><span class="w"> </span><span class="n">node</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="w">  </span><span class="p">{</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
 <span class="linenos"> 5</span>
-<span class="hll"><span class="linenos"> 6</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-</span><span class="hll"><span class="linenos"> 7</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">erase</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span><span class="w"></span>
-</span><span class="hll"><span class="linenos"> 8</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-</span><span class="hll"><span class="linenos"> 9</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">erase</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span><span class="w"></span>
+<span class="hll"><span class="linenos"> 6</span><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="linenos"> 7</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">erase</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span><span class="hll"><span class="linenos"> 8</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="linenos"> 9</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">erase</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
 </span><span class="linenos">10</span>
-<span class="linenos">11</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">11</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="linenos">12</span><span class="w">      </span><span class="c1">// two children</span>
 <span class="linenos">13</span><span class="w">      </span><span class="c1">// replace node with smallest value from right subtree</span>
-<span class="linenos">14</span><span class="w">      </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min_element</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">15</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">erase</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">16</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">14</span><span class="w">      </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min_element</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">;</span>
+<span class="linenos">15</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">erase</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+<span class="linenos">16</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="linenos">17</span><span class="w">      </span><span class="c1">// remove a leaf node or node w/ 1 subtree</span>
-<span class="linenos">18</span><span class="w">      </span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">trash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">19</span><span class="w">      </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">20</span><span class="w">      </span><span class="k">delete</span><span class="w"> </span><span class="n">trash</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">21</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="linenos">22</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">18</span><span class="w">      </span><span class="n">tree_node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">trash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="linenos">19</span><span class="w">      </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+<span class="linenos">20</span><span class="w">      </span><span class="k">delete</span><span class="w"> </span><span class="n">trash</span><span class="p">;</span>
+<span class="linenos">21</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">22</span><span class="w">  </span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Lines 6-9 handle the search we discussed initially.
@@ -651,6 +648,8 @@ by Steven J. Zeil for his data structures course CS361.</p></li>
 </section>
 
 
+  
+
   <div id="scprogresscontainer">
     You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
   </div>
@@ -685,8 +684,8 @@ window.addEventListener('load', (event) => {
       
     </p>
     <p>
-        &copy; Copyright 2017-2022 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.2.1.
+        &copy; Copyright 2017-2023 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.6.2.
     </p>
   </div>
 </footer>

@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>1.5. Introducing Gnu/Linux &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -19,23 +19,27 @@
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/637.fafafbd97df8a0d1.css?v=B5361BC8" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone.e4d5592da655219f.css?v=32648AE5" />
+    <link rel="stylesheet" type="text/css" href="../_static/637.0fa6cababf056764.css?v=F9484CEF" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone.3eb60bc006ae9a54.css?v=3A5A250C" />
 
 
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
     <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
-    <script src="../_static/runtime.b0f8547c48f16a9f.bundle.js?v=2731F567"></script>
+    <script src="../_static/runtime.66b619f51b746382.bundle.js?v=C3F69EE5"></script>
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
-    <script src="../_static/runestone.0e9550fe42760516.bundle.js?v=71AD37BA"></script>
+    <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1.6. Introducing the vim editor" href="vim.html" />
@@ -43,6 +47,10 @@
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+
+
+<link rel="canonical" href="https://{{canonical_host}}{{new_server_prefix}}/books/published/{{base_course}}/{{pagepath}}" />
 
 
 <script>
@@ -63,7 +71,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '6.2.1';
+  eBookConfig.runestone_version = '6.6.2';
   eBookConfig.jobehost = 'https://red-voice-1370.fly.dev/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -110,6 +118,7 @@
       <ul class="nav navbar-nav navbar-right" >
 
         <li class="divider-vertical"></li>
+        <li><span id="ad_warning"></span></li>
         <li><span id="browsing_warning"></span></li>
 
         <!-- social media dropdown -->
@@ -212,7 +221,7 @@
 
   
   <section id="introducing-gnu-linux">
-<span id="index-0"></span><h1><span class="section-number">1.5. </span>Introducing Gnu/Linux<a class="headerlink" href="#introducing-gnu-linux" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">1.5. </span>Introducing Gnu/Linux<a class="headerlink" href="#introducing-gnu-linux" title="Permalink to this heading">¶</a></h1>
 <p>Early in its evolution,
 the command-line environment of UNIX (its only user interface back then)
 became dominated by dozens of small utilities and tools which are still in common use today.
@@ -232,7 +241,7 @@ used linux before.
 It is intended to give you enough of a jump start to demystify things somewhat
 and ease forward progress.</p>
 <section id="the-command-line">
-<h2><span class="section-number">1.5.1. </span>The command line<a class="headerlink" href="#the-command-line" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5.1. </span>The command line<a class="headerlink" href="#the-command-line" title="Permalink to this heading">¶</a></h2>
 <p>A command line, or terminal, is a text based interface to the system.
 You enter commands by typing them on the keyboard and feedback is returned as text.</p>
 <p>The command line typically presents you with a prompt.
@@ -263,7 +272,7 @@ At this point, the system is waiting for the next command.</p>
 </ul>
 </section>
 <section id="absolute-vs-relative-paths">
-<h2><span class="section-number">1.5.2. </span>Absolute vs relative paths<a class="headerlink" href="#absolute-vs-relative-paths" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5.2. </span>Absolute vs relative paths<a class="headerlink" href="#absolute-vs-relative-paths" title="Permalink to this heading">¶</a></h2>
 <p>Look at the argument passed to the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command in the previous example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/home/user
 </pre></div>
@@ -340,7 +349,7 @@ regardless of where her home directory actually is located.</p>
 
 </section>
 <section id="basic-commands">
-<h2><span class="section-number">1.5.3. </span>Basic commands<a class="headerlink" href="#basic-commands" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5.3. </span>Basic commands<a class="headerlink" href="#basic-commands" title="Permalink to this heading">¶</a></h2>
 <dl>
 <dt>pwd</dt><dd><p>Prints the working directory name.
 <code class="docutils literal notranslate"><span class="pre">pwd</span></code> prints the full path name of the directory you are currently in.</p>
@@ -361,15 +370,15 @@ directory to the named path.</p>
 <p>The special name <code class="docutils literal notranslate"><span class="pre">~</span></code> is a shortcut for the users home directory.</p>
 </dd>
 <dt>mkdir</dt><dd><p>Make a new directory. At least one argument is required. For example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host@user: <span class="nb">cd</span>
-host@user: ls -l
-total <span class="m">4</span>
--rw-rw---- <span class="m">1</span> user student  <span class="m">419</span> May <span class="m">29</span> <span class="m">06</span>:49 main.cpp
-host@user: mkdir labs
-host@user: ls -l
-total <span class="m">8</span>
-drwx------ <span class="m">1</span> user student  <span class="m">419</span> May <span class="m">29</span> <span class="m">15</span>:06 labs
--rw-rw---- <span class="m">1</span> user student  <span class="m">419</span> May <span class="m">29</span> <span class="m">06</span>:49 main.cpp
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>host@user:<span class="w"> </span><span class="nb">cd</span>
+host@user:<span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">4</span>
+-rw-rw----<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>student<span class="w">  </span><span class="m">419</span><span class="w"> </span>May<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">06</span>:49<span class="w"> </span>main.cpp
+host@user:<span class="w"> </span>mkdir<span class="w"> </span>labs
+host@user:<span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">8</span>
+drwx------<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>student<span class="w">  </span><span class="m">419</span><span class="w"> </span>May<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">15</span>:06<span class="w"> </span>labs
+-rw-rw----<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>student<span class="w">  </span><span class="m">419</span><span class="w"> </span>May<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">06</span>:49<span class="w"> </span>main.cpp
 </pre></div>
 </div>
 </dd>
@@ -453,6 +462,39 @@ Commands typed directly in the shell are not saved.</p></li>
 <div>
 <iframe height="400px" width="100%" src="https://repl.it/@DaveParillo/bashtutorial?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 </div></div>
+<div class="admonition-try-this admonition">
+<p class="admonition-title">Try This!</p>
+<p>Modify this program to make the output look like the table in the ascii man page.</p>
+
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=linux_ascii_table_tryit_ac data-question_label="1.5.3.1">
+<div id=linux_ascii_table_tryit_ac_question class="ac_question">
+
+</div>
+<textarea data-lang="cpp" id="linux_ascii_table_tryit_ac_editor" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+     style="visibility: hidden;">
+#include <iostream>
+#include <string>
+
+int main() {
+  std::string heading = "\ndec\toct\thex\tchar\n============================\n";
+  for (int i = 0; i < 128; ++i) {
+    if (i%20 == 0) std::cout << heading;
+    char c = i;
+    // the printable characters are between hex 20 and 7e
+    std::cout << std::dec << i << '\t'
+              << std::oct << i << '\t'
+              << std::hex << i << "\t'" << c << "'\n";
+  }
+  return 0;
+}
+</textarea>
+</div>
+</div>
+</div>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
@@ -469,6 +511,8 @@ references for people new to Unix or GNU/Linux.</p></li>
 </section>
 </section>
 
+
+  
 
   <div id="scprogresscontainer">
     You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
@@ -504,8 +548,8 @@ window.addEventListener('load', (event) => {
       
     </p>
     <p>
-        &copy; Copyright 2017-2022 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.2.1.
+        &copy; Copyright 2017-2023 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.6.2.
     </p>
   </div>
 </footer>

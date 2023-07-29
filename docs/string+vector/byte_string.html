@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>2.2. String abstractions in C &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -19,23 +19,27 @@
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/637.fafafbd97df8a0d1.css?v=B5361BC8" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone.e4d5592da655219f.css?v=32648AE5" />
+    <link rel="stylesheet" type="text/css" href="../_static/637.0fa6cababf056764.css?v=F9484CEF" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone.3eb60bc006ae9a54.css?v=3A5A250C" />
 
 
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
     <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
-    <script src="../_static/runtime.b0f8547c48f16a9f.bundle.js?v=2731F567"></script>
+    <script src="../_static/runtime.66b619f51b746382.bundle.js?v=C3F69EE5"></script>
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
-    <script src="../_static/runestone.0e9550fe42760516.bundle.js?v=71AD37BA"></script>
+    <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2.4. The string class" href="string.html" />
@@ -43,6 +47,10 @@
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+
+
+<link rel="canonical" href="https://{{canonical_host}}{{new_server_prefix}}/books/published/{{base_course}}/{{pagepath}}" />
 
 
 <script>
@@ -63,7 +71,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '6.2.1';
+  eBookConfig.runestone_version = '6.6.2';
   eBookConfig.jobehost = 'https://red-voice-1370.fly.dev/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -110,6 +118,7 @@
       <ul class="nav navbar-nav navbar-right" >
 
         <li class="divider-vertical"></li>
+        <li><span id="ad_warning"></span></li>
         <li><span id="browsing_warning"></span></li>
 
         <!-- social media dropdown -->
@@ -212,7 +221,7 @@
 
   
   <section id="string-abstractions-in-c">
-<span id="index-0"></span><h1><span class="section-number">2.2. </span>String abstractions in C<a class="headerlink" href="#string-abstractions-in-c" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">2.2. </span>String abstractions in C<a class="headerlink" href="#string-abstractions-in-c" title="Permalink to this heading">¶</a></h1>
 <p>In the C language,
 the abstract idea of a string is implemented with an array of characters.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// the char array must be null terminated</span>
@@ -221,14 +230,14 @@ the abstract idea of a string is implemented with an array of characters.</p>
 <span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;h&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;o&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w">     </span><span class="c1">// null == 0 also</span>
 
 <span class="c1">// a quoted literal is just a special case of a char array</span>
-<span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Arrays of <code class="docutils literal notranslate"><span class="pre">char</span></code> that are null terminated are commonly called
 <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string//byte">byte strings</a> or
 <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/c_str">C strings</a>.
 Given the byte string:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">howdy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hi there!&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">howdy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hi there!&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p id="index-1">In memory, <code class="docutils literal notranslate"><span class="pre">howdy</span></code> is automatically transformed into:</p>
@@ -259,7 +268,7 @@ The null character is a  <code class="docutils literal notranslate"><span class=
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=byte_string_null_ac data-question_label="2.2.1">
-<div id=byte_string_null_ac_question class="ac_question col-md-12">
+<div id=byte_string_null_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="byte_string_null_ac_editor" 
@@ -290,7 +299,7 @@ common mistakes when working with C strings.</p>
 </div>
 <p id="index-2">A character array may allocate more memory that the characters currently stored in it.
 An array declaration like this:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">hi</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">hi</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>results in an in-memory representation like this:</p>
@@ -318,7 +327,7 @@ Their simplicity makes them a pain to work with,
 which is why the Standard Template Library (STL) contains the <a class="reference external" href="https://en.cppreference.com/w/cpp/string">string</a> class.</p>
 </section>
 <section id="working-with-c-strings">
-<h1><span class="section-number">2.3. </span>Working with C strings<a class="headerlink" href="#working-with-c-strings" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2.3. </span>Working with C strings<a class="headerlink" href="#working-with-c-strings" title="Permalink to this heading">¶</a></h1>
 <p>The C programming language has a set of functions implementing operations
 on strings (character strings and byte strings) in the standard library.
 Various operations, such as copying, concatenation, tokenization, and searching are supported.</p>
@@ -332,8 +341,56 @@ it’s just easier and more efficient to manipulate the byte string
 directly, rather than create a temporary <code class="docutils literal notranslate"><span class="pre">std::string</span></code> merely to
 perform an operation and then convert back.
 In general, you want to try to avoid these kinds of unnecessary type conversions.</p>
+
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=c_string_array_example_ac data-question_label="2.3.1">
+<div id=c_string_array_example_ac_question class="ac_question">
+
+</div>
+<textarea data-lang="cpp" id="c_string_array_example_ac_editor" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+     style="visibility: hidden;">
+#include<stdio.h>
+#include<string.h>  // for strcpy function
+
+// In C, a string is literally an array of char
+//
+// This is not the same as the string class from the STL.
+
+int main()
+{
+  char a[] = {'h', 'e', 'l', 'l', 'o', '\0'};  // the char array must be null terminated
+  char b[] = {'h', 'e', 'l', 'l', 'o', 0};     // null == 0
+  char* c = "hello";                           // a string is just a special case of a char array
+
+  for (int i = 0; a[i]; ++i) {                 // explain why this loop terminates
+    printf ("%c %c %c\n", a[i], b[i], c[i]);
+  }
+
+  // copying strings
+  char* d = 0;
+  d = a;      // we only copied a pointer here!
+  if (a == d) {
+    d[0] = 'H';
+  }
+  printf ("\na and d strings:\n  %s %s\n", a, d);
+
+  char e[sizeof(b)];
+  strcpy(e, b);
+  e[0] = 'H';
+  printf ("\nb and e strings:\n  %s %s\n", b, e);
+
+  // a = e;    // compile error.  C strings are not assignable
+
+  return 0;
+}
+</textarea>
+</div>
+</div>
 <section id="change-character-case">
-<span id="index-3"></span><h2><span class="section-number">2.3.1. </span>Change character case<a class="headerlink" href="#change-character-case" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2><span class="section-number">2.3.1. </span>Change character case<a class="headerlink" href="#change-character-case" title="Permalink to this heading">¶</a></h2>
 <p>Many languages provide utilities to change character case as part of the
 string class.</p>
 <p>Not C++.</p>
@@ -358,7 +415,7 @@ Non-ASCII acharacters are not handled.</p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=string_toupper_ac data-question_label="2.3.1.1">
-<div id=string_toupper_ac_question class="ac_question col-md-12">
+<div id=string_toupper_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="string_toupper_ac_editor" 
@@ -391,7 +448,7 @@ as the character type provided.</p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=string_toupper_locale_ac data-question_label="2.3.1.2">
-<div id=string_toupper_locale_ac_question class="ac_question col-md-12">
+<div id=string_toupper_locale_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="string_toupper_locale_ac_editor" 
@@ -424,7 +481,7 @@ int main() {
 
 </section>
 <section id="convert-a-byte-string-to-a-number">
-<span id="index-4"></span><h2><span class="section-number">2.3.2. </span>Convert a byte string to a number<a class="headerlink" href="#convert-a-byte-string-to-a-number" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2><span class="section-number">2.3.2. </span>Convert a byte string to a number<a class="headerlink" href="#convert-a-byte-string-to-a-number" title="Permalink to this heading">¶</a></h2>
 <p>Another common task in programming is to parse a byte string
 and extract a numeric value.</p>
 <p>Later we will learn C++ object-oriented techniques that accomplish
@@ -445,7 +502,7 @@ number representation and converts them to an integer value.</p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=byte_string_atoi_ac data-question_label="2.3.2.1">
-<div id=byte_string_atoi_ac_question class="ac_question col-md-12">
+<div id=byte_string_atoi_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="byte_string_atoi_ac_editor" 
@@ -475,7 +532,7 @@ int main() {
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=byte_string_atof_ac data-question_label="2.3.2.2">
-<div id=byte_string_atof_ac_question class="ac_question col-md-12">
+<div id=byte_string_atof_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="byte_string_atof_ac_editor" 
@@ -506,7 +563,7 @@ int main()
 
 </section>
 <section id="copying-and-comparing-c-strings">
-<span id="index-5"></span><h2><span class="section-number">2.3.3. </span>Copying and comparing C strings<a class="headerlink" href="#copying-and-comparing-c-strings" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2><span class="section-number">2.3.3. </span>Copying and comparing C strings<a class="headerlink" href="#copying-and-comparing-c-strings" title="Permalink to this heading">¶</a></h2>
 <p>Unlike most of the types we work with in C++,
 byte strings are simple arrays.
 Arrays cannot be assigned to each other using <code class="docutils literal notranslate"><span class="pre">operator=</span></code>.
@@ -528,7 +585,7 @@ to the destination character array.</p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=byte_string_strcpy_ac data-question_label="2.3.3.1">
-<div id=byte_string_strcpy_ac_question class="ac_question col-md-12">
+<div id=byte_string_strcpy_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="byte_string_strcpy_ac_editor" 
@@ -561,7 +618,7 @@ number of characters.</p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=byte_string_strncpy_ac data-question_label="2.3.3.2">
-<div id=byte_string_strncpy_ac_question class="ac_question col-md-12">
+<div id=byte_string_strncpy_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="byte_string_strncpy_ac_editor" 
@@ -599,7 +656,7 @@ If the first operand is less than the second, then a negative value is returned.
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=byte_string_strcmp_ac data-question_label="2.3.3.3">
-<div id=byte_string_strcmp_ac_question class="ac_question col-md-12">
+<div id=byte_string_strcmp_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="byte_string_strcmp_ac_editor" 
@@ -651,7 +708,7 @@ a specified number of characters.</p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=byte_string_strncmp_ac data-question_label="2.3.3.4">
-<div id=byte_string_strncmp_ac_question class="ac_question col-md-12">
+<div id=byte_string_strncmp_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="byte_string_strncmp_ac_editor" 
@@ -700,10 +757,10 @@ then use <a class="reference external" href="https://en.cppreference.com/w/cpp/s
 
         <div class="runestone ">
         <div data-component="fillintheblank" data-question_label="2.3.3.5" id="byte_string_fitb2"  style="visibility: hidden;">
-            <p>sc-1-10: Given the following:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">text</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span><span class="w"></span>
-<span class="n">strcpy</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">text</span><span class="p">);</span><span class="w"></span>
+            <p>sc-1-11: Given the following:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">text</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+<span class="n">strcpy</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>What is the value of <code class="docutils literal notranslate"><span class="pre">len</span></code>?</p>
@@ -718,7 +775,7 @@ then use <a class="reference external" href="https://en.cppreference.com/w/cpp/s
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=byte_string_sc_ac1 data-question_label="2.3.3.6">
-<div id=byte_string_sc_ac1_question class="ac_question col-md-12">
+<div id=byte_string_sc_ac1_question class="ac_question">
 <p>Fix the errors in the <code class="docutils literal notranslate"><span class="pre">printf</span></code> line below:</p>
 
 </div>
@@ -743,7 +800,7 @@ int main() {
 
         <div class="runestone ">
         <div data-component="fillintheblank" data-question_label="2.3.3.7" id="byte_string_fitb3"  style="visibility: hidden;">
-            <p>sc-1-12: Which <code class="docutils literal notranslate"><span class="pre">#include</span></code> is required to use functions such as
+            <p>sc-1-13: Which <code class="docutils literal notranslate"><span class="pre">#include</span></code> is required to use functions such as
 <code class="docutils literal notranslate"><span class="pre">std::atoi</span></code> and <code class="docutils literal notranslate"><span class="pre">std::atof</span></code>?</p>
 <input type="text">
         <script type="application/json">
@@ -756,7 +813,7 @@ int main() {
 
         <div class="runestone ">
         <div data-component="fillintheblank" data-question_label="2.3.3.8" id="byte_string_fitb4"  style="visibility: hidden;">
-            <p>sc-1-13: Which <code class="docutils literal notranslate"><span class="pre">#include</span></code> is required to use functions such as
+            <p>sc-1-14: Which <code class="docutils literal notranslate"><span class="pre">#include</span></code> is required to use functions such as
 <code class="docutils literal notranslate"><span class="pre">std::stoi</span></code> and <code class="docutils literal notranslate"><span class="pre">std::stol</span></code>?</p>
 <input type="text">
         <script type="application/json">
@@ -785,6 +842,8 @@ int main() {
 </section>
 </section>
 
+
+  
 
   <div id="scprogresscontainer">
     You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
@@ -820,8 +879,8 @@ window.addEventListener('load', (event) => {
       
     </p>
     <p>
-        &copy; Copyright 2017-2022 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.2.1.
+        &copy; Copyright 2017-2023 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.6.2.
     </p>
   </div>
 </footer>

@@ -10,17 +10,17 @@
 <body>
 <h2><title><no title></title></h2>
 
-<div class="highlight"><pre><span></span><span class="nv">CXX</span> <span class="o">=</span> c++
+<div class="highlight"><pre><span></span><span class="nv">CXX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>c++
 <span class="cp">ifndef CXXFLAGS</span>
-	<span class="nv">CXXFLAGS</span> <span class="o">=</span> -Wall -Wextra -pedantic -std<span class="o">=</span>c++11
+<span class="w">	</span><span class="nv">CXXFLAGS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-Wall<span class="w"> </span>-Wextra<span class="w"> </span>-pedantic<span class="w"> </span>-std<span class="o">=</span>c++11
 <span class="cp">endif</span>
 
 
-<span class="nf">cipher </span><span class="o">:</span> <span class="n">clean</span>
-	<span class="si">${</span><span class="nv">CXX</span><span class="si">}</span> <span class="si">${</span><span class="nv">CXXFLAGS</span><span class="si">}</span> -o <span class="nv">$@</span> *.cpp
+<span class="nf">cipher </span><span class="o">:</span><span class="w"> </span><span class="n">clean</span>
+<span class="w">	</span><span class="si">${</span><span class="nv">CXX</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">CXXFLAGS</span><span class="si">}</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$@</span><span class="w"> </span>*.cpp
 
-<span class="nf">clean </span><span class="o">:</span> 
-	rm -f cipher
+<span class="nf">clean </span><span class="o">:</span><span class="w"> </span>
+<span class="w">	</span>rm<span class="w"> </span>-f<span class="w"> </span>cipher
 </pre></div>
 </body>
 </html>

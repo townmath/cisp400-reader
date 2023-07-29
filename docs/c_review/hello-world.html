@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Hello, world! &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -19,23 +19,27 @@
     <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css?v=910DF1E1" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/637.fafafbd97df8a0d1.css?v=B5361BC8" />
-    <link rel="stylesheet" type="text/css" href="../_static/runestone.e4d5592da655219f.css?v=32648AE5" />
+    <link rel="stylesheet" type="text/css" href="../_static/637.0fa6cababf056764.css?v=F9484CEF" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone.3eb60bc006ae9a54.css?v=3A5A250C" />
 
 
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
     <script src="../_static/animationbase.js?v=A043C3A7"></script>
     <script src="../_static/html4css1.css?v=4533ACD3"></script>
     <script src="../_static/webglinteractive.js?v=2B768384"></script>
     <script src="../_static/FileSaver.min.js?v=8408C997"></script>
-    <script src="../_static/runtime.b0f8547c48f16a9f.bundle.js?v=2731F567"></script>
+    <script src="../_static/runtime.66b619f51b746382.bundle.js?v=C3F69EE5"></script>
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
-    <script src="../_static/runestone.0e9550fe42760516.bundle.js?v=71AD37BA"></script>
+    <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Types" href="types.html" />
@@ -43,6 +47,10 @@
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+
+
+
+<link rel="canonical" href="https://{{canonical_host}}{{new_server_prefix}}/books/published/{{base_course}}/{{pagepath}}" />
 
 
 <script>
@@ -63,7 +71,7 @@
   eBookConfig.build_info = "unknown";
   eBookConfig.python3 = true;
   eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
-  eBookConfig.runestone_version = '6.2.1';
+  eBookConfig.runestone_version = '6.6.2';
   eBookConfig.jobehost = 'https://red-voice-1370.fly.dev/http://jobe2.cosc.canterbury.ac.nz';
   eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
   eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
@@ -110,6 +118,7 @@
       <ul class="nav navbar-nav navbar-right" >
 
         <li class="divider-vertical"></li>
+        <li><span id="ad_warning"></span></li>
         <li><span id="browsing_warning"></span></li>
 
         <!-- social media dropdown -->
@@ -212,7 +221,7 @@
 
   
   <section id="hello-world">
-<h1>Hello, world!<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h1>
+<h1>Hello, world!<a class="headerlink" href="#hello-world" title="Permalink to this heading">¶</a></h1>
 <p>Welcome to CISC187 and welcome to this book.</p>
 <p>This book is intended for students taking CISC187 at SD Mesa.
 You should already have a solid understanding of the
@@ -229,9 +238,9 @@ When your goal is to iterate over all the elements
 in a container or array, a range-for loop
 is easier to write and understand.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w">           </span><span class="c1">// for each value in data</span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;value is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;value is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Introduced in C++11, a range-for loop extracts values
@@ -242,7 +251,7 @@ on the <em>Example</em> tab.</p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=hello_world_rangefor_ac data-question_label="1">
-<div id=hello_world_rangefor_ac_question class="ac_question col-md-12">
+<div id=hello_world_rangefor_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="hello_world_rangefor_ac_editor" 
@@ -297,15 +306,15 @@ but you should know by now:</p>
 <li><p>How to use function <em>main()</em>, <em>argc</em>, and <em>argv</em></p></li>
 <li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/io/cout">cout</a> and the meaning of statements like:</p></li>
 </ul>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello C++!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;Hello C!&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello Alice!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello %s!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bob&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello C++!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">  </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;Hello C!&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello Alice!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello %s!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bob&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>You may not have seen <a class="reference external" href="https://en.cppreference.com/w/cpp/io/c/fprintf">printf</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/io/c/puts">puts</a> before.
@@ -313,7 +322,7 @@ They are output functions C++ inherits from C.
 Normally, in C++ we use stream I/O functions and classes,
 but the old C functions are still there if you need them.</p>
 <section id="built-in-types-variables-and-operations">
-<h2>Built-in types, variables and operations<a class="headerlink" href="#built-in-types-variables-and-operations" title="Permalink to this headline">¶</a></h2>
+<h2>Built-in types, variables and operations<a class="headerlink" href="#built-in-types-variables-and-operations" title="Permalink to this heading">¶</a></h2>
 <p>You should already be familiar with declaring fundamental <a class="reference external" href="https://en.cppreference.com/w/cpp/types">types</a>
 (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">unsigned</span></code>, etc.).
 You should also know that other <a class="reference external" href="https://en.cppreference.com/w/cpp/types/integer">fixed width integer types</a>
@@ -338,14 +347,14 @@ narrowing conversions that occur during math operations.
 For example:</p>
 <div id='hello_world_narrowing' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Example" >
 <p>What is the output, given the following?</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </pre></div>
 </div>
 </div><div data-component="tab" data-tabname="Run It" >
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=hello_world_narrowing_ac data-question_label="2">
-<div id=hello_world_narrowing_ac_question class="ac_question col-md-12">
+<div id=hello_world_narrowing_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="hello_world_narrowing_ac_editor" 
@@ -369,11 +378,11 @@ int main() {
 <p>You should know how to explicitly cast fundamental types from one
 type to another.
 Most people should be familiar with the <code class="docutils literal notranslate"><span class="pre">static_cast</span></code> form:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">almost_pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">almost_pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Some people may have also learned the C-style cast:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">almost_pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="mf">3.14159</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">almost_pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="mf">3.14159</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Know that these two forms are equivalent, but the first is preferred.
@@ -384,17 +393,17 @@ at least those common to both C and C++, and legal identifier names
 for functions and variables.</p>
 </section>
 <section id="user-defined-types">
-<h2>User-defined types<a class="headerlink" href="#user-defined-types" title="Permalink to this headline">¶</a></h2>
+<h2>User-defined types<a class="headerlink" href="#user-defined-types" title="Permalink to this heading">¶</a></h2>
 <p>Although you may not have done any object oriented programming yourself,
 you probably have used objects, even if you weren’t aware of it.
 The C++ standard provides many classes.
 Two of the oldest classes handle stream formatted input and output:
 <a class="reference external" href="https://en.cppreference.com/w/cpp/io/cin">cin</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/io/cout">cout</a>.</p>
 <p>You should have already encountered code like:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w">  </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Enter your name: &quot;</span><span class="p">;</span><span class="w"></span>
-<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w">  </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello,&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w">  </span><span class="n">name</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Enter your name: &quot;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w">  </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello,&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>You may have been taught the basics of <a class="reference external" href="https://en.cppreference.com/w/cpp/string">string</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/container/vector">vector</a>.
@@ -406,7 +415,7 @@ often in this course, so if you haven’t used them yet,
 don’t worry - you will.</p>
 </section>
 <section id="file-input-and-output">
-<h2>File input and output<a class="headerlink" href="#file-input-and-output" title="Permalink to this headline">¶</a></h2>
+<h2>File input and output<a class="headerlink" href="#file-input-and-output" title="Permalink to this heading">¶</a></h2>
 <p>I expect you to know how to use some form of file input and output,
 whether it is the C-style <a class="reference external" href="https://en.cppreference.com/w/cpp/io/c/printf">printf</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/io/c/scanf">scanf</a>, or the
 C++-style input and output file streams: <a class="reference external" href="https://en.cppreference.com/w/cpp/io/ofstream">ofstream</a> and <a class="reference external" href="https://en.cppreference.com/w/cpp/io/basic_ifstream">ifstream</a>.
@@ -423,7 +432,7 @@ the standard console input and output.</p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=hello_world_scanf_ac data-question_label="3">
-<div id=hello_world_scanf_ac_question class="ac_question col-md-12">
+<div id=hello_world_scanf_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="hello_world_scanf_ac_editor" 
@@ -452,7 +461,7 @@ the standard console input and output.</p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=hello_world_cin_ac data-question_label="4">
-<div id=hello_world_cin_ac_question class="ac_question col-md-12">
+<div id=hello_world_cin_ac_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="hello_world_cin_ac_editor" 
@@ -477,7 +486,7 @@ int main () {
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=df_ac_poem_c_file_io data-question_label="5">
-<div id=df_ac_poem_c_file_io_question class="ac_question col-md-12">
+<div id=df_ac_poem_c_file_io_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="df_ac_poem_c_file_io_editor" 
@@ -509,7 +518,7 @@ int main() {
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=df_ac_poem_stream_io data-question_label="6">
-<div id=df_ac_poem_stream_io_question class="ac_question col-md-12">
+<div id=df_ac_poem_stream_io_question class="ac_question">
 
 </div>
 <textarea data-lang="cpp" id="df_ac_poem_stream_io_editor" 
@@ -590,7 +599,7 @@ of input and output, rather we are just reviewing major concepts
 and showing the differences between C standard I/O and C++ I/O.</p>
 </section>
 <section id="statements-and-branching">
-<h2>Statements and branching<a class="headerlink" href="#statements-and-branching" title="Permalink to this headline">¶</a></h2>
+<h2>Statements and branching<a class="headerlink" href="#statements-and-branching" title="Permalink to this heading">¶</a></h2>
 <p>Writing basic statements and conditionally executing code,
 or executing blocks of code repeatedly, are fundamental skills
 common to all programming languages.</p>
@@ -603,9 +612,36 @@ to perform tasks perhaps as complex as:</p>
 <li><p>Computing population growth</p></li>
 <li><p>Parsing text</p></li>
 </ul>
+<p>For example, loops and conditionals make it easy to
+print all the odd numbers between 1 and 100, inclusive.</p>
+
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=ac_print_odds_hello_world data-question_label="8">
+<div id=ac_print_odds_hello_world_question class="ac_question">
+
+</div>
+<textarea data-lang="cpp" id="ac_print_odds_hello_world_editor" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+     style="visibility: hidden;">
+#include <iostream>
+using std::cout;
+
+int main() {
+  cout << "Odd numbers:\n";
+  for (int num = 1; num <= 100; ++num) {
+    if (num % 2 != 0) {
+      cout << '\t' << num << '\n';
+    }
+  }
+}
+</textarea>
+</div>
+</div>
 </section>
 <section id="fixing-errors-in-code">
-<h2>Fixing errors in code<a class="headerlink" href="#fixing-errors-in-code" title="Permalink to this headline">¶</a></h2>
+<h2>Fixing errors in code<a class="headerlink" href="#fixing-errors-in-code" title="Permalink to this heading">¶</a></h2>
 <p>You should know the difference between basic types of errors:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../glossary.html#term-compile-time-error"><span class="xref std std-term">Compile-time errors</span></a></p></li>
@@ -637,6 +673,8 @@ programming environment you may have used previously.</p>
 </section>
 </section>
 
+
+  
 
   <div id="scprogresscontainer">
     You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
@@ -672,8 +710,8 @@ window.addEventListener('load', (event) => {
       
     </p>
     <p>
-        &copy; Copyright 2017-2022 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.2.1.
+        &copy; Copyright 2017-2023 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.6.2.
     </p>
   </div>
 </footer>
