@@ -614,6 +614,91 @@ vector data is one of the things that make vectors efficient.
          }
 
 
+.. tabbed:: tab_vector_test_cases_example
+
+   .. tab:: vector test
+
+      .. activecode:: vector_test_cases_example_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-Werror' '-std=c++11']
+         :nocodelens:
+
+         A short test program to demonstrate the parts of the vector interface.
+
+         What other tests can you make?
+
+         ~~~~
+         #include <iomanip>
+         #include <iostream>
+         #include <string>
+         #include <vector>
+
+         using std::string;
+         using std::vector;
+
+         vector<string> make_vector() {
+           return {
+              "reach", "clear", "fall", "set", "yard",
+              "liquid", "wise", "badge", "four", "coherent"
+            };
+         }
+
+         void check (const string& name, const string& actual, const string& expected)
+         {
+           std::cout << std::left << std::setfill('.') 
+                     << std::setw(50) << name 
+                     << std::setw(7) <<  std::left;
+           if(actual == expected) {
+             std::cout << " OK      \n";
+             return;
+           }
+           std::cout << " FAILED\n";
+           std::cout << "\treceived [" << actual
+                     << "], but expected [" << expected << "]\n";
+           exit(1);
+         }
+
+         // write test cases 
+         void test_simple_access(vector<string> words) {
+            check("test at()", words.at(0), "reach");
+            check("test operator[]", words[0], "reach");
+            check("test at() end", words.at(9), "coherent");
+            check("test operator[]", words[9], "coherent");
+
+            // foo.at(i) and foo.[i] refer to the same thing
+            for (auto i=0U; i< 3; ++i) {
+            // for (auto i=0U; i< words.size(); ++i) {
+               check("at and operator[] are the same", words.at(i), words[i]);
+            }
+
+            const string empty;
+            // Try uncommenting these lines to see what happens
+            //check("test at out of bounds", words.at(-1), empty);
+            //check("test at out of bounds", words.at(11), empty);
+            //check("test [] out of bounds", words[-1], empty);
+            //check("test [] out of bounds", words[11], empty);
+         }
+
+         void test_other_access(vector<string> words) {
+            check("test front()", words.front(), words.at(0));
+            check("test back()", words.back(), words.at(words.size()-1));
+         }
+
+         void test_assignment(vector<string> words) {
+            check("test original value", words[2], "fall");
+            words[2] = "falldown";
+            check("test new value", words[2], "falldown");
+         }
+
+         // call test cases 
+         int main() {
+           auto words = make_vector();
+
+           test_simple_access(words);
+           test_other_access(words);
+           test_assignment(words);
+         }
+
 -----
 
 .. admonition:: More to Explore
