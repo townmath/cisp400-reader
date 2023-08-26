@@ -92,7 +92,7 @@ GCC
    For our purposes GCC provides:
 
    - ``gcc``: a C compiler
-   - ``gcc++``: a C++ compiler
+   - ``g++``: a C++ compiler
    - ``gdb``: a debugger.
 
    GCC is the default compiler for most Unix and Linux based systems.
@@ -178,11 +178,22 @@ then you may compile the software and run tests.
    on the command line.
 2. Login to the Mesa server using ``ssh``.
 3. Once logged in, change directory to the folder containing a lab
+
+   For example:
+
+   .. code-block:: none
+
+      cd cisc187-sp23-fire40/lab01-hello
+
+   If you do not have a directory starting with ``cisc187-`` 
+   in your home directory then clone your repository.
+
 4. Create a new directory to hold the build files and
    have ``cmake`` generate the makefiles:
 
    .. code-block:: none
 
+      # make a directory to store build output and configure
       mkdir build
       cd build
       cmake ..
@@ -203,6 +214,24 @@ then you may compile the software and run tests.
       make test
 
 That it!
+
+There are many ways to run cmake and steps 4 and 5 above are what you commonly
+see on the internet. One alternative is:
+
+   .. code-block:: none
+
+      # make a directory to store build output and configure
+      cmake -S /path/to/lab01-hello -B build
+
+
+      # build the project
+      cmake --build build
+
+
+      # run the tests
+      cmake --build build --target test
+
+
 
 
 This video demonstrates these steps and shows what normal results should look like.

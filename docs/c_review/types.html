@@ -214,10 +214,22 @@
 
 <div class="container" id="main-content" role="main">
 
-<!-- Ad Serving for Runestone Campaign -->
+	<div class="admonition note">
+		<p class="admonition-title">
+		Compiling in this book is temporarily broken.
+		</p>
+		<p>
+		Until I have a chance to fix it, you can copy and paste code from the text area into an online compiler such as
+		<a href="https://coliru.stacked-crooked.com/">Coliru</a>,
+		<a href="https://www.onlinegdb.com/online_c++_compiler">Online GDB</a>, 
+		<a href="https://godbolt.org/">GodBolt</a>, or
+		<a href="https://replit.com/">Replit</a>. 
+		Thank you for your patience.</p>
+	</div>
+	<!-- Ad Serving for Runestone Campaign -->
+	
 
-
-  
+	
   <section id="types">
 <span id="index-0"></span><h1>Types<a class="headerlink" href="#types" title="Permalink to this heading">¶</a></h1>
 <p>In C++, objects, references, functions, and expressions all have a property called <em>type</em>,
@@ -1005,7 +1017,7 @@ int main() {
 
 <div class="runestone  ">
 <ul data-component="dragndrop" data-question_label="8" id="types_dnd_type1"  style="visibility: hidden;">
-    <span data-subcomponent="question">Q-8: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct</span>
+    <span data-subcomponent="question">sc-1-8: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct</span>
 	<span data-subcomponent=feedback>Review the summaries above.</span>
 
     <li data-subcomponent="draggable" id="types_dnd_type1_drag1">Specifying the type and name for a variable</li>
@@ -1023,7 +1035,7 @@ int main() {
 
     <div class="runestone ">
     <ul data-component="multiplechoice" data-question_label="9" data-multipleanswers="true"  id="types_mc1"  style="visibility: hidden;">
-    <p>Q-9: Which declarations are valid?</p>
+    <p>sc-1-9: Which declarations are valid?</p>
 
     <li data-component="answer"  id="types_mc1_opt_a">int 3;</li><li data-component="feedback">Declarations must always include a name</li>
     
@@ -1043,7 +1055,7 @@ As written, this is assignment, not declaration</li>
 
 <div class="runestone  ">
 <ul data-component="dragndrop" data-question_label="10" id="types_dnd_type2"  style="visibility: hidden;">
-    <span data-subcomponent="question">Q-10: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct.</span>
+    <span data-subcomponent="question">sc-1-10: Drag the definition from the left and drop it on the correct concept on the right.  Click the "Check Me" button to see if you are correct.</span>
 	<span data-subcomponent=feedback>Review the summaries above.</span>
 
     <li data-subcomponent="draggable" id="types_dnd_type2_drag1">Setting the value of a variable the first time</li>
@@ -1061,7 +1073,7 @@ As written, this is assignment, not declaration</li>
 
         <div class="runestone ">
         <div data-component="fillintheblank" data-question_label="11" id="types_fitb1"  style="visibility: hidden;">
-            <p>Q-11: Given the following:</p>
+            <p>sc-1-11: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdint&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">int8_t</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
@@ -1081,7 +1093,7 @@ As written, this is assignment, not declaration</li>
 
         <div class="runestone ">
         <div data-component="fillintheblank" data-question_label="12" id="types_fitb2"  style="visibility: hidden;">
-            <p>Q-12: Given the following:</p>
+            <p>sc-1-12: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="mi">-1</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -1141,7 +1153,7 @@ void func() {
 
         <div class="runestone ">
         <div data-component="fillintheblank" data-question_label="15" id="types_fitb3"  style="visibility: hidden;">
-            <p>Q-15: Given the following:</p>
+            <p>sc-1-15: Given the following:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -1195,13 +1207,13 @@ variable length <a class="reference external" href="https://developers.google.co
 </section>
 
 
-  
+	
 
-  <div id="scprogresscontainer">
-    You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
-  </div>
+	<div id="scprogresscontainer">
+		You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
+	</div>
 
-  <ul role="navigation" class="nextprev-list nextprev-list" aria-label="Change page">
+	<ul role="navigation" class="nextprev-list nextprev-list" aria-label="Change page">
 <li id="relations-prev" class="navLink" title='Previous Section - Hello, world!' data-toggle="tooltip">
   <a href="hello-world.html" aria-label="Previous - Hello, world!">
     <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
@@ -1224,26 +1236,26 @@ window.addEventListener('load', (event) => {
 
 </div>
 <footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      
-      | <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2017-2023 Dave Parillo.
-      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.6.2.
-    </p>
-  </div>
+	<div class="container">
+		<p class="pull-right">
+		
+		| <a href="#">Back to top</a>
+		
+		</p>
+		<p>
+		&copy; Copyright 2017-2023 Dave Parillo.
+		Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.6.2.
+		</p>
+	</div>
 </footer>
 
 
 
 
 <script>
-  window.addEventListener('load', (event) => {
-    runestoneComponents.getSwitch();
-  });
+	window.addEventListener('load', (event) => {
+		runestoneComponents.getSwitch();
+	});
 </script>
 
 
