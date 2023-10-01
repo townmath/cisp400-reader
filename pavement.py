@@ -40,7 +40,7 @@ options(
                        'dburl': '',
                        'default_ac_lang': 'cpp',
                        'basecourse': 'cisc187-reader',
-                       'jobe_server': 'https://red-voice-1370.fly.dev/http://jobe2.cosc.canterbury.ac.nz',
+                       'jobe_server': 'https://delicate-frost-8843.fly.dev',
                        'proxy_uri_runs': '/jobe/index.php/restapi/runs/',
                        'proxy_uri_files': '/jobe/index.php/restapi/files/'
                        }
