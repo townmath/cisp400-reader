@@ -116,8 +116,8 @@ attempting to compile these examples in your environment.
 
       .. include:: test17.txt
 
-The textbook online compiler has complete support for C++11
-and has support for some aspects, but not all of C++14 and C++17.
+The textbook online compiler has complete support for C++
+up to and including C++17 and most of C++20.
 
 -----
 

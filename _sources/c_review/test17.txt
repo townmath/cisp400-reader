@@ -1,10 +1,10 @@
 .. activecode:: ac_begin_compiler_test_1z
    :language: cpp
-   :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++1z']
+   :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++17']
    :nocodelens:
 
    // A simple test for C++17 support
-   // compiled with: -Wall -Wextra -pedantic -std=c++1z
+   // compiled with: -Wall -Wextra -pedantic -std=c++17
 
    #include <any>
    #include <iostream>
