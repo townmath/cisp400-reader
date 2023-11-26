@@ -28,11 +28,47 @@ import pkg_resources
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
+my_extensions = ['runestone.common',
+                'runestone.accessibility',
+                'runestone.activecode',
+                'runestone.animation',
+                'runestone.assignment',
+                'runestone.blockly',
+                'runestone.cellbotics',
+                'runestone.chapterdb',
+                'runestone.clickableArea',
+                'runestone.codelens',
+                'runestone.datafile',
+                'runestone.dist',
+                'runestone.dragndrop',
+                'runestone.fitb',
+                'runestone.groupsub',
+                'runestone.hparsons',
+                'runestone.matrixeq',
+                'runestone.mchoice',
+                'runestone.meta',
+                'runestone.parsons',
+                'runestone.pretext',
+                'runestone.question',
+                'runestone.quizly',
+                'runestone.reveal',
+                'runestone.selectquestion',
+                'runestone.server',
+                'runestone.shortanswer',
+                'runestone.showeval',
+                'runestone.spreadsheet',
+                'runestone.tabbedStuff',
+                'runestone.timed',
+                'runestone.utility',
+                'runestone.video',
+                'runestone.wavedrom']
+
+
 extensions = ['sphinx.ext.mathjax', 
               'sphinx.ext.graphviz', 
               'sphinx.ext.extlinks', 
               'matplotlib.sphinxext.plot_directive',
-              'cppreference'] + runestone_extensions()
+              'cppreference'] + my_extensions
 
 # math_number_all = True
 # mathjax_options = {

@@ -12,4 +12,6 @@ that classes and object oriented programming make possible.
    inheritance.rst
    interfaces.rst
    patterns.rst
+   pattern-strategy.rst
+   pattern-chain.rst
 
