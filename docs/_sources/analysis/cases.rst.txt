@@ -253,7 +253,7 @@ If not, then we must resort to worst-case analysis.
 
 .. admonition:: More to Explore
 
-   - TBD
+   - `Average time complexity <https://yourbasic.org/algorithms/amortized-time-complexity-analysis/>`__
 
 
 .. topic:: Acknowledgements

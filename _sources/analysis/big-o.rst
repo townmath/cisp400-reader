@@ -5,6 +5,7 @@
    no Front-Cover Texts, and no Back-Cover Texts.  A copy of
    the license is included in the section entitled "GNU Free Documentation
    License".
+
 .. This file is adapted from Problem Solving with Algorithms and Data Structures using C++
    Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
    This work is licensed under the Creative Commons 
@@ -15,6 +16,8 @@
 .. index::
    single: big-O notation
    single: upper bounds
+
+.. _analysis_big_o:
 
 Asymptotic Analysis and Upper Bounds
 ====================================

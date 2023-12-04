@@ -481,5 +481,4 @@ to a null terminated character array.
    - cppreference.com `Strings library <http://en.cppreference.com/w/cpp/string>`_ overview
    - YoLinux `String class tutorial <http://www.yolinux.com/TUTORIALS/LinuxTutorialC++StringClass.html>`_
    - Bjarne Stroustrup's C++11 FAQ: `Raw String literals <http://www.stroustrup.com/C++11FAQ.html#raw-strings>`_
-   - Mike Shahar post: `Exploring std::string <https://shaharmike.com/cpp/std-string/>`_
 

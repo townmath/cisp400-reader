@@ -13,5 +13,7 @@ as early as possible.
    intro.rst
    byte_string.rst
    string.rst
+   string-analysis.rst
    vector.rst
+   vector-analysis.rst
 

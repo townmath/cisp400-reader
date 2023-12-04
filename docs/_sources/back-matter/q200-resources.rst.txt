@@ -17,9 +17,7 @@ You made to the end of the semester and this book, now what?
 
 First, take a well-earned rest.  
 When you are ready to think about programming again,
-consider the following for further reading.
-Some of these books have been around for a long time,
-but they are all classics that have retained considerable value.
+consider the following for further exploration.
 
 First, just for fun there is the
 `Map of the C++17 Lands <http://fearlesscoder.blogspot.com/2017/02/the-c17-lands.html>`__.
@@ -28,17 +26,31 @@ you now know enough to see the humor in the map.
 
 Coding challenges and puzzles
 -----------------------------
-- `exercism.io <https://exercism.io>`__ 
+If you haven't figured it out by now, I think the best way to learn to program 
+in any language is by writing code.
+- `exercism <https://exercism.org>`__ 
   Code practice and mentorship for everyone.
-  Level up your programming skills with 2,545 exercises across 47 languages
-- `C++ Quiz <http://cppquiz.org/>`__
-  a simple online quiz you can use to test your knowledge of C++
+  Level up your programming skills with 2,545 exercises across 67 languages
+- `edabit <https://edabit.com>`__ - coding challenges for beginners
+  in 8 different languages
+
+- `Advent of Code <https://adventofcode.com>`__ - Help elves, learn to code.
+  25 Puzzles per year since 2015.
+  Technically 50 per year since each puzzle has 2 parts, each of which involves writing code.
+
+  Puzzles can be solved using any programming language.
+- `Codewars <https://www.codewars.com>`__ - coding challenges on medium level
+- `LeetCode <https://leetcode.com>`__ - medium to difficult algorithm challenges
 - `Project Euler <https://projecteuler.net>`__
   a series of challenging mathematical/computer programming problems that 
   require more than just mathematical insights to solve.
 
+  Puzzles can be solved using any programming language.
+
   Although mathematics will help you arrive at elegant and efficient methods,
   the use of a computer and programming skills will be required to solve most problems.
+- `C++ Quiz <http://cppquiz.org/>`__
+  a simple online quiz you can use to test your knowledge of C++
 - `Code Chef <https://www.codechef.com>`__ 
   Code Chef is a not-for-profit educational initiative.
   They provide this platform as a way to practice and compete in friendly competition.
@@ -47,6 +59,9 @@ Coding challenges and puzzles
 
 Suggested reading
 -----------------
+Some of these books and articles have been around a long time,
+but they are all classics that have retained considerable value.
+
 First, a good, short blog post about
 `how to teach yourself programming <http://norvig.com/21-days.html>`__.
 Good advice.
