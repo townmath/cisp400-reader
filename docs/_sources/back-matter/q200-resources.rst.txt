@@ -28,12 +28,12 @@ Coding challenges and puzzles
 -----------------------------
 If you haven't figured it out by now, I think the best way to learn to program 
 in any language is by writing code.
+
 - `exercism <https://exercism.org>`__ 
   Code practice and mentorship for everyone.
-  Level up your programming skills with 2,545 exercises across 67 languages
+  Level up your programming skills with 2,545 exercises across 67 languages.
 - `edabit <https://edabit.com>`__ - coding challenges for beginners
   in 8 different languages
-
 - `Advent of Code <https://adventofcode.com>`__ - Help elves, learn to code.
   25 Puzzles per year since 2015.
   Technically 50 per year since each puzzle has 2 parts, each of which involves writing code.
@@ -50,7 +50,7 @@ in any language is by writing code.
   Although mathematics will help you arrive at elegant and efficient methods,
   the use of a computer and programming skills will be required to solve most problems.
 - `C++ Quiz <http://cppquiz.org/>`__
-  a simple online quiz you can use to test your knowledge of C++
+  a simple online quiz you can use to test your knowledge of C++.
 - `Code Chef <https://www.codechef.com>`__ 
   Code Chef is a not-for-profit educational initiative.
   They provide this platform as a way to practice and compete in friendly competition.

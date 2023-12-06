@@ -88,6 +88,7 @@ extlinks = {
         'core': ('https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines%s', ''),
         'cstdio': ('https://en.cppreference.com/w/cpp/io/c/%s', ''),
         'algorithm': ('https://en.cppreference.com/w/cpp/algorithm/%s', ''),
+        'chrono': ('https://en.cppreference.com/w/cpp/chrono/%s', ''),
         'container': ('https://en.cppreference.com/w/cpp/container/%s', ''),
         'error': ('https://en.cppreference.com/w/cpp/error/%s', ''),
         'functional': ('https://en.cppreference.com/w/cpp/utility/functional/%s', ''),
