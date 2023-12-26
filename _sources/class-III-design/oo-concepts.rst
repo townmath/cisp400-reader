@@ -375,7 +375,10 @@ development of very large programs.
 
 .. admonition:: More to Explore
 
-   - TBD
+   - `SOLID Principles and the Arts of Finding the Beach <https://sebastiankuebeck.wordpress.com/2017/09/17/solid-principles-and-the-arts-of-finding-the-beach/>`__.
+   - `Slides: 'Why Every Element of SOLID is Wrong' <https://speakerdeck.com/tastapod/why-every-element-of-solid-is-wrong>`__,
+     by Dan North, 2017.
+     With some `additional backstory <https://dannorth.net/cupid-the-back-story/>`__ written in 2021.
 
 .. topic:: Footnotes
 

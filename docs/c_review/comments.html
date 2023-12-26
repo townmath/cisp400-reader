@@ -401,6 +401,56 @@ Don’t worry too much about that for now.
 Remember the focus is on <strong>clarity</strong>, not how many comments you write.
 Eventually some future employer will require you to (hopefully) adhere to
 some coding standard and you should follow that guidance when you encounter it.</p>
+</section>
+<section id="commenting-dos-and-don-ts">
+<h2>Commenting Dos and Don’ts<a class="headerlink" href="#commenting-dos-and-don-ts" title="Permalink to this heading">¶</a></h2>
+<p>I spent a lot of time saying how not to write comments.
+How <em>should</em> you?</p>
+<p>First, avoid the four common excuses related to comments.
+In other words, I don’t need to write comments because:</p>
+<ul>
+<li><p>Good code is self-documenting.</p>
+<p>There are many things that can’t be expressed in code.</p>
+<ul class="simple">
+<li><p><em>Why</em> a particular feature was implemented.</p></li>
+<li><p>What information callers need beyond what is available in the function signature.</p></li>
+</ul>
+<p>If you never write comments, then you can never explain these important details.</p>
+</li>
+<li><p>I don’t have time to write comments.</p>
+<p>Writing good comments takes far less time then writing good code.
+Writing comments first can help make your designs better and prevent rework.
+With that in mind, comments are a net time-saver.</p>
+</li>
+<li><p>Comments get out of date and become misleading</p>
+<p>This often happens when people write documentation ‘far’ away from the code being documented.
+If the comments go stale it is because the code changed, but the comments did not.
+Keeping code and comments close minimizes this problem.</p>
+</li>
+<li><p>Comments are worthless, why bother?</p>
+<p>Arguably, the most valid excuse.
+However, just because other comments are bad does not mean you should not write comments yourself.</p>
+</li>
+</ul>
+<p>The overall idea behind comments is to capture information that was in the mind of the designer
+but couldn’t be captured or expressed in code.</p>
+<ul>
+<li><p>Comments should describe things that aren’t obvious from code.</p></li>
+<li><p>Pick a commenting convention and use it consistently.
+In this course, I generally use the conventions from the tool Doxygen.</p></li>
+<li><p>Don’t repeat what code says in comments.</p>
+<ul class="simple">
+<li><p>Use different words in the comments from the name of the things being described.</p></li>
+</ul>
+</li>
+<li><p>Focus on <em>what</em> and <em>why</em>, not <em>how</em></p>
+<p>The code says <em>how</em> an entity is defined or performed.
+Comments help readers understand <em>what</em> the code is doing.</p>
+</li>
+<li><p>Write comments before writing code.
+Use comments as part of the design process when writing code.</p></li>
+<li><p>Avoid duplicate comments in the same way we strive to avoid duplicate code.</p></li>
+</ul>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
@@ -408,6 +458,8 @@ some coding standard and you should follow that guidance when you encounter it.<
 <li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/comments">comments</a></p></li>
 <li><p>Jeff Atwood’s blog: <a class="reference external" href="https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why">Code tells you how, Comments tell you why</a></p></li>
 <li><p>Eric Lippert’s Blog: <a class="reference external" href="https://docs.microsoft.com/en-us/archive/blogs/ericlippert/aaargh-part-six-one-more-thing-about-comments">One more thing about comments</a></p></li>
+<li><p><a class="reference external" href="https://web.stanford.edu/~ouster/cgi-bin/book.php">A Philosphy of Software Design</a>,
+John Ousterhout. Chapters 15 and 16 focus on comments.</p></li>
 <li><p><a class="reference external" href="https://www.doxygen.nl/index.html">Doxygen</a></p></li>
 </ul>
 </div>

@@ -13,7 +13,7 @@
 
 
 Code comments
--------------
+=============
 
 You should have learned different formats for code :cpp:`comments`
 
@@ -79,7 +79,7 @@ For example:
     */
 
 Comments in assignments
-.......................
+-----------------------
 
 In this course, I also need everyone to assert that their work is their own.
 For that reason, the top of every source file should contain your name and student ID:
@@ -91,7 +91,7 @@ For that reason, the top of every source file should contain your name and stude
 
 
 Commenting "anti-patterns"
-..........................
+--------------------------
 
 An :term:`anti-pattern` is a common response to a recurring problem 
 that is ineffective.
@@ -233,6 +233,62 @@ Remember the focus is on **clarity**, not how many comments you write.
 Eventually some future employer will require you to (hopefully) adhere to 
 some coding standard and you should follow that guidance when you encounter it.
 
+Commenting Dos and Don'ts
+-------------------------
+I spent a lot of time saying how not to write comments.
+How *should* you?
+
+First, avoid the four common excuses related to comments.
+In other words, I don't need to write comments because:
+
+- Good code is self-documenting.
+
+  There are many things that can't be expressed in code.
+  
+  - *Why* a particular feature was implemented.
+  - What information callers need beyond what is available in the function signature.
+
+  If you never write comments, then you can never explain these important details.
+
+- I don't have time to write comments.
+
+  Writing good comments takes far less time then writing good code.
+  Writing comments first can help make your designs better and prevent rework.
+  With that in mind, comments are a net time-saver.
+- Comments get out of date and become misleading
+
+  This often happens when people write documentation 'far' away from the code being documented.
+  If the comments go stale it is because the code changed, but the comments did not.
+  Keeping code and comments close minimizes this problem.
+
+- Comments are worthless, why bother?
+
+  Arguably, the most valid excuse.
+  However, just because other comments are bad does not mean you should not write comments yourself.
+
+
+
+The overall idea behind comments is to capture information that was in the mind of the designer
+but couldn't be captured or expressed in code.
+
+- Comments should describe things that aren't obvious from code.
+- Pick a commenting convention and use it consistently.
+  In this course, I generally use the conventions from the tool Doxygen.
+- Don't repeat what code says in comments.
+
+  - Use different words in the comments from the name of the things being described.
+
+- Focus on *what* and *why*, not *how*
+
+  The code says *how* an entity is defined or performed.
+  Comments help readers understand *what* the code is doing.
+
+- Write comments before writing code.
+  Use comments as part of the design process when writing code.
+- Avoid duplicate comments in the same way we strive to avoid duplicate code.
+  
+
+
 -----
 
 .. admonition:: More to Explore
@@ -240,6 +296,8 @@ some coding standard and you should follow that guidance when you encounter it.
    - :cpp:`comments`
    - Jeff Atwood's blog: `Code tells you how, Comments tell you why <https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why>`_
    - Eric Lippert's Blog: `One more thing about comments <https://docs.microsoft.com/en-us/archive/blogs/ericlippert/aaargh-part-six-one-more-thing-about-comments>`_
+   - `A Philosphy of Software Design <https://web.stanford.edu/~ouster/cgi-bin/book.php>`__,
+     John Ousterhout. Chapters 15 and 16 focus on comments.
 
    - `Doxygen <https://www.doxygen.nl/index.html>`__
 

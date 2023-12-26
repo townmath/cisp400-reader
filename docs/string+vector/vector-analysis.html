@@ -248,6 +248,7 @@ making our vector.</p>
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++17&#x27;]"       data-wasm=/_static
      style="visibility: hidden;">
+#include <chrono>
 #include <iostream>
 #include <vector>
 using std::vector;
@@ -267,7 +268,7 @@ int main(){
     auto end = std::chrono::steady_clock::now();
     msec_t elapsed_time = end - begin;
 
-    std::cout << "push_back (msec): " << << elapsed_time.count() << '\n';
+    std::cout << "push_back (msec): " << elapsed_time.count() << '\n';
 
     return 0;
 }
@@ -292,6 +293,7 @@ adequately sized space in memory as the vector grows.</p>
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++17&#x27;]"       data-wasm=/_static
      style="visibility: hidden;">
+#include <chrono>
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -431,7 +433,7 @@ between the <code class="docutils literal notranslate"><span class="pre">pop_bac
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++17&#x27;]"       data-wasm=/_static
      style="visibility: hidden;">
-include <chrono>
+#include <chrono>
 #include <iostream>
 #include <iomanip>
 #include <numeric>

@@ -66,7 +66,11 @@ First, a good, short blog post about
 `how to teach yourself programming <http://norvig.com/21-days.html>`__.
 Good advice.
 
-- :wiki:`Clean Code, A Handbook of Agile Software Craftsmanship <Special:BookSources/9780132350884>`
+- `A Philosphy of Software Design <https://web.stanford.edu/~ouster/cgi-bin/book.php>`__,
+  John Ousterhout.
+  A great and short book that does not require any special programming skill -
+  targeted at students, but generally useful.
+
 - `Code Complete <http://cc2e.com>`__ A true compendium.
   Which may be a 'pro' or a 'con' for you.
 
