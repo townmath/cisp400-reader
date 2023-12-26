@@ -47,6 +47,7 @@ And we can time how long it takes to push 10,000 values into a vector.
    :nocodelens:
 
 
+   #include <chrono>
    #include <iostream>
    #include <vector>
    using std::vector;
@@ -66,7 +67,7 @@ And we can time how long it takes to push 10,000 values into a vector.
        auto end = std::chrono::steady_clock::now();
        msec_t elapsed_time = end - begin;
 
-       std::cout << "push_back (msec): " << << elapsed_time.count() << '\n';
+       std::cout << "push_back (msec): " << elapsed_time.count() << '\n';
 
        return 0;
    }
@@ -85,6 +86,7 @@ adequately sized space in memory as the vector grows.
    :compileargs: ['-Wall', '-Wextra', '-std=c++17']
    :nocodelens:
 
+   #include <chrono>
    #include <iostream>
    #include <iomanip>
    #include <vector>
@@ -231,7 +233,7 @@ between the ``pop_back()`` and ``erase()``.
    :compileargs: ['-Wall', '-Wextra', '-std=c++17']
    :nocodelens:
 
-   include <chrono>
+   #include <chrono>
    #include <iostream>
    #include <iomanip>
    #include <numeric>
