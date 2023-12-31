@@ -7,7 +7,7 @@
 
 
 .. index::
-   pair: analsysis; vector
+   pair: analysis; vector
 
 Analysis of Vector Operators
 ============================
@@ -212,7 +212,7 @@ vector copies is small.
 So on average, even though there are some :math:`O(n)` operations, it turns out
 that ``push_back()`` is constant time.
 
-As a way of demonstrating the difference in performance between ``pob_back()``
+As a way of demonstrating the difference in performance between ``pop_back()``
 and ``erase()``, let’s do another timing experiment.
 Our goal is to be able
 to verify the performance of the ``pop_back()`` operation on a vector of a known

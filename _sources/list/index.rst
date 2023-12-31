@@ -12,6 +12,7 @@ We use this problem as our springboard for iterators.
    :maxdepth: 2
 
    list.rst
+   list-analysis.rst
    forward-list.rst
    iterators.rst
    iterator-pattern.rst
