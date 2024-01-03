@@ -305,11 +305,11 @@ likely to occur together, don’t hash to the same location.
 So a simple hash function like this:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="nf">hash</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">words</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">   </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">c</span><span class="o">:</span><span class="w"> </span><span class="n">words</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">     </span><span class="n">h</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">   </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ch</span><span class="o">:</span><span class="w"> </span><span class="n">words</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">value</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">ch</span><span class="p">;</span>
 <span class="w">   </span><span class="p">}</span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">h</span><span class="p">;</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -319,16 +319,16 @@ Words that differ only by transposition of characters have the same value.</p>
 in the string.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="nf">hash</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">words</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">   </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">   </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">;</span><span class="w">  </span><span class="c1">// or any suitable prime</span>
-<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">c</span><span class="o">:</span><span class="w"> </span><span class="n">words</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">     </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="o">*</span><span class="n">factor</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">   </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">   </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">31</span><span class="p">;</span><span class="w">  </span><span class="c1">// or any suitable prime</span>
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ch</span><span class="o">:</span><span class="w"> </span><span class="n">words</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="o">*</span><span class="n">factor</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ch</span><span class="p">;</span>
 <span class="w">   </span><span class="p">}</span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">h</span><span class="p">;</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>If <code class="docutils literal notranslate"><span class="pre">h</span></code> becomes large, eventually this expression may overflow,
+<p>If <code class="docutils literal notranslate"><span class="pre">value</span></code> becomes large, eventually this expression may overflow,
 but for unsigned types this is not a problem.
 Again, we are looking for a uniform distribution of values we can
 generate for our hash table.</p>

@@ -108,11 +108,11 @@ So a simple hash function like this:
 
    unsigned hash (const string& words)
    {
-      unsigned h = 0;
-      for (const auto& c: words) {
-        h += c;
+      unsigned value = 0;
+      for (const auto& ch: words) {
+        value += ch;
       }
-      return h;
+      return value;
    }
 
 doesn't work very well.
@@ -125,15 +125,15 @@ in the string.
 
    unsigned hash (const string& words)
    {
-      unsigned h = 0;
-      constexpr unsigned factor = 17;  // or any suitable prime
-      for (const auto& c: words) {
-        h = h*factor + c;
+      unsigned value = 1;
+      constexpr unsigned factor = 31;  // or any suitable prime
+      for (const auto& ch: words) {
+        value = value*factor + ch;
       }
-      return h;
+      return value;
    }
 
-If ``h`` becomes large, eventually this expression may overflow,
+If ``value`` becomes large, eventually this expression may overflow,
 but for unsigned types this is not a problem.
 Again, we are looking for a uniform distribution of values we can 
 generate for our hash table.
