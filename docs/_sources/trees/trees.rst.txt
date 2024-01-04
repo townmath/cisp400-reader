@@ -9,6 +9,8 @@
 .. index:: associative containers
    single: trees
 
+.. _trees_trees:
+
 Tree ADT concepts
 =================
 If sequence containers like :container:`vector` are so great,
