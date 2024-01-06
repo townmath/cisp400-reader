@@ -67,7 +67,8 @@ in an unordered map vs a vector.
        std::cout << std::setw(6) << "size"
                  << std::setw(10) << "vector"
                  << std::setw(20) << "hash table\n";
-       for(int size = 10'000; size < 100'001; size += 20'000) {
+       // for(int size = 10'000; size < 100'001; size += 20'000) {
+       int size = 35000;
            // fill vector
            std::vector<int> sequence (size);
            std::iota(sequence.begin(), sequence.end(), 0);
@@ -102,11 +103,17 @@ in an unordered map vs a vector.
                      << std::setw(6) << size << '\t'
                      << std::setw(8) << elapsed_secs.count() << '\t'
                      << std::setw(8) << elapsed_secs_ht.count() << '\n';
-       }
+       // }
        return 0;
    }
 
         
+.. admonition:: Try This!
+
+   The online compiler is limited in both memory and time allowed.
+
+   Run this example on your own computer with the loop enabled
+   and with larger values and compare.
 
 
 The vector is linear in ``std::distance(begin, end)`` and as expected,
@@ -166,7 +173,7 @@ The C++ standard guarantees logarithmic complexity in the size of the container.
        std::cout << std::setw(6) << "size"
                  << std::setw(10) << "set"
                  << std::setw(20) << "hash table\n";
-       for(int size = 50'000; size < 1'000'001; size += 50'000) {
+       for(int size = 5'000; size < 100'001; size += 5'000) {
            // fill set
            std::set<int> tree;
            for(int item = 0; item < size; ++item){
@@ -209,7 +216,8 @@ The C++ standard guarantees logarithmic complexity in the size of the container.
 
 
 Although the std::set find is logarithmic complexity, from a practical sense,
-it compares favorably with the hash table:
+it compares favorably with the hash table.
+The graph below shows example output for values up to 1,000,000.
 
 .. plot::
    :alt: Comparison of set and hash table find times
@@ -240,6 +248,13 @@ it compares favorably with the hash table:
    plt.yticks(fontsize=12)
 
    plt.show()
+
+.. admonition:: Try This!
+
+   The online compiler is limited in both memory and time allowed.
+
+   Run this example on your own computer with larger values and compare.
+
 
 
 -----

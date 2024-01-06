@@ -113,7 +113,7 @@ is stored in the containers.
             << std::setw(8) << "vector::insert\t"
             << std::setw(8) << "list::insert\n";
 
-       for(int size = 10'000; size < 1'000'001; size += 50'000) {
+       for(int size = 10'000; size < 100'001; size += 10'000) {
          vector<int> vector_data (size);
          vector<int> new_vector_data (size);
          auto begin = clock::now();
@@ -145,7 +145,7 @@ Since we chose to insert at the first element location and force the destination
 vector to resize on every insert, we really expect lists to outperform vector.
 
 But it's not even close.
-Running the previous code should produce results similar to this:
+Running the previous code on values up to 1,000,000 should produce results similar to this:
 
 .. plot::
    :alt: Comparison of vector and list insert times
@@ -178,6 +178,13 @@ Running the previous code should produce results similar to this:
    plt.yticks(fontsize=12)
 
    plt.show()
+
+
+.. admonition:: Try This!
+
+   The online compiler is limited in both memory and time allowed.
+
+   Run this example on your own computer with larger values and compare.
 
 
 .. index:: cache memory
@@ -238,7 +245,7 @@ timing example.
 
 ::
 
-   vector<junk<1024*8>> vector_data (size);
+   vector<junk<2048>> vector_data (size);
 
 .. activecode:: list_analysis_compare_largeac
    :language: cpp
@@ -276,16 +283,18 @@ timing example.
             << std::setw(8) << "vector::insert\t"
             << std::setw(8) << "list::insert\n";
 
+       constexpr int JUNK_SIZE = 2048;
+
        for(int size = 1'000; size < 10'001; size += 1'000) {
-         vector<junk<1024*8>> vector_data (size);
-         vector<junk<1024*8>> new_vector_data (size);
+         vector<junk<JUNK_SIZE>> vector_data (size);
+         vector<junk<JUNK_SIZE>> new_vector_data (size);
          auto begin = clock::now();
          test_insert(vector_data, new_vector_data);
          auto end = clock::now();
          msec_t elapsed_1 = end - begin;
 
-         list<junk<1024*8>> list_data (size);
-         list<junk<1024*8>> new_list_data (size);
+         list<junk<JUNK_SIZE>> list_data (size);
+         list<junk<JUNK_SIZE>> new_list_data (size);
          auto begin2 = clock::now();
          test_insert(list_data, new_list_data);
          auto end2 = clock::now();
@@ -300,7 +309,13 @@ timing example.
    } 
 
 
-A change in data type stored in the vector produces different results:
+A change in data type stored in the vector produces different results.
+
+The online compiler is limited in both memory and time allowed.
+The 2MB value for ``JUNK_SIZE`` is roughly the 'break even' point on this compiler.
+The graph below shows what running with and 8MB size looks like.
+
+Run this example on your own computer with larger values and compare.
 
 .. plot::
    :alt: Comparison of vector and list insert times

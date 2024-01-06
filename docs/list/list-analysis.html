@@ -332,7 +332,7 @@ int main(){
          << std::setw(8) << "vector::insert\t"
          << std::setw(8) << "list::insert\n";
 
-    for(int size = 10'000; size < 1'000'001; size += 50'000) {
+    for(int size = 10'000; size < 100'001; size += 10'000) {
       vector<int> vector_data (size);
       vector<int> new_vector_data (size);
       auto begin = clock::now();
@@ -364,10 +364,15 @@ linear term in the distance between the insert position and end of the container
 Since we chose to insert at the first element location and force the destination
 vector to resize on every insert, we really expect lists to outperform vector.</p>
 <p>But it’s not even close.
-Running the previous code should produce results similar to this:</p>
+Running the previous code on values up to 1,000,000 should produce results similar to this:</p>
 <figure class="align-default">
 <img alt="Comparison of vector and list insert times" class="plot-directive" src="../_images/list-analysis-1.png" />
 </figure>
+<div class="admonition-try-this admonition">
+<p class="admonition-title">Try This!</p>
+<p>The online compiler is limited in both memory and time allowed.</p>
+<p>Run this example on your own computer with larger values and compare.</p>
+</div>
 <p id="index-1">It may not look like it, but both of these lines are both <span class="math notranslate nohighlight">\(O(n)\)</span> on the distance
 over the size of the range inserted.
 It’s just that for small types like <code class="docutils literal notranslate"><span class="pre">int</span></code>, the vector is on average 150 times
@@ -408,7 +413,7 @@ we create a type that is a simple array wrapper:</p>
 </div>
 <p>Other than the change in type stored in the vector, nothing is different from the <code class="docutils literal notranslate"><span class="pre">int</span></code>
 timing example.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="n">junk</span><span class="o">&lt;</span><span class="mi">1024</span><span class="o">*</span><span class="mi">8</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">vector_data</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="n">junk</span><span class="o">&lt;</span><span class="mi">2048</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">vector_data</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
 </pre></div>
 </div>
 
@@ -453,16 +458,18 @@ int main(){
          << std::setw(8) << "vector::insert\t"
          << std::setw(8) << "list::insert\n";
 
+    constexpr int JUNK_SIZE = 2048;
+
     for(int size = 1'000; size < 10'001; size += 1'000) {
-      vector<junk<1024*8>> vector_data (size);
-      vector<junk<1024*8>> new_vector_data (size);
+      vector<junk<JUNK_SIZE>> vector_data (size);
+      vector<junk<JUNK_SIZE>> new_vector_data (size);
       auto begin = clock::now();
       test_insert(vector_data, new_vector_data);
       auto end = clock::now();
       msec_t elapsed_1 = end - begin;
 
-      list<junk<1024*8>> list_data (size);
-      list<junk<1024*8>> new_list_data (size);
+      list<junk<JUNK_SIZE>> list_data (size);
+      list<junk<JUNK_SIZE>> new_list_data (size);
       auto begin2 = clock::now();
       test_insert(list_data, new_list_data);
       auto end2 = clock::now();
@@ -478,7 +485,11 @@ int main(){
 </textarea>
 </div>
 </div>
-<p>A change in data type stored in the vector produces different results:</p>
+<p>A change in data type stored in the vector produces different results.</p>
+<p>The online compiler is limited in both memory and time allowed.
+The 2MB value for <code class="docutils literal notranslate"><span class="pre">JUNK_SIZE</span></code> is roughly the ‘break even’ point on this compiler.
+The graph below shows what running with and 8MB size looks like.</p>
+<p>Run this example on your own computer with larger values and compare.</p>
 <figure class="align-default">
 <img alt="Comparison of vector and list insert times" class="plot-directive" src="../_images/list-analysis-2.png" />
 </figure>
