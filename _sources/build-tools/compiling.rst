@@ -313,8 +313,8 @@ support for up to some C++20 features.
 
 Currently, two compilers are installed on the image:
 
-- GCC 10
-- Clang 11
+- GCC 14
+- Clang 17
 
 along with support tools, debuggers, vim plugins, and checking scripts
 that are installed on the Mesa server.
@@ -428,11 +428,12 @@ Builds are exactly the same as on the Mesa server:
 
 Compiling with Visual Studio
 ----------------------------
-In this course you need to be using Visual Studio 2019
+In this course you need to be using Visual Studio 2022
 at a minimum to complete all the assignments.
 
 In order to enable CMake integration with Visual Studio
-ensure you have the additional software for Linux C++ development.
+ensure you have the additional
+`C++ CMake tools for Windows <https://learn.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=msvc-170>`__ installed.
 
 Use git to clone your assignments repository to your computer.
 Now you are ready to compile an assignment.
@@ -444,30 +445,14 @@ Now you are ready to compile an assignment.
       These instructions describe how to build software using the
       Visual Studio Graphical User Interface (GUI).
 
-      1. Create a directory named build and open CMake GUI.
-      2. Select 'Browse Source' and select the folder containing 
-         the lab you want to build.
-      3. Select 'Browse Build' and select the `build` folder you created.
-      4. In the lower left corner, select 'Configure' and
-         select 'Visual Studio 16 2019 Win64' from the list of
-         available generators.
+      1. Open the windows file explorer and go to the location where
+         you cloned your repository.
+      2. Right-click on the lab you want to build, for example
+         ``lab01-hello``.
 
-         Leave the remaining selections alone and
-         press 'Finish` when done.
+         Do **not** open the entire cloned repository.
 
-         Don't worry (yet) if you see any warnings or errors.
-      5. Press 'Generate'. When finished ("Generating done")
-         close CMake GUI.
-      6. Open the generated solution (.sln) file in Visual Studio.
-
-      Build the solution then open
-      Test --> Windows --> Test Explorer to view test results or rerun tests.
-
-      If this doesn't work, try
-      the instructions on the 
-      `Microsoft site <https://docs.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=vs-2017>`__.
-
-      Select the documentation for your version of Visual Studio.
+      3. Select 'Open in Visual Studio'
 
    .. tab:: Terminal
 

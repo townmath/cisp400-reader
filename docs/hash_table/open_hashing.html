@@ -36,7 +36,7 @@
 <script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15.5. Closed hashing" href="closed_hashing.html" />
+    <link rel="next" title="15.5. Analysis of separate chaining" href="separate_chaining_analysis.html" />
     <link rel="prev" title="15.3. Resolving collisions" href="hash_table_collisions.html" />
 
 
@@ -176,8 +176,8 @@
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">15.5. </span>Closed hashing' data-toggle="tooltip" >              
-    <a href="closed_hashing.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">15.5. </span>Analysis of separate chaining' data-toggle="tooltip" >              
+    <a href="separate_chaining_analysis.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -507,28 +507,6 @@ int main() {
 </div>
     </div>
 
-<section id="analysis-of-separate-chaining">
-<h2><span class="section-number">15.4.1. </span>Analysis of separate chaining<a class="headerlink" href="#analysis-of-separate-chaining" title="Permalink to this heading">¶</a></h2>
-<p>Suppose we have inserted <span class="math notranslate nohighlight">\(sz\)</span> items into a table of size <span class="math notranslate nohighlight">\(N\)</span></p>
-<p>In the worst case, all <span class="math notranslate nohighlight">\(sz\)</span> items will hash to the same list,
-and we will be reduced to doing a linear search of that list:
-<span class="math notranslate nohighlight">\(O(sz)\)</span>.</p>
-<p>We could use a tree for each bucket,
-which would reduce the cost of searching buckets to <span class="math notranslate nohighlight">\(O(\log_{2}(sz))\)</span>
-with an extra cost that <code class="docutils literal notranslate"><span class="pre">Key</span></code> types support a <code class="docutils literal notranslate"><span class="pre">operator&lt;</span></code> comparison
-in addition to the <code class="docutils literal notranslate"><span class="pre">operator==</span></code> comparison required with list buckets.</p>
-<p>In the average case, we assume that the <code class="docutils literal notranslate"><span class="pre">sz</span></code> items are distributed evenly
-among the lists.
-Since we have <code class="docutils literal notranslate"><span class="pre">sz</span></code> items distributed among <code class="docutils literal notranslate"><span class="pre">N</span></code> lists,
-the cost is <span class="math notranslate nohighlight">\(O(N \cdot sz)\)</span>.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">N</span></code> is much larger than <code class="docutils literal notranslate"><span class="pre">sz</span></code>,
-and if our hash function uniformly distributes our keys,
-then most lists will have 0 or 1 item,
-and the average case is approximately <span class="math notranslate nohighlight">\(O(1)\)</span>.
-But if <code class="docutils literal notranslate"><span class="pre">sz</span></code> is much larger than <code class="docutils literal notranslate"><span class="pre">N</span></code>,
-we are looking at an <span class="math notranslate nohighlight">\(O(sz)\)</span>
-linear search sped up by a constant factor (<code class="docutils literal notranslate"><span class="pre">N</span></code>), but still <span class="math notranslate nohighlight">\(O(sz)\)</span>.</p>
-<p>Bottom line: hash tables let us trade space for speed.</p>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
@@ -538,7 +516,6 @@ linear search sped up by a constant factor (<code class="docutils literal notran
 by Steven J. Zeil for his data structures course CS361.</p></li>
 </ul>
 </div>
-</section>
 </section>
 
 
@@ -555,8 +532,8 @@ by Steven J. Zeil for his data structures course CS361.</p></li>
   </a>
 </li>
 
-  <li id="relations-next" class="navLink" title='Next Section - 15.5. Closed hashing' data-toggle="tooltip" >
-    <a href="closed_hashing.html" aria-label="Next - 15.5. Closed hashing">
+  <li id="relations-next" class="navLink" title='Next Section - 15.5. Analysis of separate chaining' data-toggle="tooltip" >
+    <a href="separate_chaining_analysis.html" aria-label="Next - 15.5. Analysis of separate chaining">
       <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
     </a>
   </li>

@@ -459,8 +459,8 @@ is that the compilers on the docker image are much newer and include
 support for up to some C++20 features.</p>
 <p>Currently, two compilers are installed on the image:</p>
 <ul class="simple">
-<li><p>GCC 10</p></li>
-<li><p>Clang 11</p></li>
+<li><p>GCC 14</p></li>
+<li><p>Clang 17</p></li>
 </ul>
 <p>along with support tools, debuggers, vim plugins, and checking scripts
 that are installed on the Mesa server.</p>
@@ -551,37 +551,25 @@ make test
 </section>
 <section id="compiling-with-visual-studio">
 <span id="index-5"></span><h2><span class="section-number">1.4.2. </span>Compiling with Visual Studio<a class="headerlink" href="#compiling-with-visual-studio" title="Permalink to this heading">¶</a></h2>
-<p>In this course you need to be using Visual Studio 2019
+<p>In this course you need to be using Visual Studio 2022
 at a minimum to complete all the assignments.</p>
 <p>In order to enable CMake integration with Visual Studio
-ensure you have the additional software for Linux C++ development.</p>
+ensure you have the additional
+<a class="reference external" href="https://learn.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=msvc-170">C++ CMake tools for Windows</a> installed.</p>
 <p>Use git to clone your assignments repository to your computer.
 Now you are ready to compile an assignment.</p>
 <div id='tab_msvc' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="GUI" >
 <p>These instructions describe how to build software using the
 Visual Studio Graphical User Interface (GUI).</p>
 <ol class="arabic">
-<li><p>Create a directory named build and open CMake GUI.</p></li>
-<li><p>Select ‘Browse Source’ and select the folder containing
-the lab you want to build.</p></li>
-<li><p>Select ‘Browse Build’ and select the <cite>build</cite> folder you created.</p></li>
-<li><p>In the lower left corner, select ‘Configure’ and
-select ‘Visual Studio 16 2019 Win64’ from the list of
-available generators.</p>
-<p>Leave the remaining selections alone and
-press ‘Finish` when done.</p>
-<p>Don’t worry (yet) if you see any warnings or errors.</p>
+<li><p>Open the windows file explorer and go to the location where
+you cloned your repository.</p></li>
+<li><p>Right-click on the lab you want to build, for example
+<code class="docutils literal notranslate"><span class="pre">lab01-hello</span></code>.</p>
+<p>Do <strong>not</strong> open the entire cloned repository.</p>
 </li>
-<li><p>Press ‘Generate’. When finished (“Generating done”)
-close CMake GUI.</p></li>
-<li><p>Open the generated solution (.sln) file in Visual Studio.</p></li>
+<li><p>Select ‘Open in Visual Studio’</p></li>
 </ol>
-<p>Build the solution then open
-Test –&gt; Windows –&gt; Test Explorer to view test results or rerun tests.</p>
-<p>If this doesn’t work, try
-the instructions on the
-<a class="reference external" href="https://docs.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=vs-2017">Microsoft site</a>.</p>
-<p>Select the documentation for your version of Visual Studio.</p>
 </div><div data-component="tab" data-tabname="Terminal" >
 <p>These instructions describe how to build software using the
 Using the Visual Studio command line</p>
