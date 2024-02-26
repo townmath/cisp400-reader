@@ -218,10 +218,10 @@
 as the number of items contained in the table divided by the table size.
 Given a hash table with a separate bucket for each item to be stored
 and a well-behaved hash function, then <span class="math notranslate nohighlight">\(\lambda = 1.0\)</span> and
-we the length of each list to also equal 1.</p>
+the length of each list to also 1.</p>
 <p>The effort required to perform a search is the constant time required to
 evaluate the hash function plus the time to traverse the list.
-In an unsuccessful search, the number of nodes to examine is <span class="math notranslate nohighlight">\(\lambda\)</span>
+In an unsuccessful search, the number of list nodes to examine is <span class="math notranslate nohighlight">\(\lambda\)</span>
 on average.
 A successful search requires that about <span class="math notranslate nohighlight">\(1 + (\lambda / 2)\)</span> links be traversed.</p>
 <p>Why?
@@ -235,26 +235,41 @@ half the list is searched, so combined with the matching node,
 the average search cost is <span class="math notranslate nohighlight">\(1 + \lambda / 2\)</span> nodes.
 This shows that the table size is not nearly as important as the load factor.
 The general rule for separate chaining hashing is to make the table size about
-as large as the number of elements expected.
-In other words, try to achieve <span class="math notranslate nohighlight">\(\lambda \approx 1\)</span> or somewhat less.
-If the load factor exceeds 1, we expand the table size by calling <code class="docutils literal notranslate"><span class="pre">rehash</span></code>.
-This process should also ensure the new hash table storage size maintain
-a prime number of elements to ensure good distribution among buckets.</p>
-<p>The graph shows how <span class="math notranslate nohighlight">\(1 + \frac {\lambda}{2}\)</span> changes as
+as large as the number of elements expected.</p>
+<p>The graph shows how the cost of finding a node <span class="math notranslate nohighlight">\(1 + \frac {\lambda}{2}\)</span> changes as
 <span class="math notranslate nohighlight">\(\lambda\)</span> increases.</p>
 <figure class="align-default">
 <img alt="../_images/separate_chaining_analysis-1.png" class="plot-directive" src="../_images/separate_chaining_analysis-1.png" />
 </figure>
+<p>In separate chaining hash tables suffer gradually declining performance
+as the load factor grows.
+There is no fixed point beyond which resizing is absolutely needed.
+Keep in mind that keeping the load factor &lt; 1 in separate chaining may
+result in too many empty buckets.
+If memory is at a premium, we can trade some performance for space in memory.</p>
+<p>If you are concerned about performance,
+then you should measure the load factor that maximizes performance on your system.
+Typically it will be between 1 and 3.
+One might think that <span class="math notranslate nohighlight">\(\lambda = 1\)</span> is the right place to rehash,
+but the best performance is often seen
+(for buckets implemented as linked lists)
+when load factors are in the 1 - 2 range.</p>
+<p>If the load factor exceeds our threshold, then we expand the table size by calling <code class="docutils literal notranslate"><span class="pre">rehash</span></code>.
+This process should also ensure the new hash table storage size maintain
+a prime number of elements to ensure good distribution among buckets.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>For separate chaining, assuming a load factor of 1,
 this is one version of the classic <strong>balls and bins problem</strong>:
 Given <span class="math notranslate nohighlight">\(N\)</span> balls placed randomly (uniformly) in <span class="math notranslate nohighlight">\(N\)</span> bins,
-what is the expected number of balls in the most occupied bin?
-The answer is well known to be <span class="math notranslate nohighlight">\(\theta \left ( \log{N}/\log {\log{N}} \right )\)</span>,
+what is the expected number of balls in the most occupied bin?</p>
+<p>The answer is known to be <span class="math notranslate nohighlight">\(\theta \left ( \log{N}/\log {\log{N}} \right )\)</span>,
 meaning that on average, we expect some queries to take nearly logarithmic time.
 Similar types of bounds are observed (or provable) for the length of the
 longest expected probe sequence in a probing hash table.
 We would like to obtain <span class="math notranslate nohighlight">\(O(1)\)</span> worst-case cost.</p>
-<p>Suppose we have inserted <span class="math notranslate nohighlight">\(sz\)</span> items into a table of size <span class="math notranslate nohighlight">\(N\)</span></p>
+</div>
+<p>Suppose we have inserted <span class="math notranslate nohighlight">\(sz\)</span> items into a table of size <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>We could use a tree for each bucket,
 which would reduce the cost of searching buckets to <span class="math notranslate nohighlight">\(O(\log_{2}(sz))\)</span>
 with an extra cost that <code class="docutils literal notranslate"><span class="pre">Key</span></code> types support a <code class="docutils literal notranslate"><span class="pre">operator&lt;</span></code> comparison
@@ -271,7 +286,7 @@ linear search sped up by a constant factor (<code class="docutils literal notran
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
-<li><p>TBD</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Balls_into_bins_problem">Balls into bins problem</a> on Wikipedia.</p></li>
 </ul>
 </div>
 </section>

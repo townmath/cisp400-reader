@@ -428,37 +428,6 @@ unique items.
 
 .. foo*
 
-Analysis of separate chaining
------------------------------
-Suppose we have inserted :math:`sz` items into a table of size :math:`N`
-
-In the worst case, all :math:`sz` items will hash to the same list, 
-and we will be reduced to doing a linear search of that list: 
-:math:`O(sz)`. 
-
-We could use a tree for each bucket,
-which would reduce the cost of searching buckets to :math:`O(\log_{2}(sz))`
-with an extra cost that ``Key`` types support a ``operator<`` comparison 
-in addition to the ``operator==`` comparison required with list buckets.
-
-In the average case, we assume that the ``sz`` items are distributed evenly 
-among the lists.
-Since we have ``sz`` items distributed among ``N`` lists, 
-the cost is :math:`O(N \cdot sz)`.
-
-If ``N`` is much larger than ``sz``, 
-and if our hash function uniformly distributes our keys, 
-then most lists will have 0 or 1 item, 
-and the average case is approximately :math:`O(1)`.
-But if ``sz`` is much larger than ``N``, 
-we are looking at an :math:`O(sz)`
-linear search sped up by a constant factor (``N``), but still :math:`O(sz)`.
-
-Bottom line: hash tables let us trade space for speed.
-
-
-
-
 -----
 
 .. admonition:: More to Explore

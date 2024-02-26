@@ -10,6 +10,7 @@ associative data structures -- hash tables.
    hash_functions.rst
    hash_table_collisions.rst
    open_hashing.rst
+   separate_chaining_analysis.rst
    closed_hashing.rst
    hash_table_analysis.rst
 
