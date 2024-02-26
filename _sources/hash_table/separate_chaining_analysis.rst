@@ -36,8 +36,7 @@ This shows that the table size is not nearly as important as the load factor.
 The general rule for separate chaining hashing is to make the table size about
 as large as the number of elements expected.
 
-The graph shows how the cost of finding a node :math:`1 + \frac {\lambda}{2}` changes as
-:math:`\lambda` increases.
+The graph shows how the cost of finding a node increases as :math:`\lambda` increases.
 
 .. plot::
 
@@ -51,7 +50,7 @@ The graph shows how the cost of finding a node :math:`1 + \frac {\lambda}{2}` ch
    plt.xlim(0,10)
 
    plt.title('Search growth vs. load factor')
-   plt.xlabel('Load factor')
+   plt.xlabel('Load factor ($\lambda$)')
    plt.ylabel('Average # of list nodes searched')
    plt.xticks(np.arange(0, 10.1, step=1))
    plt.yticks(np.arange(0, 10.1, step=1))
