@@ -133,7 +133,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'CISC 187 Textbook'
-copyright = '2017-2023 Dave Parillo'
+copyright = '2017-2024 Dave Parillo'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
