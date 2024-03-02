@@ -472,6 +472,8 @@ returning.
 
 .. index:: assert
 
+.. _build_tools_assert:
+
 Assertions
 ..........
 

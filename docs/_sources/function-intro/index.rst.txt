@@ -19,5 +19,6 @@ command line argument handling are introduced.
    constants.rst
    auto.rst
    error-handling.rst
+   exception-handling.rst
    static-functions.rst
 

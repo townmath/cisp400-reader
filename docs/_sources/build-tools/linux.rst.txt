@@ -153,6 +153,9 @@ regardless of where her home directory actually is located.
 
          Which of the following paths list the contents ``/home/user``?  Check all that apply.
 
+.. index::
+   pair: linux; command prompt
+
 Basic commands
 ..............
 
@@ -271,6 +274,7 @@ passwd
 
 .. index::
    pair: repl.it; bash tutorial
+   pair: linux; command prompt
 
 .. admonition:: Try This!
 

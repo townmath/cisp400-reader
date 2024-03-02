@@ -223,25 +223,42 @@ Your future co-workers will thank you.
         return getMax ? std::max(x,y) : std::min(x,y);
       }
 
+.. index::
+   pair: repl.it; number guessing
+   pair: repl.it; command line argument parsing
+   pair: repl.it; parsing command line arguments
 
 Example: number guessing
 ------------------------
 A more realistic example might help.
-While randomly surfing the internet, 
 
 .. tabbed:: function_guidelines_guessing_example_tab
 
    .. tab:: Original
 
-     .. raw:: html
+      While randomly surfing the internet I stumbled on a small program
+      intended to help people understand C++.
 
-        <iframe height="400px" width="100%" 
+      Unfortunately, it is full of issues and this is the kind of program structure
+      that will **not** help you when trying to create your own complicated projects.
+
+      Open this in Replit and run ``./main`` in the console tab.
+      You may need to type ``make main`` first.
+
+      .. raw:: html
+
+         <iframe height="400px" width="100%" 
           src="https://repl.it/@DaveParillo/NumberGuessingFunctionRefactorOriginal?lite=true" 
           scrolling="no" 
           frameborder="no" 
           allowtransparency="true" 
           allowfullscreen="true" 
           sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+
+      .. admonition:: Try This!
+
+         How many bugs or other issues can you find in this program without looking at the 'Bugs' tab?
 
 
    .. tab:: Bugs
@@ -280,9 +297,9 @@ While randomly surfing the internet,
 
          if(guess > number)
 
-      Since guess is uniniitalized, if ``cin`` fails to fill ``guess``,
+      Since guess is uninitialized, if ``cin`` fails to fill ``guess``,
       then ``guess`` will not have any value when the if statement is evaluated,
-      which is uindefined bahavior.
+      which is undefined behavior.
 
 
    .. tab:: Issues
@@ -293,7 +310,7 @@ While randomly surfing the internet,
 
       That doesn't make it a C++ program.
 
-      A dead giveaway it was copied from C:
+      A clue it was copied from C:
 
       .. code-block:: cpp
 
@@ -397,7 +414,53 @@ While randomly surfing the internet,
       maintain as programs grow.
       They can quickly get out of control.
 
-      Finally, this is just a pet peeve of mine:
+      Finally, pet peeves of mine:
+
+      This code is mostly redundant.
+      I just prefer not to see code that looks like this, even though it works.
+
+      .. code-block:: cpp
+
+         if(answer == 'n' || answer == 'N' || answer == 'y' || answer == 'Y') {
+
+      I would rather use a function:
+
+      .. code-block:: cpp
+
+         char play_again() {
+           return std::tolower(
+               get_entry("Would you like to play another game? [y/n] ").front());
+         }
+
+         // and use it like this
+         while ('y' == play_again());
+
+      instead of:
+
+      .. code-block:: cpp
+
+         while(true) { // Loop to ask user is he/she would like to play again.
+            // Get user response.
+            std::cout << "Would you like to play again (Y/N)? ";
+            std::cin >> answer;
+            std::cin.ignore();
+			
+            // Check if proper response.
+            if(answer == 'n' || answer == 'N' || answer == 'y' || answer == 'Y') {
+               break;
+            } else {
+               std::cout << "Please enter \'Y\' or \'N\'...\n";
+            }
+         }
+
+
+
+      Is this comment helping?
+
+      .. code-block:: cpp
+
+         // Get number.
+			std::cout << "Enter a number between 1 and 100 (" << 20 - tries << " tries left): ";
 
       .. code-block:: cpp
 
@@ -408,14 +471,18 @@ While randomly surfing the internet,
       Please don't ask me to enter an additional confirmation to exit,
       when I **just** said 'No' to the previous question.
 
-      There is no need to do this.
+      There is no need to do this. What is *safe* about this?
       Just exit your program.
 
    .. tab:: Final
 
-     .. raw:: html
+      Open this in Replit and run ``./main`` in the console tab.
+      You may need to type ``make main`` first.
 
-        <iframe height="400px" width="100%" 
+
+      .. raw:: html
+
+         <iframe height="400px" width="100%" 
           src="https://repl.it/@DaveParillo/NumberGuessingFunctionRefactor?lite=true" 
           scrolling="no" 
           frameborder="no" 
@@ -424,8 +491,8 @@ While randomly surfing the internet,
           sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
        
 
-This is **NOT** the only way to improve the original program.
-It's merely one way.
+      This is **NOT** the only way to improve the original program.
+      It's merely one way.
 
 Notice the finished program isn't shorter than the original.
 That was not our goal.

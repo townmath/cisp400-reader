@@ -36,7 +36,7 @@
 <script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.9. Static functions and variables" href="static-functions.html" />
+    <link rel="next" title="3.9. Exception handling" href="exception-handling.html" />
     <link rel="prev" title="3.7. Keyword: auto" href="auto.html" />
 
 
@@ -176,8 +176,8 @@
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">3.9. </span>Static functions and variables' data-toggle="tooltip" >              
-    <a href="static-functions.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">3.9. </span>Exception handling' data-toggle="tooltip" >              
+    <a href="exception-handling.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -213,197 +213,136 @@
 
   
   <section id="error-handling">
-<span id="index-0"></span><h1><span class="section-number">3.8. </span>Error handling<a class="headerlink" href="#error-handling" title="Permalink to this heading">¶</a></h1>
+<h1><span class="section-number">3.8. </span>Error handling<a class="headerlink" href="#error-handling" title="Permalink to this heading">¶</a></h1>
+<p>Programmers are expected to create programs that function correctly and run as expected.
+Programs need to function ‘correctly’ even in the face of unexpected or unusual conditions.</p>
+<p>When the unexpected happens, we need to recover as gracefully as possible.
+Sometimes the best option is to clearly communicate what happened and exit.
+Abruptly halting or crashing is not generally acceptable.</p>
 <p>Error handling involves:</p>
 <ul class="simple">
 <li><p>Detecting an error</p></li>
-<li><p>Transmitting information about an error to some handler code</p></li>
+<li><p>Transmitting information about an error</p></li>
 <li><p>Preserving the valid state of a program</p></li>
 <li><p>Avoiding resource leaks</p></li>
 </ul>
-<section id="returning-values">
-<h2><span class="section-number">3.8.1. </span>Returning values<a class="headerlink" href="#returning-values" title="Permalink to this heading">¶</a></h2>
-<p>TBD.</p>
-</section>
-<section id="exceptions">
-<span id="index-1"></span><h2><span class="section-number">3.8.2. </span>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this heading">¶</a></h2>
-<p>An alternative to returning values from functions is to use <strong>exceptions</strong>.</p>
-<p>A C++ exception is a response to an exceptional circumstance that occurs while a program is running,
-such as an attempt to open a file that does not exist.</p>
-<p>Exceptions provide a way to transfer control from one part of a program
-(where the error occurs) to another (where the error is ‘handled’).
-C++ exception handling is built upon three keywords: <code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">catch</span></code>, and <code class="docutils literal notranslate"><span class="pre">throw</span></code>.</p>
-<dl class="simple">
-<dt>throw</dt><dd><p>A program <strong>throws</strong> an exception when a problem shows up.</p>
-</dd>
-<dt>catch</dt><dd><p>A program <strong>catches</strong> an exception with an exception handler at the place
-in a program where you want to handle the problem.</p>
-</dd>
-<dt>try</dt><dd><p>A <code class="docutils literal notranslate"><span class="pre">try</span></code> block identifies a block of code for which particular exceptions will be activated.
-It’s followed by one or more <code class="docutils literal notranslate"><span class="pre">catch</span></code> blocks.</p>
-</dd>
-</dl>
-<p>Basic anatomy of an exception</p>
-<ol class="arabic simple">
-<li><p>Surround potentially error throwing code in a <code class="docutils literal notranslate"><span class="pre">try</span></code> block</p></li>
-<li><p>After the <code class="docutils literal notranslate"><span class="pre">try</span></code> block, include 1 or more <code class="docutils literal notranslate"><span class="pre">catch</span></code> blocks</p>
-<ol class="loweralpha simple">
-<li><p>The parameter in the catch identifies the type of exception the catch block will handle</p></li>
-</ol>
-</li>
-</ol>
-<blockquote>
-<div><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// execute potentially dangerous statements</span>
-<span class="p">}</span>
+<p>The rest of this section describes simple error reporting strategies that are compatible with C.</p>
+<p>One tried and true way to communicate errors is by returning error values from functions.
+We already have been introduced to the <a class="reference external" href="https://en.cppreference.com/w/cpp/error/assert">assert</a> macro to handle errors
+in the section <a class="reference internal" href="../build-tools/debugging.html#build-tools-assert"><span class="std std-ref">Assertions</span></a>.</p>
+<p>The assert macro is a ‘function-like’ macro that evaluates a boolean expression
+and aborts the program if the condition is <code class="docutils literal notranslate"><span class="pre">false</span></code>.
+The assert macro is most useful for debugging, but be aware that since it can
+easily be disabled, it is hard to depend on in production software.</p>
+<p>The macro <code class="docutils literal notranslate"><span class="pre">NDEBUG</span></code>, if defined, will disable all the assert functions in a program.</p>
 
-<span class="c1">// catch a specific class of exceptions</span>
-<span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Exception occurred.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Details: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=error_handling_assert_ac data-question_label="3.8.1">
+<div id=error_handling_assert_ac_question class="ac_question">
+<p>Try changing the assertions to generate errors.</p>
+<p>Then define <code class="docutils literal notranslate"><span class="pre">NDEBUG</span></code> and see what happens.</p>
+
+</div>
+<textarea data-lang="cpp" id="error_handling_assert_ac_editor" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++17&#x27;]"       data-wasm=/_static
+     style="visibility: hidden;">
+// uncomment to disable assert()
+// #define NDEBUG
+#include <cassert>
+#include <iostream>
+
+int main()
+{
+    assert(2 + 2 == 4);
+    std::cout << "Checkpoint #1\n";
+
+    assert((void("void helps to avoid 'unused value' warning"), 2 * 2 == 4));
+    std::cout << "Checkpoint #2\n";
+
+    assert((010 + 010 == 16) && "Octal 8+8 did not == 16!");
+    std::cout << "Checkpoint #3\n";
+}
+</textarea>
+</div>
+</div>
+<p>Another facility C++ inherits from C is the <a class="reference external" href="https://en.cppreference.com/w/cpp/error/errno">errno</a> macro.
+errno is a preprocessor macro used for error indication.
+The exact definition is implementation defined, but expands to a modifiable <code class="docutils literal notranslate"><span class="pre">int</span></code>.
+Several standard library functions indicate errors by writing positive integers to <code class="docutils literal notranslate"><span class="pre">errno</span></code>.
+Typically, the value of errno is set to one of the error codes,
+listed in the header <a class="reference external" href="https://en.cppreference.com/w/cpp/header/cerrno">cerrno</a> as macro constants that begin with
+the letter <strong>E</strong>, followed by uppercase letters or digits.
+The value of errno is <code class="docutils literal notranslate"><span class="pre">0</span></code> at program startup,
+and although library functions are allowed to write positive integers to errno whether
+or not an error occurred, library functions never store <code class="docutils literal notranslate"><span class="pre">0</span></code> in errno.</p>
+
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=error_handling_errno_ac data-question_label="3.8.2">
+<div id=error_handling_errno_ac_question class="ac_question">
+<p>Print an error if we use the log function incorrectly.</p>
+
+</div>
+<textarea data-lang="cpp" id="error_handling_errno_ac_editor" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++17&#x27;]"       data-wasm=/_static
+     style="visibility: hidden;">
+#include <cerrno>
+#include <cmath>
+#include <cstring>
+#include <iostream>
+
+int main()
+{
+    const double value = std::log(-1.0);
+    std::cout << "Log result: " << value << '\n';
+
+    if (errno == EDOM)
+    {
+        std::cout << "log(-1) failed: " << std::strerror(errno) << '\n';
+    }
+}
+</textarea>
+</div>
+</div>
+<section id="handling-multiple-errors-at-once">
+<h2><span class="section-number">3.8.1. </span>Handling multiple errors at once<a class="headerlink" href="#handling-multiple-errors-at-once" title="Permalink to this heading">¶</a></h2>
+<p>Each of the previous error handling techniques are simple, but each allows us
+to communicate only a single error at a time.
+Sometimes we need to communicate more information.</p>
+<p>We could create a data structure to store each error we care about in a <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">my_errors</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">constexpr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">busy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">   </span><span class="k">constexpr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">cancelled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">   </span><span class="k">constexpr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">domain_error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">   </span><span class="k">constexpr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">invalid_argument</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="p">};</span>
 </pre></div>
 </div>
-</div></blockquote>
-<p>If you specify a <code class="docutils literal notranslate"><span class="pre">try</span></code>, you must include at least 1 <code class="docutils literal notranslate"><span class="pre">catch</span></code>.</p>
-<p>Passing catch parameters by <em>const reference</em> is considered a best practice</p>
-<ul>
-<li><p>std::exception.what()</p>
-<ul class="simple">
-<li><p>Returns a description of what caused the error</p></li>
-</ul>
-</li>
-<li><p>More than one <code class="docutils literal notranslate"><span class="pre">catch</span></code> block is acceptable</p></li>
-<li><p>The special catch</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span>
-</pre></div>
-</div>
-</li>
-</ul>
-<p>will catch any exception.
-If you use this, then you should be prepared to really handle <em>anything</em>.</p>
-<section id="standard-exceptions">
-<span id="index-2"></span><h3><span class="section-number">3.8.2.1. </span>Standard exceptions<a class="headerlink" href="#standard-exceptions" title="Permalink to this heading">¶</a></h3>
-<p>The standard exceptions in C++ are organized in a class hierarchy.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::exception">std::exception</a> is the base class for all exceptions</p></li>
-<li><p>Classes derived from <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::exception">std::exception</a></p>
-<ul>
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::bad_alloc">std::bad_alloc</a>: thrown by <code class="docutils literal notranslate"><span class="pre">new</span></code> and other memory allocation errors</p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::bad_cast">std::bad_cast</a>: thrown by <code class="docutils literal notranslate"><span class="pre">dynamic_cast</span></code> and similar</p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::bad_typeid">std::bad_typeid</a>: thrown by <code class="docutils literal notranslate"><span class="pre">typeid</span></code></p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::bad_exception">std::bad_exception</a>: runtime unexpected or pointer exceptions</p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::logic_error">std::logic_error</a>: exceptions that <em>should</em> be detected by reading the code</p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::runtime_error">std::runtime_error</a>: exceptions that theoretically can’t be detected by reading the code</p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::logic_error">std::logic_error</a>, and <code class="docutils literal notranslate"><span class="pre">std::runtime_error</span></code> are also exception bases</p></li>
-</ul>
-</li>
-<li><p>Classes derived from <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::logic_error">std::logic_error</a></p>
-<ul>
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::domain_error">std::domain_error</a>: invalid mathematical domain</p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::invalid_argument">std::invalid_argument</a>: bad parameters or arguments used</p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::length_error">std::length_error</a>: Thrown when a std::string is too large</p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::out_of_range">std::out_of_range</a>: Used for range checked access, vector.at(x)</p></li>
-</ul>
-</li>
-<li><p>Classes derived from <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::runtime_error">std::runtime_error</a></p>
-<ul>
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::overflow_error">std::overflow_error</a>: mathematical overflow</p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::range_error">std::range_error</a>: Thrown when storing an out of range value</p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::underflow_error">std::underflow_error</a>: mathematical underflow</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section id="using-exceptions">
-<h3><span class="section-number">3.8.2.2. </span>Using exceptions<a class="headerlink" href="#using-exceptions" title="Permalink to this heading">¶</a></h3>
-<p>C++ exceptions are designed to support <em>error handling</em>.</p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">throw</span></code> only to signal an error.
-Use <code class="docutils literal notranslate"><span class="pre">catch</span></code> only to specify error handling actions when
-you know you can handle it.
-Possibly by translating it to another type and re-throwing an exception of that type.
-For example, catching a <code class="docutils literal notranslate"><span class="pre">bad_alloc</span></code> and re-throwing a <code class="docutils literal notranslate"><span class="pre">no_space_for_file_buffers</span></code> exception.</p>
-<p><strong>Do not</strong> use <code class="docutils literal notranslate"><span class="pre">throw</span></code> to catch a coding error in usage of a function.
-Instead, use assert or other mechanism to either stop the program or log the error.</p>
-<p><strong>Do not</strong> use <code class="docutils literal notranslate"><span class="pre">throw</span></code> if you discover an unexpected violation of an invariant of your component.
-Instead, use <code class="docutils literal notranslate"><span class="pre">assert</span></code> or other mechanism to terminate the program.
-Throwing an exception will not cure memory corruption and may lead to further corruption of important user data.</p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">catch</span></code> blocks
-if the logic is more clear than checking a condition and returning a value.
-For example,
-if you need to propagate errors several levels up the stack:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">f1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">f2</span><span class="p">();</span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">some_exception</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// ... handle error</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">f2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...;</span><span class="w"> </span><span class="n">f3</span><span class="p">();</span><span class="w"> </span><span class="p">...;</span><span class="w"> </span><span class="p">}</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">f3</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...;</span><span class="w"> </span><span class="n">f4</span><span class="p">();</span><span class="w"> </span><span class="p">...;</span><span class="w"> </span><span class="p">}</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">f4</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...;</span><span class="w"> </span><span class="n">f5</span><span class="p">();</span><span class="w"> </span><span class="p">...;</span><span class="w"> </span><span class="p">}</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">f5</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="cm">/*...some error condition...*/</span><span class="w"> </span><span class="p">)</span>
-<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">some_exception</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Only the code that detects the error, <code class="docutils literal notranslate"><span class="pre">f5()</span></code>,
-and the code that handles the error, <code class="docutils literal notranslate"><span class="pre">f1()</span></code>, have any clutter.
-None of the other functions have to worry about passing error codes either in return values
-or in extra parameters that would have to be mutable.</p>
-<p>Do not use <code class="docutils literal notranslate"><span class="pre">try</span></code> blocks to reclaim resources.
-This is a Java technique,
-which is great for Java, but is not needed in C++.
-In C++, use Resource Acquisition Is Initialization (<a class="reference internal" href="../glossary.html#term-RAII"><span class="xref std std-term">RAII</span></a>).</p>
-<p>Use constructors to allocate resources
-and use destructors to clean up resources,</p>
-<p>Do not use <code class="docutils literal notranslate"><span class="pre">try</span></code> blocks as a proxy for error return codes.
-This results in too many <code class="docutils literal notranslate"><span class="pre">try</span></code> blocks cluttering up functions,
-which harms readability if nothing else.</p>
-</section>
-<section id="exceptions-and-i-o-streams">
-<span id="index-3"></span><h3><span class="section-number">3.8.2.3. </span>Exceptions and I/O streams<a class="headerlink" href="#exceptions-and-i-o-streams" title="Permalink to this heading">¶</a></h3>
-<p>I/O streams can be configured to throw exceptions with <code class="docutils literal notranslate"><span class="pre">std::basic_ios::exceptions</span></code>.
-This object gets and sets the exception mask of the stream.
-The exception mask set in the program determines which error states
-in the stream will throw an exception if an error is encountered.
-If no exception bits are set, then the I/O streams in C++ will not throw any exceptions.</p>
-<p>For example:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="w"> </span><span class="n">ifs</span><span class="p">(</span><span class="s">&quot;in.txt&quot;</span><span class="p">);</span>
-<span class="n">ifs</span><span class="p">.</span><span class="n">exceptions</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span><span class="o">::</span><span class="n">failbit</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>At this point, only the <code class="docutils literal notranslate"><span class="pre">failbit</span></code> will trigger an exception.</p>
-<p>I/O Streams may throw <code class="docutils literal notranslate"><span class="pre">ios_base::failure</span></code>
-But since C++11 this class inheritance changed.</p>
-<p><code class="docutils literal notranslate"><span class="pre">ios_base::failure</span></code> inherits from <code class="docutils literal notranslate"><span class="pre">std::system_error</span></code></p>
-<p>The end result is that <code class="docutils literal notranslate"><span class="pre">ios_base::failure</span></code> now has
-an <code class="docutils literal notranslate"><span class="pre">error_code</span></code> member to the exception object it didn’t used to have.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ios_base</span><span class="o">::</span><span class="n">failure</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;I/O exception occurred.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Details: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Code: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">code</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<p>However, we notice this is quite verbose.
+There is no easy way, for example to discover that no errors are set,
+which hopefully is the normal situation for our program.
+As programmers, we always want the typical uses or our data structures to be
+as simple as possible.
+We want the atypical ones to be simple too!</p>
+<p>Can we make this easier to work with? Yes.</p>
+<p>Once way is to pack all the boolean values into a single variable.</p>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-errors">CPP Core Guidelines: Error Handling</a></p></li>
-<li><p><a class="reference external" href="https://isocpp.org/wiki/faq/exceptions">ISO C++ FAQ Exceptions</a></p></li>
-<li><p><a class="reference external" href="http://www.acodersjourney.com/2016/08/top-15-c-exception-handling-mistakes-avoid/">Top 15 exception handling mistakes to avoid</a></p></li>
-<li><p>Overview of the <a class="reference external" href="http://en.cppreference.com/w/cpp/error">error handling</a> library and
-<a class="reference external" href="http://en.cppreference.com/w/cpp/language/exceptions">exceptions</a></p></li>
-<li><p><a class="reference external" href="http://en.cppreference.com/w/cpp/language/try_catch">try-catch</a> and
-<a class="reference external" href="http://en.cppreference.com/w/cpp/language/throw">throw</a></p></li>
-<li><p>Post from Eric Lippert on
-<a class="reference external" href="https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/">vexing exceptions</a></p></li>
+<li><p><a class="reference external" href="https://en.wikibooks.org/wiki/C_Programming/Error_handling">Wikibooks: C Error Handling</a></p></li>
+<li><p>On cpp reference.com:</p>
+<ul>
+<li><p>The <a class="reference external" href="https://en.cppreference.com/w/cpp/error/assert">assert</a> macro</p></li>
+<li><p>The <a class="reference external" href="https://en.cppreference.com/w/cpp/error/errno">errno</a> macro</p></li>
+<li><p>Keyword <a class="reference external" href="https://en.cppreference.com/w/cpp/language/static_assert">static_assert</a></p></li>
+</ul>
+</li>
 </ul>
 </div>
-</section>
 </section>
 </section>
 
@@ -421,8 +360,8 @@ an <code class="docutils literal notranslate"><span class="pre">error_code</span
   </a>
 </li>
 
-  <li id="relations-next" class="navLink" title='Next Section - 3.9. Static functions and variables' data-toggle="tooltip" >
-    <a href="static-functions.html" aria-label="Next - 3.9. Static functions and variables">
+  <li id="relations-next" class="navLink" title='Next Section - 3.9. Exception handling' data-toggle="tooltip" >
+    <a href="exception-handling.html" aria-label="Next - 3.9. Exception handling">
       <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
     </a>
   </li>

@@ -178,6 +178,10 @@ There is nothing special about the character ``-``.
 It is a convention used to distinguish command line arguments
 with special meaning (the switches) from other content.
 
+.. index::
+   pair: repl.it; echo
+   pair: repl.it; command line argument parsing
+   pair: repl.it; parsing command line arguments
 
 .. tabbed:: tab_cmdline
 
