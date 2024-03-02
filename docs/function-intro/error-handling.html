@@ -213,7 +213,7 @@
 
   
   <section id="error-handling">
-<h1><span class="section-number">3.8. </span>Error handling<a class="headerlink" href="#error-handling" title="Permalink to this heading">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">3.8. </span>Error handling<a class="headerlink" href="#error-handling" title="Permalink to this heading">¶</a></h1>
 <p>Programmers are expected to create programs that function correctly and run as expected.
 Programs need to function ‘correctly’ even in the face of unexpected or unusual conditions.</p>
 <p>When the unexpected happens, we need to recover as gracefully as possible.
@@ -227,7 +227,7 @@ Abruptly halting or crashing is not generally acceptable.</p>
 <li><p>Avoiding resource leaks</p></li>
 </ul>
 <p>The rest of this section describes simple error reporting strategies that are compatible with C.</p>
-<p>One tried and true way to communicate errors is by returning error values from functions.
+<div id='assert' data-component="tabbedStuff"  class='alert alert-warning '><p>One tried and true way to communicate errors is by returning error values from functions.
 We already have been introduced to the <a class="reference external" href="https://en.cppreference.com/w/cpp/error/assert">assert</a> macro to handle errors
 in the section <a class="reference internal" href="../build-tools/debugging.html#build-tools-assert"><span class="std std-ref">Assertions</span></a>.</p>
 <p>The assert macro is a ‘function-like’ macro that evaluates a boolean expression
@@ -235,6 +235,9 @@ and aborts the program if the condition is <code class="docutils literal notrans
 The assert macro is most useful for debugging, but be aware that since it can
 easily be disabled, it is hard to depend on in production software.</p>
 <p>The macro <code class="docutils literal notranslate"><span class="pre">NDEBUG</span></code>, if defined, will disable all the assert functions in a program.</p>
+<div data-component="tab" data-tabname="assert" >
+<p>The assert macro takes a single expression.
+It does not provide a built-in mechanism for a c</p>
 
 <div class="runestone explainer ac_section ">
 <div data-component="activecode" id=error_handling_assert_ac data-question_label="3.8.1">
@@ -258,28 +261,112 @@ int main()
     assert(2 + 2 == 4);
     std::cout << "Checkpoint #1\n";
 
-    assert((void("void helps to avoid 'unused value' warning"), 2 * 2 == 4));
+    assert(2*2*2 == 8);
     std::cout << "Checkpoint #2\n";
-
-    assert((010 + 010 == 16) && "Octal 8+8 did not == 16!");
-    std::cout << "Checkpoint #3\n";
 }
 </textarea>
 </div>
 </div>
+</div><div data-component="tab" data-tabname="assert messages" >
+<p>The assert macro does not provide a built-in mechanism for a
+custom user message, but there are a few tricks we can use to
+create a compound expression.</p>
+<p>While it is treated as a single expressin by assert,
+it provides a way to insert a customer error message when the
+assertion fails.</p>
+<p>Using the comma operator is one technique.
+The entire expression is still a single boolean exppression.</p>
+<p>After the left-hand side expression is evaluates, it is discarded.
+Any side-effects from the evaluated expression remain.
+This is what the comma operator does and why
+it’s use is generally discouraged.
+However, in this case, it’s our message and the program does not need it.</p>
+<p>Next the right-hand side is evaluated.
+If the expression evaluates to false, the entire expression, along with the
+string literal is displayed by assert before the program exits.</p>
+
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=error_handling_assert_message1_ac data-question_label="3.8.2">
+<div id=error_handling_assert_message1_ac_question class="ac_question">
+
+</div>
+<textarea data-lang="cpp" id="error_handling_assert_message1_ac_editor" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++17&#x27;]"       data-wasm=/_static
+     style="visibility: hidden;">
+#include <cassert>
+int main()
+{
+    assert((void("The 'void' here avoids an 'unused value' warning"), 1 == 0));
+}
+</textarea>
+</div>
+</div>
+<p>Using the relational ‘and’ operator <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> is another technique.
+The entire expression is still a single boolean exppression.</p>
+<p>If the left-hand side expression is true, then the right-hand side
+is evaluated, but since it is a non-zero literal, it will always be <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p>If the expression evaluates to false, the entire expression, along with the
+string literal is displayed by assert before the program exits.</p>
+
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=error_handling_assert_message2_ac data-question_label="3.8.3">
+<div id=error_handling_assert_message2_ac_question class="ac_question">
+
+</div>
+<textarea data-lang="cpp" id="error_handling_assert_message2_ac_editor" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++17&#x27;]"       data-wasm=/_static
+     style="visibility: hidden;">
+#include <cassert>
+int main()
+{
+    assert((010 + 010 == 15) && "What is 8+8 again?");
+}
+</textarea>
+</div>
+</div>
+</div>
+    </div>
+
+<p>How does the assert macro support our error handling goals?</p>
+<ul>
+<li><p>Detecting an error</p>
+<p>Detection is handled in the boolean expression passed to the macro.
+It can only be a single expression and some caution needs to be taken
+because “function like” macros are not functions and can behave in unexpected ways.</p>
+</li>
+<li><p>Transmitting information about an error</p>
+<p>The assert macro immediately aborts the program and prints the line number
+of the source were the error occurred.</p>
+</li>
+<li><p>Preserving the valid state of a program</p>
+<p>The program immediately terminates.
+If your program manages external resources like a file, it may be corrupted
+if the program left it in an indeterminate state on exit.</p>
+</li>
+<li><p>Avoiding resource leaks</p>
+<p>This is not applicable since the program terminates.
+Any resources opened by the program (memory, file handles, etc.)
+will be recovered by the operating system when the program exits.</p>
+</li>
+</ul>
 <p>Another facility C++ inherits from C is the <a class="reference external" href="https://en.cppreference.com/w/cpp/error/errno">errno</a> macro.
 errno is a preprocessor macro used for error indication.
 The exact definition is implementation defined, but expands to a modifiable <code class="docutils literal notranslate"><span class="pre">int</span></code>.
 Several standard library functions indicate errors by writing positive integers to <code class="docutils literal notranslate"><span class="pre">errno</span></code>.
 Typically, the value of errno is set to one of the error codes,
 listed in the header <a class="reference external" href="https://en.cppreference.com/w/cpp/header/cerrno">cerrno</a> as macro constants that begin with
-the letter <strong>E</strong>, followed by uppercase letters or digits.
-The value of errno is <code class="docutils literal notranslate"><span class="pre">0</span></code> at program startup,
+the letter <strong>E</strong>, followed by uppercase letters or digits.</p>
+<div id='errno' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="errno" >
+<p>The value of errno is <code class="docutils literal notranslate"><span class="pre">0</span></code> at program startup,
 and although library functions are allowed to write positive integers to errno whether
 or not an error occurred, library functions never store <code class="docutils literal notranslate"><span class="pre">0</span></code> in errno.</p>
 
 <div class="runestone explainer ac_section ">
-<div data-component="activecode" id=error_handling_errno_ac data-question_label="3.8.2">
+<div data-component="activecode" id=error_handling_errno_ac data-question_label="3.8.4">
 <div id=error_handling_errno_ac_question class="ac_question">
 <p>Print an error if we use the log function incorrectly.</p>
 
@@ -307,8 +394,23 @@ int main()
 </textarea>
 </div>
 </div>
+</div>
+    </div>
+
+<p>How does errno support our error handling goals?</p>
+<p>In all 4 cases, the answer is the same: <em>it’s up to you</em>.</p>
+<p>You need to check <code class="docutils literal notranslate"><span class="pre">errno</span></code> to see if it has been set.
+It is your resposibility to reset error if needed.
+No function that sets <code class="docutils literal notranslate"><span class="pre">errno</span></code> will ever reset it to 0.
+Any messages communicated are yours.
+No error messages are automatically generated.
+It is also your responsibility to preserve the state of your program
+and cleanup resources that may be partially or improperly allocated.</p>
+<p>One big advantage of <code class="docutils literal notranslate"><span class="pre">errno</span></code> is that for functions that use it, you get
+a simple error code you can use to recover from an error without
+the entire program aborting.</p>
 <section id="handling-multiple-errors-at-once">
-<h2><span class="section-number">3.8.1. </span>Handling multiple errors at once<a class="headerlink" href="#handling-multiple-errors-at-once" title="Permalink to this heading">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">3.8.1. </span>Handling multiple errors at once<a class="headerlink" href="#handling-multiple-errors-at-once" title="Permalink to this heading">¶</a></h2>
 <p>Each of the previous error handling techniques are simple, but each allows us
 to communicate only a single error at a time.
 Sometimes we need to communicate more information.</p>
