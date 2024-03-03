@@ -227,10 +227,10 @@ We could create a data structure to store each error we care about in a ``bool``
       constexpr const bool busy = false;
       constexpr const bool cancelled = false;
       constexpr const bool domain_error = false;
-      constexpr const bool invalid_argument = false;
+      constexpr const bool invalid = false;
    };
 
-However, we notice this is quite verbose.
+However, this approach does have some limitations.
 There is no easy way, for example to discover that no errors are set,
 which hopefully is the normal situation for our program.
 As programmers, we always want the typical uses or our data structures to be
@@ -241,7 +241,143 @@ Can we make this easier to work with? Yes.
 
 Once way is to pack all the boolean values into a single variable.
 
+There are several ways to accomplish this.
+Here we discuss two of them.
+Both of them use a single bit to represent the true or false state.
+Starting from the previous code, we change it like this:
 
+.. code-block:: cpp
+
+   constexpr const unsigned error_none = 0;
+   constexpr const unsigned error_busy = 1;
+   constexpr const unsigned error_cancelled = 2;
+   constexpr const unsigned error_domain = 4;
+   constexpr const unsigned error_invalid = 8;
+
+
+The values assigned to each of these variables is not coincidence.
+Each (other than 0) represents an increase in the power of two:
+:math:`2^0, 2^1, 2^2, 2^3`.
+Each of these numbers sets exactly 1 bit in an ``unsigned int`` and no others.
+So now we can use these values to set the bits in the variable we want to use
+to keep track of errors.
+
+.. tabbed:: bitmask
+
+   .. tab:: bitmask
+
+      We use unsigned integers and bitwise operators to 'flag' each error.
+      This technique is called a :wiki:`bitmask<Mask_(computing)>` and it has
+      a long history in programming.
+
+      .. note::
+
+         Shifting bits into the sign bit of a signed integer type
+         is implementation defined in C++.
+         To avoid surprising behavior, it is a best practice to only use
+         unsigned integer types when manipulating bits.
+
+      .. activecode:: error_handling_bitmask_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++17']
+         :nocodelens:
+
+         Set and print some bits.
+
+         We can print the value stored in ``errors``,
+         but we don't really care about the numeric value,
+         we care about the individual bits in the number.
+         ~~~~
+         #include <iostream>
+          
+         int main()
+         {
+            using std::cout;
+            constexpr const unsigned error_none = 0;
+            constexpr const unsigned error_busy = 1;
+            constexpr const unsigned error_cancelled = 2;
+            constexpr const unsigned error_domain = 4;
+            constexpr const unsigned error_invalid = 8;
+
+            unsigned errors = error_none;
+
+            // Use bitwise OR to set a bit in the variable
+            errors = errors | error_busy;
+            errors = errors | error_invalid;
+    
+            // Use bitwise XOR to unset a bit
+            errors = errors ^ error_busy;
+            
+            // show error value and each bit
+            cout << "errors: " << errors << ", bits: (";
+            for (auto err_num = error_invalid; err_num > error_none; err_num /= 2) {
+                // Use bitwise AND to test if a bit has been set
+                if (err_num & errors) {
+                    cout << 1;
+                } else {
+                    cout << 0;
+                }   
+            }
+            cout << ")\n";
+         }
+
+The approach using bitwise operations is simple once you know the tricks,
+but C++ provides a type that provides the ability to perform the same operations:
+:utility:`std::bitset`.
+
+
+.. tabbed:: bitset
+
+   .. tab:: bitset
+
+      We use the same bitwise operators for bitset that we used with unsigned integers.
+      But bitsets provide some additional features that can make them easier
+      to work with.
+
+      .. activecode:: error_handling_bitset_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++17']
+         :nocodelens:
+
+         Set and print some bits in a bitset.
+         ~~~~
+         #include <iostream>
+         #include <bitset>
+          
+         int main()
+         {
+            using std::cout;
+            constexpr const std::bitset<8> error_none = 0;
+            constexpr const std::bitset<8> error_busy = 1;
+            constexpr const std::bitset<8> error_cancelled = 2;
+            constexpr const std::bitset<8> error_domain = 4;
+            // we can also initialize using binary if desired
+            constexpr const std::bitset<8> error_invalid   = {0b0000'1000};
+            constexpr const std::bitset<8> error_length    = {0b0001'0000};
+            constexpr const std::bitset<8> error_underflow = {0b0010'0000};
+            constexpr const std::bitset<8> error_overflow  = {0b0100'0000};
+            constexpr const std::bitset<8> error_range     = {0b1000'0000};
+
+            std::bitset<8> errors = error_none;
+
+            // Use bitwise OR to set a bit in the variable
+            errors = errors | error_busy;
+            errors = errors | error_invalid;
+    
+            // Use bitwise XOR to unset a bit
+            errors = errors ^ error_busy;
+
+            std::cout << "errors: " << errors << '\n';
+            if ((errors & error_busy).any() != 0) {
+               cout << "error busy is on\n";
+            } else {
+               cout << "error busy is off\n";
+            }
+            if (errors.test(4) == 1) {
+               cout << "\nbit 4 is true" << '\n';
+            }
+
+         }
 
 -----
 
@@ -254,5 +390,7 @@ Once way is to pack all the boolean values into a single variable.
      - The :cpp:`errno<error/errno>` macro
      - Keyword :lang:`static_assert`
 
+   - :wiki:`bitmask<Mask_(computing)>`
+   - Learn C++ article `O.3 — Bit manipulation with bitwise operators and bit masks <https://www.learncpp.com/cpp-tutorial/bit-manipulation-with-bitwise-operators-and-bit-masks/>`__
 
 
