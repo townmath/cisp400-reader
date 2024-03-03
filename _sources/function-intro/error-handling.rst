@@ -287,17 +287,20 @@ to keep track of errors.
          We can print the value stored in ``errors``,
          but we don't really care about the numeric value,
          we care about the individual bits in the number.
+
+         The :lang:`maybe_unused attribute <attributes/maybe_unused>`
+         suppresses warnings about unused variables.
          ~~~~
          #include <iostream>
           
          int main()
          {
             using std::cout;
-            constexpr const unsigned error_none = 0;
-            constexpr const unsigned error_busy = 1;
-            constexpr const unsigned error_cancelled = 2;
-            constexpr const unsigned error_domain = 4;
-            constexpr const unsigned error_invalid = 8;
+            [[maybe_unused]] constexpr const unsigned error_none = 0;
+            [[maybe_unused]] constexpr const unsigned error_busy = 1;
+            [[maybe_unused]] constexpr const unsigned error_cancelled = 2;
+            [[maybe_unused]] constexpr const unsigned error_domain = 4;
+            [[maybe_unused]] constexpr const unsigned error_invalid = 8;
 
             unsigned errors = error_none;
 
@@ -325,7 +328,6 @@ The approach using bitwise operations is simple once you know the tricks,
 but C++ provides a type that provides the ability to perform the same operations:
 :utility:`std::bitset`.
 
-
 .. tabbed:: bitset
 
    .. tab:: bitset
@@ -340,6 +342,9 @@ but C++ provides a type that provides the ability to perform the same operations
          :nocodelens:
 
          Set and print some bits in a bitset.
+
+         The :lang:`maybe_unused attribute <attributes/maybe_unused>`
+         suppresses warnings about unused variables.
          ~~~~
          #include <iostream>
          #include <bitset>
@@ -347,16 +352,16 @@ but C++ provides a type that provides the ability to perform the same operations
          int main()
          {
             using std::cout;
-            constexpr const std::bitset<8> error_none = 0;
-            constexpr const std::bitset<8> error_busy = 1;
-            constexpr const std::bitset<8> error_cancelled = 2;
-            constexpr const std::bitset<8> error_domain = 4;
+            [[maybe_unused]] constexpr const std::bitset<8> error_none = 0;
+            [[maybe_unused]] constexpr const std::bitset<8> error_busy = 1;
+            [[maybe_unused]] constexpr const std::bitset<8> error_cancelled = 2;
+            [[maybe_unused]] constexpr const std::bitset<8> error_domain = 4;
             // we can also initialize using binary if desired
-            constexpr const std::bitset<8> error_invalid   = {0b0000'1000};
-            constexpr const std::bitset<8> error_length    = {0b0001'0000};
-            constexpr const std::bitset<8> error_underflow = {0b0010'0000};
-            constexpr const std::bitset<8> error_overflow  = {0b0100'0000};
-            constexpr const std::bitset<8> error_range     = {0b1000'0000};
+            [[maybe_unused]] constexpr const std::bitset<8> error_invalid   = {0b0000'1000};
+            [[maybe_unused]] constexpr const std::bitset<8> error_length    = {0b0001'0000};
+            [[maybe_unused]] constexpr const std::bitset<8> error_underflow = {0b0010'0000};
+            [[maybe_unused]] constexpr const std::bitset<8> error_overflow  = {0b0100'0000};
+            [[maybe_unused]] constexpr const std::bitset<8> error_range     = {0b1000'0000};
 
             std::bitset<8> errors = error_none;
 
