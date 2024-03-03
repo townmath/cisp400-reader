@@ -7,7 +7,7 @@
     License".
 
 .. index:: exception handling
-   :single: exceptions
+   single: exceptions
 
 Exception handling
 ==================

@@ -213,7 +213,7 @@
 
   
   <section id="exception-handling">
-<h1><span class="section-number">3.9. </span>Exception handling<a class="headerlink" href="#exception-handling" title="Permalink to this heading">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">3.9. </span>Exception handling<a class="headerlink" href="#exception-handling" title="Permalink to this heading">¶</a></h1>
 <p>An alternative to returning values from functions is to use <strong>exceptions</strong>.</p>
 <p>A C++ exception is a response to an exceptional circumstance that occurs while a program is running,
 such as an attempt to open a file that does not exist.</p>
@@ -273,7 +273,7 @@ of what exception may have been caught.</p>
 <p>will catch any exception.
 If you use this, then you should be prepared to really handle <em>anything</em>.</p>
 <section id="standard-exceptions">
-<span id="index-0"></span><h2><span class="section-number">3.9.1. </span>Standard exceptions<a class="headerlink" href="#standard-exceptions" title="Permalink to this heading">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">3.9.1. </span>Standard exceptions<a class="headerlink" href="#standard-exceptions" title="Permalink to this heading">¶</a></h2>
 <p>The standard exceptions in C++ are organized in a class hierarchy.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=std::exception">std::exception</a> is the base class for all exceptions</p></li>
@@ -354,7 +354,7 @@ This results in too many <code class="docutils literal notranslate"><span class=
 which harms readability if nothing else.</p>
 </section>
 <section id="exceptions-and-i-o-streams">
-<span id="index-1"></span><h2><span class="section-number">3.9.3. </span>Exceptions and I/O streams<a class="headerlink" href="#exceptions-and-i-o-streams" title="Permalink to this heading">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">3.9.3. </span>Exceptions and I/O streams<a class="headerlink" href="#exceptions-and-i-o-streams" title="Permalink to this heading">¶</a></h2>
 <p>I/O streams can be configured to throw exceptions with <code class="docutils literal notranslate"><span class="pre">std::basic_ios::exceptions</span></code>.
 This object gets and sets the exception mask of the stream.
 The exception mask set in the program determines which error states

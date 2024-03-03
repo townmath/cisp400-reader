@@ -82,33 +82,34 @@ plot_html_show_formats = False
 # extlinks dict
 #            role       url                                              prefix
 extlinks = {
-        'c': ('https://en.cppreference.com/w/c/%s', ''),
-        'cpp': ('https://en.cppreference.com/w/cpp/%s', ''),
-        'cmath': ('https://en.cppreference.com/w/cpp/numeric/math/%s', ''),
-        'core': ('https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines%s', ''),
-        'cstdio': ('https://en.cppreference.com/w/cpp/io/c/%s', ''),
-        'algorithm': ('https://en.cppreference.com/w/cpp/algorithm/%s', ''),
-        'chrono': ('https://en.cppreference.com/w/cpp/chrono/%s', ''),
-        'container': ('https://en.cppreference.com/w/cpp/container/%s', ''),
-        'error': ('https://en.cppreference.com/w/cpp/error/%s', ''),
-        'functional': ('https://en.cppreference.com/w/cpp/utility/functional/%s', ''),
-        'header': ('https://en.cppreference.com/w/cpp/header/%s', ''),
-        'io': ('https://en.cppreference.com/w/cpp/io/%s', ''),
-        'iterator': ('https://en.cppreference.com/w/cpp/iterator/%s', ''),
-        'keyword': ('https://en.cppreference.com/w/cpp/keyword/%s', ''),
-        'lang': ('https://en.cppreference.com/w/cpp/language/%s', ''),
-        'memory': ('https://en.cppreference.com/w/cpp/memory/%s', ''),
-        'req': ('https://en.cppreference.com/w/cpp/named_req/%s', ''),
-        'numeric': ('https://en.cppreference.com/w/cpp/numeric/%s', ''),
-        'string': ('https://en.cppreference.com/w/cpp/string/basic_string/%s', ''),
-        'utility': ('https://en.cppreference.com/w/cpp/utility/%s', ''),
-        'vector': ('https://en.cppreference.com/w/cpp/container/vector/%s', ''),
-        'types': ('https://en.cppreference.com/w/cpp/types/%s', ''),
-        'wiki': ('https://en.wikipedia.org/wiki/%s', ''),
-        'issue': ('https://github.com/sphinx-doc/sphinx/issues/%s', 'issue ')
+        'c': ('https://en.cppreference.com/w/c/%s', '%s'),
+        'cpp': ('https://en.cppreference.com/w/cpp/%s', '%s'),
+        'cmath': ('https://en.cppreference.com/w/cpp/numeric/math/%s', '%s'),
+        'core': ('https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines%s', '%s'),
+        'cstdio': ('https://en.cppreference.com/w/cpp/io/c/%s', '%s'),
+        'algorithm': ('https://en.cppreference.com/w/cpp/algorithm/%s', '%s'),
+        'chrono': ('https://en.cppreference.com/w/cpp/chrono/%s', '%s'),
+        'container': ('https://en.cppreference.com/w/cpp/container/%s', '%s'),
+        'error': ('https://en.cppreference.com/w/cpp/error/%s', '%s'),
+        'functional': ('https://en.cppreference.com/w/cpp/utility/functional/%s', '%s'),
+        'header': ('https://en.cppreference.com/w/cpp/header/%s', '%s'),
+        'io': ('https://en.cppreference.com/w/cpp/io/%s', '%s'),
+        'iterator': ('https://en.cppreference.com/w/cpp/iterator/%s', '%s'),
+        'keyword': ('https://en.cppreference.com/w/cpp/keyword/%s', '%s'),
+        'lang': ('https://en.cppreference.com/w/cpp/language/%s', '%s'),
+        'memory': ('https://en.cppreference.com/w/cpp/memory/%s', '%s'),
+        'req': ('https://en.cppreference.com/w/cpp/named_req/%s', '%s'),
+        'numeric': ('https://en.cppreference.com/w/cpp/numeric/%s', '%s'),
+        'string': ('https://en.cppreference.com/w/cpp/string/basic_string/%s', '%s'),
+        'utility': ('https://en.cppreference.com/w/cpp/utility/%s', '%s'),
+        'vector': ('https://en.cppreference.com/w/cpp/container/vector/%s', '%s'),
+        'types': ('https://en.cppreference.com/w/cpp/types/%s', '%s'),
+        'wiki': ('https://en.wikipedia.org/wiki/%s', '%s'),
+        'issue': ('https://github.com/sphinx-doc/sphinx/issues/%s', 'issue %s')
         }
-# normal use cas iss :issue:`123`
+# normal use case is :issue:`123`
 # prefix override as :issue:`this issue <123>`
+# or :string:`operator[]<operator_at>`
 
 #,'runestone.video','runestone.reveal','runestone.poll','runestone.tabbedStuff','runestone.disqus','runestone.codelens','runestone.activecode', 'runestone.assess', 'runestone.animation','runestone.meta', 'runestone.parsons', 'runestone.blockly', 'runestone.livecode']
 
