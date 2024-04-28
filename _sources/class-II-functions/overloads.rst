@@ -448,7 +448,7 @@ The normal addition is often implemented as a non-friend non-member:
 .. code-block:: cpp
 
      T operator+(      T lhs,    // passing lhs by value helps optimize chained a+b+c
-                 const T& rhs)   // otherwise, both parameters may be const references
+                 const T& rhs)   // passing lhs by non-const reference is acceptable
      {
        lhs += rhs; // reuse compound assignment
        return lhs; // return the result by value (uses move constructor)
