@@ -374,6 +374,93 @@ as an indicator of *not found* by functions that return an index (like find).
 .. youtube:: nkKeA74p3RY
    :http: https
 
+
+
+.. index::
+   single: stoi
+   single: stod
+
+Convert a byte string to a number
+---------------------------------
+Another common string task is parse a C string
+and extract a numeric value.
+
+The number conversion functions are part of the ``string`` header.
+There are number conversion functions that C++ inherits from C.
+They are all in the ``cstdlib`` header.
+Of these C functions, the ``atoi`` and ``atof`` functions should not be used.
+They fail silently.
+That is if something bad happens, there is no way to check and even detect
+whether the function completed its task.
+
+Use :string:`stoi <stol>` and :string:`stod <stof>` instead.
+
+.. tabbed:: std_string_numeric_conversion
+
+   .. tab:: stoi()
+      
+      :string:`stoi <stol>` extracts an integer value from a string.
+
+      ``stoi`` discards any whitespace characters until the first non-whitespace
+      character is found, 
+      then takes as many characters as possible to form a valid integer
+      number representation and converts them to an integer value.
+      
+      The valid integer value consists of the following parts:
+
+      - an optional plus or minus sign
+      - the digits 0-9
+
+      .. activecode:: byte_string_stoi_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
+         :nocodelens:
+         
+         #include <string>
+         #include <iostream>
+          
+         int main() {
+             std::cout << std::stoi("42") << '\n';
+             
+             const char* str_pi = "3.14159";
+             std::cout << std::stoi(str_pi) << '\n';
+         }
+
+
+
+   .. tab:: stod()
+
+      :string:`stod <stof>` extracts an floating point value from a byte string.
+
+      Other than return value, it functions similarly to ``stoi``.
+
+      .. activecode:: byte_string_stod_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
+         :nocodelens:
+         
+         #include <string>
+         #include <iostream>
+          
+         int main()
+         {
+             std::cout << std::stod("42") << '\n';
+
+             std::cout << std::stod("0.0000000123") << "\n"
+                       << std::stod("0.012") << "\n"
+                       << std::stod("15e16") << "\n"
+                       << std::stod("-0x1afp-2") << "\n"
+                       << std::stod("inf") << "\n"
+                       << std::stod("Nan") << "\n";
+         }
+             
+
+
+
+All of these functions allow for error handling, which we will cover in a future chapter.
+For now, know that these function will generate errors if given bad or unexpected input.
+
+
 .. index::
    pair: string functions; c_str
 

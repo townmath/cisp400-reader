@@ -27,7 +27,7 @@ additional requirements on template arguments used as parameters.
 - The ``requires`` keyword
 
 Concepts
-........
+--------
 
 Without resorting to the 
 :lang:`experimental technical specification <constraints>`
@@ -59,9 +59,14 @@ expressing our intent is about all we can do.
    #include <sstream>
    #include <string>
 
-   #define Streamable typename
+   #define InputIterator typename
 
    namespace mesa {
+     struct point {
+       int x = 0;
+       int y = 0;
+     };
+
      // T must overload operator >>
      template <InputIterator T>
        T get(std::string prompt = "Enter a single value: ") {
@@ -97,15 +102,52 @@ expressing our intent is about all we can do.
      std::cout << "Values: " << a << ", "
                              << b << ", "
                              << c << '\n';
+
+     // auto p = mesa::get<mesa::point>();  // compile error!
      return 0;
    }
+
+
+Attempting to 'get' a ``mesa::point`` is a compile error because our point object does not
+have a definition for the ``operator>>`` function overload.
+The compiler first displays the error, which may look something like this::
+
+.. code-block:: text
+
+   concept.cpp:25:16: error: invalid operands to binary expression ('std::istringstream' (aka 'basic_istringstream<char>') and 'mesa::point')
+           if(buf >> result)
+   concept.cpp:41:18: note: in instantiation of function template specialization 'mesa::get<mesa::point>' requested here
+     auto p = mesa::get<mesa::point>();
+
+
+The compiler will then display an exhaustive list of every type it tried::
+
+.. code-block:: text
+
+   /usr/include/c++/v1/cstddef:135:3: note: candidate function template not viable: no known conversion from 'std::istringstream' (aka 'basic_istringstream<char>') to 'byte' for 1st argument
+     operator>> (byte  __lhs, _Integer __shift) noexcept
+     ^
+   /usr/include/c++/v1/istream:625:1: note: candidate function template not viable: no known conversion from 'mesa::point' to 'unsigned char *' for 2nd argument
+   operator>>(basic_istream<char, _Traits>& __is, unsigned char* __s)
+   ^
+   /usr/include/c++/v1/istream:633:1: note: candidate function template not viable: no known conversion from 'mesa::point' to 'signed char *' for 2nd argument
+   operator>>(basic_istream<char, _Traits>& __is, signed char* __s)
+   ^
+
+   // many others omitted
+
+The more code you have written and the more code pulled in from ``#include`` directives,
+the longer the list will be.
+It can run on for thousand of lines.
+Clearly we'd like something better, but the C++ standard doesn't offer a solution until C++20.
+
 
 
 
 .. index:: requires
 
 Keyword: ``requires``
-.....................
+---------------------
 
 A *requires clause* is an additional constraint on template arguments or a function.
 It is planned for release in C++20.

@@ -582,7 +582,7 @@ compound assignments:</p>
 </div>
 <p>The normal addition is often implemented as a non-friend non-member:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="w">      </span><span class="n">T</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w">    </span><span class="c1">// passing lhs by value helps optimize chained a+b+c</span>
-<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w">   </span><span class="c1">// otherwise, both parameters may be const references</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w">   </span><span class="c1">// passing lhs by non-const reference is acceptable</span>
 <span class="p">{</span>
 <span class="w">  </span><span class="n">lhs</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">rhs</span><span class="p">;</span><span class="w"> </span><span class="c1">// reuse compound assignment</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">lhs</span><span class="p">;</span><span class="w"> </span><span class="c1">// return the result by value (uses move constructor)</span>

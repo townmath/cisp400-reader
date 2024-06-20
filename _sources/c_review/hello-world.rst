@@ -192,7 +192,8 @@ Some people may have also learned the C-style cast:
     
    auto almost_pi = (int)3.14159;
 
-Know that these two forms are equivalent, but the first is preferred.
+These two casts are roughly equivalent, but the first is preferred.
+We discuss why later in the book.
 We will be learning other ways to explicitly cast that are a bit more consistent
 with C++11's more uniform initialization syntax.
 

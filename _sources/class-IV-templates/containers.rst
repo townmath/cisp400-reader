@@ -171,8 +171,7 @@ behind initializer lists.
                constexpr
                  const T& operator[](const size_t& index) const 
                  { return data_[index]; }
-               constexpr
-                       T& operator[](const size_t& index)
+               T& operator[](const size_t& index)
                  { return data_[index]; }
            };
 

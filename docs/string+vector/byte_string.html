@@ -397,12 +397,21 @@ these functions from the STL are the ones you should use.</p>
 which is not modified, and returns an <code class="docutils literal notranslate"><span class="pre">int</span></code>.
 The return value can be used as the upper case
 version of the input character.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The C version of toupper returns <strong>int</strong> values, <em>not</em>
+character values.
+This can cause unexpected behavior or conversions.</p>
+<p>For these resaons, the <code class="docutils literal notranslate"><span class="pre">std::locale()</span></code> version of
+toupper is preferred.</p>
+<p>See the next tab for details.</p>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">toupper</span></code> is defined in header <code class="docutils literal notranslate"><span class="pre">cctypes</span></code>.</p>
 <p>This function uses the default <strong>C</strong> locale to replace the
 lowercase letters <code class="docutils literal notranslate"><span class="pre">abcdefghijklmnopqrstuvwxyz</span></code>
 with respective uppercase letters
 <code class="docutils literal notranslate"><span class="pre">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></code>.
-Non-ASCII acharacters are not handled.</p>
+Non-ASCII characters are not handled.</p>
 <p>Recall that <code class="docutils literal notranslate"><span class="pre">char</span></code> implicitly convert to <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
 
 <div class="runestone explainer ac_section ">
@@ -430,12 +439,10 @@ int main() {
 </textarea>
 </div>
 </div>
-<p>To handle non-ASCII or extended characters, the C++ version
-of std::toupper is needed.</p>
-</div><div data-component="tab" data-tabname="std::locale()" >
+</div><div data-component="tab" data-tabname="toupper(std::locale())" >
 <p>The <code class="docutils literal notranslate"><span class="pre">std::toupper</span></code> function takes a single <code class="docutils literal notranslate"><span class="pre">char</span></code>,
 which can be <strong>any</strong> character type,
-is not modified, and returns a character of the same type
+is not modified, and returns a character of the <em>same type</em>
 as the character type provided.</p>
 
 <div class="runestone explainer ac_section ">
@@ -449,16 +456,19 @@ as the character type provided.</p>
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
      style="visibility: hidden;">
 #include <iostream>
-#include <locale>
+#include <cctype>    // C toupper
+#include <locale>    // C++ toupper
 
 int main() {
   using std::cout;
   char eng[14] = "hello, world!";
 
+  // Use C version
   for (const auto& c: eng) {
     cout << std::toupper(c) << ' ';
   }
   cout << '\n';
+  // Use locale aware version - no conversion
   for (const auto& c: eng) {
     cout << "'" << std::toupper(c, std::locale())  << "' ";
   }
@@ -472,90 +482,8 @@ int main() {
     </div>
 
 </section>
-<section id="convert-a-byte-string-to-a-number">
-<span id="index-4"></span><h2><span class="section-number">2.3.2. </span>Convert a byte string to a number<a class="headerlink" href="#convert-a-byte-string-to-a-number" title="Permalink to this heading">¶</a></h2>
-<p>Another common task in programming is to parse a byte string
-and extract a numeric value.</p>
-<p>Later we will learn C++ object-oriented techniques that accomplish
-similar goals, for now we introduce a few of the functions
-provided as part of the byte string library.</p>
-<p>The number conversion functions are defined in the <code class="docutils literal notranslate"><span class="pre">cstdlib</span></code> header.</p>
-<div id='cstdlib_numeric_conversion' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="atoi()" >
-<p><a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string//byte/atoi">atoi</a> extracts an integer value from a byte string.</p>
-<p><code class="docutils literal notranslate"><span class="pre">atoi</span></code> discards any whitespace characters until the first non-whitespace
-character is found,
-then takes as many characters as possible to form a valid integer
-number representation and converts them to an integer value.</p>
-<p>The valid integer value consists of the following parts:</p>
-<ul class="simple">
-<li><p>an optional plus or minus sign</p></li>
-<li><p>the digits 0-9</p></li>
-</ul>
-
-<div class="runestone explainer ac_section ">
-<div data-component="activecode" id=byte_string_atoi_ac data-question_label="2.3.2.1">
-<div id=byte_string_atoi_ac_question class="ac_question">
-
-</div>
-<textarea data-lang="cpp" id="byte_string_atoi_ac_editor" 
-      data-timelimit=25000     
-    data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
-     style="visibility: hidden;">
-#include <cstdlib>
-#include <iostream>
-
-int main() {
-    std::cout << std::atoi("42") << '\n';
-    std::cout << std::atoi("31337 with words") << '\n';
-
-    const char* str_pi = "3.14159";
-    const char* words = "words and 2";
-
-    std::cout << std::atoi(str_pi) << '\n';
-    std::cout << std::atoi(words) << '\n';
-}
-</textarea>
-</div>
-</div>
-</div><div data-component="tab" data-tabname="atof()" >
-<p><a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string//byte/atof">atof</a> extracts an floating point value from a byte string.</p>
-<p>Other than return value, it functions similarly to <code class="docutils literal notranslate"><span class="pre">atoi</span></code>.</p>
-
-<div class="runestone explainer ac_section ">
-<div data-component="activecode" id=byte_string_atof_ac data-question_label="2.3.2.2">
-<div id=byte_string_atof_ac_question class="ac_question">
-
-</div>
-<textarea data-lang="cpp" id="byte_string_atof_ac_editor" 
-      data-timelimit=25000     
-    data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
-     style="visibility: hidden;">
-#include <cstdlib>
-#include <iostream>
-
-int main()
-{
-    std::cout << std::atof("42") << '\n';
-    std::cout << std::atof("31337 with words") << '\n';
-
-    std::cout << std::atof("0.0000000123") << "\n"
-              << std::atof("0.012") << "\n"
-              << std::atof("15e16") << "\n"
-              << std::atof("-0x1afp-2") << "\n"
-              << std::atof("inF") << "\n"
-              << std::atof("Nan") << "\n";
-}
-</textarea>
-</div>
-</div>
-</div>
-    </div>
-
-</section>
 <section id="copying-and-comparing-c-strings">
-<span id="index-5"></span><h2><span class="section-number">2.3.3. </span>Copying and comparing C strings<a class="headerlink" href="#copying-and-comparing-c-strings" title="Permalink to this heading">¶</a></h2>
+<span id="index-4"></span><h2><span class="section-number">2.3.2. </span>Copying and comparing C strings<a class="headerlink" href="#copying-and-comparing-c-strings" title="Permalink to this heading">¶</a></h2>
 <p>Unlike most of the types we work with in C++,
 byte strings are simple arrays.
 Arrays cannot be assigned to each other using <code class="docutils literal notranslate"><span class="pre">operator=</span></code>.
@@ -576,7 +504,7 @@ copies the source character array including the null terminator,
 to the destination character array.</p>
 
 <div class="runestone explainer ac_section ">
-<div data-component="activecode" id=byte_string_strcpy_ac data-question_label="2.3.3.1">
+<div data-component="activecode" id=byte_string_strcpy_ac data-question_label="2.3.2.1">
 <div id=byte_string_strcpy_ac_question class="ac_question">
 
 </div>
@@ -609,7 +537,7 @@ copies byte strings, but will copy at most a provided <code class="docutils lite
 number of characters.</p>
 
 <div class="runestone explainer ac_section ">
-<div data-component="activecode" id=byte_string_strncpy_ac data-question_label="2.3.3.2">
+<div data-component="activecode" id=byte_string_strncpy_ac data-question_label="2.3.2.2">
 <div id=byte_string_strncpy_ac_question class="ac_question">
 
 </div>
@@ -647,7 +575,7 @@ returns a <code class="docutils literal notranslate"><span class="pre">0</span><
 If the first operand is less than the second, then a negative value is returned.</p>
 
 <div class="runestone explainer ac_section ">
-<div data-component="activecode" id=byte_string_strcmp_ac data-question_label="2.3.3.3">
+<div data-component="activecode" id=byte_string_strcmp_ac data-question_label="2.3.2.3">
 <div id=byte_string_strcmp_ac_question class="ac_question">
 
 </div>
@@ -699,7 +627,7 @@ returns a <code class="docutils literal notranslate"><span class="pre">0</span><
 a specified number of characters.</p>
 
 <div class="runestone explainer ac_section ">
-<div data-component="activecode" id=byte_string_strncmp_ac data-question_label="2.3.3.4">
+<div data-component="activecode" id=byte_string_strncmp_ac data-question_label="2.3.2.4">
 <div id=byte_string_strncmp_ac_question class="ac_question">
 
 </div>
@@ -748,8 +676,8 @@ then use <a class="reference external" href="https://en.cppreference.com/w/cpp/s
 <div id='tab_check' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Q1" >
 
         <div class="runestone ">
-        <div data-component="fillintheblank" data-question_label="2.3.3.5" id="byte_string_fitb2"  style="visibility: hidden;">
-            <p>sc-1-11: Given the following:</p>
+        <div data-component="fillintheblank" data-question_label="2.3.2.5" id="byte_string_fitb2"  style="visibility: hidden;">
+            <p>sc-1-9: Given the following:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">text</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
 <span class="n">strcpy</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
@@ -766,7 +694,7 @@ then use <a class="reference external" href="https://en.cppreference.com/w/cpp/s
             </div><div data-component="tab" data-tabname="Q2" >
 
 <div class="runestone explainer ac_section ">
-<div data-component="activecode" id=byte_string_sc_ac1 data-question_label="2.3.3.6">
+<div data-component="activecode" id=byte_string_sc_ac1 data-question_label="2.3.2.6">
 <div id=byte_string_sc_ac1_question class="ac_question">
 <p>Fix the errors in the <code class="docutils literal notranslate"><span class="pre">printf</span></code> line below:</p>
 
@@ -791,8 +719,8 @@ int main() {
 </div><div data-component="tab" data-tabname="Q3" >
 
         <div class="runestone ">
-        <div data-component="fillintheblank" data-question_label="2.3.3.7" id="byte_string_fitb3"  style="visibility: hidden;">
-            <p>sc-1-13: Which <code class="docutils literal notranslate"><span class="pre">#include</span></code> is required to use functions such as
+        <div data-component="fillintheblank" data-question_label="2.3.2.7" id="byte_string_fitb3"  style="visibility: hidden;">
+            <p>sc-1-11: Which <code class="docutils literal notranslate"><span class="pre">#include</span></code> is required to use functions such as
 <code class="docutils literal notranslate"><span class="pre">std::atoi</span></code> and <code class="docutils literal notranslate"><span class="pre">std::atof</span></code>?</p>
 <input type="text">
         <script type="application/json">
@@ -804,8 +732,8 @@ int main() {
             </div><div data-component="tab" data-tabname="Q4" >
 
         <div class="runestone ">
-        <div data-component="fillintheblank" data-question_label="2.3.3.8" id="byte_string_fitb4"  style="visibility: hidden;">
-            <p>sc-1-14: Which <code class="docutils literal notranslate"><span class="pre">#include</span></code> is required to use functions such as
+        <div data-component="fillintheblank" data-question_label="2.3.2.8" id="byte_string_fitb4"  style="visibility: hidden;">
+            <p>sc-1-12: Which <code class="docutils literal notranslate"><span class="pre">#include</span></code> is required to use functions such as
 <code class="docutils literal notranslate"><span class="pre">std::stoi</span></code> and <code class="docutils literal notranslate"><span class="pre">std::stol</span></code>?</p>
 <input type="text">
         <script type="application/json">

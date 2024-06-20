@@ -253,9 +253,14 @@ expressing our intent is about all we can do.</p>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sstream&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
 
-<span class="cp">#define Streamable typename</span>
+<span class="cp">#define InputIterator typename</span>
 
 <span class="k">namespace</span><span class="w"> </span><span class="nn">mesa</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
+
 <span class="w">  </span><span class="c1">// T must overload operator &gt;&gt;</span>
 <span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">prompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Enter a single value: &quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -291,10 +296,48 @@ expressing our intent is about all we can do.</p>
 <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Values: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span>
 <span class="w">                          </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span>
 <span class="w">                          </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// auto p = mesa::get&lt;mesa::point&gt;();  // compile error!</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>Attempting to ‘get’ a <code class="docutils literal notranslate"><span class="pre">mesa::point</span></code> is a compile error because our point object does not
+have a definition for the <code class="docutils literal notranslate"><span class="pre">operator&gt;&gt;</span></code> function overload.
+The compiler first displays the error, which may look something like this:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">..</span><span class="w"> </span><span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="o">::</span><span class="w"> </span><span class="n">text</span>
+</pre></div>
+</div>
+<blockquote>
+<div><dl class="simple">
+<dt>concept.cpp:25:16: error: invalid operands to binary expression (‘std::istringstream’ (aka ‘basic_istringstream&lt;char&gt;’) and ‘mesa::point’)</dt><dd><p>if(buf &gt;&gt; result)</p>
+</dd>
+<dt>concept.cpp:41:18: note: in instantiation of function template specialization ‘mesa::get&lt;mesa::point&gt;’ requested here</dt><dd><p>auto p = mesa::get&lt;mesa::point&gt;();</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>The compiler will then display an exhaustive list of every type it tried:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">..</span><span class="w"> </span><span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="o">::</span><span class="w"> </span><span class="n">text</span>
+</pre></div>
+</div>
+<blockquote>
+<div><dl class="simple">
+<dt>/usr/include/c++/v1/cstddef:135:3: note: candidate function template not viable: no known conversion from ‘std::istringstream’ (aka ‘basic_istringstream&lt;char&gt;’) to ‘byte’ for 1st argument</dt><dd><p>operator&gt;&gt; (byte  __lhs, _Integer __shift) noexcept
+^</p>
+</dd>
+</dl>
+<p>/usr/include/c++/v1/istream:625:1: note: candidate function template not viable: no known conversion from ‘mesa::point’ to ‘unsigned char <em>‘ for 2nd argument
+operator&gt;&gt;(basic_istream&lt;char, _Traits&gt;&amp; __is, unsigned char</em> __s)
+^
+/usr/include/c++/v1/istream:633:1: note: candidate function template not viable: no known conversion from ‘mesa::point’ to ‘signed char <em>‘ for 2nd argument
+operator&gt;&gt;(basic_istream&lt;char, _Traits&gt;&amp; __is, signed char</em> __s)
+^</p>
+<p>// many others omitted</p>
+</div></blockquote>
+<p>The more code you have written and the more code pulled in from <code class="docutils literal notranslate"><span class="pre">#include</span></code> directives,
+the longer the list will be.
+It can run on for thousand of lines.
+Clearly we’d like something better, but the C++ standard doesn’t offer a solution until C++20.</p>
 </section>
 <section id="keyword-requires">
 <span id="index-1"></span><h2><span class="section-number">4.3.2. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">requires</span></code><a class="headerlink" href="#keyword-requires" title="Permalink to this heading">¶</a></h2>

@@ -223,13 +223,24 @@ The string conversion functions are defined in the ``cctype`` header.
       The return value can be used as the upper case
       version of the input character.
 
+      .. warning:: 
+
+         The C version of toupper returns **int** values, *not*
+         character values.
+         This can cause unexpected behavior or conversions.
+
+         For these resaons, the ``std::locale()`` version of
+         toupper is preferred.
+
+         See the next tab for details.
+
       ``toupper`` is defined in header ``cctypes``.
 
       This function uses the default **C** locale to replace the
       lowercase letters ``abcdefghijklmnopqrstuvwxyz``
       with respective uppercase letters 
       ``ABCDEFGHIJKLMNOPQRSTUVWXYZ``.
-      Non-ASCII acharacters are not handled.
+      Non-ASCII characters are not handled.
 
       Recall that ``char`` implicitly convert to ``int``.
 
@@ -251,14 +262,11 @@ The string conversion functions are defined in the ``cctype`` header.
            return 0;
          }
 
-      To handle non-ASCII or extended characters, the C++ version
-      of std::toupper is needed.
-      
-   .. tab:: std::locale()
+   .. tab:: toupper(std::locale())
 
       The ``std::toupper`` function takes a single ``char``,
       which can be **any** character type, 
-      is not modified, and returns a character of the same type
+      is not modified, and returns a character of the *same type*
       as the character type provided.
 
       .. activecode:: string_toupper_locale_ac
@@ -267,103 +275,26 @@ The string conversion functions are defined in the ``cctype`` header.
          :nocodelens:
 
          #include <iostream>
-         #include <locale>
+         #include <cctype>    // C toupper
+         #include <locale>    // C++ toupper
 
          int main() {
            using std::cout;
            char eng[14] = "hello, world!";
 
+           // Use C version
            for (const auto& c: eng) {
              cout << std::toupper(c) << ' ';
            }
            cout << '\n';
+           // Use locale aware version - no conversion
            for (const auto& c: eng) {
              cout << "'" << std::toupper(c, std::locale())  << "' ";
            }
 
            return 0;
          }
-
-.. index::
-   single: atoi
-   single: atof
-
-Convert a byte string to a number
----------------------------------
-Another common task in programming is to parse a byte string
-and extract a numeric value.
-
-Later we will learn C++ object-oriented techniques that accomplish
-similar goals, for now we introduce a few of the functions
-provided as part of the byte string library.
-
-The number conversion functions are defined in the ``cstdlib`` header.
-
-
-.. tabbed:: cstdlib_numeric_conversion
-
-   .. tab:: atoi()
-      
-      :string:`atoi </byte/atoi>` extracts an integer value from a byte string.
-
-      ``atoi`` discards any whitespace characters until the first non-whitespace
-      character is found, 
-      then takes as many characters as possible to form a valid integer
-      number representation and converts them to an integer value.
-      
-      The valid integer value consists of the following parts:
-
-      - an optional plus or minus sign
-      - the digits 0-9
-
-      .. activecode:: byte_string_atoi_ac
-         :language: cpp
-         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
-         :nocodelens:
-         
-         #include <cstdlib>
-         #include <iostream>
-          
-         int main() {
-             std::cout << std::atoi("42") << '\n';
-             std::cout << std::atoi("31337 with words") << '\n';
-             
-             const char* str_pi = "3.14159";
-             const char* words = "words and 2";
-          
-             std::cout << std::atoi(str_pi) << '\n';
-             std::cout << std::atoi(words) << '\n';
-         }
-
-
-
-   .. tab:: atof()
-
-      :string:`atof </byte/atof>` extracts an floating point value from a byte string.
-
-      Other than return value, it functions similarly to ``atoi``.
-
-      .. activecode:: byte_string_atof_ac
-         :language: cpp
-         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
-         :nocodelens:
-         
-         #include <cstdlib>
-         #include <iostream>
-          
-         int main()
-         {
-             std::cout << std::atof("42") << '\n';
-             std::cout << std::atof("31337 with words") << '\n';
-
-             std::cout << std::atof("0.0000000123") << "\n"
-                       << std::atof("0.012") << "\n"
-                       << std::atof("15e16") << "\n"
-                       << std::atof("-0x1afp-2") << "\n"
-                       << std::atof("inF") << "\n"
-                       << std::atof("Nan") << "\n";
-         }
-               
+  
 .. index::
    single: strcpy
    single: strncpy
