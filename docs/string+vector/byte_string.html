@@ -344,8 +344,8 @@ In general, you want to try to avoid these kinds of unnecessary type conversions
     data-audio=''      
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
      style="visibility: hidden;">
-#include<stdio.h>
-#include<string.h>  // for strcpy function
+#include <cstdio>   // printf
+#include <cstring>  // for strcpy function
 
 // In C, a string is literally an array of char
 //
@@ -391,62 +391,20 @@ to provide these features.</p>
 <p>Changing character case is a common task and unless you choose
 to write your own version of these functions,
 these functions from the STL are the ones you should use.</p>
-<p>The string conversion functions are defined in the <code class="docutils literal notranslate"><span class="pre">cctype</span></code> header.</p>
-<div id='cctype_toupper' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="toupper()" >
-<p>The <code class="docutils literal notranslate"><span class="pre">std::toupper</span></code> function takes a single <code class="docutils literal notranslate"><span class="pre">char</span></code>,
-which is not modified, and returns an <code class="docutils literal notranslate"><span class="pre">int</span></code>.
-The return value can be used as the upper case
-version of the input character.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The C version of toupper returns <strong>int</strong> values, <em>not</em>
-character values.
-This can cause unexpected behavior or conversions.</p>
-<p>For these resaons, the <code class="docutils literal notranslate"><span class="pre">std::locale()</span></code> version of
-toupper is preferred.</p>
-<p>See the next tab for details.</p>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">toupper</span></code> is defined in header <code class="docutils literal notranslate"><span class="pre">cctypes</span></code>.</p>
-<p>This function uses the default <strong>C</strong> locale to replace the
-lowercase letters <code class="docutils literal notranslate"><span class="pre">abcdefghijklmnopqrstuvwxyz</span></code>
-with respective uppercase letters
-<code class="docutils literal notranslate"><span class="pre">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></code>.
-Non-ASCII characters are not handled.</p>
-<p>Recall that <code class="docutils literal notranslate"><span class="pre">char</span></code> implicitly convert to <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
-
-<div class="runestone explainer ac_section ">
-<div data-component="activecode" id=string_toupper_ac data-question_label="2.3.1.1">
-<div id=string_toupper_ac_question class="ac_question">
-
-</div>
-<textarea data-lang="cpp" id="string_toupper_ac_editor" 
-      data-timelimit=25000     
-    data-audio=''      
-    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
-     style="visibility: hidden;">
-#include <cctype>
-#include <iostream>
-
-int main() {
-  char value[15] = "hello, world!";
-  char& first = value[0];
-  // failure to assign the return value of toupper
-  // to a variable is a common source of error.
-  first =  std::toupper(first);
-  std::cout << value << '\n';
-  return 0;
-}
-</textarea>
-</div>
-</div>
-</div><div data-component="tab" data-tabname="toupper(std::locale())" >
-<p>The <code class="docutils literal notranslate"><span class="pre">std::toupper</span></code> function takes a single <code class="docutils literal notranslate"><span class="pre">char</span></code>,
+<p>Many string conversion functions are defined in the <code class="docutils literal notranslate"><span class="pre">cctype</span></code> header.
+These functions which C++ inherited from C are often perfectly acceptable,
+however, there are some notable exceptions,
+such as the <a class="reference external" href="https://en.cppreference.com/w/cpp/locale/toupper">toupper</a> function.</p>
+<div id='cctype_toupper' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="toupper(std::locale())" >
+<p>This version of <code class="docutils literal notranslate"><span class="pre">std::toupper</span></code> function takes a single <code class="docutils literal notranslate"><span class="pre">char</span></code>,
 which can be <strong>any</strong> character type,
 is not modified, and returns a character of the <em>same type</em>
 as the character type provided.</p>
+<p>Because of this, the C++ version that uses <code class="docutils literal notranslate"><span class="pre">std::locale</span></code>
+is preferred.</p>
 
 <div class="runestone explainer ac_section ">
-<div data-component="activecode" id=string_toupper_locale_ac data-question_label="2.3.1.2">
+<div data-component="activecode" id=string_toupper_locale_ac data-question_label="2.3.1.1">
 <div id=string_toupper_locale_ac_question class="ac_question">
 
 </div>
@@ -473,6 +431,54 @@ int main() {
     cout << "'" << std::toupper(c, std::locale())  << "' ";
   }
 
+  return 0;
+}
+</textarea>
+</div>
+</div>
+</div><div data-component="tab" data-tabname="toupper()" >
+<p>The <code class="docutils literal notranslate"><span class="pre">std::toupper</span></code> function takes a single <code class="docutils literal notranslate"><span class="pre">char</span></code>,
+which is not modified, and returns an <code class="docutils literal notranslate"><span class="pre">int</span></code>.
+The return value can be used as the upper case
+version of the input character.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Use the right toupper!</strong></p>
+<p>The C version of toupper returns <strong>int</strong> values, <em>not</em>
+character values.
+This can cause unexpected behavior or conversions.</p>
+<p>For these resaons, the <code class="docutils literal notranslate"><span class="pre">std::locale()</span></code> version of
+toupper is preferred.</p>
+<p>See the previous tab for details.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">toupper</span></code> is defined in header <code class="docutils literal notranslate"><span class="pre">cctypes</span></code>.</p>
+<p>This function uses the default <strong>C</strong> locale to replace the
+lowercase letters <code class="docutils literal notranslate"><span class="pre">abcdefghijklmnopqrstuvwxyz</span></code>
+with respective uppercase letters
+<code class="docutils literal notranslate"><span class="pre">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></code>.
+Non-ASCII characters are not handled.</p>
+<p>Recall that <code class="docutils literal notranslate"><span class="pre">char</span></code> implicitly convert to <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=string_toupper_ac data-question_label="2.3.1.2">
+<div id=string_toupper_ac_question class="ac_question">
+
+</div>
+<textarea data-lang="cpp" id="string_toupper_ac_editor" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+     style="visibility: hidden;">
+#include <cctype>
+#include <iostream>
+
+int main() {
+  char value[15] = "hello, world!";
+  char& first = value[0];
+  // failure to assign the return value of toupper
+  // to a variable is a common source of error.
+  first =  std::toupper(first);
+  std::cout << value << '\n';
   return 0;
 }
 </textarea>

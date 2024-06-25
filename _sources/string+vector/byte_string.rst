@@ -158,8 +158,8 @@ In general, you want to try to avoid these kinds of unnecessary type conversions
    :compileargs: ['-Wall', '-Wextra', '-std=c++11']
    :nocodelens:
 
-   #include<stdio.h>
-   #include<string.h>  // for strcpy function
+   #include <cstdio>   // printf
+   #include <cstring>  // for strcpy function
 
    // In C, a string is literally an array of char
    //
@@ -212,10 +212,49 @@ Changing character case is a common task and unless you choose
 to write your own version of these functions,
 these functions from the STL are the ones you should use.
 
-The string conversion functions are defined in the ``cctype`` header.
+Many string conversion functions are defined in the ``cctype`` header.
+These functions which C++ inherited from C are often perfectly acceptable,
+however, there are some notable exceptions, 
+such as the :cpp:`toupper<locale/toupper>` function.
 
 .. tabbed:: cctype_toupper
 
+   .. tab:: toupper(std::locale())
+
+      This version of ``std::toupper`` function takes a single ``char``,
+      which can be **any** character type, 
+      is not modified, and returns a character of the *same type*
+      as the character type provided.
+
+      Because of this, the C++ version that uses ``std::locale``
+      is preferred.
+
+      .. activecode:: string_toupper_locale_ac
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
+         :nocodelens:
+
+         #include <iostream>
+         #include <cctype>    // C toupper
+         #include <locale>    // C++ toupper
+
+         int main() {
+           using std::cout;
+           char eng[14] = "hello, world!";
+
+           // Use C version
+           for (const auto& c: eng) {
+             cout << std::toupper(c) << ' ';
+           }
+           cout << '\n';
+           // Use locale aware version - no conversion
+           for (const auto& c: eng) {
+             cout << "'" << std::toupper(c, std::locale())  << "' ";
+           }
+
+           return 0;
+         }
+  
    .. tab:: toupper()
 
       The ``std::toupper`` function takes a single ``char``,
@@ -223,7 +262,7 @@ The string conversion functions are defined in the ``cctype`` header.
       The return value can be used as the upper case
       version of the input character.
 
-      .. warning:: 
+      .. note:: **Use the right toupper!**
 
          The C version of toupper returns **int** values, *not*
          character values.
@@ -232,7 +271,7 @@ The string conversion functions are defined in the ``cctype`` header.
          For these resaons, the ``std::locale()`` version of
          toupper is preferred.
 
-         See the next tab for details.
+         See the previous tab for details.
 
       ``toupper`` is defined in header ``cctypes``.
 
@@ -262,39 +301,6 @@ The string conversion functions are defined in the ``cctype`` header.
            return 0;
          }
 
-   .. tab:: toupper(std::locale())
-
-      The ``std::toupper`` function takes a single ``char``,
-      which can be **any** character type, 
-      is not modified, and returns a character of the *same type*
-      as the character type provided.
-
-      .. activecode:: string_toupper_locale_ac
-         :language: cpp
-         :compileargs: ['-Wall', '-Wextra', '-std=c++11']
-         :nocodelens:
-
-         #include <iostream>
-         #include <cctype>    // C toupper
-         #include <locale>    // C++ toupper
-
-         int main() {
-           using std::cout;
-           char eng[14] = "hello, world!";
-
-           // Use C version
-           for (const auto& c: eng) {
-             cout << std::toupper(c) << ' ';
-           }
-           cout << '\n';
-           // Use locale aware version - no conversion
-           for (const auto& c: eng) {
-             cout << "'" << std::toupper(c, std::locale())  << "' ";
-           }
-
-           return 0;
-         }
-  
 .. index::
    single: strcpy
    single: strncpy

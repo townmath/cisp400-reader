@@ -125,8 +125,8 @@ The compiler will then display an exhaustive list of every type it tried::
 .. code-block:: text
 
    /usr/include/c++/v1/cstddef:135:3: note: candidate function template not viable: no known conversion from 'std::istringstream' (aka 'basic_istringstream<char>') to 'byte' for 1st argument
-     operator>> (byte  __lhs, _Integer __shift) noexcept
-     ^
+   operator>> (byte  __lhs, _Integer __shift) noexcept
+   ^
    /usr/include/c++/v1/istream:625:1: note: candidate function template not viable: no known conversion from 'mesa::point' to 'unsigned char *' for 2nd argument
    operator>>(basic_istream<char, _Traits>& __is, unsigned char* __s)
    ^
