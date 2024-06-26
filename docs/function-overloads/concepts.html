@@ -305,33 +305,26 @@ expressing our intent is about all we can do.</p>
 <p>Attempting to ‘get’ a <code class="docutils literal notranslate"><span class="pre">mesa::point</span></code> is a compile error because our point object does not
 have a definition for the <code class="docutils literal notranslate"><span class="pre">operator&gt;&gt;</span></code> function overload.
 The compiler first displays the error, which may look something like this:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">..</span><span class="w"> </span><span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="o">::</span><span class="w"> </span><span class="n">text</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>concept.cpp:25:16: error: invalid operands to binary expression (&#39;std::istringstream&#39; (aka &#39;basic_istringstream&lt;char&gt;&#39;) and &#39;mesa::point&#39;)
+        if(buf &gt;&gt; result)
+concept.cpp:41:18: note: in instantiation of function template specialization &#39;mesa::get&lt;mesa::point&gt;&#39; requested here
+  auto p = mesa::get&lt;mesa::point&gt;();
 </pre></div>
 </div>
-<blockquote>
-<div><dl class="simple">
-<dt>concept.cpp:25:16: error: invalid operands to binary expression (‘std::istringstream’ (aka ‘basic_istringstream&lt;char&gt;’) and ‘mesa::point’)</dt><dd><p>if(buf &gt;&gt; result)</p>
-</dd>
-<dt>concept.cpp:41:18: note: in instantiation of function template specialization ‘mesa::get&lt;mesa::point&gt;’ requested here</dt><dd><p>auto p = mesa::get&lt;mesa::point&gt;();</p>
-</dd>
-</dl>
-</div></blockquote>
 <p>The compiler will then display an exhaustive list of every type it tried:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">..</span><span class="w"> </span><span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="o">::</span><span class="w"> </span><span class="n">text</span>
-</pre></div>
-</div>
-<blockquote>
-<div><p>/usr/include/c++/v1/cstddef:135:3: note: candidate function template not viable: no known conversion from ‘std::istringstream’ (aka ‘basic_istringstream&lt;char&gt;’) to ‘byte’ for 1st argument
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/include/c++/v1/cstddef:135:3: note: candidate function template not viable: no known conversion from &#39;std::istringstream&#39; (aka &#39;basic_istringstream&lt;char&gt;&#39;) to &#39;byte&#39; for 1st argument
 operator&gt;&gt; (byte  __lhs, _Integer __shift) noexcept
 ^
-/usr/include/c++/v1/istream:625:1: note: candidate function template not viable: no known conversion from ‘mesa::point’ to ‘unsigned char <em>‘ for 2nd argument
-operator&gt;&gt;(basic_istream&lt;char, _Traits&gt;&amp; __is, unsigned char</em> __s)
+/usr/include/c++/v1/istream:625:1: note: candidate function template not viable: no known conversion from &#39;mesa::point&#39; to &#39;unsigned char *&#39; for 2nd argument
+operator&gt;&gt;(basic_istream&lt;char, _Traits&gt;&amp; __is, unsigned char* __s)
 ^
-/usr/include/c++/v1/istream:633:1: note: candidate function template not viable: no known conversion from ‘mesa::point’ to ‘signed char <em>‘ for 2nd argument
-operator&gt;&gt;(basic_istream&lt;char, _Traits&gt;&amp; __is, signed char</em> __s)
-^</p>
-<p>// many others omitted</p>
-</div></blockquote>
+/usr/include/c++/v1/istream:633:1: note: candidate function template not viable: no known conversion from &#39;mesa::point&#39; to &#39;signed char *&#39; for 2nd argument
+operator&gt;&gt;(basic_istream&lt;char, _Traits&gt;&amp; __is, signed char* __s)
+^
+
+// many others omitted
+</pre></div>
+</div>
 <p>The more code you have written and the more code pulled in from <code class="docutils literal notranslate"><span class="pre">#include</span></code> directives,
 the longer the list will be.
 It can run on for thousand of lines.
@@ -342,8 +335,8 @@ Clearly we’d like something better, but the C++ standard doesn’t offer a sol
 <p>A <em>requires clause</em> is an additional constraint on template arguments or a function.
 It is planned for release in C++20.</p>
 <p>You will sometimes encounter <em>named requirements</em> in C++ code.</p>
-<p>The named requirements listed <a class="reference external" href="https://en.cppreference.com/w/cpp/named_req">on this page</a>
-are the named requirements used in the normative text of the C++ standard to define the
+<p>The <a class="reference external" href="https://en.cppreference.com/w/cpp/named_req">named requirements listed</a>
+are the named requirements used in the C++ standard to define the
 expectations of the standard library.</p>
 <p>Some of these requirements are being formalized in C++20 using the concepts language feature.
 Until then, the burden is on the programmer to ensure that library templates are
@@ -354,16 +347,14 @@ they can improve the intent of expected template types.</p>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
-<ul>
+<ul class="simple">
 <li><p><a class="reference external" href="https://isocpp.org/blog/2016/02/a-bit-of-background-for-concepts-and-cpp17-bjarne-stroustrup">a bit of background for concepts and C++17</a> Bjarne Stroustrup</p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Concepts_(C%2B%2B)">Concepts C++</a> from Wikipedia</p></li>
 <li><p>From cppreference.com</p>
-<blockquote>
-<div><ul class="simple">
+<ul>
 <li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/concept">Constraints and concepts</a></p></li>
 <li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/named_req">Named requirements</a></p></li>
 </ul>
-</div></blockquote>
 </li>
 </ul>
 </div>

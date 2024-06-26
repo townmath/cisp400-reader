@@ -110,9 +110,9 @@ expressing our intent is about all we can do.
 
 Attempting to 'get' a ``mesa::point`` is a compile error because our point object does not
 have a definition for the ``operator>>`` function overload.
-The compiler first displays the error, which may look something like this::
+The compiler first displays the error, which may look something like this:
 
-.. code-block:: text
+.. code-block:: none
 
    concept.cpp:25:16: error: invalid operands to binary expression ('std::istringstream' (aka 'basic_istringstream<char>') and 'mesa::point')
            if(buf >> result)
@@ -120,9 +120,9 @@ The compiler first displays the error, which may look something like this::
      auto p = mesa::get<mesa::point>();
 
 
-The compiler will then display an exhaustive list of every type it tried::
+The compiler will then display an exhaustive list of every type it tried:
 
-.. code-block:: text
+.. code-block:: none
 
    /usr/include/c++/v1/cstddef:135:3: note: candidate function template not viable: no known conversion from 'std::istringstream' (aka 'basic_istringstream<char>') to 'byte' for 1st argument
    operator>> (byte  __lhs, _Integer __shift) noexcept
@@ -154,8 +154,8 @@ It is planned for release in C++20.
 
 You will sometimes encounter *named requirements* in C++ code.
 
-The named requirements listed :cpp:`on this page <named_req>`
-are the named requirements used in the normative text of the C++ standard to define the 
+The :cpp:`named requirements listed <named_req>`
+are the named requirements used in the C++ standard to define the 
 expectations of the standard library.
 
 Some of these requirements are being formalized in C++20 using the concepts language feature. 
@@ -174,7 +174,7 @@ they can improve the intent of expected template types.
    - :wiki:`Concepts C++ <Concepts_(C%2B%2B)>` from Wikipedia
    - From cppreference.com
 
-       - :cpp:`Constraints and concepts <concept>`
-       - :cpp:`Named requirements <named_req>`
+     - :cpp:`Constraints and concepts <concept>`
+     - :cpp:`Named requirements <named_req>`
 
 
