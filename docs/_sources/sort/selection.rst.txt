@@ -10,6 +10,8 @@
    This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 
+.. _sort_selection:
+
 Selection sort
 ==============
 The **selection sort** improves on the bubble sort by making only one
@@ -80,7 +82,7 @@ final item must be in place after the :math:`(n-1)` step.
 
 
 You may see that the selection sort makes the same number of comparisons
-as the bubble sort and is therefore also :math:`O(n^{2})`. 
+as the :ref:`bubble sort<sort_bubble>` and is therefore also :math:`O(n^{2})`. 
 Like the bubble sort, the selection sort makes no exchanges when the
 data is already sorted ascending.
 In other cases selection sort generally makes fewer exchanges

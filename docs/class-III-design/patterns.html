@@ -33,6 +33,8 @@
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
     <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -236,8 +238,18 @@ The book had 4 authors and together they became known as the
 <section id="fixing-an-inheritance-problem">
 <span id="index-1"></span><h2><span class="section-number">9.6.1. </span>Fixing an inheritance problem<a class="headerlink" href="#fixing-an-inheritance-problem" title="Permalink to this heading">¶</a></h2>
 <p>Recall our flying penguin problem from the section on <a class="reference internal" href="inheritance.html"><span class="doc">Inheritance</span></a>:</p>
-<div class="graphviz"><img src="../_images/graphviz-4f4a8568388d21558ad3c2e2b10048d157749acf.png" alt="Bird inheritance" class="graphviz" /></div>
-<p>This type of design error is actually common.</p>
+<div class="mermaid">
+            classDiagram
+   bird &lt;|-- hawk
+   bird &lt;|-- owl
+   bird &lt;|-- penguin
+   bird &lt;|-- robin
+   class bird {
+      -wingspan double
+      +fly() void
+      +eat() int
+   }
+        </div><p>This type of design error is actually common.</p>
 <p>It’s easy to overlook a design error, in this case flying penguins.
 Part of what makes these errors problematic is that design errors
 that actually get delivered in the final product are among the most
@@ -274,8 +286,33 @@ They soar, flock, flit about, dive, or don’t fly at all.
 There are many thousands of different kinds of birds,
 but relatively few ways of flying.</p>
 <p>We <em>could</em> decide to solve this problem using an interface:</p>
-<div class="graphviz"><img src="../_images/graphviz-2e948d3b534c134777fa9f24f9d94d664ae9ca4c.png" alt="Flying interfaces" class="graphviz" /></div>
-<p>This does allow limiting the flying behavior to those birds that actually fly,
+<div class="mermaid">
+            classDiagram
+   bird &lt;|-- penguin
+   bird &lt;|-- hawk
+   bird &lt;|-- owl
+   bird &lt;|-- robin
+   flyable &lt;|.. hawk
+   flyable &lt;|.. owl
+   flyable &lt;|.. robin
+   class bird {
+      -wingspan double
+      +eat() int
+   }
+   class hawk {
+      +fly() void
+   }
+   class owl {
+      +fly() void
+   }
+   class robin {
+      +fly() void
+   }
+   class flyable {
+      &lt;&lt;interface&gt;&gt;
+      +fly() virtual void
+   }
+        </div><p>This does allow limiting the flying behavior to those birds that actually fly,
 but at a high cost.
 Now every bird that <em>does</em> fly needs to reimplement the code for <code class="docutils literal notranslate"><span class="pre">fly()</span></code>.
 Derived classes cannot inherit code from each other.

@@ -33,6 +33,8 @@
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
     <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -419,8 +421,30 @@ In other words,
 inheritance is mainly a specification technique rather than an
 implementation technique.</p>
 <p>It is common to draw inheritance relationships like this:</p>
-<div class="graphviz"><img src="../_images/graphviz-c80f7c3b4270e12e04de9f9de5c53a8230c2f738.png" alt="Shape inheritance" class="graphviz" /></div>
-<p>This is different from extending classes through <a class="reference internal" href="../glossary.html#term-composition"><span class="xref std std-term">composition</span></a>.
+<div class="mermaid">
+            classDiagram
+   shape &lt;|-- circle
+   shape &lt;|-- rectangle
+   shape &lt;|-- triangle
+   class shape {
+     ~shape()
+     +draw()
+     +erase()
+   }
+   shape: +move() void
+   class circle {
+     +draw()
+     +erase()
+   }
+   class rectangle {
+     +draw()
+     +erase()
+   }
+   class triangle {
+     +draw()
+     +erase()
+   }
+        </div><p>This is different from extending classes through <a class="reference internal" href="../glossary.html#term-composition"><span class="xref std std-term">composition</span></a>.
 More comparisons between inheritance and composition will be made in
 later sections.</p>
 </section>

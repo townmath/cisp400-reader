@@ -213,7 +213,7 @@
 
   
   <section id="selection-sort">
-<h1><span class="section-number">16.2. </span>Selection sort<a class="headerlink" href="#selection-sort" title="Permalink to this heading">¶</a></h1>
+<span id="sort-selection"></span><h1><span class="section-number">16.2. </span>Selection sort<a class="headerlink" href="#selection-sort" title="Permalink to this heading">¶</a></h1>
 <p>The <strong>selection sort</strong> improves on the bubble sort by making only one
 exchange for every pass through the first part of the vector.
 We will call this a step.
@@ -302,7 +302,7 @@ int main() {
     </div>
 
 <p>You may see that the selection sort makes the same number of comparisons
-as the bubble sort and is therefore also <span class="math notranslate nohighlight">\(O(n^{2})\)</span>.
+as the <a class="reference internal" href="bubble.html#sort-bubble"><span class="std std-ref">bubble sort</span></a> and is therefore also <span class="math notranslate nohighlight">\(O(n^{2})\)</span>.
 Like the bubble sort, the selection sort makes no exchanges when the
 data is already sorted ascending.
 In other cases selection sort generally makes fewer exchanges

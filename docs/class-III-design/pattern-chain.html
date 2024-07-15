@@ -33,6 +33,8 @@
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
     <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -233,8 +235,28 @@ Since the chain is effectively a list,
 it can be dynamically created,
 so you could also think of it as a more general,
 dynamically-built switch statement.</p>
-<div class="graphviz"><img src="../_images/graphviz-c98cb762740db700065fa60ef529e00a433ed0ae.png" alt="chain of responsibility UML diagram" class="graphviz" /></div>
-<p>The ‘classic’ implementation of the chain of responsibility implements the design
+<div class="mermaid">
+            classDiagram
+   client ..&gt; handler
+   handler --&gt; handler : next
+
+   handler &lt;|-- receiver1
+   handler &lt;|-- receiver2
+   handler &lt;|-- receiver3
+   class handler {
+      &lt;&lt;interface&gt;&gt;
+      +handle()
+   }
+   class receiver1 {
+      +handle() override
+   }
+   class receiver2 {
+      +handle() override
+   }
+   class receiver3 {
+      +handle() override
+   }
+        </div><p>The ‘classic’ implementation of the chain of responsibility implements the design
 shown in the UML diagram with a handler interface and an abstract handler to encapsulate
 maintenance of the chain.</p>
 <div id='cor_pattern_cppguru_tab' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Interface" >

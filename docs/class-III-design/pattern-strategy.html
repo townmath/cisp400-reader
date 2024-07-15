@@ -33,6 +33,8 @@
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
     <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -220,8 +222,13 @@ The centerpiece of the solution is to isolate many different
 types of flying behavior behind a single class that stores
 a pointer to a function implementing the behavior.
 Each implementation defines a different <strong>strategy</strong> for the interface.</p>
-<div class="graphviz"><img src="../_images/graphviz-e0dbdc304e238811e44a39b9b78a69ec14f63cc4.png" alt="Flying strategy" class="graphviz" /></div>
-<p>Any callable entity (function, function object, or lambda) is
+<div class="mermaid">
+            classDiagram
+   class fly_behavior {
+      -strategy std::function~void()~
+      +fly() void
+   }
+        </div><p>Any callable entity (function, function object, or lambda) is
 a potential strategy that derived classes of a bird can now use.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;functional&gt;</span>
@@ -229,7 +236,7 @@ a potential strategy that derived classes of a bird can now use.</p>
 
 <span class="cp">#define FunctionObject typename</span>
 
-<span class="c1">// an alias to avoid copying std::function ... everywhere</span>
+<span class="c1">// an alias to avoid copying std::function&lt;void()&gt; everywhere</span>
 <span class="k">using</span><span class="w"> </span><span class="n">fly_strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span><span class="p">;</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">fly_behavior</span><span class="w"> </span><span class="p">{</span>

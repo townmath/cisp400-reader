@@ -10,6 +10,8 @@
 .. Copyright (c) 2012-2020 by the OpenDSA Project Contributors, and
 .. distributed under an MIT open source license.
 
+.. _sort_radix:
+
 Radix sort
 ==========
 Consider a sequence of records with keys in the range 0 to 99.
@@ -52,7 +54,7 @@ bins :math:`k` times.
 Array-based Radix Sort
 ----------------------
 
-As with Mergesort, an efficient implementation of Radix Sort is
+As with :ref:`Merge sort <sort_merge>`, an efficient implementation of Radix Sort is
 somewhat difficult to achieve.
 In particular, we would prefer to sort an array of values and avoid
 processing linked lists.

@@ -42,35 +42,19 @@ Fixing an inheritance problem
 -----------------------------
 Recall our flying penguin problem from the section on :doc:`inheritance`:
 
-.. graphviz:: 
-   :alt: Bird inheritance
+.. mermaid::
+   :alt: bird inheritance
 
-   digraph "bird"
-   {
-     edge [fontname="BitstreamVeraSans",
-           fontsize="10",
-           labelfontname="BitstreamVeraSans",
-           labelfontsize="10",
-           dir="back",
-           arrowtail="onormal",
-           style="solid",
-           color="midnightblue"];
-     node [fontname="BitstreamVeraSans",
-           fontsize="10",
-           height=0.2,
-           width=0.4,
-           color="black",
-           fillcolor="lightblue",
-           shape=box,
-           style="filled"];
-     bird [shape=record,
-       label="{bird\n|-wingspan: double|+fly(): void\l+eat(): void\l}"];
-
-     bird -> hawk;
-     bird -> owl;
-     bird -> penguin;
-     bird -> robin;
-   }
+   classDiagram
+      bird <|-- hawk
+      bird <|-- owl
+      bird <|-- penguin
+      bird <|-- robin
+      class bird {
+         -wingspan double
+         +fly() void
+         +eat() int
+      }
 
 This type of design error is actually common.
 
@@ -115,48 +99,34 @@ but relatively few ways of flying.
 
 We *could* decide to solve this problem using an interface:
 
-.. graphviz:: 
+.. mermaid::
    :alt: Flying interfaces
 
-   digraph "bird"
-   {
-     edge [fontname="BitstreamVeraSans",
-           fontsize="10",
-           labelfontname="BitstreamVeraSans",
-           labelfontsize="10",
-           dir="back",
-           arrowtail="onormal",
-           style="solid",
-           color="midnightblue"];
-     node [fontname="BitstreamVeraSans",
-           fontsize="10",
-           height=0.2,
-           width=0.4,
-           color="black",
-           fillcolor="lightblue",
-           shape=record,
-           style="filled"];
-     flyable [
-       label="{\<\<interface\>\>\nflyable\n||+fly() = 0: void\l}"];
-     bird [
-       label="{bird\n|-wingspan: double|+eat(): void\l}"];
-    
-     hawk [
-       label="{hawk\n||+fly(): void\l}"];
-     owl [
-       label="{owl\n||+fly(): void\l}"];
-     robin [
-       label="{robin\n||+fly(): void\l}"];
-     penguin [shape=box];
-    
-     bird -> hawk;
-     bird -> owl;
-     bird -> penguin;
-     bird -> robin;
-     flyable -> hawk [style=dotted];
-     flyable -> owl [style=dotted];
-     flyable -> robin [style=dotted];
-   }
+   classDiagram
+      bird <|-- penguin
+      bird <|-- hawk
+      bird <|-- owl
+      bird <|-- robin
+      flyable <|.. hawk
+      flyable <|.. owl
+      flyable <|.. robin
+      class bird {
+         -wingspan double
+         +eat() int
+      }
+      class hawk {
+         +fly() void
+      }
+      class owl {
+         +fly() void
+      }
+      class robin {
+         +fly() void
+      }
+      class flyable {
+         <<interface>>
+         +fly() virtual void
+      }
 
 This does allow limiting the flying behavior to those birds that actually fly,
 but at a high cost.

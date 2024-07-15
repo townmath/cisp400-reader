@@ -33,6 +33,8 @@
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
     <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -266,8 +268,10 @@ and the collaborations between objects.  Dynamic views include:</p>
 <span id="index-1"></span><h2><span class="section-number">9.2.2. </span>Class diagrams<a class="headerlink" href="#class-diagrams" title="Permalink to this heading">¶</a></h2>
 <aside class="sidebar">
 <p class="sidebar-title">A simple class</p>
-<div class="graphviz"><img src="../_images/graphviz-85dc17e7944b35bfc1517b4230b3e6edbdcab208.png" alt="The simplest class diagram" class="graphviz" /></div>
-</aside>
+<div class="mermaid">
+            classDiagram
+   class simple
+        </div></aside>
 <p>The <strong>class diagram</strong> is one of the most commonly encountered diagrams.
 It describes the types of objects in a system and the kinds of static
 relationships that exist among them.</p>
@@ -286,8 +290,17 @@ The bottom compartment holds the list of methods.</p>
 before the class member.
 Static members are indicated by underlining the member name.
 The UML term for static members is <em>classifier members</em>.</p>
-<div class="graphviz"><img src="../_images/graphviz-896b60aa4accf883c8befc6e5700ba9c1fec1987.png" alt="Class attributes" class="graphviz" /></div>
-<p>The UML syntax for an attribute is:
+<div class="mermaid">
+            classDiagram
+   class car {
+     -speed double = 0
+     -direction double = 90
+     +speed(acceleration double) double
+     +speed() double
+     +heading(steer_angle double) double
+     +heading()
+   }
+        </div><p>The UML syntax for an attribute is:
 <em>visibility name : type = defaultValue</em></p>
 <table class="docutils align-default">
 <thead>
@@ -315,8 +328,11 @@ class composition, and other associations.</p>
 <p id="index-3"><strong>Inheritance relationships</strong></p>
 <aside class="sidebar">
 <p class="sidebar-title">Inheritance</p>
-<div class="graphviz"><img src="../_images/graphviz-c40009578b8a53b6211541c507b5c2766217b11b.png" alt="Person inheritance" class="graphviz" /></div>
-<p>Generalization in action:</p>
+<div class="mermaid">
+            classDiagram
+   person &lt;|-- student
+   person &lt;|-- teacher
+        </div><p>Generalization in action:</p>
 <p>Students and Teachers are both People</p>
 </aside>
 <p>In the UML, the Inheritance relationship is referred to as a <em>generalization</em>.</p>
@@ -335,8 +351,25 @@ are in any way interdependent, other than they share a common ancestor.</p>
 <p>A <em>realization</em> is a relationship between two model elements,
 in which one model element (the client) realizes (implements or executes) the
 behavior that the other model element (the supplier) specifies.</p>
-<div class="graphviz"><img src="../_images/graphviz-64c30d6ec073e792112ab4156ae1007ee38d771b.png" alt="Person inheritance" class="graphviz" /></div>
-<p>The UML graphical representation of a realization is a hollow triangle
+<div class="mermaid">
+            classDiagram
+   person &lt;|.. student
+   person &lt;|.. teacher
+
+   class person {
+     &lt;&lt;interface&gt;&gt;
+     +age int
+     +first_name string
+     +last_name string
+     +full_name() string
+   }
+   class student {
+     -major()
+   }
+   class teacher {
+     -salary()
+   }
+        </div><p>The UML graphical representation of a realization is a hollow triangle
 shape on the interface end of the dashed line (or tree of lines) that
 connects it to one or more implementers.</p>
 <p>In this course, we are primarily concerned with relationships between
@@ -358,8 +391,11 @@ relationships between classes.</p>
 <p>An association represents a relationship between two classes.</p>
 <aside class="sidebar">
 <p class="sidebar-title">Association</p>
-<div class="graphviz"><img src="../_images/graphviz-028c9578457bdf9f50df5e9e4dc59d5219c5c7f7.png" alt="association" class="graphviz" /></div>
-</aside>
+<div class="mermaid">
+            classDiagram
+   direction LR
+   author &quot;1..*&quot; --&gt; &quot;0..*&quot; book : writes
+        </div></aside>
 <p>An association between two classes is shown by a line joining the two classes.
 Association indicates that one class uses an attribute
 or calls methods of another class.
@@ -482,20 +518,23 @@ express with the regular multiplicity markers.</p>
 <p>Dependency is the weakest relationship.
 It represents a reference to class passed in as
 a method parameter to a function in another class.
-For example, an instance of class Book is passed as a parameter
-to a function in class Customer:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">Book</span><span class="w"> </span><span class="p">{};</span>
+For example, an instance of class book is passed as a parameter
+to a function in class customer:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">book</span><span class="w"> </span><span class="p">{};</span>
 
-<span class="k">struct</span><span class="w"> </span><span class="nc">Customer</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="nf">purchase</span><span class="p">(</span><span class="n">Book</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">customer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="nf">purchase</span><span class="p">(</span><span class="n">book</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p>The <em>Customer</em> class requires the <em>Book</em> class to function, but doesn’t own it.
-The caller of the purchase method is required to supply a <em>Book</em>.</p>
+<p>The <em>customer</em> class requires the <em>book</em> class to function, but doesn’t own it.
+The caller of the purchase method is required to supply a <em>book</em>.</p>
 <p>This type of relationship is represented with a dashed line:</p>
-<div class="graphviz"><img src="../_images/graphviz-8c9c8fbc94e55ec8437f2b6a7f0cc66214c99bd0.png" alt="dependency" class="graphviz" /></div>
-<p>As discussed in the introduction to this section,
+<div class="mermaid">
+            classDiagram
+   direction LR
+   customer ..&gt; book : purchase
+        </div><p>As discussed in the introduction to this section,
 the UML is much more involved than simple class diagrams.
 For our purposes, which currently are limited to visualizing
 inheritance and composition, this is enough.</p>

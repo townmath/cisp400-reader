@@ -10,6 +10,8 @@
 .. Copyright (c) 2012-2020 by the OpenDSA Project Contributors, and
 .. distributed under an MIT open source license.
 
+.. _sort_quick:
+
 Quick sort
 ==========
 The **quick sort** uses divide and conquer to gain the same advantages

@@ -9,10 +9,12 @@
    Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
    This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http
 
+.. _sort_shell:
+
 Shell sort
 ==========
 The **shell sort**, sometimes called the “diminishing increment sort,”
-improves on the insertion sort by breaking the original vector into a
+improves on the :ref:`insertion sort<sort_insertion>` by breaking the original vector into a
 number of smaller subvectors, each of which is sorted using an insertion
 sort. The unique way that these subvectors are chosen is the key to the
 shell sort. Instead of breaking the vector into subvectors of contiguous
@@ -46,10 +48,10 @@ belong.
 
 
 :ref:`Figure 8 <fig_incrementsC>` shows a final insertion sort using an increment of
-one; in other words, a standard insertion sort. Note that by performing
-the earlier subvector sorts, we have now reduced the total number of
-shifting operations necessary to put the vector in its final order. For
-this case, we need only four more shifts to complete the process.
+one; in other words, a standard :ref:`insertion sort<sort_insertion>`.
+Note that by performing the earlier subvector sorts, we have now reduced
+the total number of shifting operations necessary to put the vector in its final order.
+For this case, we need only four more shifts to complete the process.
 
 .. _fig_incrementsC:
 

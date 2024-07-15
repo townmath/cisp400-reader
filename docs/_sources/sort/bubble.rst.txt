@@ -9,6 +9,8 @@
    Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
    This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
+.. _sort_bubble:
+
 Bubble sort
 ===========
 The **bubble sort** makes multiple passes through an array. It compares
@@ -29,7 +31,6 @@ moved along until the pass is complete.
    :align: center
 
    Figure 1: ``bubble_sort``: The First Pass
-
 
 .. tabbed:: lst_bubble_sort
 

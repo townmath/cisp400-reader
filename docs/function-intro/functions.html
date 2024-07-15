@@ -392,21 +392,7 @@ memory locations built into the CPU itself,
 but most will go on the <a class="reference internal" href="../glossary.html#term-stack"><span class="xref std std-term">stack</span></a>,
 a region of memory that on typical machines grows downward,
 even though the most recent additions to the stack are called the “top” of the stack.</p>
-<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-e095a93ee60d7653a392cac5786b4ef4d6975d31.png" alt="digraph memory {
-  fontname = &quot;Bitstream Vera Sans&quot;
-  label=&quot;Typical program memory layout&quot;
-  node [
-     fontname = &quot;Bitstream Vera Sans&quot;
-     fontsize = 11
-     shape = &quot;record&quot;
-     style=filled
-     fillcolor=lightblue
-  ]
-  mem [
-     label = &quot;{stack\n (grows down)|\n\n\nunused memory\n\n|\nfree store\n(grows up)|\nstatic data\n|\ncode\n(text area)}&quot;
-  ]
-
-}" class="graphviz" /></div>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-e095a93ee60d7653a392cac5786b4ef4d6975d31.png" alt="Typical program memory layout" class="graphviz" /></div>
 </div>
 <p>Typically, each called function and any local variables, return values, or
 parameters passed in, is stored in a special data structure called a <strong>stack frame</strong>

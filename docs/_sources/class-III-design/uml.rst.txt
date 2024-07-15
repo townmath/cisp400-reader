@@ -81,21 +81,11 @@ Class diagrams
 --------------
 .. sidebar:: A simple class
 
-   .. graphviz:: 
+   .. mermaid::
       :alt: The simplest class diagram
 
-      digraph "simple"
-      {
-        simple  [fontname="BitstreamVeraSans",
-                 fontsize="10",
-                 label="{SimpleClass\n||}",
-                 height=0.2,
-                 width=0.4,
-                 color="black",
-                 fillcolor="lightblue",
-                 shape=record,
-                 style="filled"];
-      }
+      classDiagram
+         class simple
 
 The **class diagram** is one of the most commonly encountered diagrams.
 It describes the types of objects in a system and the kinds of static 
@@ -122,22 +112,18 @@ before the class member.
 Static members are indicated by underlining the member name.
 The UML term for static members is *classifier members*.
 
-.. graphviz:: 
-      :alt: Class attributes
+.. mermaid::
+   :alt: Class attributes
 
-      digraph "simple"
-      {
-        simple  [fontname="BitstreamVeraSans",
-                 fontsize="10",
-                 label="{Car\n|-speed: float = 0\l-direction: float = 90\l|+ speed(accelerationRate: float): void\l+ speed(): float\l+ heading(steeringRate: float): void\l+ heading(): float\l}}",
-                 height=0.2,
-                 width=0.4,
-                 color="black",
-                 fillcolor="lightblue",
-                 shape=record,
-                 style="filled"];
+   classDiagram
+      class car {
+        -speed double = 0
+        -direction double = 90
+        +speed(acceleration double) double
+        +speed() double
+        +heading(steer_angle double) double
+        +heading()
       }
-
 
 The UML syntax for an attribute is:
 *visibility name : type = defaultValue*
@@ -163,36 +149,13 @@ class composition, and other associations.
 
 .. sidebar:: Inheritance
 
-   .. graphviz:: 
-      :alt: Person inheritance
+   .. mermaid::
+      :alt: Class attributes
 
-      digraph "person"
-      {
-        edge [fontname="BitstreamVeraSans",
-              fontsize="10",
-              labelfontname="BitstreamVeraSans",
-              labelfontsize="10",
-              dir="back",
-              arrowtail="onormal",
-              style="solid",
-              color="midnightblue"];
-        node [fontname="BitstreamVeraSans",
-              fontsize="10",
-              height=0.2,
-              width=0.4,
-              color="black",
-              fillcolor="white",
-              shape=record,
-              style="filled"];
-        person [
-          label="{Person\n}", fillcolor="lightblue"];
-        person -> student;
-        student [
-          label="{Student\n}"];
-        person -> teacher;
-        teacher [label="{Teacher\n}"];
-      }
-
+      classDiagram
+         person <|-- student
+         person <|-- teacher
+         
    Generalization in action: 
    
    Students and Teachers are both People
@@ -214,6 +177,7 @@ are in any way interdependent, other than they share a common ancestor.
 
 .. index::
    pair: UML; realization
+   pair: graph; person inheritance
 
 **Realization relationships**
 
@@ -221,36 +185,26 @@ A *realization* is a relationship between two model elements,
 in which one model element (the client) realizes (implements or executes) the 
 behavior that the other model element (the supplier) specifies.
 
-.. graphviz:: 
+.. mermaid::
    :alt: Person inheritance
 
-   digraph "person"
-   {
-     edge [fontname="BitstreamVeraSans",
-           fontsize="10",
-           labelfontname="BitstreamVeraSans",
-           labelfontsize="10",
-           dir="back",
-           arrowtail="onormal",
-           style="dotted",
-           color="midnightblue"];
-     node [fontname="BitstreamVeraSans",
-           fontsize="10",
-           height=0.2,
-           width=0.4,
-           color="black",
-           fillcolor="white",
-           shape=record,
-           style="filled"];
-     person [
-       label="{\<\<interface\>\>\nPerson\n|+firstName\l+lastName\l|getName(): string\l}", 
-       fillcolor="lightblue"];
-     person -> student;
-     student [
-       label="{Student\n|-major\l}"];
-     person -> teacher;
-     teacher [label="{Teacher\n|-salary\l}"];
-   }
+   classDiagram
+      person <|.. student
+      person <|.. teacher
+
+      class person {
+        <<interface>>
+        +age int
+        +first_name string
+        +last_name string
+        +full_name() string
+      }
+      class student {
+        -major()
+      }
+      class teacher {
+        -salary()
+      }
 
 The UML graphical representation of a realization is a hollow triangle 
 shape on the interface end of the dashed line (or tree of lines) that 
@@ -283,29 +237,13 @@ An association represents a relationship between two classes.
 
 .. sidebar:: Association
 
-   .. graphviz:: 
+   
+   .. mermaid::
       :alt: association
 
-      digraph "association"
-      {
-        edge [fontname="BitstreamVeraSans",
-              fontsize="10",
-              labelfontname="BitstreamVeraSans",
-              labelfontsize="10",
-              arrowhead="vee",
-              minlen=4,
-              style="solid",
-              color="midnightblue"];
-        node [fontname="BitstreamVeraSans",
-              fontsize="10",
-              height=0.2,
-              width=0.4,
-              color="black",
-              fillcolor="lightblue",
-              shape=box,
-              style="filled"];
-        Author -> Book [constraint=false, headlabel="1..* ", taillabel=" 0..*"];
-      }
+      classDiagram
+         direction LR
+         author "1..*" --> "0..*" book : writes
 
 An association between two classes is shown by a line joining the two classes. 
 Association indicates that one class uses an attribute
@@ -500,45 +438,28 @@ In other words, when the parent dies, the child dies.
 Dependency is the weakest relationship.
 It represents a reference to class passed in as 
 a method parameter to a function in another class. 
-For example, an instance of class Book is passed as a parameter
-to a function in class Customer:
+For example, an instance of class book is passed as a parameter
+to a function in class customer:
 
 .. code-block:: cpp
 
-   struct Book {};
+   struct book {};
 
-   struct Customer {
-      void purchase(Book b) {}
+   struct customer {
+      void purchase(book b) {}
    };
 
-The *Customer* class requires the *Book* class to function, but doesn't own it.
-The caller of the purchase method is required to supply a *Book*.
+The *customer* class requires the *book* class to function, but doesn't own it.
+The caller of the purchase method is required to supply a *book*.
 
 This type of relationship is represented with a dashed line:
 
-.. graphviz:: 
+.. mermaid::
    :alt: dependency
 
-   digraph "dependency"
-   {
-     edge [fontname="BitstreamVeraSans",
-           fontsize="10",
-           labelfontname="BitstreamVeraSans",
-           labelfontsize="10",
-           arrowhead="vee",
-           minlen=4,
-           style="dashed",
-           color="black"];
-     node [fontname="BitstreamVeraSans",
-           fontsize="10",
-           height=0.2,
-           width=0.4,
-           color="black",
-           fillcolor="lightblue",
-           shape=box,
-           style="filled"];
-     Customer -> Book [constraint=false];
-   }
+   classDiagram
+      direction LR
+      customer ..> book : purchase
 
 As discussed in the introduction to this section,
 the UML is much more involved than simple class diagrams.

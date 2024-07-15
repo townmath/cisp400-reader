@@ -9,6 +9,7 @@
 .. index:: 
    pair: abstract base class; interface
    pair: keyword; virtual
+   pair: graph; shape class hierarchy
 
 Abstract base classes
 =====================
@@ -18,38 +19,31 @@ classes.
 Consider the shape example from the section :doc:`inheritance`.
 How might we add ``draw`` and ``erase`` functions?
 
-.. graphviz:: 
+.. mermaid::
    :alt: Shape inheritance
 
-   digraph "shape"
-   {
-     edge [fontname="BitstreamVeraSans",
-           fontsize="10",
-           labelfontname="BitstreamVeraSans",
-           labelfontsize="10",
-           dir="back",
-           arrowtail="onormal",
-           style="solid",
-           color="midnightblue"];
-     node [fontname="BitstreamVeraSans",
-           fontsize="10",
-           height=0.2,
-           width=0.4,
-           color="black",
-           fillcolor="white",
-           shape=record,
-           style="filled"];
-     shape [
-       label="{shape\n||+ ~shape()\l+ draw()\l+ erase()\l+ move()\l}",
-       fillcolor="lightblue"];
-     shape -> circle;
-     circle [
-       label="{circle\n||+ draw()\l+ erase()\l}"];
-     shape -> rect;
-     rect [label="{rectangle\n||+ draw()\l+ erase()\l}"];
-     shape -> tri;
-     tri [label="{triangle\n||+ draw()\l+ erase()\l}"];
-   }
+   classDiagram
+      shape <|-- circle
+      shape <|-- rectangle
+      shape <|-- triangle
+      class shape {
+        ~shape()
+        +draw()
+        +erase()
+      }
+      shape: +move() void
+      class circle {
+        +draw()
+        +erase()
+      }
+      class rectangle {
+        +draw()
+        +erase()
+      }
+      class triangle {
+        +draw()
+        +erase()
+      }
 
 There is no situation where drawing a 'generic shape' makes sense.
 A shape might define general behaviors like ``draw()``,
@@ -169,8 +163,7 @@ to behave like an interface:
 
 .. code-block:: cpp
 
-   class shape {
-     public:
+   struct shape {
        virtual ~shape() = default;
        virtual void   move() = 0;      // implemented in shape.cpp
        virtual void   draw() = 0;
@@ -186,7 +179,7 @@ unless there is a good reason to make them protected.
 Virtual methods, in their view, should never be public, 
 because they define the class interface, 
 which must remain consistent in all derived classes.
-Protected and private virtuals define the class customizable behavior,
+Protected and private virtual functions define the class customizable behavior,
 and there is no need to make them public.
 A public virtual method would define both interface and a customization point,
 a duality that could reflect weak design.
@@ -197,10 +190,40 @@ If ``draw`` or ``erase`` need to return values,
 or if we need to add more pure virtual functions,
 every derived class is affected.
 
+.. index:: 
+   pair: graph; template design pattern
+
 We can protect ourselves from future changes using the *Template Method*
 design pattern.
 The Template Method defines the steps of an algorithm and allows
-derived classes to provide implementations for one or more steps:
+derived classes to provide implementations for one or more steps.
+
+.. mermaid::
+   :alt: Template pattern class diagram
+
+   classDiagram
+      hot_drink <|-- coffee
+      hot_drink <|-- tea
+      class hot_drink {
+        <<Abstract>>
+        +prepare() void
+        -brew() void
+        -add_extras() void
+        -heat() void
+        -pour() void
+      }
+      class coffee {
+        -brew() void
+        -add_extras() void
+      }
+      class tea {
+        -brew() void
+        -add_extras() void
+      }
+
+We now have a generic framework for making all kinds of brewed hot drinks,
+assuming they follow this basic recipe such as coffees or teas.
+
 
 .. code-block:: cpp
 
@@ -232,10 +255,7 @@ derived classes to provide implementations for one or more steps:
      // it can optionally be customized by a derived class
    }
 
-We now have a generic framework for making all kinds of drinks,
-assuming they follow this basic recipe: coffee, tea, etc.
-
-It may be surprising that private virtuals can be overridden, 
+It may be surprising that private virtual functions can be overridden, 
 let alone are valid.
 You have likely been taught that private members in a base class 
 are not accessible in classes derived from it, which is correct.
@@ -345,8 +365,11 @@ Attempting to override a final function is a compile error.
 .. admonition:: More to Explore
 
    - From cppreference.com:
+
      - :lang:`virtual function specifier <virtual>`
      - :lang:`Abstract classes <abstract_class>`
+     - :wiki:`The Template Method design pattern<Template_method_pattern>`
      - :lang:`final specifier <final>`
+
    - `Virtuality <http://www.gotw.ca/publications/mill18.htm>`__ by Herb Sutter
 

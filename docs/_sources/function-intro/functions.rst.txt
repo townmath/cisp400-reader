@@ -210,6 +210,7 @@ even though the most recent additions to the stack are called the “top” of t
 
 .. graphviz::
    :align: center
+   :alt: Typical program memory layout
 
    digraph memory {
      fontname = "Bitstream Vera Sans"

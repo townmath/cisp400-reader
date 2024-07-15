@@ -213,9 +213,9 @@
 
   
   <section id="shell-sort">
-<h1><span class="section-number">16.5. </span>Shell sort<a class="headerlink" href="#shell-sort" title="Permalink to this heading">¶</a></h1>
+<span id="sort-shell"></span><h1><span class="section-number">16.5. </span>Shell sort<a class="headerlink" href="#shell-sort" title="Permalink to this heading">¶</a></h1>
 <p>The <strong>shell sort</strong>, sometimes called the “diminishing increment sort,”
-improves on the insertion sort by breaking the original vector into a
+improves on the <a class="reference internal" href="insertion.html#sort-insertion"><span class="std std-ref">insertion sort</span></a> by breaking the original vector into a
 number of smaller subvectors, each of which is sorted using an insertion
 sort. The unique way that these subvectors are chosen is the key to the
 shell sort. Instead of breaking the vector into subvectors of contiguous
@@ -242,10 +242,10 @@ belong.</p>
 </figcaption>
 </figure>
 <p><a class="reference internal" href="#fig-incrementsc"><span class="std std-ref">Figure 8</span></a> shows a final insertion sort using an increment of
-one; in other words, a standard insertion sort. Note that by performing
-the earlier subvector sorts, we have now reduced the total number of
-shifting operations necessary to put the vector in its final order. For
-this case, we need only four more shifts to complete the process.</p>
+one; in other words, a standard <a class="reference internal" href="insertion.html#sort-insertion"><span class="std std-ref">insertion sort</span></a>.
+Note that by performing the earlier subvector sorts, we have now reduced
+the total number of shifting operations necessary to put the vector in its final order.
+For this case, we need only four more shifts to complete the process.</p>
 <figure class="align-center" id="id3">
 <span id="fig-incrementsc"></span><img alt="../_images/shellsortC.png" src="../_images/shellsortC.png" />
 <figcaption>

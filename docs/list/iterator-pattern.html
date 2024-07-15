@@ -33,6 +33,8 @@
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
     <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -227,9 +229,34 @@ basic facts about the range of elements in the sequence:</p>
 </ul>
 <p>Most OO languages solve this problem using a form of the
 iterator design pattern.</p>
-<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-0654a6f118025fffeac975ad99c148aaf20e41b7.png" alt="An example iterator pattern UML diagram" class="graphviz" /></div>
-</div>
-<p>Because design patterns represent general ideas about solving
+<div align="center" class="mermaid align-center">
+            classDiagram
+   client --&gt; map : uses
+   map *-- map_iterator
+   iterator &lt;|-- map_iterator
+   iterator &lt;|-- list_iterator
+   client --&gt; list : uses
+   list *-- list_iterator
+
+   class iterator {
+      +first() virtual
+      +has_next() virtual
+      +next() virtual
+   }
+
+   class list_iterator {
+      +first()
+      +has_next()
+      +next()
+   }
+
+   class map_iterator {
+      +first()
+      +has_next()
+      +next()
+   }
+        </div>
+        <p>Because design patterns represent general ideas about solving
 classes of problems, they are language independent.
 In the case of <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterators</span></a>,
 the idea has solutions in most modern languages, including C++.

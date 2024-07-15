@@ -28,60 +28,36 @@ basic facts about the range of elements in the sequence:
 Most OO languages solve this problem using a form of the
 iterator design pattern.
 
-
-.. digraph:: iterator_pattern
+.. mermaid::
+   :alt: A notional iterator pattern UML diagram
    :align: center
-   :alt: An example iterator pattern UML diagram
 
-   graph [
-      fontname = "Bitstream Vera Sans"
-      fontsize = 14
-      labelloc = b
-      label = "An example iterator pattern UML diagram"
-   ];
+   classDiagram
+      client --> map : uses
+      map *-- map_iterator
+      iterator <|-- map_iterator
+      iterator <|-- list_iterator
+      client --> list : uses
+      list *-- list_iterator
 
-   node [
-      fontname = "Bitstream Vera Sans",
-      style=filled, fillcolor=lightblue,
-      fontsize = 14
-      shape = "record"
-   ];
+      class iterator {
+         +first() virtual
+         +has_next() virtual
+         +next() virtual
+      }
 
-    client [
-      label = "Client"
-      shape = "box"
-    ]
+      class list_iterator {
+         +first()
+         +has_next()
+         +next()
+      }
 
-    map [
-      label = "Map"
-      shape = "box"
-    ]
+      class map_iterator {
+         +first()
+         +has_next()
+         +next()
+      }
 
-    it [
-      label = "{&lt;&lt;Interface&gt;&gt;\nIterator| | + first()\l+ has_next()\l+ next()\l }"
-    ]
-
-    list [
-      label = "List"
-      shape = "box"
-    ]
-
-    li [
-      label = "{List\nIterator| | + first()\l+ has_next()\l+ next()\l }"
-    ]
-
-    mi [
-      label = "{Map\nIterator| | + first()\l+ has_next()\l+ next()\l }"
-    ]
-
-    client -> map  [arrowhead = open, label="uses"]
-    client -> list  [arrowhead = open, label="uses"]
-    client -> it  [style = invis]
-    list -> li  [arrowhead = open]
-    map -> mi  [arrowhead = open]
-    li -> it [arrowhead=onormal, constraint=false]
-    mi -> it [arrowhead=onormal, constraint=false]
-    
 
 Because design patterns represent general ideas about solving
 classes of problems, they are language independent.

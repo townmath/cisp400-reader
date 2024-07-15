@@ -213,7 +213,7 @@
 
   
   <section id="radix-sort">
-<h1><span class="section-number">16.9. </span>Radix sort<a class="headerlink" href="#radix-sort" title="Permalink to this heading">¶</a></h1>
+<span id="sort-radix"></span><h1><span class="section-number">16.9. </span>Radix sort<a class="headerlink" href="#radix-sort" title="Permalink to this heading">¶</a></h1>
 <p>Consider a sequence of records with keys in the range 0 to 99.
 If we have ten bins available, we can first assign records to bins by
 taking their key value modulo 10.
@@ -251,7 +251,7 @@ If there are <span class="math notranslate nohighlight">\(k\)</span> digits, the
 bins <span class="math notranslate nohighlight">\(k\)</span> times.</p>
 <section id="array-based-radix-sort">
 <h2><span class="section-number">16.9.1. </span>Array-based Radix Sort<a class="headerlink" href="#array-based-radix-sort" title="Permalink to this heading">¶</a></h2>
-<p>As with Mergesort, an efficient implementation of Radix Sort is
+<p>As with <a class="reference internal" href="merge.html#sort-merge"><span class="std std-ref">Merge sort</span></a>, an efficient implementation of Radix Sort is
 somewhat difficult to achieve.
 In particular, we would prefer to sort an array of values and avoid
 processing linked lists.

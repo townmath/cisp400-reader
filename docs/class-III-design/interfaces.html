@@ -33,6 +33,8 @@
     <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
     <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
 <script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -219,8 +221,30 @@ in the base class, but instead can only be implemented in the derived
 classes.
 Consider the shape example from the section <a class="reference internal" href="inheritance.html"><span class="doc">Inheritance</span></a>.
 How might we add <code class="docutils literal notranslate"><span class="pre">draw</span></code> and <code class="docutils literal notranslate"><span class="pre">erase</span></code> functions?</p>
-<div class="graphviz"><img src="../_images/graphviz-af3a6f6696038cd0a8484ca532be70c7c613ea6f.png" alt="Shape inheritance" class="graphviz" /></div>
-<p>There is no situation where drawing a ‘generic shape’ makes sense.
+<div class="mermaid">
+            classDiagram
+   shape &lt;|-- circle
+   shape &lt;|-- rectangle
+   shape &lt;|-- triangle
+   class shape {
+     ~shape()
+     +draw()
+     +erase()
+   }
+   shape: +move() void
+   class circle {
+     +draw()
+     +erase()
+   }
+   class rectangle {
+     +draw()
+     +erase()
+   }
+   class triangle {
+     +draw()
+     +erase()
+   }
+        </div><p>There is no situation where drawing a ‘generic shape’ makes sense.
 A shape might define general behaviors like <code class="docutils literal notranslate"><span class="pre">draw()</span></code>,
 but there is no all-purpose draw function.
 The shape class <em>can’t</em> know the implementation ahead of time.
@@ -324,8 +348,7 @@ an interface, however, some languages give interface classes special treatment,
 so the term has fallen into use in C++ also.</p>
 <p>We can rewrite the abstract class <code class="docutils literal notranslate"><span class="pre">shape</span></code> and convert it
 to behave like an interface:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">shape</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">shape</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">shape</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w">   </span><span class="nf">move</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">      </span><span class="c1">// implemented in shape.cpp</span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w">   </span><span class="nf">draw</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -341,7 +364,7 @@ unless there is a good reason to make them protected.
 Virtual methods, in their view, should never be public,
 because they define the class interface,
 which must remain consistent in all derived classes.
-Protected and private virtuals define the class customizable behavior,
+Protected and private virtual functions define the class customizable behavior,
 and there is no need to make them public.
 A public virtual method would define both interface and a customization point,
 a duality that could reflect weak design.</p>
@@ -350,10 +373,32 @@ hold up well to changing requirements.
 If <code class="docutils literal notranslate"><span class="pre">draw</span></code> or <code class="docutils literal notranslate"><span class="pre">erase</span></code> need to return values,
 or if we need to add more pure virtual functions,
 every derived class is affected.</p>
-<p>We can protect ourselves from future changes using the <em>Template Method</em>
+<p id="index-1">We can protect ourselves from future changes using the <em>Template Method</em>
 design pattern.
 The Template Method defines the steps of an algorithm and allows
-derived classes to provide implementations for one or more steps:</p>
+derived classes to provide implementations for one or more steps.</p>
+<div class="mermaid">
+            classDiagram
+   hot_drink &lt;|-- coffee
+   hot_drink &lt;|-- tea
+   class hot_drink {
+     &lt;&lt;Abstract&gt;&gt;
+     +prepare() void
+     -brew() void
+     -add_extras() void
+     -heat() void
+     -pour() void
+   }
+   class coffee {
+     -brew() void
+     -add_extras() void
+   }
+   class tea {
+     -brew() void
+     -add_extras() void
+   }
+        </div><p>We now have a generic framework for making all kinds of brewed hot drinks,
+assuming they follow this basic recipe such as coffees or teas.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">hot_drink</span><span class="w"> </span><span class="p">{</span>
 <span class="w">   </span><span class="k">public</span><span class="o">:</span>
 <span class="w">     </span><span class="o">~</span><span class="n">hot_drink</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
@@ -383,9 +428,7 @@ derived classes to provide implementations for one or more steps:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>We now have a generic framework for making all kinds of drinks,
-assuming they follow this basic recipe: coffee, tea, etc.</p>
-<p>It may be surprising that private virtuals can be overridden,
+<p>It may be surprising that private virtual functions can be overridden,
 let alone are valid.
 You have likely been taught that private members in a base class
 are not accessible in classes derived from it, which is correct.
@@ -483,10 +526,14 @@ Attempting to override a final function is a compile error.</p>
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
-<li><p>From cppreference.com:
-- <a class="reference external" href="https://en.cppreference.com/w/cpp/language/virtual">virtual function specifier</a>
-- <a class="reference external" href="https://en.cppreference.com/w/cpp/language/abstract_class">Abstract classes</a>
-- <a class="reference external" href="https://en.cppreference.com/w/cpp/language/final">final specifier</a></p></li>
+<li><p>From cppreference.com:</p>
+<ul>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/virtual">virtual function specifier</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/abstract_class">Abstract classes</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Template_method_pattern">The Template Method design pattern</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/language/final">final specifier</a></p></li>
+</ul>
+</li>
 <li><p><a class="reference external" href="http://www.gotw.ca/publications/mill18.htm">Virtuality</a> by Herb Sutter</p></li>
 </ul>
 </div>
