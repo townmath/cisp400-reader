@@ -7,6 +7,7 @@ especially overloaded functions and function templates.
    :maxdepth: 2
 
    overloads.rst
+   operator-overloads.rst
    templates.rst
    concepts.rst
    trailing-return.rst

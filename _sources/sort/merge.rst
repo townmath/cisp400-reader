@@ -9,6 +9,8 @@
    Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
    This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http
 
+.. _sort_merge:
+
 Merge sort
 ==========
 We now turn our attention to using a :term:`divide and conquer` strategy as a

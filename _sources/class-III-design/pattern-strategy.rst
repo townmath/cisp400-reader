@@ -18,30 +18,14 @@ types of flying behavior behind a single class that stores
 a pointer to a function implementing the behavior.
 Each implementation defines a different **strategy** for the interface.
 
-.. graphviz:: 
+.. mermaid::
    :alt: Flying strategy
 
-   digraph "bird"
-   {
-     edge [fontname="BitstreamVeraSans",
-           fontsize="10",
-           labelfontname="BitstreamVeraSans",
-           labelfontsize="10",
-           dir="back",
-           arrowtail="onormal",
-           style="solid",
-           color="midnightblue"];
-     node [fontname="BitstreamVeraSans",
-           fontsize="10",
-           height=0.2,
-           width=0.4,
-           color="black",
-           fillcolor="lightblue",
-           shape=record,
-           style="filled"];
-     fly_behavior [
-       label="{fly_behavior\n|-strategy: std::function\<void()\>|+fly(): void\l}"];
-   }
+   classDiagram
+      class fly_behavior {
+         -strategy std::function~void()~
+         +fly() void
+      }
 
 Any callable entity (function, function object, or lambda) is
 a potential strategy that derived classes of a bird can now use.
@@ -54,7 +38,7 @@ a potential strategy that derived classes of a bird can now use.
 
    #define FunctionObject typename 
 
-   // an alias to avoid copying std::function ... everywhere
+   // an alias to avoid copying std::function<void()> everywhere
    using fly_strategy = std::function<void()>;
 
    class fly_behavior {

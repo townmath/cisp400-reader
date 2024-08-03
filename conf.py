@@ -39,7 +39,6 @@ my_extensions = ['runestone.common',
                 'runestone.clickableArea',
                 'runestone.codelens',
                 'runestone.datafile',
-                'runestone.dist',
                 'runestone.dragndrop',
                 'runestone.fitb',
                 'runestone.groupsub',
@@ -67,6 +66,7 @@ my_extensions = ['runestone.common',
 extensions = ['sphinx.ext.mathjax', 
               'sphinx.ext.graphviz', 
               'sphinx.ext.extlinks', 
+              'sphinxcontrib.mermaid', 
               'matplotlib.sphinxext.plot_directive',
               'cppreference'] + my_extensions
 
@@ -77,6 +77,9 @@ plot_include_source = False
 plot_html_show_source_link = False
 plot_html_show_formats = False
 
+# mermaid properties
+mermaid_version = "10.9.1"
+mermaid_init_js = "mermaid.initialize({startOnLoad:true});"
 
 # graphviz_dot='/usr/bin/dot'
 # extlinks dict
@@ -141,7 +144,7 @@ copyright = '2017-2024 Dave Parillo'
 # built documents.
 #
 # The short X.Y version.
-version = '1.1.0'
+version = '3.1.0'
 # The full version, including alpha/beta/rc tags.
 release = '0.0'
 

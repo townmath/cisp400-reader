@@ -1,3 +1,5 @@
+.. _build-tools_index: 
+
 Development tools
 =================
 This chapter introduces the development environment used throughout

@@ -337,35 +337,17 @@ The destructors are called in reverse order of constructors.
 Since C++ allows multiple inheritance,
 the following relationships are valid:
 
-.. graphviz:: 
+.. mermaid::
    :alt: multiple inheritance
 
-   digraph "person"
-   {
-     edge [fontname="BitstreamVeraSans",
-           fontsize="10",
-           labelfontname="BitstreamVeraSans",
-           labelfontsize="10",
-           dir="back",
-           arrowtail="onormal",
-           style="solid",
-           color="midnightblue"];
-     node [fontname="BitstreamVeraSans",
-           fontsize="10",
-           height=0.2,
-           width=0.4,
-           color="black",
-           fillcolor="white",
-           shape=box,
-           style="filled"];
-     Person -> Student;
-     Person -> Teacher;
-     Student -> ta;
-     Teacher -> ta;
-     ta [label="TeachingAssistant"];
-   }
+   classDiagram
+      Person <|-- Student
+      Person <|-- Faculty
+      Student <|-- TeachingAssistant
+      Faculty <|-- TeachingAssistant
 
-The ``TeachingAssistant`` class is both a ``Teacher`` and a ``Student``
+
+The ``TeachingAssistant`` class is both a ``Faculty`` and a ``Student``
 and inherits two copies of the ``Person`` base class data.
 When a TA is created, the Person constructor is called *twice*.
 Once for each copy of the Person stored.
@@ -373,7 +355,7 @@ This is both wasteful and creates ambiguities.
 
 The C++ solution to this problem is to inherit *virtual base* classes.
 For each distinct base class that is specified virtual, 
-the most derived object contains only one base class subobject of that type, 
+the most derived object contains only one base class sub-object of that type, 
 even if the class appears many times in the inheritance hierarchy 
 (as long as it is inherited virtual every time).
 For example:
@@ -513,34 +495,19 @@ connected by generalization and dependency relations.
 
 Consider the following classes.
 
-.. graphviz:: 
-   :alt: Bird inheritance
+.. mermaid::
+   :alt: bird inheritance
 
-   digraph "bird"
-   {
-     edge [fontname="BitstreamVeraSans",
-           fontsize="10",
-           labelfontname="BitstreamVeraSans",
-           labelfontsize="10",
-           dir="back",
-           arrowtail="onormal",
-           style="solid",
-           color="midnightblue"];
-     node [fontname="BitstreamVeraSans",
-           fontsize="10",
-           height=0.2,
-           width=0.4,
-           color="black",
-           fillcolor="lightblue",
-           shape=box,
-           style="filled"];
-     bird [shape=record,
-       label="{bird\n|-wingspan: double|+fly(): void\l+eat(): void\l}"];
-     bird -> hawk;
-     bird -> owl;
-     bird -> penguin;
-     bird -> robin;
-   }
+   classDiagram
+      bird <|-- hawk
+      bird <|-- owl
+      bird <|-- penguin
+      bird <|-- robin
+      class bird {
+         -wingspan double
+         +fly() void
+         +eat() int
+      }
 
 .. reveal:: r_class_inherit
    :showtitle: Is this OK?

@@ -9,6 +9,8 @@
    Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
    This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, vi
 
+.. _sort_insertion:
+
 Insertion sort
 ==============
 What would you do if you have a stack of phone bills from the past
@@ -178,8 +180,11 @@ Costs of Exchange Sorting
 =========================
 The running time for each of the sorts discussed so far is
 :math:`\Theta(n^2)` in the average and worst cases.
-The cost summary for the Insertion Sort,
-Bubble Sort, and Selection Sort in terms of their required number of
+The cost summary for the 
+:ref:`Insertion Sort<sort_insertion>`,
+:ref:`Bubble Sort<sort_bubble>`, and
+:ref:`Selection Sort<sort_selection>` 
+in terms of their required number of
 comparisons and swaps in the best, average, and worst cases is shown.
 
 .. math::

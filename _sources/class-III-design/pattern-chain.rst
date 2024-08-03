@@ -33,56 +33,29 @@ it can be dynamically created,
 so you could also think of it as a more general,
 dynamically-built switch statement.
 
-.. graphviz:: 
+.. mermaid::
    :alt: chain of responsibility UML diagram
 
-   digraph "chain"
-   {
-      graph [
-         fontname = "Bitstream Vera Sans"
-         fontsize = 14
-         labelloc = b
-         label = "Chain of responsibility pattern UML diagram"
-      ];
+   classDiagram
+      client ..> handler
+      handler --> handler : next
 
-      node [
-         fontname = "Bitstream Vera Sans",
-         style=filled, fillcolor=lightblue,
-         fontsize = 14
-         shape = "record"
-      ];
-
-       client [
-         shape = "box"
-       ]
-
-       handler [
-         label = "{&lt;&lt;interface&gt;&gt;\nhandler|| + virtual handle()\l }"
-       ]
-
-       join [
-         shape = "point"
-         fillcolor=black
-       ]
-
-       link1 [
-         label = "{receiver1|| + handle() override\l }"
-       ]
-       link2 [
-         label = "{receiver2|| + handle() override\l }"
-       ]
-       link3 [
-         label = "{receiver3|| + handle() override\l }"
-       ]
-       
-       handler -> handler [label="next"];
-       client -> handler [arrowhead=open, style=dotted, label=" handler"]
-       handler -> join [arrowtail=onormal, dir=back]
-       join:w -> link1:n [arrowhead=none]
-       join -> link2 [arrowhead=none]
-       join:e -> link3:n [arrowhead=none]
-    }
-
+      handler <|-- receiver1
+      handler <|-- receiver2
+      handler <|-- receiver3
+      class handler {
+         <<interface>>
+         +handle()
+      }
+      class receiver1 {
+         +handle() override
+      }
+      class receiver2 {
+         +handle() override
+      }
+      class receiver3 {
+         +handle() override
+      }
 
 The 'classic' implementation of the chain of responsibility implements the design
 shown in the UML diagram with a handler interface and an abstract handler to encapsulate

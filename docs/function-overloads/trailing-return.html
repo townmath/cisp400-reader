@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>4.4. Trailing return types &#8212; CISC 187 Course Reader Overview</title>
+    <title>4.5. Trailing return types &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -36,8 +36,8 @@
 <script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.5. General function writing guidelines" href="guidelines.html" />
-    <link rel="prev" title="4.3. Concepts overview" href="concepts.html" />
+    <link rel="next" title="4.6. General function writing guidelines" href="guidelines.html" />
+    <link rel="prev" title="4.4. Concepts overview" href="concepts.html" />
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
@@ -170,13 +170,13 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">4.3. </span>Concepts overview" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">4.4. </span>Concepts overview" data-toggle="tooltip">
     <a href="concepts.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">4.5. </span>General function writing guidelines' data-toggle="tooltip" >              
+  <li id="relations-next" title='Next Chapter - <span class="section-number">4.6. </span>General function writing guidelines' data-toggle="tooltip" >              
     <a href="guidelines.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -213,7 +213,7 @@
 
   
   <section id="trailing-return-types">
-<span id="index-0"></span><h1><span class="section-number">4.4. </span>Trailing return types<a class="headerlink" href="#trailing-return-types" title="Permalink to this heading">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">4.5. </span>Trailing return types<a class="headerlink" href="#trailing-return-types" title="Permalink to this heading">¶</a></h1>
 <p>Problem:</p>
 <ul class="simple">
 <li><p>You created a template, but the return type needs to be a type other than one of the template parameters.</p></li>
@@ -241,7 +241,7 @@ to delay the evaluation of a function return value until after the function para
 <p>Use <code class="docutils literal notranslate"><span class="pre">auto</span></code> and <code class="docutils literal notranslate"><span class="pre">decltype</span></code> to declare a function whose return type depends on the types of its arguments.</p>
 <p>To understand what’s going on, first we have to understand <code class="docutils literal notranslate"><span class="pre">decltype</span></code>.</p>
 <section id="keyword-decltype">
-<span id="index-1"></span><h2><span class="section-number">4.4.1. </span>Keyword: decltype<a class="headerlink" href="#keyword-decltype" title="Permalink to this heading">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">4.5.1. </span>Keyword: decltype<a class="headerlink" href="#keyword-decltype" title="Permalink to this heading">¶</a></h2>
 <p>Added in C++11,
 the <code class="docutils literal notranslate"><span class="pre">decltype</span></code> type specifier yields the <strong>type</strong> of a specified expression, object, or literal value.
 We use <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=decltype">decltype</a> when we want to define a variable based on the result of an expression,
@@ -258,7 +258,7 @@ For example:</p>
 </div>
 </section>
 <section id="trailing-return-type-syntax">
-<h2><span class="section-number">4.4.2. </span>Trailing return type syntax<a class="headerlink" href="#trailing-return-type-syntax" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.5.2. </span>Trailing return type syntax<a class="headerlink" href="#trailing-return-type-syntax" title="Permalink to this heading">¶</a></h2>
 <p>Since the <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=auto specifier">auto specifier</a> and <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=decltype">decltype</a> are complimentary operators,
 they work well together to help write generic functions that avoid
 committing to a specific type.</p>
@@ -332,14 +332,14 @@ The <a class="reference external" href="http://en.cppreference.com/w/cpp/languag
   </div>
 
   <ul role="navigation" class="nextprev-list nextprev-list" aria-label="Change page">
-<li id="relations-prev" class="navLink" title='Previous Section - 4.3. Concepts overview' data-toggle="tooltip">
-  <a href="concepts.html" aria-label="Previous - 4.3. Concepts overview">
+<li id="relations-prev" class="navLink" title='Previous Section - 4.4. Concepts overview' data-toggle="tooltip">
+  <a href="concepts.html" aria-label="Previous - 4.4. Concepts overview">
     <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
   </a>
 </li>
 
-  <li id="relations-next" class="navLink" title='Next Section - 4.5. General function writing guidelines' data-toggle="tooltip" >
-    <a href="guidelines.html" aria-label="Next - 4.5. General function writing guidelines">
+  <li id="relations-next" class="navLink" title='Next Section - 4.6. General function writing guidelines' data-toggle="tooltip" >
+    <a href="guidelines.html" aria-label="Next - 4.6. General function writing guidelines">
       <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
     </a>
   </li>

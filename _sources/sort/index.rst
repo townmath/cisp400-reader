@@ -9,6 +9,8 @@
 ..  Copyright (C)  Brad Miller, David Ranum, and Jan Pearce
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
+.. _sort_index:
+
 Sorting
 =======
 **Sorting** is the process of placing elements from a collection in some
@@ -20,7 +22,7 @@ the final anagram example and the binary search).
 
 This chapter introduces several sorting algorithms and their trade-offs.
 This chapter refers to relative algorithm performance,
-so reviewing the chapter on :doc:`analysis <../analysis/index>` may help.
+so reviewing the chapter on :ref:`algorithm analysis <analysis_index>` may help.
 
 .. toctree::
    :maxdepth: 2

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>4.5. General function writing guidelines &#8212; CISC 187 Course Reader Overview</title>
+    <title>4.6. General function writing guidelines &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5. Pointers" href="../pointers/index.html" />
-    <link rel="prev" title="4.4. Trailing return types" href="trailing-return.html" />
+    <link rel="prev" title="4.5. Trailing return types" href="trailing-return.html" />
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
@@ -170,7 +170,7 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">4.4. </span>Trailing return types" data-toggle="tooltip">
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">4.5. </span>Trailing return types" data-toggle="tooltip">
     <a href="trailing-return.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
@@ -213,7 +213,7 @@
 
   
   <section id="general-function-writing-guidelines">
-<span id="index-0"></span><h1><span class="section-number">4.5. </span>General function writing guidelines<a class="headerlink" href="#general-function-writing-guidelines" title="Permalink to this heading">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">4.6. </span>General function writing guidelines<a class="headerlink" href="#general-function-writing-guidelines" title="Permalink to this heading">¶</a></h1>
 <ol class="arabic">
 <li><p>Write for clarity and correctness <strong>first</strong></p></li>
 <li><p>Avoid <em>premature optimization</em></p></li>
@@ -245,7 +245,7 @@ side effects are almost always unexpected.</p>
 </div><div data-component="tab" data-tabname="Run It" >
 
 <div class="runestone explainer ac_section ">
-<div data-component="activecode" id=functions_guidelines_side_effects_ac data-question_label="4.5.1">
+<div data-component="activecode" id=functions_guidelines_side_effects_ac data-question_label="4.6.1">
 <div id=functions_guidelines_side_effects_ac_question class="ac_question">
 
 </div>
@@ -318,13 +318,13 @@ Unless you <em>completely</em> trust the caller (and their caller…)</p>
 
     <div class="runestone " style="margin-left: auto; margin-right:auto">
         <div id="return_9mWWNYRHAIQ" data-component="youtube" class="align-center youtube-video"
-            data-video-height="281" data-question_label="4.5.2"
+            data-video-height="281" data-question_label="4.6.2"
             data-video-width="500" data-video-videoid="9mWWNYRHAIQ"
             data-video-divid="return_9mWWNYRHAIQ" data-video-start="0"
             data-video-end="-1" ></div>
     </div>
     <section id="when-to-write-a-function">
-<h2><span class="section-number">4.5.1. </span>When to write a function<a class="headerlink" href="#when-to-write-a-function" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.6.1. </span>When to write a function<a class="headerlink" href="#when-to-write-a-function" title="Permalink to this heading">¶</a></h2>
 <p>As with any kind of abstraction, there are two goals to making a function:</p>
 <ul>
 <li><p><strong>Encapsulation</strong>:
@@ -419,7 +419,7 @@ and have the advantage of working on any <a class="reference internal" href="../
 </div>
 </section>
 <section id="example-number-guessing">
-<span id="index-2"></span><h2><span class="section-number">4.5.2. </span>Example: number guessing<a class="headerlink" href="#example-number-guessing" title="Permalink to this heading">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">4.6.2. </span>Example: number guessing<a class="headerlink" href="#example-number-guessing" title="Permalink to this heading">¶</a></h2>
 <p>A more realistic example might help.</p>
 <div id='function_guidelines_guessing_example_tab' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Original" >
 <p>While randomly surfing the internet I stumbled on a small program
@@ -498,7 +498,7 @@ from 1 to 100, but this algorithm will never choose 1.</p>
 <p>The standard library has a superior alternative to <code class="docutils literal notranslate"><span class="pre">rand</span></code>:</p>
 
 <div class="runestone explainer ac_section ">
-<div data-component="activecode" id=function_random_ac data-question_label="4.5.2.1">
+<div data-component="activecode" id=function_random_ac data-question_label="4.6.2.1">
 <div id=function_random_ac_question class="ac_question">
 
 </div>
@@ -644,8 +644,8 @@ While we were at it, we fixed some bugs and made it a bit more reusable and main
   </div>
 
   <ul role="navigation" class="nextprev-list nextprev-list" aria-label="Change page">
-<li id="relations-prev" class="navLink" title='Previous Section - 4.4. Trailing return types' data-toggle="tooltip">
-  <a href="trailing-return.html" aria-label="Previous - 4.4. Trailing return types">
+<li id="relations-prev" class="navLink" title='Previous Section - 4.5. Trailing return types' data-toggle="tooltip">
+  <a href="trailing-return.html" aria-label="Previous - 4.5. Trailing return types">
     <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
   </a>
 </li>

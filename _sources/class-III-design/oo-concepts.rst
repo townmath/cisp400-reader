@@ -260,38 +260,31 @@ It is common to draw inheritance relationships like this:
 .. index::
    pair: graph; shape inheritance
 
-.. graphviz:: 
+.. mermaid::
    :alt: Shape inheritance
 
-   digraph "shape"
-   {
-     edge [fontname="BitstreamVeraSans",
-           fontsize="10",
-           labelfontname="BitstreamVeraSans",
-           labelfontsize="10",
-           dir="back",
-           arrowtail="onormal",
-           style="solid",
-           color="midnightblue"];
-     node [fontname="BitstreamVeraSans",
-           fontsize="10",
-           height=0.2,
-           width=0.4,
-           color="black",
-           fillcolor="white",
-           shape=record,
-           style="filled"];
-     shape [
-       label="{shape\n||+ ~shape()\l+ draw()\l+ erase()\l+ move()\l}",
-       fillcolor="lightblue"];
-     shape -> circle;
-     circle [
-       label="{circle\n||+ draw()\l+ erase()\l}"];
-     shape -> rect;
-     rect [label="{rectangle\n||+ draw()\l+ erase()\l}"];
-     shape -> tri;
-     tri [label="{triangle\n||+ draw()\l+ erase()\l}"];
-   }
+   classDiagram
+      shape <|-- circle
+      shape <|-- rectangle
+      shape <|-- triangle
+      class shape {
+        ~shape()
+        +draw()
+        +erase()
+      }
+      shape: +move() void
+      class circle {
+        +draw()
+        +erase()
+      }
+      class rectangle {
+        +draw()
+        +erase()
+      }
+      class triangle {
+        +draw()
+        +erase()
+      }
 
 This is different from extending classes through :term:`composition`.
 More comparisons between inheritance and composition will be made in 
