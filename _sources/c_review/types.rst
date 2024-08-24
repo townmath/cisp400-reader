@@ -201,6 +201,8 @@ one's complement or two's complement representations.
 
    Try other values and see which ones have exact 
    floating point representations and which do not.
+   The numbers that *may have* exact representations are called the
+   :wiki:`dyadic rationals<Dyadic_rational>`.
 
 One's complement
 ................
@@ -865,6 +867,7 @@ using :io:`oct <manip/hex>`,
    - ISO CPP Super FAQ: `Floating point questions <https://isocpp.org/wiki/faq/newbie#floating-pt-errs>`__
    - `What every computer scientist should know about floating-point arithmetic 
      <http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>`__
+   - :wiki:`Dyadic rationals<Dyadic_rational>` on Wikipedia
    - CPP Core Guidelines: :core:`Arithmetic <arithmetic>`
    - An interesting alternative to explore, Google Protocol Buffers use
      variable length `zig-zag encoding <https://developers.google.com/protocol-buffers/docs/encoding?csw=1>`__
