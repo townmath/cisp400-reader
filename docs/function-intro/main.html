@@ -257,11 +257,11 @@ The environment variables are also passed in as an array of C strings.</p>
 then it will fail and your program build is incomplete.</p>
 </div><div data-component="tab" data-tabname="Run It" >
 <p>A simple <span class="target" id="index-1"></span>command line argument handling program.
-<a class="reference external" href="https://replit.com/">replit.com</a> is a website that provides a
-variety of compilers online.</p>
-<p>Press the “play” button to compile and run the program.</p>
+<a class="reference external" href="https://coliru.stacked-crooked.com/">CompileLinkRun (coliru)</a> provides a c++
+compiler and a very basic command line.</p>
+<p>Press the “edit” button and then ‘Compile, Link, Run” to compile and run the program.</p>
 <div>
-<iframe height="400px" width="100%" src="https://repl.it/@DaveParillo/simple-command-line?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="600px" width="100%" src="https://coliru.stacked-crooked.com/a/c4e50db1d3dea7cb" scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 </div><p>Replit provides an interactive shell.
 You can run this program manually in the shell by typing</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./main
@@ -308,18 +308,18 @@ with special meaning (the switches) from other content.</p>
 <div id='tab_cmdline' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="echo" >
 <p>A simple <span class="target" id="index-4"></span>echo program can demonstrate using command line parameters
 in a program.</p>
-<p><a class="reference external" href="https://repl.it/">repl.it</a> is a website that provides a
-variety of compilers online.
-Press the “play” button to compile and run the program.</p>
-<p>You can run this program manually in the console or shell by typing</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./main
+<p><a class="reference external" href="https://coliru.stacked-crooked.com">coliru</a> is a website that provides a
+a simple C++ compiler and some command line access online.
+Press the “compile, link, and run” button to run the program on the command line.</p>
+<p>You can run this program with different parameters by typing additional arguments after the:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&amp;&amp; ./echo
 </pre></div>
 </div>
 <div>
-<iframe height="400px" width="100%" src="https://repl.it/@DaveParillo/echo?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="600px" width="100%" src="https://coliru.stacked-crooked.com/a/1d4bde960431d139" scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 </div><div class="admonition-try-this admonition">
 <p class="admonition-title">Try This!</p>
-<p>Run main with a variety of inputs, such as:</p>
+<p>Run <code class="docutils literal notranslate"><span class="pre">echo</span></code> with a variety of inputs, such as:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>San Diego
 &quot;Mesa College&quot;
 </pre></div>
@@ -373,7 +373,7 @@ We need a way to communicate this information to the program.</p>
 <span class="w">  </span><span class="c1">// increment the loop counter based on argc</span>
 <span class="w">  </span><span class="o">++</span><span class="n">i</span><span class="p">;</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">argc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">              </span><span class="c1">// is there really a next argument?</span>
-<span class="w">      </span><span class="n">repeat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">      </span><span class="n">repeat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Error using &#39;-r&#39; argument: no repeat value provided</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 <span class="p">}</span>
@@ -385,7 +385,7 @@ The technique presented here is simple and only uses facilities from
 the standard library.</p>
 </div><div data-component="tab" data-tabname="Run It" >
 <div>
-<iframe height="400px" width="100%" src="https://repl.it/@DaveParillo/echo-repeat?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="600px" width="100%" src="https://coliru.stacked-crooked.com/a/3ccefe74d19c4f22" scrolling="yes" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 </div><div class="admonition-try-this admonition">
 <p class="admonition-title">Try This!</p>
 <p>Run this program with a variety of inputs and see what happens.</p>
@@ -425,7 +425,7 @@ including <span class="target" id="index-12"></span>GNU/Linux and <span class="t
 <ul>
 <li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/io/cin">cin</a>, <a class="reference external" href="https://en.cppreference.com/w/cpp/io/cout">cout</a>, and <a class="reference external" href="https://en.cppreference.com/w/cpp/io/cerr">cerr</a></p></li>
 <li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/byte/strcmp">strcmp</a>, and <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/byte/strncmp">strncmp</a></p></li>
-<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/byte/atoi">atoi</a>, and <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/byte/strtol">strtol</a></p></li>
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/byte/stoi">stoi</a>, and <a class="reference external" href="https://en.cppreference.com/w/cpp/string/basic_string/byte/strtol">strtol</a></p></li>
 </ul>
 </li>
 </ul>
