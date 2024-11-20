@@ -465,7 +465,8 @@ Originally, inserting a node looked like this:
       }
       if(value < node->value) {
         return insert(value, node->left);
-      } else if(node->value < value) {
+      } 
+      if(node->value < value) {
         return insert(value, node->right);
       }
       // else the value already exists in the tree
@@ -491,7 +492,8 @@ correct parent relationships.
        }
        if(value < node->value) {
          return insert(value, node->left, node);
-       } else if(node->value < value) {
+       } 
+       if(node->value < value) {
          return insert(value, node->right, node);
        }
        // else the value already exists in the tree

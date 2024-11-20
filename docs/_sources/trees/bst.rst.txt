@@ -92,7 +92,7 @@ any binary search tree properties or behavior.
       template <class T>
          std::ostream& operator<< (std::ostream& os, const mesa::tree::tree_node<T>* node)
          {
-           if (node == nullptr) return os;
+           if (node == nullptr) { return os; }
            os << node->left; 
            os << node->value << ' ';
            os << node->right;
@@ -190,10 +190,14 @@ This algorithm is easily applied to binary search trees.
          {
            if(node == nullptr) return false;
            if(query_value < node->value) {
+             // search the left sub-tree
              return contains(query_value, node->left);
-           } else if(node->value < query_value) {
+           } 
+           if(node->value < query_value) {
+             // search the right sub-tree
              return contains(query_value, node->right);
            }
+           // we found what we were looking for
            return true; 
          }
 
@@ -228,7 +232,8 @@ such that the binary tree property remains intact.
             }
             if(value < node->value) {
               return insert(value, node->left);
-            } else if(node->value < value) {
+            } 
+            if(node->value < value) {
               return insert(value, node->right);
             }
             // else the value already exists in the tree
@@ -474,32 +479,33 @@ or has at most one child.
 
              if(value < node->value) {
                return erase(value, node->left);
-             } else if(node->value < value) {
+             } 
+             if(node->value < value) {
                return erase(value, node->right);
 
-             } else if(node->left != nullptr && node->right != nullptr ) { 
+             } 
+             if(node->left != nullptr && node->right != nullptr ) { 
                // two children
                // replace node with smallest value from right subtree
                node->value = min_element(node->right)->value;
                return erase(node->value, node->right);
-             } else {
-               // remove a leaf node or node w/ 1 subtree
-               tree_node<T>* trash = node;
-               node = (node->left != nullptr ) ? node->left : node->right;
-               delete trash;
-             }
+             } 
+            // remove a leaf node or node w/ 1 subtree
+            tree_node<T>* trash = node;
+            node = (node->left != nullptr ) ? node->left : node->right;
+            delete trash;
            }
 
       Lines 6-9 handle the search we discussed initially.
       Here we recursive search for our target value to remove.
 
-      The ``else if`` block handles the case with 2 children.
+      The last ``if`` block handles the case with 2 children.
       We find the smallest node in the right subtree
       and assign it's value to the current node.
       Then we erase this value from the right subtree
       of the current node.
 
-      The final ``else`` block handles the leaf and the one child cases.
+      The final block handles the leaf and the one child cases.
       This is the only case where a node is actually removed from the tree.
       This block will also untilately get called when the
       case handling two child nodes needs to delete the 

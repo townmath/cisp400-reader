@@ -66,10 +66,10 @@ don't apply to any other C++ functions. The main function:
    .. tab:: Run It
 
       A simple :index:`command line argument` handling program.
-      `CompileLinkRun (coliru) <https://coliru.stacked-crooked.com/>`__ provides a c++
+      `Compile, link, run (coliru) <https://coliru.stacked-crooked.com/>`__ provides a c++
       compiler and a very basic command line.
 
-      Press the "edit" button and then 'Compile, Link, Run" to compile and run the program.
+      Press the "edit" button and then 'Compile, link and run" to compile and run the program.
 
       .. raw:: html
 
