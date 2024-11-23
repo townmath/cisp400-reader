@@ -544,6 +544,53 @@ which is our signal that C has no in-order successor.</p>
 </div>
     </div>
 
+<p>One part of this iterator that needs closer inspection is the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.
+This loop continues moving upwards in the tree until it finds:</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">node</span></code> where the current node is in the left subtree of its parent, or</p></li>
+<li><p>The root of the tree (<code class="code docutils literal notranslate"><span class="pre">parent</span> <span class="pre">==</span> <span class="pre">nullptr</span></code>),
+indicating that there is no in-order successor (end of the traversal).</p></li>
+</ul>
+<p class="rubric">Key Conditions</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">parent</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>: Ensures we do not dereference a nullptr when
+accessing <code class="code docutils literal notranslate"><span class="pre">parent-&gt;right</span></code>.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">node</span> <span class="pre">==</span> <span class="pre">parent-&gt;right</span></code>: Asserts the current node is the right child of
+its parent.
+When true, we need to keep moving upwards, as the in-order successor is not
+in this part of the tree.</p></li>
+</ul>
+<p>The loop climbs up the tree until it finds a node for which the current
+traversal has completed its right subtree. This ensures that the in-order
+successor is correctly identified.</p>
+<p>Consider an alternative approach that simply checks the immediate predecessor:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">parent</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">parent</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="p">;</span>
+<span class="w">    </span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="o">-&gt;</span><span class="n">parent</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The issue with this approach is that it would only handle one level of
+traversal upwards. If the current node is deeply nested in a right subtree, it
+may skip multiple ancestors that need to be visited to find the in-order
+successor. This can cause incorrect results when:</p>
+<ul class="simple">
+<li><p>The node is the rightmost descendant of a deep subtree, requiring multiple
+upward traversals to reach the root or an ancestor in a left subtree.</p></li>
+<li><p>Randomly generated trees or trees that have had many insertions and removals
+from the tree may have imbalanced structures with chains of right children,
+requiring multiple iterations of the while loop.</p></li>
+</ul>
+<p>Consider this tree:</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-c1e0fc260651b5f48f7428befd4c7ef8993282a7.png" alt="a binary search tree" class="graphviz" /></div>
+</div>
+<p>If the iterator is at <code class="docutils literal notranslate"><span class="pre">20</span></code> (the rightmost node):</p>
+<ul class="simple">
+<li><p>The while loop will correctly climb from 20 –&gt; 15 –&gt; 10, and stop when
+<code class="code docutils literal notranslate"><span class="pre">parent</span> <span class="pre">==</span> <span class="pre">nullptr</span></code>.</p></li>
+<li><p>A single conditional would move only one step (to 15) and fail to reach the
+root, leaving the iterator in an inconsistent state.</p></li>
+</ul>
 </section>
 </section>
 </section>

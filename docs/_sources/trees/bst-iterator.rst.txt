@@ -442,6 +442,84 @@ To summarize:
          }
 
 
+One part of this iterator that needs closer inspection is the ``while`` loop.
+This loop continues moving upwards in the tree until it finds:
+
+- A ``node`` where the current node is in the left subtree of its parent, or
+- The root of the tree (:code:`parent == nullptr`),
+  indicating that there is no in-order successor (end of the traversal).
+
+.. rubric:: Key Conditions
+
+- :code:`parent != nullptr`: Ensures we do not dereference a nullptr when
+  accessing :code:`parent->right`.
+- :code:`node == parent->right`: Asserts the current node is the right child of
+  its parent.
+  When true, we need to keep moving upwards, as the in-order successor is not
+  in this part of the tree.
+
+The loop climbs up the tree until it finds a node for which the current
+traversal has completed its right subtree. This ensures that the in-order
+successor is correctly identified.
+
+Consider an alternative approach that simply checks the immediate predecessor:
+
+.. code-block:: cpp
+
+   if (parent != nullptr && node == parent->right) {
+       node = parent;
+       parent = parent->parent;
+   }
+
+The issue with this approach is that it would only handle one level of
+traversal upwards. If the current node is deeply nested in a right subtree, it
+may skip multiple ancestors that need to be visited to find the in-order
+successor. This can cause incorrect results when:
+
+- The node is the rightmost descendant of a deep subtree, requiring multiple
+  upward traversals to reach the root or an ancestor in a left subtree.
+- Randomly generated trees or trees that have had many insertions and removals
+  from the tree may have imbalanced structures with chains of right children,
+  requiring multiple iterations of the while loop.
+
+
+Consider this tree:
+
+.. digraph:: a_bst
+   :align: center
+   :alt: a binary search tree
+
+   graph [
+       nodesep=0.25, ranksep=0.3, splines=line;
+    ];
+   node [fontname = "Bitstream Vera Sans", fontsize=14,
+         style=filled, fillcolor=lightblue,
+         shape=circle, fixedsize=true, width=0.3];
+   edge [weight=1, arrowsize=0.5, dir=none];
+
+   a, b, am, c, bm, d, cm;
+   am, bm, cm [style=invis, label=""];
+   a [label=10]
+   b [label=5]
+   c [label=15]
+   d [label=12]
+   e [label=20, fillcolor=wheat]
+
+   a->b 
+   a->c
+   c->d,e
+
+   edge [style=invis, weight=100];
+   b->bm;
+   c->cm;
+   a->am;
+
+If the iterator is at ``20`` (the rightmost node):
+
+- The while loop will correctly climb from 20 --> 15 --> 10, and stop when
+  :code:`parent == nullptr`.
+- A single conditional would move only one step (to 15) and fail to reach the
+  root, leaving the iterator in an inconsistent state.
 
 
 Using parent pointers
