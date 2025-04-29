@@ -8,7 +8,6 @@ that are found only within classes.
 
    constructors.rst
    static.rst
-   this.rst
    overloads.rst
    friend.rst
 

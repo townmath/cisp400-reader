@@ -338,10 +338,11 @@ It’s not.</p>
 </section>
 <section id="keyword-constexpr">
 <span id="index-4"></span><h2><span class="section-number">3.6.2. </span>Keyword: <code class="docutils literal notranslate"><span class="pre">constexpr</span></code><a class="headerlink" href="#keyword-constexpr" title="Permalink to this heading">¶</a></h2>
-<p>The keyword <a class="reference external" href="http://en.cppreference.com/mwiki/index.php?search=constexpr">constexpr</a> was added in C++11.</p>
-<p>The fundamental difference between <code class="docutils literal notranslate"><span class="pre">const</span></code> and <code class="docutils literal notranslate"><span class="pre">constexpr</span></code> is that
-<code class="docutils literal notranslate"><span class="pre">constexpr</span></code> must be able to be determined at compile time.
-So while this is OK:</p>
+<p>The keyword <a class="reference external" href="https://en.cppreference.com/w/cpp/language/constexpr">constexpr</a> was added in C++11.</p>
+<p>It looks similar to <code class="docutils literal notranslate"><span class="pre">const</span></code>, but it is different.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">constexpr</span></code> specifier declares that it is <em>possible</em> to evaluate
+the expression, object, or function at compile time.</p>
+<p>So while this is OK:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">constexpr</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159265359</span><span class="p">;</span>
 
 <span class="c1">// and so is this</span>
@@ -378,9 +379,9 @@ any function more complex than <code class="docutils literal notranslate"><span 
 is not able to be evaluated at compile time,
 therefore, it won’t compile as a <code class="docutils literal notranslate"><span class="pre">constexpr</span></code> expression.
 You should still use it when you can.</p>
-<p>The rules for <code class="docutils literal notranslate"><span class="pre">constexpr</span></code> changed in C++14 and more in C++17.
+<p>The rules for <code class="docutils literal notranslate"><span class="pre">constexpr</span></code> changed in C++14 and changed more in C++17.
 Although not available on the Mesa server, you should still
-<a class="reference external" href="http://en.cppreference.com/w/cpp/language/constexpr">read the docs</a>
+<a class="reference external" href="https://en.cppreference.com/w/cpp/language/constexpr">read the docs</a>
 and be aware of what is and is not a valid constant expression
 for whatever environment you are working in.</p>
 </section>
@@ -404,11 +405,9 @@ for whatever environment you are working in.</p>
 <ul>
 <li><p>Applies only to object types</p>
 <ul>
-<li><p>Pass fundamental types by <code class="docutils literal notranslate"><span class="pre">const</span></code> value if they should not change</p></li>
+<li><p>Pass fundamental types by value if they should not change</p></li>
 </ul>
 </li>
-<li><p>Avoids making an extra (unneeded) copy</p></li>
-<li><p>Prevents unintended modification</p></li>
 </ul>
 </li>
 </ul>
@@ -419,7 +418,7 @@ for whatever environment you are working in.</p>
 <p>Given the following:</p>
 <p>How many simple changes can you make to the function <code class="docutils literal notranslate"><span class="pre">area</span></code> that are valid
 if the function signature is</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">)</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>but invalid if the function signature is unchanged?</p>
@@ -430,7 +429,7 @@ if the function signature is</p>
 <ul class="simple">
 <li><p>From: cppreference.com:
 <a class="reference external" href="http://en.cppreference.com/w/cpp/language/cv">const qualifier</a> and
-<a class="reference external" href="http://en.cppreference.com/w/cpp/language/constant_expression">constexpr</a></p></li>
+<a class="reference external" href="https://en.cppreference.com/w/cpp/language/constexpr">constexpr</a></p></li>
 <li><p><a class="reference external" href="https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rconst-constexpr">C++ Core Guidelines for constexpr</a>
 from GitHub</p></li>
 </ul>

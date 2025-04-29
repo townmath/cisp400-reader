@@ -6,20 +6,38 @@
     the license is included in the section entitled "GNU Free Documentation
     License".
 
-.. index:: 
+.. index:: object pointers
    pair: pointers; class members
 
-Pointers to classes
+Pointers to objects
 ===================
 
-When we create a pointer to a class,
-member access changes.
-Given a simple :term:`POD`:
+As we have previously discussed, pointers can point to anything.
+We create pointers to objects much like any other type.
+
+Raw pointers where we have to manage the memory ourselves:
 
 .. code-block:: cpp
 
-  struct Fibonacci {
-    short f5; short f6; short f7;
+   int* p = new int{5};
+   dog* d = new dog{"Fido"};
+
+And smart pointers that manage the memory for us:
+
+.. code-block:: cpp
+
+   auto p = std::unique_ptr<int>(new int{5});
+   auto d = std::unique_ptr<dog>(new dog{"Fido"});
+
+In both cases, the initialization essentially identical.
+
+Given a simple :term:`POD` for a dog:
+
+.. code-block:: cpp
+
+  struct dog {
+    std::string name;
+    double age;
   };
 
 Access to members of any objects created uses the *member access operator*
@@ -27,65 +45,68 @@ Access to members of any objects created uses the *member access operator*
 
 .. code-block:: cpp
 
-   // create foo with initial values
-   Fibonacci foo = {5, 8, 13};
+   // create a dog with initial values
+   dog buddy = {"Andy", 12.6};
 
    // use member access operator to get values
-   std::cout << "The fifth, sixth and seventh Fibonacci numbers are: " 
-     << foo.f5 << ", "
-     << foo.f6 << ", and "
-     << foo.f7 << ".\n";
+   std::cout << "My dog's name and age is: " 
+     << buddy.name << " and "
+     << buddy.age << ".\n";
 
 When you need to access members through a pointer,
 the operator precedence rules for pointer dereference
 and member access are a common source of error.
-Let's add a pointer to ``foo``:
+When ``buddy`` is a pointer:
 
 .. code-block:: cpp
 
-   // create foo with initial values
-   Fibonacci foo = {5, 8, 13};
-   Fibonacci* bar = &foo;
+   auto buddy = std::unique_ptr<dog>(new dog{"Andy", 12.6});
 
-It seems that if ``foo.f5`` works, then
-given a pointer to a ``foo``, that ``*bar.f5``
+It seems that if ``buddy.name`` works when not a pointer, then
+given a pointer to a ``buddy``, that ``*buddy.name``
 should work, but it does not.
 The member access operator has higher precedence than
 the dereference operator.
-The code ``*bar.f5`` is equivalent to ``*(bar.f5)``.
+The code ``*buddy.name`` is equivalent to ``*(buddy.name)``.
 This is almost always a bug.
-In this case, ``f5`` is not a pointer type and cannot be dereferenced.
+In this case, ``name`` is not a pointer type and cannot be dereferenced.
 
 Explicit use of parentheses is one way to fix this problem:
 
 .. code-block:: cpp
 
-   (*bar).f5
+   (*buddy).name
 
 This works, but the syntax is ugly.
 For this reason, the ``operator ->`` is used to 
 access members of a pointer to an object.
-The code ``bar->f5`` is easier to read than ``(*bar).f5``.
+The code ``buddy->name`` is easier to read than ``(*buddy).name``.
 
 Putting it all together:
 
-.. code-block:: cpp
+.. activecode:: class_i_intro_summary_ac
+   :language: cpp
+   :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++11']
+   :nocodelens:
 
-   // create foo with initial values
-   Fibonacci foo = {5, 8, 13};
-   Fibonacci* bar = &foo;
+   #include <iostream>
+   #include <memory>
+   struct dog {
+     std::string name;
+     double age;
+   };
 
-   // This does not compile!
-   // member access operator has higher precedence than
-   // dereference operator
-   std::cout << "F5: " << *bar.f5;   // can't dereference f5
+   int main() {
+     using std::cout;
+     auto buddy = std::unique_ptr<dog>(new dog{"Andy", 12.6});
 
-   // Use this:
-   std::cout << "F6: " << (*bar).f6;
+     cout << "name using dereference and member access: " << (*buddy).name
+          << '\n'
+          << "name using pointer to member: " << buddy->name;
+   }
 
-   // or even better, this:
-   std::cout << "F7: " << bar->f7;
-
+The last version is the most commonly used because it is less error prone
+and easier to read.
 
 
 -----

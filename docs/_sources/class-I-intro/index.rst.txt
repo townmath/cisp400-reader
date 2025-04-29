@@ -11,6 +11,7 @@ and this chapter is only an introduction.
    intro.rst
    constructors.rst
    pointers.rst
+   this.rst
    interfaces.rst
    const.rst
    abstraction.rst

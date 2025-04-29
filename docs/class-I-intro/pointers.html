@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>7.3. Pointers to classes &#8212; CISC 187 Course Reader Overview</title>
+    <title>7.3. Pointers to objects &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -36,7 +36,7 @@
 <script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7.4. Interfaces and implementation" href="interfaces.html" />
+    <link rel="next" title="7.4. ‘this’ pointer" href="this.html" />
     <link rel="prev" title="7.2. Constructors" href="constructors.html" />
 
 
@@ -176,8 +176,8 @@
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">7.4. </span>Interfaces and implementation' data-toggle="tooltip" >              
-    <a href="interfaces.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">7.4. </span>‘this’ pointer' data-toggle="tooltip" >              
+    <a href="this.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -212,70 +212,94 @@
 
 
   
-  <section id="pointers-to-classes">
-<span id="index-0"></span><h1><span class="section-number">7.3. </span>Pointers to classes<a class="headerlink" href="#pointers-to-classes" title="Permalink to this heading">¶</a></h1>
-<p>When we create a pointer to a class,
-member access changes.
-Given a simple <a class="reference internal" href="../glossary.html#term-POD"><span class="xref std std-term">POD</span></a>:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">Fibonacci</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">short</span><span class="w"> </span><span class="n">f5</span><span class="p">;</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">f6</span><span class="p">;</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">f7</span><span class="p">;</span>
+  <section id="pointers-to-objects">
+<span id="index-0"></span><h1><span class="section-number">7.3. </span>Pointers to objects<a class="headerlink" href="#pointers-to-objects" title="Permalink to this heading">¶</a></h1>
+<p>As we have previously discussed, pointers can point to anything.
+We create pointers to objects much like any other type.</p>
+<p>Raw pointers where we have to manage the memory ourselves:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">5</span><span class="p">};</span>
+<span class="n">dog</span><span class="o">*</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">dog</span><span class="p">{</span><span class="s">&quot;Fido&quot;</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>And smart pointers that manage the memory for us:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">{</span><span class="mi">5</span><span class="p">});</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">dog</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">dog</span><span class="p">{</span><span class="s">&quot;Fido&quot;</span><span class="p">});</span>
+</pre></div>
+</div>
+<p>In both cases, the initialization essentially identical.</p>
+<p>Given a simple <a class="reference internal" href="../glossary.html#term-POD"><span class="xref std std-term">POD</span></a> for a dog:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">dog</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 </div>
 <p>Access to members of any objects created uses the <em>member access operator</em>
 <code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">.</span></code>:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// create foo with initial values</span>
-<span class="n">Fibonacci</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">};</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// create a dog with initial values</span>
+<span class="n">dog</span><span class="w"> </span><span class="n">buddy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Andy&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">12.6</span><span class="p">};</span>
 
 <span class="c1">// use member access operator to get values</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The fifth, sixth and seventh Fibonacci numbers are: &quot;</span>
-<span class="w">  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">foo</span><span class="p">.</span><span class="n">f5</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span>
-<span class="w">  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">foo</span><span class="p">.</span><span class="n">f6</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, and &quot;</span>
-<span class="w">  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">foo</span><span class="p">.</span><span class="n">f7</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;My dog&#39;s name and age is: &quot;</span>
+<span class="w">  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">buddy</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; and &quot;</span>
+<span class="w">  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">buddy</span><span class="p">.</span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>When you need to access members through a pointer,
 the operator precedence rules for pointer dereference
 and member access are a common source of error.
-Let’s add a pointer to <code class="docutils literal notranslate"><span class="pre">foo</span></code>:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// create foo with initial values</span>
-<span class="n">Fibonacci</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">};</span>
-<span class="n">Fibonacci</span><span class="o">*</span><span class="w"> </span><span class="n">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foo</span><span class="p">;</span>
+When <code class="docutils literal notranslate"><span class="pre">buddy</span></code> is a pointer:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">buddy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">dog</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">dog</span><span class="p">{</span><span class="s">&quot;Andy&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">12.6</span><span class="p">});</span>
 </pre></div>
 </div>
-<p>It seems that if <code class="docutils literal notranslate"><span class="pre">foo.f5</span></code> works, then
-given a pointer to a <code class="docutils literal notranslate"><span class="pre">foo</span></code>, that <code class="docutils literal notranslate"><span class="pre">*bar.f5</span></code>
+<p>It seems that if <code class="docutils literal notranslate"><span class="pre">buddy.name</span></code> works when not a pointer, then
+given a pointer to a <code class="docutils literal notranslate"><span class="pre">buddy</span></code>, that <code class="docutils literal notranslate"><span class="pre">*buddy.name</span></code>
 should work, but it does not.
 The member access operator has higher precedence than
 the dereference operator.
-The code <code class="docutils literal notranslate"><span class="pre">*bar.f5</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">*(bar.f5)</span></code>.
+The code <code class="docutils literal notranslate"><span class="pre">*buddy.name</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">*(buddy.name)</span></code>.
 This is almost always a bug.
-In this case, <code class="docutils literal notranslate"><span class="pre">f5</span></code> is not a pointer type and cannot be dereferenced.</p>
+In this case, <code class="docutils literal notranslate"><span class="pre">name</span></code> is not a pointer type and cannot be dereferenced.</p>
 <p>Explicit use of parentheses is one way to fix this problem:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">*</span><span class="n">bar</span><span class="p">).</span><span class="n">f5</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">*</span><span class="n">buddy</span><span class="p">).</span><span class="n">name</span>
 </pre></div>
 </div>
 <p>This works, but the syntax is ugly.
 For this reason, the <code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">-&gt;</span></code> is used to
 access members of a pointer to an object.
-The code <code class="docutils literal notranslate"><span class="pre">bar-&gt;f5</span></code> is easier to read than <code class="docutils literal notranslate"><span class="pre">(*bar).f5</span></code>.</p>
+The code <code class="docutils literal notranslate"><span class="pre">buddy-&gt;name</span></code> is easier to read than <code class="docutils literal notranslate"><span class="pre">(*buddy).name</span></code>.</p>
 <p>Putting it all together:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// create foo with initial values</span>
-<span class="n">Fibonacci</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">};</span>
-<span class="n">Fibonacci</span><span class="o">*</span><span class="w"> </span><span class="n">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foo</span><span class="p">;</span>
 
-<span class="c1">// This does not compile!</span>
-<span class="c1">// member access operator has higher precedence than</span>
-<span class="c1">// dereference operator</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;F5: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">bar</span><span class="p">.</span><span class="n">f5</span><span class="p">;</span><span class="w">   </span><span class="c1">// can&#39;t dereference f5</span>
+<div class="runestone explainer ac_section ">
+<div data-component="activecode" id=class_i_intro_summary_ac data-question_label="7.3.1">
+<div id=class_i_intro_summary_ac_question class="ac_question">
 
-<span class="c1">// Use this:</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;F6: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">bar</span><span class="p">).</span><span class="n">f6</span><span class="p">;</span>
-
-<span class="c1">// or even better, this:</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;F7: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">bar</span><span class="o">-&gt;</span><span class="n">f7</span><span class="p">;</span>
-</pre></div>
 </div>
+<textarea data-lang="cpp" id="class_i_intro_summary_ac_editor" 
+      data-timelimit=25000     
+    data-audio=''      
+    data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
+     style="visibility: hidden;">
+#include <iostream>
+#include <memory>
+struct dog {
+  std::string name;
+  double age;
+};
+
+int main() {
+  using std::cout;
+  auto buddy = std::unique_ptr<dog>(new dog{"Andy", 12.6});
+
+  cout << "name using dereference and member access: " << (*buddy).name
+       << '\n'
+       << "name using pointer to member: " << buddy->name;
+}
+</textarea>
+</div>
+</div>
+<p>The last version is the most commonly used because it is less error prone
+and easier to read.</p>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
@@ -304,8 +328,8 @@ The code <code class="docutils literal notranslate"><span class="pre">bar-&gt;f5
   </a>
 </li>
 
-  <li id="relations-next" class="navLink" title='Next Section - 7.4. Interfaces and implementation' data-toggle="tooltip" >
-    <a href="interfaces.html" aria-label="Next - 7.4. Interfaces and implementation">
+  <li id="relations-next" class="navLink" title='Next Section - 7.4. ‘this’ pointer' data-toggle="tooltip" >
+    <a href="this.html" aria-label="Next - 7.4. ‘this’ pointer">
       <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
     </a>
   </li>

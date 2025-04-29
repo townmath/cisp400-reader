@@ -172,10 +172,13 @@ Use it when no better alternative exists.
 Keyword: ``constexpr``
 ----------------------
 
-The keyword :cref:`constexpr` was added in C++11.
+The keyword :lang:`constexpr` was added in C++11.
 
-The fundamental difference between ``const`` and ``constexpr`` is that
-``constexpr`` must be able to be determined at compile time.
+It looks similar to ``const``, but it is different.
+
+The ``constexpr`` specifier declares that it is *possible* to evaluate
+the expression, object, or function at compile time. 
+
 So while this is OK:
 
 .. code-block:: cpp
@@ -225,9 +228,9 @@ is not able to be evaluated at compile time,
 therefore, it won't compile as a ``constexpr`` expression.
 You should still use it when you can.
 
-The rules for ``constexpr`` changed in C++14 and more in C++17.
+The rules for ``constexpr`` changed in C++14 and changed more in C++17.
 Although not available on the Mesa server, you should still
-`read the docs <http://en.cppreference.com/w/cpp/language/constexpr>`_
+:lang:`read the docs <constexpr>`
 and be aware of what is and is not a valid constant expression
 for whatever environment you are working in.
 
@@ -252,10 +255,7 @@ Guidelines for now
 
     - Applies only to object types
 
-      - Pass fundamental types by ``const`` value if they should not change
-
-    - Avoids making an extra (unneeded) copy
-    - Prevents unintended modification
+      - Pass fundamental types by value if they should not change
 
 .. admonition:: Try This!
 
@@ -267,7 +267,7 @@ Guidelines for now
       #include <cmath>
       constexpr double pi = 3.14159265359;
 
-      constexpr double area (const double radius) {
+      constexpr double area (double radius) {
         return pi * radius * radius;
       }
 
@@ -282,7 +282,7 @@ Guidelines for now
    
    .. code-block:: cpp
 
-      const double area (const double radius)
+      const double area (double radius)
 
    but invalid if the function signature is unchanged?
    
@@ -294,7 +294,7 @@ Guidelines for now
 
   - From: cppreference.com: 
     `const qualifier <http://en.cppreference.com/w/cpp/language/cv>`_ and 
-    `constexpr <http://en.cppreference.com/w/cpp/language/constant_expression>`_
+    :lang:`constexpr`
   - `C++ Core Guidelines for constexpr 
     <https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rconst-constexpr>`_
     from GitHub

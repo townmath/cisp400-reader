@@ -251,15 +251,6 @@ standard input
       The name ``rot13`` points to the address where the function ``rot13`` 
       is stored.
 
-.. toctree:: 
-   :hidden:
-
-   caesar/main.cpp
-   caesar/help.h
-   caesar/caesar.h
-   caesar/caesar.cpp
-   caesar/Makefile
-
 .. admonition:: Try This!
 
    Consider compiling these files in your own environment and experimenting
