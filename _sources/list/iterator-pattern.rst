@@ -128,4 +128,4 @@ Forgetting this is a common source of error.
 .. admonition:: More to Explore
 
   - `Iterator Library <http://en.cppreference.com/w/cpp/iterator>`_ at cppreference.com
-  - C++ Concepts: `Iterator <http://en.cppreference.com/w/cpp/concept/Iterator>`_
+  - :cpp:`C++ Concepts: Iterator <named_req/Iterator>`
