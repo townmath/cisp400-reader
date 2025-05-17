@@ -156,6 +156,111 @@ during a pass.
            return 0;
          }
 
+
+.. note::
+   If you have not examined the previous you should.
+   Many job interviews involve a 'whiteboard interview'
+   that may ask you to write a bubble sort or an insertion sort.
+
+
+I don't know why bubble sort in particular is such a popular question.
+The bubble sort: 
+
+   - is not particularly easy to memorize
+   - is not an obvious solution to the sorting problem
+   - performs rather badly - it's average performance is n-squared!
+
+.. tabbed:: stl_exchange_sort
+
+   .. tab:: STL Exchange Sorts
+
+      If sorting does get asked and you can get past these points with a future employer,
+      you might score some points with the following examples, which:
+
+        - are far easier to memorize and explain: the actual sort is only 2 lines
+        - even though still n-squared, is typically better in practice than bubble sort
+        - demonstrates familiarity with the standard library.
+
+
+      .. activecode:: stl_exchange_sorts
+         :caption: STL Sorts
+         :language: cpp
+         :compileargs: ['-Wall', '-Wextra', '-pedantic', '-std=c++17']
+         :nocodelens:
+
+
+         #include <algorithm>
+         #include <iostream>
+         #include <iterator>
+         #include <numeric> 
+         #include <vector>
+         #include <random>
+
+         #define RandomAccessIterable typename
+         template <RandomAccessIterable It> void print(const It begin, const It end, const char* msg);
+         template <RandomAccessIterable It> void selection_sort(It begin, It end);
+         template <RandomAccessIterable It> void insertion_sort(It begin, It end);
+
+         int main() {
+             std::vector<int> v(20);
+             std::iota(v.begin(), v.end(), -10);
+             auto generator = std::mt19937{std::random_device{}()};
+             std::shuffle(v.begin(), v.end(), generator);
+
+             print (v.begin(), v.end(), "before:         \t");
+             selection_sort(v.begin(), v.end());
+             print (v.begin(), v.end(), "selection sort: \t");
+
+             std::shuffle(v.begin(), v.end(), generator);
+             print (v.begin(), v.end(), "before:         \t");
+             insertion_sort(v.begin(), v.end());
+             print (v.begin(), v.end(), "insertion sort: \t");
+         }
+
+         template <RandomAccessIterable It> 
+         void selection_sort(It begin, It end) {
+             for (auto i = begin; i != end; ++i) {
+                 std::iter_swap(i, std::min_element(i, end));
+                 //print (begin, end, "\t");
+             }
+         }
+
+         template <RandomAccessIterable It> 
+         void insertion_sort(It begin, It end) {
+             for (auto i = begin; i != end; ++i) {
+                 std::rotate(std::upper_bound(begin, i, *i), i, std::next(i));
+                 //print (begin, end, "\t");
+             }
+         }
+
+         template <RandomAccessIterable It> 
+         void print(const It begin, const It end, const char* msg) {
+             // not very pretty
+             // avoids hardcoded ostream_iterator<int>
+             using os = std::ostream_iterator<typename std::iterator_traits<It>::value_type>;
+
+             std::cout << msg;
+             std::copy(begin, end, os(std::cout, " "));
+             std::cout << '\n';
+         }
+
+One nice feature of the selection sort implemented using
+:algorithm:`iter_swap` and :algorithm:`min_element` is that the
+``min_element`` function takes a custom comparator.
+
+This means that while the default behavior is to sort ascending since the
+default comparator is :functional:`std::less <less>` any other binary
+predicate operation could be passed in.
+
+If your compiler supports C++20 :cpp:`ranges`, then you could use the ranges versions
+of ``min_element`` and ``iter_swap`` and use a range-for loop.
+
+.. admonition:: Try This!
+
+   Modify the ``selection_sort`` template to take an optional comparison function
+   that changes the sort order.
+
+
 **Self Check**
 
 .. tabbed:: tab_check
@@ -176,53 +281,10 @@ during a pass.
          Suppose you have the following list of numbers to sort:
          [15, 5, 4, 18, 12, 19, 14, 10, 8, 20] which list represents the partially sorted list after three complete passes of insertion sort?
 
-Costs of Exchange Sorting
-=========================
-The running time for each of the sorts discussed so far is
-:math:`\Theta(n^2)` in the average and worst cases.
-The cost summary for the 
-:ref:`Insertion Sort<sort_insertion>`,
-:ref:`Bubble Sort<sort_bubble>`, and
-:ref:`Selection Sort<sort_selection>` 
-in terms of their required number of
-comparisons and swaps in the best, average, and worst cases is shown.
-
-.. math::
-
-   \begin{array}{rccc}
-   &\textbf{Insertion}&\textbf{Bubble}&\textbf{Selection}\\
-   \textbf{Comparisons:}\\
-   \textrm{Best Case}&\Theta(n)&\Theta(n^2)&\Theta(n^2)\\
-   \textrm{Average Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n^2)\\
-   \textrm{Worst Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n^2)\\
-   \\
-   \textbf{Swaps:}\\
-   \textrm{Best Case}&0&0&\Theta(n)\\
-   \textrm{Average Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n)\\
-   \textrm{Worst Case}&\Theta(n^2)&\Theta(n^2)&\Theta(n)\\
-   \end{array}
-
-The remaining sorting algorithms presented in this chapter are
-significantly better than these three under typical conditions.
-But before continuing on, it is instructive to investigate what makes
-these three sorts so slow.
-The crucial bottleneck is that only *adjacent* records are compared.
-Thus, comparisons and moves (for Insertion and Bubble Sort) are by
-single steps.
-Swapping adjacent records is called an :term:`exchange`.
-Thus, these sorts are sometimes referred to as an *exchange sort*.
-The cost of any exchange sort can be at best the total number of
-steps that the records in the array must move to reach their
-"correct" location.
-Recall that this is at least the number of
-inversions for the record. An :index:`inversion` occurs when a
-record with key value greater than the current record's key value
-appears before it.
-
-
 .. admonition:: More to Explore
 
-   - TBD
+   - `Top 5 beautiful C++ algorithms <http://www.bfilipek.com/2014/12/top-5-beautiful-c-std-algorithms.html>`__
+   - :wiki:`Insertion sort <Insertion_sort>`
 
 .. topic:: Acknowledgements
 

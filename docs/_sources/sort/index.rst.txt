@@ -27,15 +27,16 @@ so reviewing the chapter on :ref:`algorithm analysis <analysis_index>` may help.
 .. toctree::
    :maxdepth: 2
 
-   bubble.rst
-   selection.rst
-   insertion.rst
-   shell.rst
-   merge.rst
-   quick.rst
-   heap.rst
-   radix.rst
-   summary.rst
+   bubble
+   selection
+   insertion
+   exchange_cost_summary
+   shell
+   merge
+   quick
+   heap
+   radix
+   summary
 
 There are many, many sorting algorithms that have been developed and
 analyzed. This suggests that sorting is an important area of study in

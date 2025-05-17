@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>16. Sorting &#8212; CISC 187 Course Reader Overview</title>
+    <title>16.4. Costs of Exchange Sorting &#8212; CISC 187 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -36,8 +36,8 @@
 <script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="16.1. Bubble sort" href="bubble.html" />
-    <link rel="prev" title="14.7. The map class" href="../trees/map.html" />
+    <link rel="next" title="16.5. Shell sort" href="shell.html" />
+    <link rel="prev" title="16.3. Insertion sort" href="insertion.html" />
 
 
 <link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
@@ -170,14 +170,14 @@
         
         <!-- 
           
-  <li id="relations-prev" title="Previous Chapter - <span class="section-number">14.7. </span>The map class" data-toggle="tooltip">
-    <a href="../trees/map.html" >
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">16.3. </span>Insertion sort" data-toggle="tooltip">
+    <a href="insertion.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
   
-  <li id="relations-next" title='Next Chapter - <span class="section-number">16.1. </span>Bubble sort' data-toggle="tooltip" >              
-    <a href="bubble.html" >
+  <li id="relations-next" title='Next Chapter - <span class="section-number">16.5. </span>Shell sort' data-toggle="tooltip" >              
+    <a href="shell.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
   </li>
@@ -212,56 +212,65 @@
 
 
   
-  <section id="sorting">
-<span id="sort-index"></span><h1><span class="section-number">16. </span>Sorting<a class="headerlink" href="#sorting" title="Permalink to this heading">¶</a></h1>
-<p><strong>Sorting</strong> is the process of placing elements from a collection in some
-kind of order. For example, a list of words could be sorted
-alphabetically or by length. A list of cities could be sorted by
-population, by area, or by zip code. We have already seen a number of
-algorithms that were able to benefit from having a sorted list (recall
-the final anagram example and the binary search).</p>
-<p>This chapter introduces several sorting algorithms and their trade-offs.
-This chapter refers to relative algorithm performance,
-so reviewing the chapter on <a class="reference internal" href="../analysis/index.html#analysis-index"><span class="std std-ref">algorithm analysis</span></a> may help.</p>
-<div class="toctree-wrapper compound">
+  <section id="costs-of-exchange-sorting">
+<span id="exhange-costs"></span><h1><span class="section-number">16.4. </span>Costs of Exchange Sorting<a class="headerlink" href="#costs-of-exchange-sorting" title="Permalink to this heading">¶</a></h1>
+<p>The running time for each of the sorts discussed so far is
+<span class="math notranslate nohighlight">\(\Theta(n^2)\)</span> in the average and worst cases.
+The cost summary for the
+<a class="reference internal" href="insertion.html#sort-insertion"><span class="std std-ref">Insertion Sort</span></a>,
+<a class="reference internal" href="bubble.html#sort-bubble"><span class="std std-ref">Bubble Sort</span></a>, and
+<a class="reference internal" href="selection.html#sort-selection"><span class="std std-ref">Selection Sort</span></a>
+in terms of their required number of
+comparisons and swaps in the best, average, and worst cases is shown.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{rccc}
+&amp;\textbf{Insertion}&amp;\textbf{Bubble}&amp;\textbf{Selection}\\
+\textbf{Comparisons:}\\
+\textrm{Best Case}&amp;\Theta(n)&amp;\Theta(n^2)&amp;\Theta(n^2)\\
+\textrm{Average Case}&amp;\Theta(n^2)&amp;\Theta(n^2)&amp;\Theta(n^2)\\
+\textrm{Worst Case}&amp;\Theta(n^2)&amp;\Theta(n^2)&amp;\Theta(n^2)\\
+\\
+\textbf{Swaps:}\\
+\textrm{Best Case}&amp;0&amp;0&amp;\Theta(n)\\
+\textrm{Average Case}&amp;\Theta(n^2)&amp;\Theta(n^2)&amp;\Theta(n)\\
+\textrm{Worst Case}&amp;\Theta(n^2)&amp;\Theta(n^2)&amp;\Theta(n)\\
+\end{array}\end{split}\]</div>
+<p>The remaining sorting algorithms presented in this chapter are
+significantly better than these three under typical conditions.
+But before continuing on, it is instructive to investigate what makes
+these three sorts so slow.
+The crucial bottleneck is that only <em>adjacent</em> records are compared.
+Thus, comparisons and moves (for Insertion and Bubble Sort) are by
+single steps.
+Swapping adjacent records is called an <a class="reference internal" href="../glossary.html#term-exchange"><span class="xref std std-term">exchange</span></a>.
+Thus, these sorts are sometimes referred to as an <em>exchange sort</em>.
+The cost of any exchange sort can be at best the total number of
+steps that the records in the array must move to reach their
+“correct” location.
+Recall that this is at least the number of
+inversions for the record. An <span class="target" id="index-0"></span>inversion occurs when a
+record with key value greater than the current record’s key value
+appears before it.</p>
+<div class="admonition-more-to-explore admonition">
+<p class="admonition-title">More to Explore</p>
+<ul class="simple">
+<li><p>Last 3 sections:</p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="bubble.html">16.1. Bubble sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="selection.html">16.2. Selection sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="insertion.html">16.3. Insertion sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exchange_cost_summary.html">16.4. Costs of Exchange Sorting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shell.html">16.5. Shell sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="merge.html">16.6. Merge sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quick.html">16.7. Quick sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="heap.html">16.8. Heap sort</a></li>
-<li class="toctree-l1"><a class="reference internal" href="radix.html">16.9. Radix sort</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="radix.html#array-based-radix-sort">16.9.1. Array-based Radix Sort</a></li>
-<li class="toctree-l2"><a class="reference internal" href="radix.html#radix-sort-analysis">16.9.2. Radix Sort Analysis</a></li>
+<li><p><a class="reference internal" href="insertion.html#sort-insertion"><span class="std std-ref">Insertion Sort</span></a>,</p></li>
+<li><p><a class="reference internal" href="bubble.html#sort-bubble"><span class="std std-ref">Bubble Sort</span></a>, and</p></li>
+<li><p><a class="reference internal" href="selection.html#sort-selection"><span class="std std-ref">Selection Sort</span></a></p></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="summary.html">16.10. Summary of sorting algorithms</a></li>
+<li><p><a class="reference internal" href="../analysis/index.html#analysis-index"><span class="std std-ref">Algorithm Analysis</span></a></p></li>
 </ul>
 </div>
-<p>There are many, many sorting algorithms that have been developed and
-analyzed. This suggests that sorting is an important area of study in
-computer science. Sorting a large number of items can take a substantial
-amount of computing resources. Like searching, the efficiency of a
-sorting algorithm is related to the number of items being processed. For
-small collections, a complex sorting method may be more trouble than it’s
-worth. The overhead may be too high. On the other hand, for larger
-collections, we want to take advantage of as many improvements as
-possible. In this section we will discuss several sorting techniques and
-compare them with respect to their running time.</p>
-<p>Before getting into specific algorithms, we should think about the
-operations that can be used to analyze a sorting process. First, it will
-be necessary to compare two values to see which is smaller (or larger).
-In order to sort a collection, it will be necessary to have some
-systematic way to compare values to see if they are out of order. The
-total number of comparisons will be the most common way to measure a
-sort procedure. Second, when values are not in the correct position with
-respect to one another, it may be necessary to exchange them. This
-exchange is a costly operation and the total number of exchanges will
-also be important for evaluating the overall efficiency of the
-algorithm.</p>
+<aside class="topic">
+<p class="topic-title">Acknowledgements</p>
+<p>This section is adapted from
+<a class="reference external" href="https://opendsa-server.cs.vt.edu">Open Data Structures (OpenDSA)</a>
+by Ville Karavirta and Cliff Shaffer
+which is distributed under the <a class="reference external" href="https://github.com/OpenDSA/OpenDSA/blob/master/MIT-license.txt">MIT License</a>.</p>
+</aside>
 </section>
 
 
@@ -272,14 +281,14 @@ algorithm.</p>
   </div>
 
   <ul role="navigation" class="nextprev-list nextprev-list" aria-label="Change page">
-<li id="relations-prev" class="navLink" title='Previous Section - 14.7. The map class' data-toggle="tooltip">
-  <a href="../trees/map.html" aria-label="Previous - 14.7. The map class">
+<li id="relations-prev" class="navLink" title='Previous Section - 16.3. Insertion sort' data-toggle="tooltip">
+  <a href="insertion.html" aria-label="Previous - 16.3. Insertion sort">
     <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
   </a>
 </li>
 
-  <li id="relations-next" class="navLink" title='Next Section - 16.1. Bubble sort' data-toggle="tooltip" >
-    <a href="bubble.html" aria-label="Next - 16.1. Bubble sort">
+  <li id="relations-next" class="navLink" title='Next Section - 16.5. Shell sort' data-toggle="tooltip" >
+    <a href="shell.html" aria-label="Next - 16.5. Shell sort">
       <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
     </a>
   </li>
