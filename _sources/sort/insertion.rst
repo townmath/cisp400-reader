@@ -166,9 +166,9 @@ during a pass.
 I don't know why bubble sort in particular is such a popular question.
 The bubble sort: 
 
-   - is not particularly easy to memorize
-   - is not an obvious solution to the sorting problem
-   - performs rather badly - it's average performance is n-squared!
+- is not particularly easy to memorize
+- is not an obvious solution to the sorting problem
+- performs rather badly - it's average performance is n-squared!
 
 .. tabbed:: stl_exchange_sort
 
@@ -177,9 +177,9 @@ The bubble sort:
       If sorting does get asked and you can get past these points with a future employer,
       you might score some points with the following examples, which:
 
-        - are far easier to memorize and explain: the actual sort is only 2 lines
-        - even though still n-squared, is typically better in practice than bubble sort
-        - demonstrates familiarity with the standard library.
+      - are far easier to memorize and explain: the actual sort is only 2 lines
+      - even though still n-squared, is typically better in practice than bubble sort
+      - demonstrates familiarity with the standard library.
 
 
       .. activecode:: stl_exchange_sorts

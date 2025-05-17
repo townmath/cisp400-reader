@@ -137,16 +137,16 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'CISC 187 Textbook'
-copyright = '2017-2024 Dave Parillo'
+copyright = '2017-2025 Dave Parillo'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '3.1.0'
+version = '3.2.0'
 # The full version, including alpha/beta/rc tags.
-release = '0.0'
+release = version
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
