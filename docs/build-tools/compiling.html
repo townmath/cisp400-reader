@@ -317,20 +317,10 @@ current directory.</p>
 San Diego Mesa College server <strong>buffy</strong>.
 Access is only available using a <em>secure shell</em> client program (ssh).
 There are a few ways to access the server using <code class="docutils literal notranslate"><span class="pre">ssh</span></code>.
-If you have a MacOS or Linux computer available already, then you already have ssh installed.
-If you have a Windows computer,
-then <a class="reference external" href="https://git-scm.com">git</a> is recommended.
-Technically, <code class="docutils literal notranslate"><span class="pre">git</span></code> is a source code revision control program,
-but it also provides a minimal GNU/Linux environment.
-Not too surprising, since the creator, Linus Torvalds,
-is also the creator of Linux).</p>
-<p>Another good choice for an SSH
-client if you run Microsoft Windows is PuTTY:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.chiark.greenend.org.uk/~sgtatham/putty/
-</pre></div>
-</div>
-<p>In <code class="docutils literal notranslate"><span class="pre">git</span></code> you would type the following in the <em>GIT Bash</em>
-to connect to the server:</p>
+Unless you have a very old computer, then you already have ssh installed.</p>
+<p>Open Git Bash, or a terminal window, or Power Shell, depending on your
+operating system.
+Then type the following in the <em>GIT Bash</em> to connect to the server:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ssh fireNN@209.129.16.61
 </pre></div>
 </div>
@@ -346,6 +336,7 @@ then you may compile the software and run tests.</p>
 <p class="admonition-title">Note</p>
 <p>All of these steps are demonstrated on a <cite>*nix</cite> style operating system:
 GNU/Linux, Unix, MacOS, or Cygwin on Windows.</p>
+<p>It also assumes you have already cloned your assignments repository.</p>
 </div>
 <ol class="arabic">
 <li><p>First, open a terminal since all of the command that follow are typed
@@ -356,6 +347,7 @@ on the command line.</p></li>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd cisc187-sp23-fire40/lab01-hello
 </pre></div>
 </div>
+<p>Your fire number and semester will be different.</p>
 <p>If you do not have a directory starting with <code class="docutils literal notranslate"><span class="pre">cisc187-</span></code>
 in your home directory then clone your repository.</p>
 </li>
@@ -690,7 +682,7 @@ CPU and memory locally.
 Most of the resources you are using are on the remote server.
 It is also the easiest to access.
 All the software you need is already installed on the server.
-You only need a ssh client.</p>
+You only need an ssh client.</p>
 <p>The main drawbacks are:</p>
 <ul class="simple">
 <li><p>You have no control over the environment - you don’t own the server.</p></li>

@@ -169,13 +169,13 @@ To create an SSH key do the following:
 
    .. code-block:: none
 
-      Enter file in which to save the key (/var2/home/fire/fire40/.ssh/id_ed25519):
+      Enter file in which to save the key (/home/students/fire/fire40/.ssh/id_ed25519):
 
    You should see:
 
    .. code-block:: none
 
-      Created directory '/var2/home/fire/fire40/.ssh'.
+      Created directory '/home/students/fire/fire40/.ssh'.
 
 #. At the prompt, type a secure passphrase. 
    For more information, see 
@@ -196,7 +196,6 @@ To create an SSH key do the following:
 
    Make note of that, as you'll need it in the next steps.
 
-
 To configure your GitHub account to use your SSH key,
 you'll also need to add it to your GitHub account.
 
@@ -204,11 +203,11 @@ you'll also need to add it to your GitHub account.
 
    .. code-block:: none
 
-      cat /var2/home/fire/fireNN/.ssh/id_ed25519.pub
+      cat ~/.ssh/id_ed25519.pub
 
    This command will display the contents of your public key
-   (change NN to your fire number)
    which you can then copy and paste in the browser.
+   The ``~`` is just an alias for your home directory.
 
    .. caution:: **Private keys are sensitive data!**
 
@@ -225,7 +224,7 @@ you'll also need to add it to your GitHub account.
       it and create a new one.
 
 
-#. In the upper-right corner of any page, click your profile photo, 
+#. In the upper-right corner of any page on GitHub, click your profile photo, 
    then click **Settings**.
 #. In the user settings sidebar, click **SSH and GPG keys**.
 #. Click **New SSH key** or **Add SSH key**.
@@ -352,7 +351,7 @@ you will not be able to see it again.
 
    A PAT is not your password, but it provides access to your source code.
 
-   If you think your token has been comprimised, delete it on GitHub
+   If you think your token has been compromised, delete it on GitHub
    and make a new token.
 
 

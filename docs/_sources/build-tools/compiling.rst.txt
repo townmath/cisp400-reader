@@ -133,23 +133,11 @@ All projects and some of the lab assignments are required to be handed in on the
 San Diego Mesa College server **buffy**.
 Access is only available using a *secure shell* client program (ssh).
 There are a few ways to access the server using ``ssh``.
-If you have a MacOS or Linux computer available already, then you already have ssh installed.
-If you have a Windows computer, 
-then `git <https://git-scm.com>`__ is recommended.
-Technically, ``git`` is a source code revision control program,
-but it also provides a minimal GNU/Linux environment.
-Not too surprising, since the creator, Linus Torvalds, 
-is also the creator of Linux).
+Unless you have a very old computer, then you already have ssh installed.
 
-Another good choice for an SSH
-client if you run Microsoft Windows is PuTTY:
-
-.. code-block:: none
-
-   http://www.chiark.greenend.org.uk/~sgtatham/putty/
-
-In ``git`` you would type the following in the *GIT Bash* 
-to connect to the server:
+Open Git Bash, or a terminal window, or Power Shell, depending on your
+operating system.
+Then type the following in the *GIT Bash* to connect to the server:
 
 .. code-block:: none
 
@@ -174,6 +162,8 @@ then you may compile the software and run tests.
    All of these steps are demonstrated on a `*nix` style operating system:
    GNU/Linux, Unix, MacOS, or Cygwin on Windows.
 
+   It also assumes you have already cloned your assignments repository.
+
 1. First, open a terminal since all of the command that follow are typed
    on the command line.
 2. Login to the Mesa server using ``ssh``.
@@ -184,6 +174,8 @@ then you may compile the software and run tests.
    .. code-block:: none
 
       cd cisc187-sp23-fire40/lab01-hello
+
+   Your fire number and semester will be different.
 
    If you do not have a directory starting with ``cisc187-`` 
    in your home directory then clone your repository.
@@ -602,7 +594,7 @@ So how are these options really different from each other?
    Most of the resources you are using are on the remote server.
    It is also the easiest to access.
    All the software you need is already installed on the server.
-   You only need a ssh client.
+   You only need an ssh client.
 
    The main drawbacks are:
 

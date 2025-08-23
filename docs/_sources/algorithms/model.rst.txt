@@ -70,14 +70,14 @@ so we decide right away that it should be written as a free function:
 
       .. literalinclude:: my_find.txt
          :language: cpp
-         :lines: 11,12
+         :lines: 12,13
          :dedent: 3
 
       and loop over the entire container:
 
       .. literalinclude:: my_find.txt
          :language: cpp
-         :lines: 13-15
+         :lines: 14-16
          :dedent: 5
 
    .. tab:: Run It
