@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Random numbers &#8212; CISC 187 Course Reader Overview</title>
+    <title>Random numbers &#8212; CISP 400 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -40,7 +40,7 @@
     <link rel="prev" title="Types" href="types.html" />
 
 
-<link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+<link rel="shortcut icon" href="/cisp400-reader/static/favicon.ico" type="image/ico" />
 
 
 
@@ -49,16 +49,16 @@
 
 <script>
   eBookConfig = {};
-  
+
     eBookConfig.useRunestoneServices = false;
-    eBookConfig.host = 'https://daveparillo.github.io/cisc187-reader/' || 'http://127.0.0.1:8000';
-    eBookConfig.app = eBookConfig.host+'/cisc187-reader';
-    eBookConfig.course = 'cisc187-reader';
-    eBookConfig.basecourse = 'cisc187-reader';
+    eBookConfig.host = 'https://townmath.github.io/cisp400-reader/' || 'http://127.0.0.1:8000';
+    eBookConfig.app = eBookConfig.host+'/cisp400-reader';
+    eBookConfig.course = 'cisp400-reader';
+    eBookConfig.basecourse = 'cisp400-reader';
     eBookConfig.isLoggedIn = false;
     eBookConfig.enableCompareMe = eBookConfig.useRunestoneServices;
     eBookConfig.new_server_prefix = '';
-  
+
   eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
   eBookConfig.logLevel = 0;
   eBookConfig.loginRequired = false;
@@ -95,13 +95,13 @@
       </button>
 
       <div>
-        
-        
+
+
           <div class="brand-logo"><img src="../_static/img/RAIcon.png" alt=""></div>
-        
+
         <a class="navbar-brand" href="../index.html" aria-label="index-page">
-          
-          cisc187-reader
+
+          cisp400-reader
         </a>
       </div>
     </div>
@@ -123,9 +123,9 @@
             <i class="glyphicon glyphicon-search" style='opacity:0.9;'><span class="visuallyhidden" aria-label="Search">Search</span></i>
           </a>
           <ul class='dropdown-menu'>
-            
+
                 <li><a href='../index.html' aria-label="index-page">Table of Contents</a></li>
-            
+
             <li><a href='../genindex.html'>Book Index</a></li>
             <li class="divider"></li>
             <li style="width: 240px;">
@@ -148,7 +148,7 @@
 
         <li class="divider-vertical"></li>
 
-        
+
         <li class="divider-vertical"></li>
         <!-- <li id="scratch_ac_link"><a href="javascript:ACFactory.toggleScratchActivecode()">Scratch ActiveCode</a></li> -->
 
@@ -159,24 +159,24 @@
 
         <li class="divider-vertical"></li>
 
-        
+
       </ul>
 
       <ul class="nav navbar-nav">
         <li class="divider-vertical"></li>
-        
-          
+
+
           <li class="divider-vertical"></li>
-        
-        <!-- 
-          
+
+        <!--
+
   <li id="relations-prev" title="Previous Chapter - Types" data-toggle="tooltip">
     <a href="types.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
-  
-  <li id="relations-next" title='Next Chapter - Code comments' data-toggle="tooltip" >              
+
+  <li id="relations-next" title='Next Chapter - Code comments' data-toggle="tooltip" >
     <a href="comments.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -195,9 +195,9 @@
   });
 </script>
         -->
-        
+
           <li></li>
-        
+
       </ul>
       </div> <!-- navbar-collapse -->
     </div> <!-- navbar -->
@@ -211,7 +211,7 @@
 <!-- Ad Serving for Runestone Campaign -->
 
 
-  
+
   <section id="random-numbers">
 <span id="random"></span><h1>Random numbers<a class="headerlink" href="#random-numbers" title="Permalink to this heading">¶</a></h1>
 <p id="index-0">Most computer programs do the same thing every time they are executed,
@@ -238,9 +238,9 @@ of the standard library.</p>
 <p>Take a look at the active code below, which generates 4 random numbers.</p>
 
 </div>
-<textarea data-lang="cpp" id="random_numbers_AC_1_editor" 
-      data-timelimit=25000     
-    data-audio=''      
+<textarea data-lang="cpp" id="random_numbers_AC_1_editor"
+      data-timelimit=25000
+    data-audio=''
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
      style="visibility: hidden;">
 #include <iostream>
@@ -298,13 +298,13 @@ for pseudorandom engines, since it is such an important topic.</p>
 <code class="docutils literal notranslate"><span class="pre">std::uniform_int_distribution</span></code>?</p>
 
     <li data-component="answer" data-correct='yes' id="random_numbers_2_opt_a">cstdlib</li><li data-component="feedback">Correct!</li>
-    
+
     <li data-component="answer"  id="random_numbers_2_opt_b">random</li><li data-component="feedback">Incorrect!</li>
-    
+
     <li data-component="answer"  id="random_numbers_2_opt_c">cmath</li><li data-component="feedback">Incorrect!</li>
-    
+
     <li data-component="answer"  id="random_numbers_2_opt_d">iostream</li><li data-component="feedback">Incorrect!</li>
-    
+
 
     </ul>
     </div>
@@ -338,7 +338,7 @@ The return value is not stored.</p></li><li data-component="answer"  id="random_
 </section>
 
 
-  
+
 
   <div id="scprogresscontainer">
     You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
@@ -369,9 +369,9 @@ window.addEventListener('load', (event) => {
 <footer class="footer">
   <div class="container">
     <p class="pull-right">
-      
+
       | <a href="#">Back to top</a>
-      
+
     </p>
     <p>
         &copy; Copyright 2017-2025 Dave Parillo.
