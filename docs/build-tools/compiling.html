@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>1.3. Building software &#8212; CISC 187 Course Reader Overview</title>
+    <title>1.1. Building software &#8212; CISP 400 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -40,7 +40,7 @@
     <link rel="prev" title="1.2. Using Git" href="git-using.html" />
 
 
-<link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+<link rel="shortcut icon" href="/cisp400-reader/static/favicon.ico" type="image/ico" />
 
 
 
@@ -51,10 +51,10 @@
   eBookConfig = {};
   
     eBookConfig.useRunestoneServices = false;
-    eBookConfig.host = 'https://daveparillo.github.io/cisc187-reader/' || 'http://127.0.0.1:8000';
-    eBookConfig.app = eBookConfig.host+'/cisc187-reader';
-    eBookConfig.course = 'cisc187-reader';
-    eBookConfig.basecourse = 'cisc187-reader';
+    eBookConfig.host = 'https://daveparillo.github.io/cisp400-reader/' || 'http://127.0.0.1:8000';
+    eBookConfig.app = eBookConfig.host+'/cisp400-reader';
+    eBookConfig.course = 'cisp400-reader';
+    eBookConfig.basecourse = 'cisp400-reader';
     eBookConfig.isLoggedIn = false;
     eBookConfig.enableCompareMe = eBookConfig.useRunestoneServices;
     eBookConfig.new_server_prefix = '';
@@ -101,7 +101,7 @@
         
         <a class="navbar-brand" href="../index.html" aria-label="index-page">
           
-          cisc187-reader
+          cisp400-reader
         </a>
       </div>
     </div>
@@ -213,14 +213,13 @@
 
   
   <section id="building-software">
-<span id="index-0"></span><h1><span class="section-number">1.3. </span>Building software<a class="headerlink" href="#building-software" title="Permalink to this heading">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">1.1. </span>Building software<a class="headerlink" href="#building-software" title="Permalink to this heading">¶</a></h1>
 <p>In this section we will learn one way to compile and run programs.
-If you plan to use the Mesa Linux server,
+If you plan to use the SCC Linux server,
 then this section describes what you need to know.
 If you plan to use other programs to compile and run your programs
-you <strong>still</strong> need to review at least the section describing
-<a class="reference external" href="https://cmake.org">CMake</a>.
-All of the labs and projects use the <em>CMake</em> build system.</p>
+you <strong>still</strong> need this section because most of the projects
+require that you use the Linux Server for testing prior to submission.</p>
 <p>What do we really mean when we say “build software”?
 A <strong>software build</strong> (when used as a verb)
 is the process of converting a set of <strong>text</strong> and
@@ -243,41 +242,6 @@ into a language specific one</p></li>
 We generally do not perform these conversions manually, we use tools.</p>
 <p>In this class we will be using a core set of tools to build and test programs:</p>
 <dl>
-<dt>CMake</dt><dd><p>An open-source, cross-platform family of tools designed to build,
-test and package software.
-CMake is used to control the software compilation process using simple platform
-and compiler independent configuration files.
-It generates native makefiles, projects, and workspaces
-that can be used in the compiler environment of your choice.</p>
-</dd>
-<dt>Clang</dt><dd><p>The Clang project provides a language front-end and tooling infrastructure for
-languages in the C language family.
-For our purposes the Clang project provides:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">clang</span></code>: a C compiler</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">clang++</span></code>: a C++ compiler</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">clang-tidy</span></code>: a C++ “linter”</p>
-<p>A linting tools is a program that analyzes your source code statically
-(without running it) to check for possible issues or bugs.</p>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">clang-format</span></code>: a source code (re) formatter.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lldb</span></code>: a debugger.</p>
-<p>A debugger is a program that allows you to control and view internal
-details of your program.
-You can pause execution, view or change variables, and see source code.
-As the name implies, the tool is usually used to help find and fix bugs.</p>
-</li>
-</ul>
-<p>There are many other tools in the Clang suite, but these are the ones
-you’ll interact with most often.</p>
-<p>Clang is the default compiler on MacOS and is an option
-on most Linux based systems.</p>
-</dd>
-<dt>Doctest</dt><dd><p><a class="reference external" href="https://github.com/onqtam/doctest/blob/master/doc/markdown/tutorial.md">doctest</a>
-is a fast C++ testing framework based on the popular
-<a class="reference external" href="https://github.com/catchorg/Catch2">Catch Unit Test</a> framework.
-Most labs use doctest to assess your work as you progress through the lab.</p>
-</dd>
 <dt>GCC</dt><dd><p>The GNU Compiler Collection (GCC) provides a tooling infrastructure for
 C, C++, FORTRAN, and a few other languages.
 For our purposes GCC provides:</p>
@@ -288,268 +252,224 @@ For our purposes GCC provides:</p>
 </ul>
 <p>GCC is the default compiler for most Unix and Linux based systems.</p>
 </dd>
-<dt>Git</dt><dd><p><a class="reference external" href="https://git-scm.com">Git</a> is a distributed version-control system
-for tracking changes in source code during software development.
-It is designed for coordinating work among programmers,
-but it can be used to track changes in any set of files.</p>
-</dd>
 <dt>Make</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">make</span></code> program is a tool used to help make things.
 Using <em>make</em> we define <em>targets</em> in a text file and each <em>target</em>
 runs a <em>recipe</em>.
 Using targets and recipes in combination allows make to perform many
-complex tasks automatically.</p>
+complex tasks automatically. Many of your projects will come with 
+a <i>makefile</i> to help make your life easier.</p>
 </dd>
 </dl>
 <p>On Linux based systems these tools work together like this:</p>
 <ul>
-<li><p>We use <code class="docutils literal notranslate"><span class="pre">git</span></code> to download the latest copy of our code.</p></li>
-<li><p>We use <code class="docutils literal notranslate"><span class="pre">CMake</span></code> to create our build files, which are generally Makefiles.</p></li>
-<li><p>Once the Makefile has been created, we use <code class="docutils literal notranslate"><span class="pre">make</span></code> to perform tasks.
+<li><p>We use <code class="docutils literal notranslate"><span class="pre">ftp</span></code> to upload the latest copy of our code and the Makefile.</p></li>
+<li><p>We use <code class="docutils literal notranslate"><span class="pre">make</span></code> to perform tasks.
 The simplest command <code class="docutils literal notranslate"><span class="pre">make</span></code> will try to build all the software in the
 current directory.</p>
-<p>Make will use either <code class="docutils literal notranslate"><span class="pre">gcc</span></code> or <code class="docutils literal notranslate"><span class="pre">clang</span></code> to actually compile code.</p>
+<p>Make will use either <code class="docutils literal notranslate"><span class="pre">gcc</span></code> or <code class="docutils literal notranslate"><span class="pre">g++</span></code> to actually compile code.</p>
 </li>
-<li><p>Test cases are written using the <code class="docutils literal notranslate"><span class="pre">doctest</span></code> library and build using <code class="docutils literal notranslate"><span class="pre">make</span></code>.</p></li>
+<li><p>When test cases are provided we'll still build using <code class="docutils literal notranslate"><span class="pre">make</span></code>. Note: test cases check for basic functionality I'll use a more robust testing script when grading.  It is your job to make sure your code meets all of the requirements.  </p></li>
 </ul>
-<section id="how-to-access-the-mesa-server">
-<span id="index-1"></span><h2><span class="section-number">1.3.1. </span>How to access the Mesa Server<a class="headerlink" href="#how-to-access-the-mesa-server" title="Permalink to this heading">¶</a></h2>
-<p>All projects and some of the lab assignments are required to be handed in on the
-San Diego Mesa College server <strong>buffy</strong>.
+<section id="how-to-access-the-linux-server">
+<span id="index-1"></span><h2><span class="section-number">1.1.1. </span>How to access the Linux Server<a class="headerlink" href="#how-to-access-the-linux-server" title="Permalink to this heading">¶</a></h2>
+<p>All projects and some of the lab assignments are required to be run on the
+Sacramento City College Linux server.
 Access is only available using a <em>secure shell</em> client program (ssh).
 There are a few ways to access the server using <code class="docutils literal notranslate"><span class="pre">ssh</span></code>.
 Unless you have a very old computer, then you already have ssh installed.</p>
-<p>Open Git Bash, or a terminal window, or Power Shell, depending on your
+<p>Open a terminal window, or Power Shell, depending on your
 operating system.
-Then type the following in the <em>GIT Bash</em> to connect to the server:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ssh fireNN@209.129.16.61
+Then type the following at the <em>prompt</em> to connect to the server:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ssh username@cis.scc.losrios.edu
 </pre></div>
 </div>
-<p>where <em>fireNN*</em> is the user name assigned to you by the instructor.</p>
+<p>where <em>username</em> is the user name assigned to you by the instructor.  Then enter your password. 
+Note: passwords are invisible in Linux so it will appear as though you are not typing anything. </p> 
 </section>
-<section id="for-the-impatient-a-quick-summary">
-<span id="index-2"></span><h2><span class="section-number">1.3.2. </span>For the impatient: A quick summary<a class="headerlink" href="#for-the-impatient-a-quick-summary" title="Permalink to this heading">¶</a></h2>
-<p>Lab build files are generated using
-<a class="reference external" href="https://cmake.org">CMake</a>.
-Once you have a build file generated for your particular environment,
+<section id="a-quick-summary">
+<span id="index-2"></span><h2><span class="section-number">1.1.2. </span>A quick summary<a class="headerlink" href="#a-quick-summary" title="Permalink to this heading">¶</a></h2>
+<p>For your reference. 
+Once you have uploaded your code and the makefile (and somethings the test code) via ftp,
 then you may compile the software and run tests.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>All of these steps are demonstrated on a <cite>*nix</cite> style operating system:
-GNU/Linux, Unix, MacOS, or Cygwin on Windows.</p>
-<p>It also assumes you have already cloned your assignments repository.</p>
-</div>
 <ol class="arabic">
 <li><p>First, open a terminal since all of the command that follow are typed
 on the command line.</p></li>
-<li><p>Login to the Mesa server using <code class="docutils literal notranslate"><span class="pre">ssh</span></code>.</p></li>
-<li><p>Once logged in, change directory to the folder containing a lab</p>
+<li><p>Login to the Linux server using <code class="docutils literal notranslate"><span class="pre">ssh</span></code>.</p></li>
+<li><p>Once logged in, change directory to the folder containing your code</p>
 <p>For example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd cisc187-sp23-fire40/lab01-hello
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd cisp400/lab01-hello
 </pre></div>
 </div>
-<p>Your fire number and semester will be different.</p>
-<p>If you do not have a directory starting with <code class="docutils literal notranslate"><span class="pre">cisc187-</span></code>
-in your home directory then clone your repository.</p>
+<p>If you do not have a directory type <code class="docutils literal notranslate"><span class="pre">mkdir foldername</span></code>
+where you want the directory to be (then you can cd into it).</p>
 </li>
-<li><p>Create a new directory to hold the build files and
-have <code class="docutils literal notranslate"><span class="pre">cmake</span></code> generate the makefiles:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># make a directory to store build output and configure
-mkdir build
-cd build
-cmake ..
+<li><p>Use make to compile your code and then run it
+<div class="highlight-none notranslate"><div class="highlight"><pre>
+make
+make run
 </pre></div>
 </div>
-<p>You only need to do this step once when you make the build
-directory initially.</p>
-</li>
-<li><p>Now you can build the project:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>make
-</pre></div>
-</div>
-<p>and run the tests</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>make test
-</pre></div>
-</div>
+<p>If the code just needs small changes you can edit in Linux using  <code class="docutils literal notranslate"><span class="pre">nano</span></code> (see below).  If it needs a log of debugging, 
+it is usually easier to fix it using your IDE of choice and then reuploading it.</p>
 </li>
 </ol>
-<p>That it!</p>
-<p>There are many ways to run cmake and steps 4 and 5 above are what you commonly
-see on the internet. One alternative is:</p>
-<blockquote>
-<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span># make a directory to store build output and configure
-cmake -S /path/to/lab01-hello -B build
+<p>That's it!</p>
+</section>
+<section id="list-of-linux-commands">
+<span id="index-2"></span><h2><span class="section-number">1.1.3. </span>List of Useful Linux Commands<a class="headerlink" href="#list-of-linux-commands" title="Permalink to this heading">¶</a></h2>
+<h3>Command Format</h3>
+<P>Unix commands are intentionally short, often only two or three characters in length, in order to minimize typing. </P>
+<P>The general format for a Unix command is: </P>
+<PRE>
+&#9;cmd -options other arguments</PRE>
+<P>where "cmd" is the name of some command followed by a number of options or other arguments. </P>
+<P>Options are generally single characters that represent specific options. The minus sign "<B>-</B>" should be entered before an option. Observe the format of the option in the "man" command in the following table. </P>
+<P>Unix is <B>case-sensitive</B>, so be sure you enter the options and arguments in the proper case. Generally lower case is used for commands. 
+
+<p>
+<p>
+<h3>Basic Commands</h3>
+<P>A few commands you should become familiar with: </P>
+<TABLE BORDER CELLSPACING=1 WIDTH=624>
+<TR><TD VALIGN="MIDDLE">
+<P><B>cd</B> <I>path</I> </TD>
+<TD VALIGN="MIDDLE">
+<B><P>c</B>hange <B>d</B>irectory. </TD>
+</TR>
+
+<TR><TD VALIGN="MIDDLE">
+<B><P>cp</B> <I>path1 path2</I> </TD>
+<TD VALIGN="MIDDLE">
+<B><P>C</B>o<B>p</B>y file(s). </TD>
+</TR>
+
+<TR><TD VALIGN="MIDDLE">
+<B><P>chmod</B> <I>permissions path</I> </TD>
+<TD VALIGN="MIDDLE">
+<B><P>ch</B>ange the <B>mod</B>e, the permissions, on a file or directory. 
+<br><b>chmod 755 <i>file</i></b> sets the file permissions to:
+<b>rwx r-x r-x</b>
+<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+Owner read, write, execute
+<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+Group read, <b>no</b> write, execute
+<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+World read, <b>no</b> write, execute
+<br><b>chmod 700 <i>file</i></b> sets the file permissions to:
+<b>rwx --- ---</b>
+<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+Owner read, write, execute
+<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+Group <b>no</b> read, <b>no</b> write, <b>no</b> execute
+<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+World <b>no</b> read, <b>no</b> write, <b>no</b> execute
+<br><b>(Binary bells should be ringing in your head by now.)
+</TD>
+</TR>
+<TR><TD VALIGN="MIDDLE">
+<B><P>ftp</B> </TD>
+<TD VALIGN="MIDDLE">
+<P>call up the "ftp" (<B>f</B>ile <B>t</B>ransfer <B>p</B>rotocol) program. </TD>
+</TR>
 
 
-# build the project
-cmake --build build
+<TR><TD VALIGN="MIDDLE">
+<B><P>ls</B> </TD>
+<TD VALIGN="MIDDLE">
+<P>to get a <B>l</B>i<B>s</B>ting of files in a directory <BR>
+<B>ls -l</B> gives a <I>long</I> listing, showing permissions. </TD>
+</TR>
+<TR><TD VALIGN="MIDDLE">
+<B><P>man</B> <I>command</I> </TD>
+<TD VALIGN="MIDDLE">
+<P>to get a Unix <B>Man</B>ual entry for a command. <BR>
+e.g. man passwd </TD>
+</TR>
+<TR><TD VALIGN="MIDDLE">
+<P><b>man -k</b> <i>topic</i> </TD>
+<TD VALIGN="MIDDLE">
+<P>use the -k option to find all the entries for a specific topic. <BR>
+e.g. man -k password </TD>
+</TR>
+<TR><TD VALIGN="MIDDLE">
+<B><P>mkdir</B> <I>path</I> </TD>
+<TD VALIGN="MIDDLE">
+<B><P>m</B>a<B>k</B>e a <B>dir</B>ectory </TD>
+</TR>
 
+<TR><TD VALIGN="MIDDLE">
+<B><P>more</B> <I>file</I></TD>
+<TD VALIGN="MIDDLE">
+<b>more</b> prints <i>file</i> to the screen and pauses the output
+when the screen is full.  You can view the next screenful or just the
+next line.  Look for the instructions at the bottom of the screen.
+Enter <b>q</b> to exit <b>more</b>. For help type <b>h</b></TD> </TR>
 
-# run the tests
-cmake --build build --target test
-</pre></div>
-</div>
-</div></blockquote>
-<p>This video demonstrates these steps and shows what normal results should look like.</p>
+<TR><TD VALIGN="MIDDLE">
+<I>command</I><B> | more</B> </TD> 
+<TD VALIGN="MIDDLE"> When the <i>command</i> is executed <b>|</b>
+passes its output to <b>more</b> which pauses the output when the
+screen is full. You can now treat the output like a file as above.</TD> </TR>
 
-    <div class="runestone " style="margin-left: auto; margin-right:auto">
-        <div id="nQ31ApyU7_o" data-component="youtube" class="align-center youtube-video"
-            data-video-height="281" data-question_label="1.3.2.1"
-            data-video-width="500" data-video-videoid="nQ31ApyU7_o"
-            data-video-divid="nQ31ApyU7_o" data-video-start="0"
-            data-video-end="-1" ></div>
-    </div>
-    <p>Most of the time you’ll just be compiling code and running lab tests:</p>
-<ul class="simple">
-<li><p><cite>cd build</cite></p></li>
-<li><p><cite>make</cite></p></li>
-<li><p><cite>make test</cite></p></li>
-</ul>
-<p>The make target <code class="docutils literal notranslate"><span class="pre">test</span></code> runs <strong>all</strong> the tests.
-Usually when working on a lab, you just want to compile and test that step.
-All labs are ‘chunked’ into steps with a separate test program to test it.</p>
-<p>You can compile a single test step by referring to the numbered lab step,
-for example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>make step1
-</pre></div>
-</div>
-<p>You can run a single test using either the <code class="docutils literal notranslate"><span class="pre">make</span></code> target provided
-or by running the test using the <code class="docutils literal notranslate"><span class="pre">ctest</span></code> program provided by <code class="docutils literal notranslate"><span class="pre">CMake</span></code>.
-for example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>test/step1
-ctest -R step1
-</pre></div>
-</div>
-<p>Both of these commands return the exact same output.</p>
+<TR><TD VALIGN="MIDDLE">
+<B><P>mv</B> <I>path1 path2</I> </TD>
+<TD VALIGN="MIDDLE">
+<B><P>m</B>o<B>v</B>e file(s).  The original file is deleted.</TD>
+</TR>
+<TR><TD VALIGN="MIDDLE">
+<B><P>nano</B> file.txt </TD>
+<TD VALIGN="MIDDLE">
+<P>call up the nano text editor, if file.txt doesn't exist it will be created. </TD>
+</TR>
+<TR><TD VALIGN="MIDDLE">
+<B><P>passwd</B> </TD>
+<TD VALIGN="MIDDLE">
+<P>change your Unix password. </TD>
+</TR>
+<TR><TD VALIGN="MIDDLE">
+<B><P>pwd</B> </TD>
+<TD VALIGN="MIDDLE">
+<B><P>p</B>rint <B>w</B>orking <B>d</B>irectory, i.e. show current path. <BR>
+In other words: where am I in the Unix file system. </TD>
+</TR>
+<TR><TD VALIGN="MIDDLE">
+<B><P>rm</B> <I>path</I> </TD>
+<TD VALIGN="MIDDLE">
+<P>to delete (<B>r</B>e<B>m</B>ove) a file </TD>
+</TR>
+<TR><TD VALIGN="MIDDLE">
+<B><P>rmdir</B> <I>path</I> </TD>
+<TD VALIGN="MIDDLE">
+<P>to delete (<B>r</B>e<B>m</B>ove) a <B>dir</B>ectory. </TD>
+</TR>
+</TABLE> 
+<p>Unix Commands Copyright: Department of Computer Science, University of Regina.</p><BR>
+
 </section>
 </section>
 <section id="compiling-code-on-your-local-computer">
-<span id="local-compile-label"></span><span id="index-3"></span><h1><span class="section-number">1.4. </span>Compiling code on your local computer<a class="headerlink" href="#compiling-code-on-your-local-computer" title="Permalink to this heading">¶</a></h1>
+<span id="local-compile-label"></span><span id="index-3"></span><h1><span class="section-number">1.2. </span>Compiling code on your local computer<a class="headerlink" href="#compiling-code-on-your-local-computer" title="Permalink to this heading">¶</a></h1>
 <p>The following sections describe briefly how to get started with
 a local development environment, if you wish.
 One of the primary motivations for building locally is to avoid
 a persistent internet connection running your SSH session.</p>
 <p>If you have bad or intermittent internet connectivity,
 then this section is for you.</p>
-<p>If you plan to use the Mesa server,
+<p>If you plan to exclusively use the Linux server,
 then you can ignore the rest of this section.</p>
 <p>As with all things C++, you have choices.
 The options described here do not represent all of the many ways
 one might build C++ programs locally, but are common choices
 on Windows and MacOS machines.</p>
-<p>In most cases, you still need to install
-<a class="reference external" href="https://git-scm.com">git</a> and
-<a class="reference external" href="https://cmake.org">CMake</a>.</p>
-<p>This book does <strong>not</strong> explain how to install these <a class="reference internal" href="../glossary.html#term-IDE"><span class="xref std std-term">IDE’s</span></a>.
-Use the documentation provided with your IDE for that.</p>
-<section id="compiling-using-the-cisc187-docker-image">
-<span id="index-4"></span><h2><span class="section-number">1.4.1. </span>Compiling using the CISC187 Docker image<a class="headerlink" href="#compiling-using-the-cisc187-docker-image" title="Permalink to this heading">¶</a></h2>
-<p>Use git to clone your assignments repository to your computer.</p>
-<p>The CISC187 Docker image provides an environment much like the
-development environment on the Mesa server, but locally.
-The main difference between the docker image and the Mesa server
-is that the compilers on the docker image are much newer and include
-support for up to some C++20 features.</p>
-<p>Currently, two compilers are installed on the image:</p>
-<ul class="simple">
-<li><p>GCC 14</p></li>
-<li><p>Clang 17</p></li>
-</ul>
-<p>along with support tools, debuggers, vim plugins, and checking scripts
-that are installed on the Mesa server.</p>
-<div id='tab_docker' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="Install" >
-<p>In order to use the docker image, you first need to
-<a class="reference external" href="https://docs.docker.com/get-docker/">install docker</a>
-for your operating system.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Windows operating system requirements</p>
-<p>Windows 10 Professional or Enterprise is required for Docker on Windows
-using Hyper-V.</p>
-<p>Docker uses a hypervisor with a VM, and the host server (your computer)
-must support virtualization.
-Since older Windows versions and Windows 10 Home edition do not support
-Hyper-V.</p>
-<p>For Windows Home or Education builds running under WSL2 is an option.
-See the install documentation for details.</p>
-<p>In any Windows build at least 4GB available RAM is recommended.</p>
-</div>
-<p>Once docker is installed, open a Terminal window,
-or on Windows, a Powershell terminal and type:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker pull dparillo/cisc187
-</pre></div>
-</div>
-<p>This command will download the CISC187 docker image
-and make it available to run.</p>
-</div><div data-component="tab" data-tabname="Run" >
-<p>To run the docker image on windows type:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run --rm -it -v C:\Path\To\Source\Directory:/mnt/cisc187 dparillo/cisc187
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>An important thing to notice is when mounting a volume with <code class="docutils literal notranslate"><span class="pre">-v</span></code>
-on Windows, the Windows part, left of the <code class="docutils literal notranslate"><span class="pre">:</span></code> uses Windows
-Path separator characters (<code class="docutils literal notranslate"><span class="pre">\</span></code>), and on the Linux side, Linux
-Path separator characters are used (<code class="docutils literal notranslate"><span class="pre">/</span></code>).
-The Windows file path must include the drive letter.</p>
-</div>
-<p>The same command on Mac or Linux:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run --rm -it -v /path/to/source:/mnt/cisc187 dparillo/cisc187
-</pre></div>
-</div>
-<p>Meaning of these options:</p>
-<dl>
-<dt><code class="docutils literal notranslate"><span class="pre">--rm</span></code>:</dt><dd><p>Automatically remove the container when it exits.
-There is no need to save it.
-It is useful to think of docker containers as applications that
-perform some task and clean up when finished.</p>
-<p>One of the powerful things about this is that it is impossible
-to damage or corrupt your development environment.
-If you think you did something bad, exit the container and restart.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-i</span></code>:</dt><dd><p>Keep STDIN open even if not attached.
-Instead of the short <code class="docutils literal notranslate"><span class="pre">-i</span></code>, you can use <code class="docutils literal notranslate"><span class="pre">--interactive</span></code>.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-t</span></code>:</dt><dd><p>Allocate a pseudo TTY. This allows you to communicate with your docker
-container in the window where you started it.
-Instead of the short <code class="docutils literal notranslate"><span class="pre">-t</span></code>, you can use <code class="docutils literal notranslate"><span class="pre">--tty</span></code>.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-v</span></code>:</dt><dd><p>Bind mount a volume from the local computer onto the host.
-The general syntax is <code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">/absolute/local/path:/absolute/container/path</span></code>
-Instead of the short <code class="docutils literal notranslate"><span class="pre">-v</span></code>, you can use <code class="docutils literal notranslate"><span class="pre">--volume</span></code>.</p>
-<p>The idea here is that your source code is never really inside the docker container.
-Your source code is separate, but visible to the running container.</p>
-</dd>
-</dl>
-<p>The container mount point was not chosen at random.
-The container is set up with <code class="docutils literal notranslate"><span class="pre">/mnt/cisc187</span></code> as the <em>WORKDIR</em>.
-When the container starts, you start in this directory.</p>
-<p>The run command has <a class="reference external" href="https://docs.docker.com/engine/reference/commandline/run/">many more options available</a>
-and docker has many more commands other than the run command,
-but this is all you need to know to compile assignments.</p>
-</div>
-    </div>
+<section id="compiling-using-linux-command-line">
+<span id="index-4"></span><h2><span class="section-number">1.2.1. </span>Compiling using Linux Command Line<a class="headerlink" href="#compiling-using-linux-command-line" title="Permalink to this heading">¶</a></h2>
+<p>This is almost exactly the same as the <a class="reference internal" href="compiling.html#a-quick-summary">instructions for the Linux Server</a>, but you don't have to 
+use SSH to login nor FTP to upload your files. </p>
 
-<p>Once the CISC187 docker container is running
-you are ready to compile an assignment.
-Builds are exactly the same as on the Mesa server:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir build
-cd build
-cmake ..
-make
-make test
-</pre></div>
-</div>
 </section>
 <section id="compiling-with-visual-studio">
-<span id="index-5"></span><h2><span class="section-number">1.4.2. </span>Compiling with Visual Studio<a class="headerlink" href="#compiling-with-visual-studio" title="Permalink to this heading">¶</a></h2>
-<p>In this course you need to be using Visual Studio 2022
-at a minimum to complete all the assignments.</p>
-<p>In order to enable CMake integration with Visual Studio
-ensure you have the additional
-<a class="reference external" href="https://learn.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=msvc-170">C++ CMake tools for Windows</a> installed.</p>
-<p>Use git to clone your assignments repository to your computer.
-Now you are ready to compile an assignment.</p>
+<span id="index-5"></span><h2><span class="section-number">1.2.2. </span>Compiling with Visual Studio<a class="headerlink" href="#compiling-with-visual-studio" title="Permalink to this heading">¶</a></h2>
+<p>In this course it is easiest to be using the most recent Visual Studio to complete all the assignments.</p>
 <div id='tab_msvc' data-component="tabbedStuff"  class='alert alert-warning '><div data-component="tab" data-tabname="GUI" >
 <p>These instructions describe how to build software using the
 Visual Studio Graphical User Interface (GUI).</p>
@@ -558,52 +478,15 @@ Visual Studio Graphical User Interface (GUI).</p>
 you cloned your repository.</p></li>
 <li><p>Right-click on the lab you want to build, for example
 <code class="docutils literal notranslate"><span class="pre">lab01-hello</span></code>.</p>
-<p>Do <strong>not</strong> open the entire cloned repository.</p>
 </li>
 <li><p>Select ‘Open in Visual Studio’</p></li>
 </ol>
-</div><div data-component="tab" data-tabname="Terminal" >
-<p>These instructions describe how to build software using the
-Using the Visual Studio command line</p>
-<ol class="arabic">
-<li><p>Create a directory named build adjacent, but <strong>not in</strong> your source directory.</p></li>
-<li><p>Open the Visual Studio Developer prompt.
-<cite>cd</cite> into the build directory created in the previous step.</p></li>
-<li><p>Type <cite>cmake ..</cite></p>
-<p>This should create a standard Visual Studio solution that
-you can run from the command line or the IDE.</p>
-</li>
-<li><p>Type <cite>MSBuild lab1.sln</cite> to build all projects in the <strong>Debug</strong> configuation</p></li>
-<li><p>Type <cite>ctest -C Debug</cite> to run all tests</p></li>
-</ol>
-<p>To remove all executable files:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MSBuild lab1.sln -target:Clean
-MSBuild lab1.sln -t:Clean
-</pre></div>
 </div>
-<p>To build a single test:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MSBuild lab1.sln -t:step1
-</pre></div>
-</div>
-<p>To build all files in <strong>Release</strong> configuration,
-without any Debug symbols:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MSBuild lab1.sln -p:Configuration=Release
-# run tests
-ctest -C Release
-</pre></div>
-</div>
-<p>If this doesn’t work, try
-<a class="reference external" href="https://docs.microsoft.com/en-us/cpp/build/walkthrough-compiling-a-native-cpp-program-on-the-command-line?view=vs-2019">the instructions on the Microsoft site</a></p>
-</div>
-    </div>
 
 </section>
 <section id="compiling-with-code-blocks">
-<span id="index-6"></span><h2><span class="section-number">1.4.3. </span>Compiling with Code Blocks<a class="headerlink" href="#compiling-with-code-blocks" title="Permalink to this heading">¶</a></h2>
-<p>Use git to clone your assignments repository to your computer.
-Now you are ready to compile an assignment.</p>
+<span id="index-6"></span><h2><span class="section-number">1.2.3. </span>Compiling with Code Blocks<a class="headerlink" href="#compiling-with-code-blocks" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic">
-<li><p>Create a directory named build and open CMake GUI.</p></li>
 <li><p>Select ‘Browse Source’ and select the folder containing
 the lab you want to build.</p></li>
 <li><p>Select ‘Browse Build’ and select the <cite>build</cite> folder.</p></li>
@@ -612,14 +495,6 @@ select ‘CodeBlocks - MinGW Makefiles’ from the list of
 available generators.</p>
 <p>Leave the radio selections alone and
 press ‘Finish` when done.</p>
-<p>Campus windows computers may complain about a <cite>sh.exe</cite> program in your path
-outside of CodeBlocks.
-To fix this error:</p>
-<ul class="simple">
-<li><p>Delete the CMake variable <cite>CMAKE_SH</cite> in the variables list.</p></li>
-<li><p>Press ‘Configure’ a second time.</p></li>
-</ul>
-</li>
 <li><p>Press ‘Generate’. When finished (“Generating done”)
 close CMake GUI.</p></li>
 <li><p>Open the generated “CBP” file in CodeBlocks.
@@ -630,41 +505,25 @@ Test cases must be run individually -
 there is no target to run all the tests.</p>
 </section>
 <section id="compiling-with-xcode">
-<span id="index-7"></span><h2><span class="section-number">1.4.4. </span>Compiling with Xcode<a class="headerlink" href="#compiling-with-xcode" title="Permalink to this heading">¶</a></h2>
-<p>Use git to clone your assignments repository to your computer.
-Now you are ready to compile an assignment.</p>
-<p>Open a terminal in the directory containing your lab, then:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir build
-cd build
-cmake -G Xcode ..
-</pre></div>
-</div>
-<p>Open the Xcode project and build as usual.</p>
+<span id="index-7"></span><h2><span class="section-number">1.2.4. </span>Compiling with Xcode<a class="headerlink" href="#compiling-with-xcode" title="Permalink to this heading">¶</a></h2>
+<h3>Upon starting Xcode:</h3><ol class=list-lg><li>You should see the initial “Xcode” dialog box; click the “Create New Project…” button.
+(If you do not see this dialog, select “New > Project…” from the File menu.)
+</li><li>You will be asked to choose a template for your project.
+Select “Command Line Tool” from the “macOS” tab, then click “Next”.
+</li><li><p>You will then be asked to choose options for your project.
+Most of these are unimportant for our purposes, but you're required to supply a value.</p><p>For example,
+type the name of your project for the Product Name,
+and some form of your name for the Organization Identifier.</p><p>More importantly, choose “C++” as the language and then click “Next”.
+</p></li><li><p>Finally, choose a location to store your project and click “Create”.</p></li><li><p>Your project is ready to go!
+Click on the <code>main.cpp</code> file in the Navigator on the left to view the starter file that Xcode creates for you.</p>
+<p>XCode setup Copyright Bryan Krofchok</p>
 </section>
 <section id="compiling-on-linux">
-<span id="index-8"></span><h2><span class="section-number">1.4.5. </span>Compiling on Linux<a class="headerlink" href="#compiling-on-linux" title="Permalink to this heading">¶</a></h2>
-<p>Use git to clone your assignments repository to your computer.</p>
-<p>You’ll need to install a C++ tool chain,
-the details tend to vary by distribution, however,
-most Linux distributions have good documentation for installing C++ tools.
-The only thing you should verify is that your distro has a modern version
-of a C++ compiler (C++14 at a minimum) available.
-The GNU Compiler Collection (GCC) or Clang are preferred.</p>
-<p>Once you have a tool chain installed,
-use git to clone your assignments repository to your computer.
-Now you are ready to compile an assignment.</p>
-<p>The process is exactly the same as on the Mesa server.
-Open a terminal in the directory containing your lab, then:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir build
-cd build
-cmake ..
-make
-make test
-</pre></div>
-</div>
+<span id="index-8"></span><h2><span class="section-number">1.2.5. </span>Compiling on Linux<a class="headerlink" href="#compiling-on-linux" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference internal" href="compiling.html#compiling-with-code-blocks">Code Blocks</a> works on Linux as well.</p>
 </section>
 <section id="which-option-should-i-choose">
-<h2><span class="section-number">1.4.6. </span>Which option should I choose?<a class="headerlink" href="#which-option-should-i-choose" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">1.2.6. </span>Which option should I choose?<a class="headerlink" href="#which-option-should-i-choose" title="Permalink to this heading">¶</a></h2>
 <p>There are a lot of options and the choices can be confusing.
 The short answer is that there is no wrong choice.
 Also, you can change you mind at any time and even
@@ -677,7 +536,7 @@ with many tasks professional programmers encounter often.</p>
 <p>For this reason they tend to be large and use
 a fair amount of CPU and memory.</p>
 </li>
-<li><p>Accessing a remote server like buffy requires minimal
+<li><p>Accessing a remote server like our Linux Server requires minimal
 CPU and memory locally.
 Most of the resources you are using are on the remote server.
 It is also the easiest to access.
@@ -691,25 +550,7 @@ If you lose your internet for any reason,
 then you will lose your connection.</p></li>
 </ul>
 </li>
-<li><p>Docker blends the two previous choices.
-You get a local server separate from your computer that has
-everything you need installed.
-It uses less resources than a typical IDE and if needed
-you can limit the resources it uses and like a local IDE,
-does not require persistent internet to work.
-Also, if you want you can modify the docker image
-and make your own custom version.</p>
-<p>The main drawbacks are:</p>
-<ul class="simple">
-<li><p>After installing Docker there is anew persistent service
-running on your computer.</p></li>
-<li><p>It is still not a real replacement for an IDE.</p></li>
-</ul>
-</li>
-</ol>
-<p>This decision chart may help.</p>
-<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-313cf0ef6b6f0e8a6a4091c855fc784eff4eaca4.png" alt="Choosing a build system" class="graphviz" /></div>
-</div>
+
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
