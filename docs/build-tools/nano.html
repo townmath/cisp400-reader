@@ -1,0 +1,405 @@
+<!-- ****************************************
+     |docname| - main template for this theme
+     **************************************** -->
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>1.5. Introducing the nano editor &#8212; CISP 400 Course Reader Overview</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=50109A2C" />
+    <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css?v=58BC228F" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/637.0fa6cababf056764.css?v=F9484CEF" />
+    <link rel="stylesheet" type="text/css" href="../_static/runestone.3eb60bc006ae9a54.css?v=3A5A250C" />
+
+
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/animationbase.js?v=A043C3A7"></script>
+    <script src="../_static/matrixeq.js?v=D64CFA5A"></script>
+    <script src="../_static/runtime.66b619f51b746382.bundle.js?v=C3F69EE5"></script>
+    <script src="../_static/637.d54be67956c5c660.bundle.js?v=915B1670"></script>
+    <script src="../_static/runestone.ecc6dff5cad8b815.bundle.js?v=AE959292"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.7. Command-line compiling" href="make.html" />
+    <link rel="prev" title="1.5. Introducing Gnu/Linux" href="linux.html" />
+
+
+<link rel="shortcut icon" href="/cisp400-reader/static/favicon.ico" type="image/ico" />
+
+
+
+<link rel="canonical" href="https://{{canonical_host}}{{new_server_prefix}}/books/published/{{base_course}}/{{pagepath}}" />
+
+
+<script>
+  eBookConfig = {};
+
+    eBookConfig.useRunestoneServices = false;
+    eBookConfig.host = 'https://townmath.github.io/cisp400-reader/' || 'http://127.0.0.1:8000';
+    eBookConfig.app = eBookConfig.host+'/cisp400-reader';
+    eBookConfig.course = 'cisp400-reader';
+    eBookConfig.basecourse = 'cisp400-reader';
+    eBookConfig.isLoggedIn = false;
+    eBookConfig.enableCompareMe = eBookConfig.useRunestoneServices;
+    eBookConfig.new_server_prefix = '';
+
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.logLevel = 0;
+  eBookConfig.loginRequired = false;
+  eBookConfig.build_info = "unknown";
+  eBookConfig.python3 = true;
+  eBookConfig.acDefaultLanguage = 'cpp' ? 'cpp' : 'python'
+  eBookConfig.runestone_version = '6.6.2';
+  eBookConfig.jobehost = 'https://delicate-frost-8843.fly.dev';
+  eBookConfig.proxyuri_runs = '/jobe/index.php/restapi/runs/';
+  eBookConfig.proxyuri_files = '/jobe/index.php/restapi/files/';
+  eBookConfig.enable_chatcodes = false ? false : false;
+  eBookConfig.enableScratchAC = true;
+
+</script>
+
+<!-- Ad Serving Headers Only serve ads to Anonymous Users -->
+
+
+
+  </head><body>
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="navbar toggle">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+
+
+          <div class="brand-logo"><img src="../_static/img/RAIcon.png" alt=""></div>
+
+        <a class="navbar-brand" href="../index.html" aria-label="index-page">
+
+          cisp400-reader
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right" >
+
+        <li class="divider-vertical"></li>
+
+        <!-- social media dropdown -->
+        <!-- end social media dropdown -->
+
+        <li class="divider-vertical"></li>
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'><span class="visuallyhidden" aria-label="Search">Search</span></i>
+          </a>
+          <ul class='dropdown-menu'>
+
+                <li><a href='../index.html' aria-label="index-page">Table of Contents</a></li>
+
+            <li><a href='../genindex.html'>Book Index</a></li>
+            <li class="divider"></li>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+
+        <li class="divider-vertical"></li>
+        <!-- <li id="scratch_ac_link"><a href="javascript:ACFactory.toggleScratchActivecode()">Scratch ActiveCode</a></li> -->
+
+        <!-- <li class="dropdown">             -->
+          <li id="scratch_ac_link" class="dropdown"><a href="javascript:runestoneComponents.popupScratchAC()">
+              <i class="glyphicon glyphicon-pencil" style="opacity:0.9;"><span class="visuallyhidden" aria-label="Scratch Activecode" >Scratch Activecode</span></i></a></li>
+        <!-- </li> -->
+
+        <li class="divider-vertical"></li>
+
+
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <li class="divider-vertical"></li>
+
+
+          <li class="divider-vertical"></li>
+
+        <!--
+
+  <li id="relations-prev" title="Previous Chapter - <span class="section-number">1.5. </span>Introducing Gnu/Linux" data-toggle="tooltip">
+    <a href="linux.html" >
+      <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+
+  <li id="relations-next" title='Next Chapter - <span class="section-number">1.7. </span>Command-line compiling' data-toggle="tooltip" >
+    <a href="make.html" >
+        <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  <li class="divider-vertical"></li>
+
+<script>
+  opts = {'placement':'bottom',
+          'selector': '',
+          'delay': { show: 100, hide: 50}
+         };
+
+  window.addEventListener('load', (event) => {
+    $('#relations-prev').tooltip(opts);
+    $('#relations-next').tooltip(opts);
+  });
+</script>
+        -->
+
+          <li></li>
+
+      </ul>
+      </div> <!-- navbar-collapse -->
+    </div> <!-- navbar -->
+  </div> <!-- container -->
+
+
+<div class="container" id="continue-reading"></div>
+
+<div class="container" id="main-content" role="main">
+
+<!-- Ad Serving for Runestone Campaign -->
+
+
+
+  <section id="introducing-the-vim-editor">
+<span id="index-0"></span><h1><span class="section-number">1.5. </span>Introducing the nano editor<a class="headerlink" href="#introducing-the-vim-editor" title="Permalink to this heading">¶</a></h1>
+<p>Nano is a simple and easy to use command line text editor.
+It is included as with most *nix systems and with Apple OS X.
+Among its features are:</p>
+<ul class="simple">
+<li><p>simple commands</p></li>
+<li><p>easy to use</p></li>
+<li><p>support for hundreds of programming languages and file formats</p></li>
+</ul>
+<section id="opening and saving">
+<span id="index-1"></span><h2><span class="section-number">1.5.1. </span>Opening and Saving<a class="headerlink" href="#modes" title="Permalink to this heading">¶</a></h2>
+<p>To open a file using nano you type</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>
+nano file.txt
+</pre></div>
+</div>
+<p> If the file exists, nano will open it, else it will create it.  You might notice
+the list of commands at the bottom.  On most systems it will look like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C Cur Pos
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T To Spell
+</pre></div>
+</div>
+<p>On most systems, to save and exit, you type Ctrl and X.  Then nano will ask
+    if you want to save (Y or N) and will double check the file name.
+</p>
+<p> That's it!</p>
+</section>
+<section id="creating-hello-world-using-nano">
+<span id="index-3"></span><h2><span class="section-number">1.5.2. </span>Creating ‘Hello World’ using vim<a class="headerlink" href="#creating-hello-world-using-vim" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Before jumping into the editor, first let’s plan to
+save our project in a directory of its own:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>host@user: mkdir work
+host@user: cd work
+</pre></div>
+</div>
+<p>I chose to work in the directory, <code class="docutils literal notranslate"><span class="pre">work</span></code>, but you could have named it
+<code class="docutils literal notranslate"><span class="pre">hello</span></code>, <code class="docutils literal notranslate"><span class="pre">project1</span></code>, or anything else.
+Just pick something that works for you, preferably related to the task at hand.
+Recommendation: avoid spaces in directory names.</p>
+</li>
+<li><p>At the command prompt, open a new cpp source file:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>host@user: nano hello.cpp
+</pre></div>
+</div>
+<p>You’ll now be in <code class="docutils literal notranslate"><span class="pre">nano</span></code>, which initially, will show a blank canvas.
+You can now begin typing your program:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>When done typing, press <code class="docutils literal notranslate"><span class="pre">CTRL X</span></code> to exit.</p></li>
+<li><p>Save your work by typing <code class="docutils literal notranslate"><span class="pre">Y</span></code>and Enter.</p></li>
+<li><p>Type the following to compile your code:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre>
+g++ hello.cpp   -o hello
+</pre></div>
+</div>
+</li>
+<li><p>If you type <code class="docutils literal notranslate"><span class="pre">./hello</span></code>
+and you didn't get any errors on the previous step,
+then you should see: </p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Hello, World!
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="navigating-to-make-errors">
+<h2><span class="section-number">1.5.3. </span>Navigating to compile errors<a class="headerlink" href="#navigating-to-make-errors" title="Permalink to this heading">¶</a></h2>
+<p>It is inevitable that sometimes you will create a program that does not compile.
+</p>
+<p>Given the following, almost correct version of our <em>hello, world</em> program:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Typing <code class="docutils literal notranslate"><span class="pre">g++ hello.cpp   -o hello</span></code> results in:</p>
+<blockquote>
+<div><div class="highlight-text notranslate"><div class="highlight"><pre>
+g++ hello.cpp -o hello
+hello.cpp:4:5: error: use of undeclared identifier &#39;cout&#39;; did you mean &#39;std::cout&#39;?
+    cout &lt;&lt; &quot;Hello, World!\n&quot;;
+    ^~~~
+    std::cout
+/usr/include/c++/v1/iostream:50:33: note: &#39;std::cout&#39; declared here
+extern _LIBCPP_FUNC_VIS ostream cout;
+                                  ^
+1 error generated.
+</pre></div>
+</div>
+</div></blockquote>
+<p>Make a mental note of the line number and character location (ie 4:5), then open your code in nano using:
+<code class="docutils literal notranslate"><span class="pre">nano hello.cpp</span></code> then use the arrow buttons to go to the correct line.
+You can use CRTL-C to show the current line number in case you lose count.
+</p>
+<p>Protip: On most machines you can open your file with an extra -m like so:
+<code class="docutils literal notranslate"><span class="pre">nano -m hello.cpp</span></code> and then you can use your mouse to
+move around.</p>
+<hr class="docutils" />
+<div class="admonition-more-to-explore admonition">
+<p class="admonition-title">More to Explore</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikibooks.org/wiki/Learning_the_vi_Editor">Learning the vi Editor</a></p></li>
+<li><p><a class="reference external" href="https://en.wikibooks.org/wiki/Learning_the_vi_Editor/vi_Reference">vi Reference</a></p></li>
+<li><p><a class="reference external" href="http://vim.wikia.com/wiki/Vim_Tips_Wiki">Vim Tips wiki</a></p></li>
+<li><p><a class="reference external" href="http://www.vim.org/">vim.org</a></p></li>
+<li><p><a class="reference external" href="http://tnerual.eriogerg.free.fr/vim.html">vi reference cards</a> - available in several languages</p></li>
+<li><p><a class="reference external" href="http://www.thomer.com/vi/vi.html">vi lovers home page</a></p></li>
+<li><p>Swarthmore Dept. of Compter Science <a class="reference external" href="https://www.cs.swarthmore.edu/help/vim/home.html">vim tips and tricks page</a></p></li>
+<li><p><a class="reference external" href="http://home.windstream.net/kollar/utp/">UNIX Text Processing</a> - hasa chapter dedicated to vi.</p></li>
+</ul>
+<p><strong>Text editor downloads</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://notepad-plus-plus.org/">Notepad++</a> (Windows only) - also available on campus</p></li>
+<li><p><a class="reference external" href="https://atom.io/">Atom</a> (Win, OSX, or Linux)</p></li>
+<li><p><a class="reference external" href="https://vim.sourceforge.io/">Vim</a></p></li>
+<li><p><a class="reference external" href="http://www.gnu.org/software/emacs/">Emacs</a></p></li>
+</ul>
+<p>Both vim and emacs are included on the Mesa server.
+If you have already downloaded <code class="docutils literal notranslate"><span class="pre">git</span></code>, then you also have vim.
+Git provides a subset of the Gnu/linux utilities,
+including vim and ssh, but not make or g++.</p>
+</div>
+</section>
+</section>
+
+
+
+<!--
+  <div id="scprogresscontainer">
+    You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
+  </div>
+-->
+  <ul role="navigation" class="nextprev-list nextprev-list" aria-label="Change page">
+<li id="relations-prev" class="navLink" title='Previous Section - 1.4. Introducing vim' data-toggle="tooltip">
+  <a href="vim.html" aria-label="Previous - 1.4. Introducing vim">
+    <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
+  </a>
+</li>
+
+  <li id="relations-next" class="navLink" title='Next Section - 1.6. Command-line compiling' data-toggle="tooltip" >
+    <a href="make.html" aria-label="Next - 1.6. Command-line compiling">
+      <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
+    </a>
+  </li>
+</ul>
+
+<script>
+window.addEventListener('load', (event) => {
+  $('#relations-prev').tooltip({'placement': 'right', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement': 'left', 'delay': { show: 100, hide: 50}});
+});
+</script>
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+
+      | <a href="#">Back to top</a>
+
+    </p>
+    <p>
+        &copy; Copyright 2017-2025 Dave Parillo.
+      Created using <a href="http://runestoneinteractive.org/">Runestone</a> 6.6.2.
+    </p>
+  </div>
+</footer>
+
+
+
+
+<script>
+  window.addEventListener('load', (event) => {
+    runestoneComponents.getSwitch();
+  });
+</script>
+
+
+  </body>
+</html>

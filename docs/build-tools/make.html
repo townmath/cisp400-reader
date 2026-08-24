@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>1.7. Command-line compiling &#8212; CISC 187 Course Reader Overview</title>
+    <title>1.6. Command-line compiling &#8212; CISP 400 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -40,7 +40,7 @@
     <link rel="prev" title="1.6. Introducing the vim editor" href="vim.html" />
 
 
-<link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+<link rel="shortcut icon" href="/cisp400-reader/static/favicon.ico" type="image/ico" />
 
 
 
@@ -49,16 +49,16 @@
 
 <script>
   eBookConfig = {};
-  
+
     eBookConfig.useRunestoneServices = false;
-    eBookConfig.host = 'https://daveparillo.github.io/cisc187-reader/' || 'http://127.0.0.1:8000';
-    eBookConfig.app = eBookConfig.host+'/cisc187-reader';
-    eBookConfig.course = 'cisc187-reader';
-    eBookConfig.basecourse = 'cisc187-reader';
+    eBookConfig.host = 'https://daveparillo.github.io/cisp400-reader/' || 'http://127.0.0.1:8000';
+    eBookConfig.app = eBookConfig.host+'/cisp400-reader';
+    eBookConfig.course = 'cisp400-reader';
+    eBookConfig.basecourse = 'cisp400-reader';
     eBookConfig.isLoggedIn = false;
     eBookConfig.enableCompareMe = eBookConfig.useRunestoneServices;
     eBookConfig.new_server_prefix = '';
-  
+
   eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
   eBookConfig.logLevel = 0;
   eBookConfig.loginRequired = false;
@@ -95,13 +95,13 @@
       </button>
 
       <div>
-        
-        
+
+
           <div class="brand-logo"><img src="../_static/img/RAIcon.png" alt=""></div>
-        
+
         <a class="navbar-brand" href="../index.html" aria-label="index-page">
-          
-          cisc187-reader
+
+          cisp400-reader
         </a>
       </div>
     </div>
@@ -123,9 +123,9 @@
             <i class="glyphicon glyphicon-search" style='opacity:0.9;'><span class="visuallyhidden" aria-label="Search">Search</span></i>
           </a>
           <ul class='dropdown-menu'>
-            
+
                 <li><a href='../index.html' aria-label="index-page">Table of Contents</a></li>
-            
+
             <li><a href='../genindex.html'>Book Index</a></li>
             <li class="divider"></li>
             <li style="width: 240px;">
@@ -148,7 +148,7 @@
 
         <li class="divider-vertical"></li>
 
-        
+
         <li class="divider-vertical"></li>
         <!-- <li id="scratch_ac_link"><a href="javascript:ACFactory.toggleScratchActivecode()">Scratch ActiveCode</a></li> -->
 
@@ -159,24 +159,24 @@
 
         <li class="divider-vertical"></li>
 
-        
+
       </ul>
 
       <ul class="nav navbar-nav">
         <li class="divider-vertical"></li>
-        
-          
+
+
           <li class="divider-vertical"></li>
-        
-        <!-- 
-          
+
+        <!--
+
   <li id="relations-prev" title="Previous Chapter - <span class="section-number">1.6. </span>Introducing the vim editor" data-toggle="tooltip">
     <a href="vim.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
-  
-  <li id="relations-next" title='Next Chapter - <span class="section-number">1.8. </span>Debugging' data-toggle="tooltip" >              
+
+  <li id="relations-next" title='Next Chapter - <span class="section-number">1.8. </span>Debugging' data-toggle="tooltip" >
     <a href="debugging.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -195,9 +195,9 @@
   });
 </script>
         -->
-        
+
           <li></li>
-        
+
       </ul>
       </div> <!-- navbar-collapse -->
     </div> <!-- navbar -->
@@ -211,9 +211,9 @@
 <!-- Ad Serving for Runestone Campaign -->
 
 
-  
+
   <section id="command-line-compiling">
-<span id="index-0"></span><h1><span class="section-number">1.7. </span>Command-line compiling<a class="headerlink" href="#command-line-compiling" title="Permalink to this heading">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">1.6. </span>Command-line compiling<a class="headerlink" href="#command-line-compiling" title="Permalink to this heading">¶</a></h1>
 <p>Why in the ‘modern’ era, is there still such focus on command line and
 text based tools for programming?
 Several actually.</p>
@@ -239,7 +239,7 @@ output to a text stream is similarly easy.</p>
 </li>
 </ul>
 <section id="the-c-compiler">
-<span id="index-1"></span><h2><span class="section-number">1.7.1. </span>The C++ compiler<a class="headerlink" href="#the-c-compiler" title="Permalink to this heading">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">1.6.1. </span>The C++ compiler<a class="headerlink" href="#the-c-compiler" title="Permalink to this heading">¶</a></h2>
 <p>There are many programs that will make executables from C++ source.
 One popular choice is <code class="docutils literal notranslate"><span class="pre">gcc</span></code>, the Gnu project C and C++ compiler.
 <code class="docutils literal notranslate"><span class="pre">gcc</span></code> is free and open-source, meaning that it can be made to run
@@ -302,7 +302,7 @@ Debug level #2 is the default.</p>
 <p>The order of command line arguments (generally) does not matter.</p>
 </section>
 <section id="the-make-utility">
-<span id="index-2"></span><h2><span class="section-number">1.7.2. </span>The make utility<a class="headerlink" href="#the-make-utility" title="Permalink to this heading">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">1.6.2. </span>The make utility<a class="headerlink" href="#the-make-utility" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">make</span></code> program automatically determines which pieces of a large
 program need to be recompiled, and issues commands to recompile them.
 Note how this is different from the previous sections.
@@ -429,7 +429,7 @@ such as <code class="docutils literal notranslate"><span class="pre">CXXFLAGS</s
 programs listed.</p>
 </section>
 <section id="running-your-programs">
-<h2><span class="section-number">1.7.3. </span>Running your programs<a class="headerlink" href="#running-your-programs" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">1.6.3. </span>Running your programs<a class="headerlink" href="#running-your-programs" title="Permalink to this heading">¶</a></h2>
 <p>If you compile your own program, you will need to prefix it with ./
 on the command line to tell the shell that you want to run a program
 in the current directory (called ‘.’) instead of one of the standard system directories.
@@ -459,21 +459,21 @@ So for example, if I’ve just built a program called <em>hello</em>, I can run 
 </section>
 
 
-  
+
 
   <div id="scprogresscontainer">
     You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
   </div>
 
   <ul role="navigation" class="nextprev-list nextprev-list" aria-label="Change page">
-<li id="relations-prev" class="navLink" title='Previous Section - 1.6. Introducing the vim editor' data-toggle="tooltip">
-  <a href="vim.html" aria-label="Previous - 1.6. Introducing the vim editor">
+<li id="relations-prev" class="navLink" title='Previous Section - 1.5. Introducing the nano editor' data-toggle="tooltip">
+  <a href="nano.html" aria-label="Previous - 1.5. Introducing the nano editor">
     <i class='prevNav glyphicon glyphicon-chevron-left'  style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black;"></i>
   </a>
 </li>
 
-  <li id="relations-next" class="navLink" title='Next Section - 1.8. Debugging' data-toggle="tooltip" >
-    <a href="debugging.html" aria-label="Next - 1.8. Debugging">
+  <li id="relations-next" class="navLink" title='Next Section - 1.7. Debugging' data-toggle="tooltip" >
+    <a href="debugging.html" aria-label="Next - 1.7. Debugging">
       <i id="relationsNextIcon" class='nextNav glyphicon glyphicon-chevron-right' style="top:50%; transform:translateY(-50%)translateX(-50%); left: 50%; color:black; "></i>
     </a>
   </li>
@@ -490,9 +490,9 @@ window.addEventListener('load', (event) => {
 <footer class="footer">
   <div class="container">
     <p class="pull-right">
-      
+
       | <a href="#">Back to top</a>
-      
+
     </p>
     <p>
         &copy; Copyright 2017-2025 Dave Parillo.
