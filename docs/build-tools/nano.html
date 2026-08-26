@@ -212,8 +212,8 @@
 
 
 
-  <section id="introducing-the-vim-editor">
-<span id="index-0"></span><h1><span class="section-number">1.5. </span>Introducing the nano editor<a class="headerlink" href="#introducing-the-vim-editor" title="Permalink to this heading">¶</a></h1>
+  <section id="introducing-the-nano-editor">
+<span id="index-0"></span><h1><span class="section-number">1.5. </span>Introducing the nano editor<a class="headerlink" href="#introducing-the-nano-editor" title="Permalink to this heading">¶</a></h1>
 <p>Nano is a simple and easy to use command line text editor.
 It is included as with most *nix systems and with Apple OS X.
 Among its features are:</p>
@@ -242,7 +242,7 @@ the list of commands at the bottom.  On most systems it will look like this:</p>
 <p> That's it!</p>
 </section>
 <section id="creating-hello-world-using-nano">
-<span id="index-3"></span><h2><span class="section-number">1.5.2. </span>Creating ‘Hello World’ using vim<a class="headerlink" href="#creating-hello-world-using-vim" title="Permalink to this heading">¶</a></h2>
+<span id="index-3"></span><h2><span class="section-number">1.5.2. </span>Creating ‘Hello World’ using nano<a class="headerlink" href="#creating-hello-world-using-nano" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic">
 <li><p>Before jumping into the editor, first let’s plan to
 save our project in a directory of its own:</p>
@@ -314,23 +314,19 @@ extern _LIBCPP_FUNC_VIS ostream cout;
 </div>
 </div></blockquote>
 <p>Make a mental note of the line number and character location (ie 4:5), then open your code in nano using:
-<code class="docutils literal notranslate"><span class="pre">nano hello.cpp</span></code> then use the arrow buttons to go to the correct line.
-You can use CRTL-C to show the current line number in case you lose count.
+<code class="docutils literal notranslate"><span class="pre">nano +4,5 hello.cpp</span></code> it will open the file and automatically put the cursor to the location of the error.</p>
+<p>Note: If you want move to the location by hand, after opening nano you can use CRTL-C to show the current line number.
 </p>
-<p>Protip: On most machines you can open your file with an extra -m like so:
+<p>Protip: On most machines if you open your file with an extra -m like so:
 <code class="docutils literal notranslate"><span class="pre">nano -m hello.cpp</span></code> and then you can use your mouse to
 move around.</p>
 <hr class="docutils" />
 <div class="admonition-more-to-explore admonition">
 <p class="admonition-title">More to Explore</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://en.wikibooks.org/wiki/Learning_the_vi_Editor">Learning the vi Editor</a></p></li>
-<li><p><a class="reference external" href="https://en.wikibooks.org/wiki/Learning_the_vi_Editor/vi_Reference">vi Reference</a></p></li>
-<li><p><a class="reference external" href="http://vim.wikia.com/wiki/Vim_Tips_Wiki">Vim Tips wiki</a></p></li>
-<li><p><a class="reference external" href="http://www.vim.org/">vim.org</a></p></li>
-<li><p><a class="reference external" href="http://tnerual.eriogerg.free.fr/vim.html">vi reference cards</a> - available in several languages</p></li>
-<li><p><a class="reference external" href="http://www.thomer.com/vi/vi.html">vi lovers home page</a></p></li>
-<li><p>Swarthmore Dept. of Compter Science <a class="reference external" href="https://www.cs.swarthmore.edu/help/vim/home.html">vim tips and tricks page</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/GNU_nano">nano's Wikipedia entry</a></p></li>
+<li><p><a class="reference external" href="https://www.nano-editor.org/">nano Reference</a></p></li>
+<li><p>Rutgers Dept. of Compter Science <a class="reference external" href="https://linuxcourse.rutgers.edu/summer2026/html/nano_tutorial.html">nano tutorial</a></p></li>
 <li><p><a class="reference external" href="http://home.windstream.net/kollar/utp/">UNIX Text Processing</a> - hasa chapter dedicated to vi.</p></li>
 </ul>
 <p><strong>Text editor downloads</strong></p>
@@ -340,10 +336,8 @@ move around.</p>
 <li><p><a class="reference external" href="https://vim.sourceforge.io/">Vim</a></p></li>
 <li><p><a class="reference external" href="http://www.gnu.org/software/emacs/">Emacs</a></p></li>
 </ul>
-<p>Both vim and emacs are included on the Mesa server.
-If you have already downloaded <code class="docutils literal notranslate"><span class="pre">git</span></code>, then you also have vim.
-Git provides a subset of the Gnu/linux utilities,
-including vim and ssh, but not make or g++.</p>
+<p>Both vim and nano are included on the Linux server.
+</p>
 </div>
 </section>
 </section>
