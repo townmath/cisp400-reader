@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>4.6. General function writing guidelines &#8212; CISC 187 Course Reader Overview</title>
+    <title>4.6. General function writing guidelines &#8212; CISP 400 Course Reader Overview</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -40,7 +40,7 @@
     <link rel="prev" title="4.5. Trailing return types" href="trailing-return.html" />
 
 
-<link rel="shortcut icon" href="/cisc187-reader/static/favicon.ico" type="image/ico" />
+<link rel="shortcut icon" href="/cisp400-reader/static/favicon.ico" type="image/ico" />
 
 
 
@@ -49,16 +49,16 @@
 
 <script>
   eBookConfig = {};
-  
+
     eBookConfig.useRunestoneServices = false;
-    eBookConfig.host = 'https://daveparillo.github.io/cisc187-reader/' || 'http://127.0.0.1:8000';
-    eBookConfig.app = eBookConfig.host+'/cisc187-reader';
-    eBookConfig.course = 'cisc187-reader';
-    eBookConfig.basecourse = 'cisc187-reader';
+    eBookConfig.host = 'https://daveparillo.github.io/cisp400-reader/' || 'http://127.0.0.1:8000';
+    eBookConfig.app = eBookConfig.host+'/cisp400-reader';
+    eBookConfig.course = 'cisp400-reader';
+    eBookConfig.basecourse = 'cisp400-reader';
     eBookConfig.isLoggedIn = false;
     eBookConfig.enableCompareMe = eBookConfig.useRunestoneServices;
     eBookConfig.new_server_prefix = '';
-  
+
   eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
   eBookConfig.logLevel = 0;
   eBookConfig.loginRequired = false;
@@ -95,13 +95,13 @@
       </button>
 
       <div>
-        
-        
+
+
           <div class="brand-logo"><img src="../_static/img/RAIcon.png" alt=""></div>
-        
+
         <a class="navbar-brand" href="../index.html" aria-label="index-page">
-          
-          cisc187-reader
+
+          cisp400-reader
         </a>
       </div>
     </div>
@@ -123,9 +123,9 @@
             <i class="glyphicon glyphicon-search" style='opacity:0.9;'><span class="visuallyhidden" aria-label="Search">Search</span></i>
           </a>
           <ul class='dropdown-menu'>
-            
+
                 <li><a href='../index.html' aria-label="index-page">Table of Contents</a></li>
-            
+
             <li><a href='../genindex.html'>Book Index</a></li>
             <li class="divider"></li>
             <li style="width: 240px;">
@@ -148,7 +148,7 @@
 
         <li class="divider-vertical"></li>
 
-        
+
         <li class="divider-vertical"></li>
         <!-- <li id="scratch_ac_link"><a href="javascript:ACFactory.toggleScratchActivecode()">Scratch ActiveCode</a></li> -->
 
@@ -159,24 +159,24 @@
 
         <li class="divider-vertical"></li>
 
-        
+
       </ul>
 
       <ul class="nav navbar-nav">
         <li class="divider-vertical"></li>
-        
-          
+
+
           <li class="divider-vertical"></li>
-        
-        <!-- 
-          
+
+        <!--
+
   <li id="relations-prev" title="Previous Chapter - <span class="section-number">4.5. </span>Trailing return types" data-toggle="tooltip">
     <a href="trailing-return.html" >
       <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
     </a>
   </li>
-  
-  <li id="relations-next" title='Next Chapter - <span class="section-number">5. </span>Pointers' data-toggle="tooltip" >              
+
+  <li id="relations-next" title='Next Chapter - <span class="section-number">5. </span>Pointers' data-toggle="tooltip" >
     <a href="../pointers/index.html" >
         <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
     </a>
@@ -195,9 +195,9 @@
   });
 </script>
         -->
-        
+
           <li></li>
-        
+
       </ul>
       </div> <!-- navbar-collapse -->
     </div> <!-- navbar -->
@@ -211,7 +211,7 @@
 <!-- Ad Serving for Runestone Campaign -->
 
 
-  
+
   <section id="general-function-writing-guidelines">
 <span id="index-0"></span><h1><span class="section-number">4.6. </span>General function writing guidelines<a class="headerlink" href="#general-function-writing-guidelines" title="Permalink to this heading">¶</a></h1>
 <ol class="arabic">
@@ -249,9 +249,9 @@ side effects are almost always unexpected.</p>
 <div id=functions_guidelines_side_effects_ac_question class="ac_question">
 
 </div>
-<textarea data-lang="cpp" id="functions_guidelines_side_effects_ac_editor" 
-      data-timelimit=25000     
-    data-audio=''      
+<textarea data-lang="cpp" id="functions_guidelines_side_effects_ac_editor"
+      data-timelimit=25000
+    data-audio=''
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
      style="visibility: hidden;">
 #include <iostream>
@@ -426,15 +426,87 @@ and have the advantage of working on any <a class="reference internal" href="../
 intended to help people understand C++.</p>
 <p>Unfortunately, it is full of issues and this is the kind of program structure
 that will <strong>not</strong> help you when trying to create your own complicated projects.</p>
-<p>Open this in Replit and run <code class="docutils literal notranslate"><span class="pre">./main</span></code> in the console tab.
-You may need to type <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">main</span></code> first.</p>
-<iframe height="400px" width="100%"
- src="https://repl.it/@DaveParillo/NumberGuessingFunctionRefactorOriginal?lite=true"
- scrolling="no"
- frameborder="no"
- allowtransparency="true"
- allowfullscreen="true"
- sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe><div class="admonition-try-this admonition">
+<p>As an interactive program it does not run in the textbook.
+Copy this program to your development environment and compile it locally.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdlib&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctime&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span><span class="w"> </span><span class="c1">// To not have the same numbers over and over again.</span>
+
+<span class="w">   </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Main loop.</span>
+<span class="w">      </span><span class="c1">// Initialize and allocate.</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">99</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// System number is stored in here.</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">guess</span><span class="p">;</span><span class="w"> </span><span class="c1">// User guess is stored in here.</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Number of tries is stored here.</span>
+<span class="w">      </span><span class="kt">char</span><span class="w"> </span><span class="n">answer</span><span class="p">;</span><span class="w"> </span><span class="c1">// User answer to question is stored here.</span>
+
+<span class="w">      </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Get user number loop.</span>
+<span class="w">         </span><span class="c1">// Get number.</span>
+<span class="w">         </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Enter a number between 1 and 100 ("</span>
+<span class="w">                   </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" tries left): "</span><span class="p">;</span>
+<span class="w">         </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">guess</span><span class="p">;</span>
+<span class="w">         </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">ignore</span><span class="p">();</span>
+
+<span class="w">         </span><span class="c1">// Check is tries are taken up.</span>
+<span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">tries</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span>
+
+<span class="w">         </span><span class="c1">// Check number.</span>
+<span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">guess</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Too high! Try again.</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">guess</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Too low! Try again.</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span>
+
+<span class="w">         </span><span class="c1">// If not number, increment tries.</span>
+<span class="w">         </span><span class="n">tries</span><span class="o">++</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="c1">// Check for tries.</span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">tries</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"You ran out of tries!</span><span class="se">\n\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="c1">// Or, user won.</span>
+<span class="w">         </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Congratulations!! "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">         </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"You got the right number in "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" tries!</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Loop to ask user is he/she would like to play again.</span>
+<span class="w">         </span><span class="c1">// Get user response.</span>
+<span class="w">         </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Would you like to play again (Y/N)? "</span><span class="p">;</span>
+<span class="w">         </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">answer</span><span class="p">;</span>
+<span class="w">         </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">ignore</span><span class="p">();</span>
+
+<span class="w">         </span><span class="c1">// Check if proper response.</span>
+<span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">answer</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'n'</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'N'</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'y'</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'Y'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Please enter 'Y' or 'N'...</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="c1">// Check user's input and run again or exit;</span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">answer</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'n'</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'N'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Thank you for playing!"</span><span class="p">;</span>
+<span class="w">         </span><span class="k">break</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n\n\n</span><span class="s">"</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="c1">// Safely exit.</span>
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n\n</span><span class="s">Enter anything to exit. . . "</span><span class="p">;</span>
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">.</span><span class="n">ignore</span><span class="p">();</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition-try-this admonition">
 <p class="admonition-title">Try This!</p>
 <p>How many bugs or other issues can you find in this program without looking at the ‘Bugs’ tab?</p>
 </div>
@@ -502,9 +574,9 @@ from 1 to 100, but this algorithm will never choose 1.</p>
 <div id=function_random_ac_question class="ac_question">
 
 </div>
-<textarea data-lang="cpp" id="function_random_ac_editor" 
-      data-timelimit=25000     
-    data-audio=''      
+<textarea data-lang="cpp" id="function_random_ac_editor"
+      data-timelimit=25000
+    data-audio=''
     data-compileargs="[&#x27;-Wall&#x27;, &#x27;-Wextra&#x27;, &#x27;-pedantic&#x27;, &#x27;-std=c++11&#x27;]"       data-wasm=/_static
      style="visibility: hidden;">
 #include <iostream>
@@ -602,19 +674,205 @@ I just prefer not to see code that looks like this, even though it works.</p>
 when I <strong>just</strong> said ‘No’ to the previous question.</p>
 <p>There is no need to do this. What is <em>safe</em> about this?
 Just exit your program.</p>
-</div><div data-component="tab" data-tabname="Final" >
-<p>Open this in Replit and run <code class="docutils literal notranslate"><span class="pre">./main</span></code> in the console tab.
-You may need to type <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">main</span></code> first.</p>
-<iframe height="400px" width="100%"
- src="https://repl.it/@DaveParillo/NumberGuessingFunctionRefactor?lite=true"
- scrolling="no"
- frameborder="no"
- allowtransparency="true"
- allowfullscreen="true"
- sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe><p>This is <strong>NOT</strong> the only way to improve the original program.
-It’s merely one way.</p>
 </div>
+<div data-component="tab" data-tabname="Final" >
+    <div class="tb-tab__content">
+    <tb-group id="id7">
+    <div class="tb-group__fallback">
+    <tb-tab id="id8" label="prompt">
+    <section class="tb-tab__fallback">
+    <p class="tb-tab__label"><strong>prompt.h</strong></p>
+    <div class="tb-tab__content">
+    <p>Input is a separate concern from the game rules.
+    Moving prompt handling into its own file gives the rest of the
+    program one place to ask for validated text or numbers.
+    That makes input errors easier to fix because the validation code
+    is no longer scattered through <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
+    <div class="highlight-cpp notranslate" id="prompt-h"><div class="highlight"><pre><span></span>
+    <span class="cp">#ifndef PROMPT_H</span>
+    <span class="cp">#define PROMPT_H</span>
+
+    <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+
+    <span class="c1">// Get text input from the user</span>
+    <span class="c1">// The only validation needed is for them to not enter nothing</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">get_entry</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">prompt</span><span class="p">);</span>
+
+    <span class="c1">// get integer input from the user, within the range (min .. max)</span>
+    <span class="kt">int</span><span class="w"> </span><span class="nf">get_value</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">prompt</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
+    <span class="cp">#endif</span>
+    </pre></div>
     </div>
+    <p><strong>prompt.cpp</strong></p>
+    <div class="highlight-cpp notranslate" id="prompt-cpp"><div class="highlight"><pre><span></span>
+    <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+    <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;limits&gt;</span>
+    <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+
+    <span class="cp">#include</span><span class="w"> </span><span class="cpf">"prompt.h"</span>
+
+    <span class="k">using</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">;</span>
+    <span class="k">using</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">get_entry</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">prompt</span><span class="p">) {</span>
+    <span class="w">  </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">prompt</span><span class="p">;</span>
+    <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">line</span><span class="p">;</span>
+    <span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">line</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+    <span class="w">      </span><span class="k">break</span><span class="p">;</span>
+    <span class="w">    </span><span class="n">line</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+    <span class="w">  </span><span class="p">}</span>
+    <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">line</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// attempt to read a single int from the user.</span>
+    <span class="kt">int</span><span class="w"> </span><span class="nf">get_value</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">prompt</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="p">) {</span>
+    <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">prompt</span><span class="p">;</span>
+    <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">line</span><span class="p">;</span>
+    <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">();</span>
+    <span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">      </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+    <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Value out of range. Try again the range ("</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">','</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"): "</span><span class="p">;</span>
+    <span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">        </span><span class="k">break</span><span class="p">;</span>
+    <span class="w">      </span><span class="p">}</span>
+    <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Bad input, try again: "</span><span class="p">;</span>
+    <span class="w">    </span><span class="p">}</span>
+    <span class="w">    </span><span class="n">line</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+    <span class="w">  </span><span class="p">}</span>
+    <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+    <span class="p">}</span>
+    </pre></div>
+    </div>
+    </div>
+    </section>
+    </tb-tab>
+    <tb-tab id="id9" label="guess">
+    <section class="tb-tab__fallback">
+    <p class="tb-tab__label"><strong>guess.h</strong></p>
+    <div class="tb-tab__content">
+    <p>The game logic is also separate from <code class="docutils literal notranslate"><span class="pre">main</span></code>.
+    The <code class="docutils literal notranslate"><span class="pre">guess</span></code> function owns one round of play: ask for guesses,
+    compare them to the target number, count attempts, and report the
+    result. This makes the game easier to read and gives the program a
+    natural place to test or change the rules without touching startup
+    code.</p>
+    <div class="highlight-cpp notranslate" id="guess-h"><div class="highlight"><pre><span></span>
+    <span class="cp">#ifndef GUESS_H</span>
+    <span class="cp">#define GUESS_H</span>
+
+    <span class="c1">// return true if the guessed number matches the goal value</span>
+    <span class="c1">// and print a hint towards the goal</span>
+    <span class="kt">bool</span><span class="w"> </span><span class="nf">guess_matches</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">guess</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">goal</span><span class="p">);</span>
+
+    <span class="c1">// play the number guessing game</span>
+    <span class="c1">// @param number is the number the user needs to guess</span>
+    <span class="kt">void</span><span class="w"> </span><span class="nf">guess</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">);</span>
+
+    <span class="cp">#endif</span>
+    </pre></div>
+    </div>
+    <p><strong>guess.cpp</strong></p>
+    <div class="highlight-cpp notranslate" id="guess-cpp"><div class="highlight"><pre><span></span>
+    <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+    <span class="cp">#include</span><span class="w"> </span><span class="cpf">"guess.h"</span>
+    <span class="cp">#include</span><span class="w"> </span><span class="cpf">"prompt.h"</span>
+
+    <span class="k">using</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
+
+    <span class="kt">bool</span><span class="w"> </span><span class="nf">guess_matches</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">guess</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">goal</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">guess</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">goal</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Too high! "</span><span class="p">;</span>
+    <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+    <span class="w">  </span><span class="p">}</span>
+    <span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">guess</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">goal</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Too low! "</span><span class="p">;</span>
+    <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+    <span class="w">  </span><span class="p">}</span>
+    <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span><span class="w"> </span><span class="nf">guess</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maximum_tries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+    <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">tries_remaining</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maximum_tries</span><span class="p">;</span>
+    <span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">tries_remaining</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">guess_matches</span><span class="p">(</span><span class="n">get_value</span><span class="p">(</span><span class="s">"Enter a number between 1 and 100: "</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">),</span><span class="w"> </span><span class="n">number</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">     </span><span class="k">break</span><span class="p">;</span>
+    <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">      </span><span class="o">--</span><span class="n">tries_remaining</span><span class="p">;</span>
+    <span class="w">      </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Try again. ("</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">tries_remaining</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" tries left)</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+    <span class="w">    </span><span class="p">}</span>
+    <span class="w">  </span><span class="p">}</span>
+
+    <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tries_remaining</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"You ran out of tries!</span><span class="se">\n\n</span><span class="s">"</span><span class="p">;</span>
+    <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Congratulations!! </span><span class="se">\n</span><span class="s">"</span>
+    <span class="w">             </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"You got the right number in "</span>
+    <span class="w">             </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">maximum_tries</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tries_remaining</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" tries!</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+    <span class="w">  </span><span class="p">}</span>
+    <span class="p">}</span>
+    </pre></div>
+    </div>
+    <div class="admonition-something-to-consider admonition">
+    <p class="admonition-title">Something to consider</p>
+    <p>Why did we choose to change the max number of tries
+    from 20 to 10?</p>
+    </div>
+    </div>
+    </section>
+    </tb-tab>
+    <tb-tab id="id10" label="main">
+    <section class="tb-tab__fallback">
+    <p class="tb-tab__label"><strong>main.cpp</strong></p>
+    <div class="tb-tab__content">
+    <p>The job of <code class="docutils literal notranslate"><span class="pre">main</span></code> is now small: create the random number
+    generator, start each round, and ask whether to play again.
+    That is an advantage of splitting out <code class="docutils literal notranslate"><span class="pre">prompt</span></code> and <code class="docutils literal notranslate"><span class="pre">guess</span></code>:
+    <code class="docutils literal notranslate"><span class="pre">main</span></code> describes the program at a high level instead of hiding
+    that structure inside input loops and special cases.</p>
+    <div class="highlight-cpp notranslate" id="main-cpp"><div class="highlight"><pre><span></span>
+    <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+    <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;locale&gt;</span>
+    <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;random&gt;</span>
+
+    <span class="cp">#include</span><span class="w"> </span><span class="cpf">"guess.h"</span>
+    <span class="cp">#include</span><span class="w"> </span><span class="cpf">"prompt.h"</span>
+
+    <span class="c1">// Helper to simplify the prompt in main.</span>
+    <span class="kt">char</span><span class="w"> </span><span class="nf">play_again</span><span class="p">();</span>
+
+    <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">random_device</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+    <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">default_random_engine</span><span class="w"> </span><span class="n">eng</span><span class="p">(</span><span class="n">r</span><span class="p">());</span><span class="w"> </span><span class="c1">// make a random number generator</span>
+    <span class="w">  </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">uniform_int_distribution</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">}(</span><span class="n">eng</span><span class="p">);</span>
+    <span class="w">    </span><span class="n">guess</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
+    <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="sc">'y'</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">play_again</span><span class="p">());</span>
+    <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Thanks for playing!</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">char</span><span class="w"> </span><span class="nf">play_again</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+    <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span>
+    <span class="w">     </span><span class="n">get_entry</span><span class="p">(</span><span class="s">"Would you like to play another game? [y/n] "</span><span class="p">).</span><span class="n">front</span><span class="p">(),</span>
+    <span class="w">     </span><span class="n">std</span><span class="o">::</span><span class="n">locale</span><span class="p">());</span>
+    <span class="p">}</span>
+    </pre></div>
+    </div>
+    </div>
+    </section>
+    </tb-tab>
+    </div>
+    </tb-group>
+    <p>This is <strong>NOT</strong> the only way to improve the original program.
+    It's merely one way.</p>
+    </div>
+    </section>
+
 
 <p>Notice the finished program isn’t shorter than the original.
 That was not our goal.
@@ -637,7 +895,7 @@ While we were at it, we fixed some bugs and made it a bit more reusable and main
 </section>
 
 
-  
+
 
   <div id="scprogresscontainer">
     You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page <div id="subchapterprogress" aria-label="Page progress"></div>
@@ -668,9 +926,9 @@ window.addEventListener('load', (event) => {
 <footer class="footer">
   <div class="container">
     <p class="pull-right">
-      
+
       | <a href="#">Back to top</a>
-      
+
     </p>
     <p>
         &copy; Copyright 2017-2025 Dave Parillo.
